@@ -1,0 +1,9 @@
+====================================
+Installation and Maintenance Guide
+====================================
+
+.. toctree::
+   :maxdepth: 2
+
+   .stand_alone_deployment
+   .integrated_deployment

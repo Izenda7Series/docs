@@ -1,0 +1,11 @@
+===============
+Izenda Concepts
+===============
+
+.. toctree::
+   :maxdepth: 2
+
+   understanding_the_three-tiered_architecture
+   understanding_the_tenant_role_user_relationship
+   understanding_reports_and_dashboards
+   understanding_licensing_modes

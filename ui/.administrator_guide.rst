@@ -1,0 +1,12 @@
+===================
+Administrator Guide
+===================
+
+.. toctree::
+   :maxdepth: 2
+
+   .system_setup_guide
+   .system_configuration_guide
+   .multi-tenant_setup_guide
+   doc_security_recommendations
+   doc_copy_console

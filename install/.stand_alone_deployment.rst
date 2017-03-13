@@ -1,0 +1,9 @@
+==========================
+Stand-alone Deployment
+==========================
+
+.. toctree::
+   :maxdepth: 2
+
+   doc_installation_guide
+   doc_upgrade_guide

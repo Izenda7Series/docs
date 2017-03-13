@@ -1,0 +1,10 @@
+==========================
+Multi-tenant Setup Guide
+==========================
+
+.. toctree::
+   :maxdepth: 2
+
+   doc_tenant_setup
+   doc_tenant_setup_for_multi-tenant_architectures
+   doc_copy_management

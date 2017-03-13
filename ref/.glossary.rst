@@ -1,0 +1,24 @@
+========
+Glossary
+========
+
+
+.. glossary::
+
+   data source
+      A database table, view or stored procedure, which can be selected for query inside a report.
+
+   data source field
+      A field inside database table or view, or a stored procedure parameter, which can be selected for display, calculation or filter inside a report.
+
+   calculated field
+      A user-defined field whose value is calculated on-the-fly from other data source or calculated fields.
+
+   query source category
+      A grouping of data sources in the physical database, which is usually called **schema** in most database vendors.
+
+   data source category
+      A user-defined grouping of data sources with a custom name.
+
+   category
+      A user-defined grouping of reports or dashboards with a custom name.
