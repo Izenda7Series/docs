@@ -41,7 +41,7 @@ div.topic {
 }
 
 .bold {
-   font-style: bold;
+   font-weight: bold;
 }
 
 /* Text will wrap when necessary, and on line breaks */

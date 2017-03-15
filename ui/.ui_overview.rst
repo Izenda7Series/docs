@@ -2,6 +2,8 @@
 User Interface Overview
 ==========================
 
+The "User Interface Overview" section provides users with reference for each component of Izenda.
+
 .. toctree::
    :maxdepth: 2
 

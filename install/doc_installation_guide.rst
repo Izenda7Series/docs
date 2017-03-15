@@ -1,15 +1,21 @@
-
-
 ==========================
 Installation Guide
 ==========================
 
-An automatic installation process is still in progress.
+The following outlines the steps to install Izenda's Stand Alone Portal. While our installation process is still in progress, you can follow the steps below to install Izenda.
 
-In the mean time, installation includes the following manual steps.
+
+Architectural Goal
+------------------------
+
+.. figure:: /_static/images/StandaloneArchDiagram2.png
+
+   A diagram of implementation
 
 Pre-install Preparations
 ------------------------
+
+The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on locally on a Windows machine for testing purposes but it is not recommended for live deployments.
 
 -  Izenda installation packages
 
@@ -36,8 +42,14 @@ Pre-install Preparations
 
    *  Windows Server with Internet Information Services (IIS) Web Server.
 
+.. note::
+
+   All of the information covered in this document can also be found in video from `here <https://www.izenda.com/7-series-installation-videos/#portal-install>`__
+
 Web Server Setup
 ----------------
+
+To ensure that Izenda works properly, your Web Server requires additional components that may not be present on your server by default.
 
 Add Web Server Role and .NET Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,10 +91,10 @@ Install ASP.NET 4.5 and URL Rewrite Components
 
       Install IIS ASP.NET 4.5 |br|
 
-Izenda Installation
--------------------
+Izenda Installation As Two Separate Sites
+------------------------------------------
 
- 
+The most common testing scenario places the front-end and the back-end on two separate sites. Virtual Directories and Virtual Applications deployments are possible with additional configuration and are outlined in another section below.
 
 #. Extract the Izenda Front-end and Back-end packages to 2 separate
    folders, preferably at C:\\inetpub\\wwwroot\\Izenda\\App and
@@ -120,9 +132,6 @@ Izenda Installation
 
          New Website |br|
 
-   -  New application or virtual application option will go through some
-      of the above steps.
-
 #. Install Izenda Back-end package similarly with a different port.
 
 #. .. _IIS_Folder_Permissions:
@@ -147,16 +156,162 @@ Izenda Installation
       IUSR.
    #. Click OK to close all dialogs. |br|
    #. Set similar permissions for the other package.
+   #. Update the Back-end API url in Front-end package: |br|
+      Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
+      ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
 
-Edit Configuration Files
-------------------------
+Deploying Izenda as a Virtual Directory or Application
+------------------------------------------------------
 
--  Update the Back-end API url in Front-end package:
+For Setting Izenda up using a Virtual Directory the following steps must
+be taken.
 
-       Edit the file ``App\izenda_config.js``, replace the default value
-       "WebApiUrl" with the correct ip and port:
+Initial Set Up
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-           ``"WebApiUrl": "<nowiki>http://127.0.0.1:8888/api/</nowiki>",``
+*  Add your Front-end package to IIS as a virtual directory. (For the purpose of this tutorial we have given it the alias of IzendaFront)
+*  Add your Back-end package but then convert it to an application. (For the purpose of this tutorial we have given it the alias of IzendaBack)
+
+Within the UI Folder of your Deployment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Edit the izenda\_config.js, point the BaseURL and the WebApiUrl to
+   the virtual directory for your front/back-end respectively
+
+   -  Target code:
+
+      .. code-block:: text
+
+         BaseUrl:"/<your Url here>/"
+
+         WebApiUrl:"http://<Your API URL here>/api/"
+
+   -  Example change:
+
+      .. code-block:: text
+
+         BaseUrl:"/IzendaFront/"
+
+         WebApiUrl:"http://localhost:80/IzendaBack/api/"
+
+#. Edit the index.html file and add the URL for the Virtual Directory as
+   below, this should follow the ending </style> tag
+
+   -  Target code:
+
+      .. code-block:: html
+
+         <script>
+            window.IzendaPublicPath = '/<your Url here>/';
+         </script>
+
+   -  Example change:
+
+      .. code-block:: html
+
+         <script>
+            window.IzendaPublicPath = '/IzendaFront/';
+         </script>
+
+#. Alter the location of the files in the index.html file to point to
+   the new location:
+
+   -  Target code:
+
+      .. code-block:: html
+
+          <link rel="shortcut icon" href="/<your Url here>/favicon.png">
+          <link href="/<your Url here>/izenda-app.css?
+             4676ff4fe0cdf3cd2bab" rel="stylesheet"></head>
+
+          <body>
+             <div class="container" id="izenda-root"></div>
+             <script type="text/javascript" src="/<your Url here>/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
+          </body>
+
+   -  Example change:
+
+      .. code-block:: html
+
+         <link rel="shortcut icon" href="/IzendaFront/favicon.png">
+         <link href="/IzendaFront/izenda-app.css?
+         4676ff4fe0cdf3cd2bab" rel="stylesheet"></head>
+
+         <body>
+            <div class="container" id="izenda-root"></div>
+            <script type="text/javascript" src="/IzendaFront/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
+         </body>
+
+#. Update the web.config file in the UI folder
+
+   -  Target code:
+
+      .. code-block:: html
+
+         <action type="Rewrite" url="/<your Url here>/" />
+
+   -  Example change:
+
+      .. code-block:: html
+
+         <action type="Rewrite" url="/IzendaFront/" />
+
+Within the API Folder of your Deployment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Update the Web.config file
+
+   -  Target code:
+
+      .. code-block:: xml
+
+          <httpHandlers>
+             <add verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/<Your API URL here>/api/*" />
+          </httpHandlers>
+
+          <handlers>
+             <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/<Your API URL here>/api/*"/>
+          </handlers>
+
+   -  Example change:
+
+      .. code-block:: xml
+
+         <httpHandlers>
+            <add verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*" />
+         </httpHandlers>
+
+         <handlers>
+            <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*"/>
+         </handlers>
+
+Troubleshooting & Verifying the Installation
+-------------------------------------------------------
+
+*  To ensure that your API site is running correctly, navigate to http://YOUR_API_URL/api/ (e.g. http://localhost:8080/api/)
+
+   If your API is installed correctly, you should see the graphic below:
+
+   .. figure:: /_static/images/SuccessfulAPI.png
+   
+      Successful Connection to API displays a stylized 404 error
+
+*  Navigate to the API folder, you should see a 'logs' folder with with at least one log file. If you do not see the folder and/or files, verify that the application pool and/or web site user have write permissions to the API folder.
+*  In build 1.23.0, an exception may occur after creating an APP and API websites. If you receive  an error akin to the following:
+
+   .. code-block:: text
+   
+      Exception type: ConfigurationErrorsException
+      Exception message: Could not load file or assembly 'Oracle.ManagedDataAccessDTC.DLL' or one of its dependencies. The specified module could not be found.
+
+   Then remove Oracle.ManagedDataAccessDTC.DLL from your API/bin/ folder and place it in a separate location. If the problem persists, place the file back in the API/bin/ folder.
+
+Editing the Configuration Files
+--------------------------------
+
+Additional features can be set for a customized deployment experience. For live sites, several of the features below are recommended.
 
 -  Change the Back-end passphrase, which is the key to encrypt and
    decrypt data in Izenda.
@@ -231,133 +386,6 @@ Edit Configuration Files
    #. Set ``cloudEnable="true"`` to use the Azure option, then enter the
       server IP, port and password.
 
-Deploying Izenda as a Virtual Directory or Application
-------------------------------------------------------
-
-For Setting Izenda up using a Virtual Directory the following steps must
-be taken.
-
-Within the UI Folder of your Deployment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  Edit the izenda\_config.js, point the BaseURL and the WebApiUrl to
-   the virtual directory for your front/back-end respectively
-
-   ::
-
-      BaseUrl:"/<your Url here>/"
-
-   ::
-
-      WebApiUrl:"http://<Your API URL here>/api/"
-
--  Edit the index.html file and add the URL for the Virtual Directory as
-   below, this should follow the ending </style> tag
-
-   ::
-
-      <script>
-         window.IzendaPublicPath = '/<your Url here>/';
-      </script>
-
--  Alter the location of the files in the index.html file to point to
-   the new location:
-
-   ::
-
-      <link rel="shortcut icon" href="/<your Url here>/favicon.png"><link href="/<your Url here>/izenda-app.css?
-        4676ff4fe0cdf3cd2bab" rel="stylesheet">
-
-   ::
-
-      <body>
-           <div class="container" id="izenda-root"></div>
-           <script type="text/javascript" src="/<your Url here>/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
-           <script type="text/javascript" src="/<your Url here>/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
-      </body>
-
--  Update the web.config file in the UI folder to add
-
-   ::
-
-      <action type="Rewrite" url="/<your Url here>/" />
-
-Within the API Folder of your Deployment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  Update the Web.config file
-
-::
-
-        <httpHandlers>
-         <add verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/<Your API URL here>/api/*" />
-        </httpHandlers>
-
-
-::
-
-        <handlers>
-         <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/<Your API URL here>/api/*"/>
-        </handlers>
-
-
-Example Changes
-~~~~~~~~~~~~~~~
-
--  The Both the API and Front-end are virtual applications within the
-   Default Web Site in IIS (localhost:80)
--  The Front-end is Aliased as IzendaFront
--  The Back-end is Aliased as IzendaBack
-
--  APP: izenda\_config.js Changes:
-
-::
-
-         BaseUrl:"/IzendaFront/"
-
-         WebApiUrl:"http://localhost:80/IzendaBack/api/"
-
--  APP: index.html Changes:
-
-::
-
-         <script>
-              window.IzendaPublicPath = '/IzendaFront/';
-         </script>
-
-::
-
-         <link rel="shortcut icon" href="/IzendaFront/favicon.png">
-         <link href="/IzendaFront/izenda-app.css?4676ff4fe0cdf3cd2bab" rel="stylesheet">
-         </head>
-
-::
-
-         <body>
-              <div class="container" id="izenda-root"></div>
-              <script type="text/javascript" src="/IzendaFront/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
-              <script type="text/javascript" src="/IzendaFront/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
-         </body>
-
--  APP: web.config Changes:
-
-::
-
-         <action type="Rewrite" url="/IzendaFront/" />
-
--  API: web.config Changes:
-
-::
-
-        <httpHandlers>
-         <add verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*" />
-        </httpHandlers>
-
-::
-
-        <handlers>
-         <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*"/>
-        </handlers>
 
 Next: :doc:`Install Izenda System Database and Apply License </ui/doc_system_db_and_license>`
 ------------------------------------------------------------------------------------------------------------

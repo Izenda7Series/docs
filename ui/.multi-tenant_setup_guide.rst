@@ -2,6 +2,8 @@
 Multi-tenant Setup Guide
 ==========================
 
+Izenda has been specifically designed for managing multiple clients on a single system. Below are guides to help maintain a multi-tenant scenario.
+
 .. toctree::
    :maxdepth: 2
 

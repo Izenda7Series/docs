@@ -38,7 +38,9 @@ the parameter rootUrl to the ReactJS component.
 #. Edit the file with a text editor such as Notepad or Notepad++ and
    paste the following boilerplate HTML code:
 
-.. code-block:: html
+.. comment: highlight as text since Pygments cannot parse jsx
+
+.. code-block:: text
 
    <!doctype html>
    <html>
@@ -230,7 +232,9 @@ items.
 
          Full source code in this sample:
 
-      .. code-block:: html
+      .. comment: highlight as text since Pygments cannot parse jsx
+
+      .. code-block:: text
 
          <!doctype html>
          <html>

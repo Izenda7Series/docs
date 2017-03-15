@@ -177,7 +177,9 @@ Configure Unit Test
 
 #. Finally, edit "package.json" to change the npm test command to call karma:
 
-.. code-block:: json
+.. comment: highlight as text since Pygments cannot parse partial json
+
+.. code-block:: text
 
    "scripts": {
       "test": "karma start"
@@ -189,7 +191,9 @@ Implement an Empty Component
 Create a text file named "CategoryList.jsx" in
 "ui\_react\_samples\_2/src".
 
-.. code-block:: javascript
+.. comment: highlight as text since Pygments cannot parse jsx
+
+.. code-block:: text
 
    var React = require('react');
    
@@ -342,7 +346,9 @@ included in an HTML page served by the http-server.
 
 #. Add commands to "package.json" to start the server
 
-   .. code-block:: json
+   .. comment: highlight as text since Pygments cannot parse partial json
+
+   .. code-block:: text
 
       "scripts": {
        "test": "karma start",
@@ -359,7 +365,9 @@ Implement CategoryList Component
 
 The JavaScript code is nearly the same as :doc:`code_react_manage_the_list_of_categories`, but without the HTML code.
 
-.. code-block:: javascript
+.. comment: highlight as text since Pygments cannot parse jsx
+
+.. code-block:: text
 
    var React = require('react');
    var request = require('request');

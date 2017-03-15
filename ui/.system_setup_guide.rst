@@ -2,6 +2,8 @@
 System Setup Guide
 ==========================
 
+Guides to help you set up your system.
+
 .. toctree::
    :maxdepth: 2
 

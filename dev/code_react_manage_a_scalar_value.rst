@@ -28,7 +28,9 @@ Boilerplate code
 #. Edit the file with a text editor such as Notepad or Notepad++ and
    paste the following boilerplate HTML code:
 
-.. code-block:: html
+.. comment: highlight as text since Pygments cannot parse jsx
+
+.. code-block:: text
 
    <!doctype html>
    <html>
@@ -183,7 +185,9 @@ In this sample, we went through these activities:
 
          Full source code in this sample:
 
-      .. code-block:: html
+      .. comment: highlight as text since Pygments cannot parse jsx
+
+      .. code-block:: text
 
          <!doctype html>
          <html>

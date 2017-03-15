@@ -2,6 +2,8 @@
 Design Tutorials
 ==========================
 
+The "Design Tutorials" section outlines common usage scenarios, with recommended steps to achieve them. These scenarios may not outline full report/dashboard creation.
+
 .. toctree::
    :maxdepth: 2
 

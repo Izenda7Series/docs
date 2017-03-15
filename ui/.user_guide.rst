@@ -2,6 +2,8 @@
 User Guide
 ===================
 
+The User Guide is intended for general users within Izenda. It provides detailed descriptions of each UI element and common use cases within the platform.
+
 .. toctree::
    :maxdepth: 2
 

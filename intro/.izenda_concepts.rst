@@ -2,6 +2,8 @@
 Izenda Concepts
 ===============
 
+The following are concepts within the Izenda Platform. Here, each topic will be discussed at a high level and will direct you to more in-depth explanations for each topic.
+
 .. toctree::
    :maxdepth: 2
 

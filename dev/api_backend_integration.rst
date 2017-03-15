@@ -141,10 +141,10 @@ Hosting app can add/update user in Izenda.
       
       var izendaUser = new UserDetail()
       {
-         UserName = 'admin',
-         EmailAddress = 'admin@acme.com',
-         FirstName = 'John',
-         LastName = 'Doe',
+         UserName = "admin",
+         EmailAddress = "admin@acme.com",
+         FirstName = "John",
+         LastName = "Doe",
          TenantDisplayId = string.Empty,
          Deleted = false,
          Active = true,
@@ -217,8 +217,8 @@ Hosting app can add/update tenant in Izenda.
        var izendaTenant = new Izenda.BI.Framework.Models.Tenants();
        izendaTenant.Active = true;
        izendaTenant.Deleted = false;
-       izendaTenant.Name = 'ACME Corp';
-       izendaTenant.TenantID = 'ACME';
+       izendaTenant.Name = "ACME Corp";
+       izendaTenant.TenantID = "ACME";
        
        TenantIntegrationConfig.AddOrUpdateTenant(izendaTenant);
 

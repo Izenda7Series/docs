@@ -2,6 +2,8 @@
 Installation and Maintenance Guide
 ====================================
 
+The Installation Guide is intended for users with system environment-level access. It provides step-by-step processes for installing and upgrading your Business Intelligence Tool.
+
 .. toctree::
    :maxdepth: 2
 

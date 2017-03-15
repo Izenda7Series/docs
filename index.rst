@@ -7,7 +7,7 @@ Welcome to Izenda BI's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
    :name: mastertoc
 
@@ -23,6 +23,7 @@ Welcome to Izenda BI's documentation!
    release_notes
    known_issues
 
+If you are looking for documentation for previous versions of Izenda (6.X.X.X) please see http://wiki.izenda.us.
 
 Indices and tables
 ==================

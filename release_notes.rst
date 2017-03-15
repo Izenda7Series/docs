@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v1.24.2
+~~~~~~~
+
+FIXES
+^^^^^
+
+-  Defect 15061    After making a field not visible in the data model the field is still shown in existing reports
+-  Defect 15124    Hidden Filters are showing as actual filters in subreport when filter inheritance is turned on
+-  Defect 15126    Filter aliases not shown under the report filter descriptions
+-  Defect 15123    System is adding joins from the tenant model to report after copy
+-  Defect 15074    User can still access and design a report they are given No Access to report if it resides in a Visible Category for their role, and there is a higher scope access set (ie Everyone - Full Access)
+
 v1.24.1
 ~~~~~~~
 

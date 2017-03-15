@@ -181,7 +181,7 @@ applied. The results will be striking.
 
 .. code-block:: css
 
-   root{
+   root {
      --main-co: pink; /* #1c4e89 */
      --sub-style-co:green; /* #10427c */
      --fontello-co: #b3cbda; /* #b3cbda */
