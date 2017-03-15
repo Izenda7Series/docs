@@ -13,6 +13,7 @@ FIXES
 -  Defect 15126    Filter aliases not shown under the report filter descriptions
 -  Defect 15123    System is adding joins from the tenant model to report after copy
 -  Defect 15074    User can still access and design a report they are given No Access to report if it resides in a Visible Category for their role, and there is a higher scope access set (ie Everyone - Full Access)
+-  Defect 15177    Hidden Filter fails if the user enters join alias for item in report designer. Documentation Updated (See IAdhocExtension, Hidden report filters)
 
 v1.24.1
 ~~~~~~~
