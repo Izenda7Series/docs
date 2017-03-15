@@ -142,7 +142,7 @@ Update settings in Performance, Security/Additive Fields and Others group
 
       .. _Advanced_Settings_Detailed_Description_Tooltip:
 
-      .. figure:: /_static/images/Advanced_Settings_Detailed_Description_Tooltip.jpg
+      .. figure:: /_static/images/Advanced_Settings_Detailed_description_tooltip.jpg
          :width: 617px
 
          Detailed description tooltip |br|
