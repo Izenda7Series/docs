@@ -39,23 +39,23 @@ our CSS selectors.
 
 -  Add the following on top of blessed1.css
 
-   .. figure::  /_static/images/figure2.png
+   .. figure::  /_static/images/Figure2.png
 
 
 -  Replace all instances of #1c4e89 with var(--main-color).
 
-   .. figure::  /_static/images/figure3a.png
+   .. figure::  /_static/images/Figure3a.png
       :width: 485px
 
 
 -  Example Replacement:
 
-   .. figure::  /_static/images/figure3b.png
+   .. figure::  /_static/images/Figure3b.png
 
 
 -  Result on page.
 
-   .. figure::  /_static/images/figure4b.png
+   .. figure::  /_static/images/Figure4b.png
 
 Key Styling Colors
 ------------------
@@ -141,31 +141,31 @@ Example Color Changes
 
 -  MAIN STYLE COLOR
 
-   .. figure::  /_static/images/figure4b.png
+   .. figure::  /_static/images/Figure4b.png
 
 -  SUB STYLE COLOR
 
-   .. figure::  /_static/images/figure5.png
+   .. figure::  /_static/images/Figure5.png
 
 -  Trans-color
 
-   .. figure::  /_static/images/figure6.png
+   .. figure::  /_static/images/Figure6.png
 
 -  Menu text and panel color
 
-   .. figure::  /_static/images/figure7.png
+   .. figure::  /_static/images/Figure7.png
 
 -  Panel Borders Color
 
-   .. figure::  /_static/images/figure8.png
+   .. figure::  /_static/images/Figure8.png
 
 -  Main Background Color
 
-   .. figure::  /_static/images/figure9.png
+   .. figure::  /_static/images/Figure9.png
 
 -  Search Icon And Data Source Borders
 
-   .. figure::  /_static/images/figure10.png
+   .. figure::  /_static/images/Figure10.png
 
 Sample Code
 ~~~~~~~~~~~
@@ -212,12 +212,12 @@ example uses CSS Selectors.
 
 -  To access Chrome’s Developer Tools, press F12 to open the console.
 
-   .. figure::  /_static/images/figure11.png
+   .. figure::  /_static/images/Figure11.png
 
 -  Toggle over to the Sources tab and locate the CSS file you wish to
    edit.
 
-   .. figure::  /_static/images/figure12.png
+   .. figure::  /_static/images/Figure12.png
 
    .. note:: 
 
@@ -226,13 +226,13 @@ example uses CSS Selectors.
 
 -  Develop!
 
-   .. figure::  /_static/images/figure14.png
+   .. figure::  /_static/images/Figure14.png
 
-   .. figure::  /_static/images/figure15.png
+   .. figure::  /_static/images/Figure15.png
 
 -  To save, right click on the file on left-hand panel and select save.
 
-   .. figure::  /_static/images/figure16.png
+   .. figure::  /_static/images/Figure16.png
 
 Other Helpful Tools
 ~~~~~~~~~~~~~~~~~~~
@@ -242,7 +242,7 @@ The following can be found in the Chrome Web Store for download.
 -  CSS Viewer: Allows you to see the CSS applied to a particular
    element.
 
-   .. figure::  /_static/images/figure18.png
+   .. figure::  /_static/images/Figure18.png
 
 
 .. |1c4e89| raw:: html
