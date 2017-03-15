@@ -75,7 +75,7 @@ report.
 
    .. _UpdateResultsButton:
 
-   .. figure:: /_static/images/UpdateResultsButton.png
+   .. figure:: /_static/images/UpdateResultsButton.PNG
 
       Update Results button
 #. If there are multiple filters in the filter panel, their Filter Logic
