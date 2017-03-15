@@ -288,51 +288,52 @@ For example, it can be used to:
 * automatically filter all tables to non-deleted data (IsDeleted = FALSE).
 * in a Shared Schema Multi-Tenant Architecture, filter every table to only data of the tenant of current logged in user.
 
-Sample code to add hidden filter CountryRegionName = Europe for Employee role:
+Sample code to add hidden filter ShipCountry = USA for all:
 
 .. code-block:: csharp
 
     [Export(typeof(IAdHocExtension))]
-    public class AdHocExtensionSample : DefaultAdHocExtension
-    {
-      public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
-      {
-           var result = new ReportFilterSetting();
-           var querySource = param.QuerySources.FirstOrDefault(x => x.Name.Equals("OrdersByRegion"));
-           if (querySource == null)
-           {
-               return result;
-           }
-   
-           var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals("CountryRegionName"));
-           if (querySource != null && field != null && HttpContext.Current.User.IsInRole("Employee"))
-           {
-             var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
-   
-             // Filter CountryRegionName = Europe
-             var reportFilterField = new ReportFilterField
+     public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
+     {
+         // Build the hidden filters for ship country fields
+         var filters = param.QuerySources // Scan thru the query sources that are involved in the report
+             .Where(x => x.QuerySourceFields.Any(y => y.Name == "ShipCountry")) // Take only query sources that have ship country field
+             .Select(querySource => // For each query source that has ship country field
              {
-               QuerySourceId = querySource.Id,
-               SourceDataObjectName = querySource.Name,
-               QuerySourceType = querySource.Type,
-               QuerySourceFieldId = field.Id,
-               SourceFieldName = field.Name,
-               DataType = field.DataType,
-               Position = 1,
-               OperatorId = equalOperator,
-               Value = "Europe",
-               RelationshipId = null,
-               IsParameter = false,
-               ReportFieldAlias = null
-             };
-   
-             result.FilterFields = new List<ReportFilterField> { reportFilterField };
-           }
-   
-           return result;
-      }
-    }
+                 // Pick the relationship that joins the query source
+                 // Setting the join ensure the proper table is assigned when using join alias in the UI
+                 var rel = param.ReportDefinition.ReportRelationship.
+                 FirstOrDefault(x => x.JoinQuerySourceId == querySource.Id || x.ForeignQuerySourceId == querySource.Id);
 
+                 // Find actual ship country field in query source
+                 var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals("ShipCountry"));
+
+                 // Pick the equal operator
+                 var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
+
+                 // Make a hidden filter for Ship Country = USA 
+                 return new ReportFilterField
+                 {
+                     QuerySourceId = querySource.Id,
+                     SourceDataObjectName = querySource.Name,
+                     QuerySourceType = querySource.Type,
+                     QuerySourceFieldId = field.Id,
+                     SourceFieldName = field.Name,
+                     DataType = field.DataType,
+                     Position = 1,
+                     OperatorId = equalOperator,
+                     Value = "USA",
+                     RelationshipId = rel?.Id,
+                     IsParameter = false,
+                     ReportFieldAlias = null
+                 };
+             });
+
+         return new ReportFilterSetting()
+         {
+             FilterFields = new List<ReportFilterField>(filters)
+         };
+     }
 Application Scenarios
 -----------------------
 
