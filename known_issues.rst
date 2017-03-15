@@ -205,9 +205,6 @@ Known Issues
      - 15071
      - Headers are Overlapped in Exports
    * - Defect
-     - 15177
-     - Hidden Filter fails if the user enters join alias for item in report designer. Error is shown in query.
-   * - Defect
      - 14201
      - Position of tick mark is incorrect on linear gauge when metric value returns a negative number
    * - Defect
