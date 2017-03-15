@@ -4,20 +4,20 @@ Follow the steps [here](http://www.sphinx-doc.org/en/1.4.8/install.html) (Be sur
 
 Install the Sphinx RTD Theme 
 
-    # pip install sphinx_rtd_theme
+     pip install sphinx_rtd_theme
     
 Install the sphinx-csharp extension
 
-    # pip install sphinx-csharp
+     pip install sphinx-csharp
     
 ## Building locally
 
 Build the static documentation and open them in your browser:
 
-    # make html
-    # open _build/html/index.html
+      make html
+      open _build/html/index.html
 
 Build the documentation and automatically build them on any change:
 
-    # make livehtml
-    # open http://127.0.0.1:8000/
+      make livehtml
+      open http://127.0.0.1:8000/
