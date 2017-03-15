@@ -124,7 +124,7 @@ Update settings in Performance, Security/Additive Fields and Others group
 
       .. _Advanced_Settings_Back_to_Default_Value:
 
-      .. figure:: /_static/images/Advanced_Settings_Back_to_Default_Value.jpg
+      .. figure:: /_static/images/Advanced_Settings_Back_to_default_value.jpg
          :align: right
          :width: 618px
 
