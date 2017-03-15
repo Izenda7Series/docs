@@ -5,6 +5,11 @@ Follow the steps [here](http://www.sphinx-doc.org/en/1.4.8/install.html) (Be sur
 Install the Sphinx RTD Theme 
 
     # pip install sphinx_rtd_theme
+    
+Install the sphinx-csharp extension
+
+    # pip install sphinx-csharp
+    
 ## Building locally
 
 Build the static documentation and open them in your browser:
