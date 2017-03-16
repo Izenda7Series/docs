@@ -2,6 +2,15 @@
 Release Notes
 ==============
 
+v1.24.3
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15130   Multiple joins in model between two tables not creating and relationship between both relationships
+-  Defect 15140   Dashboard performance improvements
+-  Defect 15142   Updated assembly references in the Izenda.BI.Framework
+
 v1.24.2
 ~~~~~~~
 
