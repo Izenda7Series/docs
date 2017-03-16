@@ -1,3 +1,7 @@
+/*Left Navigation upper color*/
+div.wy-side-nav-search {
+	background-color: #1E4E8A;
+}
 
 .toggle .header {
    display: block;
