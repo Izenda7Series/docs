@@ -146,3 +146,6 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
        * 2 = ProvisionSuccess
        * 3 = ProvisionError
      - Should be 2
+   * - **InsertBatchSize**
+     - The size of a request (number of rows) to your databases. Allows large query to be broken down into combat potential timeouts
+     - 10000
