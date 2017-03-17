@@ -32,3 +32,18 @@ ReportExpressionParameter
 Inherited fields:
 
 .. include:: ReportParameter.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "reportKey" : {
+           "key" : "e40d635c-c90f-45f7-bf7a-5750db7ef9cf"
+        },
+        "expression" : "[Northwind].[dbo].[Products].[UnitsInStock] * [Northwind].[dbo].[Products].[UnitPrice]"
+      }

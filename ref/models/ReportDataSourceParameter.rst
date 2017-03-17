@@ -24,3 +24,19 @@ ReportDataSourceParameter
 Inherited fields:
 
 .. include:: ReportParameter.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "tenantId" : null,
+        "reportKey" : {
+           "key" : "f53b65ba-4d27-45c9-930e-156538f30531",
+           "tenantId" : null
+        }
+      }

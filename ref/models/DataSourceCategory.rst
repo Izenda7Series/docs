@@ -26,3 +26,17 @@ DataSourceCategory
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id" : null,
+         "name" : "ABC",
+         "tenantId" : null
+      }

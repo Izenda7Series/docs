@@ -21,3 +21,19 @@ ValidationOperationResult
 Inherited fields:
 
 .. include:: OperationResult.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "result" : {
+           "izendaDataType" : "Money"
+        },
+        "success" : true,
+        "messages" : []
+      }

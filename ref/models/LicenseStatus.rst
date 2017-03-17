@@ -50,3 +50,21 @@ LicenseStatus
       -
       -  Is this a trial license
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "disabled": false,
+         "meetExprireWarningPeriod": false,
+         "numberOfDayToExpire": 88,
+         "numberOfDayToValid": 0,
+         "exceedLostConnectionAllowPeriod": false,
+         "isAdminUser": false,
+         "trialLicense": false
+      }

@@ -32,9 +32,9 @@ List of APIs
      - Saves a password profile.
    * - `POST user/securityQuesitions`_
      - Saves security questions for a user.
-     
+
        .. note::
-          
+
           Will be renamed to securityQuestions
    * - POST user/password
      - Saves password for a user.
@@ -242,7 +242,7 @@ Returns an array of users, with paging.
               "descending" : true
            }
         ]
-      }</nowiki>
+      }
 
    Sample response::
 
@@ -422,7 +422,7 @@ Saves a user.
 
 **Response**
 
-    A :doc:`models/User` object
+     An :doc:`models/OperationResult` object with **success** field true and **data** field containing a :doc:`models/User` object
 
 **Samples**
 
@@ -1370,7 +1370,7 @@ Sends password link via email to user.
 
 **Request**
 
-    A :doc:`models/PasswordOption` object
+    Payload: a :doc:`models/PasswordOption` object
 
 **Response**
 

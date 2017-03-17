@@ -47,3 +47,38 @@ FusionResult
       -
       -  A :doc:`PagingInfo` object
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "grandTotalMapping" : [],
+        "subTotalMapping" : [],
+        "sideTotalMapping" : [],
+        "records" : [{
+              "freight_914e4fca_2d9e_" : 48.2900
+           }, {
+              "freight_914e4fca_2d9e_" : 4.5600
+           }, {
+              "freight_914e4fca_2d9e_" : 4.5400
+           }, {
+              "freight_914e4fca_2d9e_" : 98.0300
+           }
+        ],
+        "fieldsMapping" : [{
+              "fieldId" : "914e4fca-2d9e-4a9f-a224-8d4cc4133996",
+              "fieldNameAlias" : "Freight",
+              "columnName" : "freight_914e4fca_2d9e_"
+           }
+        ],
+        "paging" : {
+           "pageIndex" : 0,
+           "pageSize" : 0,
+           "total" : 0
+        }
+      }

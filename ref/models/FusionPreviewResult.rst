@@ -22,3 +22,12 @@ FusionPreviewResult
       -
       -  The data type
       -
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {"value":426.0,"dataType":"Money"}

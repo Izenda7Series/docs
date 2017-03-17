@@ -67,3 +67,34 @@ ReportQuerySource
       -
       -  An array of :doc:`QuerySourceField` objects
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id": "d9728d5f-b6f6-462b-b988-8180bc733972",
+         "name": "HumanResources.Employee",
+         "type": "Table",
+         "selected": false,
+         "visible": true,
+         "querySourceCategoryName": null,
+         "connectionName": null,
+         "isAlias": false,
+         "fields": [{
+            "id": "bd207050-e2a4-4128-9b5a-89409bee0377",
+            "name": "Gender",
+            "alias": "",
+            "dataType": "nchar",
+            "izendaDataType": "Text",
+            "visible": true,
+            "filterable": true,
+            "extendedProperties": null,
+            "isParameter": false,
+            "allowDistinct": false
+         }]
+      }

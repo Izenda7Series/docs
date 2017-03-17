@@ -334,6 +334,7 @@ Sample code to add hidden filter ShipCountry = USA for all:
              FilterFields = new List<ReportFilterField>(filters)
          };
      }
+
 Application Scenarios
 -----------------------
 

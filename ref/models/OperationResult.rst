@@ -26,3 +26,16 @@ OperationResult
       -
       -  A dynamic object to store additional data
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "success": true,
+         "data": "4e2d54c8-20e7-437f-a5ce-43e963c763a2"
+      }

@@ -27,3 +27,17 @@ ReportKey
       -
       -  The modification date time
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "reportKey" : {
+           "key" : "552d20ce-1269-4cb4-a679-0cd51d3e2058"
+        }
+      }

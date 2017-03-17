@@ -57,3 +57,30 @@ ReportPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        	"subcategoryid" : null,
+        	"categoryId" : null,
+        	"tenantId" : null,
+        	"pageSize" : 10,
+        	"pageIndex" : 1,
+        	"sortOrders" : [{
+        			"key" : "reportname",
+        			"descending" : true
+        		}
+        	],
+        	"criteria" : [{
+        			"key" : "reportName",
+        			"value" : "test",
+        			"operation" : 1
+        		}
+        	]
+      }

@@ -92,3 +92,26 @@ Connection
       -
       -  The name of the database
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+           "id" : "89e91284-6546-44d0-8de0-f8f666a590ea",
+           "name" : "Northwind",
+           "serverType" : "d968e96f-91dc-414d-9fd8-aef2926c9a18",
+           "serverTypeName" : "AZSQL",
+           "connectionString" : "1aBcD+==",
+           "visible" : true,
+           "deleted" : false,
+           "relateToConnectionId" : null,
+           "tenantId" : null,
+           "dBSource" : null,
+           "relationships" : null,
+           "physicalChange" : 0
+      }

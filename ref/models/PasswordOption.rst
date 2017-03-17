@@ -42,3 +42,22 @@ PasswordOption
 Inherited fields:
 
 .. include:: Expiration.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "passwordLink" : "http://127.0.0.1:8888/account/activation?verification=H8K....RU%3D",
+        "user" : {
+           "userName" : "jdoe",
+           "id" : "6c447061-8f1d-4ff4-803c-b6b15695b8c3"
+        },
+        "sendEmail" : false,
+        "clearSercurityQuestion" : false,
+        "emailAddresses" : ["jdoe@acme.com"]
+      }

@@ -47,3 +47,29 @@ QuerySourcePagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "querySourceType" : "Table",
+        "tenantId" : null,
+        "criteria" : [{
+              "key" : "DataSourceName",
+              "value" : "demo",
+              "operation" : 1
+           }
+        ],
+        "pageIndex" : 1,
+        "pageSize" : 1,
+        "sortOrders" : [{
+              "key" : "Category",
+              "descending" : true
+           }
+        ]
+      }

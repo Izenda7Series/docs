@@ -57,3 +57,21 @@ QuerySourceInfo
       -
       -  The name of the query source category containing the query source
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "id": "77882ea1-6d82-45c2-b762-6c8612682b91",
+        "name": "Categories",
+        "alias": null,
+        "category": "dbo",
+        "serverTypeId": "00000000-0000-0000-0000-000000000000",
+        "connectionStringId": "00000000-0000-0000-0000-000000000000",
+        "connectionString": null
+      }

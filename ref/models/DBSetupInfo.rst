@@ -31,3 +31,16 @@ DBSetupInfo
       -
       -  The id of the connection
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "ServerTypeId" : "572bd576-8c92-4901-ab2a-b16e38144813",
+        "ConnectionString" : "server=host01\\instance01;database=db01;User Id=user01;Password=secret;"
+      }

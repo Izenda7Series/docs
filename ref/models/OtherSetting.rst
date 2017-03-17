@@ -92,3 +92,34 @@ OtherSetting
          datetime
       -  The last modified datetime
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "sortColumnNameValue": false,
+         "sortColumnNameDefaultValue": false,
+         "trimTimeInJoinsValue": true,
+         "trimTimeInJoinsDefaultValue": true,
+         "timezoneForDataOffsetValue": 0,
+         "timezoneForDataOffsetDefaultValue": 0,
+         "timezoneForTimestampOffsetValue": 0,
+         "timezoneForTimestampOffsetDefaultValue": 0,
+         "convertNullToEmptyStringValue": false,
+         "convertNullToEmptyStringDefaultValue": false,
+         "showSchemaNameValue": false,
+         "showSchemaNameDefaultValue": false,
+         "showIntroductionTextValue": false,
+         "showIntroductionTextDefaultValue": false,
+         "introductionTextValue": "",
+         "introductionTextDefaultValue": "",
+         "sendToDiskPathValue": "",
+         "sendToDiskPathDefaultValue": "",
+         "tenantId": null,
+         "modified": "2017-02-15T07:29:25.3300651"
+      }

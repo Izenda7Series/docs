@@ -116,3 +116,41 @@ Relationship
 Inherited fields:
 
 .. include:: RelationshipBase.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "joinConnectionId" : "ca24a47e-ffdd-4391-a82a-254f48b451e5",
+         "foreignConnectionId" : "ca24a47e-ffdd-4391-a82a-254f48b451e5",
+         "joinQuerySourceId" : "e03b8805-60ae-41df-b69a-f3bece9721c5",
+         "joinQuerySourceName" : "EmployeeDepartmentHistory",
+         "joinDataSourceCategoryName" : null,
+         "joinDataSourceCategoryId" : "00000000-0000-0000-0000-000000000000",
+         "foreignDataSourceCategoryName" : null,
+         "foreignDataSourceCategoryId" : "00000000-0000-0000-0000-000000000000",
+         "foreignQuerySourceId" : "9fb719f8-8a70-4f4e-91d5-4e8372413d92",
+         "foreignQuerySourceName" : "Employee",
+         "joinFieldId" : "322d9f3d-1f65-4d60-9cac-933a2c40db9d",
+         "joinFieldName" : "BusinessEntityID",
+         "foreignFieldId" : "484817ea-f130-417b-a096-32c13249b7d0",
+         "foreignFieldName" : "BusinessEntityID",
+         "alias" : "abc",
+         "systemRelationship" : true,
+         "joinType" : "Inner",
+         "parentRelationshipId" : "00000000-0000-0000-0000-000000000000",
+         "deleted" : false,
+         "position" : null,
+         "relationshipKeyJoins" : null,
+         "reportId" : "00000000-0000-0000-0000-000000000000",
+         "foreignAlias" : null,
+         "selectedForeignAlias" : "9fb719f8-8a70-4f4e-91d5-4e8372413d92_Employee",
+         "id" : "48ab1f19-db84-4d8b-9c18-02312d16c282",
+         "state" : 0,
+         "modified" : "2016-04-15T06:27:16.023"
+      }

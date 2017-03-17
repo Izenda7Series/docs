@@ -51,3 +51,27 @@ ReportHistory
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "reportId" : "41023c5b-3fe5-4a62-8ecf-7aae8974f63f",
+         "reportName" : "TestReport02",
+         "description" : null,
+         "definition" : null,
+         "status" : "Active",
+         "id" : "41023c5b-3fe5-4a62-8ecf-7aae8974f63f",
+         "state" : 0,
+         "inserted" : true,
+         "version" : 2,
+         "created" : "2016-07-13T08:05:25.587",
+         "createdBy" : null,
+         "modified" : "2016-07-14T03:51:38",
+         "modifiedBy" : null
+      }

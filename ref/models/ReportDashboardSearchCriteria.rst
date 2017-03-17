@@ -66,3 +66,20 @@ ReportDashboardSearchCriteria
       -
       -  The timestamp offset
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "tenantId" : null,
+        "isUncategorized" : false,
+        "criterias" : [{
+              "key" : "CategoryId"
+           }
+        ]
+      }

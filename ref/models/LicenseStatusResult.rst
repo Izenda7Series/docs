@@ -22,3 +22,25 @@ LicenseStatusResult
 Inherited fields:
 
 .. include:: OperationResult.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "licenseStatus": {
+            "disabled": false,
+            "meetExprireWarningPeriod": false,
+            "numberOfDayToExpire": 88,
+            "numberOfDayToValid": 0,
+            "exceedLostConnectionAllowPeriod": false,
+            "isAdminUser": false,
+            "trialLicense": false
+         },
+         "success": true,
+         "messages": null
+      }

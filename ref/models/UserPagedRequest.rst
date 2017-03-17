@@ -26,7 +26,7 @@ UserPagedRequest
          integer
       -
       -  |br|
-      
+
          *  0 = All
          *  1 = Access
          *  2 = Schedule
@@ -66,3 +66,28 @@ UserPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "tenantId" : null,
+        "criteria" : [{
+              "key" : "All",
+              "value" : "",
+              "operation" : 1
+           }
+        ],
+        "pageIndex" : 1,
+        "pageSize" : 10,
+        "sortOrders" : [{
+              "key" : "userName",
+              "descending" : true
+           }
+        ]
+      }

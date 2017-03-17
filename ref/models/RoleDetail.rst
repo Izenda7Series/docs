@@ -30,3 +30,31 @@ RoleDetail
 Inherited fields:
 
 .. include:: Role.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "users": [],
+         "permission": null,
+         "visibleQuerySourceFields": null,
+         "name": "Analyst",
+         "tenantId": null,
+         "active": true,
+         "deleted": false,
+         "permissionData": "",
+         "querySourceFields": "",
+         "id": "0d030b1a-9568-4c98-8b1e-5dcc94dbd281",
+         "state": 0,
+         "inserted": true,
+         "version": 1,
+         "created": null,
+         "createdBy": null,
+         "modified": null,
+         "modifiedBy": null
+      }

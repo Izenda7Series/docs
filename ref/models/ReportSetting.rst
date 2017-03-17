@@ -1,6 +1,6 @@
 
 ================
-FilterField
+ReportSetting
 ================
 
 .. list-table::
@@ -41,3 +41,35 @@ FilterField
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+       "numOfArchivedVersionToKeepDefault": 5,
+       "enforceVersionHistory": true,
+       "numOfArchivedVersionToKeep": 5,
+       "removeArchivedVersions": true,
+       "recurrentReportSetting": {
+         "once": false,
+         "recurrence": true,
+         "startDate": "2017-01-06T06:53:44.5249129",
+         "startTime": "2017-01-06T06:53:44.5249129",
+         "recurrenceType": 0,
+         "occurValue": 0
+       },
+       "id": null,
+       "state": 0,
+       "deleted": false,
+       "inserted": true,
+       "version": null,
+       "created": null,
+       "createdBy": "John Doe",
+       "modified": null,
+       "modifiedBy": null
+     }

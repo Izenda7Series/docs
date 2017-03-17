@@ -27,3 +27,17 @@ DashboardRenameParameter
       -
       -  The new name of the dashboard
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "tenantId" : null,
+        "dashboardId" : "a496ad94-fe92-48d5-a285-e45be738921f",
+        "name" : "TestDashboard02"
+      }

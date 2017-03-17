@@ -27,3 +27,17 @@ SchemaRequest
       -  Y
       -  The id of the connection
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "connectionId" : "d91ee45e-f168-441d-81eb-7878cb2fa2ce",
+        "connectionString" : "1aBcD+=",
+        "serverTypeId" : "572bd576-8c92-4901-ab2a-b16e38144813"
+      }

@@ -230,3 +230,42 @@ Subscription
       -
       -  The name of the report or dashboard
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "isDirty" : false,
+         "name" : "Everyday at 2 PM",
+         "type" : "Subscription Report",
+         "timeZoneName" : "(UTC-06:00) Central Time (US & Canada)",
+         "timeZoneValue" : "Central Standard Time",
+         "startDate" : "08/11/2016",
+         "startTime" : "8/11/2016 2:00 PM",
+         "recurrenceType" : "2",
+         "recurrencePattern" : 1,
+         "recurrencePatternSetting" : {
+            "recurrenceWeek" : 1,
+            "selectedDayValue" : "5"
+         },
+         "isEndless" : true,
+         "endDate" : "11/11/2016",
+         "deliveryType" : "Email",
+         "deliveryMethod" : "Link",
+         "emailSubject" : "{reportName}",
+         "subscriptionFilterFields" : [],
+         "subscriptionCommonFilterFields" : [],
+         "reportId" : null,
+         "createdBy" : "",
+         "id" : null,
+         "state" : 1,
+         "isSubscription" : true,
+         "isEndAfter" : false,
+         "isEndBy" : false,
+         "isEdit" : false
+      }

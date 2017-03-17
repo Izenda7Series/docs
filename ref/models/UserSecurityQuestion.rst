@@ -12,8 +12,26 @@ UserSecurityQuestion
       -  Null
       -  Description
       -  Note
-   *  -  **To be updated** |br|
+   *  -  **securityQuestionId** |br|
          string (GUID)
-      -  Y
-      -  The id of the report
       -
+      -  The id of the :doc:`SecurityQuestion`
+      -
+   *  -  **answer** |br|
+         string
+      -
+      -  The answer
+      -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "securityQuestionId": "5784ece5-d2e7-42b1-89bb-859737b7b2a9",
+        "answer": "Jenny Doe"
+      }

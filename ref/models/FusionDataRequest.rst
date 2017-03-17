@@ -43,7 +43,7 @@ FusionDataRequest
       -  The id of the tenant
       -
    *  -  **expandedLevel** |br|
-         string (GUID)
+         integer
       -
       -  The expanded level
       -
@@ -82,14 +82,16 @@ FusionDataRequest
       -
       -  An array of :doc:`SortParam` objects
       -
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "dashboardPartId" : "8f64491a-3c07-46c7-a224-f5f6a58a1e29",
+        "expandedLevel" : -1
+      }

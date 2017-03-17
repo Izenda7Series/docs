@@ -45,3 +45,23 @@ Tenants
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "id" : "e4c784eb-3e41-4849-925c-a9094b73dfb7",
+        "tenantID" : "acme",
+        "name" : "ACME Corporation",
+        "description" : null,
+        "active" : true,
+        "deleted" : false,
+        "modules" : "Report Template/ Component; Scheduling",
+        "modified" : "2016-05-22T03:27:13.5070000+07:00",
+        "tenantModules" : ["Report Template/ Component", "Scheduling"]
+     }

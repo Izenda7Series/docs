@@ -63,3 +63,29 @@ RelationshipPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "querySourceId" : null,
+        "tenentId" : "",
+        "criteria" : [{
+              "key" : "All",
+              "value" : "",
+              "operation" : 1
+           }
+        ],
+        "pageIndex" : 1,
+        "pageSize" : 1,
+        "sortOrders" : [{
+              "key" : "DatabaseName",
+              "descending" : true
+           }
+        ]
+      }

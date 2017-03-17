@@ -63,3 +63,32 @@ EmailSetting
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+       "displayName": null,
+       "emailFromAddress": "contact@izenda.com",
+       "useSystemConfiguration": false,
+       "server": "localhost",
+       "port": 25,
+       "secureConnection": false,
+       "login": "mail",
+       "password": "EW+9H/VRg8TH0sWNiPuwpg==",
+       "tenantId": null,
+       "id": "1262295f-2b44-4fa2-9446-cda5e029a15c",
+       "state": 0,
+       "deleted": false,
+       "inserted": true,
+       "version": 1,
+       "created": "2017-01-05T04:58:20.6430000+07:00",
+       "createdBy": "John Doe",
+       "modified": "2017-01-05T04:58:20.6430000+07:00",
+       "modifiedBy": "John Doe"
+      }

@@ -1132,3 +1132,36 @@ Permission
       -
       -  Permission for Tenant
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "reportId" : null,
+         "dashboardId" : "89dca314-f66f-489d-a14c-117aa3ec875d",
+         "assignedType" : 2,
+         "accessRightId" : "13698ebf-3e8e-43e1-9e2b-ad3f17d7d006",
+         "accessRight" : "Save As",
+         "shareWith" : "Role ReportCreator",
+         "position" : 0,
+         "accessors" : ["d8a30ef0-41b4-4c97-9b7a-9fcbe90db880"],
+         "tempId" : null,
+         "reportAccessRightId" : null,
+         "reportAccessRights" : "",
+         "dashboardAccessRightId" : null,
+         "dashboardAccessRights" : "",
+         "id" : "879472bc-3c7a-4f9c-a090-ea7882019885",
+         "state" : 0,
+         "deleted" : false,
+         "inserted" : true,
+         "version" : 1,
+         "created" : "2016-10-18T07:24:56.887",
+         "createdBy" : null,
+         "modified" : "2016-10-18T07:24:56.887",
+         "modifiedBy" : null
+      }

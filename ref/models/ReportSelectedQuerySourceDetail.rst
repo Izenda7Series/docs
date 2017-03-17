@@ -42,3 +42,20 @@ ReportSelectedQuerySourceDetail
       -
       -  The data object type
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id": "39e2a9b9-3be3-4b8b-ae86-0823ecb3c533",
+         "category": null,
+         "databaseName": "Northwind",
+         "schemaName": "dbo",
+         "dataObject": "CustomerCustomerDemo",
+         "dataObjectType": "Table"
+      }

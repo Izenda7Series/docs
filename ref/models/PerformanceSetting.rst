@@ -40,3 +40,21 @@ PerformanceSetting
       -  The id of the tenant |br|
          null if the setting belongs to system
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "queryTimeoutValue" : 3600,
+        "queryTimeoutDefaultValue" : 3600,
+        "useNoLockValue" : true,
+        "useNoLockDefaultValue" : true,
+        "dataSourceLimitValue" : 1000,
+        "dataSourceLimitDefaultValue" : 1000,
+        "tenantId" : null
+      }

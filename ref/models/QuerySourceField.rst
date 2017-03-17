@@ -206,3 +206,33 @@ QuerySourceField
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id": "04ff2dc5-df20-48e3-bae8-443b400b0b89",
+         "name": "CustomerTypeID",
+         "alias": "CTypeID",
+         "dataType": "nchar",
+         "visible": true,
+         "filterable": true,
+         "deleted": false,
+         "querySourceId": "9fa90af2-5329-44ac-a753-50c27f9d6fd5",
+         "parentId": null,
+         "children": null,
+         "modified": "2016-04-07T04:51:17",
+         "filteredValue": "{}",
+         "type": 0,
+         "position": 0,
+         "extendedProperties": "{\"PrimaryKey\":true}",
+         "physicalChange": 0,
+         "approval": 0,
+         "existed": false,
+         "matchedTenant": false
+      }

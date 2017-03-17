@@ -31,3 +31,16 @@ Credential
       -
       -  The tenant name
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "userName" : "johndoe",
+        "password" : "secret"
+      }

@@ -27,3 +27,30 @@ ValueTreeNode
       -
       -  The value of the object
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "nodes" : [{
+              "nodes" : [],
+              "text" : "[Blank]",
+              "value" : "[Blank]"
+           }, {
+              "nodes" : [],
+              "text" : "Finland",
+              "value" : "Finland"
+           }, {
+              "nodes" : [],
+              "text" : "USA",
+              "value" : "USA"
+           }
+        ],
+        "text" : "[All]",
+        "value" : "[All]"
+      }

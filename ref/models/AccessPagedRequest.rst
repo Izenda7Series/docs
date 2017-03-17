@@ -57,3 +57,31 @@ AccessPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "dashboardId": "a3243533-166d-4377-90eb-add25edf6563",
+        "criteria": [
+          {
+            "key": "All",
+            "value": "",
+            "operation": 1
+          }
+        ],
+        "pageIndex": 1,
+        "pageSize": 10,
+        "sortOrders": [
+          {
+            "key": "shareWith",
+            "descending": true
+          }
+        ]
+      }

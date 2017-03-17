@@ -22,3 +22,13 @@ TokenRequest
       -  Y
       -  The token, in case offline mode is used
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {"LicenseKey":"1aBcD+==","TokenKey":"1aBcD+="}

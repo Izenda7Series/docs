@@ -62,3 +62,20 @@ UserVerification
       -
       -  The name of the tenant
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "tenantDisplayID" : null,
+        "userName" : "jdoe",
+        "firstName" : "John",
+        "lastName" : "Doe",
+        "emailAddress" : "jdoe@acme.com",
+        "verification" : "H8K....RU="
+      }

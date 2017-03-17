@@ -22,3 +22,17 @@ ValidateExpiration
 Inherited fields:
 
 .. include:: Expiration.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "tenantId" : null,
+         "isExpired" : false,
+         "notifyDuringDay" : null
+      }

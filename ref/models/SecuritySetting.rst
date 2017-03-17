@@ -57,3 +57,35 @@ SecuritySetting
       -  The id of the tenant |br|
          null if the setting belongs to system
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "tenantFieldValue": "TenantID;UserID",
+         "tenantFieldDefaultValue": "",
+         "showTenantFieldValue": true,
+         "showTenantFieldDefaultValue": true,
+         "setAdditiveFieldAutoVisibleValue": false,
+         "setAdditiveFieldAutoVisibleDefaultValue": false,
+         "setAdditiveFieldAutoFilterableValue": false,
+         "setAdditiveFieldAutoFilterableDefaultValue": false,
+         "tenantId": null,
+         "tenantFields": [
+            {
+               "name": "TenantID",
+               "isSystem": true
+            },
+            {
+               "name": "UserID",
+               "isSystem": true
+            }
+         ],
+         "allowShowTenant": true,
+         "modified": "2017-02-15T06:31:15"
+      }

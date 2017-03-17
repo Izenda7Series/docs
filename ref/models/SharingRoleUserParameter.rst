@@ -27,3 +27,16 @@ SharingRoleUserParameter
       -  Y
       -  The dashboard id
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "reportId": "63d50ed1-5323-47a1-bc11-3a03a070ec34",
+        "tenantId": null
+      }

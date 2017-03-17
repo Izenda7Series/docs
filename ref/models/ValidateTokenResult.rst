@@ -90,3 +90,35 @@ ValidateTokenResult
       -  The number of days until the token starts |br| |br|
          0 if the token has already started
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "tokenKey":"1aBcD+=",
+         "licenseKey":"1aBcD+=",
+         "startDate":"2016-03-01T00:00:00",
+         "endDate":"2017-03-01T23:59:59",
+         "modules":[
+            {
+                 "id":"256b555f-58ef-4418-be6c-048d2fc1f691",
+                 "name":"Alerting"
+            }
+         ],
+         "companyId":"70d1037a-401a-446b-ae10-a5bb0144c611",
+         "previousStartDate":null,
+         "previousEndDate":null,
+         "previousModules":null,
+         "licenseOnlineMode":false,
+         "licenseTrial":false,
+         "licenseEnable":true,
+         "licenseEndDate":"2017-03-01T23:59:59",
+         "numberOfDayToValid":0,
+         "success":true,
+         "messages":null
+      }

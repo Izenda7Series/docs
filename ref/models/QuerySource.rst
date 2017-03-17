@@ -138,3 +138,33 @@ QuerySource
       -
       -  Whether this query source belongs to a copied report
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id" : "24fa8fec-afe0-489d-b036-aaca514a7a0b",
+         "name" : "dbo.CustomerDemographics",
+         "type" : "Table",
+         "parentQuerySourceId" : null,
+         "categoryId" : null,
+         "selected" : false,
+         "connectionId" : "48733501-c57d-48ca-aded-501d5ebdaad9",
+         "connectionName" : "Northwind",
+         "childs" : null,
+         "dataSourceCategoryId" : "feb74cd9-bc6d-4933-bf72-296b394d0f77",
+         "dataSourceCategoryName" : "Cat_Customer",
+         "alias" : "Cus_D",
+         "querySourceFields" : [],
+         "querySourceCategory" : null,
+         "modified" : null,
+         "extendedProperties" : null,
+         "physicalChange" : 0,
+         "approval" : 0,
+         "existed" : false
+      }

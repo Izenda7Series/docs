@@ -128,3 +128,44 @@ SecurityPolicy
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "minNumberOfPasswordLenght" : null,
+        "maxNumberOfPasswordLenght" : null,
+        "minNumberOfSpecialCharacter" : null,
+        "maxNumberOfSpecialCharacter" : null,
+        "minNumberOfUppercaseCharacter" : null,
+        "maxNumberOfUppercaseCharacter" : null,
+        "minNumberOfLowercaseCharacter" : null,
+        "maxNumberOfLowercaseCharacter" : null,
+        "minNumberOfNumericCharacter" : null,
+        "maxNumberOfNumericCharacter" : null,
+        "maxNumberOfRepeatSequentialCharacter" : null,
+        "minNumberOfPasswordAge" : null,
+        "maxNumberOfPasswordAge" : null,
+        "notifyUseDuring" : null,
+        "numberOfPasswordToKeep" : null,
+        "passwordLinkValidity" : 1,
+        "numberOfSecurityQuestionProfile" : null,
+        "numberOfSecurityQuestionToResetPassword" : null,
+        "numberOfFailedLogonAttemptsAllowed" : null,
+        "numberOfFailedSecurityQuestionAlllowed" : null,
+        "tenantId" : null,
+        "lockoutPeriod" : null,
+        "id" : "95aa269c-0d8c-4f68-8155-06429774d0f0",
+        "state" : 0,
+        "inserted" : true,
+        "version" : null,
+        "created" : null,
+        "createdBy" : null,
+        "modified" : null,
+        "modifiedBy" : null
+      }

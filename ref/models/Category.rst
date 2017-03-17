@@ -78,3 +78,34 @@ Category
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "name": "Uncategorized",
+        "type": 2,
+        "parentId": null,
+        "tenantId": null,
+        "canDelete": false,
+        "editable": false,
+        "savable": false,
+        "subCategories": [],
+        "checked": false,
+        "reports": null,
+        "dashboards": null,
+        "id": null,
+        "state": 0,
+        "deleted": false,
+        "inserted": true,
+        "version": null,
+        "created": null,
+        "createdBy": "John Doe",
+        "modified": null,
+        "modifiedBy": null
+      }

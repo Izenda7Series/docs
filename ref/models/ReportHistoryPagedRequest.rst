@@ -62,3 +62,29 @@ ReportHistoryPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "reportId" : "41023c5b-3fe5-4a62-8ecf-7aae8974f63f",
+        "tenantId" : null,
+        "criteria" : [{
+              "key" : "All",
+              "value" : "",
+              "operation" : 1
+           }
+        ],
+        "pageIndex" : 1,
+        "pageSize" : 10,
+        "sortOrders" : [{
+              "key" : "version",
+              "descending" : true
+           }
+        ]
+      }

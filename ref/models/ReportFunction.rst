@@ -64,3 +64,22 @@ ReportFunction
       -
       -  A dynamic object to store the extended properties
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "id": null,
+         "name": "*",
+         "expression": null,
+         "dataType": null,
+         "formatDataType": null,
+         "syntax": "expression * expression",
+         "expressionSyntax": "*",
+         "isOperator": false
+      }

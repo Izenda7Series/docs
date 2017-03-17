@@ -137,3 +137,29 @@ ReportField
       -
       -  Whether this field uses aggregated function
       -
+
+
+.. container:: toggle
+
+   .. container:: header
+
+      **ReportField Sample**:
+
+   .. code-block:: json
+
+      {
+         "fieldId" : "76139896-c2c3-432e-898a-2c2205bb2e35",
+         "fieldName" : "Country",
+         "fieldNameAlias" : "Country",
+         "dataFieldType" : "Text",
+         "querySourceId" : "1641cb37-b60c-42bc-b986-c51667e8037d",
+         "querySourceType" : "Table",
+         "sourceAlias" : "Suppliers",
+         "relationshipId" : null,
+         "visible" : true,
+         "calculatedTree" : null,
+         "schemaName" : "dbo",
+         "querySourceName" : "Suppliers",
+         "databaseName" : "Northwind",
+         "isCalculated" : false
+      }

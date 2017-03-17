@@ -32,3 +32,18 @@ PagedResult
       -
       -  The total number of rows
       -  Inherited from :doc:`PagingInfo`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "result" : ["search result 1", "search result 2"],
+        "pageIndex" : 1,
+        "pageSize" : 10,
+        "total" : 2
+      }

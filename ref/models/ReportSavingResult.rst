@@ -26,3 +26,19 @@ ReportSavingResult
 Inherited fields:
 
 .. include:: OperationResult.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "reportKey": {
+            "key": null,
+            "tenantId": null
+        },
+        "report": null
+      }

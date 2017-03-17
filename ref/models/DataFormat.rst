@@ -61,3 +61,29 @@ DataFormat
 Inherited:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "name": "MM/dd/yyyy",
+         "format": "MM/dd/yyyy",
+         "description": "01/01/2016",
+         "category": "Short Date",
+         "subCategory": "",
+         "dataType": "Date & Time",
+         "groupBy": "date",
+         "position": "1",
+         "id": "8074c8aa-55c7-4326-b6cd-0d4b0f7300cb",
+         "state": 0,
+         "version": null,
+         "created": null,
+         "createdBy": null,
+         "modified": null,
+         "modifiedBy": null
+      }

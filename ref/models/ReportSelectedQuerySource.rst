@@ -32,3 +32,18 @@ ReportSelectedQuerySource
       -
       -  Is the query source selected
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "querySourceId": "39e2a9b9-3be3-4b8b-ae86-0823ecb3c533",
+         "isNew": false,
+         "physicalChange": 0,
+         "selected": false
+      }

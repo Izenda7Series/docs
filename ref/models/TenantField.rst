@@ -21,3 +21,16 @@ TenantField
       -
       -  Is this tenant in System level
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "name": "TenantID",
+         "isSystem": true
+      }

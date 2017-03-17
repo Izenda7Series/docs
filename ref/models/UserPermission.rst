@@ -61,3 +61,36 @@ UserPermission
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "reportId" : null,
+         "dashboardId" : "89dca314-f66f-489d-a14c-117aa3ec875d",
+         "assignedType" : 1,
+         "accessRightId" : "13698ebf-3e8e-43e1-9e2b-ad3f17d7d008",
+         "accessRight" : "View Only",
+         "shareWith" : "Everyone",
+         "position" : 0,
+         "accessors" : [],
+         "tempId" : null,
+         "reportAccessRightId" : null,
+         "reportAccessRights" : "",
+         "dashboardAccessRightId" : null,
+         "dashboardAccessRights" : "",
+         "id" : "193c7f1b-5fcd-40ee-be09-0d7b96736115",
+         "state" : 0,
+         "deleted" : false,
+         "inserted" : true,
+         "version" : 1,
+         "created" : "2016-10-18T07:24:41.387",
+         "createdBy" : null,
+         "modified" : "2016-10-18T07:24:41.387",
+         "modifiedBy" : null
+      }

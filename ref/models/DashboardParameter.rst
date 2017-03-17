@@ -31,3 +31,15 @@ DashboardParameter
          * 2 = Access
          * 3 = Subscription
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "dashboardId" : "a496ad94-fe92-48d5-a285-e45be738921f"
+      }

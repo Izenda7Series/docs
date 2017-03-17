@@ -71,3 +71,18 @@ InputWorkspace
       -
       -  The line number for source tenant tag
       -
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "sourceTenantId": "78e5699a-6a67-471f-8374-529a80777754",
+         "reportIds": [
+            "4b6d592e-ad29-408d-a3f2-845776d555db"
+         ]
+      }

@@ -40,3 +40,20 @@ ConnectionVerificationResult
 Inherited fields:
 
 .. include:: OperationResult.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "serverNotValid" : false,
+        "databaseNotValid" : false,
+        "loginFail" : false,
+        "hasValidLicense" : false,
+        "success" : true,
+        "messages" : []
+      }

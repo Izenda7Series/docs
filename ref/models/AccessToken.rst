@@ -36,3 +36,19 @@ AccessToken
 Inherited fields:
 
 .. include:: Expiration.rst
+
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "token" : "UWmQLI13sORSrN5VLodTxqO9e/yElV4RwRb2K6PzW6l4tYtw7kkbHH2Im9oQNxToVBHCihEIophicrWyCf6J7w==",
+         "tenant" : null,
+         "isExpired" : false,
+         "notifyDuringDay" : null
+      }

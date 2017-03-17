@@ -147,3 +147,74 @@ User
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **User Sample**:
+
+   .. code-block:: json
+
+      {
+         "password" : null,
+         "roles" : [{
+               "name" : null,
+               "tenantId" : null,
+               "active" : false,
+               "id" : "b992c772-6cb1-4103-b6b1-0da581368862",
+               "state" : 0,
+               "deleted" : false,
+               "inserted" : true,
+               "version" : null,
+               "created" : null,
+               "createdBy" : "e5dabf75-c5b7-4877-86cc-b3afd83eed62",
+               "modified" : null,
+               "modifiedBy" : null
+            }
+         ],
+         "userRoles" : [{
+               "userId" : "6c447061-8f1d-4ff4-803c-b6b15695b8c3",
+               "roleId" : "b992c772-6cb1-4103-b6b1-0da581368862",
+               "id" : "b15da0f4-d97d-4c78-bd52-22af0e02aae0",
+               "state" : 0,
+               "deleted" : false,
+               "inserted" : true,
+               "version" : 1,
+               "created" : "2016-10-10T07:50:26.2366983",
+               "createdBy" : "e5dabf75-c5b7-4877-86cc-b3afd83eed62",
+               "modified" : "2016-10-10T07:50:26.2366983",
+               "modifiedBy" : "e5dabf75-c5b7-4877-86cc-b3afd83eed62"
+            }
+         ],
+         "userSecurityQuestions" : null,
+         "status" : 3,
+         "issueDate" : "0001-01-01T00:00:00",
+         "autoLogin" : false,
+         "newPassword" : null,
+         "userName" : "jdoe",
+         "emailAddress" : "jdoe@acme.com",
+         "firstName" : "John",
+         "lastName" : "Doe",
+         "tenantId" : null,
+         "tenantDisplayId" : null,
+         "dataOffset" : 0,
+         "timestampOffset" : 0,
+         "initPassword" : false,
+         "active" : false,
+         "retryLoginTime" : null,
+         "lastTimeAccessed" : null,
+         "passwordActiveDate" : null,
+         "locked" : null,
+         "lockedDate" : null,
+         "fullName" : "John Doe",
+         "id" : "6c447061-8f1d-4ff4-803c-b6b15695b8c3",
+         "state" : 0,
+         "deleted" : false,
+         "inserted" : false,
+         "version" : 1,
+         "created" : "2016-10-10T07:50:26.2366983",
+         "createdBy" : "e5dabf75-c5b7-4877-86cc-b3afd83eed62",
+         "modified" : "2016-10-10T07:50:26.2366983",
+         "modifiedBy" : "e5dabf75-c5b7-4877-86cc-b3afd83eed62"
+      }

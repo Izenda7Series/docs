@@ -62,3 +62,37 @@ UserDetail
 Inherited fields:
 
 .. include:: User.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **UserDetail Sample**:
+
+   .. code-block:: json
+
+      {
+           "password" : null,
+           "roles" : [],
+           "userName" : "Anna",
+           "emailAddress" : null,
+           "firstName" : "An",
+           "lastName" : "Na",
+           "passwordHash" : null,
+           "passwordSalt" : null,
+           "currentTokenHash" : null,
+           "tenantId" : null,
+           "active" : false,
+           "deleted" : false,
+           "dataOffset" : 0,
+           "timestampOffset" : 0,
+           "fullName" : "An Na",
+           "id" : "9f58703e-0dff-4690-9dc6-c595a6fd84e5",
+           "state" : 0,
+           "inserted" : true,
+           "version" : 1,
+           "created" : null,
+           "createdBy" : null,
+           "modified" : null,
+           "modifiedBy" : null
+        }

@@ -72,3 +72,30 @@ SubscriptionPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+        "dashboardId" : "a496ad94-fe92-48d5-a285-e45be738921f",
+        "isSubscription" : true,
+        "tenantId" : null,
+        "criteria" : [{
+              "key" : "All",
+              "value" : "",
+              "operation" : 1
+           }
+        ],
+        "pageIndex" : 1,
+        "pageSize" : 10,
+        "sortOrders" : [{
+              "key" : "name",
+              "descending" : true
+           }
+        ]
+      }

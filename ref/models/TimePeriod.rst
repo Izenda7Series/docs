@@ -32,3 +32,24 @@ TimePeriod
 Inherited fields:
 
 .. include:: Entity.rst
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+      {
+         "name": "In the Future",
+         "type": "Long-term Period",
+         "value": "",
+         "id": "b8ef8ad0-7a90-4f70-b3f3-52cbaf518335",
+         "state": 0,
+         "version": null,
+         "created": null,
+         "createdBy": null,
+         "modified": null,
+         "modifiedBy": null
+      }

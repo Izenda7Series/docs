@@ -62,3 +62,23 @@ ReportSelectedPagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedRequest`
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Sample**:
+
+   .. code-block:: json
+
+       {
+         "querySources" : [{
+             "querySourceId": "39e2a9b9-3be3-4b8b-ae86-0823ecb3c533",
+             "selected": true
+          }],
+         "tenantId" : null,
+         "criteria" : null,
+         "pageIndex" : 1,
+         "pageSize" : 10,
+         "sortOrders" : null
+       }
