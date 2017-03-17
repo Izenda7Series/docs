@@ -221,7 +221,7 @@ Add a calculated field to table or view
 
    .. seealso::
 
-      `Computed Columns <https://technet.microsoft.com/en-us/library/ms191250(v&#61;sql.105).aspx>`_
+      `Computed Columns <https://technet.microsoft.com/en-us/library/ms191250(v=sql.105).aspx>`_
 
 |br|
 
