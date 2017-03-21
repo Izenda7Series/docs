@@ -42,41 +42,41 @@ ReportPartGridProperties
             object
       -
       -  An object with 3 fields: dashStyle, color and thickness |br|
-         Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+         Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad4
    
             **right** |br|
             object
       -
       -  An object with 3 fields: dashStyle, color and thickness |br|
-         Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+         Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad4
    
             **bottom** |br|
             object
       -
       -  An object with 3 fields: dashStyle, color and thickness |br|
-         Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+         Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad4
    
             **midVer** |br|
             object
       -
       -  An object with 3 fields: dashStyle, color and thickness |br|
-         Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+         Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad4
    
             **left** |br|
             object
       -
       -  An object with 3 fields: dashStyle, color and thickness |br|
-         Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+         Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad4
    
             **midHor** |br|
       -
       -     An object with 3 fields: dashStyle, color and thickness |br|
-            Example: {"dashStyle":"dotted","color":"#000","thinkness":1}
+            Example: {"dashStyle":"dotted","color":"#000","thickness":1}
    *  -  .. container:: lpad2
    
             **backgroundColor** |br|
