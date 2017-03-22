@@ -11,8 +11,6 @@ Report Details
    ReportDefinition
    ReportHistory
    ReportPart
-   ReportPartGrid
-   ReportPartGridProperties
    ReportPartContent
    ReportPartDefinition
    ReportKey

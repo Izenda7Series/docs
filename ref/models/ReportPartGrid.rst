@@ -17,11 +17,11 @@ ReportPartGrid
    *  -  **title** |br|
          object
       -
-      -  An object with the following fields
+      -  To be updated
    *  -  **description** |br|
          object
       -
-      -  An object with the following fields
+      -  To be updated
    *  -  **properties** |br|
          object
       -
@@ -33,7 +33,8 @@ ReportPartGrid
    *  -  **columns** |br|
          object
       -
-      -  An object with the following fields
+      -  Data for the Columns box |br|
+         A :doc:`ReportPartContainer` object containing "columns" in **name** and the list of selected data source fields in **elements**
    *  -  **values** |br|
          object
       -
@@ -45,4 +46,5 @@ ReportPartGrid
    *  -  **separators** |br|
          object
       -
-      -  Data for the Separators box
+      -  Data for the Separators box |br|
+         A :doc:`ReportPartContainer` object containing "separators" in **name** and the list of selected data source fields in **elements**
