@@ -297,7 +297,7 @@ The connection string will be validated before saving.
         "connectionString" : "server=izenda01\\DB_INSTANCE;database=db01;User Id=user01;Password=secret;",
         "visible" : true,
         "dBSource" : {
-           "querySources" : null
+           "querySources" : []
         }
       }
 
