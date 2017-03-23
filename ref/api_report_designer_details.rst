@@ -200,7 +200,9 @@ Returns an array of allowed saving sub-categories under the Report category spec
      }]
 
 
-GET report/allCategories/{type}/(tenant\_id)
+.. _GET_report/allCategories/{type}/(tenant_id):
+
+GET report/allCategories/{type}/(tenant_id)
 --------------------------------------------
 
 Returns the list of categories by type (Reports/Templates/Dashboards) in parent-child hierarchy.
@@ -542,6 +544,7 @@ Returns a report section.
            "modifiedBy": "John Doe"
          }
 
+.. _POST_report:
 
 POST report
 ---------------------------------------
@@ -886,6 +889,7 @@ Saves a report.
          "messages": null
      }
 
+.. _POST_report/draft:
 
 POST report/draft
 ---------------------------------------

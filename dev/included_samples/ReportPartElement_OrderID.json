@@ -1,0 +1,116 @@
+{
+   "name": "OrderID",
+   "position": 1,
+   "field": {
+      "fieldId": "b648344c-526e-4984-bfc3-7be462b800fe",
+      "fieldName": "OrderID",
+      "fieldNameAlias": "OID",
+      "dataFieldType": "Numeric",
+      "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
+      "querySourceType": "Table",
+      "sourceAlias": "Orders",
+      "relationshipId": null,
+      "visible": true,
+      "calculatedTree": null,
+      "schemaName": "dbo",
+      "querySourceName": "Orders",
+      "databaseName": "test",
+      "isCalculated": false,
+      "hasAggregatedFunction": false
+   },
+   "properties": {
+      "isDirty": false,
+      "fieldItemVisible": true,
+      "dataFormattings": {
+         "function": "",
+         "functionInfo": {},
+         "format": {},
+         "font": {
+            "family": "Roboto",
+            "size": 14,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "",
+            "backgroundColor": ""
+         },
+         "width": {
+            "value": null
+         },
+         "alignment": "alignLeft",
+         "sort": "ASC",
+         "color": {
+            "textColor": {
+               "rangePercent": null,
+               "rangeValue": null,
+               "value": null
+            },
+            "cellColor": {
+               "rangePercent": null,
+               "rangeValue": null,
+               "value": null
+            }
+         },
+         "alternativeText": {
+            "rangePercent": null,
+            "rangeValue": null,
+            "value": null
+         },
+         "customURL": {
+            "url": "",
+            "option": "LINK_NEW_WINDOW"
+         },
+         "embeddedJavascript": {
+            "script": ""
+         },
+         "subTotal": {
+            "label": "",
+            "function": "",
+            "expression": "",
+            "dataType": "",
+            "format": {},
+            "previewResult": ""
+         },
+         "grandTotal": {
+            "label": "",
+            "function": "",
+            "expression": "",
+            "dataType": "",
+            "format": {},
+            "previewResult": ""
+         }
+      },
+      "headerFormating": {
+         "font": {
+            "family": null,
+            "size": null,
+            "bold": null,
+            "italic": null,
+            "underline": null,
+            "color": null,
+            "backgroundColor": null
+         },
+         "alignment": null,
+         "wordWrap": null,
+         "columnGroup": ""
+      },
+      "drillDown": {
+         "subReport": {
+            "selectedReport": null,
+            "style": null,
+            "reportPartUsed": null,
+            "reportFilter": true,
+            "mappingFields": [],
+            "selectedIconValue": {
+               "icon": null,
+               "value": null
+            },
+            "viewSettingByLink": null
+         }
+      },
+      "otherProps": {}
+   },
+   "isDeleted": false,
+   "isSelected": false,
+   "offset": {}
+}

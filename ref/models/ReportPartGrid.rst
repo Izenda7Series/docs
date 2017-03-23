@@ -38,11 +38,11 @@ ReportPartGrid
    *  -  **values** |br|
          object
       -
-      -  N/A for Grid
+      -  To be updated
    *  -  **rows** |br|
          object
       -
-      -  N/A for Grid
+      -  To be updated
    *  -  **separators** |br|
          object
       -

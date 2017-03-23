@@ -1,9 +1,0 @@
-==============================
-Full API List
-==============================
-
-.. toctree::
-   :maxdepth: 2
-
-   api_backend_integration
-   api_frontend_integration
