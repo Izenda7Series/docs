@@ -2,6 +2,30 @@
 Release Notes
 ==============
 
+v1.24.4
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15183   Charts fail to email in integrated instances. The following method needs to be added in the IzendaConfig.cs class
+
+.. code-block:: csharp
+
+        public static void RegisterLoginLogic()
+        {
+            UserIntegrationConfig.GetAccessToken = (args) =>
+            {
+                return IzendaBoundary.IzendaTokenAuthorization.GetToken(new Models.UserInfo()
+                {
+                    UserName = args.UserName,
+                    TenantUniqueName = args.TenantId
+                });
+            }
+        }
+        
+-  Defect 15245   Error Thrown in PostgreSQL when attempting to create Izenda config database
+-  Defect 15261   Data from Query is incorrect when using Left join
+
 v1.24.3
 ~~~~~~~
 
