@@ -146,8 +146,10 @@ Understanding the Data Model
     *This section outlines the databases defined in the MVC starter
     kit.*
 
-Izenda Configuration Database
+Izenda Configuration Database 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Table: [dbo].[IzendaSystemSetting]
 
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | Column Name                 | Column Details                                                                                                                       |
@@ -161,7 +163,7 @@ Izenda Configuration Database
 | AuthenticationUrl           | The value for this column references the url address that will validate the assigned Mvc5Starterkit application's API Secret Token   |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
-Table: [dbo].[IzendaSystemSetting]
+
 
 A Granular Overview Of The Mvc5Starterkit Database Tables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
