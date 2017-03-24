@@ -29,6 +29,7 @@ Welcome to Izenda's BI documentation!
    release_notes
    known_issues
    6 Series Documentation <http://wiki.izenda.us>
+   White Labeling Documentation <https://github.com/Izenda7Series/docs/wiki>
 
 
 Indices and tables
