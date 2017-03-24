@@ -687,8 +687,8 @@ In this section, user can:
    For example:
 
    * ``http://www.google.com/?q={0}`` when clicked on will open Google and search for the value in this column.
-   * ``http://www.google.com/?q={OrderDay}`` when clicked on will open Google and search for the value in column OrderDay.
-   * ``http://127.0.0.1/new/e8d89dc0-5933-4946-816c-c0ee4e30f2b2?p1value={OrderDay}`` when clicked on will take the value in column OrderDay, open the report with id=e8d89dc0-5933-4946-816c-c0ee4e30f2b2 and pass the value to the first filter of that report.
+   * ``http://www.google.com/?q={[OrderDay]}`` when clicked on will open Google and search for the value in column OrderDay.
+   * ``http://127.0.0.1/new/e8d89dc0-5933-4946-816c-c0ee4e30f2b2?p1value={[OrderDay]}`` when clicked on will take the value in column OrderDay, open the report with id=e8d89dc0-5933-4946-816c-c0ee4e30f2b2 and pass the value to the first filter of that report.
 
 |br|
 
