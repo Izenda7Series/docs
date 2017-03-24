@@ -61,6 +61,48 @@ Rendering Izenda UI
 -  Izenda.integrate.js
 -  Views -> Home and Views -> Report
 
+Rendering Report Parts & Reports
+~~~~~~~~~~~~~~~~~~~
+-  Report Parts are rendered using Mvc5StarterKit -> Views -> Report -> ReportParts.cshtml
+-  Report Parts to be rendered are defined by report part id in Mvc5StarterKit -> Scripts -> izenda.integrate.js
+::
+
+	var izendaInitReportPartDemo = function () {
+
+		function successFunc(data, status) {
+			console.info(data);
+			var currentUserContext = {
+				token: data.token
+			};
+
+			// You can add report parts after creating reports using the context below 
+			// Add the report part ID's in the <add your report part id here> area
+			IzendaSynergy.setCurrentUserContext(currentUserContext);
+			IzendaSynergy.renderReportPart(document.getElementById('izenda-report-part1'), {
+				"id": "<insert your id here>",
+			});
+
+			IzendaSynergy.renderReportPart(document.getElementById('izenda-report-part2'), {
+				"id": "<insert your id here>",
+			});
+	 
+			IzendaSynergy.renderReportPart(document.getElementById('izenda-report-part3'), {
+				"id": "<insert your id here>"
+			});
+		}
+		this.DoRender(successFunc);
+	};
+	
+-  Reports can be rendered using a specific report id using Mvc5StarterKit -> Views -> Report -> ReportViewer.cshtml
+-  The report id can be configured Mvc5StarterKit -> Views -> Shared -> _Layout.cshtml
+::
+
+	<li>@Html.ActionLink("Report Viewer", "ReportViewer", "Report", new { id = "<add your report id here>" }, null)</li>
+
+Hidden Filters
+~~~~~~~~~~~~~~~~~~~	
+-  Hidden Filter examples are shown in Mvc5StarterKit -> IzendaBoundary -> CustomAdhocReport.cs
+
 Understanding the Front End Contents
 ------------------------------------
 
