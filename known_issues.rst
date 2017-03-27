@@ -480,3 +480,6 @@ Known Issues
    * - Defect
      - 9200
      - Between values are not validated in filters to ensure beginning value is less than ending value
+   * - Defect
+     - 15342
+     - Default Access rights are not populated correctly when user does not have access to the access tab in the report designer
