@@ -1397,12 +1397,13 @@ Call Save report API
       |br|
 
       *  ``reportKey.key`` filled with the assigned id
+      *  ``section`` = 2 (Fields) to save the report parts section only
       *  ``report`` extracted from `Call Save report as draft API`_ step
       *  ``report.reportPart`` populated with the sample grid in :ref:`Build a simple Grid <Sample_full_ReportPartGrid_object>` |br|
 
       .. code-block:: json
          :linenos:
-         :emphasize-lines: 3, 10, 57
+         :emphasize-lines: 3, 7, 10, 57
 
          {
             "reportKey": {

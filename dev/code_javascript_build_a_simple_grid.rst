@@ -144,6 +144,8 @@ Prepare an empty ReportPartGrid object
          }
       }
 
+.. _Grid_Populate_selected_data_sources_fields:
+
 Populate selected data sources fields
 ---------------------------------------
 

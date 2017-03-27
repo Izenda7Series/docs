@@ -7,3 +7,4 @@ Building Report
 
    code_javascript_build_a_generic_report
    code_javascript_build_a_simple_grid
+   code_javascript_build_a_simple_chart
