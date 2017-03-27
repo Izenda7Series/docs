@@ -1,0 +1,9 @@
+===========================================
+Building Report
+===========================================
+
+.. toctree::
+   :maxdepth: 2
+
+   code_javascript_build_a_generic_report
+   code_javascript_build_a_simple_grid

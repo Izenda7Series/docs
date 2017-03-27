@@ -7,7 +7,8 @@ The Developer Guide is intended for users with code-level access within your Bus
 .. toctree::
    :maxdepth: 2
 
-   integration_api_documentation
-   basic_api_client_code_samples
-   intermediate_api_client_code_samples
+   .integration_api_documentation
+   .basic_api_client_code_samples
+   .intermediate_api_client_code_samples
+   .building_report
    code_bi_portal_custom_css

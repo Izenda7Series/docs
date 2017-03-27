@@ -152,6 +152,8 @@ See also: :ref:`POST_advancedSetting/category` and :ref:`POST_dataModel` for API
          }]
       }]
 
+.. _POST_report/loadDataSourceCategory:
+
 POST report/loadDataSourceCategory
 ------------------------------------------------
 
@@ -527,6 +529,8 @@ Detects if any relationship should be removed because of changes in data sources
 **Samples**
 
    To be updated
+
+.. _POST_report/availableQuerySourceFields:
 
 POST report/availableQuerySourceFields
 ------------------------------------------------

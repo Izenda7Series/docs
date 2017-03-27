@@ -200,7 +200,9 @@ Returns an array of allowed saving sub-categories under the Report category spec
      }]
 
 
-GET report/allCategories/{type}/(tenant\_id)
+.. _GET_report/allCategories/{type}/(tenant_id):
+
+GET report/allCategories/{type}/(tenant_id)
 --------------------------------------------
 
 Returns the list of categories by type (Reports/Templates/Dashboards) in parent-child hierarchy.
@@ -542,6 +544,7 @@ Returns a report section.
            "modifiedBy": "John Doe"
          }
 
+.. _POST_report:
 
 POST report
 ---------------------------------------
@@ -554,7 +557,7 @@ Saves a report.
 
 **Response**
 
-    An :doc:`models/OperationResult` object
+    A :doc:`models/ReportSavingResult` object
 
 **Samples**
 
@@ -882,10 +885,19 @@ Saves a report.
    Successful response::
 
       {
+         "reportKey": {
+            "key": "b95d2611-10c5-4808-aa68-9db2ccc719ff",
+            "tenantId": null
+         },
+         "report": {
+            "fields": "omitted",
+         },
          "success": true,
-         "messages": null
-     }
+         "messages": null,
+         "data": null
+      }
 
+.. _POST_report/draft:
 
 POST report/draft
 ---------------------------------------

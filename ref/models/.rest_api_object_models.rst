@@ -12,6 +12,7 @@ Detailed API object structures, presented in the exact way that these objects ar
    _report_data_sources
    _report_filters
    _report_data
+   _report_part_details
    _dashboards
    _security
    _request_and_response
