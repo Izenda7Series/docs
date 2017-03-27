@@ -62,9 +62,10 @@ Rendering Izenda UI
 -  Views -> Home and Views -> Report
 
 Rendering Report Parts & Reports
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -  Report Parts are rendered using Mvc5StarterKit -> Views -> Report -> ReportParts.cshtml
 -  Report Parts to be rendered are defined by report part id in Mvc5StarterKit -> Scripts -> izenda.integrate.js
+
 ::
 
 	var izendaInitReportPartDemo = function () {
@@ -95,6 +96,7 @@ Rendering Report Parts & Reports
 	
 -  Reports can be rendered using a specific report id using Mvc5StarterKit -> Views -> Report -> ReportViewer.cshtml
 -  The report id can be configured Mvc5StarterKit -> Views -> Shared -> _Layout.cshtml
+
 ::
 
 	<li>@Html.ActionLink("Report Viewer", "ReportViewer", "Report", new { id = "<add your report id here>" }, null)</li>
