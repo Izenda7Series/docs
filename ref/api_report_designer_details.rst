@@ -557,7 +557,7 @@ Saves a report.
 
 **Response**
 
-    An :doc:`models/OperationResult` object
+    A :doc:`models/ReportSavingResult` object
 
 **Samples**
 
@@ -885,9 +885,17 @@ Saves a report.
    Successful response::
 
       {
+         "reportKey": {
+            "key": "b95d2611-10c5-4808-aa68-9db2ccc719ff",
+            "tenantId": null
+         },
+         "report": {
+            "fields": "omitted",
+         },
          "success": true,
-         "messages": null
-     }
+         "messages": null,
+         "data": null
+      }
 
 .. _POST_report/draft:
 
