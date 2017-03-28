@@ -200,7 +200,6 @@ Populate selected data sources fields
 
       {
          "name": "<User-defined Field Name Alias of the selected QuerySourceField>",
-         "properties": {},
          "position": "<position in the list of selected fields>",
          "field": {
             "fieldId": "<id of the selected QuerySourceField>",
@@ -213,12 +212,13 @@ Populate selected data sources fields
             "relationshipId": null,
             "visible": true,
             "calculatedTree": null,
-            "schemaName": "dbo",
+            "schemaName": "<name of the schema>",
             "querySourceName": "<name of the parent QuerySource>",
-            "databaseName": "test",
+            "databaseName": "<name of the connection>",
             "isCalculated": false,
             "hasAggregatedFunction": false
-         }
+         },
+         "properties": {}
       }
 
    .. list-table::
@@ -626,7 +626,7 @@ Populate selected data sources fields
 Update the properties of each field per user selection
 ------------------------------------------------------------------------------
 
-Please see :doc:`/ref/models/ReportPartElementProperties` for the purpose of each field.
+See :doc:`code_javascript_sample_properties_for_a_reportpartelement` 
 
 Update the properties of the grid in "properties" field per user selection
 ------------------------------------------------------------------------------

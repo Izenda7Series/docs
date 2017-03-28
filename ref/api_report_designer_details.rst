@@ -2271,8 +2271,9 @@ Verifies that all report details are up to date, without physical changes, and v
            	}
          }
 
+.. _GET_report/function/{function_mode}/{data_type}/(tenant_id):
 
-GET report/function/{function\_mode}/{data\_type}/(tenant\_id)
+GET report/function/{function_mode}/{data_type}/(tenant_id)
 ---------------------------------------------------------------
 
 Returns a list of report functions filtered by mode (field, sub-total, grand-total), by data type and by tenant_id if provided.
@@ -2281,13 +2282,126 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
 
     No payload
 
+    *  0 = Field
+    *  1 = Sub-total
+    *  2 = Grand total
+
 **Response**
 
-    A :doc:`models/ReportFunction` object
+    An array of :doc:`models/ReportFunction` objects
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      GET /api/report/function/0/Numeric HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+         [
+            {
+               "id": "8dc8efc6-9e0a-4c3e-bea0-4daf541ceae4",
+               "name": "Average",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "8a74f4e0-b845-4b9e-adfa-bb678a116878",
+               "name": "Count",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "e3e16575-9739-4ff3-950a-7d149f96b4f0",
+               "name": "Count Distinct",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+               "name": "Group",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "10a6655f-6954-462d-a57e-5df3c17089d5",
+               "name": "Maximum",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "36d8f605-1242-4c43-9b46-aced94b62709",
+               "name": "Minimum",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
+               "name": "Sum",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "ab4bbbef-1dcf-4f15-88a1-f3bc0da6a076",
+               "name": "Sum Distinct",
+               "expression": null,
+               "dataType": "Numeric",
+               "formatDataType": "Numeric",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            }
+         ]
 
 GET report/allReports/(tenant\_id)
 ---------------------------------------
@@ -2325,14 +2439,14 @@ Verifies that all report filter fields are without changes.
          -  Required
          -  Description
          -  Note
-      *  -  | **hasChanged**
-            | boolean
+      *  -  **hasChanged** |br|
+            boolean
          -  R
          -  * true if there is no change
             * false if there is any change
          -
-      *  -  | **filterFields**
-            | array of objects
+      *  -  **filterFields** |br|
+            array of objects
          -	R
          -  An array of :doc:`models/ReportFilterField` objects
          -

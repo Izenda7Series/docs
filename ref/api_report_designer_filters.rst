@@ -2763,6 +2763,8 @@ Returns filter data formats for the specified data type.
             "modifiedBy": null
          }]
 
+.. _GET_report/field/dataFormat/{dataType}:
+
 GET report/field/dataFormat/{dataType}
 ------------------------------------------------
 
