@@ -2,6 +2,14 @@
 Release Notes
 ==============
 
+v1.24.5
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15310   Copy Process from Copy Console duplicating sharing permissions on reports after tenant copy
+-  Defect 15341   Custom Tree Filter values appear in report designer but not in the report viewer
+
 v1.24.4
 ~~~~~~~
 
