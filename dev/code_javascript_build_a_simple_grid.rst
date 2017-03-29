@@ -276,6 +276,8 @@ Populate selected data sources fields
         - .. literalinclude:: included_samples/ReportPartElement_OrderID.json
               :lines: 16-20
 
+   See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
+
 #. Populate a default :doc:`/ref/models/ReportPartElementProperties` for ``properties`` field in each :doc:`/ref/models/ReportPartElement` object
 
    .. container:: toggle
@@ -287,7 +289,6 @@ Populate selected data sources fields
       .. code-block:: json
 
          {
-            "isDirty": false,
             "fieldItemVisible": true,
             "dataFormattings": {
                "function": "",
@@ -416,7 +417,6 @@ Populate selected data sources fields
                         "hasAggregatedFunction": false
                      },
                      "properties": {
-                        "isDirty": false,
                         "fieldItemVisible": true,
                         "dataFormattings": {
                            "function": "",
@@ -626,7 +626,9 @@ Populate selected data sources fields
 Update the properties of each field per user selection
 ------------------------------------------------------------------------------
 
-See :doc:`code_javascript_sample_properties_for_a_reportpartelement` 
+Please see :doc:`/ref/models/ReportPartElementProperties` for the purpose of each field.
+
+See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
 
 Update the properties of the grid in "properties" field per user selection
 ------------------------------------------------------------------------------

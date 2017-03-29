@@ -27,6 +27,7 @@ Sample Properties for a ReportPartElement
          "name": "OrderDate",
          "other fields": "are not included in this sample",
          "properties": {
+            "fieldItemVisible": true,
             "dataFormattings": {
                "function": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
                "functionInfo": {
@@ -45,7 +46,8 @@ Sample Properties for a ReportPartElement
                   "formatId": "76875180-32c1-4180-b92f-03bdb14c4f6a",
                   "format": "Year",
                   "groupBy": "year",
-                  "formatDataType": null
+                  "formatDataType": null,
+                  "createNewHiddenPercenOfGroupField": false
                },
                "font": {
                   "family": "Roboto",
@@ -153,7 +155,6 @@ Sample Properties for a ReportPartElement
          "name": "Sum (Freight)",
          "other fields": "are not included in this sample",
          "properties": {
-            "isDirty": false,
             "fieldItemVisible": true,
             "dataFormattings": {
                "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
@@ -169,7 +170,9 @@ Sample Properties for a ReportPartElement
                   "userDefined": false,
                   "extendedProperties": {}
                },
-               "format": {},
+               "format": {
+                  "createNewHiddenPercenOfGroupField": false
+               },
                "font": {
                   "family": "Roboto",
                   "size": 14,

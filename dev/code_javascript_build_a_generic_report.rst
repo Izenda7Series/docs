@@ -70,7 +70,6 @@ Prepare an Empty Report Object
             "visible": false,
             "items": [
                {
-                  "isDirty": false,
                   "type": "image",
                   "label": "Image",
                   "id": "formatDetails_57",
@@ -95,7 +94,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_58",
@@ -119,7 +117,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "thinHorizontalRule",
                   "label": "Horizontal Rule",
                   "id": "formatDetails_59",
@@ -143,7 +140,6 @@ Prepare an Empty Report Object
                   "thickness": 2
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_60",
@@ -167,7 +163,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_61",
@@ -191,7 +186,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_62",
@@ -215,7 +209,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "dateTime",
                   "label": "Date Time",
                   "id": "formatDetails_63",
@@ -239,7 +232,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_64",
@@ -263,7 +255,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_65",
@@ -287,7 +278,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "horizontalRule",
                   "label": "Horizontal Rule",
                   "id": "formatDetails_66",
@@ -316,7 +306,6 @@ Prepare an Empty Report Object
             "visible": false,
             "items": [
                {
-                  "isDirty": false,
                   "type": "horizontalRule",
                   "label": "Horizontal Rule",
                   "id": "formatDetails_67",
@@ -340,7 +329,6 @@ Prepare an Empty Report Object
                   "thickness": 4
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_68",
@@ -364,7 +352,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "text",
                   "label": "Text",
                   "id": "formatDetails_69",
@@ -388,7 +375,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "pageNumber",
                   "label": "Page Number",
                   "id": "formatDetails_70",
@@ -417,7 +403,6 @@ Prepare an Empty Report Object
             "visible": false,
             "items": [
                {
-                  "isDirty": false,
                   "type": "title",
                   "label": "Title",
                   "id": "formatDetails_71",
@@ -437,7 +422,6 @@ Prepare an Empty Report Object
                   "thickness": 1
                },
                {
-                  "isDirty": false,
                   "type": "description",
                   "label": "Description",
                   "id": "formatDetails_72",
@@ -894,7 +878,6 @@ Call Save report as draft API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "image",
                         "label": "Image",
                         "id": "formatDetails_57",
@@ -919,7 +902,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_58",
@@ -943,7 +925,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "thinHorizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_59",
@@ -967,7 +948,6 @@ Call Save report as draft API
                         "thickness": 2
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_60",
@@ -991,7 +971,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_61",
@@ -1015,7 +994,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_62",
@@ -1039,7 +1017,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "dateTime",
                         "label": "Date Time",
                         "id": "formatDetails_63",
@@ -1063,7 +1040,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_64",
@@ -1087,7 +1063,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_65",
@@ -1111,7 +1086,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "horizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_66",
@@ -1140,7 +1114,6 @@ Call Save report as draft API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "horizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_67",
@@ -1164,7 +1137,6 @@ Call Save report as draft API
                         "thickness": 4
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_68",
@@ -1188,7 +1160,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_69",
@@ -1212,7 +1183,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "pageNumber",
                         "label": "Page Number",
                         "id": "formatDetails_70",
@@ -1241,7 +1211,6 @@ Call Save report as draft API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "title",
                         "label": "Title",
                         "id": "formatDetails_71",
@@ -1261,7 +1230,6 @@ Call Save report as draft API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "description",
                         "label": "Description",
                         "id": "formatDetails_72",
@@ -1362,7 +1330,8 @@ Populate the report parts
 #. Prepare the report part objects:
 
    *  :doc:`code_javascript_build_a_simple_grid`
-   *  To be updated for Chart, Gauge, Map and Form |br|
+   *  :doc:`code_javascript_build_a_simple_chart`
+   *  To be updated for Gauge, Map and Form |br|
 #. For each report part object, build a corresponding :doc:`/ref/models/ReportPartDefinition` object
 
    *  Highlighted ``reportPartContent`` is to be updated by the report part object 
@@ -1374,8 +1343,8 @@ Populate the report parts
 
       {
          "reportPartContent": {},
-         "width": 0,
-         "height": 0,
+         "width": 12,
+         "height": 4,
          "positionY": 0,
          "positionX": 0,
          "title": "Grid"
@@ -1488,7 +1457,6 @@ Call Save report API
                                     "hasAggregatedFunction": false
                                  },
                                  "properties": {
-                                    "isDirty": false,
                                     "fieldItemVisible": true,
                                     "dataFormattings": {
                                        "function": "",
@@ -1767,7 +1735,6 @@ Call Save report API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "image",
                         "label": "Image",
                         "id": "formatDetails_57",
@@ -1792,7 +1759,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_58",
@@ -1816,7 +1782,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "thinHorizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_59",
@@ -1840,7 +1805,6 @@ Call Save report API
                         "thickness": 2
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_60",
@@ -1864,7 +1828,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_61",
@@ -1888,7 +1851,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_62",
@@ -1912,7 +1874,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "dateTime",
                         "label": "Date Time",
                         "id": "formatDetails_63",
@@ -1936,7 +1897,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_64",
@@ -1960,7 +1920,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_65",
@@ -1984,7 +1943,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "horizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_66",
@@ -2013,7 +1971,6 @@ Call Save report API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "horizontalRule",
                         "label": "Horizontal Rule",
                         "id": "formatDetails_67",
@@ -2037,7 +1994,6 @@ Call Save report API
                         "thickness": 4
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_68",
@@ -2061,7 +2017,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "text",
                         "label": "Text",
                         "id": "formatDetails_69",
@@ -2085,7 +2040,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "pageNumber",
                         "label": "Page Number",
                         "id": "formatDetails_70",
@@ -2114,7 +2068,6 @@ Call Save report API
                   "visible": false,
                   "items": [
                      {
-                        "isDirty": false,
                         "type": "title",
                         "label": "Title",
                         "id": "formatDetails_71",
@@ -2134,7 +2087,6 @@ Call Save report API
                         "thickness": 1
                      },
                      {
-                        "isDirty": false,
                         "type": "description",
                         "label": "Description",
                         "id": "formatDetails_72",

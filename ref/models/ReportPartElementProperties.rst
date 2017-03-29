@@ -96,6 +96,12 @@ ReportPartElementProperties
             object
       -
       -  
+   *  -  .. container:: lpad4
+
+            **createNewHiddenPercenOfGroupField** |br|
+            string
+      -
+      -  Whether to create a new hidden "PercentOfGroup" field
    *  -  .. container:: lpad2
 
             **font** |br|
