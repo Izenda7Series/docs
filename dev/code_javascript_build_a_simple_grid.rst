@@ -144,6 +144,8 @@ Prepare an empty ReportPartGrid object
          }
       }
 
+.. _Grid_Populate_selected_data_sources_fields:
+
 Populate selected data sources fields
 ---------------------------------------
 
@@ -198,7 +200,6 @@ Populate selected data sources fields
 
       {
          "name": "<User-defined Field Name Alias of the selected QuerySourceField>",
-         "properties": {},
          "position": "<position in the list of selected fields>",
          "field": {
             "fieldId": "<id of the selected QuerySourceField>",
@@ -211,12 +212,13 @@ Populate selected data sources fields
             "relationshipId": null,
             "visible": true,
             "calculatedTree": null,
-            "schemaName": "dbo",
+            "schemaName": "<name of the schema>",
             "querySourceName": "<name of the parent QuerySource>",
-            "databaseName": "test",
+            "databaseName": "<name of the connection>",
             "isCalculated": false,
             "hasAggregatedFunction": false
-         }
+         },
+         "properties": {}
       }
 
    .. list-table::
@@ -274,6 +276,8 @@ Populate selected data sources fields
         - .. literalinclude:: included_samples/ReportPartElement_OrderID.json
               :lines: 16-20
 
+   See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
+
 #. Populate a default :doc:`/ref/models/ReportPartElementProperties` for ``properties`` field in each :doc:`/ref/models/ReportPartElement` object
 
    .. container:: toggle
@@ -285,7 +289,6 @@ Populate selected data sources fields
       .. code-block:: json
 
          {
-            "isDirty": false,
             "fieldItemVisible": true,
             "dataFormattings": {
                "function": "",
@@ -414,7 +417,6 @@ Populate selected data sources fields
                         "hasAggregatedFunction": false
                      },
                      "properties": {
-                        "isDirty": false,
                         "fieldItemVisible": true,
                         "dataFormattings": {
                            "function": "",
@@ -625,6 +627,8 @@ Update the properties of each field per user selection
 ------------------------------------------------------------------------------
 
 Please see :doc:`/ref/models/ReportPartElementProperties` for the purpose of each field.
+
+See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
 
 Update the properties of the grid in "properties" field per user selection
 ------------------------------------------------------------------------------
