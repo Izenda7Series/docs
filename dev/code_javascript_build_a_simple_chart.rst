@@ -129,11 +129,11 @@ Populate selected data sources fields
 
 #. Refer to the :ref:`similar step in Building a Grid guide <Grid_Populate_selected_data_sources_fields>` to:
 
-   *  Get the list of available data sources fields from :ref:`POST_report/availableQuerySourceFields`
-   *  Build a corresponding ReportPartElement object for each selected data source field
-   *  Populate a default ReportPartElementProperties for ``properties`` field in each ReportPartElement object
+   #. Get the list of available data sources fields from :ref:`POST_report/availableQuerySourceFields`
+   #. Build a corresponding ReportPartElement object for each selected data source field
+   #. Populate a default ReportPartElementProperties for ``properties`` field in each ReportPartElement object
 
-   See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
+   See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for some samples.
 
 #. Add the :doc:`/ref/models/ReportPartElement` objects into ``labels.elements``, ``values.elements``, ``valuesLabels.elements``, ``separators.elements`` or ``bubbleSize.elements`` in :doc:`/ref/models/ReportPartChart` object.
 
