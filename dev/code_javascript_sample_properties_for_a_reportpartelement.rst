@@ -278,14 +278,11 @@ Sample Properties for a ReportPartElement
 
    .. code-block:: json
       :linenos:
-      :emphasize-lines: 11,111-113,115,122,124,131-133,140,141
+      :emphasize-lines: 8,107-109,111,118,120,127-129,136,137
 
       {
-         "reportPartContent": null,
-         "isDirty": false,
          "name": "Sum (Freight)",
          "properties": {
-            "isDirty": false,
             "fieldItemVisible": true,
             "dataFormattings": {
                "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
@@ -389,7 +386,6 @@ Sample Properties for a ReportPartElement
             },
             "otherProps": {},
             "metric": {
-               "isDirty": true,
                "scale": {
                   "from": 4000,
                   "to": 8000
@@ -449,15 +445,636 @@ Sample Properties for a ReportPartElement
             "calculatedTree": null,
             "isCalculated": false,
             "hasAggregatedFunction": false
+         }
+      }
+
+.. container:: toggle
+
+   .. container:: header
+
+      Sample for ``SUM(UnitsInStock)`` with Gauge Dynamic Threshold setting
+
+   |br|
+
+   *  "902a9168-fc01-4a35-92fb-ea67942d099d" is the id for SUM function
+   *  Get the list of functions from :ref:`GET_report/function/{function_mode}/{data_type}/(tenant_id)`
+   *  The Gauge Dynamic Threshold setting: ``low: SUM(UnitsInStock) less than SUM(UnitsOnOrder)``
+
+   .. code-block:: json
+      :linenos:
+      :emphasize-lines: 173,179,281,282,287,291-292,298
+
+      {
+         "type": 2,
+         "title": {
+            "text": "",
+            "properties": {},
+            "settings": {
+               "font": {
+                  "family": "",
+                  "size": 14,
+                  "bold": true,
+                  "italic": false,
+                  "underline": false,
+                  "color": "",
+                  "highlightColor": ""
+               },
+               "alignment": {
+                  "alignment": ""
+               }
+            },
+            "elements": []
          },
-         "isDeleted": false,
-         "isSelected": false,
-         "offset": {
-            "top": 359,
-            "right": 592.25,
-            "bottom": 381,
-            "left": 473.25,
-            "width": 119,
-            "height": 22
+         "description": {
+            "text": "",
+            "properties": {},
+            "settings": {
+               "font": {
+                  "family": "",
+                  "size": 14,
+                  "bold": false,
+                  "italic": false,
+                  "underline": false,
+                  "color": "",
+                  "highlightColor": ""
+               },
+               "alignment": {
+                  "alignment": ""
+               }
+            },
+            "elements": []
+         },
+         "activeSerie": null,
+         "labels": {
+            "elements": [
+               {
+                  "name": "SupplierID",
+                  "properties": {
+                     "fieldItemVisible": true,
+                     "dataFormattings": {
+                        "function": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+                        "functionInfo": {
+                           "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+                           "name": "Group",
+                           "expression": null,
+                           "dataType": "Numeric",
+                           "formatDataType": "Numeric",
+                           "syntax": null,
+                           "expressionSyntax": null,
+                           "isOperator": false,
+                           "userDefined": false,
+                           "extendedProperties": {}
+                        },
+                        "format": {},
+                        "font": {
+                           "family": "Roboto",
+                           "size": 14,
+                           "bold": false,
+                           "italic": false,
+                           "underline": false,
+                           "color": "",
+                           "backgroundColor": ""
+                        },
+                        "width": {
+                           "value": null
+                        },
+                        "alignment": "alignLeft",
+                        "sort": "ASC",
+                        "color": {
+                           "textColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           },
+                           "cellColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           }
+                        },
+                        "alternativeText": {
+                           "rangePercent": null,
+                           "rangeValue": null,
+                           "value": null
+                        },
+                        "customURL": {
+                           "url": "",
+                           "option": "LINK_NEW_WINDOW"
+                        },
+                        "embeddedJavascript": {
+                           "script": ""
+                        },
+                        "subTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        },
+                        "grandTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        }
+                     },
+                     "headerFormating": {
+                        "font": {
+                           "family": null,
+                           "size": null,
+                           "bold": null,
+                           "italic": null,
+                           "underline": null,
+                           "color": null,
+                           "backgroundColor": null
+                        },
+                        "alignment": null,
+                        "wordWrap": null,
+                        "columnGroup": ""
+                     },
+                     "drillDown": {
+                        "subReport": {
+                           "selectedReport": null,
+                           "style": null,
+                           "reportPartUsed": null,
+                           "reportFilter": true,
+                           "mappingFields": [],
+                           "selectedIconValue": {
+                              "icon": null,
+                              "value": null
+                           },
+                           "viewSettingByLink": null
+                        }
+                     },
+                     "otherProps": {}
+                  },
+                  "position": 1,
+                  "field": {
+                     "fieldId": "a79ccaa4-d294-4b02-aed8-70f7ea1ee303",
+                     "fieldName": "SupplierID",
+                     "fieldNameAlias": "SupplierID",
+                     "dataFieldType": "Numeric",
+                     "querySourceId": "59c2e0a9-138a-4d29-b12d-bf98f99f6cc3",
+                     "querySourceType": "Table",
+                     "sourceAlias": "Products",
+                     "relationshipId": null,
+                     "visible": true,
+                     "calculatedTree": null,
+                     "schemaName": "dbo",
+                     "querySourceName": "Products",
+                     "databaseName": "Northwind",
+                     "isCalculated": false,
+                     "hasAggregatedFunction": false
+                  }
+               }
+            ],
+            "name": "labels"
+         },
+         "values": {
+            "elements": [
+               {
+                  "name": "Sum (UnitsInStock)",
+                  "properties": {
+                     "fieldItemVisible": true,
+                     "dataFormattings": {
+                        "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                        "functionInfo": {
+                           "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                           "name": "Sum",
+                           "expression": null,
+                           "dataType": "Numeric",
+                           "formatDataType": "Numeric",
+                           "syntax": null,
+                           "expressionSyntax": null,
+                           "isOperator": false,
+                           "userDefined": false,
+                           "extendedProperties": {}
+                        },
+                        "format": {},
+                        "font": {
+                           "family": "Roboto",
+                           "size": 14,
+                           "bold": false,
+                           "italic": false,
+                           "underline": false,
+                           "color": "",
+                           "backgroundColor": ""
+                        },
+                        "width": {
+                           "value": null
+                        },
+                        "alignment": "alignLeft",
+                        "sort": "ASC",
+                        "color": {
+                           "textColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           },
+                           "cellColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           }
+                        },
+                        "alternativeText": {
+                           "rangePercent": null,
+                           "rangeValue": null,
+                           "value": null
+                        },
+                        "customURL": {
+                           "url": "",
+                           "option": "LINK_NEW_WINDOW"
+                        },
+                        "embeddedJavascript": {
+                           "script": ""
+                        },
+                        "subTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        },
+                        "grandTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        }
+                     },
+                     "headerFormating": {
+                        "font": {
+                           "family": null,
+                           "size": null,
+                           "bold": null,
+                           "italic": null,
+                           "underline": null,
+                           "color": null,
+                           "backgroundColor": null
+                        },
+                        "alignment": null,
+                        "wordWrap": null,
+                        "columnGroup": ""
+                     },
+                     "drillDown": {
+                        "subReport": {
+                           "selectedReport": null,
+                           "style": null,
+                           "reportPartUsed": null,
+                           "reportFilter": true,
+                           "mappingFields": [],
+                           "selectedIconValue": {
+                              "icon": null,
+                              "value": null
+                           },
+                           "viewSettingByLink": null
+                        }
+                     },
+                     "otherProps": {},
+                     "metric": {
+                        "scale": {
+                           "from": null,
+                           "to": null
+                        },
+                        "unitLabel": "",
+                        "thresholds": {
+                           "setting": "dynamic",
+                           "levels": [
+                              {
+                                 "name": "low",
+                                 "color": "#ff0000",
+                                 "operator": "less than",
+                                 "value": null,
+                                 "valueUpper": null,
+                                 "element": null,
+                                 "elementUpper": {
+                                    "name": "Sum (UnitsOnOrder)",
+                                    "properties": {
+                                       "fieldItemVisible": true,
+                                       "dataFormattings": {
+                                          "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                                          "functionInfo": {
+                                             "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                                             "name": "Sum",
+                                             "expression": null,
+                                             "dataType": "Numeric",
+                                             "formatDataType": "Numeric",
+                                             "syntax": null,
+                                             "expressionSyntax": null,
+                                             "isOperator": false,
+                                             "userDefined": false,
+                                             "extendedProperties": {}
+                                          },
+                                          "format": {},
+                                          "font": {
+                                             "family": "Roboto",
+                                             "size": 14,
+                                             "bold": false,
+                                             "italic": false,
+                                             "underline": false,
+                                             "color": "",
+                                             "backgroundColor": ""
+                                          },
+                                          "width": {
+                                             "value": null
+                                          },
+                                          "alignment": "alignLeft",
+                                          "sort": "ASC",
+                                          "color": {
+                                             "textColor": {
+                                                "rangePercent": null,
+                                                "rangeValue": null,
+                                                "value": null
+                                             },
+                                             "cellColor": {
+                                                "rangePercent": null,
+                                                "rangeValue": null,
+                                                "value": null
+                                             }
+                                          },
+                                          "alternativeText": {
+                                             "rangePercent": null,
+                                             "rangeValue": null,
+                                             "value": null
+                                          },
+                                          "customURL": {
+                                             "url": "",
+                                             "option": "LINK_NEW_WINDOW"
+                                          },
+                                          "embeddedJavascript": {
+                                             "script": ""
+                                          },
+                                          "subTotal": {
+                                             "label": "",
+                                             "function": "",
+                                             "expression": "",
+                                             "dataType": "",
+                                             "format": {},
+                                             "previewResult": ""
+                                          },
+                                          "grandTotal": {
+                                             "label": "",
+                                             "function": "",
+                                             "expression": "",
+                                             "dataType": "",
+                                             "format": {},
+                                             "previewResult": ""
+                                          }
+                                       },
+                                       "headerFormating": {
+                                          "font": {
+                                             "family": null,
+                                             "size": null,
+                                             "bold": null,
+                                             "italic": null,
+                                             "underline": null,
+                                             "color": null,
+                                             "backgroundColor": null
+                                          },
+                                          "alignment": null,
+                                          "wordWrap": null,
+                                          "columnGroup": ""
+                                       },
+                                       "drillDown": {
+                                          "subReport": {
+                                             "selectedReport": null,
+                                             "style": null,
+                                             "reportPartUsed": null,
+                                             "reportFilter": true,
+                                             "mappingFields": [],
+                                             "selectedIconValue": {
+                                                "icon": null,
+                                                "value": null
+                                             },
+                                             "viewSettingByLink": null
+                                          }
+                                       },
+                                       "otherProps": {}
+                                    },
+                                    "position": 1,
+                                    "field": {
+                                       "fieldId": "9baea98a-8cf8-46d9-8bcc-89a3374da404",
+                                       "fieldName": "UnitsOnOrder",
+                                       "fieldNameAlias": "Sum (UnitsOnOrder)",
+                                       "dataFieldType": "Numeric",
+                                       "querySourceId": "59c2e0a9-138a-4d29-b12d-bf98f99f6cc3",
+                                       "querySourceType": "Table",
+                                       "sourceAlias": "Products",
+                                       "relationshipId": null,
+                                       "visible": true,
+                                       "calculatedTree": null,
+                                       "schemaName": "dbo",
+                                       "querySourceName": "Products",
+                                       "databaseName": "Northwind",
+                                       "isCalculated": false,
+                                       "hasAggregatedFunction": false
+                                    }
+                                 }
+                              },
+                              {
+                                 "name": "target",
+                                 "color": "#008000",
+                                 "operator": "less than",
+                                 "value": null,
+                                 "valueUpper": null,
+                                 "element": {
+                                    "name": "Sum (UnitsOnOrder)",
+                                    "properties": {
+                                       "fieldItemVisible": true,
+                                       "dataFormattings": {
+                                          "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                                          "functionInfo": {
+                                             "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                                             "name": "Sum",
+                                             "expression": null,
+                                             "dataType": "Numeric",
+                                             "formatDataType": "Numeric",
+                                             "syntax": null,
+                                             "expressionSyntax": null,
+                                             "isOperator": false,
+                                             "userDefined": false,
+                                             "extendedProperties": {}
+                                          },
+                                          "format": {},
+                                          "font": {
+                                             "family": "Roboto",
+                                             "size": 14,
+                                             "bold": false,
+                                             "italic": false,
+                                             "underline": false,
+                                             "color": "",
+                                             "backgroundColor": ""
+                                          },
+                                          "width": {
+                                             "value": null
+                                          },
+                                          "alignment": "alignLeft",
+                                          "sort": "ASC",
+                                          "color": {
+                                             "textColor": {
+                                                "rangePercent": null,
+                                                "rangeValue": null,
+                                                "value": null
+                                             },
+                                             "cellColor": {
+                                                "rangePercent": null,
+                                                "rangeValue": null,
+                                                "value": null
+                                             }
+                                          },
+                                          "alternativeText": {
+                                             "rangePercent": null,
+                                             "rangeValue": null,
+                                             "value": null
+                                          },
+                                          "customURL": {
+                                             "url": "",
+                                             "option": "LINK_NEW_WINDOW"
+                                          },
+                                          "embeddedJavascript": {
+                                             "script": ""
+                                          },
+                                          "subTotal": {
+                                             "label": "",
+                                             "function": "",
+                                             "expression": "",
+                                             "dataType": "",
+                                             "format": {},
+                                             "previewResult": ""
+                                          },
+                                          "grandTotal": {
+                                             "label": "",
+                                             "function": "",
+                                             "expression": "",
+                                             "dataType": "",
+                                             "format": {},
+                                             "previewResult": ""
+                                          }
+                                       },
+                                       "headerFormating": {
+                                          "font": {
+                                             "family": null,
+                                             "size": null,
+                                             "bold": null,
+                                             "italic": null,
+                                             "underline": null,
+                                             "color": null,
+                                             "backgroundColor": null
+                                          },
+                                          "alignment": null,
+                                          "wordWrap": null,
+                                          "columnGroup": ""
+                                       },
+                                       "drillDown": {
+                                          "subReport": {
+                                             "selectedReport": null,
+                                             "style": null,
+                                             "reportPartUsed": null,
+                                             "reportFilter": true,
+                                             "mappingFields": [],
+                                             "selectedIconValue": {
+                                                "icon": null,
+                                                "value": null
+                                             },
+                                             "viewSettingByLink": null
+                                          }
+                                       },
+                                       "otherProps": {}
+                                    },
+                                    "position": 1,
+                                    "field": {
+                                       "fieldId": "9baea98a-8cf8-46d9-8bcc-89a3374da404",
+                                       "fieldName": "UnitsOnOrder",
+                                       "fieldNameAlias": "Sum (UnitsOnOrder)",
+                                       "dataFieldType": "Numeric",
+                                       "querySourceId": "59c2e0a9-138a-4d29-b12d-bf98f99f6cc3",
+                                       "querySourceType": "Table",
+                                       "sourceAlias": "Products",
+                                       "relationshipId": null,
+                                       "visible": true,
+                                       "calculatedTree": null,
+                                       "schemaName": "dbo",
+                                       "querySourceName": "Products",
+                                       "databaseName": "Northwind",
+                                       "isCalculated": false,
+                                       "hasAggregatedFunction": false
+                                    },
+                                    "isDeleted": false,
+                                    "isSelected": false
+                                 },
+                                 "elementUpper": null
+                              },
+                              {
+                                 "name": "high",
+                                 "color": "#000000",
+                                 "operator": "greater than",
+                                 "value": null,
+                                 "valueUpper": null,
+                                 "element": null,
+                                 "elementUpper": null
+                              }
+                           ]
+                        },
+                        "supplementaryKPI": {
+                           "valueType": "",
+                           "unitLabel": "",
+                           "value": null,
+                           "element": null
+                        }
+                     }
+                  },
+                  "position": 1,
+                  "field": {
+                     "fieldId": "bbd3b5a1-4be2-40c3-be9f-89e19a9487df",
+                     "fieldName": "UnitsInStock",
+                     "fieldNameAlias": "Sum (UnitsInStock)",
+                     "dataFieldType": "Numeric",
+                     "querySourceId": "59c2e0a9-138a-4d29-b12d-bf98f99f6cc3",
+                     "querySourceType": "Table",
+                     "sourceAlias": "Products",
+                     "relationshipId": null,
+                     "visible": true,
+                     "calculatedTree": null,
+                     "schemaName": "dbo",
+                     "querySourceName": "Products",
+                     "databaseName": "Northwind",
+                     "isCalculated": false,
+                     "hasAggregatedFunction": false
+                  }
+               }
+            ],
+            "name": "values"
+         },
+         "separators": {
+            "elements": [],
+            "name": "separators"
+         },
+         "properties": {
+            "staticProperties": {},
+            "chartType": "SolidGauge",
+            "optionByType": {
+               "izUseSeparator": true,
+               "izUsePagination": true,
+               "izItemPerRow": 2
+            },
+            "view": {
+               "showLabels": false,
+               "dataRefreshInterval": {
+                  "enable": false,
+                  "updateInterval": 0,
+                  "isAll": true,
+                  "latestRecord": 0
+               }
+            },
+            "printing": {
+               "izPageBreakAfterSeparator": false
+            }
          }
       }

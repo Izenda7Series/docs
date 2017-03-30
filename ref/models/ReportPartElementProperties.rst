@@ -441,7 +441,7 @@ ReportPartElementProperties
          A dynamic object
    *  -  **metric** |br|
          object
-      -
+      -  Y
       -  Properties for Gauge metrics
    *  -  .. container:: lpad2
    
