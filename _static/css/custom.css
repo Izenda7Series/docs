@@ -5,13 +5,10 @@ div.wy-side-nav-search {
 
 /*Minimized Navigation upper color*/
 div.wy-nav-top {
-	background-color: #1E4E8A;
+	background-color: #1E4E8A !important;
 }
 
-/*Expand the body of the text to be full screen. This broke more than it fixed*/
-/*.wy-nav-content {
-    max-width: none;
-}*/
+/*Expand the body of the text to be full screen.*/
 .wy-nav-content {
     max-width: none !important;
 }
