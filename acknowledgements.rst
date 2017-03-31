@@ -2,10 +2,10 @@
 Acknowledgements
 =================
 
--  Common.Logging v.3.3.1  http://netcommon.sourceforge.net/
--  Common.Logging.Core v.3.3.1  http://netcommon.sourceforge.net/
--  Common Service Locator v.1.0.0 http://commonservicelocator.codeplex.com/license
--  OpenXML v.2.5.0  https://social.msdn.microsoft.com/Forums/office/en-US/home?forum=oxmlsdk
+-  Common.Logging v.3.3.1  http://netcommon.sourceforge.net/ License: http://netcommon.sourceforge.net/license.html
+-  Common.Logging.Core v.3.3.1  http://netcommon.sourceforge.net/ License: http://netcommon.sourceforge.net/license.html
+-  Common Service Locator v.1.0.0 http://commonservicelocator.codeplex.com/ License: http://commonservicelocator.codeplex.com/license
+-  OpenXML v.2.5.0 https://github.com/OfficeDev/Open-Xml-Sdk License: https://github.com/OfficeDev/Open-XML-SDK/blob/vNext/LICENSE.txt
 -  Enterprise Library Common v.5.0.505 https://msdn.microsoft.com/library/cc467894.aspx License: https://opensource.org/licenses/ms-pl
 -  Evopdf v.7.0.0 http://www.essentialobjects.com/Download.aspx License: This software is available under an End-User Sofware License Agreeemnt: http://www.essentialobjects.com/Products/EOPdf/EULA.aspx
 -  EvoHtmlToPdf_Azure_Client v.7.0.0 http://www.essentialobjects.com/Download.aspx License: This software is available under an End-User Sofware License Agreeemnt: http://www.essentialobjects.com/Products/EOPdf/EULA.aspx
