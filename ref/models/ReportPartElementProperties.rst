@@ -518,12 +518,12 @@ ReportPartElementProperties
    *  -  .. container:: lpad6
    
             **element** |br|
-            string
+            object
       -
       -  The element value for "greater than" operator, or the minimum element value for "between than" operator
    *  -  .. container:: lpad6
    
             **elementUpper** |br|
-            string
+            object
       -
       -  The element value for "less than" operator, or the maximum element value for "between than" operator

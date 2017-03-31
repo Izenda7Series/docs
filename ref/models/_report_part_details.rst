@@ -14,3 +14,5 @@ Report Part Details
    ReportPartGaugeProperties
    ReportPartGrid
    ReportPartGridProperties
+   ReportPartMap
+   ReportPartMapProperties

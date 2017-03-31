@@ -264,7 +264,7 @@ Sample Properties for a ReportPartElement
 
    .. container:: header
 
-      Sample for ``SUM(Freight)`` with Gauge metric settings
+      Sample for ``SUM(Freight)`` with Gauge Static Threshold setting
 
    |br|
 
