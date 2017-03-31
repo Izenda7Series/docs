@@ -13,7 +13,7 @@ div.wy-nav-top {
     max-width: none;
 }*/
 .wy-nav-content {
-    max-width: 1200px !important;
+    max-width: none !important;
 }
 
 /**/
