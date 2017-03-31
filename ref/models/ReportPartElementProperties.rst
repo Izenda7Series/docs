@@ -439,3 +439,91 @@ ReportPartElementProperties
       -
       -  Other properties |br|
          A dynamic object
+   *  -  **metric** |br|
+         object
+      -  Y
+      -  Properties for Gauge metrics
+   *  -  .. container:: lpad2
+   
+            **scale** |br|
+            object
+      -
+      -  The scale settings
+   *  -  .. container:: lpad6
+   
+            **from** |br|
+            integer
+      -
+      -  The minimum value of the scale
+   *  -  .. container:: lpad6
+   
+            **to** |br|
+            integer
+      -
+      -  The maximum value of the scale
+   *  -  .. container:: lpad2
+   
+            **unitLabel** |br|
+            string
+      -
+      -  The display unit label beneath the gauge
+   *  -  .. container:: lpad2
+   
+            **thresholds** |br|
+            object
+      -
+      - 
+   *  -  .. container:: lpad4
+   
+            **setting** |br|
+            string
+      -
+      -  "static" or "dynamic"
+   *  -  .. container:: lpad4
+   
+            **levels** |br|
+            array of objects
+      -
+      -  An array of objects with the following fields
+   *  -  .. container:: lpad6
+   
+            **name** |br|
+            string
+      -
+      -  Either "low", "target" or "high"
+   *  -  .. container:: lpad6
+   
+            **color** |br|
+            string
+      -
+      -  The color for the threshold level
+   *  -  .. container:: lpad6
+   
+            **operator** |br|
+            string
+      -
+      -  Either "less than", "between" or "greater than"
+   *  -  .. container:: lpad6
+   
+            **value** |br|
+            integer
+      -
+      -  The value for "greater than" operator, or the minimum value for "between than" operator
+   *  -  .. container:: lpad6
+   
+            **valueUpper** |br|
+            integer
+      -
+      -  The value for "less than" operator, or the maximum value for "between than" operator
+   *  -  .. container:: lpad6
+   
+            **element** |br|
+            object
+      -
+      -  The element value for "greater than" operator, or the minimum element value for "between than" operator
+   *  -  .. container:: lpad6
+   
+            **elementUpper** |br|
+            object
+      -
+      -  The element value for "less than" operator, or the maximum element value for "between than" operator

@@ -1,36 +1,36 @@
 =========================================================
-Build a simple Chart
+Build a simple Gauge
 =========================================================
 
 Steps:
 
 #. Follow :doc:`code_javascript_build_a_generic_report` until the step to add report parts.
-#. Prepare an empty :doc:`/ref/models/ReportPartChart` object with default properties.
+#. Prepare an empty :doc:`/ref/models/ReportPartGauge` object with default properties.
 #. For each selected data source fields, populate a :doc:`/ref/models/ReportPartElement` object with default properties.
-#. Add the :doc:`/ref/models/ReportPartElement` objects into either ``labels.elements``, ``values.elements``, ``valuesLabels.elements``, ``separators.elements`` or ``bubbleSize.elements`` in :doc:`/ref/models/ReportPartChart` object.
-#. Update the properties of the chart in ``properties`` field per user selection (See :doc:`/ref/models/ReportPartChartProperties`).
+#. Add the :doc:`/ref/models/ReportPartElement` objects into either ``labels.elements``, ``values.elements`` or ``separators.elements`` in :doc:`/ref/models/ReportPartGauge` object.
+#. Update the properties of the chart in ``properties`` field per user selection (See :doc:`/ref/models/ReportPartGaugeProperties`).
 #. Back to the steps in :doc:`code_javascript_build_a_generic_report`.
 
-Prepare an empty ReportPartChart object
+Prepare an empty ReportPartGauge object
 ----------------------------------------
 
 .. container:: toggle
 
    .. container:: header
 
-      Empty ReportPartChart object
+      Empty ReportPartGauge object
 
    |br|
 
-   *  The highlighted ``labels.elements``, ``values.elements``, ``valuesLabels.elements``, ``separators.elements`` and ``bubbleSize.elements`` are where the selected data source fields will be added
+   *  The highlighted ``labels.elements``, ``values.elements`` and ``separators.elements`` are where the selected data source fields will be added
    *  The highlighted ``properties`` contains the default properties
 
    .. code-block:: json
       :linenos:
-      :emphasize-lines: 42,46,50,54,58,61
+      :emphasize-lines: 42,46,50,53
 
       {
-         "type": 0,
+         "type": 2,
          "title": {
             "text": "",
             "properties": {},
@@ -77,39 +77,20 @@ Prepare an empty ReportPartChart object
             "elements": [],
             "name": "values"
          },
-         "valuesLabels": {
-            "elements": [],
-            "name": "valuesLabels"
-         },
          "separators": {
             "elements": [],
             "name": "separators"
          },
-         "bubbleSize": {
-            "elements": [],
-            "name": "bubbleSize"
-         },
          "properties": {
             "staticProperties": {},
-            "chartType": "Line",
-            "commonOptions": {
-               "izHoverLabels": true,
-               "izLegend.visibility": false,
-               "izLegend.horizontalAlign": "izRight",
-               "izLegend.verticalAlign": "izBottom",
-               "izLegend.borderWidth": 0,
-               "izChartStyle": {},
-               "izendaHiddenAllAxis": false
-            },
+            "chartType": "SolidGauge",
             "optionByType": {
-               "izTotalLabel": "",
                "izUseSeparator": true,
-               "izInverted": false,
-               "izSpline": false,
-               "izValueLabel": false,
-               "legendSettings": true
+               "izUsePagination": true,
+               "izItemPerRow": 2
             },
             "view": {
+               "showLabels": false,
                "dataRefreshInterval": {
                   "enable": false,
                   "updateInterval": 0,
@@ -117,7 +98,6 @@ Prepare an empty ReportPartChart object
                   "latestRecord": 0
                }
             },
-            "commonXYAxis": {},
             "printing": {
                "izPageBreakAfterSeparator": false
             }
@@ -135,375 +115,397 @@ Populate selected data sources fields
 
    See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for some samples.
 
-#. Add the :doc:`/ref/models/ReportPartElement` objects into ``labels.elements``, ``values.elements``, ``valuesLabels.elements``, ``separators.elements`` or ``bubbleSize.elements`` in :doc:`/ref/models/ReportPartChart` object.
+#. Add the :doc:`/ref/models/ReportPartElement` objects into ``labels.elements``, ``values.elements`` and ``separators.elements`` in :doc:`/ref/models/ReportPartChart` object.
 
-   .. _Sample_full_ReportPartChart_object:
+.. _Sample_full_ReportPartGauge_object:
 
-   .. container:: toggle
+.. container:: toggle
 
-      .. container:: header
+   .. container:: header
 
-         Sample full ReportPartChart object
+      Sample full ReportPartGauge object
 
-      *  Highlighted in ``labels.elements`` is the ReportPartElement for ``GROUP(OrderDate)``
-      *  Highlighted in ``values.elements`` is the ReportPartElement for ``SUM(Freight)``
+   *  Highlighted in ``labels.elements`` is the ReportPartElement for ``GROUP(OrderDate)``
+   *  Highlighted in ``values.elements`` is the ReportPartElement for ``SUM(Freight)``
 
-      |br|
+   |br|
 
-      .. code-block:: json
-         :linenos:
-         :emphasize-lines: 43-171, 177-301
+   .. code-block:: json
+      :linenos:
+      :emphasize-lines: 43-184,190-343
 
-         {
-            "type": 0,
-            "title": {
-               "text": "",
-               "properties": {},
-               "settings": {
-                  "font": {
-                     "family": "",
-                     "size": 14,
-                     "bold": true,
-                     "italic": false,
-                     "underline": false,
-                     "color": "",
-                     "highlightColor": ""
-                  },
-                  "alignment": {
-                     "alignment": ""
-                  }
+      {
+         "type": 2,
+         "title": {
+            "text": "",
+            "properties": {},
+            "settings": {
+               "font": {
+                  "family": "",
+                  "size": 14,
+                  "bold": true,
+                  "italic": false,
+                  "underline": false,
+                  "color": "",
+                  "highlightColor": ""
                },
-               "elements": []
-            },
-            "description": {
-               "text": "",
-               "properties": {},
-               "settings": {
-                  "font": {
-                     "family": "",
-                     "size": 14,
-                     "bold": false,
-                     "italic": false,
-                     "underline": false,
-                     "color": "",
-                     "highlightColor": ""
-                  },
-                  "alignment": {
-                     "alignment": ""
-                  }
-               },
-               "elements": []
-            },
-            "labels": {
-               "elements": [
-                  {
-                     "name": "OrderDate",
-                     "properties": {
-                        "fieldItemVisible": true,
-                        "dataFormattings": {
-                           "function": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
-                           "functionInfo": {
-                              "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
-                              "name": "Group",
-                              "expression": null,
-                              "dataType": "Datetime",
-                              "formatDataType": "Datetime",
-                              "syntax": null,
-                              "expressionSyntax": null,
-                              "isOperator": false,
-                              "userDefined": false,
-                              "extendedProperties": {}
-                           },
-                           "format": {
-                              "formatId": "76875180-32c1-4180-b92f-03bdb14c4f6a",
-                              "format": "Year",
-                              "groupBy": "year",
-                              "formatDataType": null,
-                              "createNewHiddenPercenOfGroupField": false
-                           },
-                           "font": {
-                              "family": "Roboto",
-                              "size": 14,
-                              "bold": false,
-                              "italic": false,
-                              "underline": false,
-                              "color": "",
-                              "backgroundColor": ""
-                           },
-                           "width": {
-                              "value": null
-                           },
-                           "alignment": "alignLeft",
-                           "sort": "ASC",
-                           "color": {
-                              "textColor": {
-                                 "rangePercent": null,
-                                 "rangeValue": null,
-                                 "value": null
-                              },
-                              "cellColor": {
-                                 "rangePercent": null,
-                                 "rangeValue": null,
-                                 "value": null
-                              }
-                           },
-                           "alternativeText": {
-                              "rangePercent": null,
-                              "rangeValue": null,
-                              "value": null
-                           },
-                           "customURL": {
-                              "url": "",
-                              "option": "LINK_NEW_WINDOW"
-                           },
-                           "embeddedJavascript": {
-                              "script": ""
-                           },
-                           "subTotal": {
-                              "label": "",
-                              "function": "",
-                              "expression": "",
-                              "dataType": "",
-                              "format": {},
-                              "previewResult": ""
-                           },
-                           "grandTotal": {
-                              "label": "",
-                              "function": "",
-                              "expression": "",
-                              "dataType": "",
-                              "format": {},
-                              "previewResult": ""
-                           }
-                        },
-                        "headerFormating": {
-                           "font": {
-                              "family": null,
-                              "size": null,
-                              "bold": null,
-                              "italic": null,
-                              "underline": null,
-                              "color": null,
-                              "backgroundColor": null
-                           },
-                           "alignment": null,
-                           "wordWrap": null,
-                           "columnGroup": ""
-                        },
-                        "drillDown": {
-                           "subReport": {
-                              "selectedReport": null,
-                              "style": null,
-                              "reportPartUsed": null,
-                              "reportFilter": true,
-                              "mappingFields": [],
-                              "selectedIconValue": {
-                                 "icon": null,
-                                 "value": null
-                              },
-                              "viewSettingByLink": null
-                           }
-                        },
-                        "otherProps": {}
-                     },
-                     "position": 1,
-                     "field": {
-                        "fieldId": "fbf031a0-3e2d-49e7-972e-fffc98b634e5",
-                        "fieldName": "OrderDate",
-                        "fieldNameAlias": "OrderDate",
-                        "dataFieldType": "Datetime",
-                        "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
-                        "querySourceType": "Table",
-                        "sourceAlias": "Orders",
-                        "relationshipId": null,
-                        "visible": true,
-                        "calculatedTree": null,
-                        "schemaName": "dbo",
-                        "querySourceName": "Orders",
-                        "databaseName": "test",
-                        "isCalculated": false,
-                        "hasAggregatedFunction": false
-                     }
-                  }
-               ],
-               "name": "labels"
-            },
-            "values": {
-               "elements": [
-                  {
-                     "name": "Sum (Freight)",
-                     "properties": {
-                        "fieldItemVisible": true,
-                        "dataFormattings": {
-                           "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
-                           "functionInfo": {
-                              "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
-                              "name": "Sum",
-                              "expression": null,
-                              "dataType": "Money",
-                              "formatDataType": "Money",
-                              "syntax": null,
-                              "expressionSyntax": null,
-                              "isOperator": false,
-                              "userDefined": false,
-                              "extendedProperties": {}
-                           },
-                           "format": {
-                              "createNewHiddenPercenOfGroupField": false
-                           },
-                           "font": {
-                              "family": "Roboto",
-                              "size": 14,
-                              "bold": false,
-                              "italic": false,
-                              "underline": false,
-                              "color": "",
-                              "backgroundColor": ""
-                           },
-                           "width": {
-                              "value": null
-                           },
-                           "alignment": "alignLeft",
-                           "sort": "ASC",
-                           "color": {
-                              "textColor": {
-                                 "rangePercent": null,
-                                 "rangeValue": null,
-                                 "value": null
-                              },
-                              "cellColor": {
-                                 "rangePercent": null,
-                                 "rangeValue": null,
-                                 "value": null
-                              }
-                           },
-                           "alternativeText": {
-                              "rangePercent": null,
-                              "rangeValue": null,
-                              "value": null
-                           },
-                           "customURL": {
-                              "url": "",
-                              "option": "LINK_NEW_WINDOW"
-                           },
-                           "embeddedJavascript": {
-                              "script": ""
-                           },
-                           "subTotal": {
-                              "label": "",
-                              "function": "",
-                              "expression": "",
-                              "dataType": "",
-                              "format": {},
-                              "previewResult": ""
-                           },
-                           "grandTotal": {
-                              "label": "",
-                              "function": "",
-                              "expression": "",
-                              "dataType": "",
-                              "format": {},
-                              "previewResult": ""
-                           }
-                        },
-                        "headerFormating": {
-                           "font": {
-                              "family": null,
-                              "size": null,
-                              "bold": null,
-                              "italic": null,
-                              "underline": null,
-                              "color": null,
-                              "backgroundColor": null
-                           },
-                           "alignment": null,
-                           "wordWrap": null,
-                           "columnGroup": ""
-                        },
-                        "drillDown": {
-                           "subReport": {
-                              "selectedReport": null,
-                              "style": null,
-                              "reportPartUsed": null,
-                              "reportFilter": true,
-                              "mappingFields": [],
-                              "selectedIconValue": {
-                                 "icon": null,
-                                 "value": null
-                              },
-                              "viewSettingByLink": null
-                           }
-                        },
-                        "otherProps": {}
-                     },
-                     "position": 1,
-                     "field": {
-                        "fieldId": "61b3c4ad-cbd4-49b0-9385-540568397e05",
-                        "fieldName": "Freight",
-                        "fieldNameAlias": "Sum (Freight)",
-                        "dataFieldType": "Money",
-                        "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
-                        "querySourceType": "Table",
-                        "sourceAlias": "Orders",
-                        "relationshipId": null,
-                        "visible": true,
-                        "calculatedTree": null,
-                        "schemaName": "dbo",
-                        "querySourceName": "Orders",
-                        "databaseName": "test",
-                        "isCalculated": false,
-                        "hasAggregatedFunction": false
-                     }
-                  }
-               ],
-               "name": "values"
-            },
-            "valuesLabels": {
-               "elements": [],
-               "name": "valuesLabels"
-            },
-            "separators": {
-               "elements": [],
-               "name": "separators"
-            },
-            "bubbleSize": {
-               "elements": [],
-               "name": "bubbleSize"
-            },
-            "properties": {
-               "staticProperties": {},
-               "chartType": "Line",
-               "commonOptions": {
-                  "izHoverLabels": true,
-                  "izLegend.visibility": false,
-                  "izLegend.horizontalAlign": "izRight",
-                  "izLegend.verticalAlign": "izBottom",
-                  "izLegend.borderWidth": 0,
-                  "izChartStyle": {},
-                  "izendaHiddenAllAxis": false
-               },
-               "optionByType": {
-                  "izTotalLabel": "",
-                  "izUseSeparator": true,
-                  "izInverted": false,
-                  "izSpline": false,
-                  "izValueLabel": false,
-                  "legendSettings": true
-               },
-               "view": {
-                  "dataRefreshInterval": {
-                     "enable": false,
-                     "updateInterval": 0,
-                     "isAll": true,
-                     "latestRecord": 0
-                  }
-               },
-               "commonXYAxis": {},
-               "printing": {
-                  "izPageBreakAfterSeparator": false
+               "alignment": {
+                  "alignment": ""
                }
+            },
+            "elements": []
+         },
+         "description": {
+            "text": "",
+            "properties": {},
+            "settings": {
+               "font": {
+                  "family": "",
+                  "size": 14,
+                  "bold": false,
+                  "italic": false,
+                  "underline": false,
+                  "color": "",
+                  "highlightColor": ""
+               },
+               "alignment": {
+                  "alignment": ""
+               }
+            },
+            "elements": []
+         },
+         "labels": {
+            "elements": [
+               {
+                  "reportPartContent": null,
+                  "isDirty": true,
+                  "name": "OrderDate",
+                  "properties": {
+                     "isDirty": true,
+                     "fieldItemVisible": true,
+                     "dataFormattings": {
+                        "function": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+                        "functionInfo": {
+                           "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+                           "name": "Group",
+                           "expression": null,
+                           "dataType": "Datetime",
+                           "formatDataType": "Datetime",
+                           "syntax": null,
+                           "expressionSyntax": null,
+                           "isOperator": false,
+                           "userDefined": false,
+                           "extendedProperties": {}
+                        },
+                        "format": {
+                           "formatId": "8e4b292a-9685-4bca-93ca-03bdeee470cc",
+                           "format": "Month Name",
+                           "groupBy": "month",
+                           "formatDataType": null,
+                           "createNewHiddenPercenOfGroupField": false
+                        },
+                        "font": {
+                           "family": "Roboto",
+                           "size": 14,
+                           "bold": false,
+                           "italic": false,
+                           "underline": false,
+                           "color": "",
+                           "backgroundColor": ""
+                        },
+                        "width": {
+                           "value": null
+                        },
+                        "alignment": null,
+                        "sort": "ASC",
+                        "color": {
+                           "textColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           },
+                           "cellColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           }
+                        },
+                        "alternativeText": {
+                           "rangePercent": null,
+                           "rangeValue": null,
+                           "value": null
+                        },
+                        "customURL": {
+                           "url": "",
+                           "option": "LINK_NEW_WINDOW"
+                        },
+                        "embeddedJavascript": {
+                           "script": ""
+                        },
+                        "subTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        },
+                        "grandTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        }
+                     },
+                     "headerFormating": {
+                        "font": {
+                           "family": null,
+                           "size": null,
+                           "bold": null,
+                           "italic": null,
+                           "underline": null,
+                           "color": null,
+                           "backgroundColor": null
+                        },
+                        "alignment": null,
+                        "wordWrap": null,
+                        "columnGroup": ""
+                     },
+                     "drillDown": {
+                        "subReport": {
+                           "selectedReport": null,
+                           "style": null,
+                           "reportPartUsed": null,
+                           "reportFilter": true,
+                           "mappingFields": [],
+                           "selectedIconValue": {
+                              "icon": null,
+                              "value": null
+                           },
+                           "viewSettingByLink": null
+                        }
+                     },
+                     "otherProps": {}
+                  },
+                  "position": 1,
+                  "field": {
+                     "fieldId": "fbf031a0-3e2d-49e7-972e-fffc98b634e5",
+                     "fieldName": "OrderDate",
+                     "fieldNameAlias": "OrderDate",
+                     "dataFieldType": "Datetime",
+                     "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
+                     "querySourceType": "Table",
+                     "sourceAlias": "Orders",
+                     "relationshipId": null,
+                     "visible": true,
+                     "calculatedTree": null,
+                     "schemaName": "dbo",
+                     "querySourceName": "Orders",
+                     "databaseName": "test",
+                     "isCalculated": false,
+                     "hasAggregatedFunction": false
+                  },
+                  "isDeleted": false,
+                  "isSelected": false,
+                  "offset": {
+                     "top": 500,
+                     "right": 436.671875,
+                     "bottom": 522,
+                     "left": 337,
+                     "width": 99.671875,
+                     "height": 22
+                  }
+               }
+            ],
+            "name": "labels"
+         },
+         "values": {
+            "elements": [
+               {
+                  "reportPartContent": null,
+                  "isDirty": false,
+                  "name": "Sum (Freight)",
+                  "properties": {
+                     "isDirty": false,
+                     "fieldItemVisible": true,
+                     "dataFormattings": {
+                        "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                        "functionInfo": {
+                           "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
+                           "name": "Sum",
+                           "expression": null,
+                           "dataType": "Money",
+                           "formatDataType": "Money",
+                           "syntax": null,
+                           "expressionSyntax": null,
+                           "isOperator": false,
+                           "userDefined": false,
+                           "extendedProperties": {}
+                        },
+                        "format": {},
+                        "font": {
+                           "family": "Roboto",
+                           "size": 14,
+                           "bold": false,
+                           "italic": false,
+                           "underline": false,
+                           "color": "",
+                           "backgroundColor": ""
+                        },
+                        "width": {
+                           "value": null
+                        },
+                        "alignment": "alignLeft",
+                        "sort": "ASC",
+                        "color": {
+                           "textColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           },
+                           "cellColor": {
+                              "rangePercent": null,
+                              "rangeValue": null,
+                              "value": null
+                           }
+                        },
+                        "alternativeText": {
+                           "rangePercent": null,
+                           "rangeValue": null,
+                           "value": null
+                        },
+                        "customURL": {
+                           "url": "",
+                           "option": "LINK_NEW_WINDOW"
+                        },
+                        "embeddedJavascript": {
+                           "script": ""
+                        },
+                        "subTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        },
+                        "grandTotal": {
+                           "label": "",
+                           "function": "",
+                           "expression": "",
+                           "dataType": "",
+                           "format": {},
+                           "previewResult": ""
+                        }
+                     },
+                     "headerFormating": {
+                        "font": {
+                           "family": null,
+                           "size": null,
+                           "bold": null,
+                           "italic": null,
+                           "underline": null,
+                           "color": null,
+                           "backgroundColor": null
+                        },
+                        "alignment": null,
+                        "wordWrap": null,
+                        "columnGroup": ""
+                     },
+                     "drillDown": {
+                        "subReport": {
+                           "selectedReport": null,
+                           "style": null,
+                           "reportPartUsed": null,
+                           "reportFilter": true,
+                           "mappingFields": [],
+                           "selectedIconValue": {
+                              "icon": null,
+                              "value": null
+                           },
+                           "viewSettingByLink": null
+                        }
+                     },
+                     "otherProps": {},
+                     "metric": {
+                        "isDirty": false,
+                        "scale": {
+                           "from": null,
+                           "to": null
+                        },
+                        "unitLabel": "",
+                        "thresholds": {
+                           "setting": "",
+                           "levels": []
+                        },
+                        "supplementaryKPI": {
+                           "valueType": "",
+                           "unitLabel": "",
+                           "value": null,
+                           "element": null
+                        }
+                     }
+                  },
+                  "position": 1,
+                  "field": {
+                     "fieldId": "61b3c4ad-cbd4-49b0-9385-540568397e05",
+                     "fieldName": "Freight",
+                     "fieldNameAlias": "Sum (Freight)",
+                     "dataFieldType": "Money",
+                     "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
+                     "querySourceType": "Table",
+                     "sourceAlias": "Orders",
+                     "relationshipId": null,
+                     "visible": true,
+                     "calculatedTree": null,
+                     "schemaName": "dbo",
+                     "querySourceName": "Orders",
+                     "databaseName": "test",
+                     "isCalculated": false,
+                     "hasAggregatedFunction": false
+                  },
+                  "isDeleted": false,
+                  "isSelected": false,
+                  "offset": {
+                     "top": 643,
+                     "right": 592.25,
+                     "bottom": 665,
+                     "left": 473.25,
+                     "width": 119,
+                     "height": 22
+                  }
+               }
+            ],
+            "name": "values"
+         },
+         "separators": {
+            "elements": [],
+            "name": "separators"
+         },
+         "properties": {
+            "staticProperties": {},
+            "chartType": "SolidGauge",
+            "optionByType": {
+               "izUseSeparator": true,
+               "izUsePagination": true,
+               "izItemPerRow": 2
+            },
+            "view": {
+               "showLabels": false,
+               "dataRefreshInterval": {
+                  "enable": false,
+                  "updateInterval": 0,
+                  "isAll": true,
+                  "latestRecord": 0
+               }
+            },
+            "printing": {
+               "izPageBreakAfterSeparator": false
             }
          }
+      }
 
 Update the properties of each field per user selection
 ------------------------------------------------------------------------------
@@ -512,10 +514,10 @@ Please see :doc:`/ref/models/ReportPartElementProperties` for the purpose of eac
 
 See :doc:`code_javascript_sample_properties_for_a_reportpartelement` for more samples.
 
-Update the properties of the Chart in "properties" field per user selection
+Update the properties of the Gauge in "properties" field per user selection
 ------------------------------------------------------------------------------
 
-Please see :doc:`/ref/models/ReportPartChartProperties` for the purpose of each field.
+Please see :doc:`/ref/models/ReportPartGaugeProperties` for the purpose of each field.
 
 Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts>`
 ----------------------------------------------------------------------------------------
@@ -530,7 +532,7 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
 
       {
          "reportKey": {
-            "key": "5f71f8c8-dc8d-47f4-9253-3594d1114fc5",
+            "key": "3b50a6e7-1ae0-47c3-8c1c-70b375c86d85",
             "tenantId": null
          },
          "section": 2,
@@ -586,7 +588,7 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
             "reportPart": [
                {
                   "reportPartContent": {
-                     "type": 0,
+                     "type": 2,
                      "title": {
                         "text": "",
                         "properties": {},
@@ -628,8 +630,11 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                      "labels": {
                         "elements": [
                            {
+                              "reportPartContent": null,
+                              "isDirty": true,
                               "name": "OrderDate",
                               "properties": {
+                                 "isDirty": true,
                                  "fieldItemVisible": true,
                                  "dataFormattings": {
                                     "function": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
@@ -646,9 +651,9 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                        "extendedProperties": {}
                                     },
                                     "format": {
-                                       "formatId": "76875180-32c1-4180-b92f-03bdb14c4f6a",
-                                       "format": "Year",
-                                       "groupBy": "year",
+                                       "formatId": "8e4b292a-9685-4bca-93ca-03bdeee470cc",
+                                       "format": "Month Name",
+                                       "groupBy": "month",
                                        "formatDataType": null,
                                        "createNewHiddenPercenOfGroupField": false
                                     },
@@ -664,7 +669,7 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                     "width": {
                                        "value": null
                                     },
-                                    "alignment": "alignLeft",
+                                    "alignment": null,
                                     "sort": "ASC",
                                     "color": {
                                        "textColor": {
@@ -754,6 +759,16 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                  "databaseName": "test",
                                  "isCalculated": false,
                                  "hasAggregatedFunction": false
+                              },
+                              "isDeleted": false,
+                              "isSelected": false,
+                              "offset": {
+                                 "top": 500,
+                                 "right": 436.671875,
+                                 "bottom": 522,
+                                 "left": 337,
+                                 "width": 99.671875,
+                                 "height": 22
                               }
                            }
                         ],
@@ -762,8 +777,11 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                      "values": {
                         "elements": [
                            {
+                              "reportPartContent": null,
+                              "isDirty": false,
                               "name": "Sum (Freight)",
                               "properties": {
+                                 "isDirty": false,
                                  "fieldItemVisible": true,
                                  "dataFormattings": {
                                     "function": "902a9168-fc01-4a35-92fb-ea67942d099d",
@@ -779,9 +797,7 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                        "userDefined": false,
                                        "extendedProperties": {}
                                     },
-                                    "format": {
-                                       "createNewHiddenPercenOfGroupField": false
-                                    },
+                                    "format": {},
                                     "font": {
                                        "family": "Roboto",
                                        "size": 14,
@@ -865,7 +881,25 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                        "viewSettingByLink": null
                                     }
                                  },
-                                 "otherProps": {}
+                                 "otherProps": {},
+                                 "metric": {
+                                    "isDirty": false,
+                                    "scale": {
+                                       "from": null,
+                                       "to": null
+                                    },
+                                    "unitLabel": "",
+                                    "thresholds": {
+                                       "setting": "",
+                                       "levels": []
+                                    },
+                                    "supplementaryKPI": {
+                                       "valueType": "",
+                                       "unitLabel": "",
+                                       "value": null,
+                                       "element": null
+                                    }
+                                 }
                               },
                               "position": 1,
                               "field": {
@@ -884,44 +918,35 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                                  "databaseName": "test",
                                  "isCalculated": false,
                                  "hasAggregatedFunction": false
+                              },
+                              "isDeleted": false,
+                              "isSelected": false,
+                              "offset": {
+                                 "top": 643,
+                                 "right": 592.25,
+                                 "bottom": 665,
+                                 "left": 473.25,
+                                 "width": 119,
+                                 "height": 22
                               }
                            }
                         ],
                         "name": "values"
                      },
-                     "valuesLabels": {
-                        "elements": [],
-                        "name": "valuesLabels"
-                     },
                      "separators": {
                         "elements": [],
                         "name": "separators"
                      },
-                     "bubbleSize": {
-                        "elements": [],
-                        "name": "bubbleSize"
-                     },
                      "properties": {
                         "staticProperties": {},
-                        "chartType": "Line",
-                        "commonOptions": {
-                           "izHoverLabels": true,
-                           "izLegend.visibility": false,
-                           "izLegend.horizontalAlign": "izRight",
-                           "izLegend.verticalAlign": "izBottom",
-                           "izLegend.borderWidth": 0,
-                           "izChartStyle": {},
-                           "izendaHiddenAllAxis": false
-                        },
+                        "chartType": "SolidGauge",
                         "optionByType": {
-                           "izTotalLabel": "",
                            "izUseSeparator": true,
-                           "izInverted": false,
-                           "izSpline": false,
-                           "izValueLabel": false,
-                           "legendSettings": true
+                           "izUsePagination": true,
+                           "izItemPerRow": 2
                         },
                         "view": {
+                           "showLabels": false,
                            "dataRefreshInterval": {
                               "enable": false,
                               "updateInterval": 0,
@@ -929,7 +954,6 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                               "latestRecord": 0
                            }
                         },
-                        "commonXYAxis": {},
                         "printing": {
                            "izPageBreakAfterSeparator": false
                         }
@@ -939,15 +963,15 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
                   "height": 4,
                   "positionY": 0,
                   "positionX": 0,
-                  "title": "Grid"
+                  "title": "Gauge"
                }
             ],
             "reportFilter": {
                "filterFields": [],
                "logic": "",
                "visible": true,
-               "reportId": "5f71f8c8-dc8d-47f4-9253-3594d1114fc5",
-               "id": "dc7aa7bd-f79f-4a92-8f87-9dd35d88e193",
+               "reportId": "3b50a6e7-1ae0-47c3-8c1c-70b375c86d85",
+               "id": "56aa84a0-5301-44fa-850f-e0e28d9c8abd",
                "state": 0,
                "deleted": false,
                "inserted": true,
@@ -961,15 +985,15 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
             "accesses": [],
             "schedules": [],
             "dynamicQuerySourceFields": [],
-            "name": "Example Report Name 15",
+            "name": "Example Gauge 3",
             "reportDataSource": [
                {
-                  "reportId": "5f71f8c8-dc8d-47f4-9253-3594d1114fc5",
+                  "reportId": "3b50a6e7-1ae0-47c3-8c1c-70b375c86d85",
                   "querySourceId": "af773c7b-878e-461b-9345-27ee6592db1a",
                   "querySourceCategoryId": null,
                   "connectionId": null,
                   "selected": true,
-                  "id": "306b7863-6731-4359-8f5b-e8f1c000167c",
+                  "id": "1ef0995e-43f9-4465-b26e-55c0256c84fa",
                   "state": 1,
                   "deleted": false,
                   "inserted": false,
@@ -1452,7 +1476,7 @@ Back to the Save step in :ref:`Build a Generic Report <Populate_the_report_parts
             "copyable": false,
             "accessPriority": 0,
             "active": false,
-            "id": "5f71f8c8-dc8d-47f4-9253-3594d1114fc5",
+            "id": "3b50a6e7-1ae0-47c3-8c1c-70b375c86d85",
             "state": 1,
             "deleted": false,
             "inserted": false,
