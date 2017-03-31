@@ -12,6 +12,9 @@ div.wy-nav-top {
 /*.wy-nav-content {
     max-width: none;
 }*/
+.wy-nav-content {
+    max-width: 1200px !important;
+}
 
 /**/
 .toggle .header {
