@@ -2,14 +2,6 @@
 Release Notes
 ==============
 
-v1.24.5
-~~~~~~~
-
-FIXES
-^^^^^
--  Defect 15310   Copy Process from Copy Console duplicating sharing permissions on reports after tenant copy
--  Defect 15341   Custom Tree Filter values appear in report designer but not in the report viewer
-
 v1.25.0
 ~~~~~~~
 
@@ -147,6 +139,13 @@ FIXES
 -  Defect 15415 Collation Issues, Invalid object name 'SYS.FOREIGN_KEY_COLUMNS'. When using case sensitive collation
 -  Defect 15416 When the physical database names are different for source and destination the copy fails.
 
+v1.24.5
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15310   Copy Process from Copy Console duplicating sharing permissions on reports after tenant copy
+-  Defect 15341   Custom Tree Filter values appear in report designer but not in the report viewer
 
 v1.24.4
 ~~~~~~~
