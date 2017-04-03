@@ -12,8 +12,69 @@ ReportPartMapProperties
       -  Description
    *  -  **chartType** |br|
          string
-      -
+      -  No
       -  The map type: either SolidGauge, LinearGauge or SimpleGauge
+   *  -  **reportPartState** |br|
+         object
+      -
+      -
+   *  -  .. container:: lpad2
+
+               **drilldownInfo** |br|
+               array of objects
+      -
+      -  The drill down information
+   *  -  .. container:: lpad2
+
+               **activeSerie** |br|
+               object
+      -  Y
+      -  To be updated
+   *  -  .. container:: lpad2
+
+               **pointOptionsList** |br|
+               array of objects
+      -  **No**
+      -  Selected data source fields in Point Options boxes |br|
+         Cannot be empty
+   *  -  .. container:: lpad4
+
+               **label** |br|
+               string
+      -
+      -  Name of the data source field
+   *  -  .. container:: lpad4
+
+               **value** |br|
+               string
+      -
+      -  Name of the data source field
+   *  -  .. container:: lpad4
+
+               **field** |br|
+               object
+      -
+      -  The data of the selected data source field |br|
+         An exact copy of content of **field** in :doc:`ReportPartElement`
+   *  -  .. container:: lpad4
+
+               **pointType** |br|
+               string
+      -
+      -  Type of the point, either "country", "state", "county", "city", "postalCode", "latitude" or "longtitude"
+   *  -  .. container:: lpad4
+
+               **pointTypeName** |br|
+               string
+      -
+      -  Same value as **pointType**
+   *  -  .. container:: lpad2
+
+               **activePointOption** |br|
+               object
+      -  **No**
+      -  The active point in the above **pointOptionsList** |br|
+         Cannot be empty
    *  -  **continentInfo** |br|
          object
       -
