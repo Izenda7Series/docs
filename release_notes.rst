@@ -5,6 +5,10 @@ Release Notes
 v1.25.0
 ~~~~~~~
 
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+-  For integrations using deployment mode 1 (Front End Integrated and Back End Standalone) you must update the Izenda System Settings table. The following Settings must contain the full URL including the base address AuthValidateAccessTokenUrl and AuthGetAccessTokenUrl. These would have been relative paths prior and now must be the full url including the base url.
+
 FEATURES
 ^^^^^^^^
 -  Additional Join Functionality with key join allows setting a comparison to another field, null, not null or a value which can be entered manually by the user. This can be used by any user with access to joins in the report designer. Currently this feature cannot be used in cross database joins. This will be implemented later with an additional option for an in comparison. 
