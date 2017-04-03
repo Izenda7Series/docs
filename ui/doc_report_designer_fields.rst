@@ -439,15 +439,14 @@ Open Field Properties box for data source fields in report
 
 .. note::
 
+   Instead of trying to find a field inside report body and click on it, user can quickly select a report part then one of its fields using the two drop-downs on top of Field Properties box. (:numref:`Report_Designer_Data_Source_Report_Part_And_Field_Drop-downs`)
+
    .. _Report_Designer_Data_Source_Report_Part_And_Field_Drop-downs:
 
    .. figure:: /_static/images/Report_Designer_Data_Source_Report_Part_And_Field_Drop-downs.png
-      :align: right
       :width: 219px
 
       Report Designer - Report Part and Field drop-downs
-
-   Instead of trying to find a field inside report body and click on it, user can quickly select a report part then one of its fields using the two drop-downs on top of Field Properties box. (:numref:`Report_Designer_Data_Source_Report_Part_And_Field_Drop-downs`) |br|
 
 Configure field properties in Data Source section
 =================================================
@@ -783,10 +782,6 @@ Configure field properties in Drill Down section
 In this section, user can connect another report as sub-report via the
 values in this parent report.
 
-#. Click the icon to open Sub-report Settings pop-up.
-#. Select the sub-report from the drop-down list.
-#. Tick the checkbox in case sub-report needs to filter in the same way
-   as parent report.
 #. .. _Report_Designer_Sub-report_Field_Mapping:
 
    .. figure:: /_static/images/Report_Designer_Sub-report_Field_Mapping.png
@@ -795,12 +790,16 @@ values in this parent report.
 
       Report Designer - Drill Down Field Mapping
 
-   Click Add Field Mapping button to insert a new mapping row.
+   Click the icon to open Sub-report Settings pop-up.
+#. Select the sub-report from the drop-down list.
+#. Tick the checkbox in case sub-report needs to filter in the same way
+   as parent report.
+#. Click Add Field Mapping button to insert a new mapping row.
 #. Select a field in current report to use its values as filter
 #. Select a field in sub-report to be filtered by those values. (:numref:`Report_Designer_Sub-report_Field_Mapping`)
 #. Continue to add more field mappings as needed.
 #. Choose a display style for the sub-report in the Style drop-down.
-#. Click OK to save the setting.
+#. Click OK to save the setting. |br|
 
 .. seealso::
 
