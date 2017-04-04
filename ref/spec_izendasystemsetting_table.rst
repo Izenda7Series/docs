@@ -31,13 +31,13 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
        * 2 = BEIntegratedFEStandAlone
        * 3 = AllIntegrated
      - 0
-   * - **AuthenticationBaseAddress**
-     - Access token validation host address, in Integrated Front-end modes
+   * - **AuthenticationBaseAddress **
+     - Deprecated 1.25.0 release
      - Blank
-   * - **AuthenticationUrl**
+   * - **AuthValidateAccessTokenUrl **
      - Access token validation path (prefixed by AuthenticationBaseAddress)
      - api/validateAccessToken
-   * - **GetAccessTokenUrl**
+   * - **AuthValidateAccessTokenUrl **
      - Access token retrieval path (prefixed by AuthenticationBaseAddress)
      - api/getAccessToken
    * - **LicenseExpiredWarningPeriod**
