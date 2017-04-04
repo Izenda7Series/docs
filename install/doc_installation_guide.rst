@@ -342,7 +342,7 @@ Additional features can be set for a customized deployment experience. For live 
    #. Also edit the file ``App\izenda_config.js``, replace the default
       value "api" with the new value at the following places:
 
-      -  ``"WebApiUrl": "<nowiki>http://127.0.0.1:8888/api/</nowiki>",``
+      -  ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
 
 -  Optionally change Izenda log file settings
 
