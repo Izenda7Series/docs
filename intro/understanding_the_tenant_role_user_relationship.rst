@@ -93,12 +93,12 @@ The Law of Filtered Resources
 
 The Law of Least Restriction
 ----------------------------
-- The access for a user is the union of all of it's identities. 
+- The access for a user is the union of all of it's identities' access. For reports/dashboards, the access for a user is the union of all of it's identities' report/dashboard and all access rights explicitly defined in a report/dashboard.
    -  Users can only belong to one tenant and, therefore, roles defined in a tenant contain subsets of resource access of the tenant. Since users can have multiple roles, the role identity of a user is the union of all it's roles. Therefore, if a user belongs to one role that does not allow access to a resource but it also belongs to a role that does allow access to a resource, the user will have access to the resource.
    - Suppose we want User X to have access to Resources {A, B, C, D, E}. User X must have Role 1, Role 2, Role 3.
    - Suppose we want User X to have access to Resources {A, C, D, E}. User X must have Role 2 and Role 3.
-- The Law of Least Restriction makes it impossible to define a user's access to a resource by the instersection of roles.
+- The Law of Least Restriction makes it impossible to define a user's access to a resource by the instersection of roles with only the use of roles.
    - Suppose we want User X to have access to Resources {A, C, E} but we do not want it to have access to Resources {B, D}. With the roles provided, it is impossible to restrict access with roles alone.
-- The Law of Least Restriction makes it impossible to define roles within roles (subsets)
+- The Law of Least Restriction makes it impossible to define roles within roles (subsets) with only the use of roles
  
 
