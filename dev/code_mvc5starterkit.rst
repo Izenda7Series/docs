@@ -14,7 +14,7 @@ where particular functionality is showcased.
 
 For MVC set up steps, please refer to the :doc:`/install/doc_mvc_setup_guide`.
 
-*Under Construction.*
+
 
 Location and Descriptions of Features
 -------------------------------------
@@ -193,27 +193,11 @@ Understanding the Data Model
 Izenda Configuration Database 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Table: [dbo].[IzendaSystemSetting]
-
-+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| Column Name                 | Column Details                                                                                                                       |
-+=============================+======================================================================================================================================+
-| LicenseWebAPIUrl            | The value for this column allows the Mvc5Starterkit application to reference Izenda's main licensing page.                           |
-+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| ApiSecretToken              | The value for this column holds the configured and assigned API Token for the Mvc5Starterkit application.                            |
-+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| AuthenticationBaseAddress   | The value for this column points to the local/virtual machine where the Mvc5Starterkit application will run.                         |
-+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| AuthenticationUrl           | The value for this column references the url address that will validate the assigned Mvc5Starterkit application's API Secret Token   |
-+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-
+:ref:`spec_izendasystemsetting_table'
 
 
 A Granular Overview Of The Mvc5Starterkit Database Tables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    ''The Izenda User Store is located within the '''[insert database
-    location here]. **[Describe what it does here.]** ''
 
 Table: [dbo].[AspNetUsers]
 
