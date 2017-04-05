@@ -49,7 +49,7 @@ Standalone Deployment
 
 -  **BI Platform Implementation**
 
-   -  *Requires the API, StandaloneUI, and an empty database*
+   -  *Requires the `API <http://downloads.izenda.com/latest/API.zip/>`_, `StandaloneUI <http://downloads.izenda.com/latest/StandaloneUI.zip>`_, and an empty database*
 
    -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
