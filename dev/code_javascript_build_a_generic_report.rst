@@ -9,7 +9,6 @@ Build a Generic Report
    #. Populate selected data sources.
    #. Prepare a :doc:`/ref/models/ReportSavingParameter` object as API input.
    #. Call :ref:`Save report as draft <POST_report/draft>` API, then receive back the :doc:`/ref/models/ReportSavingResult` object.
-
 #. Populate the draft with report parts
 
    #. Extract the ``report`` field from the :doc:`/ref/models/ReportSavingResult` object. This is a :doc:`/ref/models/ReportDefinition` object which has been assigned a report id.
@@ -20,7 +19,6 @@ Build a Generic Report
       *  :doc:`code_javascript_build_a_simple_gauge`
       *  :doc:`code_javascript_build_a_simple_map`
       *  :doc:`code_javascript_build_a_simple_form`
-
 #. Save the report
 
    #. Prepare a :doc:`/ref/models/ReportSavingParameter` object as API input.
@@ -1341,7 +1339,9 @@ Populate the report parts
 
    *  :doc:`code_javascript_build_a_simple_grid`
    *  :doc:`code_javascript_build_a_simple_chart`
-   *  To be updated for Gauge, Map and Form |br|
+   *  :doc:`code_javascript_build_a_simple_gauge`
+   *  :doc:`code_javascript_build_a_simple_map`
+   *  :doc:`code_javascript_build_a_simple_form`
 #. For each report part object, build a corresponding :doc:`/ref/models/ReportPartDefinition` object
 
    *  Highlighted ``reportPartContent`` is to be updated by the report part object 
