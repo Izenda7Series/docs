@@ -10,7 +10,7 @@ Within Izenda, users fit into categories that define their relationships
 with other users. Izenda utilizes these relationships to define access
 rights of features, data, reports, and dashboards. 
 
-.. figure:: /_static/images/Tenant-role-user6.jpg
+.. figure:: /_static/images/true_single_tenant.png
 
    Tenant-Role-User Relationship
 
@@ -55,19 +55,32 @@ generally used to define one definite entity with a broad access to
 features, data, reports, and dashboards.
 - Users and roles can only belong to 1 tenant
 
-System Modes
-~~~~~~~~~~~~
+Tenant System Modes
+-------------------
 
 -  Izenda is built to support two main system configuration modes:
 
-   -  Single Tenant: Single tenant allows you to set up Izenda for a
-      single client scenario.
-   -  Multi-Tenant: Multi-Tenant provides an easy management of multiple
-      clients on the same instance of Izenda.
+Single Tenant
+~~~~~~~~~~~~~
+Single tenant allows you to set up Izenda for a single client scenario.
 
-      -  If you use multi-tenant mode, you can choose to allow
-         duplicated User IDs where an ID can be used in multiple
-         tenants.
+.. figure:: /_static/images/true_single_tenant.png
+
+   Single Tenant Mode
+
+
+Multi-Tenant
+~~~~~~~~~~~~~
+Multi-Tenant provides an easy management of multiple clients on the same instance of Izenda.
+
+-  If you use multi-tenant mode, you can choose to allow duplicated User IDs where an ID can be used in multiple tenants. These User IDs do not reference the same user.
+-  Roles can mirror each other in each tenant but roles cannot exist between tenants.
+-  Users can mirror each other in each tenant but users, other than a System Administrator, cannot exist between tenants.
+
+.. figure:: /_static/images/true_multi_tenant.png
+
+   Multi-Tenant Mode
+
 
 For more on Multi-Tenant Setup, please see the :doc:`/ui/doc_tenant_setup`.
 
