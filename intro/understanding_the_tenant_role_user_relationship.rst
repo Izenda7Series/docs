@@ -64,7 +64,7 @@ Single Tenant
 ~~~~~~~~~~~~~
 Single tenant allows you to set up Izenda for a single client scenario.
 
-.. figure:: /_static/images/tru_single_tenant.png
+.. figure:: /_static/images/tru_single_tenant.PNG
 
    Single Tenant Mode
 
