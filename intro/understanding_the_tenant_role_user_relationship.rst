@@ -10,7 +10,7 @@ Within Izenda, users fit into categories that define their relationships
 with other users. Izenda utilizes these relationships to define access
 rights of features, data, reports, and dashboards. 
 
-.. figure:: /_static/images/true_single_tenant.png
+.. figure:: /_static/images/true_single_tenant.PNG
 
    Tenant-Role-User Relationship
 
@@ -77,7 +77,7 @@ Multi-Tenant provides an easy management of multiple clients on the same instanc
 -  Roles can mirror each other in each tenant but roles cannot exist between tenants.
 -  Users can mirror each other in each tenant but users, other than a System Administrator, cannot exist between tenants.
 
-.. figure:: /_static/images/true_multi_tenant.png
+.. figure:: /_static/images/true_multi_tenant.PNG
 
    Multi-Tenant Mode
 
@@ -92,7 +92,7 @@ The Nature of Izenda
 Izenda abides by a few simple rules to ensure that resources are properly secure. A resource could be a data source, access right, or report. We will use the following example to display these laws. In this example, we have a tenant with access to resources {A, B, C, D, E}. We have three roles: Role 1 with access to {A,B,C}; Role 2 with accecss to {A,C,D}; Role 3 with access to {A,E}. Finally, we have a User X that we would like to grant access to to certain resources. 
 
 
-.. figure:: /_static/images/resource_mapping_example.png
+.. figure:: /_static/images/resource_mapping_example.PNG
 
    Resource Mapping Example
 
