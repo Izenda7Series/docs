@@ -10,6 +10,8 @@ Report Part Details
    ReportPartContainer
    ReportPartElement
    ReportPartElementProperties
+   ReportPartForm
+   ReportPartFormProperties
    ReportPartGauge
    ReportPartGaugeProperties
    ReportPartGrid
