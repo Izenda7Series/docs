@@ -2,6 +2,13 @@
 Release Notes
 ==============
 
+v1.25.1
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15457 When using a date/time field on the x axis and a separator the chart fails to render	
+
 v1.25.0
 ~~~~~~~
 
