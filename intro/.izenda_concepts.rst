@@ -11,3 +11,4 @@ The following are concepts within the Izenda Platform. Here, each topic will be 
    understanding_the_tenant_role_user_relationship
    understanding_reports_and_dashboards
    understanding_licensing_modes
+   nature_of_izenda_security
