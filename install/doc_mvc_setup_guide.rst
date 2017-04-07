@@ -6,7 +6,7 @@ For this installation guide of the MVC5StarterKit, Izenda will demonstrate the p
 
 Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking below:
 
-https://www.izenda.com/7-series-installation-videos/#mvc5starter.
+https://www.izenda.com/7-series-installation-videos/#mvc5starter
 --------------
 Downloads and Materials
 --------------
