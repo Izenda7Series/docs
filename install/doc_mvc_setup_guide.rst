@@ -7,7 +7,7 @@ For this installation guide of the MVC5StarterKit, Izenda will demonstrate the p
 Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking below:
 
 https://www.izenda.com/7-series-installation-videos/#mvc5starter
---------------
+
 Downloads and Materials
 --------------
 
@@ -15,7 +15,7 @@ To begin the process of installing the kit, download the EmbeddedUI.zip and API.
 
 As well, download the MVC5StarterKit.zip from the Izenda GitHub site. 
 This installation guide will reference Visual Studio, SSMS, and Google Chrome. Each of these will be on their latest up-to-date version as of 04/07/2017. 
---------------
+
 First Steps
 --------------
 Unzip the MVC5StarterKit.zip contents into an easy to access location to be referenced later. 
@@ -29,13 +29,13 @@ Now, with the project open, pull up the file explorer with the unzipped API dire
 Then navigate back to the API home directory. Take the API\Content, API\EmailTemplates, and API\Export Template directories and move the folders into the Mvc5StarterKit\IzendaResources directory. 
 
 Finally, move to the unzipped EmbeddedUI directory and copy all files and folders contained within and move them into the Mvc5StarterKit\Scripts\izenda directory of the project. 
---------------
+
 Sample Reporting Database Setup
 --------------
 Open SQL Server Management Studio. Right click on the “Databases” dropdown and select “New Database”. Give the new database the name “Retail”. 
 
 Now, locate the Retail database script contained within the Mvc5StarterKit directory in the SQLScript folder (Mvc5StarterKit\SQLScript). Then run that script on the newly created Retail database to update it. Once the script has successfully executed, the project and reporting database should be in a runnable state. 
---------------
+
 Starting the Application
 --------------
 In Visual Studio, right click on the project to build, and then run the application in the desired browser (for the purposes of this installation, Google Chrome will be the default browser).
@@ -53,7 +53,7 @@ Now the MVC5StarterKit is in a state that reports and dashboards can begin to be
 Feel free to navigate through the code to see how Izenda was programmatically integrated into the MVC5 default application offered by Microsoft. 
 
 Please review the following file: mvc5starterkit\mvc5starterkit\izendaboundary\customadhocreport.cs This is where you can find samples for: Hidden Filters Filter Dropdown Overrides See more information here: All About IAdhocExtension, Hidden Filters, and Filter Dropdown Overrides
---------------
+
 Alternative Environments
 --------------
 Contained within the kit are some tenants with custom themes that can be explored by logging in using their specific credentials. 
