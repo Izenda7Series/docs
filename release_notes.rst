@@ -7,11 +7,10 @@ v1.25.2
 
 FIXES
 ^^^^^
--  In integrated and standalone mode hidden filters are showing in the report designer and the viewer report is saved when new calculated field is added
--  Reports copied with copy console show broken relationship screen in the report designer
--  When copying a report with join alias and filter field from aliased table report errors in destination
--  Cannot Create Sub-Report Mapping on Calculated Field
-
+-  Defect 15498 In integrated and stand alone mode hidden filters are showing in the report designer and the viewer report is saved when new calculated field is added
+-  Defect 15499 Reports copied with copy console show broken relationship screen in the report designer
+-  Defect 15520 When copying a report with join alias and filter field from aliased table report errors in detination
+-  Defect 15397 Cannot Create Sub-Report Mapping on Calculated Field
 v1.25.1
 ~~~~~~~
 
