@@ -68,10 +68,10 @@ Add Web Server Role and .NET Framework
    check-box.
 #. Accept other default options then click Install.
 
+.. _Install_ASP.NET_4.5_and_URL_Rewrite_Components:
+
 Install ASP.NET 4.5 and URL Rewrite Components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- 
 
 #. Open Microsoft Web Platform Installer’s `download page <https://www.microsoft.com/web/downloads/platform.aspx>`__.
 
