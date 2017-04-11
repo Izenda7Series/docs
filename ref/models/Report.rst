@@ -215,6 +215,11 @@ Report
       -
       -  True if this is the latest version
       -
+   *  -  **isCheck** |br|
+         boolean
+      -
+      -  True if this is selected in copy workspace
+      -
 
 Inherited fields:
 

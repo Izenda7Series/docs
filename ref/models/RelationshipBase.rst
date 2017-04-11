@@ -83,7 +83,11 @@ RelationshipBase
       -
       -  The name of the category of the query source referenced by the relationship
       -
-
+   *  -  **comparisonOperator** |br|
+         string
+      -
+      -  The comparison operator
+      -
 
 
 

@@ -131,7 +131,21 @@ FilterField
       -
       -  Is the text underlined
       -
-
+   *  -  **querySourceUniqueName** |br|
+         string
+      -
+      -  A unique name for query source
+      -
+   *  -  **querySourceFieldName** |br|
+         string
+      -
+      -  The name of query source field
+      -
+   *  -  **comparisonFieldUniqueName** |br|
+         string
+      -
+      -  The unique name for comparison field
+      -
 
 Inherited fields:
 

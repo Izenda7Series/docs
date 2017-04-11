@@ -11,6 +11,7 @@ FIXES
 -  Defect 15499 Reports copied with copy console show broken relationship screen in the report designer
 -  Defect 15520 When copying a report with join alias and filter field from aliased table report errors in detination
 -  Defect 15397 Cannot Create Sub-Report Mapping on Calculated Field
+
 v1.25.1
 ~~~~~~~
 

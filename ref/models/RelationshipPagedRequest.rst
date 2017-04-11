@@ -33,6 +33,11 @@ RelationshipPagedRequest
       -
       -  An array of :doc:`ReportSelectedQuerySource` objects
       -
+   *  -  **selectedDataSourceChanged** |br|
+         boolean
+      -
+      -  Whether selected data source has changed
+      -
    *  -  **tenantId** |br|
          string (GUID)
       -  Y
@@ -62,6 +67,11 @@ RelationshipPagedRequest
          integer
       -
       -  The total number of rows
+      -  Inherited from :doc:`PagedRequest`
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
       -  Inherited from :doc:`PagedRequest`
 
 .. container:: toggle

@@ -17,6 +17,11 @@ ReportField
       -
       -  The id of the field
       -
+   *  -  **fieldUniqueName** |br|
+         string
+      -
+      -  Unique name for the field
+      -
    *  -  **originalName** |br|
          string
       -
@@ -41,6 +46,11 @@ ReportField
          string (GUID)
       -  Y
       -  The id of the query source
+      -
+   *  -  **querySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for the query source
       -
    *  -  **querySourceType** |br|
          string
@@ -87,10 +97,20 @@ ReportField
       -
       -  The grand total expression
       -
+   *  -  **grandTotalFormat** |br|
+         string
+      -
+      -  Format for the grand total
+      -
    *  -  **subTotalExpression** |br|
          string
       -
       -  The sub total expression
+      -
+   *  -  **subTotalFormat** |br|
+         string
+      -
+      -  Format for the sub total
       -
    *  -  **sort** |br|
          string
@@ -137,7 +157,11 @@ ReportField
       -
       -  Whether this field uses aggregated function
       -
-
+   *  -  **invalidField** |br|
+         integer
+      -
+      -  Invalid field setting
+      -
 
 .. container:: toggle
 

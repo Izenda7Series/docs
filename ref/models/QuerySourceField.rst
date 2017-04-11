@@ -199,7 +199,11 @@ QuerySourceField
       -
       -  The original alias
       -
-
+   *  -  **isCheck** |br|
+         boolean
+      -
+      -  Whether this is selected in workspace for copying
+      -
 
 
 

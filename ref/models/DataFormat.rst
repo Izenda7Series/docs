@@ -57,6 +57,11 @@ DataFormat
       -
       -  The position in the list of data formats
       -
+   *  -  **customId** |br|
+         string
+      -
+      -  The id of customed data format (using the name value by default)
+      -
 
 Inherited:
 

@@ -55,7 +55,17 @@ City
    *  -  **countryCode** |br|
          string
       -
-      -  The country code
+      -  The ISO Alpha-2 country code
+      -
+   *  -  **countryCode3** |br|
+         string
+      -
+      -  The ISO Alpha-3 country code
+      -
+   *  -  **countryName** |br|
+         string
+      -
+      -  The country name
       -
    *  -  **cc2** |br|
          string

@@ -91,6 +91,31 @@ Relationship
       -  Y
       -  The id of the parent report, in case this is a relationship in a report
       -
+   *  -  **foreignAlias** |br|
+         string
+      -
+      -  The foreign alias
+      -
+   *  -  **joinQuerySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for join query source
+      -
+   *  -  **joinFieldUniqueName** |br|
+         string
+      -
+      -  Unique name for join field
+      -
+   *  -  **foreignQuerySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for foreign query source
+      -
+   *  -  **foreignFieldUniqueName** |br|
+         string
+      -
+      -  Unique name for foreign field
+      -
    *  -  **tempId** |br|
          string
       -

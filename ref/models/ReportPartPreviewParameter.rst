@@ -42,12 +42,12 @@ ReportPartPreviewParameter
       -
       - A :doc:`PagingInfo` object
       -
-      
-      
-      
-      
-      
-      
+   *  -  **loadAll** |br|
+         boolean
+      -
+      - Whether to load all rows for printing
+      -
+
 
 Inherited fields:
 

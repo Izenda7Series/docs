@@ -22,6 +22,11 @@ ReportDataSource
       -
       -  The id of the query source
       -
+   *  -  **querySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for the query source
+      -
    *  -  **querySourceCategoryId** |br|
          string (GUID)
       -

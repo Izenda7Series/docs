@@ -58,12 +58,12 @@ User
       -
    *  -  **dataOffset** |br|
          integer
-      -
+      -  Y
       -  The time shift to be applied to datetime data from client database connections to match user's local time
       -
    *  -  **timestampOffset** |br|
          integer
-      -
+      -  Y
       -  The time shift to be applied to timestamp data (created date time, last updated date time) from Izenda system database to match user's local time zone
       -
    *  -  **initPassword** |br|

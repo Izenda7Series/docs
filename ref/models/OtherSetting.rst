@@ -83,6 +83,14 @@ OtherSetting
          string
       -  The default value for Send to Disk Path (``""``)
       -
+   *  -  **commonFilterSettingValue** |br|
+         integer
+      -  Option for Common Filter Setting
+      -
+   *  -  **commonFilterSettingDefaultValue** |br|
+         integer
+      -  The default value for Common Filter Setting
+      -
    *  -  **tenantId** |br|
          string (GUID)
       -  The id of the tenant |br|

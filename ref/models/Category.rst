@@ -65,6 +65,22 @@ Category
       -
       -  An array of child :doc:`Dashboard` objects
       -
+   *  -  **numOfChilds** |br|
+         integer
+      -
+      -  The number of children
+      -
+   *  -  **numOfCheckedChilds** |br|
+         integer
+      -
+      -  The number of selected children
+      -
+   *  -  **indeterminate** |br|
+         boolean
+      -
+      -  *  true if 0 < numOfCheckedChilds < numOfChilds
+         *  false if not
+      -
    *  -  **status** |br|
          integer
       -

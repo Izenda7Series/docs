@@ -47,6 +47,22 @@ FusionResult
       -
       -  A :doc:`PagingInfo` object
       -
+   *  -  **pivotHeaderValues** |br|
+         array of objects
+      -
+      -  The pivot header value |br|
+         An array of dynamic objects
+      -
+   *  -  **cities** |br|
+         array of objects
+      -
+      -  An array of :doc:`City` objects
+      -
+   *  -  **postalCodes** |br|
+         array of objects
+      -
+      -  An array of :doc:`PostCode` objects
+      -
 
 .. container:: toggle
 

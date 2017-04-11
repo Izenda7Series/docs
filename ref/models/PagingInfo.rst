@@ -27,3 +27,8 @@ PagingInfo
       -
       -  The total number of rows
       -
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
+      -

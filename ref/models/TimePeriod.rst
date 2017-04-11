@@ -27,7 +27,16 @@ TimePeriod
       -
       -  The internal value of the time period
       -
-
+   *  -  **isCustomFilter** |br|
+         boolean
+      -
+      -  Whether this is user-defined filter
+      -
+   *  -  **customId** |br|
+         string
+      -
+      -  The id of customed time period (using the name value by default)
+      -
 
 Inherited fields:
 

@@ -17,6 +17,11 @@ FilterOperatorGroup
       -
       -  The name of the operator group
       -
+   *  -  **defaultOperatorId** |br|
+         string (GUID)
+      -  Y
+      -  The id of the default operator of the group
+      -
 
 Inherited fields:
 

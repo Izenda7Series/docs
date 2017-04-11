@@ -105,9 +105,26 @@ ReportFilterField
       -
       -  The comparison value
       -
-
-
-
+   *  -  **inTimePeriodType** |br|
+         string
+      -
+      -  The type of custom in time period
+      -
+   *  -  **valueInTimePeriod** |br|
+         string
+      -
+      -  The value of custom in time period
+      -
+   *  -  **hasModifiedCalculatedTree** |br|
+         boolean
+      -
+      -  Whether this instance has modified calculated tree
+      -
+   *  -  **isHiddenFilter** |br|
+         boolean
+      -
+      -  Whether this instance is hidden filter
+      -
 
 Inherited fields:
 

@@ -17,6 +17,16 @@ ValueTreeNode
       -
       -  An array of child ValueTreeNode objects.
       -
+   *  -  **parent** |br|
+         object
+      -
+      -  The parent :doc:`ValueTreeNode` object.
+      -
+   *  -  **id** |br|
+         string (GUID)
+      -
+      -  The id of the object.
+      -
    *  -  **text** |br|
          string
       -

@@ -31,7 +31,11 @@ AccessToken
       -
       -  User-selectable date format
       -
-
+   *  -  **systemAdmin** |br|
+         boolean
+      -
+      -  Whether user is system admin
+      -
 
 Inherited fields:
 

@@ -51,6 +51,31 @@ RelationshipKeyJoin
       -
       -  The temporary id
       -
+   *  -  **joinQuerySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for join query source
+      -
+   *  -  **joinFieldUniqueName** |br|
+         string
+      -
+      -  Unique name for join field
+      -
+   *  -  **foreignQuerySourceUniqueName** |br|
+         string
+      -
+      -  Unique name for foreign query source
+      -
+   *  -  **foreignFieldUniqueName** |br|
+         string
+      -
+      -  Unique name for foreign field
+      -
+   *  -  **comparisonValue** |br|
+         string
+      -
+      -  The comparison value
+      -
    *  -  **selectedJoinSourceAlias** |br|
          string
       -

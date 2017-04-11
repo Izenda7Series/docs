@@ -42,6 +42,11 @@ PagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagingInfo`
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
+      -  Inherited from :doc:`PagingInfo`
 
 .. container:: toggle
 

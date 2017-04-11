@@ -82,6 +82,16 @@ FusionDataRequest
       -
       -  An array of :doc:`SortParam` objects
       -
+   *  -  **loadDraft** |br|
+         boolean
+      -
+      -  Whether to load report from draft
+      -
+   *  -  **loadAll** |br|
+         boolean
+      -
+      -  Whether to load all records for exporting or printing
+      -
 
 .. container:: toggle
 

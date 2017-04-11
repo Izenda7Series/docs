@@ -22,11 +22,6 @@ ReportDashboardSearchCriteria
       -
       -  A :doc:`SortOrder` object
       -
-   *  -  **tenantId** |br|
-         string (GUID)
-      -  Y
-      -  The id of the tenant if available
-      -
    *  -  **type** |br|
          integer
       -
@@ -66,6 +61,9 @@ ReportDashboardSearchCriteria
       -
       -  The timestamp offset
       -
+
+.. deprecated:: 1.25
+   tenantId field is removed
 
 .. container:: toggle
 
