@@ -4,8 +4,7 @@ MVC Setup Guide
 
 For this installation guide of the MVC5StarterKit, Izenda will demonstrate the process using Visual Studio, SQL Server Management Studio, and Google Chrome. 
 
-Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking below:
-https://www.izenda.com/7-series-installation-videos/#mvc5starter
+Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_.
 
 Downloads and Materials
 --------------
@@ -17,23 +16,24 @@ This installation guide will reference Visual Studio, SSMS, and Google Chrome. E
 
 First Steps
 --------------
-Unzip the MVC5StarterKit.zip contents into an easy to access location to be referenced later. 
+#. Unzip the MVC5StarterKit.zip contents into an easy to access location to be referenced later. 
 
-Unzip the contents of the downloaded EmbeddedUI.zip and API.zip files into an equally easy to access location. 
+#. Unzip the contents of the downloaded EmbeddedUI.zip and API.zip files into an equally easy to access location. 
 
-Navigate through the MVC5StarterKit directory to the file named Mvc5StarterKit.sln and double-click to open the project in Visual Studio. When open, the contents of the project should be listed on the right panel of the screen. 
+#. Navigate through the MVC5StarterKit directory to the file named Mvc5StarterKit.sln and double-click to open the project in Visual Studio. When open, the contents of the project should be listed on the right panel of the screen. 
 
-Now, with the project open, pull up the file explorer with the unzipped API directory open. Navigate to the API\bin directory and copy all of the contents and move them to the Mvc5StarterKit\IzendaReferences directory. 
+#. Now, with the project open, pull up the file explorer with the unzipped API directory open. Navigate to the API\bin directory and copy all of the contents and move them to the Mvc5StarterKit\IzendaReferences directory. 
 
-Then navigate back to the API home directory. Take the API\Content, API\EmailTemplates, and API\Export Template directories and move the folders into the Mvc5StarterKit\IzendaResources directory. 
+#. Then navigate back to the API home directory. Take the API\Content, API\EmailTemplates, and API\Export Template directories and move the folders into the Mvc5StarterKit\IzendaResources directory. 
 
-Finally, move to the unzipped EmbeddedUI directory and copy all files and folders contained within and move them into the Mvc5StarterKit\Scripts\izenda directory of the project. 
+#. Finally, move to the unzipped EmbeddedUI directory and copy all files and folders contained within and move them into the Mvc5StarterKit\Scripts\izenda directory of the project. 
 
 Sample Reporting Database Setup
 --------------
-Open SQL Server Management Studio. Right click on the “Databases” dropdown and select “New Database”. Give the new database the name “Retail”. 
 
-Now, locate the Retail database script contained within the Mvc5StarterKit directory in the SQLScript folder (Mvc5StarterKit\SQLScript). Then run that script on the newly created Retail database to update it. Once the script has successfully executed, the project and reporting database should be in a runnable state. 
+#. Open SQL Server Management Studio. Right click on the “Databases” dropdown and select “New Database”. Give the new database the name “Retail”. 
+
+#. Now, locate the Retail database script contained within the Mvc5StarterKit directory in the SQLScript folder (Mvc5StarterKit\SQLScript). Then run that script on the newly created Retail database to update it. Once the script has successfully executed, the project and reporting database should be in a runnable state. 
 
 Starting the Application
 --------------
@@ -61,23 +61,35 @@ There are three environments that can be analyzed through the UI and styling ass
 The logins are listed below:
 For each Tenant the following users / roles are configured all use the same password: Izenda@123
 
-Tenant: DELDG 
+
+**Tenant: DELDG** 
 
 User: employee@deldg.com Role: employee 
+
 User: manager@deldg.com Role: manager 
+
 User: vp@deldg.com Role: VP 
 
-Tenant: NATWR 
 
-User: employee@natwr.com Role: employee 
-User: manager@natwr.com Role: manager 
-User: VP@natwr.com Role: VP 
 
-Tenant: RETCL 
+**Tenant: NATWR**
+
+User: employee@natwr.com Role: employee
+
+User: manager@natwr.com Role: manager
+
+User: VP@natwr.com Role: VP
+
+
+
+**Tenant: RETCL** 
 
 User: employee@retcl.com Role: employee
+
 User: manager@retcl.com Role: manager 
+
 User: vp@retcl.com Role: VP 
+
 
 When registering a new user in this sample all users are hardcoded to the manager role here: Mvc5StarterKit\Controllers\AccountController.cs.
 
