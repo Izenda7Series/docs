@@ -61,6 +61,7 @@ There are three environments that can be analyzed through the UI and styling ass
 The logins are listed below:
 For each Tenant the following users / roles are configured all use the same password: Izenda@123
 
+
 Tenant: DELDG 
 
 User: employee@deldg.com Role: employee 
@@ -70,6 +71,7 @@ User: manager@deldg.com Role: manager
 User: vp@deldg.com Role: VP 
 
 
+
 Tenant: NATWR 
 
 User: employee@natwr.com Role: employee
@@ -77,6 +79,7 @@ User: employee@natwr.com Role: employee
 User: manager@natwr.com Role: manager
 
 User: VP@natwr.com Role: VP
+
 
 
 Tenant: RETCL 
