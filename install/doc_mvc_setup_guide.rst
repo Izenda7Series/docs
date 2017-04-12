@@ -64,20 +64,29 @@ For each Tenant the following users / roles are configured all use the same pass
 Tenant: DELDG 
 
 User: employee@deldg.com Role: employee 
+
 User: manager@deldg.com Role: manager 
+
 User: vp@deldg.com Role: VP 
+
 
 Tenant: NATWR 
 
-User: employee@natwr.com Role: employee 
-User: manager@natwr.com Role: manager 
-User: VP@natwr.com Role: VP 
+User: employee@natwr.com Role: employee
+
+User: manager@natwr.com Role: manager
+
+User: VP@natwr.com Role: VP
+
 
 Tenant: RETCL 
 
 User: employee@retcl.com Role: employee
+
 User: manager@retcl.com Role: manager 
+
 User: vp@retcl.com Role: VP 
+
 
 When registering a new user in this sample all users are hardcoded to the manager role here: Mvc5StarterKit\Controllers\AccountController.cs.
 
