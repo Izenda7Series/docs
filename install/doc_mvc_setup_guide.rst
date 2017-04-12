@@ -62,7 +62,7 @@ The logins are listed below:
 For each Tenant the following users / roles are configured all use the same password: Izenda@123
 
 
-Tenant: DELDG 
+**Tenant: DELDG** 
 
 User: employee@deldg.com Role: employee 
 
@@ -72,7 +72,7 @@ User: vp@deldg.com Role: VP
 
 
 
-Tenant: NATWR 
+**Tenant: NATWR**
 
 User: employee@natwr.com Role: employee
 
@@ -82,7 +82,7 @@ User: VP@natwr.com Role: VP
 
 
 
-Tenant: RETCL 
+**Tenant: RETCL** 
 
 User: employee@retcl.com Role: employee
 
