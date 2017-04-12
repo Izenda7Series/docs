@@ -4,7 +4,7 @@ MVC Setup Guide
 
 For this installation guide of the MVC5StarterKit, Izenda will demonstrate the process using Visual Studio, SQL Server Management Studio, and Google Chrome. 
 
-Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking here <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_
+Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_
 
 Downloads and Materials
 --------------
