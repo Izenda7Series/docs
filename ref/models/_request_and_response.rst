@@ -8,6 +8,7 @@ Request and Response
    AccessPagedRequest
    ConnectionResult
    ConnectionVerificationResult
+   DashboardFilterFieldPagedRequest
    DashboardRenameParameter
    DataResult
    GenerateAccessTokenArgs
@@ -24,6 +25,7 @@ Request and Response
    ReportDataSourceParameter
    ReportExpressionParameter
    ReportFilterParameter
+   ReportFilterFieldPagedRequest
    ReportHistoryPagedRequest
    ReportPagedRequest
    ReportPartPreviewParameter

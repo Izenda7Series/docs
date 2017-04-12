@@ -64,12 +64,12 @@ List of APIs
      - Validates password expiration link.
    * - `POST user/sendPasswordLink`_
      - Sends password link via email to user.
-   * - `POST user/intergration/saveUser`_
+   * - `POST user/integration/saveUser`_
      - Adds or updates external user.
 
-       .. note::
+       .. versionchanged:: 1.25
 
-          To be renamed to "integration"
+          Used to be named "intergration"
    * - `POST user/validateUserRoleAssociation`_
      - Validates user and role association after some roles are removed.
    * - `POST user/allowedSharingUsers/(tenant_id)`_
@@ -1401,7 +1401,7 @@ Sends password link via email to user.
       true
 
 
-POST user/intergration/saveUser
+POST user/integration/saveUser
 --------------------------------------------------------------
 
 Adds or updates external user.

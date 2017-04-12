@@ -5,6 +5,7 @@ Others
 .. toctree::
    :titlesonly:
 
+   AdvancedSetting
    Category
    CenterOnPage
    City

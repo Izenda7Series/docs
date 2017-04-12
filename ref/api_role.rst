@@ -18,9 +18,9 @@ List of APIs
      - Purpose
    * - GET role/all/(tenant_id)
      - Returns an array of roles, filtered by tenant_id if available.
-   * - POST role/active/{role_id}
+   * - POST role/active/{role_id}/(tenant_id)
      - Sets a role to be active.
-   * - POST role/deactive/{role_id}
+   * - POST role/deactive/{role_id}/(tenant_id)
      - Sets a role to be inactive.
    * - DELETE role/{role_id}
      - Deletes a role.
@@ -167,7 +167,7 @@ Returns an array of roles, filtered by tenant_id if available.
         }
       ]
 
-POST role/active/{role_id}
+POST role/active/{role_id}/(tenant_id)
 --------------------------------------------------------------
 
 Sets a role to be active.
@@ -193,7 +193,7 @@ Sets a role to be active.
         "messages" : null
       }
 
-POST role/deactive/{role_id}
+POST role/deactive/{role_id}/(tenant_id)
 --------------------------------------------------------------
 
 Sets a role to be inactive.

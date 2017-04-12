@@ -69,8 +69,12 @@ List of APIs
      - Sets the report mode to Simple or Advanced.
    * - `POST report/detectReportChange`_
      - Verifies that all report details are up to date, without physical changes, and valid.
-   * - `GET report/function/{function\_mode}/{data\_type}/(tenant\_id)`_
+   * - `POST report/function/{function\_mode}/{data\_type}/(tenant\_id)`_
      - Returns a list of report functions filtered by mode (field, sub-total, grand-total), by data type and by tenant_id if provided.
+
+       .. versionchanged:: 1.25
+          Changed from GET to POST
+
    * - `GET report/allReports/(tenant\_id)`_
      - Returns a list of all reports filtered by tenant_id if provided.
    * - `POST report/detectSchemaChange`_
@@ -95,12 +99,18 @@ List of APIs
      - Updates the rendering time of a report.
    * - `GET report/isReportValid/(report\_id)`_
      - Returns true if there is a report definition for the specified report_id.
+   * - `POST report/areReportsValid`_
+     - Validates if reports are valid.
    * - `POST report/printDraft`_
      - Saves report as draft for printing.
    * - `GET report/printDraft/{report\_id}`_
      - Gets report as draft for printing.
    * - `GET report/accessPriority/(report\_dashboard\_id)`_
      - Returns access priority for report/dashboard.
+   * - `POST report/timePeriod`_
+     - Saves a customed InTimePeriod.
+   * - `DELETE report/timePeriod/{time_period_id}`_
+     - Deletes the customed InTimePeriod specified by time_period_id.
 
 GET report/category/{type}/(tenant\_id)
 ---------------------------------------
@@ -2271,16 +2281,19 @@ Verifies that all report details are up to date, without physical changes, and v
            	}
          }
 
-.. _GET_report/function/{function_mode}/{data_type}/(tenant_id):
+.. _POST_report/function/{function_mode}/{data_type}/(tenant_id):
 
-GET report/function/{function_mode}/{data_type}/(tenant_id)
+POST report/function/{function_mode}/{data_type}/(tenant_id)
 ---------------------------------------------------------------
 
 Returns a list of report functions filtered by mode (field, sub-total, grand-total), by data type and by tenant_id if provided.
 
+.. versionchanged:: 1.25
+   Changed from GET to POST
+
 **Request**
 
-    No payload
+   Payload: to be updated
 
     *  0 = Field
     *  1 = Sub-total
@@ -4389,6 +4402,23 @@ Returns true if there is a report definition for the specified report_id.
 
       true
 
+POST report/areReportsValid
+---------------------------------------
+
+Validates if reports are valid.
+
+**Request**
+
+   Payload: an array of report ids (GUIDs).
+
+**Response**
+
+   An array of :doc:`models/OperationResult` objects, with **success** field true if that report is valid.
+
+**Samples**
+
+   To be updated
+
 POST report/printDraft
 ---------------------------------------
 
@@ -4445,3 +4475,17 @@ Returns access priority for report/dashboard.
    Response::
 
       1
+
+POST report/timePeriod
+------------------------------------------------
+
+Saves a customed InTimePeriod.
+
+To be updated
+
+DELETE report/timePeriod/{time_period_id}
+------------------------------------------------
+
+Deletes the customed InTimePeriod specified by time_period_id.
+
+To be updated

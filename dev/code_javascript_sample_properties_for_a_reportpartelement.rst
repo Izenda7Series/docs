@@ -15,7 +15,7 @@ Sample Properties for a ReportPartElement
    |br|
 
    *  "7f942ac7-08d8-41fa-9e89-bad96f07f102" is the id for GROUP function
-   *  Get the list of functions from :ref:`GET_report/function/{function_mode}/{data_type}/(tenant_id)`
+   *  Get the list of functions from :ref:`POST_report/function/{function_mode}/{data_type}/(tenant_id)`
    *  "76875180-32c1-4180-b92f-03bdb14c4f6a" is the id for Year format
    *  Get the list of formats from :ref:`GET_report/field/dataFormat/{dataType}`
 
@@ -145,7 +145,7 @@ Sample Properties for a ReportPartElement
    |br|
 
    *  "902a9168-fc01-4a35-92fb-ea67942d099d" is the id for SUM function
-   *  Get the list of functions from :ref:`GET_report/function/{function_mode}/{data_type}/(tenant_id)`
+   *  Get the list of functions from :ref:`POST_report/function/{function_mode}/{data_type}/(tenant_id)`
 
    .. code-block:: json
       :linenos:
@@ -269,7 +269,7 @@ Sample Properties for a ReportPartElement
    |br|
 
    *  "902a9168-fc01-4a35-92fb-ea67942d099d" is the id for SUM function
-   *  Get the list of functions from :ref:`GET_report/function/{function_mode}/{data_type}/(tenant_id)`
+   *  Get the list of functions from :ref:`POST_report/function/{function_mode}/{data_type}/(tenant_id)`
    *  The Gauge metric settings are also highlighted:
 
       -  Scale from 4000 to 8000
@@ -457,7 +457,7 @@ Sample Properties for a ReportPartElement
    |br|
 
    *  "902a9168-fc01-4a35-92fb-ea67942d099d" is the id for SUM function
-   *  Get the list of functions from :ref:`GET_report/function/{function_mode}/{data_type}/(tenant_id)`
+   *  Get the list of functions from :ref:`POST_report/function/{function_mode}/{data_type}/(tenant_id)`
    *  The Gauge Dynamic Threshold setting: ``low: SUM(UnitsInStock) less than SUM(UnitsOnOrder)``
 
    .. code-block:: json

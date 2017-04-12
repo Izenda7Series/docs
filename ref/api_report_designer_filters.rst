@@ -43,7 +43,11 @@ List of APIs
    * - `POST report/loadFilterFieldData`_
      - Returns data of a data source field for the Equivalence filter operators.
    * - `POST report/loadFilterFieldDataAsTree`_
-     - Returns data of a data source field in a tree-like structure, for the filter operators Equals (Tree) and Not Equal (Tree).
+     - Returns data of a data source field in a hierarchy, for the filter operators Equals (Tree) and Not Equal (Tree).
+   * - `POST report/loadPartialFilterFieldData`_
+     - Returns paged data source field data for Equivalence filter operators.
+   * - `POST report/loadPartialFilterFieldDataAsTree`_
+     - Returns paged data source field data in a hierarchy for the filter operators Equals (Tree) and Not Equal (Tree).
    * - `POST report/loadAllFilterFieldsData`_
      - Returns all data values for all filter fields in a report.
 
@@ -4824,7 +4828,39 @@ Returns data of a data source field in a tree-like structure, for the filter ope
         }
       ]
 
+POST report/loadPartialFilterFieldData
+--------------------------------------------------------------
 
+Returns paged data source field data for Equivalence operators in filter.
+
+**Request**
+
+    A :doc:`models/ReportFilterFieldPagedRequest` object
+
+**Response**
+
+    A :doc:`models/PagedResult` object, with **result** field containing an array of string values
+
+**Samples**
+
+   To be updated
+
+POST report/loadPartialFilterFieldDataAsTree
+--------------------------------------------------------------
+
+Returns paged data source field data in a hierarchy for Equivalence operators in filter.
+
+**Request**
+
+    A :doc:`models/ReportFilterFieldPagedRequest` object
+
+**Response**
+
+    A :doc:`models/PagedResult` object, with **result** field containing an array of :doc:`models/ValueTreeNode` objects
+
+**Samples**
+
+   To be updated
 
 POST report/loadAllFilterFieldsData
 ------------------------------------------------

@@ -29,6 +29,8 @@ List of APIs
      - Purpose
    * - `POST report/list`_
      - Returns reports for the report list.
+   * - `POST report/list2(?includeHashCode=true)`_
+     - Returns reports for the report list with total number of items.
    * - `GET report/info/{report_id}`_
      - Returns report properties for the report specified by report_id.
    * - `POST report/copy`_
@@ -136,6 +138,66 @@ Returns reports for the report list.
            "name" : null,
         }
       ]
+
+POST report/list2(?includeHashCode=true)
+------------------------------------------------
+
+Returns reports for the report list with total number of item
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+    Optional query string: includeHashCode=true
+
+**Response**
+
+   *  Without includeHashCode: an array of :doc:`models/Category` objects
+   *  With includeHashCode=true: the following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **hashcode** |br|
+               string
+            -  The hashcode
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all reports
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/list2 HTTP/1.1
+
+   To be updated
 
 GET report/info/{report_id}
 ------------------------------------------------

@@ -38,6 +38,10 @@ List of APIs
      - Returns data source field data for Equivalence operators in filter.
    * - `POST dashboard/loadFilterFieldDataAsTree`_
      - Returns data source field data in a hierarchy for Equivalence operators in filter.
+   * - `POST dashboard/loadPartialFilterFieldData`_
+     - Returns paged data source field data for Equivalence operators in filter.
+   * - `POST dashboard/loadPartialFilterFieldDataAsTree`_
+     - Returns paged data source field data in a hierarchy for Equivalence operators in filter.
    * - `POST dashboard/loadFilterComparisonFields`_
      - Returns a list of available dashboard filter fields for a common filter field.
    * - `POST dashboard/detectDashboardChange`_
@@ -716,6 +720,40 @@ Returns data source field data in a hierarchy for Equivalence operators in filte
 **Response**
 
     An array of :doc:`models/ValueTreeNode` objects
+
+**Samples**
+
+   To be updated
+
+POST dashboard/loadPartialFilterFieldData
+--------------------------------------------------------------
+
+Returns paged data source field data for Equivalence operators in filter.
+
+**Request**
+
+    A :doc:`models/DashboardFilterFieldPagedRequest` object
+
+**Response**
+
+    A :doc:`models/PagedResult` object, with **result** field containing an array of string values
+
+**Samples**
+
+   To be updated
+
+POST dashboard/loadPartialFilterFieldDataAsTree
+--------------------------------------------------------------
+
+Returns paged data source field data in a hierarchy for Equivalence operators in filter.
+
+**Request**
+
+    A :doc:`models/DashboardFilterFieldPagedRequest` object
+
+**Response**
+
+    A :doc:`models/PagedResult` object, with **result** field containing an array of :doc:`models/ValueTreeNode` objects
 
 **Samples**
 

@@ -19,24 +19,28 @@ List of APIs
 
    * - API
      - Purpose
-   * - POST advancedSetting/category
+   * - `POST advancedSetting/category`_
      - Updates the list of :term:`categories<data source category>`.
-   * - GET advancedSetting/category/(tenant_id)
+   * - `GET advancedSetting/category/(tenant_id)`_
      - Returns an array of :term:`categories<data source category>` (filtered by tenant_id if provided).
-   * - DELETE advancedSetting/category/{category_id}
+   * - `DELETE advancedSetting/category/{category_id}`_
      - Deletes the :term:`category<data source category>` specified by category_id.
-   * - GET advancedSetting/performance/(tenant_id)
+   * - `GET advancedSetting/performance/(tenant_id)`_
      - Returns the settings in Performance group (filtered by tenant_id if provided).
-   * - POST advancedSetting/performance
+   * - `POST advancedSetting/performance`_
      - Updates the settings in Performance group.
-   * - GET advancedSetting/security/(tenant_id)
+   * - `GET advancedSetting/security/(tenant_id)`_
      - Returns the settings in Security group (filtered by tenant_id if provided).
-   * - POST advancedSetting/security
+   * - `POST advancedSetting/security`_
      - Updates the settings in Security group.
-   * - GET advancedSetting/miscSetting/(tenant_id)
+   * - `GET advancedSetting/miscSetting/(tenant_id)`_
      - Returns the settings in Others group (filtered by tenant_id if provided).
-   * - POST advancedSetting/miscSetting
+   * - `POST advancedSetting/miscSetting`_
      - Updates the settings in Others group.
+   * - `POST advancedSetting/defaultImageUrl`_
+     - Updates the default image url setting.
+   * - `GET advancedSetting/defaultImageUrl(?tenantId=tenant_id)`_
+     - Returns the default image url setting.
 
 .. _POST_advancedSetting/category:
 
@@ -419,4 +423,77 @@ Updates the settings in Others group.
       {
         "success" : true,
         "messages" : null
+      }
+
+POST advancedSetting/defaultImageUrl
+-----------------------------------------------------------
+
+Updates the default image url setting.
+
+**Request**
+
+   Payload: an :doc:`models/AdvancedSetting` object
+
+**Response**
+
+   The saved :doc:`models/AdvancedSetting` object with **name** field value "DefaultImageUrl"
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/advancedSetting/defaultImageUrl HTTP/1.1
+
+   Payload::
+
+      {
+         "value": "http://localhost/img/default.png",
+         "tenantId": null
+      }
+
+   Response::
+
+      {
+         "id": "c8ecf9fd-196d-44a3-90ec-97f393ebfc0c",
+         "name": "DefaultImageUrl",
+         "value": "http://localhost/img/default.png",
+         "defaultValue": null,
+         "type": null,
+         "tenantId": null,
+         "deleted": false,
+         "modified": "2017-04-12T16:55:11.4884228Z"
+      }
+
+GET advancedSetting/defaultImageUrl(?tenantId=tenant_id)
+-----------------------------------------------------------
+
+Returns the default image url setting.
+
+**Request**
+
+   No payload
+
+   Optional querystring: ?tenantId=<the id of the tenant>
+
+**Response**
+
+   An :doc:`models/AdvancedSetting` object
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/advancedSetting/defaultImageUrl HTTP/1.1
+
+   Response::
+
+      {
+         "id": "c8ecf9fd-196d-44a3-90ec-97f393ebfc0c",
+         "name": "DefaultImageUrl",
+         "value": "http://localhost/img/default.png",
+         "defaultValue": null,
+         "type": null,
+         "tenantId": null,
+         "deleted": false,
+         "modified": "2017-04-12T16:55:11.4900000+07:00"
       }
