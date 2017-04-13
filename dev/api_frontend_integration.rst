@@ -301,4 +301,5 @@ Authentication and authorization between hosting web and Izenda
        IzendaSynergy.setCurrentUserContext(currentUserContext);
 
 **Tags**
+
 Embed, Embedding, Fully Embedable. 
