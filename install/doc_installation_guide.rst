@@ -15,7 +15,7 @@ Architectural Goal
 Pre-install Preparations
 ------------------------
 
-The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on locally on a Windows machine for testing purposes but it is not recommended for live deployments.
+The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on a local machine on a Windows machine for testing purposes and is a best practice for ensuring permissions and performance can be validated locally prior to moving toward more embedded and integrated examples, but it is not recommended for live deployments.
 
 -  Izenda installation packages
 
