@@ -32,6 +32,12 @@ IAdHocExtension
    * - Hidden report filters
      - `SetHiddenFilters`_
      - Adds customized filters to reports while hiding them from UI users
+   * - Custom In Time Period Filters
+     - `CustomTimePeriod`_
+     - Adds custom In Time Period Filter Values
+   * - Load Custom Data Format
+     - `LoadCustomDataFormat`_
+     - Adds custom data formats for specified data types
 
 The companion wrapper class **DefaultAdHocExtension** in  Izenda.BI.Framework.CustomConfiguration should be used as the base class for customization.
 
@@ -503,6 +509,96 @@ In some scenarios, you will require several values passed into the same filter, 
         }
    }
 
+CustomTimePeriod
+-----------------------------------
+
+``public override List<CustomTimePeriod> LoadCustomTimePeriod()``
+
+NOTE: This method is only available in v1.24.0 or higher
+
+You can create custom time period filters for various datatypes by overriding the LoadCustomTimePeriod in your DefaultAdHocExtension implementation.
+
+.. code-block:: csharp
+
+	[Export(typeof(IAdHocExtension))]
+    public class CustomAdhocReport : DefaultAdHocExtension
+    {
+        public override List<CustomTimePeriod> LoadCustomTimePeriod()
+        {
+            var result = new List<CustomTimePeriod>
+            {
+                    new CustomTimePeriod("Tomorrow",
+                        DateTime.Now, DateTime.Now.AddDays(1), Operator.BetweenCalendar),
+                    new CustomTimePeriod("Previous Date -> DateTime Now",
+                       () => DateTime.Now.AddDays(-1), () => DateTime.Now, Operator.BetweenCalendar),
+                    new CustomTimePeriod("Less Than 2 Days Old",
+                        2, Operator.LessThanDaysOld),
+                    new CustomTimePeriod("Greater Than 2 Days Old",
+                       () => 2, Operator.GreaterThanDaysOld),
+                    new CustomTimePeriod(">= Date Time Now + 2 Days",
+                        DateTime.Now.AddDays(2), Operator.GreaterThanOrEqualsCalender),
+                     new CustomTimePeriod("<= Date Time Now - 2 Days",
+                       () => DateTime.Now.AddDays(-2), Operator.LessThanOrEqualsCalendar)
+            };
+
+            return result;
+        }
+    }
+
+LoadCustomDataFormat
+-----------------------------------
+
+``public override List<DataFormat> LoadCustomDataFormat()``
+
+NOTE: This method is only available in v1.24.0 or higher
+
+You can create custom formats for various datatypes by overriding the LoadCustomDataFormat in your DefaultAdHocExtension implementation.
+
+.. code-block:: csharp
+
+	[Export(typeof(IAdHocExtension))]
+    public class CustomAdhocReport : DefaultAdHocExtension
+    {
+        public override List<DataFormat> LoadCustomDataFormat()
+        {
+            var result = new List<DataFormat>
+                {
+                    new DataFormat
+                    {
+                        Name = "0,000",
+                        DataType = DataType.Numeric,
+                        Category = IzendaKey.CustomFormat,
+                        FormatFunc = (x) =>
+                        {
+                            return ((int)x).ToString("0,000");
+                        }
+                    },
+                    new DataFormat
+                    {
+                        Name = "$0,000",
+                        DataType = DataType.Numeric,
+                        Category = IzendaKey.CustomFormat,
+                        FormatFunc = (x) =>
+                        {
+                            return ((int)x).ToString("$0,000");
+                        }
+                    },
+                    new DataFormat
+                    {
+                        Name = "$0,000",
+                        DataType = DataType.Numeric,
+                        Category = IzendaKey.CustomFormat,
+                        FormatFunc = (x) =>
+                        {
+                            return ((decimal)x).ToString("C0");
+                        }
+                    }
+                };
+
+            return result;
+        }
+    }
+    
 See Also
 -----------
 
