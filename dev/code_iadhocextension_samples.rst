@@ -69,262 +69,311 @@ Sample Method Implementations
       using System.Web;
       using System.ComponentModel.Composition;
       
+      
+      
       namespace IAdHocExtensionSample
       {
-         [Export(typeof(IAdHocExtension))]
-         public class AdHocExtensionSample : DefaultAdHocExtension
-         {
-            /// <summary>
-            /// Sample Requirement:
-            /// If logged user has role Manager --> look up "South America" => "SA", "North America" => "NA"
-            /// If logged user has role Employee --> look up "Europe" => "EU"
-            /// </summary>
-            /// <param name="filterField"></param>
-            /// <param name="data"></param>
-            /// <returns></returns>
-            public override List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)
-            {
-                 // override dropdown value based on user role for filter on view "OrderDetailsByRegion" and field "CountryRegionName"
-                 if (filterField.SourceDataObjectName == "OrderDetailsByRegion" && filterField.SourceFieldName == "CountryRegionName"
-                     && (HttpContext.Current.User.IsInRole("Manager") || HttpContext.Current.User.IsInRole("Employee")))
-                 {
+          [Export(typeof(IAdHocExtension))]
+          public class AdHocExtensionSample : DefaultAdHocExtension
+          {
+              /// <summary>
+              /// Sample Requirement:
+              /// If logged user has role Manager --> look up "South America" => "SA", "North America" => "NA"
+              /// If logged user has role Employee --> look up "Europe" => "EU"
+              /// </summary>
+              /// <param name="filterField"></param>
+              /// <param name="data"></param>
+              /// <returns></returns>
+              public override List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)
+              {
+                  // override dropdown value based on user role for filter on view "OrderDetailsByRegion" and field "CountryRegionName"
+                  if (filterField.SourceDataObjectName == "OrderDetailsByRegion" && filterField.SourceFieldName == "CountryRegionName"
+                      && (HttpContext.Current.User.IsInRole("Manager") || HttpContext.Current.User.IsInRole("Employee")))
+                  {
       
-                     // override dropdown's value based on User role
+                      // override dropdown's value based on User role
       
-                     //Manager, look up "South America" => "SA", "North America" => "NA"
-                     if (HttpContext.Current.User.IsInRole("Manager"))
-                     {
-                         var indexSA = data.IndexOf("South America");
-                         if (indexSA != -1)
-                             data[indexSA] = "SA";
-                         var indexNA = data.IndexOf("North America");
-                         if (indexNA != -1)
-                             data[indexNA] = "NA";
-                     }
+                      //Manager, look up "South America" => "SA", "North America" => "NA"
+                      if (HttpContext.Current.User.IsInRole("Manager"))
+                      {
+                          var indexSA = data.IndexOf("South America");
+                          if (indexSA != -1)
+                              data[indexSA] = "SA";
+                          var indexNA = data.IndexOf("North America");
+                          if (indexNA != -1)
+                              data[indexNA] = "NA";
+                      }
       
-                     // Employee, look up "Europe" => "EU"
-                     if (HttpContext.Current.User.IsInRole("Employee"))
-                     {
-                         var indexEU = data.IndexOf("Europe");
-                         if (indexEU != -1)
-                             data[indexEU] = "EU";
-                     }
-                 }
-                 return base.OnPostLoadFilterData(filterField, data);
-            }
+                      // Employee, look up "Europe" => "EU"
+                      if (HttpContext.Current.User.IsInRole("Employee"))
+                      {
+                          var indexEU = data.IndexOf("Europe");
+                          if (indexEU != -1)
+                              data[indexEU] = "EU";
+                      }
+                  }
+                  return base.OnPostLoadFilterData(filterField, data);
+              }
       
-            /// <summary>
-            /// Sample Requirement:
-            /// If logged user has role Manager --> show some regions ("South America", "North America")
-            /// If logged user has role Employee --> show only one region ("Europe")
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override List<ValueTreeNode> OnLoadFilterDataTree(QuerySourceFieldInfo fieldInfo)
-            {
-                 var result = new List<ValueTreeNode>();
+              /// <summary>
+              /// Sample Requirement:
+              /// If logged user has role Manager --> show some regions ("South America", "North America")
+              /// If logged user has role Employee --> show only one region ("Europe")
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override List<ValueTreeNode> OnLoadFilterDataTree(QuerySourceFieldInfo fieldInfo)
+              {
+                  var result = new List<ValueTreeNode>();
       
-                 if (fieldInfo.QuerySourceName == "OrderDetailsByRegion" && fieldInfo.Name == "CountryRegionName"
-                     && (HttpContext.Current.User.IsInRole("Manager") || HttpContext.Current.User.IsInRole("Employee")))
-                 {
-                     //Node [All] is required for UI to render.
-                     var rootNode = new ValueTreeNode { Text = "[All]", Value = "[All]" };
-                     rootNode.Nodes = new List<ValueTreeNode>();
+                  if (fieldInfo.QuerySourceName == "OrderDetailsByRegion" && fieldInfo.Name == "CountryRegionName"
+                      && (HttpContext.Current.User.IsInRole("Manager") || HttpContext.Current.User.IsInRole("Employee")))
+                  {
+                      //Node [All] is required for UI to render.
+                      var rootNode = new ValueTreeNode { Text = "[All]", Value = "[All]" };
+                      rootNode.Nodes = new List<ValueTreeNode>();
       
-                     if (HttpContext.Current.User.IsInRole("Manager"))
-                     {
-                         rootNode.Nodes.Add(new ValueTreeNode { Text = "South America", Value = "South America" });
-                         rootNode.Nodes.Add(new ValueTreeNode { Text = "North America", Value = "North America" });
-                     }
+                      if (HttpContext.Current.User.IsInRole("Manager"))
+                      {
+                          rootNode.Nodes.Add(new ValueTreeNode { Text = "South America", Value = "South America" });
+                          rootNode.Nodes.Add(new ValueTreeNode { Text = "North America", Value = "North America" });
+                      }
       
-                     if (HttpContext.Current.User.IsInRole("Employee"))
-                     {
-                         rootNode.Nodes.Add(new ValueTreeNode { Text = "Europe", Value = "Europe" });
-                     }
+                      if (HttpContext.Current.User.IsInRole("Employee"))
+                      {
+                          rootNode.Nodes.Add(new ValueTreeNode { Text = "Europe", Value = "Europe" });
+                      }
       
-                     result.Add(rootNode);
-                 }
+                      result.Add(rootNode);
+                  }
       
-                 return result;
-            }
+                  return result;
+              }
       
-            /// <summary>
-            /// Sample Requirement:
-            /// If logged user has role Manager --> show some regions ("South America", "North America")
-            /// If logged user has role Employee --> show only one region ("Europe")
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
-            {
-                 var result = new ReportFilterSetting();
-                 var querySource = param.QuerySources.FirstOrDefault(x => x.Name.Equals("OrdersByRegion"));
-                 if (querySource == null)
-                 {
-                     return result;
-                 }
+              /// <summary>
+              /// Sample Requirement:
+              /// If logged user has role Manager --> show some regions ("WA", "[Blank]")
+              /// If logged user has role Employee --> show only one region ("Europe")
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
+              {
+                  var filterFieldName = "ShipRegion";
       
-                 var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals("CountryRegionName"));
-                 if (querySource != null && field != null)
-                 {
-                     var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
+                  Func<ReportFilterSetting, int, QuerySource, QuerySourceField, Guid, Relationship, int> addHiddenFilters = (result, filterPosition, querySource, field, equalOperator, rel) =>
+                  {
+                      var logic = "";
       
-                     if (HttpContext.Current.User.IsInRole("Manager"))
-                     {
-                         // Filter CountryRegionName = South America
-                         var reportFilterField1 = new ReportFilterField
-                         {
-                             QuerySourceId = querySource.Id,
-                             SourceDataObjectName = querySource.Name,
-                             QuerySourceType = querySource.Type,
-                             QuerySourceFieldId = field.Id,
-                             SourceFieldName = field.Name,
-                             DataType = field.DataType,
-                             Position = 1,
-                             OperatorId = equalOperator,
-                             Value = "South America",
-                             RelationshipId = null,
-                             IsParameter = false,
-                             ReportFieldAlias = null
-                         };
+                      if (HttpContext.Current.User.IsInRole("Manager"))
+                      {
+                          var firstFilter = new ReportFilterField
+                          {
+                              Alias = $"ShipRegion{filterPosition}",
+                              QuerySourceId = querySource.Id,
+                              SourceDataObjectName = querySource.Name,
+                              QuerySourceType = querySource.Type,
+                              QuerySourceFieldId = field.Id,
+                              SourceFieldName = field.Name,
+                              DataType = field.DataType,
+                              Position = ++filterPosition,
+                              OperatorId = equalOperator,
+                              Value = "WA",
+                              RelationshipId = rel?.Id,
+                              IsParameter = false,
+                              ReportFieldAlias = null
+                          };
       
-                         // Filter CountryRegionName = North America
-                         var reportFilterField2 = new ReportFilterField
-                         {
-                             QuerySourceId = querySource.Id,
-                             SourceDataObjectName = querySource.Name,
-                             QuerySourceType = querySource.Type,
-                             QuerySourceFieldId = field.Id,
-                             SourceFieldName = field.Name,
-                             DataType = field.DataType,
-                             Position = 2,
-                             OperatorId = equalOperator,
-                             Value = "North America",
-                             RelationshipId = null,
-                             IsParameter = false,
-                             ReportFieldAlias = null
-                         };
+                          var secondFilter = new ReportFilterField
+                          {
+                              Alias = $"ShipRegion{filterPosition}",
+                              QuerySourceId = querySource.Id,
+                              SourceDataObjectName = querySource.Name,
+                              QuerySourceType = querySource.Type,
+                              QuerySourceFieldId = field.Id,
+                              SourceFieldName = field.Name,
+                              DataType = field.DataType,
+                              Position = ++filterPosition,
+                              OperatorId = equalOperator,
+                              Value = "[Blank]",
+                              RelationshipId = rel?.Id,
+                              IsParameter = false,
+                              ReportFieldAlias = null
+                          };
+                          result.FilterFields.Add(firstFilter);
+                          result.FilterFields.Add(secondFilter);
       
-                         result.FilterFields = new List<ReportFilterField> { reportFilterField1, reportFilterField2 };
-                         result.Logic = "1 OR 2";
-                     }
+                          logic = $"({filterPosition - 1} OR {filterPosition})";
+                      }
       
-                     if (HttpContext.Current.User.IsInRole("Employee"))
-                     {
-                         // Filter CountryRegionName = Europe
-                         var reportFilterField3 = new ReportFilterField
-                         {
-                             QuerySourceId = querySource.Id,
-                             SourceDataObjectName = querySource.Name,
-                             QuerySourceType = querySource.Type,
-                             QuerySourceFieldId = field.Id,
-                             SourceFieldName = field.Name,
-                             DataType = field.DataType,
-                             Position = 1,
-                             OperatorId = equalOperator,
-                             Value = "Europe",
-                             RelationshipId = null,
-                             IsParameter = false,
-                             ReportFieldAlias = null
-                         };
+                      if (HttpContext.Current.User.IsInRole("Employee"))
+                      {
+                          var thirdFilter = new ReportFilterField
+                          {
+                              Alias = $"ShipRegion{filterPosition}",
+                              QuerySourceId = querySource.Id,
+                              SourceDataObjectName = querySource.Name,
+                              QuerySourceType = querySource.Type,
+                              QuerySourceFieldId = field.Id,
+                              SourceFieldName = field.Name,
+                              DataType = field.DataType,
+                              Position = ++filterPosition,
+                              OperatorId = equalOperator,
+                              Value = "Europe",
+                              RelationshipId = rel?.Id,
+                              IsParameter = false,
+                              ReportFieldAlias = null
+                          };
+                          result.FilterFields.Add(thirdFilter);
       
-                         result.FilterFields = new List<ReportFilterField> { reportFilterField3 };
+                          logic = $"({filterPosition - 1})";
+                       }
       
-                     }
-                 }
+                      if (string.IsNullOrEmpty(result.Logic))
+                      {
+                          result.Logic = logic;
+                      }
+                      else
+                      {
+                          result.Logic += $" AND {logic}";
+                      }
       
-                 return result;
-            }
+                      return filterPosition;
+                  };
       
-            /// <summary>
-            /// Sample Requirement:
-            /// Remove all Map report parts before running
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override ReportDefinition OnPreExecute(ReportDefinition report)
-            {
-                 if (report.ReportPart.Any(x => x.ReportPartContent.Type == ReportPartContentType.Map))
-                 {
-                     var filteredReportPart = report.ReportPart.Where(x => x.ReportPartContent.Type != ReportPartContentType.Map).ToList();
-                     report.ReportPart = filteredReportPart;
-                 }
+                  var filterSetting = new ReportFilterSetting()
+                  {
+                      FilterFields = new List<ReportFilterField>()
+                  };
+                  var position = 0;
       
-                 return report;
-            }
+                  var ds = param.ReportDefinition.ReportDataSource;
       
-            /// <summary>
-            /// Sample Requirement:
-            /// Limit the execution result to the first 1000 rows only (although the database may return more than that)
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override List<IDictionary<string, object>> OnPostExecute(QueryTree executedQueryTree, List<IDictionary<string, object>> result)
-            {
-                 return result.Take(1000).ToList();
-            }
+                  // Build the hidden filters for CountryRegionName
+                  foreach (var querySource in param.QuerySources // Scan thru the query sources that are involved in the report
+                      .Where(x => x.QuerySourceFields.Any(y => y.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase)))) // Take only query sources that have filter field name
+                  {
+                      // Pick the relationships that joins the query source as primary source
+                      // Setting the join ensure the proper table is assigned when using join alias in the UI
+                      var rels = param.ReportDefinition.ReportRelationship.
+                          Where(x => x.JoinQuerySourceId == querySource.Id)
+                          .ToList();
       
-            /// <summary>
-            /// Sample Requirement:
-            /// Log the queries without result limit operator
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override QueryTree OnExecuting(QueryTree queryTree)
-            {
-                 var nodeVisitor = new QueryTreePathAnalyzeVisitor(new ExtensibilityFactory(), queryTree.ContextData);
-                 nodeVisitor.ContextData = queryTree.ContextData;
-                 queryTree.Root.Accept(nodeVisitor);
+                      // Find actual filter field in query source
+                      var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase));
       
-                 var resultLimitOperator = new ResultLimitOperator()
-                 {
-                     ChildOperand = new Operand()
-                     {
-                         QuerySource = new QuerySource()
-                     }
-                 };
+                      // Pick the equal operator
+                      var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
       
-                 try
-                 {
-                     nodeVisitor.Visit(resultLimitOperator);
-                 }
-                 catch (Exception)
-                 {
-                     Console.WriteLine("LOG: Query with no limit");
-                 }
+                      // In case there is no relationship that the query source is joined as primary
+                      if (rels.Count() == 0)
+                      {
+                          // Just add hidden filter with null relationship
+                          position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
+                      }
+                      else
+                      {
+                          // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
+                          foreach (var rel in rels)
+                          {
+                              position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
+                          }
+                      }
+                  }
       
-                 return queryTree;
-            }
+                  return filterSetting;
       
-            /// <summary>
-            /// Sample Requirement:
-            /// If report filter includes only OrderDetailsByRegion.CountryRegionName, return pre-defined list and skip querying the database
-            /// If not, let system query the database
-            /// </summary>
-            /// <param name="fieldInfo"></param>
-            /// <returns></returns>
-            public override List<string> OnPreLoadFilterData(ReportFilterSetting filterSetting, out bool handled)
-            {
-                 handled = false;
-                 List<String> result = null;
+                }
       
-                 if (filterSetting.FilterFields.Count == 1
-                     && filterSetting.FilterFields.Any(
-                         x   =>  x.SourceDataObjectName.Equals("OrdersByRegion")
-                                 && x.SourceFieldName.Equals("CountryRegionName")))
-                 {
-                     handled = true;
-                     result = new List<string>()
-                     {
-                         "Europe",
-                         "North America",
-                         "South America"
-                     };
-                 }
+              /// <summary>
+              /// Sample Requirement:
+              /// Remove all Map report parts before running
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override ReportDefinition OnPreExecute(ReportDefinition report)
+              {
+                  if (report.ReportPart.Any(x => x.ReportPartContent.Type == ReportPartContentType.Map))
+                  {
+                      var filteredReportPart = report.ReportPart.Where(x => x.ReportPartContent.Type != ReportPartContentType.Map).ToList();
+                      report.ReportPart = filteredReportPart;
+                  }
       
-                 return result;
-            }
-         }
+                  return report;
+              }
+      
+              /// <summary>
+              /// Sample Requirement:
+              /// Limit the execution result to the first 1000 rows only (although the database may return more than that)
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override List<IDictionary<string, object>> OnPostExecute(QueryTree executedQueryTree, List<IDictionary<string, object>> result)
+              {
+                  return result.Take(1000).ToList();
+              }
+      
+              /// <summary>
+              /// Sample Requirement:
+              /// Log the queries without result limit operator 
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override QueryTree OnExecuting(QueryTree queryTree)
+              {
+                  var nodeVisitor = new QueryTreePathAnalyzeVisitor(new ExtensibilityFactory(), queryTree.ContextData);
+                  nodeVisitor.ContextData = queryTree.ContextData;
+                  queryTree.Root.Accept(nodeVisitor);
+      
+                  var resultLimitOperator = new ResultLimitOperator()
+                  {
+                      ChildOperand = new Operand()
+                      {
+                          QuerySource = new QuerySource()
+                      }
+                  };
+      
+                  try
+                  {
+                      nodeVisitor.Visit(resultLimitOperator);
+                  }
+                  catch (Exception)
+                  {
+                      Console.WriteLine("LOG: Query with no limit");
+                  }
+      
+                  return queryTree;
+              }
+      
+              /// <summary>
+              /// Sample Requirement:
+              /// If report filter includes only OrderDetailsByRegion.CountryRegionName, return pre-defined list and skip querying the database
+              /// If not, let system query the database
+              /// </summary>
+              /// <param name="fieldInfo"></param>
+              /// <returns></returns>
+              public override List<string> OnPreLoadFilterData(ReportFilterSetting filterSetting, out bool handled)
+              {
+                  handled = false;
+                  List<String> result = null;
+      
+                  if (filterSetting.FilterFields.Count == 1
+                      && filterSetting.FilterFields.Any(
+                          x   =>  x.SourceDataObjectName.Equals("OrdersByRegion")
+                                  && x.SourceFieldName.Equals("CountryRegionName")))
+                  {
+                      handled = true;
+                      result = new List<string>()
+                      {
+                          "Europe",
+                          "North America",
+                          "South America"
+                      };
+                  }            
+      
+                  return result;
+              }
+          }
       }
 
 Add the New Library
@@ -386,289 +435,373 @@ Implement the UnitTests
       namespace IAdHocExtensionSample
       {
       
-         public class AdhocExtensionSampleTest
-         {
-            private static Guid querySourceId1 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD01");
-            private static Guid fieldId11 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD11");
+          public class AdhocExtensionSampleTest
+          {
+              private static Guid querySourceId1 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD01");
+              private static Guid fieldId11 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD11");
+              private static Guid fieldId12 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD12");
+              private static Guid relationshipId1 = Guid.Parse("39984D52-C1DE-4388-9ED2-FB7C8C62FD03");
       
-            /// <summary>
-            /// Test Filter Manager
-            /// </summary>
-            [Fact]
-            public void Execute_HiddenFilter_Manager_Success()
-            {
+              /// <summary>
+              /// Test Filter Manager
+              /// </summary>
+              [Fact]
+              public void Execute_HiddenFilter_Manager_Success()
+              {
       
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Manager");
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Manager");
       
       
-                 var param = new SetHiddenFilterParam()
-                 {
-                     QuerySources = new List<QuerySource>()
-                     {
-                         new QuerySource()
-                         {
-                             Name = "OrdersByRegion",
-                             Id = querySourceId1,
-                             Type = "Table",
-                             QuerySourceFields = new List<QuerySourceField>()
-                             {
-                                 new QuerySourceField()
-                                 {
-                                    Name = "CountryRegionName",
-                                    Id = fieldId11,
-                                    DataType = "varchar"
-                                 }
-                             }
-                         }
-                     }
-                 };
+                  var param = new SetHiddenFilterParam()
+                  {
+                      QuerySources = new List<QuerySource>()
+                      {
+                          new QuerySource()
+                          {
+                              Name = "Orders",
+                              Id = querySourceId1,
+                              Type = "Table",
+                              QuerySourceFields = new List<QuerySourceField>()
+                              {
+                                  new QuerySourceField()
+                                  {
+                                      Name = "ShipRegion",
+                                      Id = fieldId11,
+                                      DataType = "varchar"
+                                  }
+                              }
+                          }
+                      },
+                      ReportDefinition = new ReportDefinition()
+                      {
+                          ReportDataSource = new List<ReportDataSource>(),
+                          ReportRelationship = new List<Relationship>()
+                      }
+                  };
       
-                 var reportFilterSetting = (new AdHocExtensionSample()).SetHiddenFilters(param);
-                 Assert.Equal(reportFilterSetting.FilterFields.Count, 2);
-                 Assert.Equal(reportFilterSetting.FilterFields[0].Value, "South America");
-                 Assert.Equal(reportFilterSetting.FilterFields[1].Value, "North America");
-            }
+                  var reportFilterSetting = (new AdHocExtensionSample()).SetHiddenFilters(param);
+                  Assert.Equal(reportFilterSetting.FilterFields.Count, 2);
+                  Assert.Equal(reportFilterSetting.FilterFields[0].Value, "WA");
+                  Assert.Equal(reportFilterSetting.FilterFields[1].Value, "[Blank]");
+              }
       
-            /// <summary>
-            /// Test Filter Employee
-            /// </summary>
-            [Fact]
-            public void Execute_HiddenFilter_Employee_Success()
-            {
+              /// <summary>
+              /// Test Filter Employee
+              /// </summary>
+              [Fact]
+              public void Execute_HiddenFilter_Employee_Success()
+              {
       
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Employee");
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Employee");
       
-                 var param = new SetHiddenFilterParam()
-                 {
-                     QuerySources = new List<QuerySource>()
-                     {
-                         new QuerySource()
-                         {
-                             Name = "OrdersByRegion",
-                             Id = querySourceId1,
-                             Type = "Table",
-                             QuerySourceFields = new List<QuerySourceField>()
-                             {
-                                 new QuerySourceField()
-                                 {
-                                    Name = "CountryRegionName",
-                                    Id = fieldId11,
-                                    DataType = "varchar"
-                                 }
-                             }
-                         }
-                     }
-                 };
+                  var param = new SetHiddenFilterParam()
+                  {
+                      QuerySources = new List<QuerySource>()
+                      {
+                          new QuerySource()
+                          {
+                              Name = "Orders",
+                              Id = querySourceId1,
+                              Type = "Table",
+                              QuerySourceFields = new List<QuerySourceField>()
+                              {
+                                  new QuerySourceField()
+                                  {
+                                      Name = "ShipRegion",
+                                      Id = fieldId11,
+                                      DataType = "varchar"
+                                  }
+                              }
+                          }
+                      },
+                      ReportDefinition = new ReportDefinition()
+                      {
+                          ReportDataSource = new List<ReportDataSource>(),
+                          ReportRelationship = new List<Relationship>()
+                      }
+                  };
       
-                 var reportFilterSetting = (new AdHocExtensionSample()).SetHiddenFilters(param);
-                 Assert.Equal(reportFilterSetting.FilterFields.Count, 1);
-                 Assert.Equal(reportFilterSetting.FilterFields[0].Value, "Europe");
-            }
+                  var reportFilterSetting = (new AdHocExtensionSample()).SetHiddenFilters(param);
+                  Assert.Equal(reportFilterSetting.FilterFields.Count, 1);
+                  Assert.Equal(reportFilterSetting.FilterFields[0].Value, "Europe");
+              }
       
-            /// <summary>
-            /// Test OnLoadFilterDataTree Manager
-            /// </summary>
-            [Fact]
-            public void Execute_OnLoadFilterDataTree_Manager_Success()
-            {
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Manager");
+              /// <summary>
+              /// Test Filter Manager with Duplicated FieldAlias
+              /// </summary>
+              [Fact]
+              public void Execute_HiddenFilter_Manager_Duplicated_FieldAlias()
+              {
       
-                 var field = new QuerySourceFieldInfo()
-                 {
-                     QuerySourceName = "OrderDetailsByRegion",
-                     Name = "CountryRegionName"
-                 };
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Manager");
       
-                 var result = (new AdHocExtensionSample()).OnLoadFilterDataTree(field);
-                 Assert.Equal(result.Count,1);
-                 Assert.Equal(result[0].Nodes.Count, 2);
-                 Assert.Equal(result[0].Nodes[0].Value, "South America");
-                 Assert.Equal(result[0].Nodes[1].Value, "North America");
-            }
       
-            /// <summary>
-            /// Test OnLoadFilterDataTree Employee
-            /// </summary>
-            [Fact]
-            public void Execute_OnLoadFilterDataTree_Employee_Success()
-            {
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Employee");
+                  var param = new SetHiddenFilterParam()
+                  {
+                      QuerySources = new List<QuerySource>()
+                      {
+                          new QuerySource()
+                          {
+                              Name = "Orders",
+                              Id = querySourceId1,
+                              Type = "Table",
+                              QuerySourceFields = new List<QuerySourceField>()
+                              {
+                                  new QuerySourceField()
+                                  {
+                                      Name = "ShipRegion",
+                                      Id = fieldId11,
+                                      DataType = "varchar"
+                                  }
+                              }
+                          },
+                          new QuerySource()
+                          {
+                              Name = "Customers",
+                              Id = querySourceId1,
+                              Type = "Table",
+                              QuerySourceFields = new List<QuerySourceField>()
+                              {
+                                  new QuerySourceField()
+                                  {
+                                      Name = "ShipRegion",
+                                      Id = fieldId12,
+                                      DataType = "varchar"
+                                  }
+                              }
+                          }
+                      },
+                      ReportDefinition = new ReportDefinition()
+                      {
+                          ReportDataSource = new List<ReportDataSource>(),
+                          ReportRelationship = new List<Relationship>()
+                          {
+                              new Relationship()
+                              {
+                                  JoinQuerySourceId = querySourceId1,
+                                  Id = relationshipId1
+                              }
+                          }
+                      }
+                  };
       
-                 var field = new QuerySourceFieldInfo()
-                 {
-                     QuerySourceName = "OrderDetailsByRegion",
-                     Name = "CountryRegionName"
-                 };
+                  var reportFilterSetting = (new AdHocExtensionSample()).SetHiddenFilters(param);
+                  Assert.Equal(reportFilterSetting.FilterFields.Count, 4);
+                  Assert.Equal(reportFilterSetting.FilterFields[0].Value, "WA");
+                  Assert.Equal(reportFilterSetting.FilterFields[1].Value, "[Blank]");
+                  Assert.Equal(reportFilterSetting.FilterFields[2].Value, "WA");
+                  Assert.Equal(reportFilterSetting.FilterFields[3].Value, "[Blank]");
+              }
       
-                 var result = (new AdHocExtensionSample()).OnLoadFilterDataTree(field);
-                 Assert.Equal(result.Count, 1);
-                 Assert.Equal(result[0].Nodes.Count, 1);
-                 Assert.Equal(result[0].Nodes[0].Value, "Europe");
-            }
+              /// <summary>
+              /// Test OnLoadFilterDataTree Manager
+              /// </summary>
+              [Fact]
+              public void Execute_OnLoadFilterDataTree_Manager_Success()
+              {
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Manager");
       
-            /// <summary>
-            /// Test OnPostLoadFilterData Manager
-            /// </summary>
-            [Fact]
-            public void Execute_OnPostLoadFilterData_Manager_Success()
-            {
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Manager");
+                  var field = new QuerySourceFieldInfo()
+                  {
+                      QuerySourceName = "OrderDetailsByRegion",
+                      Name = "CountryRegionName"
+                  };
       
-                 var field = new ReportFilterField()
-                 {
-                     SourceDataObjectName = "OrderDetailsByRegion",
-                     SourceFieldName = "CountryRegionName"
-                 };
+                  var result = (new AdHocExtensionSample()).OnLoadFilterDataTree(field);
+                  Assert.Equal(result.Count,1);
+                  Assert.Equal(result[0].Nodes.Count, 2);
+                  Assert.Equal(result[0].Nodes[0].Value, "South America");
+                  Assert.Equal(result[0].Nodes[1].Value, "North America");
+              }
       
-                 var data = new List<string>()
-                 {
-                     "Antarctica",
-                     "Europe",
-                     "North America",
-                     "South America"
-                 };
+              /// <summary>
+              /// Test OnLoadFilterDataTree Employee
+              /// </summary>
+              [Fact]
+              public void Execute_OnLoadFilterDataTree_Employee_Success()
+              {
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Employee");
       
-                 var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
-                 Assert.Equal(result.Count, 4);
-                 Assert.NotEqual(result.IndexOf("SA"), -1);
-                 Assert.NotEqual(result.IndexOf("NA"), -1);
-            }
+                  var field = new QuerySourceFieldInfo()
+                  {
+                      QuerySourceName = "OrderDetailsByRegion",
+                      Name = "CountryRegionName"
+                  };
       
-            /// <summary>
-            /// Test OnPostLoadFilterData Employee
-            /// </summary>
-            [Fact]
-            public void Execute_OnPostLoadFilterData_Employee_Success()
-            {
-                 HttpContext.Current = new HttpContext(
-                     new HttpRequest("", "http://tempuri.org", ""),
-                     new HttpResponse(new StringWriter())
-                 );
-                 HttpContext.Current.User = new MockUser("Employee");
+                  var result = (new AdHocExtensionSample()).OnLoadFilterDataTree(field);
+                  Assert.Equal(result.Count, 1);
+                  Assert.Equal(result[0].Nodes.Count, 1);
+                  Assert.Equal(result[0].Nodes[0].Value, "Europe");
+              }
       
-                 var field = new ReportFilterField()
-                 {
-                     SourceDataObjectName = "OrderDetailsByRegion",
-                     SourceFieldName = "CountryRegionName"
-                 };
+              /// <summary>
+              /// Test OnPostLoadFilterData Manager
+              /// </summary>
+              [Fact]
+              public void Execute_OnPostLoadFilterData_Manager_Success()
+              {
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Manager");
       
-                 var data = new List<string>()
-                 {
-                     "Antarctica",
-                     "Europe",
-                     "North America",
-                     "South America"
-                 };
+                  var field = new ReportFilterField()
+                  {
+                      SourceDataObjectName = "OrderDetailsByRegion",
+                      SourceFieldName = "CountryRegionName"
+                  };
       
-                 var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
-                 Assert.Equal(result.Count, 4);
-                 Assert.NotEqual(result.IndexOf("EU"), -1);
-            }
+                  var data = new List<string>()
+                  {
+                      "Antarctica",
+                      "Europe",
+                      "North America",
+                      "South America"
+                  };
       
-            /// <summary>
-            /// Test OnPreExecute
-            /// </summary>
-            [Fact]
-            public void Execute_OnPreExecute_Success()
-            {
-                 var originalReport = new ReportDefinition()
-                 {
-                     ReportPart = new List<ReportPartDefinition>
-                     {
-                         new ReportPartDefinition
-                         {
-                             ReportPartContent = new ReportPartMap
-                             {
-                                 Type = ReportPartContentType.Map
-                             }
-                         },
-                         new ReportPartDefinition
-                         {
-                             ReportPartContent = new ReportPartGrid
-                             {
-                                 Type = ReportPartContentType.Grid
-                             }
-                         },
-                         new ReportPartDefinition
-                         {
-                             ReportPartContent = new ReportPartMap
-                             {
-                                 Type = ReportPartContentType.Map
-                             }
-                         }
-                     }
-                 };
+                  var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
+                  Assert.Equal(result.Count, 4);
+                  Assert.NotEqual(result.IndexOf("SA"), -1);
+                  Assert.NotEqual(result.IndexOf("NA"), -1);
+              }
       
-                 var report = (new AdHocExtensionSample()).OnPreExecute(originalReport);
-                 Assert.Equal(report.ReportPart.Count, 1);
-            }
+              /// <summary>
+              /// Test OnPostLoadFilterData Employee
+              /// </summary>
+              [Fact]
+              public void Execute_OnPostLoadFilterData_Employee_Success()
+              {
+                  HttpContext.Current = new HttpContext(
+                      new HttpRequest("", "http://tempuri.org", ""),
+                      new HttpResponse(new StringWriter())
+                  );
+                  HttpContext.Current.User = new MockUser("Employee");
       
-            /// <summary>
-            /// Test OnPostExecute
-            /// </summary>
-            [Fact]
-            public void Execute_OnPostExecute_Success()
-            {
-                 var originalList = new List<IDictionary<string, object>>();
-                 for (var i = 1; i <= 1010; i++)
-                 {
-                     originalList.Add(new Dictionary<string, object>());
-                 }
+                  var field = new ReportFilterField()
+                  {
+                      SourceDataObjectName = "OrderDetailsByRegion",
+                      SourceFieldName = "CountryRegionName"
+                  };
       
-                 var qt = new QueryTree();
+                  var data = new List<string>()
+                  {
+                      "Antarctica",
+                      "Europe",
+                      "North America",
+                      "South America"
+                  };
       
-                 var list = (new AdHocExtensionSample()).OnPostExecute(qt, originalList);
+                  var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
+                  Assert.Equal(result.Count, 4);
+                  Assert.NotEqual(result.IndexOf("EU"), -1);
+              }
       
-                 Assert.Equal(list.Count, 1000);
-            }
+              /// <summary>
+              /// Test OnPreExecute
+              /// </summary>
+              [Fact]
+              public void Execute_OnPreExecute_Success()
+              {
+                  var originalReport = new ReportDefinition()
+                  {
+                      ReportPart = new List<ReportPartDefinition>
+                      {
+                          new ReportPartDefinition
+                          {
+                              ReportPartContent = new ReportPartMap
+                              {
+                                  Type = ReportPartContentType.Map
+                              }
+                          },
+                          new ReportPartDefinition
+                          {
+                              ReportPartContent = new ReportPartGrid
+                              {
+                                  Type = ReportPartContentType.Grid
+                              }
+                          },
+                          new ReportPartDefinition
+                          {
+                              ReportPartContent = new ReportPartMap
+                              {
+                                  Type = ReportPartContentType.Map
+                              }
+                          }
+                      }
+                  };
       
-            /// <summary>
-            /// Test OnPreLoadFilterData
-            /// </summary>
-            [Fact]
-            public void Execute_OnPreLoadFilterData_Success()
-            {
-                 var filterSetting = new ReportFilterSetting()
-                 {
-                     FilterFields = new List<ReportFilterField>()
-                     {
-                         new ReportFilterField()
-                         {
-                             SourceDataObjectName = "OrdersByRegion",
-                             SourceFieldName = "CountryRegionName"
-                         }
-                     }
-                 };
+                  var report = (new AdHocExtensionSample()).OnPreExecute(originalReport);
+                  Assert.Equal(report.ReportPart.Count, 1);
+              }
       
-                 bool handled;
+              /// <summary>
+              /// Test OnPostExecute
+              /// </summary>
+              [Fact]
+              public void Execute_OnPostExecute_Success()
+              {
+                  var originalList = new List<IDictionary<string, object>>();
+                  for (var i = 1; i <= 1010; i++)
+                  {
+                      originalList.Add(new Dictionary<string, object>());
+                  }
       
-                 var list = (new AdHocExtensionSample()).OnPreLoadFilterData(filterSetting, out handled);
+                  var qt = new QueryTree();
       
-                 Assert.Equal(handled, true);
-                 Assert.Equal(list.Count, 3);
-            }
-         }
+                  var list = (new AdHocExtensionSample()).OnPostExecute(qt, originalList);
+      
+                  Assert.Equal(list.Count, 1000);
+              }
+      
+              /// <summary>
+              /// Test OnPreLoadFilterData
+              /// </summary>
+              [Fact]
+              public void Execute_OnPreLoadFilterData_Success()
+              {
+                  var filterSetting = new ReportFilterSetting()
+                  {
+                      FilterFields = new List<ReportFilterField>()
+                      {
+                          new ReportFilterField()
+                          {
+                              SourceDataObjectName = "OrdersByRegion",
+                              SourceFieldName = "CountryRegionName"
+                          } 
+                      }
+                  };
+      
+                  bool handled;
+      
+                  var list = (new AdHocExtensionSample()).OnPreLoadFilterData(filterSetting, out handled);
+      
+                  Assert.Equal(handled, true);
+                  Assert.Equal(list.Count, 3);
+              }
+          }
       }
+
 
 Run the UnitTests
 ~~~~~~~~~~~~~~~~~
