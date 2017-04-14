@@ -296,6 +296,8 @@ For example, it can be used to:
 
 Sample code to add hidden filter ShipCountry = "WA" or "[Blank]" for all:
 
+.. comment: Not highlighted: Pygments does not support interpolated string in C# 6 yet https://bitbucket.org/birkenfeld/pygments-main/issues/1138/supporting-c-60
+
 .. code-block:: csharp
 
      [Export(typeof(IAdHocExtension))]

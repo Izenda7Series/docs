@@ -45,6 +45,8 @@ Reference Izenda libraries in a New Project
 Sample Method Implementations
 -----------------------------
 
+.. comment: Not highlighted: Pygments does not support interpolated string in C# 6 yet https://bitbucket.org/birkenfeld/pygments-main/issues/1138/supporting-c-60
+
 .. container:: toggle
 
    .. container:: header
