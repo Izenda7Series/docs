@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v1.25.3
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15570 When copying reports with subreports and a dashboard the subreport links do not show up in destination
+-  Defect 15571 Data Setup > Connection String: SQL Injection issue noted for MySQL
+-  Defect 15595 Tree filter is not displaying values when inherited from top level report
+-  Defect 15640 Filters do not load for dashboard when copying reports after copying dashboard is separate copy workspace
+-  Defect 15660 Oracle Issues in 12C as Izenda Configuration Database Inconsistent Data types error
+-  Defect 15683 Value in Tree Filter of Dashboard is duplicated when using with Custom DLL
+
 v1.25.2
 ~~~~~~~
 
