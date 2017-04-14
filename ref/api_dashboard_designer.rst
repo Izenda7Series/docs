@@ -68,6 +68,10 @@ List of APIs
      - Validates dashboard access.
    * - `GET dashboard/allowedSavingCategories`_
      - Returns an array of allowed saving categories for dashboard.
+   * - `POST dashboard/allowedSavingCategories`_
+     - Returns an array of allowed saving categories for dashboard, with total number of items.
+   * - `POST dashboard/allowedSavingSubCategories`_
+     - Returns an array of allowed saving sub-categories for dashboard, with total number of items.
    * - `POST dashboard/loadCommonFilters`_
      - Returns a list of report filters that are common among all report parts from a dashboard definition.
    * - `GET dashboard/commonFilters/{dashboard_id}`_
@@ -2341,6 +2345,106 @@ Returns an array of allowed saving categories for dashboard.
           "modifiedBy": null
         }
       ]
+
+POST dashboard/allowedSavingCategories
+--------------------------------------------------------------
+
+Returns an array of allowed saving categories for dashboard, with total number of items.
+
+**Request**
+
+   Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+   The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all items
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/allowedSavingCategories HTTP/1.1
+
+   To be updated
+
+POST dashboard/allowedSavingSubCategories
+--------------------------------------------------------------
+
+Returns an array of allowed saving sub-categories for dashboard, with total number of items.
+
+   The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all items
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/allowedSavingSubCategories HTTP/1.1
+
+   To be updated
 
 POST dashboard/loadCommonFilters
 --------------------------------------------------------------

@@ -26,10 +26,16 @@ List of APIs
      - Purpose
    * - `GET report/category/{type}/(tenant\_id)`_
      - Returns an array of allowed saving categories for Report (type=0), Template (type=1) or Dashboard (type=2).
+   * - `POST report/allowedSavingCategories`_
+     - Returns an array of allowed saving categories for Report, with total number of items.
+   * - `POST report/allowedSavingSubCategories`_
+     - Returns an array of allowed saving sub-categories for Report, with total number of items.
    * - `GET report/subcategory/{parent\_category\_id}`_
      - Returns an array of allowed saving sub-categories under the Report category specified by parent_category_id.
    * - `GET report/allCategories/{type}/(tenant\_id)`_
      - Returns the list of categories by type (Reports/Templates/Dashboards) in parent-child hierarchy.
+   * - `POST report/allCategories`_
+     - Returns the list of categories in parent-child hierarchy, with total number of items.
    * - `POST report/category`_
      - Renames a report category.
    * - `DELETE report/category/{report\_category\_id}`_
@@ -61,6 +67,8 @@ List of APIs
      - Validates that a report name is unique and its filter and relationships are valid.
    * - `POST report/search`_
      - Searches for reports.
+   * - `POST report/search2`_
+     - Searches for reports, with total number of items.
    * - `POST report/advancedSearch`_
      - Searches for reports with advanced options.
    * - `GET report/reportMode`_
@@ -167,6 +175,105 @@ Returns an array of allowed saving categories by type (Reports/Templates/Dashboa
          "modified": null"
      }]
 
+POST report/allowedSavingCategories
+--------------------------------------------------------------
+
+Returns an array of allowed saving categories for report, with total number of items.
+
+**Request**
+
+   Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+   The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all reports
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/allowedSavingCategories HTTP/1.1
+
+   To be updated
+
+POST report/allowedSavingSubCategories
+--------------------------------------------------------------
+
+Returns an array of allowed saving sub-categories for report, with total number of items.
+
+   The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all reports
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/allowedSavingSubCategories HTTP/1.1
+
+   To be updated
 
 GET report/subcategory/{parent\_category\_id}
 ---------------------------------------------
@@ -288,6 +395,59 @@ Returns the list of categories by type (Reports/Templates/Dashboards) in parent-
          "modifiedBy": null
      }]
 
+POST report/allCategories
+--------------------------------------------
+
+Returns the list of categories in parent-child hierarchy, with total number of items.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+    The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all items
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/allCategories HTTP/1.1
+
+   To be updated
+
 
 POST report/category
 ---------------------------------------
@@ -306,12 +466,12 @@ Renames a report category.
        *  -  Field
           -  Description
           -  Note
-       *  -  | **success**
-             | boolean
+       *  -  **success** |br|
+             boolean
           -  Is the rename successful
           -
-       *  -  | **messages**
-             | array of strings
+       *  -  **messages** |br|
+             array of strings
           -  The error messages
           -
 
@@ -1490,6 +1650,59 @@ Searches for reports.
         		"modified" : null,
         		"modifiedBy" : null
          }]
+
+POST report/search2
+---------------------------------------
+
+Searches for reports, with total number of items.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+    The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all items
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/search2 HTTP/1.1
+
+   To be updated
 
 POST report/advancedSearch
 ---------------------------------------
@@ -4481,11 +4694,31 @@ POST report/timePeriod
 
 Saves a customed InTimePeriod.
 
-To be updated
+**Request**
+
+   A :doc:`models/TimePeriod` object
+
+**Response**
+
+   true if the save is successful
+
+**Samples**
+
+   To be updated
 
 DELETE report/timePeriod/{time_period_id}
 ------------------------------------------------
 
 Deletes the customed InTimePeriod specified by time_period_id.
 
-To be updated
+**Request**
+
+   No payload
+
+**Response**
+
+   true if the deletion is successful
+
+**Samples**
+
+   To be updated

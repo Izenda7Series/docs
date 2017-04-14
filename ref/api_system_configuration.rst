@@ -39,6 +39,8 @@ List of APIs
      - Returns an array of possible owners for schedule search screen.
    * - `POST systemSetting/deleteSchedules`_
      - Deletes schedules from an array of ids.
+   * - `GET systemSetting/categorySetting`_
+     - Returns the global category and local category.
 
 
 
@@ -564,3 +566,58 @@ Deletes schedules from an array of ids.
    Sample response::
 
       true
+
+GET systemSetting/categorySetting
+--------------------------------------------------------------
+
+Returns the global category and local category.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An array of exactly two objects with the following fields:
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **id** |br|
+             string (GUI)
+          -  The id of the setting
+          -
+       *  -  **name** |br|
+             string
+          -  Either "Global Category" or "Local Category"
+          -
+       *  -  **isGlobal** |br|
+             boolean
+          -  *  true if Global
+             *  false if Local
+
+          -
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/systemSetting/categorySetting HTTP/1.1
+
+   Sample response::
+
+      [
+         {
+            "id": "2a83e3ce-f91b-4f14-910d-76cadf42d0fe",
+            "name": "Global Category",
+            "isGlobal": true
+         },
+         {
+            "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+            "name": "Local Category",
+            "isGlobal": false
+         }
+      ]

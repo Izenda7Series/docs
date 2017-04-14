@@ -197,7 +197,25 @@ Returns reports for the report list with total number of item
 
       POST /api/report/list2 HTTP/1.1
 
-   To be updated
+   Request payload::
+
+      {
+         "tenantId": null,
+         "isUncategorized": false,
+         "skipItems": 0,
+         "pageSize": 1,
+         "parentIds": [],
+         "includeGlobalCategory": true,
+         "criterias": [
+            {
+               "key": "CategoryId"
+            }
+         ]
+      }
+
+   Response::
+
+      To be updated
 
 GET report/info/{report_id}
 ------------------------------------------------

@@ -65,7 +65,15 @@ List of APIs
    * - `POST dataModel/schema/updateConnectionColor`_
      - Updates the connection color.
    * - `GET dataModel/relationship/joinTypes`_
-     - Returns an array of join types currently supported.	
+     - Returns an array of join types currently supported.
+   * - `GET dataModel/databaseMapping`_
+     - Returns an array of database mappings.
+   * - `POST dataModel/databaseMapping`_
+     - Saves an array of database mappings.
+   * - `POST dataModel/loadDatabaseNames`_
+     - Returns a paged array of database servers and database names.
+   * - `POST dataModel/loadDatabaseObjects`_
+     - Returns a paged array of connection names or schema names in the specified database.
 
 .. _POST_dataModel/loadQuerySources:
 
@@ -1483,8 +1491,247 @@ Returns an array of join types currently supported.
 
    .. code-block:: http
 
-      GET api/DataModel/relationship/joinTypes HTTP/1.1
+      GET api/dataModel/relationship/joinTypes HTTP/1.1
 
    Sample response::
 
       ["Inner", "Left", "Right", "Full", "Cross"]
+
+GET dataModel/databaseMapping
+--------------------------------------------------------------
+
+Returns an array of database mappings.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An array of :doc:`models/GlobalDatabaseMapping` objects
+
+**Samples**
+
+   .. code-block:: http
+
+      GET api/dataModel/databaseMapping HTTP/1.1
+
+   Sample response::
+
+      [
+         {
+            "fromServer": "SERVER1",
+            "toServer": "SERVER2",
+            "fromDatabaseName": "[MSSQL] Northwind",
+            "type": 2,
+            "fromObject": "connection_name",
+            "toDatabaseName": "[MSSQL] northwind",
+            "toObject": "connection_name_2",
+            "selectAllTenants": true,
+            "tenantIds": "null",
+            "tenants": null,
+            "errorType": 0,
+            "id": "258bbcf9-4bd1-49de-8728-1578bb4aefa7",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": 1,
+            "created": "2017-04-14T04:18:50.4000000-07:00",
+            "createdBy": "John Doe",
+            "modified": "2017-04-14T04:18:50.4000000-07:00",
+            "modifiedBy": "John Doe"
+         }
+      ]
+
+POST dataModel/databaseMapping
+--------------------------------------------------------------
+
+Saves an array of database mappings.
+
+**Request**
+
+    An array of :doc:`models/GlobalDatabaseMapping` objects
+
+**Response**
+
+    An :doc:`models/OperationResult` object, with **success** field true if the save is successful
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/dataModel/databaseMapping HTTP/1.1
+
+   Request Payload::
+
+      [
+         {
+            "id": null,
+            "fromServer": "SERVER1",
+            "fromDatabaseName": "[MSSQL] Northwind",
+            "type": 2,
+            "fromObject": "connection_name",
+            "toServer": "SERVER2",
+            "toDatabaseName": "[MSSQL] northwind",
+            "toObject": "connection_name_2",
+            "tenants": null,
+            "state": 1,
+            "selectAllTenants": true
+         }
+      ]
+
+   Sample response::
+
+      {
+         "success":true
+      }
+
+POST dataModel/loadDatabaseNames
+--------------------------------------------------------------
+
+Returns a paged array of database servers and database names.
+
+**Request**
+
+    A :doc:`models/DatabaseMappingPagedRequest` object
+
+**Response**
+
+    A :doc:`PagedResult` object, with **result** field containing an array of the following object:
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **serverTypeName** |br|
+             string
+          -  The type of the database server (MSSQL, Oracle, MySQL, etc.)
+          -
+       *  -  **databaseServer** |br|
+             string
+          -  The name of the server
+          -
+       *  -  **databaseName** |br|
+             string
+          -  The name of the database
+          -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/dataModel/loadDatabaseNames HTTP/1.1
+
+   Request Payload::
+
+      {
+         "pageIndex": 1,
+         "pageSize": 10,
+         "loadFromDatabase": true
+      }
+
+   Sample response::
+
+      {
+         "result": [
+            {
+               "serverTypeName": "AZSQL",
+               "databaseServer": "abc.database.windows.net",
+               "databaseName": "Northwind"
+            },
+            {
+               "serverTypeName": "MSSQL",
+               "databaseServer": "localhost",
+               "databaseName": "Northwind"
+            },
+            {
+               "serverTypeName": "MYSQL",
+               "databaseServer": "192.168.1.1",
+               "databaseName": "northwind"
+            },
+            {
+               "serverTypeName": "ORACL",
+               "databaseServer": "192.168.1.1:1521/orcl",
+               "databaseName": "orcl"
+            },
+            {
+               "serverTypeName": "PGSQL",
+               "databaseServer": "192.168.1.1",
+               "databaseName": "DB"
+            }
+         ],
+         "pageIndex": 1,
+         "pageSize": 10,
+         "total": 5,
+         "skipItems": 0,
+         "isLastPage": true
+      }
+
+POST dataModel/loadDatabaseObjects
+--------------------------------------------------------------
+
+Returns a paged array of connection names or schema names in the specified database.
+
+**Request**
+
+    A :doc:`models/DatabaseMappingPagedRequest` object
+
+**Response**
+
+   A :doc:`PagedResult` object, with **result** field containing an array of strings.
+
+   If :doc:`models/DatabaseMappingPagedRequest`.``type`` is ``2`` (Database), return connection names, else return schema names.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/dataModel/loadDatabaseObjects HTTP/1.1
+
+   Request Payload for Database::
+
+      {
+         "pageIndex": 1,
+         "pageSize": 10,
+         "databaseServer": "SERVER1",
+         "databaseName": "[MSSQL] Northwind",
+         "type": 2
+      }
+
+   Sample response for Database::
+
+      {
+         "result": [
+            "connection_name"
+         ],
+         "pageIndex": 1,
+         "pageSize": 10,
+         "total": 1,
+         "skipItems": 0,
+         "isLastPage": true
+      }
+
+   Request Payload for Schema::
+
+      {
+         "pageIndex": 1,
+         "pageSize": 10,
+         "databaseServer": "SERVER1",
+         "databaseName": "[MSSQL] Northwind",
+         "type": 1
+      }
+
+   Sample response for Schema::
+
+      {
+         "result": [
+            "dbo"
+         ],
+         "pageIndex": 1,
+         "pageSize": 10,
+         "total": 1,
+         "skipItems": 0,
+         "isLastPage": true
+      }

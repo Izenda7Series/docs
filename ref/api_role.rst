@@ -30,6 +30,8 @@ List of APIs
      - Returns a list of available roles for Access (type=0) or Scheduling (type=1), filtered by tenant_id if available.
    * - GET role/availableCategory/{type}/(tenant_id)
      - Returns a list of available categories for Report/Template (type=0) or Dashboard (type=1), filtered by tenant_id if available.
+   * - POST role/availableCategory
+     - Returns a list of available categories, with total number of items.
    * - POST role
      - Saves a role.
    * - GET role/summaries/(tenant_id)
@@ -508,6 +510,27 @@ Returns a list of available categories for Report/Template (type=0) or Dashboard
          "modifiedBy": null
        }
       ]
+
+POST role/availableCategory
+--------------------------------------------------------------
+
+Returns a list of available categories, with total number of items.
+
+**Request**
+
+   Payload: a :doc:`models/CategoryPagedRequest` object
+
+**Response**
+
+   A :doc:`models/PagedResult` object, with **result** field containing an array of :doc:`models/Category` objects.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/role/availableCategory HTTP/1.1
+
+   To be updated
 
 POST role
 --------------------------------------------------------------

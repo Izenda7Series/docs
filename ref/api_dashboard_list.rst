@@ -38,6 +38,8 @@ List of APIs
      - Purpose
    * - `GET dashboard/categories/(tenant_id)`_
      - Returns an array of dashboard categories, filtered by tenant_id if available.
+   * - `POST dashboard/categories`_
+     - Returns a paged array of dashboard categories.
    * - `POST dashboard/category`_
      - Renames a dashboard category.
    * - `DELETE dashboard/category/{dashboard_category_id}`_
@@ -58,8 +60,12 @@ List of APIs
      - Returns a list of report filters data including a filter description.
    * - `POST dashboard/list`_
      - Returns dashboards for the dashboard list screen.
+   * - `POST dashboard/list2(?includeHashCode=true)`_
+     - Returns dashboards for the dashboard list screen, with total number of item.
    * - `POST dashboard/search`_
      - Searches dashboards.
+   * - `POST dashboard/search2`_
+     - Searches dashboards, with total number of item.
    * - `POST dashboard/loadAccesses`_
      - Returns a list of user permissions for dashboard.
 
@@ -140,6 +146,60 @@ Returns an array of dashboard categories, filtered by tenant_id if available.
         }
       ]
       
+
+POST dashboard/categories
+--------------------------------------------------------------
+
+Returns a paged array of dashboard categories.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+   The following object:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **data** |br|
+            array of objects
+         -  An array of :doc:`models/Category` objects
+         -
+      *  -  **totalItems** |br|
+            string
+         -  The number of all items
+         -
+      *  -  **numOfChilds** |br|
+            integer
+         -  The number of children
+         -
+      *  -  **numOfCheckedChilds** |br|
+            integer
+         -  The number of selected children
+         -
+      *  -  **indeterminate** |br|
+            boolean
+         -  *  true if 0 < numOfCheckedChilds < numOfChilds
+            *  false if not
+         -
+      *  -  **isLastPage** |br|
+            boolean
+         -  Whether this is the last page
+         -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/categories HTTP/1.1
+
+   To be updated
+
 
 POST dashboard/category
 --------------------------------------------------------------
@@ -917,6 +977,67 @@ Returns dashboards for the dashboard list screen.
         }
       ]
 
+POST dashboard/list2(?includeHashCode=true)
+--------------------------------------------------------------
+
+Returns dashboards for the dashboard list screen, with total number of items.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+    Optional query string: includeHashCode=true
+
+**Response**
+
+   *  Without includeHashCode: an array of :doc:`models/Category` objects
+   *  With includeHashCode=true: the following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **hashcode** |br|
+               string
+            -  The hashcode
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all reports
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/list2 HTTP/1.1
+
+   To be updated
+
+
 POST dashboard/search
 --------------------------------------------------------------
 
@@ -1035,6 +1156,59 @@ Searches dashboards.
           "modifiedBy": null
         }
       ]
+
+POST dashboard/search2
+--------------------------------------------------------------
+
+Searches dashboards, with total number of items.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDashboardSearchCriteria` object
+
+**Response**
+
+   The following object:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  -  Field
+            -  Description
+            -  Note
+         *  -  **data** |br|
+               array of objects
+            -  An array of :doc:`models/Category` objects
+            -
+         *  -  **totalItems** |br|
+               string
+            -  The number of all reports
+            -
+         *  -  **numOfChilds** |br|
+               integer
+            -  The number of children
+            -
+         *  -  **numOfCheckedChilds** |br|
+               integer
+            -  The number of selected children
+            -
+         *  -  **indeterminate** |br|
+               boolean
+            -  *  true if 0 < numOfCheckedChilds < numOfChilds
+               *  false if not
+            -
+         *  -  **isLastPage** |br|
+               boolean
+            -  Whether this is the last page
+            -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/search2 HTTP/1.1
+
+   To be updated
 
 POST dashboard/loadAccesses
 --------------------------------------------------------------

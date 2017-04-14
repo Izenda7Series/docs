@@ -18,6 +18,7 @@ Data Model
    DBSetupInfo
    DBSource
    DestinationTenant
+   GlobalDatabaseMapping
    InputWorkspace
    Overwrite
    QuerySource

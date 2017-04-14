@@ -6,10 +6,12 @@ Request and Response
    :titlesonly:
 
    AccessPagedRequest
+   CategoryPagedRequest
    ConnectionResult
    ConnectionVerificationResult
    DashboardFilterFieldPagedRequest
    DashboardRenameParameter
+   DatabaseMappingPagedRequest
    DataResult
    GenerateAccessTokenArgs
    LicenseStatusResult
