@@ -138,7 +138,6 @@ Izenda Web Backup
 
    -  ``API\izendadb.config``
    -  ``API\Web.config`` if there are custom configurations
-   -  ``App\izenda_config.js``
 
 Izenda System Database Upgrade
 ------------------------------
