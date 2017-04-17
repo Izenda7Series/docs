@@ -9,9 +9,9 @@ Izenda abides by a few simple rules to ensure that resources are properly secure
 
    Resource Mapping Example
 
----------------------
-Security a Role Level
----------------------
+--------------------------
+Security at a Role Level
+--------------------------
 * Security at a role level allows you to restrict access to resources.
 
 
@@ -34,9 +34,9 @@ The Law of Least Restriction
    - Suppose we want User X to have access to Resources {A, C, E} but we do not want it to have access to Resources {B, D}. With the roles provided, it is impossible to restrict access with roles alone.
 - The Law of Least Restriction makes it impossible to define roles within roles (subsets) with only the use of roles
  
----------------------
-Security a Code Level
----------------------
+--------------------------
+Security at a Code Level
+--------------------------
 
 * Security at a code level allows for further granulation of data.
 
@@ -54,9 +54,9 @@ Hidden Filters
 
    Simulating Sub Role Data Access
 
------------------------
-Security a Report Level
------------------------
+--------------------------
+Security at a Report Level
+--------------------------
 
 - Explicit permissions in reports regarding modification supersede permissions set in a role.
    - If a user’s role does not grant it access to data or code is used to filter the data, the user will not have access to the data. A message “No Results Found” will be displayed.
