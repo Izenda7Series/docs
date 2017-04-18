@@ -32,6 +32,11 @@ PagedResult
       -
       -  The total number of rows
       -  Inherited from :doc:`PagingInfo`
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -  Inherited from :doc:`PagingInfo`
    *  -  **isLastPage** |br|
          boolean
       -

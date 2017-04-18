@@ -46,6 +46,16 @@ ReportDashboardSearchCriteria
       -
       -  List of visible sub-category ids
       -
+   *  -  **visibleLocalUncategorized** |br|
+         boolean
+      -
+      -  Whether local Uncategorized is visible
+      -
+   *  -  **visibleGlobalUncategorized** |br|
+         boolean
+      -
+      -  Whether global Uncategorized is visible
+      -
    *  -  **defaultChecked** |br|
          boolean
       -
@@ -60,6 +70,21 @@ ReportDashboardSearchCriteria
          real number
       -
       -  The timestamp offset
+      -
+   *  -  **includeGlobalCategory** |br|
+         boolean
+      -
+      -  Whether to include global category
+      -
+   *  -  **isGlobal** |br|
+         boolean
+      -  Y
+      -  Whether this instance is global
+      -
+   *  -  **includeUncategory** |br|
+         boolean
+      -
+      -  Whether to include Uncategorized
       -
 
 .. deprecated:: 1.25

@@ -36,7 +36,16 @@ ReportSetting
       -
       -  Whether to use the schedule to remove archived versions
       -
-
+   *  -  **localCategoryName** |br|
+         string
+      -
+      -  The local category name
+      -
+   *  -  **globalCategoryName** |br|
+         string
+      -
+      -  The global category name
+      -
 
 Inherited fields:
 

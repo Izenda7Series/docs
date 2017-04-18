@@ -112,6 +112,11 @@ Dashboard
       -  Y
       -  The id of the source dashboard in case this dashboard has been copied
       -
+   *  -  **isGlobal** |br|
+         boolean
+      -
+      -  Whether this is global dashboard
+      -
    *  -  **deletable** |br|
          boolean
       -
@@ -142,6 +147,17 @@ Dashboard
       -
       -  An array of :doc:`DashboardPart` objects
       -
+   *  -  **indeterminate** |br|
+         boolean
+      -
+      -  Place-holder, returns false
+      -
+   *  -  **isChecked** |br|
+         boolean
+      -
+      -  Whether this is selected
+      -
+
 
 Inherited fields:
 

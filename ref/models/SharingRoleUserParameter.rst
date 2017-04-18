@@ -27,6 +27,11 @@ SharingRoleUserParameter
       -  Y
       -  The dashboard id
       -
+   *  -  **isGlobal** |br|
+         boolean
+      -
+      -  Whether to set roles for global reports
+      -
 
 .. container:: toggle
 

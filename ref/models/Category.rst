@@ -27,8 +27,18 @@ Category
       -
    *  -  **parentId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the parent category
+      -
+   *  -  **tenantId** |br|
+         string (GUID)
+      -  Y
+      -  The id of the tenant
+      -
+   *  -  **isGlobal** |br|
+         boolean
+      -
+      -  Whether this is a global category
       -
    *  -  **canDelete** |br|
          boolean

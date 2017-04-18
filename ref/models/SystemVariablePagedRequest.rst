@@ -24,7 +24,7 @@ SystemVariablePagedRequest
    *  -  **tenantId** |br|
          string (GUID)
       -  Y
-      -  The total number of rows
+      -  The id of the tenant
       -  Inherited from :doc:`PagedRequest`
    *  -  **criteria** |br|
          array of objects
@@ -50,6 +50,16 @@ SystemVariablePagedRequest
          integer
       -
       -  The total number of rows
+      -  Inherited from :doc:`PagedRequest`
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -  Inherited from :doc:`PagedRequest`
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
       -  Inherited from :doc:`PagedRequest`
 
 .. container:: toggle

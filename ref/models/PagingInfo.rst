@@ -27,6 +27,11 @@ PagingInfo
       -
       -  The total number of rows
       -
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -
    *  -  **isLastPage** |br|
          boolean
       -

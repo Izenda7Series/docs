@@ -15,7 +15,7 @@ PagedRequest
    *  -  **tenantId** |br|
          string (GUID)
       -  Y
-      -  The total number of rows
+      -  The id of the tenant
       -
    *  -  **criteria** |br|
          array of objects
@@ -42,6 +42,11 @@ PagedRequest
       -
       -  The total number of rows
       -  Inherited from :doc:`PagingInfo`
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -  Inherited from :doc:`PagingInfo`
    *  -  **isLastPage** |br|
          boolean
       -
@@ -52,7 +57,7 @@ PagedRequest
 
    .. container:: header
 
-      **Sample**:
+      **PagedRequest Sample**:
 
    .. code-block:: json
 
