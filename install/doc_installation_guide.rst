@@ -54,8 +54,6 @@ To ensure that Izenda works properly, your Web Server requires additional compon
 Add Web Server Role and .NET Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- 
-
 #. Open Server Manager.
 #. Click Quick Start, then Add roles and features to open Add Roles and
    Features dialog box.
@@ -66,6 +64,17 @@ Add Web Server Role and .NET Framework
    check-box.
 #. Expand .NET Framework 4.5 features and tick .NET Framework 4.5
    check-box.
+
+   .. note::
+
+      .. figure:: /_static/images/Server_Role_Web_Server_ASP.NET_4.6.png
+         :align: right
+         :width: 524px
+
+         Install Server ASP.NET 4.6
+
+      For Windows Server 2016, also check ASP.NET 4.6 in this step and skip adding "IIS:ASP.NET 4.5" in next step. |br|
+
 #. Accept other default options then click Install.
 
 .. _Install_ASP.NET_4.5_and_URL_Rewrite_Components:
@@ -79,8 +88,8 @@ Install ASP.NET 4.5 and URL Rewrite Components
        Web Platform Components" link.
 
 #. Download and run the installer.
-#. Open Microsoft Web Platform Installer and search for "ASP.NET".
-#. Select "IIS:ASP.NET 4.5" and click Add.
+#. Open Microsoft Web Platform Installer.
+#. Search for "ASP.NET", select "IIS:ASP.NET 4.5" and click Add. (Not applicable for Windows Server 2016)
 #. Similarly search for URL Rewrite 2.0 and click Add.
 #. Click Install.
 
