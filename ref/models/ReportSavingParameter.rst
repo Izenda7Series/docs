@@ -47,7 +47,11 @@ ReportSavingParameter
       -
       -  Is the check for report name ignored
       -
-
+   *  -  **insertWithAssignedId** |br|
+         boolean
+      -
+      -  Whether to use the populated report id in **report** object to insert
+      -
 
 
 
