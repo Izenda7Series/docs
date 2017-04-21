@@ -32,17 +32,15 @@ sending options.
    .. _System_Configuration_Email:
 
    .. figure:: /_static/images/System_Configuration_Email.png
-      :align: right
       :width: 652px
 
       Email Sending Options |br|
 
+   e.g. ACME and no-reply@acme.com will result in this email.
+
    .. _Email_from_no-reply@acme:
 
    .. figure:: /_static/images/Email_from_no-reply@acme.png
-         :align: right
          :width: 304px
 
-         Sample Email
-
-   e.g. ACME and no-reply@acme.com will result in this email. |br|
+         Sample Email |br|

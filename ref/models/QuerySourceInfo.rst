@@ -55,7 +55,7 @@ QuerySourceInfo
    *  -  **querySourceCategoryName** |br|
          string
       -
-      -  The name of the query source category containing the query source
+      -  The name of the :term:`query source category` containing the query source
       -
 
 .. container:: toggle

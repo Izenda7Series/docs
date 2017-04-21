@@ -98,10 +98,16 @@ Add and Configure Items in Report Header and Footer Layout
 Layout Items in Report Header and Footer Layout
 -----------------------------------------------
 
+Items in Report
+Header and Footer can be:
+
+-  resized vertically, horizontally or diagonally.
+-  dragged around.
+-  deleted.
+
 .. _Report_Format_Drag:
 
 .. figure:: /_static/images/Report_Format_Drag.png
-   :align: right
    :width: 177px
 
    Drag an item |br|
@@ -109,17 +115,9 @@ Layout Items in Report Header and Footer Layout
 .. _Report_Format_Delete:
 
 .. figure:: /_static/images/Report_Format_Delete.png
-   :align: right
    :width: 165px
 
-   Delete an item
-
-Items in Report
-Header and Footer can be:
-
--  resized vertically, horizontally or diagonally.
--  dragged around.
--  deleted. |br|
+   Delete an item |br|
 
 Enter Report Title and Description
 ----------------------------------

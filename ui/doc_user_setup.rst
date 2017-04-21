@@ -102,7 +102,7 @@ Add User
 
       Password Options
 
-#. Click Generate Password Link button to generate the password link.
+#. Click Generate Password Link button to generate the :term:`password link`.
 
    -  Either click the copy icon (that looks a bit like this ❐) to copy
       the password link to clipboard then send to the user.

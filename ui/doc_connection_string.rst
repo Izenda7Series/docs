@@ -27,15 +27,15 @@ visible in reports.
    In browser, log in to Izenda as a user with Connection String permission.
 #. Click Settings, then Data Setup then Connection String in the left menu.
 #. Select the Setting Level: either System or a specific tenant. (:numref:`Menu_Connection_String`) |br|
-#. .. _Connection_Add_Connection:
+#. Click on Add Connection. (:numref:`Connection_Add_Connection`)
+
+   .. _Connection_Add_Connection:
 
    .. figure:: /_static/images/Connection_Add_Connection.jpg
-      :align: right
       :width: 181px
 
-      Add Connection
+      Add Connection |br|
 
-   Click on Add Connection. (:numref:`Connection_Add_Connection`) |br|
 #. .. _Connection_Select_Database_Server_Type:
 
    .. figure:: /_static/images/Connection_Select_Database_Server_Type.jpg
@@ -62,24 +62,26 @@ visible in reports.
 
       Unless the Connection String has been verified successfully, user will not be able to move next.
 
-#. The connection name will be automatically populated from the database name. User can edit to give it a more suitable name. (:numref:`Connection_Connection_String_Test`)
-
-   .. _Connection_Connection_String_Test:
+#. .. _Connection_Connection_String_Test:
 
    .. figure:: /_static/images/Connection_Connection_String_Test.jpg
       :align: right
       :width: 619px
 
-      Test the Connection and give it a name |br|
-#. Click the Connect button to show the list of available data sources. (:numref:`Connection_Connect`)
+      Test the Connection and give it a name
 
-   .. _Connection_Connect:
+   The connection name will be automatically populated from the database name. User can edit to give it a more suitable name. (:numref:`Connection_Connection_String_Test`) |br|
+
+#. .. _Connection_Connect:
 
    .. figure:: /_static/images/Connection_Connect.jpg
       :align: right
       :width: 624px
 
-      Connect to the Connection |br|
+      Connect to the Connection
+
+   Click the Connect button to show the list of available data sources. (:numref:`Connection_Connect`) |br|
+
 #. .. _Connection_Expand_Available_Data_Sources:
 
    .. figure:: /_static/images/Connection_Expand_Available_Data_Sources.jpg
@@ -99,25 +101,26 @@ visible in reports.
          Filter the data sources
 
       The data sources can be quickly filtered by typing a partial name in the Search box. (:numref:`Connection_Available_Data_Sources_Filter`) |br|
-#. Click on the data sources to move them between the two lists. (:numref:`Connection_Move_Data_Source_to_Visible_List`)
-
-   .. _Connection_Move_Data_Source_to_Visible_List:
+#. .. _Connection_Move_Data_Source_to_Visible_List:
 
    .. figure:: /_static/images/Connection_Move_Data_Source_to_Visible_List.jpg
       :align: right
       :width: 611px
 
-      Move data sources between the two lists |br|
+      Move data sources between the two lists
 
-      User can quickly move all data sources in a group (Table, View, Stored Procedure or Function) by clicking on that group name. (:numref:`Connection_Move_a_Group_of_Data_Sources`)
+   Click on the data sources to move them between the two lists. (:numref:`Connection_Move_Data_Source_to_Visible_List`) |br|
 
-      .. _Connection_Move_a_Group_of_Data_Sources:
+   .. _Connection_Move_a_Group_of_Data_Sources:
 
-      .. figure:: /_static/images/Connection_Move_a_Group_of_Data_Sources.jpg
-         :align: right
-         :width: 614px
+   .. figure:: /_static/images/Connection_Move_a_Group_of_Data_Sources.jpg
+      :align: right
+      :width: 614px
 
-         Move a group of data sources |br|
+      Move a group of data sources
+
+   User can quickly move all data sources in a group (Table, View, Stored Procedure or Function) by clicking on that group name. (:numref:`Connection_Move_a_Group_of_Data_Sources`) |br|
+
 #. Click Save button at the top to save the connection and the visible data sources.
 
 Delete connection

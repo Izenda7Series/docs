@@ -14,7 +14,7 @@ The **Advanced Settings** page allows user to
 Add data source categories
 --------------------------
 
-A category must be added before showing up for assignment to a data
+A category should be added before showing up for assignment to a data
 source.
 
 #. In browser, log in to Izenda as a user with Advanced Settings
@@ -36,7 +36,6 @@ source.
    .. _Settings_Category_Add_New:
 
    .. figure:: /_static/images/Settings_Category_Add_New.jpg
-      :align: right
       :width: 622px
 
       Add New button |br|
@@ -55,19 +54,17 @@ Delete data source categories
    .. _Settings_Category_Delete:
 
    .. figure:: /_static/images/Settings_Category_Delete.jpg
-      :align: right
       :width: 621px
 
       Delete icon |br|
-#. .. _Category_Deletion_Confirmation:
+#. Click OK in the pop-up confirmation. (:numref:`Category_Deletion_Confirmation`)
+
+   .. _Category_Deletion_Confirmation:
 
    .. figure:: /_static/images/Category_Deletion_Confirmation.jpg
-      :align: right
       :width: 456px
 
-      Delete confirmation
-
-   Click OK in the pop-up confirmation. (:numref:`Category_Deletion_Confirmation`) |br|
+      Delete confirmation |br|
 #. The category is deleted immediately.
 
        The Save and Cancel buttons at the top does not have any effect in this action.
@@ -125,7 +122,6 @@ Update settings in Performance, Security/Additive Fields and Others group
       .. _Advanced_Settings_Back_to_Default_Value:
 
       .. figure:: /_static/images/Advanced_Settings_Back_to_default_value.jpg
-         :align: right
          :width: 618px
 
          Revert back to default value |br|

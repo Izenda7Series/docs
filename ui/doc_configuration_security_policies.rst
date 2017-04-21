@@ -43,7 +43,6 @@ To set the policy that passwords should have from 7 to 15 characters, composed f
 .. _Security_Policies_Password_Complexity_Sample:
 
    .. figure:: /_static/images/Security_Policies_Password_Complexity_Sample.png
-      :align: right
       :width: 618px
 
       Password Complexity Sample |br|

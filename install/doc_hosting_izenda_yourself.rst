@@ -21,6 +21,13 @@ Software Requirements
 *  Web Server: IIS7 or newer with ASP.NET (see :ref:`Install_ASP.NET_4.5_and_URL_Rewrite_Components`)
 *  .NET Application Pool (CLR): 4.0 Integrated
 *  .NET Framework: .NET 4.0 or higher
+*  Supported Database servers:
+
+   -  Microsoft SQL Server 2008 or later
+   -  Microsoft Azure
+   -  Oracle 10.2 or later
+   -  MySQL
+   -  PostgreSQL
 
 Required Software for Oracle Data Source
 ------------------------------------------

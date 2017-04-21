@@ -53,9 +53,9 @@ List of APIs
    * - `GET user/securityQuestion/{user_name}/(tenant_display_id)`_
      - Returns security question for a user and tenant.
    * - `POST user/generatePasswordLink`_
-     - Generates password link.
+     - Generates :term:`password link`.
    * - `POST user/validatePasswordLink`_
-     - Validates password link.
+     - Validates :term:`password link`.
    * - `POST user/validateSecurityQuestion`_
      - Validates security questions.
    * - `POST user/validateUserInfo`_
@@ -63,7 +63,7 @@ List of APIs
    * - `POST user/validateExpirationPasswordLink`_
      - Validates password expiration link.
    * - `POST user/sendPasswordLink`_
-     - Sends password link via email to user.
+     - Sends :term:`password link` via email to user.
    * - `POST user/integration/saveUser`_
      - Adds or updates external user.
 
@@ -1148,7 +1148,7 @@ Returns security question for a user and tenant.
 POST user/generatePasswordLink
 --------------------------------------------------------------
 
-Generates password link.
+Generates :term:`password link`.
 
 **Request**
 
@@ -1182,7 +1182,7 @@ Generates password link.
 POST user/validatePasswordLink
 --------------------------------------------------------------
 
-Validates password link.
+Validates :term:`password link`.
 
 **Request**
 
@@ -1366,7 +1366,7 @@ Validates password expiration link.
 POST user/sendPasswordLink
 --------------------------------------------------------------
 
-Sends password link via email to user.
+Sends :term:`password link` via email to user.
 
 **Request**
 

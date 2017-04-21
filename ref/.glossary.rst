@@ -5,20 +5,41 @@ Glossary
 
 .. glossary::
 
-   data source
-      A database table, view or stored procedure, which can be selected for query inside a report.
-
-   data source field
-      A field inside database table or view, or a stored procedure parameter, which can be selected for display, calculation or filter inside a report.
-
    calculated field
       A user-defined field whose value is calculated on-the-fly from other data source or calculated fields.
 
-   query source category
-      A grouping of data sources in the physical database, which is usually called **schema** in most database vendors.
+   category
+      A user-defined grouping of reports or dashboards with a custom name.
+
+   chart
+      A built-in type of report part that displays data using graphical symbols, such as bars in a bar chart, lines in a line chart, or slices in a pie chart.
+
+   data source
+      A database table, view or stored procedure, which can be selected for query inside a report.
 
    data source category
       A user-defined grouping of data sources with a custom name.
 
-   category
-      A user-defined grouping of reports or dashboards with a custom name.
+   data source field
+      A field inside database table or view, or a stored procedure parameter, which can be selected for display, calculation or filter inside a report
+
+   form
+      A built-in type of report part that allows WYSIWYG editting in HTML.
+
+   gauge
+      A built-in type of report part that displays data using a speedometer.
+
+   grid
+      A built-in type of report part that displays data in a tabular format
+
+   map
+      A built-in type of report part that displays data on geographic maps, ranging from world map to continent and country maps.
+
+   query source category
+      A grouping of data sources in the physical database, which is usually called **schema** in most database vendors.
+
+   password link
+      A short-expiry url uniquely created from the user information, which is used to open the password setup page.
+
+   report part
+      A report area that holds a specific bar chart, line chart, pie chart, map, data grid, etc.

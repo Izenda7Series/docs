@@ -26,7 +26,6 @@ Search and View Schedule Instances
 .. _Configuration_Scheduling_Search:
 
 .. figure:: /_static/images/Configuration_Scheduling_Search.png
-   :align: right
    :width: 900px
 
    Schedule Instances Search |br|

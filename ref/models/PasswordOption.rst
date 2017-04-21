@@ -15,7 +15,7 @@ PasswordOption
    *  -  **passwordLink** |br|
          string
       -
-      -  The password link
+      -  The :term:`password link`.
       -
    *  -  **user** |br|
          object

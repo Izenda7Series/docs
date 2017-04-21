@@ -8,4 +8,4 @@ System Reference
    .system_specification
    .rest_api_documentation
    models/.rest_api_object_models
-   database_documentation 
+   .database_documentation 

@@ -90,7 +90,7 @@ SecurityPolicy
    *  -  **passwordLinkValidity'''** |br|
          integer
       -  Y
-      -  Password link validity x hour(s) setting
+      -  :term:`Password link` validity x hour(s) setting
       -
    *  -  **numberOfQuestionProfile'''** |br|
          integer

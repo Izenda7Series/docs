@@ -20,7 +20,7 @@ ReportDataSourceCategory
    *  -  **name** |br|
          string
       -
-      -  The name of the data source category
+      -  The name of the :term:`data source category`
       -
    *  -  **querySource** |br|
          array of objects

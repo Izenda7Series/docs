@@ -40,7 +40,7 @@ UserVerification
    *  -  **verification** |br|
          string
       -
-      -  The encoded info of user from password link
+      -  The encoded info of user from :term:`password link`
       -
    *  -  **issueDate** |br|
          datetime

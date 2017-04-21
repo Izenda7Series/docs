@@ -187,12 +187,12 @@ QuerySourceField
    *  -  **categoryName** |br|
          string
       -
-      -  The name of the query source category
+      -  The name of the :term:`query source category`
       -
    *  -  **inaccessible** |br|
          boolean
       -
-      -  The name of the query source category
+      -  Whether this is inaccessible
       -
    *  -  **originalAlias** |br|
          string

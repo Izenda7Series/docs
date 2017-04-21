@@ -204,7 +204,6 @@ Validate Consistency between Source and Destinations
    .. _Copy_Management_Data_Model_Comparison:
 
    .. figure:: /_static/images/Copy_Management_Data_Model_Comparison.png
-      :align: right
       :width: 637px
 
       Data Model Comparison |br|

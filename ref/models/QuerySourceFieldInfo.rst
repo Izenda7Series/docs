@@ -35,12 +35,12 @@ QuerySourceFieldInfo
    *  -  **querySourceCategoryId** |br|
          string
       -
-      -  The id of the query source category
+      -  The id of the :term:`query source category`
       -
    *  -  **querySourceCategoryName** |br|
          string
       -
-      -  The name of the query source category
+      -  The name of the :term:`query source category`
       -
    *  -  **connectionStringId** |br|
          string (GUID)

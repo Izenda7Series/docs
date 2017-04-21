@@ -66,12 +66,12 @@ QuerySource
    *  -  **dataSourceCategoryId** |br|
          string (GUID)
       -  Y
-      -  The id of the data source category containing the query source
+      -  The id of the :term:`data source category` containing the query source
       -
    *  -  **dataSourceCategoryName** |br|
          string
       -
-      -  The name of the data source category containing the query source
+      -  The name of the :term:`data source category` containing the query source
       -
    *  -  **alias** |br|
          string
