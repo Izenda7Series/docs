@@ -42,7 +42,7 @@ List of APIs
    * - .. container:: lpad2
    
           `renderReportPart(element,{"id":report_part_id})`_
-     - Render specific Report Part inside hosting web
+     - Render specific :term:`Report Part` inside hosting web
    * - .. container:: lpad2
    
           `renderDashboardPage(element)`_
@@ -219,7 +219,7 @@ Render Izenda Report Viewer page only inside hosting web
 renderReportPart(element,{"id":report_part_id})
 ----------------------------------------------------------------------------------------------
 
-Render specific Report Part inside hosting web
+Render specific :term:`Report Part` inside hosting web
 
 
 **Parameters**

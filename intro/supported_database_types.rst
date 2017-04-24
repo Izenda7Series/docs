@@ -10,11 +10,11 @@ Supported Databases
    .. hlist::
       :columns: 2
 
-      -  Oracle
+      -  Microsoft SQL Server 2008 or later
+      -  Microsoft Azure
+      -  Oracle 10.2 or later
       -  MySQL
-      -  Microsoft SQL Server
       -  PostgreSQL
-      -  Microsoft Azure SQL Database
 
 Cubes Support
 ~~~~~~~~~~~~~

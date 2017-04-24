@@ -17,6 +17,8 @@ Izenda moves as fast as your data allows.
    for similar functionality to be built on-the-fly but this will ensure
    that the performance is specifically tailored to your data.
 
+.. _Izenda_Fusion:
+
 Izenda Fusion
 ~~~~~~~~~~~~~
 

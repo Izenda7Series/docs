@@ -20,7 +20,7 @@ TokenRequest
    *  -  **tokenKey** |br|
          string
       -  Y
-      -  The token, in case offline mode is used
+      -  The token, in case :term:`offline mode` is used
       -
 
 .. container:: toggle

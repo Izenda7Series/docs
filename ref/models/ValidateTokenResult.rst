@@ -76,7 +76,7 @@ ValidateTokenResult
    *  -  **LicenseEnable** |br|
          boolean
       -
-      -  Is the license enabled (for Offline mode) |br| |br|
+      -  Is the license enabled (for :term:`Offline mode`) |br| |br|
          In online mode it is always enabled.
       -
    *  -  **LicenseEndDate** |br|

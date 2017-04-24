@@ -98,7 +98,7 @@ ReportFilterField
    *  -  **uniqueId** |br|
          string (GUID)
       -
-      -  The unique id for Front-end to show specific error messages
+      -  The unique id for :term:`Front-end` to show specific error messages
       -
    *  -  **comparisonValue** |br|
          string

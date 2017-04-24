@@ -5,6 +5,9 @@ Glossary
 
 .. glossary::
 
+   back-end
+      One of the two installation packages. The back-end reads and computes report data.
+
    calculated field
       A user-defined field whose value is calculated on-the-fly from other data source or calculated fields.
 
@@ -13,6 +16,18 @@ Glossary
 
    chart
       A built-in type of report part that displays data using graphical symbols, such as bars in a bar chart, lines in a line chart, or slices in a pie chart.
+
+   configuration database
+      The database where Izenda stores all relevant reporting data. It is set up during the installation process and can be hosted on various types of databases.
+
+   copy console
+      A command-line tool to copy templates, reports and dashboards from one Izenda Configuration database to another.
+
+   copy management
+      A UI page to copy templates, reports and dashboards within the same configuration database (eg. copying a report from one tenant to another).
+
+   dashboard part
+      A dashboard area that holds a :term:`report part`.
 
    data source
       A database table, view or stored procedure, which can be selected for query inside a report.
@@ -26,20 +41,41 @@ Glossary
    form
       A built-in type of report part that allows WYSIWYG editting in HTML.
 
+   front-end
+      One of the two installation packages. The front-end shows the user interface and draws report.
+
+   Fusion
+      The Izenda database query engine, which leverages asynchronous querying in tandem with in memory query tree and map reduce technologies. This enables fast cross database querying and multi-step calculations. See :ref:`Izenda_Fusion`.
+
    gauge
       A built-in type of report part that displays data using a speedometer.
 
    grid
       A built-in type of report part that displays data in a tabular format
 
+   IAdHocExtension
+      A programming interface (abstract type) that defines the extension APIs that allows customization code to hook in the report life cycle. See :doc:`/dev/ref_iadhocextension`.
+
    map
       A built-in type of report part that displays data on geographic maps, ranging from world map to continent and country maps.
 
-   query source category
-      A grouping of data sources in the physical database, which is usually called **schema** in most database vendors.
+   offline mode
+      Izenda license mode where the license key is validated using a token.
+
+   online mode
+      Izenda license mode where the license key is validated by connecting to a remote license server.
 
    password link
       A short-expiry url uniquely created from the user information, which is used to open the password setup page.
 
+   query source category
+      A grouping of data sources in the physical database, which is usually called **schema** in most database vendors.
+
    report part
       A report area that holds a specific bar chart, line chart, pie chart, map, data grid, etc.
+
+   system variable
+      A named place-holder that will be replaced by actual values while being used. See :doc:`/ref/spec_izenda_system_variables`.
+
+   template
+      A pre-built report that serves as a medium to create quick ad-hoc reports. See :doc:`/ui/usage_using_templates`.
