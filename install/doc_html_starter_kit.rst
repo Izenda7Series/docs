@@ -14,7 +14,7 @@ For this walkthrough, the guide will utilize the latest versions of Microsoft In
 As well, download the HTMLStarterKit.zip from the Izenda GitHub site and unzip the contents into an easily accessible location.
 
 Database Setup
-
+--------------
 
 Izenda’s configuration database is normally created during initial setup in the Administration UI. In order for this deployment to work properly, an Izenda configuration database needs to be established prior to deploying. If there is an existing Izenda configuration database that is up to date with the HTMLStarterKit, that database can be utilized for this deployment as well. Otherwise, the developer can use the database creation script located in the HTMLStarterKit/DB/ directory to build an Izenda Configuration database. 
 
