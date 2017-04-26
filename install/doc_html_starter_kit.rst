@@ -4,7 +4,7 @@ HTML Starter Kit Setup Guide
 
 The HTML Starter Kit allows for developers to interact with embedding concepts utilizing an impersonated authentication model in which every transaction with the Izenda API is done through the lens of a System Level Administrator. This kit creates an impersonated token to give complete access to embed report parts, lists, and dashboards into an existing application. 
 
-Also, for a visual representation of the following guide, please check out our HTML Starter Kit Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_.
+Also, for a visual representation of the following guide, please check out our HTML Starter Kit Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/>`_.
 
 Downloads and Materials
 --------------
