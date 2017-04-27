@@ -58,6 +58,8 @@ List of APIs
      - Validates dashboard name.
    * - `POST dashboard/validate`_
      - Validates dashboard.
+   * - `POST dashboard/validateGlobalDashboard`_
+     - Validates that dashboard contains only global report parts.
    * - `POST dashboard/previewDashboardPartData`_
      - Returns data for a dashboard part, given the dashboard part definition.
    * - `POST dashboard/loadDashboardPartData`_
@@ -1775,6 +1777,30 @@ Validates dashboard.
         "messages": null,
         "data": null
       }
+
+POST dashboard/validateGlobalDashboard
+--------------------------------------------------------------
+
+Validates that dashboard contains only global report parts.
+
+**Request**
+
+   Payload: a :doc:`models/DashboardDefinition` object with:
+
+   #. **isGlobal**: true
+   #. **dashboardParts**: an array of :doc:`models/DashboardPart` objects with the **reportId** field populated at minimum.
+
+**Response**
+
+        An :doc:`models/OperationResult` object with **success** field true if the dashboard is global
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/validateGlobalDashboard HTTP/1.1
+
+   To be updated
 
 POST dashboard/previewDashboardPartData
 --------------------------------------------------------------

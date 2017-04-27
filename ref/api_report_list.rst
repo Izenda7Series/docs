@@ -28,7 +28,10 @@ List of APIs
    * - API
      - Purpose
    * - `POST report/list`_
-     - Returns reports for the report list.
+     - .. deprecated:: 2.0.0
+          superseded by `POST report/list2(?includeHashCode=true)`_
+
+       Returns reports for the report list.
    * - `POST report/list2(?includeHashCode=true)`_
      - Returns reports for the report list with total number of items.
    * - `GET report/info/{report_id}`_
@@ -63,6 +66,9 @@ List of APIs
 
 POST report/list
 ------------------------------------------------
+
+.. deprecated:: 2.0.0
+     superseded by `POST report/list2(?includeHashCode=true)`_
 
 Returns reports for the report list.
 
@@ -195,17 +201,18 @@ Returns reports for the report list with total number of item
 
    .. code-block:: http
 
-      POST /api/report/list2 HTTP/1.1
+      POST /api/report/list2?includeHashCode=true HTTP/1.1
 
-   Request payload::
+   Sample payload::
 
       {
-         "tenantId": null,
+         "tenantId": "b930adf8-5bfd-4214-97e3-f709f10721fb",
          "isUncategorized": false,
          "skipItems": 0,
-         "pageSize": 1,
+         "pageSize": 100,
          "parentIds": [],
          "includeGlobalCategory": true,
+         "isGlobal": null,
          "criterias": [
             {
                "key": "CategoryId"
@@ -213,9 +220,469 @@ Returns reports for the report list with total number of item
          ]
       }
 
-   Response::
+   .. container:: toggle
 
-      To be updated
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+         {
+            "data": [
+               {
+                  "name": "Global Categories",
+                  "type": 0,
+                  "parentId": null,
+                  "tenantId": null,
+                  "isGlobal": true,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [
+                     {
+                        "name": "Common Reports",
+                        "type": 0,
+                        "parentId": null,
+                        "tenantId": null,
+                        "isGlobal": true,
+                        "canDelete": false,
+                        "editable": false,
+                        "savable": false,
+                        "subCategories": [
+                           {
+                              "name": null,
+                              "type": 0,
+                              "parentId": "b5f6be66-9a00-4422-ad2f-31e00ecfd2f9",
+                              "tenantId": null,
+                              "isGlobal": true,
+                              "canDelete": false,
+                              "editable": false,
+                              "savable": false,
+                              "subCategories": [],
+                              "checked": false,
+                              "reports": [
+                                 {
+                                    "name": "Example Report Name",
+                                    "reportDataSource": [
+                                       {
+                                          "reportId": "daefaa42-75b2-4b07-8ef8-019134109054",
+                                          "querySourceId": "f4ae63fc-4c10-4672-9cd2-4a9d40434a4c",
+                                          "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                                          "querySourceCategoryId": "0e8d2b0b-010d-46e5-8dc4-ff048d6f5e07",
+                                          "connectionId": "ca12331b-f917-47ae-8397-3758bc393bdb",
+                                          "selected": false,
+                                          "id": null,
+                                          "state": 0,
+                                          "deleted": false,
+                                          "inserted": true,
+                                          "version": null,
+                                          "created": null,
+                                          "createdBy": "User1 ACME",
+                                          "modified": null,
+                                          "modifiedBy": null
+                                       }
+                                    ],
+                                    "type": 0,
+                                    "previewRecord": 0,
+                                    "advancedMode": false,
+                                    "allowNulls": false,
+                                    "isDistinct": false,
+                                    "categoryId": "b5f6be66-9a00-4422-ad2f-31e00ecfd2f9",
+                                    "categoryName": null,
+                                    "subCategoryId": null,
+                                    "subCategoryName": null,
+                                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                                    "tenantName": null,
+                                    "description": "",
+                                    "title": null,
+                                    "lastViewed": "2017-04-26T14:12:21.023",
+                                    "owner": "John Doe",
+                                    "ownerId": "d928e941-19ef-4382-ba60-7238cb555631",
+                                    "excludedRelationships": null,
+                                    "numberOfView": 1,
+                                    "renderingTime": 301,
+                                    "createdById": "d928e941-19ef-4382-ba60-7238cb555631",
+                                    "modifiedById": null,
+                                    "snapToGrid": false,
+                                    "usingFields": null,
+                                    "hasDeletedObjects": false,
+                                    "header": null,
+                                    "footer": null,
+                                    "titleDescription": null,
+                                    "sourceId": null,
+                                    "checked": false,
+                                    "copyDashboard": false,
+                                    "exportFormatSetting": null,
+                                    "deletable": false,
+                                    "editable": false,
+                                    "movable": false,
+                                    "copyable": false,
+                                    "accessPriority": 1,
+                                    "active": true,
+                                    "fullPath": null,
+                                    "computeNameSettings": null,
+                                    "isGlobal": true,
+                                    "id": "daefaa42-75b2-4b07-8ef8-019134109054",
+                                    "state": 0,
+                                    "deleted": false,
+                                    "inserted": true,
+                                    "version": 1,
+                                    "created": "2017-04-26T14:07:20.527",
+                                    "createdBy": "John Doe",
+                                    "modified": "2017-04-26T14:07:20.527",
+                                    "modifiedBy": "John Doe"
+                                 }
+                              ],
+                              "dashboards": [],
+                              "numOfChilds": 1,
+                              "numOfCheckedChilds": 0,
+                              "indeterminate": false,
+                              "fullPath": null,
+                              "computeNameSettings": null,
+                              "id": null,
+                              "state": 0,
+                              "deleted": false,
+                              "inserted": true,
+                              "version": null,
+                              "created": null,
+                              "createdBy": "User1 ACME",
+                              "modified": null,
+                              "modifiedBy": null
+                           }
+                        ],
+                        "checked": false,
+                        "reports": [],
+                        "dashboards": [],
+                        "numOfChilds": 1,
+                        "numOfCheckedChilds": 0,
+                        "indeterminate": false,
+                        "fullPath": null,
+                        "computeNameSettings": null,
+                        "id": "b5f6be66-9a00-4422-ad2f-31e00ecfd2f9",
+                        "state": 0,
+                        "deleted": false,
+                        "inserted": true,
+                        "version": null,
+                        "created": null,
+                        "createdBy": "User1 ACME",
+                        "modified": null,
+                        "modifiedBy": null
+                     },
+                     {
+                        "name": "Sample Reports",
+                        "type": 0,
+                        "parentId": null,
+                        "tenantId": null,
+                        "isGlobal": true,
+                        "canDelete": false,
+                        "editable": false,
+                        "savable": false,
+                        "subCategories": [
+                           {
+                              "name": null,
+                              "type": 0,
+                              "parentId": "7f4adac8-df78-4aa0-8695-b78c55b7a47c",
+                              "tenantId": null,
+                              "isGlobal": true,
+                              "canDelete": false,
+                              "editable": false,
+                              "savable": false,
+                              "subCategories": [],
+                              "checked": false,
+                              "reports": [
+                                 {
+                                    "name": "Sample Orders Report",
+                                    "reportDataSource": [
+                                       {
+                                          "reportId": "f9348e0e-7572-426d-bf83-0d6a043aaeb8",
+                                          "querySourceId": "f4ae63fc-4c10-4672-9cd2-4a9d40434a4c",
+                                          "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                                          "querySourceCategoryId": "0e8d2b0b-010d-46e5-8dc4-ff048d6f5e07",
+                                          "connectionId": "ca12331b-f917-47ae-8397-3758bc393bdb",
+                                          "selected": false,
+                                          "id": null,
+                                          "state": 0,
+                                          "deleted": false,
+                                          "inserted": true,
+                                          "version": null,
+                                          "created": null,
+                                          "createdBy": "User1 ACME",
+                                          "modified": null,
+                                          "modifiedBy": null
+                                       }
+                                    ],
+                                    "type": 0,
+                                    "previewRecord": 0,
+                                    "advancedMode": false,
+                                    "allowNulls": false,
+                                    "isDistinct": false,
+                                    "categoryId": "7f4adac8-df78-4aa0-8695-b78c55b7a47c",
+                                    "categoryName": null,
+                                    "subCategoryId": null,
+                                    "subCategoryName": null,
+                                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                                    "tenantName": null,
+                                    "description": "",
+                                    "title": null,
+                                    "lastViewed": "2017-04-26T05:17:30.237",
+                                    "owner": "John Doe",
+                                    "ownerId": "d928e941-19ef-4382-ba60-7238cb555631",
+                                    "excludedRelationships": null,
+                                    "numberOfView": 1,
+                                    "renderingTime": 395,
+                                    "createdById": "d928e941-19ef-4382-ba60-7238cb555631",
+                                    "modifiedById": null,
+                                    "snapToGrid": false,
+                                    "usingFields": null,
+                                    "hasDeletedObjects": false,
+                                    "header": null,
+                                    "footer": null,
+                                    "titleDescription": null,
+                                    "sourceId": null,
+                                    "checked": false,
+                                    "copyDashboard": false,
+                                    "exportFormatSetting": null,
+                                    "deletable": false,
+                                    "editable": false,
+                                    "movable": false,
+                                    "copyable": false,
+                                    "accessPriority": 1,
+                                    "active": true,
+                                    "fullPath": null,
+                                    "computeNameSettings": null,
+                                    "isGlobal": true,
+                                    "id": "f9348e0e-7572-426d-bf83-0d6a043aaeb8",
+                                    "state": 0,
+                                    "deleted": false,
+                                    "inserted": true,
+                                    "version": 2,
+                                    "created": "2017-04-26T04:58:33.193",
+                                    "createdBy": "John Doe",
+                                    "modified": "2017-04-26T14:03:58.093",
+                                    "modifiedBy": "John Doe"
+                                 }
+                              ],
+                              "dashboards": [],
+                              "numOfChilds": 1,
+                              "numOfCheckedChilds": 0,
+                              "indeterminate": false,
+                              "fullPath": null,
+                              "computeNameSettings": null,
+                              "id": null,
+                              "state": 0,
+                              "deleted": false,
+                              "inserted": true,
+                              "version": null,
+                              "created": null,
+                              "createdBy": "User1 ACME",
+                              "modified": null,
+                              "modifiedBy": null
+                           }
+                        ],
+                        "checked": false,
+                        "reports": [],
+                        "dashboards": [],
+                        "numOfChilds": 1,
+                        "numOfCheckedChilds": 0,
+                        "indeterminate": false,
+                        "fullPath": null,
+                        "computeNameSettings": null,
+                        "id": "7f4adac8-df78-4aa0-8695-b78c55b7a47c",
+                        "state": 0,
+                        "deleted": false,
+                        "inserted": true,
+                        "version": null,
+                        "created": null,
+                        "createdBy": "User1 ACME",
+                        "modified": null,
+                        "modifiedBy": null
+                     }
+                  ],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": [],
+                  "numOfChilds": 2,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "id": "2a83e3ce-f91b-4f14-910d-76cadf42d0fe",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "User1 ACME",
+                  "modified": null,
+                  "modifiedBy": null
+               },
+               {
+                  "name": "Local Categories",
+                  "type": 0,
+                  "parentId": null,
+                  "tenantId": null,
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [
+                     {
+                        "name": "ACME User1 Reports",
+                        "type": 0,
+                        "parentId": null,
+                        "tenantId": null,
+                        "isGlobal": false,
+                        "canDelete": false,
+                        "editable": false,
+                        "savable": false,
+                        "subCategories": [
+                           {
+                              "name": null,
+                              "type": 0,
+                              "parentId": "41e231f8-cde8-450d-bad3-6c029839024c",
+                              "tenantId": null,
+                              "isGlobal": false,
+                              "canDelete": false,
+                              "editable": false,
+                              "savable": false,
+                              "subCategories": [],
+                              "checked": false,
+                              "reports": [
+                                 {
+                                    "name": "ACME Orders Report",
+                                    "reportDataSource": [
+                                       {
+                                          "reportId": "d574770e-e7ad-4a0a-a228-44f387e27a91",
+                                          "querySourceId": "6b33591c-4fe5-47cd-8195-58be404deca3",
+                                          "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                                          "querySourceCategoryId": "62e49cf3-4513-49ea-a710-b9630b6b9f20",
+                                          "connectionId": "f9fc7a8c-39b3-4d05-bc2c-cb194ef2d6f5",
+                                          "selected": false,
+                                          "id": null,
+                                          "state": 0,
+                                          "deleted": false,
+                                          "inserted": true,
+                                          "version": null,
+                                          "created": null,
+                                          "createdBy": "User1 ACME",
+                                          "modified": null,
+                                          "modifiedBy": null
+                                       }
+                                    ],
+                                    "type": 0,
+                                    "previewRecord": 0,
+                                    "advancedMode": false,
+                                    "allowNulls": false,
+                                    "isDistinct": false,
+                                    "categoryId": "41e231f8-cde8-450d-bad3-6c029839024c",
+                                    "categoryName": null,
+                                    "subCategoryId": null,
+                                    "subCategoryName": null,
+                                    "tenantId": "b930adf8-5bfd-4214-97e3-f709f10721fb",
+                                    "tenantName": null,
+                                    "description": "",
+                                    "title": null,
+                                    "lastViewed": null,
+                                    "owner": "User1 ACME",
+                                    "ownerId": "ea22549d-4384-4b3c-9ae7-1f73ca16ad27",
+                                    "excludedRelationships": null,
+                                    "numberOfView": 0,
+                                    "renderingTime": 0,
+                                    "createdById": "ea22549d-4384-4b3c-9ae7-1f73ca16ad27",
+                                    "modifiedById": null,
+                                    "snapToGrid": false,
+                                    "usingFields": null,
+                                    "hasDeletedObjects": false,
+                                    "header": null,
+                                    "footer": null,
+                                    "titleDescription": null,
+                                    "sourceId": null,
+                                    "checked": false,
+                                    "copyDashboard": false,
+                                    "exportFormatSetting": null,
+                                    "deletable": true,
+                                    "editable": true,
+                                    "movable": true,
+                                    "copyable": true,
+                                    "accessPriority": 1,
+                                    "active": true,
+                                    "fullPath": null,
+                                    "computeNameSettings": null,
+                                    "isGlobal": false,
+                                    "id": "d574770e-e7ad-4a0a-a228-44f387e27a91",
+                                    "state": 0,
+                                    "deleted": false,
+                                    "inserted": true,
+                                    "version": 1,
+                                    "created": "2017-04-26T04:54:59.84",
+                                    "createdBy": "User1 ACME",
+                                    "modified": "2017-04-26T04:54:59.84",
+                                    "modifiedBy": "User1 ACME"
+                                 }
+                              ],
+                              "dashboards": [],
+                              "numOfChilds": 1,
+                              "numOfCheckedChilds": 0,
+                              "indeterminate": false,
+                              "fullPath": null,
+                              "computeNameSettings": null,
+                              "id": null,
+                              "state": 0,
+                              "deleted": false,
+                              "inserted": true,
+                              "version": null,
+                              "created": null,
+                              "createdBy": "User1 ACME",
+                              "modified": null,
+                              "modifiedBy": null
+                           }
+                        ],
+                        "checked": false,
+                        "reports": [],
+                        "dashboards": [],
+                        "numOfChilds": 1,
+                        "numOfCheckedChilds": 0,
+                        "indeterminate": false,
+                        "fullPath": null,
+                        "computeNameSettings": null,
+                        "id": "41e231f8-cde8-450d-bad3-6c029839024c",
+                        "state": 0,
+                        "deleted": false,
+                        "inserted": true,
+                        "version": null,
+                        "created": null,
+                        "createdBy": "User1 ACME",
+                        "modified": null,
+                        "modifiedBy": null
+                     }
+                  ],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": [],
+                  "numOfChilds": 1,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "User1 ACME",
+                  "modified": null,
+                  "modifiedBy": null
+               }
+            ],
+            "hashcode": "f567df70cd9be737e65afd3b95d",
+            "totalItems": 8,
+            "numOfChilds": 2,
+            "numOfCheckedChilds": 0,
+            "indeterminate": false,
+            "isLastPage": true
+         }
 
 GET report/info/{report_id}
 ------------------------------------------------
@@ -228,7 +695,7 @@ Returns report properties for the report specified by report_id.
 
 **Response**
 
-    An :doc:`models/Report` object
+    A :doc:`models/Report` object
 
 **Samples**
 

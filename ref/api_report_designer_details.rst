@@ -66,7 +66,10 @@ List of APIs
    * - `POST report/validate`_
      - Validates that a report name is unique and its filter and relationships are valid.
    * - `POST report/search`_
-     - Searches for reports.
+     - .. deprecated:: 2.0.0
+          superseded by `POST report/search2`_
+
+       Searches for reports.
    * - `POST report/search2`_
      - Searches for reports, with total number of items.
    * - `POST report/advancedSearch`_
@@ -1493,6 +1496,9 @@ Validates that a report name is unique and its filter and relationships are vali
 
 POST report/search
 ---------------------------------------
+
+.. deprecated:: 2.0.0
+     superseded by `POST report/search2`_
 
 Searches for reports.
 
