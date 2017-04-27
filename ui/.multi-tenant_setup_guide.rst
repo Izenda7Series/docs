@@ -9,4 +9,5 @@ Izenda has been specifically designed for managing multiple clients on a single 
 
    doc_tenant_setup
    doc_tenant_setup_for_multi-tenant_architectures
+   doc_global_report_setup
    doc_copy_management

@@ -1,20 +1,20 @@
-=====================
+=================================
 HTML Starter Kit Setup Guide
-=====================
+=================================
 
 The HTML Starter Kit allows for developers to interact with embedding concepts utilizing an impersonated authentication model in which every transaction with the Izenda API is done through the lens of a System Level Administrator. This kit creates an impersonated token to give complete access to embed report parts, lists, and dashboards into an existing application. 
 
 Also, for a visual representation of the following guide, please check out our HTML Starter Kit Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/>`_.
 
 Downloads and Materials
---------------
+------------------------------------------
 
 For this walkthrough, the guide will utilize the latest versions of Microsoft Internet Information Services, SQL Server Management Studio, and Visual Studio.
 
 As well, download the HTMLStarterKit.zip from the Izenda GitHub site and unzip the contents into an easily accessible location.
 
 Database Setup
---------------
+------------------------------------------
 
 Izenda’s configuration database is normally created during initial setup in the Administration UI. In order for this deployment to work properly, an Izenda configuration database needs to be established prior to deploying. If there is an existing Izenda configuration database that is up to date with the HTMLStarterKit, that database can be utilized for this deployment as well. Otherwise, the developer can use the database creation script located in the HTMLStarterKit/DB/ directory to build an Izenda Configuration database. 
 
@@ -29,7 +29,7 @@ Note: If using an existing Izenda Configuration database, the only alteration ne
 #. Prior to moving on, make sure that the proper credentials are attached to the database as the developer will need to create a connection string using proper User ID and Password credentials later in the process. 
 
 Modifying HTML Starter Kit Project Files
---------------
+------------------------------------------
 
 #. Open the HTML Starter Kit project file to launch the project inside Visual Studio. 
 
@@ -47,7 +47,7 @@ Example: “Server=PC\SQLEXPRESS;Database=IzendaSampleDB;User Id=test;Password=t
 #. Make sure the altered files are saved prior to moving on to the next step. 
 
 Publishing Directories in Visual Studio
--------------
+------------------------------------------
 
 These two directories contained within the kit need to be hosted in IIS at sites. One way to accomplish this is to publish these directories to a specific location and then reference the published versions during the creation of the sites in IIS. 
 
@@ -58,7 +58,7 @@ These two directories contained within the kit need to be hosted in IIS at sites
 #. Repeat steps 1 and 2 on the “Website” directory in the project and point the published files in a location different than the APIStarterKit. 
 
 Creating Sites in IIS
---------------
+------------------------------------------
 
 #. In IIS, right click on “Sites” and select “New Site”. 
 
@@ -73,7 +73,7 @@ Creating Sites in IIS
 #. Repeat steps 1-4 to create a site for the HTML Website directory that was published earlier. Assign it a new port number and point to the published Website directory. 
 
 Launching the Deployment
---------------
+------------------------------------------
 
 #. With the sites setup and the API confirmed as working (via checking for the 404 image), it is important to reset IIS to lock in any changes to the sites. This can be done either through the Command Line run as an Administrator by entering “iisreset” or manually through the UI of IIS by selecting the restart icon.
 
@@ -86,7 +86,7 @@ Launching the Deployment
 #. Once the deployment is validated and a subscription period has been established, the developer can then move on to adding connection strings to reporting databases and creating reports and dashboards in the conventional way for all deployments. 
 
 Helpful Documentation 
---------------
+------------------------------------------
 
 `Front End Integration APIs – Useful for integrating aspects of this kit into an existing application <https://www.izenda.com/docs/dev/api_frontend_integration.html>`_.
 

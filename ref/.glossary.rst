@@ -38,6 +38,9 @@ Glossary
    data source field
       A field inside database table or view, or a stored procedure parameter, which can be selected for display, calculation or filter inside a report
 
+   database mapping
+      A user-specified link from a system connection to a tenant connection, so that a :term:`global report` based on the system connection can also run for the tenant using the mapped tenant connection.
+
    form
       A built-in type of report part that allows WYSIWYG editting in HTML.
 
@@ -49,6 +52,9 @@ Glossary
 
    gauge
       A built-in type of report part that displays data using a speedometer.
+
+   global report
+      A system report saved in the special section "Global Categories", accessible and runnable to tenants having :term:`database mapping` to the system connection. See :doc:`/ui/doc_global_report_setup`.
 
    grid
       A built-in type of report part that displays data in a tabular format

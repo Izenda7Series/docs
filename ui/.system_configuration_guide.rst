@@ -7,6 +7,7 @@ Guides to help you configure your system.
 .. toctree::
    :maxdepth: 2
 
-   doc_configuration_email
-   doc_configuration_scheduling
    doc_configuration_security_policies
+   doc_configuration_email
+   doc_configuration_report
+   doc_configuration_scheduling

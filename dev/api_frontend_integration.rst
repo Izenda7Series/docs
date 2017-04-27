@@ -85,8 +85,14 @@ Configure Izenda
             "ReportViewerPopup": "reportviewerpopup",
             "Viewer": "viewer"
           },
-          "Timeout": 3600
+          "Timeout": 3600,
+          "NeedToEncodeUrl" : true
        }
+
+.. versionadded:: 2.0
+
+   |br| The optional ``NeedToEncodeUrl`` parameter (defaults to ``true`` if not specified). |br|
+   Set it to ``false`` if host framework expects unencoded urls (such as Angular 2).
 
 **Samples**
 

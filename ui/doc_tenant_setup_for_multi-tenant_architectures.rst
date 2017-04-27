@@ -4,6 +4,10 @@
 Tenant Setup for Multi-tenant Architectures
 ===========================================
 
+.. versionadded:: 2.0.0
+
+   Global Report feature can be used to share system reports among all tenants, see :doc:`/ui/doc_global_report_setup`.
+
 In multi-tenant systems, tenant data is stored in similar database
 structures placed in
 
@@ -86,7 +90,6 @@ Each tenant data is stored in a separate schema in the same database.
       :width: 540px
 
       Copied Data Model
-
 
 Shared Schema Architecture
 --------------------------
