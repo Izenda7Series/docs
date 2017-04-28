@@ -10,8 +10,7 @@ FIXES
 -  Defect 15875 Dynamic Supplementary KPI is not shown on gauge after saving report
 -  Defect 15873 Stacked Bar Chart fails to render when using separator and selected color values
 -  Defect 15878 Exporting fails for some gauges and charts 
--  Defect 15908 Update Languages - The two language options provided in the base application are being removed. The new language pack can be accessed on a public GitHub repo here_ with full installation instructions  
-.. _here: https://github.com/Izenda7Series/LanguagePacks
+-  Defect 15908 Update Languages - The two language options provided in the base application are being removed. The new language pack can be accessed on a public GitHub repo `here <https://github.com/Izenda7Series/LanguagePacks>`__ with full installation instructions
 -  Defect 15910 Scheduler popup locks when attempting to add user as recipient
 -  Defect 15911 When using hidden filters, some field mappings are not properly passed to subreports
 -  Defect 15874 Horizontal Grid does not render proper field formats

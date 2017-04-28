@@ -34,8 +34,8 @@ Reference Izenda libraries in a New Project
    References to open Object Browser.
 #. Expand the nodes to Izenda.BI.Framework.CustomConfiguration and
    select DefaultAdHocExtension class to see the methods to override.
-#. Similarly reference the library Izenda.BI.Core.dll.
-#. Also reference System.ComponentModel.Composition (in Assemblies >
+#. Similarly reference the library Izenda.BI.Core.dll and the third-party Newtonsoft.Json.dll.
+#. Also reference System.ComponentModel.Composition and System.Web (in Assemblies >
    Framework).
 
 .. figure:: /_static/images/DefaultAdHocExtension_class.png
@@ -58,7 +58,6 @@ Sample Method Implementations
       using Izenda.BI.Core;
       using Izenda.BI.Core.QueryEngine;
       using Izenda.BI.Framework.Components.QueryExpressionTree;
-      using Izenda.BI.Framework.Components.QueryExpressionTree.Operator;
       using Izenda.BI.Framework.Constants;
       using Izenda.BI.Framework.CustomConfiguration;
       using Izenda.BI.Framework.Models;
@@ -70,11 +69,12 @@ Sample Method Implementations
       using System.Linq;
       using System.Web;
       using System.ComponentModel.Composition;
-      
-      
+      using Izenda.BI.Framework.Components.QueryExpressionTree.Operator;
+      using Operator = Izenda.BI.Framework.Enums.DateTimeOperator;
       
       namespace IAdHocExtensionSample
       {
+      
           [Export(typeof(IAdHocExtension))]
           public class AdHocExtensionSample : DefaultAdHocExtension
           {
@@ -229,7 +229,7 @@ Sample Method Implementations
                           result.FilterFields.Add(thirdFilter);
       
                           logic = $"({filterPosition - 1})";
-                       }
+                      }
       
                       if (string.IsNullOrEmpty(result.Logic))
                       {
@@ -285,7 +285,7 @@ Sample Method Implementations
       
                   return filterSetting;
       
-                }
+              }
       
               /// <summary>
               /// Sample Requirement:
@@ -361,20 +361,90 @@ Sample Method Implementations
       
                   if (filterSetting.FilterFields.Count == 1
                       && filterSetting.FilterFields.Any(
-                          x   =>  x.SourceDataObjectName.Equals("OrdersByRegion")
+                          x => x.SourceDataObjectName.Equals("OrdersByRegion")
                                   && x.SourceFieldName.Equals("CountryRegionName")))
                   {
                       handled = true;
                       result = new List<string>()
-                      {
-                          "Europe",
-                          "North America",
-                          "South America"
-                      };
-                  }            
+                            {
+                                "Europe",
+                                "North America",
+                                "South America"
+                            };
+                  }
       
                   return result;
               }
+      
+              /// <summary>
+              /// Sample Requirement:
+              /// Returns a custom list of 6 In Time Periods
+              /// </summary>
+              public override List<CustomTimePeriod> LoadCustomTimePeriod()
+              {
+                  var result = new List<CustomTimePeriod>
+                  {
+                      new CustomTimePeriod("Tomorrow",
+                          DateTime.Now, DateTime.Now.AddDays(1), Operator.BetweenDateTime),
+                      new CustomTimePeriod("Previous Date -> DateTime Now",
+                         () => DateTime.Now.AddDays(-1), () => DateTime.Now, Operator.BetweenDateTime),
+                      new CustomTimePeriod("Less Than 2 Days Old",
+                          2, Operator.LessThanDaysOld),
+                      new CustomTimePeriod("Greater Than 2 Days Old",
+                         () => 2, Operator.GreaterThanDaysOld),
+                      new CustomTimePeriod(">= Date Time Now + 2 Days",    
+                          DateTime.Now.AddDays(2), Operator.GreaterThanOrEqualsCalender),
+                      new CustomTimePeriod("<= Date Time Now - 2 Days",
+                         () => DateTime.Now.AddDays(-2), Operator.LessThanOrEqualsCalendar)
+                  };
+                  // using Operator = Izenda.BI.Framework.Enums.DateTimeOperator;
+      
+                  return result;
+              }
+      
+              /// <summary>
+              /// Sample Requirement:
+              /// Returns a custom list of 3 data formats
+              /// </summary>
+              public override List<DataFormat> LoadCustomDataFormat()
+              {
+                  var result = new List<DataFormat>
+                  {
+                      new DataFormat
+                      {
+                          Name = "0,000",
+                          DataType = DataType.Numeric,
+                          Category = IzendaKey.CustomFormat,
+                          FormatFunc = (x) =>
+                          {
+                              return ((int)x).ToString("0,000");
+                          }
+                      },
+                      new DataFormat
+                      {
+                          Name = "$0,000",
+                          DataType = DataType.Numeric,
+                          Category = IzendaKey.CustomFormat,
+                          FormatFunc = (x) =>
+                          {
+                              return ((int)x).ToString("$0,000");
+                          }
+                      },
+                      new DataFormat
+                      {
+                          Name = "$0,000",
+                          DataType = DataType.Numeric,
+                          Category = IzendaKey.CustomFormat,
+                          FormatFunc = (x) =>
+                          {
+                              return ((decimal)x).ToString("C0");
+                          }
+                      }
+                  };
+      
+                  return result;
+              }
+              
           }
       }
 
@@ -398,6 +468,8 @@ Add UnitTest Project
 #. Add a Class Library project named AdHocExtensionSampleTest.
 #. Reference the project IAdHocExtensionSample (Add Reference and tick
    IAdHocExtensionSample in Projects > Solution).
+#. Also reference System.Web (in Assemblies >
+   Framework).
 #. Reference xUnit Library.
 
    #. Open NuGet Package Manager pop-up from Tools > NuGet Package
@@ -405,13 +477,44 @@ Add UnitTest Project
    #. Click Browse tab and enter xunit in the text box to search.
    #. Select xunit on the left and tick the AdHocExtensionSampleTest
       project check-box on the right.
-   #. Select version 1.9.1 (working at the time of writing) and click
+   #. Select version 2.2.0 (working at the time of writing) and click
       Install.
-   #. Similarly install xunit.runner.visualstudio version 2.1.0 to
+   #. Similarly install xunit.runner.visualstudio version 2.2.0 to
       AdHocExtensionSampleTest project.
 
 Implement the UnitTests
 ~~~~~~~~~~~~~~~~~~~~~~~
+#. Add a MockUser class to help testing:
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Code for MockUser.cs:
+
+      .. code-block:: csharp
+
+         using System.Security.Principal;
+
+         namespace IAdHocExtensionSample
+         {
+             class MockUser: IPrincipal
+             {
+                 private string role;
+
+                 public MockUser(string role)
+                 {
+                     this.role = role;
+                 }
+
+                 public IIdentity Identity { get; private set; }
+
+                 public bool IsInRole(string role)
+                 {
+                     return (role == this.role)? true : false;
+                 }
+             }
+         }
 
 #. Right-click the default Class1.cs file in Solution Explorer and rename it to AdHocExtensionSampleTest.cs, also agree to change the class name to AdHocExtensionSampleTest when asked.
 #. Implement the tests in xUnit.
@@ -427,10 +530,10 @@ Implement the UnitTests
       using System;
       using System.Collections.Generic;
       using Xunit;
+      using System.IO;
+      using System.Web;
       using Izenda.BI.Framework.Models.ReportDesigner;
       using Izenda.BI.Framework.Models;
-      using System.Web;
-      using System.IO;
       using Izenda.BI.Framework.Constants;
       using Izenda.BI.Framework.Components.QueryExpressionTree;
       
@@ -461,23 +564,23 @@ Implement the UnitTests
                   var param = new SetHiddenFilterParam()
                   {
                       QuerySources = new List<QuerySource>()
-                      {
-                          new QuerySource()
-                          {
-                              Name = "Orders",
-                              Id = querySourceId1,
-                              Type = "Table",
-                              QuerySourceFields = new List<QuerySourceField>()
-                              {
-                                  new QuerySourceField()
-                                  {
-                                      Name = "ShipRegion",
-                                      Id = fieldId11,
-                                      DataType = "varchar"
-                                  }
-                              }
-                          }
-                      },
+                            {
+                                new QuerySource()
+                                {
+                                    Name = "Orders",
+                                    Id = querySourceId1,
+                                    Type = "Table",
+                                    QuerySourceFields = new List<QuerySourceField>()
+                                    {
+                                        new QuerySourceField()
+                                        {
+                                            Name = "ShipRegion",
+                                            Id = fieldId11,
+                                            DataType = "varchar"
+                                        }
+                                    }
+                                }
+                            },
                       ReportDefinition = new ReportDefinition()
                       {
                           ReportDataSource = new List<ReportDataSource>(),
@@ -507,23 +610,23 @@ Implement the UnitTests
                   var param = new SetHiddenFilterParam()
                   {
                       QuerySources = new List<QuerySource>()
-                      {
-                          new QuerySource()
-                          {
-                              Name = "Orders",
-                              Id = querySourceId1,
-                              Type = "Table",
-                              QuerySourceFields = new List<QuerySourceField>()
-                              {
-                                  new QuerySourceField()
-                                  {
-                                      Name = "ShipRegion",
-                                      Id = fieldId11,
-                                      DataType = "varchar"
-                                  }
-                              }
-                          }
-                      },
+                            {
+                                new QuerySource()
+                                {
+                                    Name = "Orders",
+                                    Id = querySourceId1,
+                                    Type = "Table",
+                                    QuerySourceFields = new List<QuerySourceField>()
+                                    {
+                                        new QuerySourceField()
+                                        {
+                                            Name = "ShipRegion",
+                                            Id = fieldId11,
+                                            DataType = "varchar"
+                                        }
+                                    }
+                                }
+                            },
                       ReportDefinition = new ReportDefinition()
                       {
                           ReportDataSource = new List<ReportDataSource>(),
@@ -553,49 +656,49 @@ Implement the UnitTests
                   var param = new SetHiddenFilterParam()
                   {
                       QuerySources = new List<QuerySource>()
-                      {
-                          new QuerySource()
-                          {
-                              Name = "Orders",
-                              Id = querySourceId1,
-                              Type = "Table",
-                              QuerySourceFields = new List<QuerySourceField>()
-                              {
-                                  new QuerySourceField()
-                                  {
-                                      Name = "ShipRegion",
-                                      Id = fieldId11,
-                                      DataType = "varchar"
-                                  }
-                              }
-                          },
-                          new QuerySource()
-                          {
-                              Name = "Customers",
-                              Id = querySourceId1,
-                              Type = "Table",
-                              QuerySourceFields = new List<QuerySourceField>()
-                              {
-                                  new QuerySourceField()
-                                  {
-                                      Name = "ShipRegion",
-                                      Id = fieldId12,
-                                      DataType = "varchar"
-                                  }
-                              }
-                          }
-                      },
+                            {
+                                new QuerySource()
+                                {
+                                    Name = "Orders",
+                                    Id = querySourceId1,
+                                    Type = "Table",
+                                    QuerySourceFields = new List<QuerySourceField>()
+                                    {
+                                        new QuerySourceField()
+                                        {
+                                            Name = "ShipRegion",
+                                            Id = fieldId11,
+                                            DataType = "varchar"
+                                        }
+                                    }
+                                },
+                                new QuerySource()
+                                {
+                                    Name = "Customers",
+                                    Id = querySourceId1,
+                                    Type = "Table",
+                                    QuerySourceFields = new List<QuerySourceField>()
+                                    {
+                                        new QuerySourceField()
+                                        {
+                                            Name = "ShipRegion",
+                                            Id = fieldId12,
+                                            DataType = "varchar"
+                                        }
+                                    }
+                                }
+                            },
                       ReportDefinition = new ReportDefinition()
                       {
                           ReportDataSource = new List<ReportDataSource>(),
                           ReportRelationship = new List<Relationship>()
-                          {
-                              new Relationship()
-                              {
-                                  JoinQuerySourceId = querySourceId1,
-                                  Id = relationshipId1
-                              }
-                          }
+                                {
+                                    new Relationship()
+                                    {
+                                        JoinQuerySourceId = querySourceId1,
+                                        Id = relationshipId1
+                                    }
+                                }
                       }
                   };
       
@@ -626,7 +729,7 @@ Implement the UnitTests
                   };
       
                   var result = (new AdHocExtensionSample()).OnLoadFilterDataTree(field);
-                  Assert.Equal(result.Count,1);
+                  Assert.Equal(result.Count, 1);
                   Assert.Equal(result[0].Nodes.Count, 2);
                   Assert.Equal(result[0].Nodes[0].Value, "South America");
                   Assert.Equal(result[0].Nodes[1].Value, "North America");
@@ -675,12 +778,12 @@ Implement the UnitTests
                   };
       
                   var data = new List<string>()
-                  {
-                      "Antarctica",
-                      "Europe",
-                      "North America",
-                      "South America"
-                  };
+                        {
+                            "Antarctica",
+                            "Europe",
+                            "North America",
+                            "South America"
+                        };
       
                   var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
                   Assert.Equal(result.Count, 4);
@@ -707,12 +810,12 @@ Implement the UnitTests
                   };
       
                   var data = new List<string>()
-                  {
-                      "Antarctica",
-                      "Europe",
-                      "North America",
-                      "South America"
-                  };
+                        {
+                            "Antarctica",
+                            "Europe",
+                            "North America",
+                            "South America"
+                        };
       
                   var result = (new AdHocExtensionSample()).OnPostLoadFilterData(field, data);
                   Assert.Equal(result.Count, 4);
@@ -728,29 +831,29 @@ Implement the UnitTests
                   var originalReport = new ReportDefinition()
                   {
                       ReportPart = new List<ReportPartDefinition>
-                      {
-                          new ReportPartDefinition
-                          {
-                              ReportPartContent = new ReportPartMap
-                              {
-                                  Type = ReportPartContentType.Map
-                              }
-                          },
-                          new ReportPartDefinition
-                          {
-                              ReportPartContent = new ReportPartGrid
-                              {
-                                  Type = ReportPartContentType.Grid
-                              }
-                          },
-                          new ReportPartDefinition
-                          {
-                              ReportPartContent = new ReportPartMap
-                              {
-                                  Type = ReportPartContentType.Map
-                              }
-                          }
-                      }
+                            {
+                                new ReportPartDefinition
+                                {
+                                    ReportPartContent = new ReportPartMap
+                                    {
+                                        Type = ReportPartContentType.Map
+                                    }
+                                },
+                                new ReportPartDefinition
+                                {
+                                    ReportPartContent = new ReportPartGrid
+                                    {
+                                        Type = ReportPartContentType.Grid
+                                    }
+                                },
+                                new ReportPartDefinition
+                                {
+                                    ReportPartContent = new ReportPartMap
+                                    {
+                                        Type = ReportPartContentType.Map
+                                    }
+                                }
+                            }
                   };
       
                   var report = (new AdHocExtensionSample()).OnPreExecute(originalReport);
@@ -785,13 +888,13 @@ Implement the UnitTests
                   var filterSetting = new ReportFilterSetting()
                   {
                       FilterFields = new List<ReportFilterField>()
-                      {
-                          new ReportFilterField()
-                          {
-                              SourceDataObjectName = "OrdersByRegion",
-                              SourceFieldName = "CountryRegionName"
-                          } 
-                      }
+                            {
+                                new ReportFilterField()
+                                {
+                                    SourceDataObjectName = "OrdersByRegion",
+                                    SourceFieldName = "CountryRegionName"
+                                }
+                            }
                   };
       
                   bool handled;
@@ -801,9 +904,31 @@ Implement the UnitTests
                   Assert.Equal(handled, true);
                   Assert.Equal(list.Count, 3);
               }
+      
+              /// <summary>
+              /// Test LoadCustomTimePeriod
+              /// </summary>
+              [Fact]
+              public void Execute_LoadCustomTimePeriod_Success()
+              {
+                  var list = (new AdHocExtensionSample()).LoadCustomTimePeriod();
+      
+                  Assert.Equal(list.Count, 6);
+              }
+      
+              /// <summary>
+              /// Test LoadCustomDataFormat
+              /// </summary>
+              [Fact]
+              public void Execute_LoadCustomDataFormat_Success()
+              {
+                  var list = (new AdHocExtensionSample()).LoadCustomDataFormat();
+      
+                  Assert.Equal(list.Count, 3);
+              }
+      
           }
       }
-
 
 Run the UnitTests
 ~~~~~~~~~~~~~~~~~

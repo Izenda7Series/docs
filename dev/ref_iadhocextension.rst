@@ -522,25 +522,27 @@ You can create custom time period filters for various datatypes by overriding th
 
 .. code-block:: csharp
 
-	[Export(typeof(IAdHocExtension))]
+    using Operator = Izenda.BI.Framework.Enums.DateTimeOperator;
+
+    [Export(typeof(IAdHocExtension))]
     public class CustomAdhocReport : DefaultAdHocExtension
     {
         public override List<CustomTimePeriod> LoadCustomTimePeriod()
         {
             var result = new List<CustomTimePeriod>
             {
-                    new CustomTimePeriod("Tomorrow",
-                        DateTime.Now, DateTime.Now.AddDays(1), Operator.BetweenCalendar),
-                    new CustomTimePeriod("Previous Date -> DateTime Now",
-                       () => DateTime.Now.AddDays(-1), () => DateTime.Now, Operator.BetweenCalendar),
-                    new CustomTimePeriod("Less Than 2 Days Old",
-                        2, Operator.LessThanDaysOld),
-                    new CustomTimePeriod("Greater Than 2 Days Old",
-                       () => 2, Operator.GreaterThanDaysOld),
-                    new CustomTimePeriod(">= Date Time Now + 2 Days",
-                        DateTime.Now.AddDays(2), Operator.GreaterThanOrEqualsCalender),
-                     new CustomTimePeriod("<= Date Time Now - 2 Days",
-                       () => DateTime.Now.AddDays(-2), Operator.LessThanOrEqualsCalendar)
+                new CustomTimePeriod("Tomorrow",
+                    DateTime.Now, DateTime.Now.AddDays(1), Operator.BetweenDateTime),
+                new CustomTimePeriod("Previous Date -> DateTime Now",
+                   () => DateTime.Now.AddDays(-1), () => DateTime.Now, Operator.BetweenDateTime),
+                new CustomTimePeriod("Less Than 2 Days Old",
+                    2, Operator.LessThanDaysOld),
+                new CustomTimePeriod("Greater Than 2 Days Old",
+                   () => 2, Operator.GreaterThanDaysOld),
+                new CustomTimePeriod(">= Date Time Now + 2 Days",    
+                    DateTime.Now.AddDays(2), Operator.GreaterThanOrEqualsCalender),
+                new CustomTimePeriod("<= Date Time Now - 2 Days",
+                   () => DateTime.Now.AddDays(-2), Operator.LessThanOrEqualsCalendar)
             };
 
             return result;
@@ -558,7 +560,7 @@ You can create custom formats for various datatypes by overriding the LoadCustom
 
 .. code-block:: csharp
 
-	[Export(typeof(IAdHocExtension))]
+    [Export(typeof(IAdHocExtension))]
     public class CustomAdhocReport : DefaultAdHocExtension
     {
         public override List<DataFormat> LoadCustomDataFormat()
