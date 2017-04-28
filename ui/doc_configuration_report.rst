@@ -57,3 +57,6 @@ Customize the names for "Global Categories" and "Local Categories"
 #. The Setting Level must be System.
 #. Change the names in Global Name and Local Name boxes.
 #. Click Save button at the top.
+
+.. figure:: /_static/images/Customize_Global_And_Local_Names.png
+   :width: 792px
