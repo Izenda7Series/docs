@@ -61,4 +61,4 @@ Features of Global Report
 *  Best way to share reports among tenants (using Copy Management to copy reports takes more time).
 *  The Global Categories is well positioned in Left Navigation, easily accessible.
 *  Report data is read from the tenant's connection only.
-*  The names "Global Categories" and "Local Categories" can be changed in :ref:`Report Setting <Customize_the_names_for_Global_Categories_and_Local_Categories>`.
+*  The names "Global Categories" and "Local Categories" can be aliased in :ref:`Report Setting <Customize_the_names_for_Global_Categories_and_Local_Categories>`.
