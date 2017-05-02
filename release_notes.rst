@@ -15,7 +15,7 @@ FEATURES
 ^^^^^^^^
 -  Lazy Loading added for Report and Dashboard List 
 -  Performance Improvements made for rendering of report parts (Chart, Map, Gauge)
--  Global Reports - Allows System Administrators to create reports at the System Level and share among all tenants based on role and connection string mapping. Please see user guide :doc:`/install/doc_installation_guide` :doc:`/ui/doc_global_report_setup` 
+-  Global Reports - Allows System Administrators to create reports at the System Level and share among all tenants based on role and connection string mapping. Please see user guide :doc:`/ui/doc_global_report_setup` 
 These changes impact how report definitions are stored. Global reports are always stored at the system level, but can be shared with tenants. The mapping for the connection strings, done in the data model, is used to tell Izenda which connection string the report is running against. This mapping is databse to database or schema to schema with the assumption that the same tables/view/stored procedures exsit in the mapped connection string. If any elements are missing the report will not display at the tenant level. 
 
 .. warning::
