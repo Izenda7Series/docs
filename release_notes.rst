@@ -2,6 +2,88 @@
 Release Notes
 ==============
 
+v2.0.0
+~~~~~~~
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+|  API Request - added additional header "Selected Tenant" for Global Reports. This change is already made in the webconfig in the build for download.
+|  Please ensure you are using the latest version of the Copy Console which is available with this download 
+|  
+
+
+FEATURES
+^^^^^^^^
+-  Lazy Loading added for Report and Dashboard List 
+-  Performance Improvements made for rendering of report parts (Chart, Map, Gauge)
+-  Global Reports - Allows System Administrators to create reports at the System Level and share among all tenants based on role and connection string mapping. Please see user guide :doc:`doc_global_report_setup` 
+These changes impact how report definitions are stored. Global reports are always stored at the system level, but can be shared with tenants. The mapping for the connection strings, done in the data model, is used to tell Izenda which connection string the report is running against. This mapping is databse to database or schema to schema with the assumption that the same tables/view/stored procedures exsit in the mapped connection string. If any elements are missing the report will not display at the tenant level. 
+
+.. warning::
+
+   Global reports cannot be copied using the Copy Management UI. By definition, Global reports are meant to be shared across the tenant base to reduce the number of report definitions required for reports that all tenant can use. The copy console does not block copying Global reports to a tenant, and we are working on a patch to restrict this. Please note that doing this will cause unintended behavior and therefore should not be done. A feature is planned for a later release to add support for copying Global Reports from one System level to another for independent Izenda configuration databases, for now please do not copy Global reports using the Copy Console.
+   
+   Known issue: Tenant users with Full Report and Dashboard access can alter Global Category names. 
+
+   
+   
+
+FIXES
+^^^^^
+-  Defect 13981 Blank error message shows after moving some joins containing additional key joins in report designer
+-  Defect 14316 Adding additional error messages to issues with Connection String
+-  Defect 14681 In Time Period Filter Displays as Undefined in Filter Description
+-  Defect 15057 Oracle showing errors when gradually moving more than 1000 data sources to Available Data Sources 
+-  Defect 15075 Copying Reports with an Aliased Join causes errors in destination when viewing report
+-  Defect 15096 Title of Border Settings popup on report designer grid is inconsistent with other report parts 
+-  Defect 15227 Select data on Join Field/Field of Key Join, system resets Key Join operators automatically
+-  Defect 15268 Exported file of chart/gauge does not display depending on query limit
+-  Defect 15269 Field Column Group should be removed for field in Values container in Pivot grid
+-  Defect 15270 Field properties for Subreport, Icon drop-down should display the first icon the same way is is shown in Custom URL/ Embedded JavaScript Settings popup, instead of empty
+-  Defect 15283 System shows "No changes found" when user changes the Join operators of Key Join and click Save
+-  Defect 15301 In Oracle an error is occuring when moving datasources containing some datetime format fields
+-  Defect 15324 In Single Tenant Mode System does not show Template/Report in Uncategorized list on LEFT nav or on the content panel
+-  Defect 15325 System does not show Uncategorized list on LEFT nav on Report List page
+-  Defect 15326 Remove Value operators for DateTime/Time field on Key Join
+-  Defect 15331 User should be set default for date format field when user set up via api with dateFormat = null
+-  Defect 15336 Line border of the grid is removed after user removes the key Join
+-  Defect 15337 List items in Data Object/Foreign Data Object is displayed incorrectly on Key Join. Items are included which should not be and are not included in the join
+-  Defect 15339 System shows no information msg after moving 1 report. Blank page is displayed on content page when user clicks on Close button.
+-  Defect 15364 In Map General error message shows when drilling down to country level
+-  Defect 15371 Filter field displays incorrectly data value when enter URL case sensitive
+-  Defect 15434 [All] value should be removed when single radio button is selected
+-  Defect 15436 Filter showing  "No record found" when using Equivalent - Tree (Not equal)
+-  Defect 15440 Using Cross Database Join with Additional join types System shows error msg when multi data sources join each other and have/not have key join
+-  Defect 15445 Text box for additional join condition is not rendered if data sources are not categorized
+-  Defect 15449 Page freezes when saving the report at the full screen mode.
+-  Defect 15454 User cannot save report template without selected data source in middle panel
+-  Defect 15467 Error displayed in some subreport field mappings "Can't resolve data for fields <field name>" and the subreport cannot be opened
+-  Defect 15474 User can not open Calculated Field pop up to create a CF
+-  Defect 15495 Users with Full Report and Dashboard Access are not shown new categories when created by system admin
+-  Defect 15500 Error showing when user tries to go to the datasource tab and report is not finished loading
+-  Defect 15501 Updated wording of language change message to user in profile from "new lanugage will be effected next login." to "The new language will be applied after your next login."
+-  Defect 15504 Resize text box containing the page number to show entire number for larger data sets
+-  Defect 15521 Hovering on Chart shows Field name instead of Separator name when only 1 value is present in the data set
+-  Defect 15537 Join Alias should be selected in the Key Join > Data Object Dropdown List (Left side)
+-  Defect 15568 Using Form User can not open Sub Report via Link setting
+-  Defect 15649 Running copy Dashboard which contains report haing inherit filter, system shows blank page on the destination dashboard
+-  Defect 15658 Dashboard is blank and other page can not be loaded when user update common filter in report
+-  Defect 15682 The content of report list page is empty after user clicks Close button from report viewer page
+-  Defect 15687 Schedule tab displays in error in Global report when refreshing the page at system level
+-  Defect 15694 In Report List the arrow icon doesn't change when user expands or collapses category/subcatgory 
+-  Defect 15702 In some cases after finishing workflow uUser cannot logout system
+-  Defect 15742 Redundant component on Key Join when Join operator is NULL/NOT NULL/TRUE/FALSE, user can not navigate to Fields screen
+-  Defect 15806 Data is not displayed on Sub Report as pop up / Link / New Link Window/ Embedded
+-  Defect 15832 No record found return on report selection list of subreport dropdown
+-  Defect 15859 Permission for Tenant License is cached when user logins by Tenant before then login as admin user
+-  Defect 15868 When user clicks cancel on report list load 2 times page will not load
+-  Defect 15890 In Report Designer using Key join list of items in Data Object/Foreign Data Object is displayed incorrectly after un-select/select data source on middle Panel
+-  Defect 15893 Select Alias for Key Join, system shows blank drop down list and marks "...." in the Join Field
+-  Defect 15897 Stored procedure does not work after adding value to the input parameter. This is due to removal of temp table
+-  Defect 15974 When chaning Sort by on Report & Dashboard List page page is blank
+-  Defect 15458 Print Funtionality Not workign in Angular 2 Sample Starter Kit. Due to URL encoding. Setting suupport added to Izenda_Config.js file, when using Angular 2 kit add the following setting to the config file: At the same level with TimeOut, NeedToEncodeUrl:False.
+-  Defect 15523 Pagination Performance improvement for MSSQL server
+
+
 v1.25.4
 ~~~~~~~
 
