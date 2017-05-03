@@ -15,7 +15,7 @@ CategoryPagedRequest
    *  -  **type** |br|
          integer
       -
-      -  *  0 = ReportTemplate = 0
+      -  *  0 = ReportTemplate
          *  1 = Dashboard
 
       -

@@ -7,7 +7,7 @@ Others
 
    AdvancedSetting
    Category
-   CenterOnPage
+   CenterOnPageStyle
    City
    ConflictReportDashboardItem
    DataFormat
@@ -15,10 +15,10 @@ Others
    EmailSetting
    Entity
    ExportFormatSetting
+   ExportMarginTypeSetting
    Item
    IzendaLanguage
    LicenseStatus
-   MarginSetting
    OtherSetting
    PagedRequest
    PagingInfo

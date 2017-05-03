@@ -31,7 +31,7 @@ CommonFilterField
       -
    *  -  **operatorId** |br|
          string (GUID)
-      -  O
+      -  Y
       -  The id of the operator
       -
    *  -  **operatorSetting** |br|
@@ -46,7 +46,7 @@ CommonFilterField
       -
    *  -  **dashboardId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the dashboard
       -
    *  -  **position** |br|

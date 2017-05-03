@@ -42,7 +42,7 @@ City
       -
       -  The longitude
       -
-   *  -  **featureClass** |br|
+   *  -  **featureClasss** |br|
          string
       -
       -  The feature class
@@ -70,47 +70,47 @@ City
    *  -  **cc2** |br|
          string
       -
-      -  To be updated
+      -  ISO-3166 2-letter country code
       -
    *  -  **admin1Code** |br|
          string
       -
-      -  To be updated
+      -  FIPS code
       -
    *  -  **admin2Code** |br|
          string
       -
-      -  To be updated
+      -  Code for the second administrative division, a county in the US
       -
    *  -  **admin3Code** |br|
          string
       -
-      -  To be updated
+      -  Code for third level administrative division
       -
    *  -  **admin4Code** |br|
          string
       -
-      -  To be updated
+      -  Code for fourth level administrative division
       -
    *  -  **population** |br|
          string
       -
-      -  To be updated
+      -  The city population
       -
    *  -  **elevation** |br|
          string
       -
-      -  To be updated
+      -  Altitude, in meters
       -
    *  -  **dem** |br|
          string
       -
-      -  To be updated
+      -  Digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters
       -
    *  -  **timezone** |br|
          string
       -
-      -  The timezone
+      -  The IANA timezone id
       -
    *  -  **modificationDate** |br|
          datetime in ISO 8601 format

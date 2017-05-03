@@ -24,6 +24,8 @@ Category
 
          -  0 = Report
          -  1 = Template
+         -  2 = Dashboard
+         -  3 = Report/Template
       -
    *  -  **parentId** |br|
          string (GUID)

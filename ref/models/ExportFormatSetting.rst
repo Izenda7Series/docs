@@ -35,7 +35,7 @@ ExportFormatSetting
    *  -  **centerOnPage** |br|
          object
       -
-      -  A :doc:`CenterOnPage` object
+      -  A :doc:`CenterOnPageStyle` object
       -
    *  -  **pageBreakAfterReportPart** |br|
          boolean
@@ -45,5 +45,5 @@ ExportFormatSetting
    *  -  **marginSettings** |br|
          array of objects
       -
-      -  An array of :doc:`CenterOnPage` objects
+      -  An array of :doc:`ExportMarginTypeSetting` objects
       -

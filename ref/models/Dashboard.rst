@@ -55,7 +55,7 @@ Dashboard
    *  -  **stretchImage** |br|
          boolean
       -
-      -  Is the image stetched
+      -  Is the image stretched
       -
    *  -  **backgroundColor** |br|
          string
@@ -152,7 +152,8 @@ Dashboard
       -
       -  Place-holder, returns false
       -
-   *  -  **isChecked** |br|
+
+   *  -  **isCheck** |br|
          boolean
       -
       -  Whether this is selected

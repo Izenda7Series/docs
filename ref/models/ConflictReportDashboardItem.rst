@@ -24,7 +24,7 @@ ConflictReportDashboardItem
       -
    *  -  **categories** |br|
          array of objects
-      -  Y
+      -
       -  An array of :doc:`Category` objects
       -
    *  -  **checked** |br|

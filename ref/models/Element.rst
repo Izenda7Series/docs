@@ -30,7 +30,7 @@ Element
    *  -  **chartType** |br|
          string
       -
-      -
+      -  The chart type
       -
    *  -  **showTotal** |br|
          boolean
