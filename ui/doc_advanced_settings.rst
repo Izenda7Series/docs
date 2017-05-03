@@ -143,6 +143,10 @@ Update settings in Performance, Security/Additive Fields and Others group
 
          Detailed description tooltip |br|
 
+.. note::
+
+   The Use No Lock setting instructs the database engine to return the current version of data immediately, instead of waiting for all pending transactions to complete. Check the possible consequences `here <https://www.izenda.com/blog/high-performance-sql-views-using-withnolock/>`__ before using this option.
+
 Update settings in Security/Tenant group
 ----------------------------------------
 

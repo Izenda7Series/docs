@@ -794,12 +794,7 @@ Known Issues
      - Popup Subreport is blank when there is NULL filter value transferred 
    * - Defect
      - 16252
-	 - Lookup values set in the data model are not available in the dashboard filters
+     - Lookup values set in the data model are not available in the dashboard filters
    * - Defect
      - 16251
-	 - Lookup key is passing as empty value to stored proc input params when set in the data model
-
-
- 
-
-
+     - Lookup key is passing as empty value to stored proc input params when set in the data model
