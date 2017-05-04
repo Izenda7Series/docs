@@ -41,7 +41,7 @@ UserPermission
       -
       -  The access right
       -
-   *  -  **sharedWith** |br|
+   *  -  **shareWith** |br|
          string
       -  Y
       -  The name of the user or role or "Everyone"
