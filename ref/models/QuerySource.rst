@@ -12,6 +12,11 @@ QuerySource
       -  NULL
       -  Description
       -  Note
+   *  -  **id** |br|
+         string (GUID)
+      -
+      -  The id
+      -
    *  -  **name** |br|
          string
       -
@@ -126,7 +131,7 @@ QuerySource
    *  -  **existed** |br|
          boolean
       -
-      -  Place-holder
+      -  Exist flag
       -
    *  -  **checked** |br|
          boolean

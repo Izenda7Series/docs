@@ -14,12 +14,12 @@ ReportDataSource
       -  Note
    *  -  **reportId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the report
       -
    *  -  **querySourceId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the query source
       -
    *  -  **querySourceUniqueName** |br|
@@ -29,12 +29,12 @@ ReportDataSource
       -
    *  -  **querySourceCategoryId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the schema
       -
    *  -  **connectionId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the connection
       -
    *  -  **selected** |br|

@@ -14,7 +14,7 @@ ReportFunction
       -  Note
    *  -  **id** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the function
       -
    *  -  **name** |br|

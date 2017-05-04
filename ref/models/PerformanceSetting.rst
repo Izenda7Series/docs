@@ -21,7 +21,7 @@ PerformanceSetting
       -
    *  -  **useNoLockValue** |br|
          boolean
-      -  Use NOLOCK setting - whether the NOLOCK or equivalent clauses will be used in SQL queries.
+      -  Use :term:`NOLOCK` setting - whether the NOLOCK or equivalent clauses will be used in SQL queries.
       -
    *  -  **useNoLockDefaultValue** |br|
          boolean
@@ -35,10 +35,46 @@ PerformanceSetting
          integer
       -  The default value for Data Source Limit (``1000``)
       -
+   *  -  **queryLimitValue** |br|
+         integer
+      -  Query Limit - the number of data sources allowed to be used in a single report.
+      -
+   *  -  **queryLimitDefaultValue** |br|
+         integer
+      -  The default value for Query Limit (``100000``)
+      -
+   *  -  **pivotColumnLimitValue** |br|
+         integer
+      -  Pivot Column Limit - the number of data sources allowed to be used in a single report.
+      -
+   *  -  **pivotColumnDefaultValue** |br|
+         integer
+      -  The default value for Pivot Column Limit (``100000``)
+      -
+   *  -  **fieldLimitValue** |br|
+         integer
+      -  Field Limit - the number of data sources allowed to be used in a single report.
+      -
+   *  -  **fieldLimitDefaultValue** |br|
+         integer
+      -  The default value for Field Limit (``1000``)
+      -
+   *  -  **filterLimitValue** |br|
+         integer
+      -  Filter Limit - the number of data sources allowed to be used in a single report.
+      -
+   *  -  **filterLimitDefaultValue** |br|
+         integer
+      -  The default value for Filter Limit (``1000``)
+      -
    *  -  **tenantId** |br|
          string (GUID)
       -  The id of the tenant |br|
          null if the setting belongs to system
+      -
+   *  -  **modified** |br|
+         datetime
+      -  The modification datetime
       -
 
 .. container:: toggle

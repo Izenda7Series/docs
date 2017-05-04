@@ -25,7 +25,7 @@ RelationshipBase
       -
    *  -  **joinFieldId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the referencing field
       -
    *  -  **joinFieldType** |br|
@@ -45,7 +45,7 @@ RelationshipBase
       -
    *  -  **foreignFieldId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the field referenced by the relationship
       -
    *  -  **foreignFieldType** |br|

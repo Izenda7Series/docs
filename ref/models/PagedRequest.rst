@@ -1,8 +1,8 @@
 
 
-=========================================
+
 PagedRequest
-=========================================
+-----------------------
 
 .. list-table::
    :header-rows: 1
@@ -26,6 +26,11 @@ PagedRequest
          array of objects
       -
       -  An array of :doc:`SortOrder` objects
+      -
+   *  -  **parentIds** |br|
+         array of strings (GUIDs)
+      -
+      -  Ids of the parents
       -
    *  -  **pageIndex** |br|
          integer

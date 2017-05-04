@@ -56,7 +56,7 @@ Relationship
       -
       -  The alias of the join query soure in relationship
       -
-   *  -  **alias** |br|
+   *  -  **systemRelationship** |br|
          boolean
       -
       -  Is this relationship from physical database (cannot be deleted)
@@ -83,7 +83,7 @@ Relationship
       -
    *  -  **relationshipKeyJoins** |br|
          array of objects
-      -  Y
+      -
       -  An array of :doc:`RelationshipKeyJoin` objects
       -
    *  -  **reportId** |br|

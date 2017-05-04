@@ -37,18 +37,22 @@ LicenseStatus
          boolean
       -
       -  Has the token exceeded LostConnectionAllowPeriod threshold |br| |br|
-         See also ``LostConnectionAllowPeriod`` system setting
+         See ``LostConnectionAllowPeriod`` system setting in :doc:`/ref/spec_izendasystemsetting_table`
       -
    *  -  **isAdminUser** |br|
          boolean
       -
-      -  Place-holder |br|
-         always returns false
+      -  True if user is admin user
       -
    *  -  **trialLicense** |br|
          boolean
       -
       -  Is this a trial license
+      -
+   *  -  **connected** |br|
+         boolean
+      -
+      -  True if this is connected to license server
       -
 
 .. container:: toggle

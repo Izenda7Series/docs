@@ -72,8 +72,8 @@ ReportFilterField
       -
    *  -  **compareField** |br|
          string (GUID)
-      -
-      -  The compare field - used for filter field comparison
+      -  Y
+      -  The id of the compare field - used for filter field comparison
       -
    *  -  **selected** |br|
          boolean
@@ -92,7 +92,7 @@ ReportFilterField
       -
    *  -  **useMappedFieldAlias** |br|
          boolean
-      -  Y
+      -
       -  Internal use: whether filter uses mapped field alias, if yes, it will not be re-calculated to generate expression.
       -
    *  -  **uniqueId** |br|

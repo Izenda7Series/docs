@@ -17,11 +17,17 @@ FusionPreviewResult
       -
       -  A dynamic object
       -
+   *  -  **hasRecord** |br|
+         boolean
+      -
+      -  Whether the number of records is more than 0
+      -
    *  -  **dataType** |br|
          string
       -
       -  The data type
       -
+
 .. container:: toggle
 
    .. container:: header

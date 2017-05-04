@@ -21,3 +21,28 @@ Item
       -
       -  The value
       -
+   *  -  **originalValue** |br|
+         string
+      -
+      -  The original value
+      -
+   *  -  **dataFormat** |br|
+         string (GUID)
+      -  Y
+      -  The id of the data format
+      -
+   *  -  **intimePeriodType** |br|
+         string
+      -
+      -  Type of the Intime Period
+      -
+   *  -  **valueInTimePeriod** |br|
+         string
+      -
+      -  The custom in time period value
+      -
+   *  -  **function** |br|
+         string (GUID)
+      -  Y
+      -  The id of the format function
+      -

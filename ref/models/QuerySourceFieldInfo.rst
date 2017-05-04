@@ -23,7 +23,7 @@ QuerySourceFieldInfo
       -  The name of the query source field
       -
    *  -  **querySourceId** |br|
-         string
+         string (GUID)
       -
       -  The id of the parent query source
       -
@@ -33,7 +33,7 @@ QuerySourceFieldInfo
       -  The name of the parent query source
       -
    *  -  **querySourceCategoryId** |br|
-         string
+         string (GUID)
       -
       -  The id of the :term:`query source category`
       -

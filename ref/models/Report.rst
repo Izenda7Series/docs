@@ -52,7 +52,7 @@ Report
       -
    *  -  **categoryId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the report category
       -
    *  -  **categoryName** |br|
@@ -62,13 +62,18 @@ Report
       -
    *  -  **subCategoryId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the report sub-category
       -
    *  -  **subCategoryName** |br|
          string
       -
       -  The name of the report sub-category
+      -
+   *  -  **tenantId** |br|
+         string (GUID)
+      -  Y
+      -  The id of the tenant if available
       -
    *  -  **tenantName** |br|
          string
@@ -97,7 +102,7 @@ Report
       -
    *  -  **ownerId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of report's owner
       -
    *  -  **headerContent** |br|
@@ -120,7 +125,7 @@ Report
       -
       -  The number of view
       -
-   *  -  **renderingTIme** |br|
+   *  -  **renderingTime** |br|
          real number
       -
       -  The report rendering time
@@ -143,7 +148,9 @@ Report
    *  -  **usingFields** |br|
          string
       -
-      -  The ids of the fields used in report, separated by comma
+      -  The ids of the fields used in report, separated by comma |br|
+         .. deprecated:: 2.0.0
+
       -
    *  -  **hasDeletedObjects** |br|
          boolean
@@ -214,6 +221,11 @@ Report
          boolean
       -
       -  True if this is the latest version
+      -
+   *  -  **isGlobal** |br|
+         boolean
+      -
+      -  Whether this is a global report
       -
    *  -  **isCheck** |br|
          boolean

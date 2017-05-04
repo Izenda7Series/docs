@@ -57,25 +57,11 @@ ReportDefinition
       -
       -  An array of :doc:`Subscription` objects
       -
-   *  -  **getAllFields** |br|
-         array of objects
-      -
-      -  An array of :doc:`ReportField` objects
-      -
-   *  -  **getUsingFieldIds** |br|
-         array of strings (GUIDs)
-      -
-      -  The list of ids of fields used by report
-      -
    *  -  **dynamicQuerySourceFields** |br|
          array of objects
       -
       -  An array of :doc:`QuerySourceField` objects
       -
-
-
-
-
 
 
 

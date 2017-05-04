@@ -22,6 +22,11 @@ FilterSyntax
       -
       -  The list of filters index number, from 1 up to n
       -
+   *  -  **filterFields** |br|
+         array of objects
+      -
+      -  The list of filter fields being used in the syntax, an array of :doc:`ReportFilterField` objects
+      -
 
 .. container:: toggle
 

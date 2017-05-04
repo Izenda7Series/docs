@@ -28,12 +28,12 @@ FilterField
       -
    *  -  **querySourceFieldId** |br|
          string (GUID)
-      -  Y
+      -  
       -  The id of the query source field
       -
    *  -  **querySourceType** |br|
          string
-      -  Y
+      -
       -  Either "Table", "View", "Stored Procedure" or "Function"
       -
    *  -  **querySourceId** |br|
@@ -49,7 +49,7 @@ FilterField
    *  -  **alias** |br|
          string
       -
-      -  Place-holder
+      -  The alias of the field
       -
    *  -  **position** |br|
          integer

@@ -108,7 +108,7 @@ QuerySourceField
    *  -  **existed** |br|
          boolean
       -
-      -  Is the change approved
+      -  Exist flag
       -
    *  -  **matchedTenant** |br|
          boolean
@@ -159,11 +159,6 @@ QuerySourceField
       -
       -  Is this a stored procedure parameter (or a normal field)
       -
-   *  -  **isParameter** |br|
-         boolean
-      -
-      -  Is this a stored procedure parameter (or a normal field)
-      -
    *  -  **isCalculated** |br|
          boolean
       -
@@ -204,7 +199,22 @@ QuerySourceField
       -
       -  Whether this is selected in workspace for copying
       -
-
+   *  -  **numOfChilds** |br|
+         integer
+      -
+      -  The number of children
+      -
+   *  -  **numOfCheckedChilds** |br|
+         integer
+      -
+      -  The number of selected children
+      -
+   *  -  **indeterminate** |br|
+         boolean
+      -
+      -  *  true if 0 < numOfCheckedChilds < numOfChilds
+         *  false if not
+      -
 
 
 Inherited fields:

@@ -26,7 +26,7 @@ RelationshipOrder
    *  -  **selectedForeignAlias** |br|
          string
       -
-      -  To be updated
+      -  The foreign alias of the selected relationship
       -
    *  -  **relationshipPosition** |br|
          integer

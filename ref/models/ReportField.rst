@@ -69,7 +69,7 @@ ReportField
       -
    *  -  **relationshipId** |br|
          string (GUID)
-      -  Y
+      -
       -  The id of the relationship if applicable
       -
    *  -  **visible** |br|
@@ -90,7 +90,12 @@ ReportField
    *  -  **fieldFunctionExpression** |br|
          string
       -
-      -  The expression
+      -  The expression for field function
+      -
+   *  -  **expression** |br|
+         string
+      -
+      -  The calculated expression
       -
    *  -  **grandTotalExpression** |br|
          string
@@ -107,7 +112,7 @@ ReportField
       -
       -  The sub total expression
       -
-   *  -  **subTotalFormat** |br|
+   *  -  **subtotalFormat** |br|
          string
       -
       -  Format for the sub total
