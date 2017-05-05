@@ -2,6 +2,19 @@
 Release Notes
 ==============
 
+v2.0.1
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 16251  Lookup key is passing an empty value to stored proc input parameters when set in the data model
+-  Defect 16248  Tenant Level Users with Full Report and Dashboard access can change Global Category Names
+-  Defect 15905  Simple Gauge Unit Label includes leading spaces and is cutting off the value prior to 10 characters
+-  Defect 16103  White Spaces are not trimmed in certain data types causing issues in matching data
+-  Defect 15883  System shows deleted Key Join when users changes data in relationship and user cannot navigate to Fields screen
+-  Defect 15395  System reverts the default value on Date&Time values on key joins when user navigates from Field to Data Source Tab
+-  Defect 15304  Custom Formats added cause errors in charts and gauges when applied
+
 v2.0.0
 ~~~~~~~
 BREAKING CHANGES
