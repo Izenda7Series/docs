@@ -3,6 +3,8 @@
 ReportPartChart
 =====================
 
+.. comment: this is the Object Model in Front-end
+
 .. list-table::
    :header-rows: 1
    :widths: 25 5 70
@@ -17,11 +19,11 @@ ReportPartChart
    *  -  **title** |br|
          object
       -
-      -  To be updated
+      -  The title object
    *  -  **description** |br|
          object
       -
-      -  To be updated
+      -  The description object
    *  -  **properties** |br|
          object
       -

@@ -193,7 +193,7 @@ Understanding the Data Model
 Izenda Configuration Database 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`spec_izendasystemsetting_table'
+:doc:`/ref/spec_izendasystemsetting_table`
 
 
 A Granular Overview Of The Mvc5Starterkit Database Tables

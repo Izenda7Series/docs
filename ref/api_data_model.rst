@@ -1597,7 +1597,7 @@ Returns a paged array of database servers and database names.
 
 **Response**
 
-    A :doc:`PagedResult` object, with **result** field containing an array of the following object:
+    A :doc:`models/PagedResult` object, with **result** field containing an array of the following object:
 
     .. list-table::
        :header-rows: 1
@@ -1680,7 +1680,7 @@ Returns a paged array of connection names or schema names in the specified datab
 
 **Response**
 
-   A :doc:`PagedResult` object, with **result** field containing an array of strings.
+   A :doc:`models/PagedResult` object, with **result** field containing an array of strings.
 
    If :doc:`models/DatabaseMappingPagedRequest`.``type`` is ``2`` (Database), return connection names, else return schema names.
 

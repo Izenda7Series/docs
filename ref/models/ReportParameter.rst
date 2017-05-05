@@ -16,3 +16,8 @@ ReportParameter
       -
       -  A :doc:`ReportKey` object
       -
+   *  -  **previewRecord** |br|
+         integer
+      -
+      -  The numer of records to preview
+      -

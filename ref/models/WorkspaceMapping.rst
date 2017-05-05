@@ -12,6 +12,11 @@ WorkspaceMapping
       -  NULL
       -  Description
       -  Note
+   *  -  **workspaceId** |br|
+         string (GUID)
+      -  Y
+      -  The id of the workspace tenant
+      -
    *  -  **fromServer** |br|
          string
       -
@@ -21,11 +26,6 @@ WorkspaceMapping
          string
       -
       -  The to server
-      -
-   *  -  **workspaceId** |br|
-         string (GUID)
-      -  Y
-      -  The id of the workspace tenant
       -
    *  -  **fromDatabaseName** |br|
          string

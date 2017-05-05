@@ -17,12 +17,12 @@ ReportPart
       -  The title of the report part
       -
    *  -  **positionX** |br|
-         string
+         int
       -
       -  The position of the report part on X-axis
       -
    *  -  **positionY** |br|
-         string
+         int
       -
       -  The position of the report part on Y-axis
       -
@@ -32,7 +32,7 @@ ReportPart
       -  The width of the report part
       -
    *  -  **height** |br|
-         string
+         int
       -
       -  The height of the report part
       -
@@ -53,7 +53,7 @@ ReportPart
       -
    *  -  **sourceId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the source report part, in case this is a copy
       -
 

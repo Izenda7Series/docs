@@ -17,6 +17,11 @@ Subscription
       -
       -  The name of the subscription
       -
+   *  -  **schedule** |br|
+         string
+      -
+      -  The schedule for display
+      -
    *  -  **type** |br|
          string
       -
@@ -142,12 +147,12 @@ Subscription
       -
    *  -  **reportId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the report
       -
    *  -  **dashboardId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the dashboard
       -
    *  -  **filterValueSelection** |br|
@@ -177,7 +182,7 @@ Subscription
       -
    *  -  **nextScheduleRunDate** |br|
          datetime
-      -
+      -  Y
       -  The next scheduled run date and time
       -
    *  -  **isSubscription** |br|

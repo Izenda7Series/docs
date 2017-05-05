@@ -3,6 +3,8 @@
 ReportPartMap
 =====================
 
+.. comment: this is the Object Model in Front-end
+
 .. list-table::
    :header-rows: 1
    :widths: 25 5 70

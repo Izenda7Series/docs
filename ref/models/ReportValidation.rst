@@ -31,7 +31,7 @@ ReportValidation
       -
    *  -  **tenantId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the tenant if available
       -
    *  -  **columnFullReference** |br|

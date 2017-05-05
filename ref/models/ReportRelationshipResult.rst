@@ -17,7 +17,7 @@ ReportRelationshipResult
       -
       -  An array of :doc:`Relationship` objects
       -
-   *  -  **HasRemovedRelationship** |br|
+   *  -  **hasRemovedRelationship** |br|
          boolean
       -
       -  True if this instance has removed relationship; otherwise, false
@@ -37,6 +37,18 @@ ReportRelationshipResult
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedResult`
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -  Inherited from :doc:`PagedResult`
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
+      -  Inherited from :doc:`PagedResult`
+
+
 
 .. container:: toggle
 

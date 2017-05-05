@@ -26,8 +26,3 @@ UpdateSubReportInput
       -
       -  An array of :doc:`ReportDefinition` objects
       -
-   *  -  **lineNumber** |br|
-         integer
-      -
-      -  The line number of the item in config xml file
-      -

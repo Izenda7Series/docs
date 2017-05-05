@@ -27,15 +27,15 @@ Workspace
       -  Y
       -  The id of the tenant if available
       -
+   *  -  **tenantName** |br|
+         string
+      -
+      -  The name of the tenant
+      -
    *  -  **ownerId** |br|
          string (GUID)
       -  Y
       -  The id of the owner
-      -
-   *  -  **deleted** |br|
-         boolean
-      -
-      -  Is the workspace deleted
       -
    *  -  **copyRoles** |br|
          boolean
@@ -74,7 +74,7 @@ Workspace
       -
    *  -  **sourceId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the source
       -
    *  -  **selectAllTenants** |br|
@@ -82,7 +82,11 @@ Workspace
       -
       -  Does user select all tenants as destination
       -
-
+   *  -  **sourceHashCode** |br|
+         string
+      -
+      -  Hashcode for source
+      -
 
 
 

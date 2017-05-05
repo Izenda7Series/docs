@@ -30,7 +30,7 @@ WorkspaceTenantDetail
    *  -  **tenantUniqueName** |br|
          string
       -
-      -  The unique name of the tenant
+      -  The tenant unique name
       -
 
 

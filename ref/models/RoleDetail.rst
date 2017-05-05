@@ -16,15 +16,20 @@ RoleDetail
       -
       -  An array of :doc:`UserDetail` objects
       -
+   *  -  **tenantUniqueName** |br|
+         string
+      -
+      -  Used for integration only
+      -
    *  -  **permission** |br|
          object
       -
       -  A :doc:`Permission` object
       -
-   *  -  **visibleQuerySourceFields** |br|
-         array of strings
+   *  -  **visibleQuerySources** |br|
+         array of objects
       -
-      -  An array of strings (GUID) which are ids of visible query source fields.
+      -  An array of :doc:`QuerySource` objects
       -
 
 Inherited fields:
@@ -42,13 +47,11 @@ Inherited fields:
       {
          "users": [],
          "permission": null,
-         "visibleQuerySourceFields": null,
+         "visibleQuerySources": null,
          "name": "Analyst",
          "tenantId": null,
          "active": true,
          "deleted": false,
-         "permissionData": "",
-         "querySourceFields": "",
          "id": "0d030b1a-9568-4c98-8b1e-5dcc94dbd281",
          "state": 0,
          "inserted": true,

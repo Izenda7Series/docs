@@ -6,21 +6,25 @@ SecurityQuestion
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 65 10
+   :widths: 25 5 65 5
 
    *  -  Field
+      -  NULL
       -  Description
       -  Note
    *  -  **tenantId** |br|
          string (GUID)
+      -  Y
       -  The id of the tenant
       -
    *  -  **question** |br|
          string
+      -
       -  The question
       -
    *  -  **orderNumber** |br|
          integer
+      -
       -  The order of the question
       -
 

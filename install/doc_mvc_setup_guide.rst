@@ -7,7 +7,7 @@ For this installation guide of the MVC5StarterKit, Izenda will demonstrate the p
 Also, for a visual representation of the following guide, please check out our MVC Setup Guide video by clicking `here <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_.
 
 Downloads and Materials
---------------
+------------------------------------------
 
 To begin the process of installing the kit, download the EmbeddedUI.zip and API.zip from the latest directory of the Izenda downloads page. 
 
@@ -29,14 +29,14 @@ First Steps
 #. Finally, move to the unzipped EmbeddedUI directory and copy all files and folders contained within and move them into the Mvc5StarterKit\Scripts\izenda directory of the project. 
 
 Sample Reporting Database Setup
---------------
+------------------------------------------
 
 #. Open SQL Server Management Studio. Right click on the “Databases” dropdown and select “New Database”. Give the new database the name “Retail”. 
 
 #. Now, locate the Retail database script contained within the Mvc5StarterKit directory in the SQLScript folder (Mvc5StarterKit\SQLScript). Then run that script on the newly created Retail database to update it. Once the script has successfully executed, the project and reporting database should be in a runnable state. 
 
 Starting the Application
---------------
+----------------------------
 In Visual Studio, right click on the project to build, and then run the application in the desired browser (for the purposes of this installation, Google Chrome will be the default browser).
 
 When the application loads up, use the default System Administrator login credentials to log into the platform for the first time. Select the “Login” button at the top of the screen and enter System into the Tenant field, then use the Username IzendaAdmin@system.com with the Password Izenda@123. 
@@ -54,7 +54,7 @@ Feel free to navigate through the code to see how Izenda was programmatically in
 Please review the following file: mvc5starterkit\mvc5starterkit\izendaboundary\customadhocreport.cs This is where you can find samples for: Hidden Filters Filter Dropdown Overrides See more information here: All About IAdhocExtension, Hidden Filters, and Filter Dropdown Overrides
 
 Alternative Environments
---------------
+----------------------------
 Contained within the kit are some tenants with custom themes that can be explored by logging in using their specific credentials. 
 There are three environments that can be analyzed through the UI and styling assets that can be observed at the code level for each.
 
@@ -94,5 +94,3 @@ User: vp@retcl.com Role: VP
 When registering a new user in this sample all users are hardcoded to the manager role here: Mvc5StarterKit\Controllers\AccountController.cs.
 
 The CSS can be configured per tenant and an example is provided see below: This is configured here ~\mvc5starterkit\Mvc5StarterKit\Views\Shared_Layout.cshtml And folder structures are located here ~\mvc5starterkit\Mvc5StarterKit\Content
-
-

@@ -42,6 +42,16 @@ SystemSchedulingPagedResult
       -
       -  The total number of rows
       -  Inherited from :doc:`PagedResult`
+   *  -  **skipItems** |br|
+         integer
+      -
+      -  Skip items
+      -  Inherited from :doc:`PagedResult`
+   *  -  **isLastPage** |br|
+         boolean
+      -
+      -  Whether this is the last page
+      -  Inherited from :doc:`PagedResult`
 
 .. container:: toggle
 

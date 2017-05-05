@@ -12,6 +12,11 @@ UserSecurityQuestion
       -  Null
       -  Description
       -  Note
+   *  -  **userId** |br|
+         string (GUID)
+      -
+      -  The id of the user
+      -
    *  -  **securityQuestionId** |br|
          string (GUID)
       -
@@ -22,16 +27,8 @@ UserSecurityQuestion
       -
       -  The answer
       -
-
-.. container:: toggle
-
-   .. container:: header
-
-      **Sample**:
-
-   .. code-block:: json
-
-      {
-        "securityQuestionId": "5784ece5-d2e7-42b1-89bb-859737b7b2a9",
-        "answer": "Jenny Doe"
-      }
+   *  -  **question** |br|
+         string
+      -
+      -  The question
+      -

@@ -55,7 +55,7 @@ UserVerification
    *  -  **tenantDisplayId** |br|
          string
       -
-      -  The user-defined id of the tenant
+      -  The user-entered id of the tenant
       -
    *  -  **tenantName** |br|
          string

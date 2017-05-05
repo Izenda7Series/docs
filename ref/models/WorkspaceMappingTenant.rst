@@ -14,7 +14,7 @@ WorkspaceMappingTenant
       -  Note
    *  -  **workspaceMappingId** |br|
          string (GUID)
-      -
+      -  Y
       -  The id of the workspace mapping
       -
    *  -  **tenantId** |br|

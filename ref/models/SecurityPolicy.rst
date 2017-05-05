@@ -82,7 +82,7 @@ SecurityPolicy
       -  Y
       -  Notify user during x days to password expiry setting
       -
-   *  -  **NumberOfPasswordToKeep'''** |br|
+   *  -  **numberOfPasswordToKeep'''** |br|
          integer
       -  Y
       -  Number of passwords to keep setting

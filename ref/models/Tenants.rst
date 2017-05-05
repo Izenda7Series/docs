@@ -41,6 +41,11 @@ Tenants
       -
       -  An array of selected module names for the tenant
       -
+   *  -  **permission** |br|
+         object
+      -
+      -  A :doc:`Permission` object
+      -
 
 Inherited fields:
 

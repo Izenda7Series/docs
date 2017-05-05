@@ -46,7 +46,7 @@ UserContext
       -
       -  A :doc:`Permission` object
       -
-   *  -  **licenseModules** |br|
+   *  -  **LicenseModules** |br|
          array of strings
       -
       -  The list of assigned modules

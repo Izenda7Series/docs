@@ -51,6 +51,11 @@ User
       -  Y
       -  The id of the tenant if available
       -
+   *  -  **tenantDisplayId** |br|
+         string
+      -
+      -  The user-entered id of the tenant for display
+      -
    *  -  **tenantName** |br|
          string (GUID)
       -
@@ -93,7 +98,7 @@ User
       -
    *  -  **locked** |br|
          boolean
-      -
+      -  Y
       -  Is the user locked
       -
    *  -  **lockedDate** |br|
@@ -128,7 +133,7 @@ User
       -
    *  -  **numberOfFailedSecurityQuestion** |br|
          integer
-      -
+      -  Y
       -  The number of security questions that user failed to answer
       -
    *  -  **fullName** |br|

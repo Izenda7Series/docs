@@ -46,6 +46,57 @@ ReportSetting
       -
       -  The global category name
       -
+   *  -  **recurrentReportSetting** |br|
+         object
+      -
+      -  The Remove Archived Versions options
+      -
+   *  -  .. container:: lpad2
+
+           **once** |br|
+           boolean
+      -
+      -  True to run one time, opposite of **recurrence**
+      -
+   *  -  .. container:: lpad2
+
+            **recurrence** |br|
+            boolean
+      -
+      -  True to run multiple times, opposite of **once**
+      -
+   *  -  .. container:: lpad2
+
+            **startDate** |br|
+            datetime
+      -  Y
+      -  The start date
+      -
+   *  -  .. container:: lpad2
+
+            **startTime** |br|
+            datetime
+      -  Y
+      -  The start time
+      -
+   *  -  .. container:: lpad2
+
+            **recurrenceType** |br|
+            integer
+      -
+      -  *  0 = Day
+            1 = Week
+            2 = Month
+            3 = Year
+      -
+   *  -  .. container:: lpad2
+
+            **occurValue** |br|
+            integer
+      -  Y
+      -  The numer of times it has run
+      -
+
 
 Inherited fields:
 

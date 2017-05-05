@@ -12,33 +12,13 @@ UserRole
       -  Null
       -  Description
       -  Note
-   *  -  **To be updated** |br|
+   *  -  **userId** |br|
          string (GUID)
-      -  Y
-      -  The id of the report
       -
-
-.. container:: toggle
-
-   .. container:: header
-
-      **Sample**:
-
-   .. code-block:: json
-
-      {
-         "name" : "Singer",
-         "tenantId" : null,
-         "active" : false,
-         "deleted" : false,
-         "permissionData" : "",
-         "querySourceFields" : "",
-         "id" : "0d030b1a-9568-4c98-8b1e-5dcc94dbd283",
-         "state" : 0,
-         "inserted" : true,
-         "version" : 1,
-         "created" : null,
-         "createdBy" : null,
-         "modified" : null,
-         "modifiedBy" : null
-      }
+      -  The id of the user
+      -
+   *  -  **roleId** |br|
+         string (GUID)
+      -
+      -  The id of the role
+      -

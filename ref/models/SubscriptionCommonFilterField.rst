@@ -34,7 +34,7 @@ SubscriptionCommonFilterField
       -
    *  -  **subscriptionId** |br|
          string (GUID)
-      -  Y
+      -
       -  The id of the subscription
       -
    *  -  **position** |br|

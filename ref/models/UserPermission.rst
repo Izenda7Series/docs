@@ -43,7 +43,7 @@ UserPermission
       -
    *  -  **shareWith** |br|
          string
-      -  Y
+      -
       -  The name of the user or role or "Everyone"
       -
    *  -  **position** |br|
@@ -56,7 +56,41 @@ UserPermission
       -
       -  The ids of users or roles
       -
-
+   *  -  **accessorNames** |br|
+         array of strings
+      -
+      -  Names of the accessors
+      -
+   *  -  **tempId** |br|
+         string (GUID)
+      -
+      -  The temp id
+      -
+   *  -  **reportAccessRightId** |br|
+         string (GUID)
+      -  Y
+      -  Id of the report access right
+      -
+   *  -  **reportAccessRights** |br|
+         string
+      -
+      -  The report access right names
+      -
+   *  -  **dashboardAccessRightId** |br|
+         string (GUID)
+      -  Y
+      -  Id of the dashboard access right
+      -
+   *  -  **dashboardAccessRights** |br|
+         string
+      -
+      -  The dashboard access right names
+      -
+   *  -  **assignedTypeName** |br|
+         string
+      -
+      -  The assign type name
+      -
 
 Inherited fields:
 
