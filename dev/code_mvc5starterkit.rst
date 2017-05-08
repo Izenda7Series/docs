@@ -217,11 +217,24 @@ MVC5 User Database
     and is used to accurately route to a user in the Izenda
     Configuration Database.*
 
-Retail Reporting Database
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Methods of Calling the Izenda API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Depending on your deployment mode, you may want to invoke the Izenda API in different ways. Our standard MVC Kit provides examples for both RESTful API Calls and .Net API Calls 
+   * RESTful API Calls
+   	* Home Controller
+   	* IzendaUtlility.cs
+   		* Add Role
+   		* Alter Data Sources
+   * .Net API Calls
+	   * Home Controller
+   		* GetToken (line 481): Hard-coded for the default admin to allow user to set Izenda database connection string and license key
+   *  Account Controller
+	   * Account/login (line 73): Login to your.net application with tenant, email, password
+	   * Register
 
-    ''The Retail Reporting Database is located within the '''[insert
-    database location here]. **[Describe what it does here.]** ''
+
+
+
 
 Updates
 -------
