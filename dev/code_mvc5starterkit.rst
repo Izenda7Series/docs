@@ -41,15 +41,14 @@ Izenda User Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **Login.cshtml:** User input form for login information
+-  **UserInfo.cs:** Contains the definition of the token required for Izenda. This includes 2 public strings UserName and TenantUniqueName. Upon successful authentication, a UserInfo object is created in the model.
 -  **UserController.cs:** The UserController only handles users logging
    into the MVC application. Once they log in, a token generated with
    their information that will then be used in IzendaTokenAuthorization
-
-   * GenerateToken() and GetCurrentTenant()
-
 -  **IzendaTokenAuthorization.cs**
+   * GetToken (line 18): Used to get/generate the token based off of a UserInfo object in order to use it for RESTful API calls. This function is called whenever you are attempting an Izenda process.
+   * GetUserInfo (line 36): Takes the token from Izenda and decrypts it to get the user info to use it for RESTful API calls
 
-   * GetToken and GetUserInfo
 
 -  **AccountController.cs**
 
