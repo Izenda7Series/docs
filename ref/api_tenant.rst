@@ -20,23 +20,26 @@ List of APIs
 
    * - API
      - Purpose
-   * - GET tenant/allTenants
+   * - `GET tenant/allTenants`_
      - Returns an array of all tenants.
-   * - GET tenant/{tenant_id}
+   * - `GET tenant/{tenant_id}`_
      - Returns the tenant specified by tenant_id.
-   * - POST tenant
+   * - `POST tenant`_
      - Saves a tenant.
-   * - POST tenant/active/{tenant_id}
+   * - `POST tenant/active/{tenant_id}`_
      - Sets active for the tenant specified by tenant_id.
-   * - POST tenant/deactive/{tenant_id}
+   * - `POST tenant/deactive/{tenant_id}`_
      - Sets inactive for the tenant specified by tenant_id.
-   * - DELETE tenant/{tenant_id}
+   * - `DELETE tenant/{tenant_id}`_
      - Deletes the tenant specified by tenant_id.
-   * - GET tenant/activeTenants
+   * - `GET tenant/activeTenants`_
      - Returns an array of active tenants.
-   * - GET tenant/availableCategory/{type}
-     - Returns an array of available categories for report/template (type=0) or dashboard (type=1).
-   * - POST tenant/intergration/saveTenant
+   * - `GET tenant/availableCategory/{type}`_
+     - .. deprecated:: 2.0.0
+            superseded by :ref:`POST_role/availableCategory` |br| |br|
+
+       Returns an array of available categories for report/template (type=0) or dashboard (type=1).
+   * - `POST tenant/intergration/saveTenant`_
      - Adds or updates external tenant.
      
        .. note::
@@ -273,7 +276,7 @@ Returns an array of active tenants.
          "description": null,
          "active": true,
          "deleted": false,
-         "modules": "Report Template/ Component; Scheduling",
+         "modules": "encrypted",
          "modified": "2016-04-22T03:27:13.5070000+07:00",
          "tenantModules": ["Report Template/ Component", "Scheduling"]
       }]
@@ -281,6 +284,9 @@ Returns an array of active tenants.
 
 GET tenant/availableCategory/{type}
 --------------------------------------------------------------
+
+.. deprecated:: 2.0.0
+   superseded by :ref:`POST_role/availableCategory`
 
 Returns an array of available categories for report/template (type=0) or dashboard (type=1).
 

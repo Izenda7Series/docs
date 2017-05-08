@@ -16,29 +16,32 @@ List of APIs
 
    * - API
      - Purpose
-   * - GET role/all/(tenant_id)
+   * - `GET role/all/(tenant_id)`_
      - Returns an array of roles, filtered by tenant_id if available.
-   * - POST role/active/{role_id}/(tenant_id)
+   * - `POST role/active/{role_id}/(tenant_id)`_
      - Sets a role to be active.
-   * - POST role/deactive/{role_id}/(tenant_id)
+   * - `POST role/deactive/{role_id}/(tenant_id)`_
      - Sets a role to be inactive.
-   * - DELETE role/{role_id}
+   * - `DELETE role/{role_id}`_
      - Deletes a role.
-   * - GET role/{role_id}
+   * - `GET role/{role_id}`_
      - Returns a role.
-   * - GET role/availableRole/{type}/(tenant_id)
+   * - `GET role/availableRole/{type}/(tenant_id)`_
      - Returns a list of available roles for Access (type=0) or Scheduling (type=1), filtered by tenant_id if available.
-   * - GET role/availableCategory/{type}/(tenant_id)
-     - Returns a list of available categories for Report/Template (type=0) or Dashboard (type=1), filtered by tenant_id if available.
-   * - POST role/availableCategory
+   * - `GET role/availableCategory/{type}/(tenant_id)`_
+     - .. deprecated:: 2.0.0
+            superseded by `POST role/availableCategory`_ |br| |br|
+
+       Returns a list of available categories for Report/Template (type=0) or Dashboard (type=1), filtered by tenant_id if available.
+   * - `POST role/availableCategory`_
      - Returns a list of available categories, with total number of items.
-   * - POST role
+   * - `POST role`_
      - Saves a role.
-   * - GET role/summaries/(tenant_id)
+   * - `GET role/summaries/(tenant_id)`_
      - Returns an array of roles filtered by tenant_id.
-   * - POST role/allowedSharingRoles
+   * - `POST role/allowedSharingRoles`_
      - Returns a list of roles allowed to be selected in report/dashboard access.
-   * - POST role/intergration/saveRole
+   * - `POST role/intergration/saveRole`_
      - Adds or updates an external role.
 
 GET role/all/(tenant_id)
@@ -397,6 +400,9 @@ Returns a list of available roles for Access (type=0) or Scheduling (type=1), fi
 GET role/availableCategory/{type}/(tenant_id)
 --------------------------------------------------------------
 
+.. deprecated:: 2.0.0
+   superseded by `POST role/availableCategory`_
+
 Returns a list of available categories for Report/Template (type=0) or Dashboard (type=1), filtered by tenant_id if available.
 
 **Request**
@@ -511,6 +517,8 @@ Returns a list of available categories for Report/Template (type=0) or Dashboard
        }
       ]
 
+.. _POST_role/availableCategory:
+
 POST role/availableCategory
 --------------------------------------------------------------
 
@@ -530,7 +538,171 @@ Returns a list of available categories, with total number of items.
 
       POST api/role/availableCategory HTTP/1.1
 
-   To be updated
+   Request payload::
+
+      {
+         "type": 0,
+         "tenantId": null,
+         "skipItems": 0,
+         "pageSize": -1,
+         "parentIds": [],
+         "defaultChecked": false,
+         "isUncategorized": false
+      }
+
+   Sample response::
+
+      {
+         "result": [
+            {
+               "name": "Global Categories",
+               "type": 0,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": true,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [
+                  {
+                     "name": "Uncategorized",
+                     "type": 0,
+                     "parentId": null,
+                     "tenantId": null,
+                     "isGlobal": true,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [],
+                     "checked": false,
+                     "reports": null,
+                     "dashboards": null,
+                     "numOfChilds": 0,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "id": null,
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "checked": false,
+               "reports": null,
+               "dashboards": null,
+               "numOfChilds": 1,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "2a83e3ce-f91b-4f14-910d-76cadf42d0fe",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            },
+            {
+               "name": "Local Categories",
+               "type": 0,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [
+                  {
+                     "name": "A",
+                     "type": 1,
+                     "parentId": null,
+                     "tenantId": null,
+                     "isGlobal": false,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [],
+                     "checked": false,
+                     "reports": null,
+                     "dashboards": null,
+                     "numOfChilds": 0,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "id": "680af264-a2a1-43da-9ab5-7bfaf2a42025",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  },
+                  {
+                     "name": "Uncategorized",
+                     "type": 0,
+                     "parentId": null,
+                     "tenantId": null,
+                     "isGlobal": false,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [],
+                     "checked": false,
+                     "reports": null,
+                     "dashboards": null,
+                     "numOfChilds": 0,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "id": null,
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "checked": false,
+               "reports": null,
+               "dashboards": null,
+               "numOfChilds": 2,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            }
+         ],
+         "pageIndex": 0,
+         "pageSize": 0,
+         "total": 8,
+         "skipItems": 0,
+         "isLastPage": true
+      }
 
 POST role
 --------------------------------------------------------------

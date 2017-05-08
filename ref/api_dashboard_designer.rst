@@ -69,7 +69,10 @@ List of APIs
    * - `POST dashboard/accesses/validate`_
      - Validates dashboard access.
    * - `GET dashboard/allowedSavingCategories`_
-     - Returns an array of allowed saving categories for dashboard.
+     - .. deprecated:: 2.0.0
+            superseded by `POST dashboard/allowedSavingCategories`_ and `POST dashboard/allowedSavingSubCategories`_ |br| |br|
+
+       Returns an array of allowed saving categories for dashboard.
    * - `POST dashboard/allowedSavingCategories`_
      - Returns an array of allowed saving categories for dashboard, with total number of items.
    * - `POST dashboard/allowedSavingSubCategories`_
@@ -2329,6 +2332,9 @@ Validates dashboard access, for example:
 GET dashboard/allowedSavingCategories
 --------------------------------------------------------------
 
+.. deprecated:: 2.0.0
+      superseded by `POST dashboard/allowedSavingCategories`_ and `POST dashboard/allowedSavingSubCategories`_
+
 Returns an array of allowed saving categories for dashboard.
 
 **Request**
@@ -2423,7 +2429,178 @@ Returns an array of allowed saving categories for dashboard, with total number o
 
       POST /api/dashboard/allowedSavingCategories HTTP/1.1
 
-   To be updated
+   Request payload::
+
+      {
+         "pageIndex": 1,
+         "pageSize": 24,
+         "type": 2,
+         "criteria": [
+            {
+               "key": "name",
+               "value": null
+            }
+         ],
+         "parentIds": [
+            "09f8c4ab-0fe8-4e03-82d1-7949e3738f87"
+         ],
+         "includeUncategory": false,
+         "tenantId": null
+      }
+
+   Sample response::
+
+      {
+         "data": [
+            {
+               "name": "AAA",
+               "type": 2,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": null,
+               "dashboards": null,
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "3340a862-0eda-4a45-9dc5-794d79b77085",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            },
+            {
+               "name": "BBB",
+               "type": 2,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [
+                  {
+                     "name": "B",
+                     "type": 2,
+                     "parentId": "08af67ff-6597-447e-84b5-9761fcba82f3",
+                     "tenantId": null,
+                     "isGlobal": false,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [],
+                     "checked": false,
+                     "reports": null,
+                     "dashboards": null,
+                     "numOfChilds": 0,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "id": "ae6cca2b-fd25-4b91-83c2-3418685d7bc6",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "checked": false,
+               "reports": [],
+               "dashboards": [],
+               "numOfChilds": 1,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "08af67ff-6597-447e-84b5-9761fcba82f3",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            },
+            {
+               "name": "CCC",
+               "type": 2,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [
+                  {
+                     "name": "C",
+                     "type": 2,
+                     "parentId": "39c3dba7-9484-433c-a3e8-00f2e26a7f73",
+                     "tenantId": null,
+                     "isGlobal": false,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [],
+                     "checked": false,
+                     "reports": null,
+                     "dashboards": null,
+                     "numOfChilds": 0,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "id": "10ae0b7e-6994-4c23-b80c-ac48a3016d03",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "checked": false,
+               "reports": [],
+               "dashboards": [],
+               "numOfChilds": 1,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "39c3dba7-9484-433c-a3e8-00f2e26a7f73",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            }
+         ],
+         "totalItems": 5,
+         "numOfChilds": 3,
+         "numOfCheckedChilds": 0,
+         "indeterminate": false,
+         "isLastPage": true
+      }
 
 POST dashboard/allowedSavingSubCategories
 --------------------------------------------------------------
@@ -2470,7 +2647,64 @@ Returns an array of allowed saving sub-categories for dashboard, with total numb
 
       POST /api/dashboard/allowedSavingSubCategories HTTP/1.1
 
-   To be updated
+   Request payload::
+
+      {
+         "pageIndex": 1,
+         "pageSize": 24,
+         "type": 2,
+         "criteria": [
+            {
+               "key": "name",
+               "value": null
+            }
+         ],
+         "parentIds": [
+            "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+            "39c3dba7-9484-433c-a3e8-00f2e26a7f73"
+         ],
+         "tenantId": null
+      }
+
+   Response::
+
+      {
+         "data": [
+            {
+               "name": "C",
+               "type": 2,
+               "parentId": "39c3dba7-9484-433c-a3e8-00f2e26a7f73",
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": null,
+               "dashboards": null,
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "10ae0b7e-6994-4c23-b80c-ac48a3016d03",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            }
+         ],
+         "totalItems": 1,
+         "numOfChilds": 1,
+         "numOfCheckedChilds": 0,
+         "indeterminate": false,
+         "isLastPage": true
+      }
 
 POST dashboard/loadCommonFilters
 --------------------------------------------------------------
