@@ -240,6 +240,22 @@ Depending on your deployment mode, you may want to invoke the Izenda API in diff
 Updates
 -------
 
+05/08/2017
+~~~~~~~~~~
+
+Updates to the Mvc5StarterKit required for exporting:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If your API is separate (deployment mode 1), you will need to set Public and Private RSA Keys. Previous versions of the deployment mode didn’t require any sort of keys and, since you don’t need a password to be authorized for this deployment mode, you can simply call the API with the tenant unique name and user name have access to Izenda (bad). We implemented the RSA Keys for verification that the source of your API calls are correct.
+
+With the latest update of Izenda, we have made a few changes to the database to ensure that deployment mode 1 is as secure as deployment modes 0 and 3. There are now two RSA keys (public and private) found within Izenda. Since these values aren't updated, a System.Security.XmlSyntaxException was thrown and documented in your log file.
+
+The keys can be declared in the following locations:
+
+  1. AuthRSAPublicKey value in the IzendaSystemSettings table of the Izenda database (note: only use keysize < 1024 to generate because max-length for this field in database is 256) . This value is your public key and should be in XML format.
+  2. And RSAPrivateKey value in Web.config file of the MVC Kit. This value is your private key and should be in PEM format.
+  
+To generate your RSA keys, you can use our RSA Key Generator utility found at http://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip .
+
 02/08/2017
 ~~~~~~~~~~
 
