@@ -34,7 +34,7 @@ Tenants
    *  -  **modules** |br|
          string
       -
-      -  The selected modules for the tenant, separated by semi-colon
+      -  The selected modules for the tenant, encrypted
       -
    *  -  **tenantModules** |br|
          array of strings
@@ -66,7 +66,7 @@ Inherited fields:
         "description" : null,
         "active" : true,
         "deleted" : false,
-        "modules" : "Report Template/ Component; Scheduling",
+        "modules" : "Abc/.../Def==",
         "modified" : "2016-05-22T03:27:13.5070000+07:00",
         "tenantModules" : ["Report Template/ Component", "Scheduling"]
      }

@@ -385,7 +385,7 @@ Permission
       -
    *  -  .. container:: lpad4
    
-            **Map** |br|
+            **map** |br|
             boolean
       -
       -  Is permission for Map set
@@ -440,13 +440,6 @@ Permission
       -  An array of :doc:`Category` objects
       -
    *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -  Permission for Tenant
-      -
-   *  -  .. container:: lpad4
    
             **tenantAccess** |br|
             integer
@@ -635,7 +628,7 @@ Permission
       -
    *  -  .. container:: lpad4
    
-            **delete** |br|
+            **del** |br|
             boolean
       -
       -  Is permission for Delete set
@@ -683,9 +676,23 @@ Permission
    *  -  .. container:: lpad2
    
             **canCreateNewDashboard** |br|
+            object
+      -
+      -  An object with the following fields
+      -
+   *  -  .. container:: lpad4
+   
+            **value** |br|
             boolean
       -
-      -  Is permission for Can Create New Dashboard set
+      -  Is permission for Can create new dashboard set
+      -
+   *  -  .. container:: lpad4
+   
+            **tenantAccess** |br|
+            integer
+      -
+      -  Permission for Tenant
       -
    *  -  .. container:: lpad2
    
@@ -706,7 +713,7 @@ Permission
             **value** |br|
             boolean
       -
-      -  Is permission for CanCreateNewCategory set
+      -  Is permission for Can create new category set
       -
    *  -  .. container:: lpad6
    
@@ -877,7 +884,7 @@ Permission
             **value** |br|
             array of objects
       -
-      -  An array of :doc:`UserPermission` objects
+      -  An array of :doc:`RoleDetail` objects
       -
    *  -  .. container:: lpad4
    
@@ -1142,26 +1149,369 @@ Permission
    .. code-block:: json
 
       {
-         "reportId" : null,
-         "dashboardId" : "89dca314-f66f-489d-a14c-117aa3ec875d",
-         "assignedType" : 2,
-         "accessRightId" : "13698ebf-3e8e-43e1-9e2b-ad3f17d7d006",
-         "accessRight" : "Save As",
-         "shareWith" : "Role ReportCreator",
-         "position" : 0,
-         "accessors" : ["d8a30ef0-41b4-4c97-9b7a-9fcbe90db880"],
-         "tempId" : null,
-         "reportAccessRightId" : null,
-         "reportAccessRights" : "",
-         "dashboardAccessRightId" : null,
-         "dashboardAccessRights" : "",
-         "id" : "879472bc-3c7a-4f9c-a090-ea7882019885",
-         "state" : 0,
-         "deleted" : false,
-         "inserted" : true,
-         "version" : 1,
-         "created" : "2016-10-18T07:24:56.887",
-         "createdBy" : null,
-         "modified" : "2016-10-18T07:24:56.887",
-         "modifiedBy" : null
+         "systemAdmin": false,
+         "fullReportAndDashboardAccess": false,
+         "systemConfiguration": {
+            "scheduledInstances": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "dataSetup": {
+            "dataModel": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "advancedSettings": {
+               "category": true,
+               "others": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "userSetup": {
+            "userRoleAssociation": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "actions": {
+               "create": true,
+               "edit": true,
+               "del": true,
+               "configureSecurityOptions": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "roleSetup": {
+            "actions": {
+               "create": true,
+               "edit": true,
+               "del": true,
+               "tenantAccess": 1
+            },
+            "dataModelAccess": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "permissions": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "grantRoleWithFullReportAndDashboardAccess": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "reports": {
+            "canCreateNewReport": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "dataSources": {
+               "simpleDataSources": true,
+               "advancedDataSources": false,
+               "tenantAccess": 1
+            },
+            "reportPartTypes": {
+               "chart": true,
+               "form": true,
+               "gauge": true,
+               "map": true,
+               "tenantAccess": 1
+            },
+            "reportCategoriesSubcategories": {
+               "canCreateNewCategory": {
+                  "value": true,
+                  "tenantAccess": 1
+               },
+               "categoryAccessibility": {
+                  "categories": [],
+                  "tenantAccess": 1
+               }
+            },
+            "filterProperties": {
+               "filterLogic": true,
+               "tenantAccess": 1
+            },
+            "fieldProperties": {
+               "customURL": true,
+               "embeddedJavaScript": true,
+               "subreport": true,
+               "tenantAccess": 1
+            },
+            "actions": {
+               "schedule": true,
+               "email": true,
+               "viewReportHistory": true,
+               "del": true,
+               "registerForAlerts": true,
+               "print": true,
+               "unarchiveReportVersions": true,
+               "overwriteExistingReport": true,
+               "subscribe": true,
+               "exporting": true,
+               "configureAccessRights": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "tenantSetup": {
+            "actions": {
+               "create": false,
+               "edit": false,
+               "del": false,
+               "tenantAccess": 1
+            },
+            "permissions": {
+               "value": false,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "dashboards": {
+            "canCreateNewDashboard": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "dashboardCategoriesSubcategories": {
+               "canCreateNewCategory": {
+                  "value": true,
+                  "tenantAccess": 1
+               },
+               "categoryAccessibility": {
+                  "categories": [],
+                  "tenantAccess": 1
+               }
+            },
+            "actions": {
+               "schedule": true,
+               "email": true,
+               "del": true,
+               "subscribe": true,
+               "print": true,
+               "overwriteExistingDashboard": true,
+               "configureAccessRights": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "access": {
+            "accessLimits": {
+               "value": [
+                  {
+                     "users": [
+                        {
+                           "password": null,
+                           "roles": [],
+                           "userRoles": null,
+                           "userSecurityQuestions": null,
+                           "status": 3,
+                           "issueDate": "0001-01-01T00:00:00",
+                           "autoLogin": false,
+                           "newPassword": null,
+                           "userName": null,
+                           "emailAddress": null,
+                           "firstName": null,
+                           "lastName": null,
+                           "tenantId": null,
+                           "tenantDisplayId": null,
+                           "tenantName": null,
+                           "dataOffset": null,
+                           "timestampOffset": null,
+                           "initPassword": false,
+                           "active": false,
+                           "retryLoginTime": null,
+                           "lastTimeAccessed": null,
+                           "passwordLastChanged": null,
+                           "locked": null,
+                           "lockedDate": null,
+                           "cultureName": null,
+                           "securityQuestionLastChanged": null,
+                           "dateFormat": null,
+                           "systemAdmin": false,
+                           "notAllowSharing": false,
+                           "numberOfFailedSecurityQuestion": null,
+                           "fullName": null,
+                           "currentModules": null,
+                           "id": "97e363f5-9daf-4329-a964-e279e04a10f3",
+                           "state": 0,
+                           "deleted": false,
+                           "inserted": true,
+                           "version": null,
+                           "created": null,
+                           "createdBy": "John Doe",
+                           "modified": null,
+                           "modifiedBy": null
+                        }
+                     ],
+                     "tenantUniqueName": null,
+                     "permission": null,
+                     "visibleQuerySources": null,
+                     "name": null,
+                     "tenantId": null,
+                     "active": false,
+                     "notAllowSharing": false,
+                     "id": "df188fa0-5829-40cc-a1fc-ab4b0259f061",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "tenantAccess": 1
+            },
+            "accessDefaults": {
+               "value": [
+                  {
+                     "reportId": null,
+                     "dashboardId": null,
+                     "assignedType": 1,
+                     "accessRightId": null,
+                     "accessRight": null,
+                     "shareWith": null,
+                     "position": 0,
+                     "accessors": [],
+                     "accessorNames": null,
+                     "tempId": "4",
+                     "reportAccessRightId": "13698ebf-3e8e-43e1-9e2b-ad3f17d7d004",
+                     "reportAccessRights": null,
+                     "dashboardAccessRightId": "13698ebf-3e8e-43e1-9e2b-ad3f17d7d008",
+                     "assignedTypeName": "Everyone",
+                     "dashboardAccessRights": null,
+                     "id": null,
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "scheduling": {
+            "schedulingLimits": {
+               "value": [
+                  {
+                     "users": [
+                        {
+                           "password": null,
+                           "roles": [],
+                           "userRoles": null,
+                           "userSecurityQuestions": null,
+                           "status": 3,
+                           "issueDate": "0001-01-01T00:00:00",
+                           "autoLogin": false,
+                           "newPassword": null,
+                           "userName": null,
+                           "emailAddress": null,
+                           "firstName": null,
+                           "lastName": null,
+                           "tenantId": null,
+                           "tenantDisplayId": null,
+                           "tenantName": null,
+                           "dataOffset": null,
+                           "timestampOffset": null,
+                           "initPassword": false,
+                           "active": false,
+                           "retryLoginTime": null,
+                           "lastTimeAccessed": null,
+                           "passwordLastChanged": null,
+                           "locked": null,
+                           "lockedDate": null,
+                           "cultureName": null,
+                           "securityQuestionLastChanged": null,
+                           "dateFormat": null,
+                           "systemAdmin": false,
+                           "notAllowSharing": false,
+                           "numberOfFailedSecurityQuestion": null,
+                           "fullName": null,
+                           "currentModules": null,
+                           "id": "97e363f5-9daf-4329-a964-e279e04a10f3",
+                           "state": 0,
+                           "deleted": false,
+                           "inserted": true,
+                           "version": null,
+                           "created": null,
+                           "createdBy": "John Doe",
+                           "modified": null,
+                           "modifiedBy": null
+                        }
+                     ],
+                     "tenantUniqueName": null,
+                     "permission": null,
+                     "visibleQuerySources": null,
+                     "name": null,
+                     "tenantId": null,
+                     "active": false,
+                     "notAllowSharing": false,
+                     "id": "df188fa0-5829-40cc-a1fc-ab4b0259f061",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }
+               ],
+               "tenantAccess": 1
+            },
+            "schedulingScope": {
+               "systemUsers": true,
+               "externalUsers": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "emailing": {
+            "deliveryMethod": {
+               "link": true,
+               "embeddedHTML": true,
+               "attachment": true,
+               "tenantAccess": 1
+            },
+            "attachmentType": {
+               "word": true,
+               "excel": true,
+               "pdf": true,
+               "csv": true,
+               "xml": true,
+               "json": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "exporting": {
+            "exportingFormat": {
+               "word": true,
+               "excel": true,
+               "pdf": true,
+               "csv": true,
+               "xml": true,
+               "json": true,
+               "queryExecution": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         },
+         "systemwide": {
+            "canSeeSystemMessages": {
+               "value": true,
+               "tenantAccess": 1
+            },
+            "tenantAccess": 1
+         }
       }
