@@ -22,12 +22,6 @@ Known Issues
      - 15777
      - Copied report is broken when user update Relationship Join Alias and run copy again
    * - Defect
-     - 15304
-     - Custom Formats to not work with charts and guages
-   * - Defect
-     - 15883
-     - Deleted Key Join is still displayed when user changes Category field.
-   * - Defect
      - 14293
      - Default sorting function is removed when user returns to visual tab from HTML tab
    * - Defect
@@ -54,9 +48,6 @@ Known Issues
    * - Defect
      - 14914
      - Suggested Data Type is incorrect when user changes the Field in Expression text box for Calculated Field
-   * - Defect
-     - 15964
-     - System shows missing data on some gauges when user change from Back side to Front side of report part several times
    * - Defect
      - 14225
      - The copied report having sharing info is not available for the user in the destination when using copy console
@@ -340,9 +331,6 @@ Known Issues
      - 15093
      - Export Load Dialogue Not Deleting in some integrated modes
    * - Defect
-     - 16022
-     - In Calculated field Sum (Distinct[Field]) operation fails to work
-   * - Defect
      - 13170
      - In Calculated Field the preview eesult field is displayed incorrectly after user selects a different data type
    * - Defect
@@ -520,9 +508,6 @@ Known Issues
      - 15477
      - System removes the value of one Metric on Preview Section when user updates on another metric
    * - Defect
-     - 15395
-     - System reverts the default value on Date&Time value automatically when user navigates from Field to Datasources page
-   * - Defect
      - 15242
      - System should allow user back to data source tab, instead of display the information message when distinct is not valid
    * - Defect
@@ -541,9 +526,6 @@ Known Issues
      - 15508
      - System always show dirty form msg while user does not do any action on SP page then navigate to another page
    * - Defect
-     - 15946
-     - System does not render Gauge/Pie/Donut chart on the Preview section for the first time log in
-   * - Defect
      - 15309
      - System does not set default Filter Operator for Time data type
    * - Defect
@@ -552,9 +534,6 @@ Known Issues
    * - Defect
      - 15877
      - Simple Gauge Label Truncation is using some white spaces so the 10 char limitation is forced to 7 char
-   * - Defect
-     - 15905
-     - Simple gauge unit label truncation is including leading spaces which forces the truncation before the actual 10 char limit. 
    * - Defect
      - 13510
      - Some drop downs are not searchable and all should be combo search and select
@@ -682,9 +661,6 @@ Known Issues
      - 15394
      - System shows error msg when user uses operator join of Date group for DateTime Field
    * - Defect
-     - 14288
-     - System shows error msg: "At least one grouping field is required due to filter has aggreated function." when user creates 1 aggregated CF and adds it to filter and report container
-   * - Defect
      - 14990
      - System shows incorrect value for "Week Number" format
    * - Defect
@@ -696,9 +672,6 @@ Known Issues
    * - Defect
      - 15748
      - System works incorrectly when apply Additional Join for Relationship and key join
-   * - Defect
-     - 16248
-     - Tenant Level Users with Full Report and Dashboard access can change Global Category Names
    * - Defect
      - 15236
      - Unable to select the field with suffix in field selection popup. 
@@ -744,9 +717,6 @@ Known Issues
    * - Defect
      - 13989
      - When using required filters the system is still executing query prior to user clicking update results when there are more than one required filters
-   * - Defect
-     - 16103
-     - White spaces are not trimmed for char data type
    * - Defect
      - 15205
      - User input wrong data in Provide Information page, system does not show error msg but let user navigates to create password page
@@ -795,6 +765,4 @@ Known Issues
    * - Defect
      - 16252
      - Lookup values set in the data model are not available in the dashboard filters
-   * - Defect
-     - 16251
-     - Lookup key is passing as empty value to stored proc input params when set in the data model
+
