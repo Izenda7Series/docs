@@ -15,8 +15,24 @@ where particular functionality is showcased.
 For MVC set up steps, please refer to the :doc:`/install/doc_mvc_setup_guide`.
 
 
+Packages Used
+~~~~~~~~~~~~~~
+The following is not a comprehensive list but it will give you a good idea of the packages used for Izenda’s authentication/authorization.
+	- **.Net MVC5 Starter Project:** In order to maintain simplicity, our kit uses Microsoft’s default MVC5 Project structure. There may be slight modifications to the code to showcase certain Izenda concepts. This skeleton simulates the role of your application in the embedded process. For more information of the default structure, please see http://jameschambers.com/2014/06/day-2-examining-the-solution-structure/
+	- **OWIN Authentication:** In our kit, the OWIN Authentication component simulates the method of logging in to your application. Once you are authenticated with your application, a UserInfo object is generated that contains the username and tenant needed for Izenda authorization.
+		* Where/how your authorization token is generated/stored is completely up to you.
+		* For more information, please visit https://blogs.msdn.microsoft.com/webdev/2013/07/03/understanding-owin-forms-authentication-in-mvc-5/
+	
+	- **Izenda:** The main goal of the project is to showcase how to embed Izenda into your MVC application. Of the Izenda portion of the kit, there are components that are required standards for Izenda and other components that are designed as useful guidelines for managing and rendering Izenda. The following are not comprehensive lists—if you have any additional questions regarding what is required, please contact our support team.
+		* Required: Required components should not be changed at their core. If they are modified, unexpected behavior may occur.
+			* All API resources downloaded from http://downloads.izenda.com/latest/API.zip . Decompilations of the packaged API is strictly prohibited by your EULA.
+			* All Embedded UI resources downloaded from http://downloads.izenda.com/latest/EmbeddedUI.zip . Note: If an open source version of the Embedded UI is released, modifications will not be supported by the Izenda Support team. Decompilations of the packaged Embedded UI is strictly prohibited by your EULA.
+			* Where/how your authorization is stored is completely up to you. For embedded scenarios, however, we require that you provide the Izenda user name and the unique tenant name.
+		* Suggested: Our kit is home to a plethora of embedded examples ranging from tenant CSS cusomization to numerous configurations of rendering the Izenda UI. These examples may not be necessary to build a fully-operational Application. For more information, please see the "Location and Description of Features" section below.
 
-Location and Descriptions of Features
+
+
+Location and Description of Features
 -------------------------------------
 
     *This section outlines the key features of the MVC starter kit and
@@ -57,7 +73,7 @@ Izenda User Authentication
 Rendering Izenda UI
 ~~~~~~~~~~~~~~~~~~~
 
--  Izenda.integrate.js
+-  **Izenda.integrate.js:** This is the backbone for rendering Izenda into our kit. The 216 lines of code contain a plethora of examples of how to render single Izenda components, how to render single Izenda pages, and even how to embed Izenda as a whole. You are certainly welcome to use this file in your own development but you may find it useful to tailor it to your needs.
 -  Views -> Home and Views -> Report
 
 Rendering Report Parts & Reports
@@ -195,19 +211,6 @@ Izenda Configuration Database
 :doc:`/ref/spec_izendasystemsetting_table`
 
 
-A Granular Overview Of The Mvc5Starterkit Database Tables
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Table: [dbo].[AspNetUsers]
-
-+---------------+-------------------------------------------------------+
-| Column Name   | Column Details                                        |
-+===============+=======================================================+
-| Name          | The value for this column points to a Tenant's name   |
-+---------------+-------------------------------------------------------+
-
-Table: [dbo].[Tenants]
-
 MVC5 User Database
 ~~~~~~~~~~~~~~~~~~
 
@@ -230,7 +233,6 @@ Depending on your deployment mode, you may want to invoke the Izenda API in diff
    *  Account Controller
 	   * Account/login (line 73): Login to your.net application with tenant, email, password
 	   * Register
-
 
 
 
