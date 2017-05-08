@@ -22,12 +22,6 @@ Known Issues
      - 15777
      - Copied report is broken when user update Relationship Join Alias and run copy again
    * - Defect
-     - 15304
-     - Custom Formats to not work with charts and guages
-   * - Defect
-     - 15883
-     - Deleted Key Join is still displayed when user changes Category field.
-   * - Defect
      - 14293
      - Default sorting function is removed when user returns to visual tab from HTML tab
    * - Defect
@@ -514,9 +508,6 @@ Known Issues
      - 15477
      - System removes the value of one Metric on Preview Section when user updates on another metric
    * - Defect
-     - 15395
-     - System reverts the default value on Date&Time value automatically when user navigates from Field to Datasources page
-   * - Defect
      - 15242
      - System should allow user back to data source tab, instead of display the information message when distinct is not valid
    * - Defect
@@ -543,9 +534,6 @@ Known Issues
    * - Defect
      - 15877
      - Simple Gauge Label Truncation is using some white spaces so the 10 char limitation is forced to 7 char
-   * - Defect
-     - 15905
-     - Simple gauge unit label truncation is including leading spaces which forces the truncation before the actual 10 char limit. 
    * - Defect
      - 13510
      - Some drop downs are not searchable and all should be combo search and select
@@ -685,9 +673,6 @@ Known Issues
      - 15748
      - System works incorrectly when apply Additional Join for Relationship and key join
    * - Defect
-     - 16248
-     - Tenant Level Users with Full Report and Dashboard access can change Global Category Names
-   * - Defect
      - 15236
      - Unable to select the field with suffix in field selection popup. 
    * - Defect
@@ -732,9 +717,6 @@ Known Issues
    * - Defect
      - 13989
      - When using required filters the system is still executing query prior to user clicking update results when there are more than one required filters
-   * - Defect
-     - 16103
-     - White spaces are not trimmed for char data type
    * - Defect
      - 15205
      - User input wrong data in Provide Information page, system does not show error msg but let user navigates to create password page
@@ -783,6 +765,4 @@ Known Issues
    * - Defect
      - 16252
      - Lookup values set in the data model are not available in the dashboard filters
-   * - Defect
-     - 16251
-     - Lookup key is passing as empty value to stored proc input params when set in the data model
+
