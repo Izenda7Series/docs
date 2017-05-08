@@ -2,6 +2,16 @@
 Release Notes
 ==============
 
+v2.0.2
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15964  System shows missing data on some gauges when user change from Back side to Front side of report part several times
+-  Defect 15946  System does not render Gauge/Pie/Donut chart on the Preview section for the first time log in
+-  Defect 16022  In Calculated field Sum (Distinct[Field]) operation fails to work and user defined functions with multiple input parameters are not working properly
+-  Defect 14288  System shows error msg: "At least one grouping field is required due to filter has aggreated function." when user creates 1 aggregated CF and adds it to filter and report container 
+
 v2.0.1
 ~~~~~~~
 
