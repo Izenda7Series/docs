@@ -2,6 +2,16 @@
 Release Notes
 ==============
 
+v2.0.3
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15571  SQL Injection vunerability on MySQL
+-  Defect 15755  Copy Management fails to copy when using Oracle12c when packages exist using the same names, but different parameters
+-  Defect 15431  Cannot create field mapping for subreports using hidden field in report and grouping is incorrect when field is hidden
+-  Defect 16292  Performace issues noted, indexes added for some tables in Izenda database 
+
 v2.0.2
 ~~~~~~~
 
