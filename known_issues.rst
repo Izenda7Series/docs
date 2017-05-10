@@ -91,9 +91,6 @@ Known Issues
      - 14660
      - Advanced Settings Data Model Query Limit will not accept more than 100K. 
    * - Defect
-     - 15755
-     - Copy process is failing when using Oracle12c version as Izenda configuration database
-   * - Defect
      - 16237
      - Chart is not show when using a CF created in the data model with an alias when used in chart
    * - Defect
