@@ -410,6 +410,7 @@ Performs logout.
 
       true
 
+.. _POST_user:
 
 POST user
 --------------------------------------------------------------
@@ -1054,6 +1055,7 @@ Deletes a user.
 
       true
 
+.. _POST_user/passwordAndSecurityQuestion:
 
 POST user/passwordAndSecurityQuestion
 --------------------------------------------------------------
@@ -1144,6 +1146,7 @@ Returns security question for a user and tenant.
        ]
       }
 
+.. _POST_user/generatePasswordLink:
 
 POST user/generatePasswordLink
 --------------------------------------------------------------
@@ -1156,13 +1159,13 @@ Generates :term:`password link`.
 
 **Response**
 
-    A string (hash value)
+    An :doc:`models/OperationResult` object with **success** field true and **data** field containing a hash value from the user details.
 
 **Samples**
 
    .. code-block:: http
 
-      POST /api/usergeneratePasswordLink HTTP/1.1
+      POST /api/user/generatePasswordLink HTTP/1.1
 
    Request payload::
 
@@ -1176,7 +1179,11 @@ Generates :term:`password link`.
 
    Sample response::
 
-      "H8K....RU="
+      {
+         "success": true,
+         "messages": null,
+         "data": "Abc/Def/..=="
+      }
 
 
 POST user/validatePasswordLink

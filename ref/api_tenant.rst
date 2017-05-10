@@ -126,6 +126,7 @@ Returns the tenant specified by tenant_id.
          "tenantModules": ["Report Template/ Component", "Scheduling"]
       }
 
+.. _POST_tenant:
 
 POST tenant
 --------------------------------------------------------------
@@ -159,13 +160,249 @@ Saves a tenant.
 
       POST /api/tenant HTTP/1.1
 
-   Request payload::
+   Simple Request payload::
 
       {
         "tenantID" : "doe",
         "name" : "DOE",
         "tenantModules" : ["Report Template/ Component", "Scheduling"]
       }
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Request payload with full permission (see :doc:`models/Permission` object) :
+
+      .. code-block:: json
+
+         {
+           "tenantID": "stark",
+           "name": "Stark Industries",
+           "description": "Fictional Company",
+           "active": true,
+           "tenantModules": ["Alerting", "Form", "Dashboard", "Report Templates", "Scheduling", "Exporting", "Report Designer", "Charting", "Maps"],
+           "permission": {
+             "fullReportAndDashboardAccess": false,
+             "systemConfiguration": {
+               "scheduledInstances": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "tenantSetup": {
+               "actions": {
+                 "create": false,
+                 "edit": false,
+                 "del": false,
+                 "tenantAccess": 1
+               },
+               "permissions": {
+                 "value": false,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "dataSetup": {
+               "dataModel": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "advancedSettings": {
+                 "category": true,
+                 "others": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "userSetup": {
+               "userRoleAssociation": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "actions": {
+                 "create": true,
+                 "edit": true,
+                 "del": true,
+                 "configureSecurityOptions": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "roleSetup": {
+               "actions": {
+                 "create": true,
+                 "edit": true,
+                 "del": true,
+                 "tenantAccess": 1
+               },
+               "dataModelAccess": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "permissions": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "grantRoleWithFullReportAndDashboardAccess": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "reports": {
+               "canCreateNewReport": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "dataSources": {
+                 "simpleDataSources": false,
+                 "advancedDataSources": false,
+                 "tenantAccess": 1
+               },
+               "reportPartTypes": {
+                 "chart": true,
+                 "form": true,
+                 "gauge": true,
+                 "map": true,
+                 "tenantAccess": 1
+               },
+               "reportCategoriesSubcategories": {
+                 "canCreateNewCategory": {
+                   "value": true,
+                   "tenantAccess": 1
+                 },
+                 "categoryAccessibility": {
+                   "categories": [],
+                   "tenantAccess": 1
+                 }
+               },
+               "filterProperties": {
+                 "filterLogic": true,
+                 "tenantAccess": 1
+               },
+               "fieldProperties": {
+                 "customURL": true,
+                 "embeddedJavaScript": true,
+                 "subreport": true,
+                 "tenantAccess": 1
+               },
+               "actions": {
+                 "schedule": true,
+                 "email": true,
+                 "viewReportHistory": true,
+                 "del": true,
+                 "registerForAlerts": true,
+                 "print": true,
+                 "unarchiveReportVersions": true,
+                 "overwriteExistingReport": true,
+                 "subscribe": true,
+                 "exporting": true,
+                 "configureAccessRights": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "dashboards": {
+               "canCreateNewDashboard": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "dashboardCategoriesSubcategories": {
+                 "canCreateNewCategory": {
+                   "value": true,
+                   "tenantAccess": 1
+                 },
+                 "categoryAccessibility": {
+                   "categories": [],
+                   "tenantAccess": 1
+                 }
+               },
+               "actions": {
+                 "schedule": true,
+                 "email": true,
+                 "del": true,
+                 "subscribe": true,
+                 "print": true,
+                 "overwriteExistingDashboard": true,
+                 "configureAccessRights": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "access": {
+               "accessLimits": {
+                 "value": [],
+                 "tenantAccess": 1
+               },
+               "accessDefaults": {
+                 "value": [{
+                     "assignedType": 1,
+                     "accessors": [],
+                     "tempId": "4",
+                     "id": null,
+                     "reportAccessRightId": "13698ebf-3e8e-43e1-9e2b-ad3f17d7d004",
+                     "dashboardAccessRightId": "13698ebf-3e8e-43e1-9e2b-ad3f17d7d008"
+                   }
+                 ],
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "scheduling": {
+               "schedulingLimits": {
+                 "value": [],
+                 "tenantAccess": 1
+               },
+               "schedulingScope": {
+                 "systemUsers": true,
+                 "externalUsers": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "emailing": {
+               "deliveryMethod": {
+                 "link": true,
+                 "embeddedHTML": true,
+                 "attachment": true,
+                 "tenantAccess": 1
+               },
+               "attachmentType": {
+                 "word": true,
+                 "excel": true,
+                 "pdf": true,
+                 "csv": true,
+                 "xml": true,
+                 "json": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "exporting": {
+               "exportingFormat": {
+                 "word": true,
+                 "excel": true,
+                 "pdf": true,
+                 "csv": true,
+                 "xml": true,
+                 "json": true,
+                 "queryExecution": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             },
+             "systemwide": {
+               "canSeeSystemMessages": {
+                 "value": true,
+                 "tenantAccess": 1
+               },
+               "tenantAccess": 1
+             }
+           },
+           "version": 0
+         }
 
 POST tenant/active/{tenant_id}
 --------------------------------------------------------------
@@ -247,6 +484,7 @@ Deletes the tenant specified by tenant_id.
         "messages" : null
       }
 
+.. _GET_tenant/activeTenants:
 
 GET tenant/activeTenants
 --------------------------------------------------------------
