@@ -26,6 +26,10 @@ List of APIs
      - Performs logout.
    * - `POST user`_
      - Saves a user.
+
+       .. note::
+
+          To set up a user with password, this API is only the first step. See :doc:`/dev/code_javascript_add_internal_user` for the guide.
    * - `POST user/userProfile`_
      - Saves a user profile.
    * - `POST user/passwordProfile`_
@@ -416,6 +420,10 @@ POST user
 --------------------------------------------------------------
 
 Saves a user.
+
+.. note::
+
+   To set up a user with password, this API is only the first step. See :doc:`/dev/code_javascript_add_internal_user` for the guide.
 
 **Request**
 
