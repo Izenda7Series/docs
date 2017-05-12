@@ -15,41 +15,41 @@ List of APIs
 
    * - API
      - Purpose
-   * - GET databaseSetup/supportedDatabaseType
+   * - `GET databaseSetup/supportedDatabaseType`_
      - Returns an array of database server types currently supported for installation. |br|
        See also: :ref:`GET_dataAdaptor`
-   * - POST databaseSetup/testConnection
+   * - `POST databaseSetup/testConnection`_
      - Tests the database connection and license validity if existing. |br|
        See also: :ref:`POST_connection/verify`
-   * - GET databaseSetup/databaseInfo
+   * - `GET databaseSetup/databaseInfo`_
      - Returns the current database server type and connection string.
-   * - POST databaseSetup/databaseInfo
+   * - `POST databaseSetup/databaseInfo`_
      - Sets up system database and saves the database server type and the connection string.
-   * - POST databaseSetup/provisionStaticData
+   * - `POST databaseSetup/provisionStaticData`_
      - Provisions static data into system database.
-   * - GET databaseSetup/provisionStaticDataStatus
+   * - `GET databaseSetup/provisionStaticDataStatus`_
      - Returns status of provision static data.
-   * - POST databaseSetup/staticData/city
+   * - `POST databaseSetup/staticData/city`_
      - Returns provision city data.
-   * - POST databaseSetup/staticData/postalCode
+   * - `POST databaseSetup/staticData/postalCode`_
      - Returns provision postal code data.
-   * - GET systemSetting/systemMode
+   * - `GET systemSetting/systemMode`_
      - Returns the current system or tenant mode of the settings.
-   * - GET systemSetting/systemModeSettings
+   * - `GET systemSetting/systemModeSettings`_
      - Returns data in System Mode Settings section.
-   * - POST systemSetting/systemModeSettings
+   * - `POST systemSetting/systemModeSettings`_
      - Saves data in System Mode Settings section.
-   * - GET systemSetting/deploymentMode
+   * - `GET systemSetting/deploymentMode`_
      - Returns the deployment mode.
-   * - GET systemSetting/systemIndicator/(tenant_id)
+   * - `GET systemSetting/systemIndicator/(tenant_id)`_
      - Returns the number of changes in Connection String and Data Model (filtered by tenant_id if provided).
-   * - GET license/status
+   * - `GET license/status`_
      - Returns up-to-date expiration status of the license.
-   * - GET license/currentToken
+   * - `GET license/currentToken`_
      - Returns the details of the current token.
-   * - POST license/validate
+   * - `POST license/validate`_
      - Validates the license for both online and offline modes, then save it in the database.
-   * - POST license/requestToken
+   * - `POST license/requestToken`_
      - Returns a newly-generated token for the license key in parameter.
 
 .. _GET_databaseSetup/supportedDatabaseType:
@@ -533,6 +533,7 @@ Returns the deployment mode.
         "deploymentMode": 0
       }
 
+.. _GET_systemSetting/systemIndicator/(tenant_id):
 
 GET systemSetting/systemIndicator/(tenant_id)
 --------------------------------------------------------------
