@@ -89,3 +89,41 @@ Glossary
 
    template
       A pre-built report that serves as a medium to create quick ad-hoc reports. See :doc:`/ui/usage_using_templates`.
+
+.. comment: intentionally left blank
+
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|

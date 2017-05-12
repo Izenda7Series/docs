@@ -35,6 +35,10 @@ List of APIs
        .. note::
           
           The same as :ref:`GET_connection/basicInfo/(tenant_id)`
+   * - `GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}`_
+     - Returns an array of the :term:`query source categories <query source category>` in the specified connection.
+     
+       .. versionadded:: 2.0.2
    * - `GET dataModel/basicQuerySourcesInfo/{connection_id}/(type)`_
      - Returns an array of id and name of the query sources in the specified connection, filtered by type (Table, View or Stored Procedure).
    * - `GET dataModel/querySourcesInfo/{connection_id}/(type)`_
@@ -74,6 +78,14 @@ List of APIs
      - Returns a paged array of database servers and database names.
    * - `POST dataModel/loadDatabaseObjects`_
      - Returns a paged array of connection names or schema names in the specified database.
+   * - `POST dataModel/customQuerySource`_
+     - Executes and saves a custom query source.
+   * - `POST dataModel/validateCustomQuerySource`_
+     - Validates that name of custom query source is unique.
+   * - `POST dataModel/deleteCustomQuerySource`_
+     - Deletes a custom query source.
+   * - `GET dataModel/querySource/{query_source_id}`_
+     - Returns the query source specified by query_source_id.
 
 .. _POST_dataModel/loadQuerySources:
 
@@ -262,6 +274,22 @@ Returns an array of id and name of connections (filtered by tenant_id if given).
          "value": "Northwind"
       }]
 
+GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}
+--------------------------------------------------------------
+
+Returns an array of the :term:`query source categories <query source category>` in the specified connection.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    To be updated
+
+**Samples**
+
+   To be updated
 
 GET dataModel/basicQuerySourcesInfo/{connection_id}/(type)
 --------------------------------------------------------------
@@ -1735,3 +1763,71 @@ Returns a paged array of connection names or schema names in the specified datab
          "skipItems": 0,
          "isLastPage": true
       }
+
+POST dataModel/customQuerySource
+--------------------------------------------------------------
+
+Executes and saves a custom query source.
+
+**Request**
+
+    A :doc:`models/QuerySource` object
+
+**Response**
+
+   The saved :doc:`models/QuerySource` object.
+
+**Samples**
+
+   To be updated
+
+POST dataModel/validateCustomQuerySource
+--------------------------------------------------------------
+
+Validates that name of custom query source is unique.
+
+**Request**
+
+    A :doc:`models/QuerySource` object, with **name** and **categoryId** fields populated.
+
+**Response**
+
+   An :doc:`models/OperationResult` object, with **success** field true if name of custom query source is unique.
+
+**Samples**
+
+   To be updated
+
+POST dataModel/deleteCustomQuerySource
+--------------------------------------------------------------
+
+Deletes a custom query source.
+
+**Request**
+
+    A :doc:`models/QuerySource` object, with **id** field populated.
+
+**Response**
+
+   An :doc:`models/OperationResult` object, with **success** true if the deletion is successful.
+
+**Samples**
+
+   To be updated
+
+GET dataModel/querySource/{query_source_id}
+--------------------------------------------------------------
+
+Returns the query source specified by query_source_id.
+
+**Request**
+
+    No payload
+
+**Response**
+
+   A :doc:`models/QuerySource` object.
+
+**Samples**
+
+   To be updated
