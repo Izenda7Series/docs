@@ -76,6 +76,43 @@ Permission
       -
    *  -  .. container:: lpad4
    
+            **customView** |br|
+            object
+      -
+      -  Permission for Custom View feature
+
+         .. versionadded:: 2.0.2
+      -
+   *  -  .. container:: lpad6
+   
+            **create** |br|
+            boolean
+      -
+      -  Is permission for Create set
+      -
+   *  -  .. container:: lpad6
+   
+            **edit** |br|
+            boolean
+      -
+      -  Is permission for Edit set
+      -
+   *  -  .. container:: lpad6
+   
+            **delete** |br|
+            boolean
+      -
+      -  Is permission for Delete set
+      -
+   *  -  .. container:: lpad6
+   
+            **tenantAccess** |br|
+            integer
+      -
+      -  Permission for Tenant
+      -
+   *  -  .. container:: lpad4
+   
             **tenantAccess** |br|
             integer
       -

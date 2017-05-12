@@ -48,6 +48,11 @@ ReportPartContent
       -
       -  The expand level of the report part
       -
+   *  -  **isCrossFiltering** |br|
+         boolean
+      -
+      -  Whether this is selected to apply :term:`cross filtering`
+      -
 
 .. container:: toggle
 
