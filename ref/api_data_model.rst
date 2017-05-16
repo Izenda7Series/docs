@@ -38,7 +38,7 @@ List of APIs
    * - `GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}`_
      - Returns an array of the :term:`query source categories <query source category>` in the specified connection.
      
-       .. versionadded:: 2.0.2
+       .. versionadded:: 2.0.3
    * - `GET dataModel/basicQuerySourcesInfo/{connection_id}/(type)`_
      - Returns an array of id and name of the query sources in the specified connection, filtered by type (Table, View or Stored Procedure).
    * - `GET dataModel/querySourcesInfo/{connection_id}/(type)`_
@@ -278,6 +278,8 @@ GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}
 --------------------------------------------------------------
 
 Returns an array of the :term:`query source categories <query source category>` in the specified connection.
+
+.. versionadded:: 2.0.3
 
 **Request**
 

@@ -66,7 +66,7 @@ List of APIs
      - Returns the first report definition matching specified name and other criteria. |br|
        Needs SystemAdmin permission.
 
-       .. versionadded:: 2.0.2
+       .. versionadded:: 2.0.3
 
 POST report/list
 ------------------------------------------------
@@ -2322,7 +2322,7 @@ POST report/findByName
 Returns the first report definition matching specified name and other criteria. |br|
 Needs SystemAdmin permission.
 
-.. versionadded:: 2.0.2
+.. versionadded:: 2.0.3
 
 **Request**
 

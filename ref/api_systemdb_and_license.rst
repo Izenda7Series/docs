@@ -1,4 +1,4 @@
-
+g
 
 ============================
 System DB and License APIs
@@ -33,6 +33,10 @@ List of APIs
      - Returns provision city data.
    * - POST databaseSetup/staticData/postalCode
      - Returns provision postal code data.
+   * - GET databaseSetup/staticData/countryCodes
+     - Returns provision country code data.
+
+       .. versionadded:: 2.0.3
    * - GET systemSetting/systemMode
      - Returns the current system or tenant mode of the settings.
    * - GET systemSetting/systemModeSettings
@@ -346,7 +350,7 @@ Returns provision postal code data.
 
    .. code-block:: http
 
-      GET /api/databaseSetup/staticData/postalCode HTTP/1.1
+      POST /api/databaseSetup/staticData/postalCode HTTP/1.1
 
    Request payload::
 
@@ -356,6 +360,48 @@ Returns provision postal code data.
 
       To be updated
 
+
+GET databaseSetup/staticData/countryCodes
+--------------------------------------------------------------
+
+Returns provision country code data.
+
+.. versionadded:: 2.0.3
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An array of the following object
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **name** |br|
+             string
+          -  The name of the country
+          -
+       *  -  **code2** |br|
+             string
+          -  The ISO Alpha-2 country code
+          -
+       *  -  **code3** |br|
+             string
+          -  The ISO Alpha-3 country code
+          -
+       *  -  **continent** |br|
+             string
+          -  The name of the continent
+          -
+
+**Samples**
+
+   To be updated
 
 GET systemSetting/systemMode
 --------------------------------------------------------------

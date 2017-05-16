@@ -81,7 +81,7 @@ Permission
       -
       -  Permission for Custom View feature
 
-         .. versionadded:: 2.0.2
+         .. versionadded:: 2.0.3
       -
    *  -  .. container:: lpad6
    

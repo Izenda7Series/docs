@@ -78,7 +78,7 @@ List of APIs
      - Returns the first dashboard definition matching specified name and other criteria. |br|
        Needs SystemAdmin permission.
 
-       .. versionadded:: 2.0.2
+       .. versionadded:: 2.0.3
 
 GET dashboard/categories/(tenant_id)
 --------------------------------------------------------------
@@ -1700,7 +1700,7 @@ POST dashboard/findByName
 Returns the first dashboard definition matching specified name and other criteria. |br|
 Needs SystemAdmin permission.
 
-.. versionadded:: 2.0.2
+.. versionadded:: 2.0.3
 
 **Request**
 
