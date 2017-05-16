@@ -87,6 +87,10 @@ Select and unselect data sources
        Relationships with unselected data sources will be automatically
        removed from the relationship list in Content Panel. (:numref:`Report_Designer_Select_Data_Source`) |br|
 
+.. note::
+
+   Izenda supports using stored procedures as data sources. Just make sure that the account in connection string has necessary permissions for this case, see :ref:`Connection_Permissions`.
+
 Set the report as Distinct
 --------------------------
 

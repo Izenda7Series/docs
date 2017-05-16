@@ -123,6 +123,19 @@ visible in reports.
 
 #. Click Save button at the top to save the connection and the visible data sources.
 
+.. _Connection_Permissions:
+
+Connection Permissions
+------------------------------
+
+Izenda needs permissions to view the database schema and read from selected tables and views.
+
+If using stored procedures as data source, Izenda needs execute permission on these stored procedures as well as create table and delete table permissions.
+
+.. note::
+
+   The create table permission will be used to create temporary tables to store the output of stored procedures, for joining to other data sources. And the delete table permission will be used to clean up these temporary tables afterwards.
+
 Delete connection
 -----------------
 
