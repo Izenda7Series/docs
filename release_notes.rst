@@ -2,6 +2,14 @@
 Release Notes
 ==============
 
+v2.0.4
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15518  Exporting Grid to PDF Shows Separator Fields that are Non-Visible
+-  Defect 16504  Missing state geo json files
+
 v2.0.3
 ~~~~~~~
 
