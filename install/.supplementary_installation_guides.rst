@@ -1,0 +1,8 @@
+==========================================
+Supplementary Guides
+==========================================
+
+.. toctree::
+   :maxdepth: 2
+
+   supplementary_guides/doc_azure_evo
