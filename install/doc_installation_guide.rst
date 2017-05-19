@@ -299,7 +299,7 @@ Within the API Folder of your Deployment
 Troubleshooting & Verifying the Installation
 -------------------------------------------------------
 
-*  To ensure that your API site is running correctly, navigate to http://YOUR_API_URL/api/ (e.g. http://localhost:8080/api/)
+*  To ensure that your API site is running correctly, navigate to http://YOUR_API_URL/api/404 (e.g. http://localhost:8080/api/404)
 
    If your API is installed correctly, you should see the graphic below:
 
