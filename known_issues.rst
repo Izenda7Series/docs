@@ -325,9 +325,6 @@ Known Issues
      - 15327
      - Expand/Collapse icon is not on the same line with the owner data sources which were truncated text
    * - Defect
-     - 15093
-     - Export Load Dialogue Not Deleting in some integrated modes
-   * - Defect
      - 13170
      - In Calculated Field the preview eesult field is displayed incorrectly after user selects a different data type
    * - Defect
@@ -384,9 +381,6 @@ Known Issues
    * - Defect
      - 15430
      - Inaccurate sorting on text fields containing letters and numbers
-   * - Defect
-     - 15279
-     - Inconsistent field types shown in front end, when user edits field time in database and reconnects. Izenda Data type is not properly updated.
    * - Defect
      - 14954
      - Incorrect error message displayed  Should be shown error message "Invalid filter(s): ..." instead of "The application has encountered..."
