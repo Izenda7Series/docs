@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v2.0.5
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 15571  In Data Setup, Connection String SQL Injection risk on Linux/Unix stored databases
+-  Defect 15093  Export Load Dialogue Not Deleting in some integrated modes
+-  Defect 16573  Lazy loading is failing for Database mapping feature for global reports 
+-  Defect 16558  Browser memory causing application slow downs
+-  Defect 15279  Inconsistent field types shown in front end, when user edits field time in database and reconnects. Izenda Data type is not properly updated.
+-  Defect 16514  It is possible to save reports outside of the path specified for Send to Disk
+
 v2.0.4
 ~~~~~~~
 
