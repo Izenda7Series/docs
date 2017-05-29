@@ -71,7 +71,7 @@ SecuritySetting
       -
    *  -  **modified** |br|
          datetime
-      -
+      -  Y
       -  The modification date time
       -
 

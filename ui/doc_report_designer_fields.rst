@@ -4,6 +4,10 @@
 Report Designer/Fields
 ==========================
 
+.. tip::
+
+   :ref:`Cross Filtering <Apply_Cross_Filtering_to_Multiple_Report_Parts>` is available from release v2.0.6.
+
 The **Report Designer/Fields** page allows user to
 
 .. hlist::
@@ -302,6 +306,51 @@ condition requires building a filter logic.
 
       Report Designer - Filter Logic 1 AND (2 OR 3)
 
+.. _Apply_Cross_Filtering_to_Multiple_Report_Parts:
+
+Apply Cross Filtering to Multiple Report Parts
+=========================================================
+
+.. versionadded:: 2.0.6
+
+Cross filtering allows user to drill up and drill down data in multiple :term:`report parts <report part>` together. For each drilling action from user, it will filter related report parts automatically.
+
+.. _Report_Designer_Filter_Cross_Filtering_Sample:
+
+.. figure:: /_static/images/Report_Filtering/Report_Cross_Filtering_ShipCountry_ShipCity_by_Germany.png
+   :width: 810px
+
+   Cross Filtering Sample - User drilled down to "Germany" in the Chart, and the Grid is automatically filtered by "Germany" only.
+
+#. Select related report parts to apply cross filtering. In this example Chart and Grid will be drilled up and down together while Map remains independent.
+
+   .. figure:: /_static/images/Report_Filtering/Report_Cross_Filtering_Report_Part_Selection.png
+      :width: 454px
+
+      Report Designer - Cross Filtering Report Part Selection
+
+#. Set up report parts to have common data source fields. In this example Chart and Grid display aggregated data for ShipCountry and ShipCity.
+
+#. Drill down on one report part by clicking on a data point.
+
+   .. _Report_Cross_Filtering_ShipCountry_ShipCity_by_All:
+
+   .. figure:: /_static/images/Report_Filtering/Report_Cross_Filtering_ShipCountry_ShipCity_by_All.png
+      :width: 810px
+
+      Cross Filtering Sample - User is about to drill down on "Germany" in the Chart.
+
+#. The related report parts are filtered automatically, and the Cross Filtering breadcrumb tells which report part is being drilled down. (:numref:`Report_Designer_Filter_Cross_Filtering_Sample`)
+
+#. To reset, either drill up the exact report part, or remove the drill-down on the breadcrumb.
+
+   .. _Remove_a_Cross_Filter:
+
+   .. figure:: /_static/images/Report_Filtering/Remove_a_Cross_Filter.png
+      :width: 810px
+
+      Click to remove a drill-down on the breadcrumb
+
 .. _Manage_Report_Parts:
 
 Manage Report Parts
@@ -309,10 +358,10 @@ Manage Report Parts
 
 There are many ways to
 display data in a report: bar chart, line chart, pie chart, map, data
-grid, etc, each is supported by a different report part. Built-in report
+grid, etc, each is supported by a different :term:`report part`. Built-in report
 parts include:
 
--  Chart (Bar Chart, Line Chart, Pie Chart)
+-  Chart (Bar Chart, Line Chart, Pie Chart, etc.)
 -  Form
 -  Grid (Horizontal, Vertical, Pivot)
 -  Gauge
@@ -424,6 +473,10 @@ Configure report part properties
 See:
 
 -  :doc:`doc_report_designer_chart`
+-  :doc:`doc_report_designer_form`
+-  :doc:`doc_report_designer_gauge`
+-  :doc:`doc_report_designer_grid`
+-  :doc:`doc_report_designer_map`
 
 
 Open Field Properties box for data source fields in report

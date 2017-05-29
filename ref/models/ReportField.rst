@@ -142,16 +142,6 @@ ReportField
       -
       -  The result data type of the function
       -
-   *  -  **calculatedTree** |br|
-         string
-      -
-      -  The calculated tree
-      -
-   *  -  **grandTotalTree** |br|
-         string
-      -
-      -  The grand total tree
-      -
    *  -  **isCalculated** |br|
          boolean
       -

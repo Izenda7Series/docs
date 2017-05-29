@@ -21,7 +21,11 @@ List of APIs
      - Emails or exports report/dashboard based on the input subscription parameter.
    * - `POST export/performanceStatisticsTrend`_
      - Exports the performance statistics trend to csv.
+   * - `GET export/checkExportStatus/{fileSession}`_
+     - Returns true if the export has been completed for the specified fileSession. |br|
+       This should be the value in fileSessionKey in `POST export/{format:exportformat}`_.
 
+       .. versionadded:: 2.0.6
 
 POST export/{format:exportformat}
 --------------------------------------------------------------
@@ -224,3 +228,30 @@ Exports the performance statistics trend to csv.
    Response::
 
       the file
+
+GET export/checkExportStatus/{fileSession}
+--------------------------------------------------------------
+
+Returns true if the export has been completed for the specified fileSession. |br|
+This should be the value in fileSessionKey in `POST export/{format:exportformat}`_.
+
+.. versionadded:: 2.0.6
+
+**Request**
+
+   No payload 
+
+**Response**
+
+   *  **true** if the export has been completed
+   *  **false** if not
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/export/checkExportStatus/my_file_session_key HTTP/1.1
+
+   Response::
+
+      false

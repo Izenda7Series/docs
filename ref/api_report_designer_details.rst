@@ -122,6 +122,10 @@ List of APIs
      - Saves a customed InTimePeriod.
    * - `DELETE report/timePeriod/{time_period_id}`_
      - Deletes the customed InTimePeriod specified by time_period_id.
+   * - `GET report/reportPart/crossfiltering/{report_part_id}`_
+     - Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including it.
+
+       .. versionadded:: 2.0.6
 
 GET report/category/{type}/(tenant\_id)
 ---------------------------------------
@@ -5210,3 +5214,28 @@ Deletes the customed InTimePeriod specified by time_period_id.
 **Samples**
 
    To be updated
+
+GET report/reportPart/crossfiltering/{report_part_id}
+------------------------------------------------------------------
+
+Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including it.
+
+.. versionadded:: 2.0.6
+
+**Request**
+
+   No payload
+
+**Response**
+
+   An array of strings (GUIDs)
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/report/reportPart/crossfiltering/04192bb1-7138-4e45-8fd4-506793a29704 HTTP/1.1
+
+   Response::
+
+      ["04192bb1-7138-4e45-8fd4-506793a29704","edaf3f13-7ff8-4d0f-a99b-56396080155a"]
