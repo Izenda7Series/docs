@@ -17,7 +17,7 @@ Installing and Configuring the Azure Service
 |
 
 Required Components
-###############
+#####################
 
 There are two components needed for the Azure cloud service. 
 
@@ -29,7 +29,7 @@ These components as well as the installation guide this document is based on can
 http://www.evopdf.com/Downloads/Support/Archive/EvoHtmlToPdf-Azure-v6.16.zip (Please be sure to use this version)
 
 Installation
-########
+#####################
 
 #. Login into your Microsoft Azure portal and create a new Cloud Service choosing the **Custom Create** option. 
 #. In the first screen select a URL for your cloud service and enable the **Deploy a cloud service package** option. 
@@ -52,5 +52,3 @@ After the service has been configured, you must configure the Izenda application
 	    <azureCloudService server="120.0.0.1" port="40001" servicePassword="" />
 	  </evoPdfSettings>
 	</configuration>
-
-
