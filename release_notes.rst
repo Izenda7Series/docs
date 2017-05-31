@@ -2,6 +2,15 @@
 Release Notes
 ==============
 
+v2.0.6
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 16674  In Angular integration example kit Izenda dropdowns are not working, Report List doesn't Populate, Connection String & License Information Disappears
+-  Defect 16846  Changes to Copy Console tool to ensure it works properly in integration mode 1
+-  Defect 16916  System freezes when trying to edit charts in designer
+
 v2.0.5
 ~~~~~~~
 
