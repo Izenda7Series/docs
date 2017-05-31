@@ -62,7 +62,11 @@ List of APIs
      - Saves a list of report subscriptions.
    * - `POST report/deleteAllArchiveVersions`_
      - Removes all archived versions of all reports.
+   * - `POST report/findByName`_
+     - Returns the first report definition matching specified name and other criteria. |br|
+       Needs SystemAdmin permission.
 
+       .. versionadded:: 2.0.3
 
 POST report/list
 ------------------------------------------------
@@ -2310,3 +2314,24 @@ Removes all archived versions of all reports.
    Response::
 
       true
+
+
+POST report/findByName
+--------------------------------------------------------------
+
+Returns the first report definition matching specified name and other criteria. |br|
+Needs SystemAdmin permission.
+
+.. versionadded:: 2.0.3
+
+**Request**
+
+    Payload: a :doc:`models/ReportDefinition` object with **name**, **tenantId** and **isGlobal** fields populated, and optional **category.Name** and **subCategory.Name** values.
+
+**Response**
+
+    A full :doc:`models/ReportDefinition` object.
+
+**Samples**
+
+   To be updated

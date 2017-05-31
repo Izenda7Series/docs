@@ -16,6 +16,11 @@ FilterItem
       -
       -  The id of the operator
       -
+   *  -  **fieldId** |br|
+         string (GUID)
+      -
+      -  The id of the field
+      -
    *  -  **linkReportFilter** |br|
          boolean
       -

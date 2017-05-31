@@ -143,6 +143,16 @@ QuerySource
       -
       -  Whether this query source belongs to a copied report
       -
+   *  -  **viewDefinition** |br|
+         string
+      -
+      -  Definition of the view in case this is a custom query source
+      -
+   *  -  **isCustomQuerySource** |br|
+         boolean
+      -
+      -  Whether this is a custom query source
+      -
 
 .. container:: toggle
 

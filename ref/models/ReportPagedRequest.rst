@@ -32,6 +32,11 @@ ReportPagedRequest
       -
       -  The timestamp offset. See :doc:`/ui/doc_user_setup`.
       -
+   *  -  **excludeIds** |br|
+         array of strings (GUIDs)
+      -
+      -  The list of report ids to exclude
+      -
 
 Inherited fields:
 

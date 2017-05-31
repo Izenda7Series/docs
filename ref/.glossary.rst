@@ -26,6 +26,9 @@ Glossary
    copy management
       A UI page to copy templates, reports and dashboards within the same configuration database (eg. copying a report from one tenant to another).
 
+   cross filtering
+      The option to filter data of two or more report parts together. Drilling down a report part will also drill down other report parts in the same report/dashboard that are selected for cross filtering. 
+
    dashboard part
       A dashboard area that holds a :term:`report part`.
 
@@ -89,3 +92,41 @@ Glossary
 
    template
       A pre-built report that serves as a medium to create quick ad-hoc reports. See :doc:`/ui/usage_using_templates`.
+
+.. comment: intentionally left blank
+
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
+|br|
