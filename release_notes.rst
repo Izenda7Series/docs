@@ -7,14 +7,14 @@ v2.1.0
 
 BREAKING CHANGES
 ^^^^^^^^^^^^^^^^
-File izenda-ui-blessed1.css was removed from the UI download it was merged with izenda-ui.css, please ensure when upgrading that it is removed from your local deployment
+-  File izenda-ui-blessed1.css was removed from the UI download it was merged with izenda-ui.css, please ensure when upgrading that it is removed from your local deployment
 
 FEATURES
 ^^^^^^^^
-Cross Filtering added for charts with drilldown ability. This allows the report desginer to confige filtering for all or specific report parts in each report based on the drilldown values from each chart. This cross filtering behavior will also work with the configured reports in the dashboard and in report parts.
+-  Cross Filtering added for charts with drilldown ability. This allows the report desginer to confige filtering for all or specific report parts in each report based on the drilldown values from each chart. This cross filtering behavior will also work with the configured reports in the dashboard and in report parts.
 See user guide here:
-Performance improvements for sub/grand total calculations
-Performace improvements for saving reports
+-  Performance improvements for sub/grand total calculations
+-  Performace improvements for saving reports
 
 FIXES
 ^^^^^
