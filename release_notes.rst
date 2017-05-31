@@ -2,6 +2,121 @@
 Release Notes
 ==============
 
+v2.1.0
+~~~~~~~
+
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+-  File izenda-ui-blessed1.css was removed from the UI download it was merged with izenda-ui.css, please ensure when upgrading that it is removed from your local deployment
+
+FEATURES
+^^^^^^^^
+-  Cross Filtering added for charts with drilldown ability. This allows the report desginer to confige filtering for all or specific report parts in each report based on the drilldown values from each chart. This cross filtering behavior will also work with the configured reports in the dashboard and in report parts. See user guide :ref:`Cross Filtering <Apply_Cross_Filtering_to_Multiple_Report_Parts>`
+-  Performance improvements for sub/grand total calculations
+-  Performace improvements for saving reports
+
+FIXES
+^^^^^
+-  Defect 15825  Filters Dropdown should not reload every time user hits on dropdown
+-  Defect 15992  Exporting fails on excel from report list using datetime field without a format from a grid report
+-  Defect 15429  Embedded subreport is not recognized when copying along with master report. 
+-  Defect 13239  In stand alone mode if Admin user deactivates user they may remain active until the token is inactive
+-  Defect 16348  Data Sources of MySQL connection do not show correctly when database in Connection String is uppercase
+-  Defect 16356  Warning message 'The selected system/tenant level does not contain any connection string.' appears when navigating from Connection String to Data Model then logout
+-  Defect 16841  Presentation Mode of dashboard not allowing interaction with report parts which have drilldowns and subreports
+-  Defect 16409  No error message appears when required field 'Connection String' is blank
+-  Defect 16553  Blank Filter popup displayed when using type 'Equals (Popup)' for group field
+-  Defect 16213  Exporting tab, Preview not displayed if using page break in case report not yet saved
+-  Defect 16403  No value data displays on drop down list of report filter when selecting "Single" option and then switching "Multiple" option
+-  Defect 16311  Long report names are overlapped by Filters section
+-  Defect 16442  Map does not show in document after exporting
+-  Defect 16082  User should not be allowed to create relationship alias which duplicates an acutal used data object name
+-  Defect 16767  Could not select the filter data value when using  aggregated filter with Average Function
+-  Defect 16724  Incorrect query syntax error displayed when using calculated field with concatenated values as filter
+-  Defect 16540  Non Admin users with create role permissions are unable to create new roles
+-  Defect 16415  Label justification for 'Value' label on Settings>Data Setup?Advanced Settings page
+-  Defect 16402  User cannot log in when they have multiple roles and one is not active
+-  Defect 15433  Error occurs in Quick Edit when user attempts to remove an existing field.
+-  Defect 15687  Schedule Tab displays when refreshing page on Global reports after save.
+-  Defect 15808  User with System Admin rights cannot "Subscribe" to global reports
+-  Defect 15901  System Admin user at Tenant Setting level can delete the report 
+-  Defect 16041  For system admins at tenant level Move and Delete icons are still available for global reports but should be hidden
+-  Defect 16042  For System Admins User cannot copy a global report to local  in report list
+-  Defect 16331   User without full access right is able to edit category's name of Global Reports
+-  Defect 15896  Cannot not copy dashboard from "Global Dashboard" to "Local Dashboard" or vice versa
+-  Defect 15895  List of categories should be updated correctly in the left navigation after move/copy a global/local dashboard
+-  Defect 16769  Changing Preview Records limit should drill up all parts to highest level again
+-  Defect 15256  In form User cannot add more than one field at a time
+-  Defect 15394  System shows error msg when user uses operator join of Date group for DateTime Field
+-  Defect 15927  User can not open a sub report as Link from report Designer
+-  Defect 16805  User can not open a sub report as Link on report Designer after saving the new report, error states report has not been saved.
+-  Defect 16247  Form, when using the insert subreport feature on the form properly panel subreport style changes the field name to be invalid
+-  Defect 15819  Rule to show/hide buttons in Dashboard and Dashboard List is incorrect for Global reports (Rename, Move, Delete, Move, Save) should not be shown to System Users in Tenant Level
+-  Defect 15332  Data fails to load when sorting one of 2 similar fields with subtotal/grand total. 
+-  Defect 16712  Error message shows null when navigating in embedded instances when using IE browser
+-  Defect 15275  Oracle 12c - ORA-01795 found in log file 
+-  Defect 16543  In Report Designer, clicking distinct Checkbox Breaks Aggregates on MSSQL Databases
+-  Defect 15524  Equals (Manual Entry) Cannot Manually Enter Values that Exist in the Dropdown
+-  Defect 15413  Report Parts Shifting When Navigating to Viewer
+-  Defect 16412  User can not log in system after Deative then Active again. System still shows error msg for inactive user
+-  Defect 16874  Coypy Management Dashboard list loading performance issue - list loading slowly
+-  Defect 15869  When clicking on "Show only my workspace", the content panel still displays different owner 's workspace in copy management UI
+-  Defect 16407  Unable to search any report in Report Part Selection of Dashboard under Category All
+-  Defect 15794  In Text style Dahboard part when user inputs data in Body text section it is not displayed in Front side
+-  Defect 15308  System does not show the dirty form msg when user creates a new Dashboard and then click on any Report link to go to Report Viewer page
+-  Defect 16588  Form page break button insert does not create acutal break
+-  Defect 14982  Reformatting at HTML page disables subtotal/grand total setting in Forms
+-  Defect 16023  In Standalone mode System shows loading progress bar for a long time when user lets the application time out
+-  Defect 16844  In map report parts, shading metric does not show when drilling up to top level of drilldown
+-  Defect 15804  In Oracle Value is 0 after collapsing rows in drill down grid which has a datetime field separator
+-  Defect 16778  When loading a report with an Embedded Sub Report system continues to load without finishing the subreport data
+-  Defect 15924  Access rights disappear briefly after saving a new report
+-  Defect 15748  System works incorrectly when appling Additional Join for Relationship and key join
+-  Defect 15741  In Cross Database Join using additional join conditions drop down list for Data Object/Foreign Data Object is blank
+-  Defect 15281  Missing icon to indicate datatype type of Time field 
+-  Defect 14983  Print preview does not exist until the report is saved. 
+-  Defect 16036  Report Designer Unable to change format of Datetime field to nonformat
+-  Defect 15930  Page continues to load when creating simple gauge on Firefox/Edge/IE browsers
+-  Defect 16851  Linear Gauge does not show the Metric Value on the Preview section
+-  Defect 16781  System shows error msg when user selects function for one field on Horizontal Grid
+-  Defect 15299  System shows error msg for failure validation when user create report with Cross join
+-  Defect 15206  System navigates to Format page, instead of Fields page when design is selected from report list.
+-  Defect 16780  Load Report/Dashboard list performance issue 
+-  Defect 15969  Printed and Exported reports are sometimes blank for tenant users
+-  Defect 15923  In System Configuration Filter Value Selection does not display in Dashboard Schedule instance
+-  Defect 15205  User input wrong data in Provide Information page, system does not show error msg but let user navigates to create password page
+-  Defect 16655   Simple Gauge shows 'false' instead of value when using Oracle
+-  Defect 16446  Numeric formats are not properly exported on Word and PDF docs
+-  Defect 16400  In Form report part Unable to delete or add more fields after pressing "Update Result" or "Save" button twice
+-  Defect 15230  System shows duplicated msg when user create 1 Relationship with 2 Key Join: 1 for Field comparison and 1 for Value comparison
+-  Defect 16322  Error on Schedule shows start date required, should be start time required
+-  Defect 13808  Dashboard reloads each time user goes to schedule or access tabs
+-  Defect 15071  Headers are Overlapped in Exports
+-  Defect 15684  Popup Subreport is blank when there is NULL filter value transferred 
+-  Defect 12645  Charts > Drilldowns Don't Work with DateTime Fields
+-  Defect 16244  Sorting is not correct when table does not have a primary key assigned.
+-  Defect 14660  Advanced Settings Data Model Query Limit will not accept more than 100K. 
+-  Defect 15906  Alignment for sub/grand total lost on Export
+-  Defect 15659  Changing date format does not export to CSV
+-  Defect 16207  Custom Tree Filter node shows value not text for child nodes when selected
+-  Defect 14796  Date formats in dd/mm/yyyy style export with mm/dd/yyyy format
+-  Defect 14799  Deleted columns from physical db are not added back when recreated after reconnecting to the database
+-  Defect 15569  When copying Dashboard in UAT called Dash with some reports the copy fails without any error notification and stops working 
+-  Defect 15193  Exports Lose sub/grand total formatting and display as text
+-  Defect 15525  Exporting fails with null value in between date filters and value in database is null not ''
+-  Defect 15594  Grouping is not working properly for Separators when date is used and format is changed
+-  Defect 16199  Heatmap mouse over does not show Y axis label
+-  Defect 15753  Lazy loading loads data twice, only one value but removing duplicate calls
+-  Defect 15783  Mapping still shows some values in the wrong areas when drilling down
+-  Defect 16542  In MySQL Izenda tables are created in all lowercase, but refered to it in Pascal case causing issues in MySQL instances on AWS enviroments
+-  Defect 16279  Perforamnce issues found when multiple users are saving reports at the same time
+-  Defect 16690  Report Title Changed for new report In designer does populate in save dialogue
+-  Defect 16776  In user profile area of Izenda, Sign out option should not appear in any embedded modes
+-  Defect 16321  Sort or search in Uncategorized report/dashboard list always show blank page
+-  Defect 15994  Sub/Grand Total Breaks After Changing Alias of a different field
+-  Defect 16285  When adding more than 13 items to the copy management UI one of the destinations is unable to be seen in the Report copy settings area
+-  Defect 15872  When column name of view is [Order By] system randomly errors
+
 v2.0.6
 ~~~~~~~
 
