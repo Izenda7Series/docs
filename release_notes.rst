@@ -11,8 +11,7 @@ BREAKING CHANGES
 
 FEATURES
 ^^^^^^^^
--  Cross Filtering added for charts with drilldown ability. This allows the report desginer to confige filtering for all or specific report parts in each report based on the drilldown values from each chart. This cross filtering behavior will also work with the configured reports in the dashboard and in report parts.
-See user guide here:
+-  Cross Filtering added for charts with drilldown ability. This allows the report desginer to confige filtering for all or specific report parts in each report based on the drilldown values from each chart. This cross filtering behavior will also work with the configured reports in the dashboard and in report parts. See user guide here:
 -  Performance improvements for sub/grand total calculations
 -  Performace improvements for saving reports
 
