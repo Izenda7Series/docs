@@ -112,6 +112,17 @@ OtherSetting
       -
       -  The default value for Common Filter Setting
       -
+   *  -  **multipleSortOnGridHeaderValue** |br|
+         boolean
+      -
+      -  Option for Allow Multiple Sorts on Grid Header |br|
+         Only available at System level
+      -
+   *  -  **multipleSortOnGridHeaderDefaultValue** |br|
+         integer
+      -
+      -  The default value for Allow Multiple Sorts on Grid Header
+      -
    *  -  **tenantId** |br|
          string (GUID)
       -  Y
