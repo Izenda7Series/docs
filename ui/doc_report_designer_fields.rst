@@ -6,7 +6,7 @@ Report Designer/Fields
 
 .. tip::
 
-   :ref:`Cross Filtering <Apply_Cross_Filtering_to_Multiple_Report_Parts>` is available from release v2.0.6.
+   :ref:`Cross Filtering <Apply_Cross_Filtering_to_Multiple_Report_Parts>` is available from release v2.1.0.
 
 The **Report Designer/Fields** page allows user to
 
