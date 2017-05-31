@@ -26,6 +26,10 @@ List of APIs
      - Performs logout.
    * - `POST user`_
      - Saves a user.
+
+       .. note::
+
+          To set up a user with password, this API is only the first step. See :doc:`/dev/code_javascript_add_internal_user` for the guide.
    * - `POST user/userProfile`_
      - Saves a user profile.
    * - `POST user/passwordProfile`_
@@ -410,11 +414,16 @@ Performs logout.
 
       true
 
+.. _POST_user:
 
 POST user
 --------------------------------------------------------------
 
 Saves a user.
+
+.. note::
+
+   To set up a user with password, this API is only the first step. See :doc:`/dev/code_javascript_add_internal_user` for the guide.
 
 **Request**
 
@@ -1054,6 +1063,7 @@ Deletes a user.
 
       true
 
+.. _POST_user/passwordAndSecurityQuestion:
 
 POST user/passwordAndSecurityQuestion
 --------------------------------------------------------------
@@ -1144,6 +1154,7 @@ Returns security question for a user and tenant.
        ]
       }
 
+.. _POST_user/generatePasswordLink:
 
 POST user/generatePasswordLink
 --------------------------------------------------------------
@@ -1156,13 +1167,13 @@ Generates :term:`password link`.
 
 **Response**
 
-    A string (hash value)
+    An :doc:`models/OperationResult` object with **success** field true and **data** field containing a hash value from the user details.
 
 **Samples**
 
    .. code-block:: http
 
-      POST /api/usergeneratePasswordLink HTTP/1.1
+      POST /api/user/generatePasswordLink HTTP/1.1
 
    Request payload::
 
@@ -1176,7 +1187,11 @@ Generates :term:`password link`.
 
    Sample response::
 
-      "H8K....RU="
+      {
+         "success": true,
+         "messages": null,
+         "data": "Abc/Def/..=="
+      }
 
 
 POST user/validatePasswordLink

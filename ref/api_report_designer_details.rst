@@ -5018,12 +5018,17 @@ Validates that a report exists in a category.
 
    Request Payload::
 
-      To be updated
+      {
+      	"tenantId": "de0c01f3-63ab-4f85-90ff-fe2f1d4fa00b",
+      	"reportName": "TestReport",
+      	"categoryName": "Category 1"
+      }
 
    Successful response::
 
       {
          "success": true,
+         "messages":null,
          "data": true
       }
 

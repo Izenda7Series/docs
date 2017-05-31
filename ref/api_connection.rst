@@ -54,12 +54,12 @@ List of APIs
      - Returns the database name from a connection string.
    * - `POST connection/validateSchema`_
      - Returns true if remote schema has not changed, otherwise returns false.
-   * - GET systemSetting/systemIndicator/(tenantId)
+   * - GET connection/systemIndicator/(tenantId)
      - Returns the number of changes in Connection String and Data Model (filtered by tenant_id if provided). |br|
      
        .. warning::
           
-          Obsolete, use ``GET systemSetting/systemIndicator/(tenant_id)`` instead
+          Obsolete, use :ref:`GET_systemSetting/systemIndicator/(tenant_id)` instead
    * - `GET connection/visible/(tenant_id)/count`_
      - Returns the count of visible connections, filtered by tenant_id if available.
    * - `POST connection/loadDistinctConnections`_
