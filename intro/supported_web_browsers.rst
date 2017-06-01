@@ -9,7 +9,7 @@ Izenda supports all popular web browsers:
    :widths: 50 50
 
    *  -  Browser
-      -  Version
+      -  Versions
    *  -  Google Chrome
       -  latest 3 versions
    *  -  Firefox
