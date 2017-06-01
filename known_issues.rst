@@ -9,7 +9,7 @@ Known Issues
    * - Type
      - Item No
      - Description
-      * - Defect
+   * - Defect
      - 12447
      - When reviewing the permissions summary in the role no scroll bar is present and only 12 items can be displayed
    * - Defect
@@ -20,7 +20,7 @@ Known Issues
      - Due to loading race conditions some reports are displayed with no results until the user clicks update results after initial load of report
    * - Defect
      - 13170
-     - In Calculated Field the preview eesult field is displayed incorrectly after user selects a different data type
+     - In Calculated Field the preview result field is displayed incorrectly after user selects a different data type
    * - Defect
      - 13247
      - When creating a form the drag and drop for fields will not work once an item is deleted unless the cursor is placed in the form report part
@@ -819,5 +819,3 @@ Known Issues
    * - Defect
      - 9200
      - Between values are not validated in filters to ensure beginning value is less than ending value
-
-

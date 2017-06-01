@@ -311,7 +311,7 @@ condition requires building a filter logic.
 Apply Cross Filtering to Multiple Report Parts
 =========================================================
 
-.. versionadded:: 2.0.6
+.. versionadded:: 2.1.0
 
 Cross filtering allows user to drill up and drill down data in multiple :term:`report parts <report part>` together. For each drilling action from user, it will filter related report parts automatically.
 

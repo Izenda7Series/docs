@@ -7,3 +7,4 @@ Introduction
 
    .izenda_concepts
    .data_management
+   supported_web_browsers
