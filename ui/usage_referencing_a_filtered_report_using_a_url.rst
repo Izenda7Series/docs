@@ -102,3 +102,20 @@ report.
 .. figure::  /_static/images/UrlFilters7.png
 
    Opened from Report Link with multiple filter values
+   
+   
+Passing Filter Values To Dashboards
+------------------------------------
+
+Older versions only allowed users to pass filter values to reports. With a slight modification to the processes described above, you can now pass filter values to dashboards.
+
+* To reference the report viewer, you would use the subdirectory **/report/view/** in the URL (e.g.http://xxxx:8081/report/view/....)
+* To reference the dashboard editor/viewer, you woud use the subdirectory **/dashboard/edit/** in the URL (e.g.http://xxxx:8081/editor/viewer....)
+
+* To reference a parameter value for reports, you would use **p** + **Filter Number** + **value** + **=** + **Filter_Value**
+* To reference a parameter value for dashboards, you would use **p** + **Filter Number** + **=** + **Filter_Value**
+
+* Example report URL: **http://xxxx:8081/report/view/52602346-e6ea-4027-ab75-344fd93c66ce?p1value=USA&p2value=Portland**
+* Example dashboard URL: **http://xxxx:8081/dashboard/edit/52602346-e6ea-4027-ab75-344fd93c66ce?p1=USA&p2=Portland**
+
+
