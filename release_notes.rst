@@ -2,6 +2,16 @@
 Release Notes
 ==============
 
+v2.1.1
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 16800  In integrated instances some users can access modules not allowed for tenant
+-  Defect 16802  Form reports fail to save when data source is aliased
+-  Defect 17031  Calculated fields used in reports are not displayed on the report parts in the dashboard
+-  Defect 17042  Subtotal is null when not using a grouping level in grid
+
 v2.1.0
 ~~~~~~~
 
