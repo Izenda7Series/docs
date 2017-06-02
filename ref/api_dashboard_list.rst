@@ -74,7 +74,11 @@ List of APIs
      - Searches dashboards, with total number of item.
    * - `POST dashboard/loadAccesses`_
      - Returns a list of user permissions for dashboard.
+   * - `POST dashboard/findByName`_
+     - Returns the first dashboard definition matching specified name and other criteria. |br|
+       Needs SystemAdmin permission.
 
+       .. versionadded:: 2.0.3
 
 GET dashboard/categories/(tenant_id)
 --------------------------------------------------------------
@@ -1688,3 +1692,24 @@ Returns a list of user permissions for dashboard.
         "pageSize": 10,
         "total": 0
       }
+
+
+POST dashboard/findByName
+--------------------------------------------------------------
+
+Returns the first dashboard definition matching specified name and other criteria. |br|
+Needs SystemAdmin permission.
+
+.. versionadded:: 2.0.3
+
+**Request**
+
+    Payload: a :doc:`models/DashboardDefinition` object with **name**, **tenantId** and **isGlobal** fields populated, and optional **categoryName** and **subCategoryName** values.
+
+**Response**
+
+    A full :doc:`models/DashboardDefinition` object.
+
+**Samples**
+
+   To be updated

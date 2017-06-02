@@ -52,7 +52,11 @@ ReportSavingParameter
       -
       -  Whether to use the populated report id in **report** object to insert
       -
-
+   *  -  **overrideCalculatedFields** |br|
+         boolean
+      -
+      -  Whether to override calculated fields
+      -
 
 
 Inherited fields:
