@@ -18,10 +18,11 @@ Installation & Configuration
 Creating the custom configuration file
 ########################
 
-A sample config file (**CustomFunctionSample.config**) is included as part of the Izenda API. It is located in **API > bin > Resources**. A snippet of this file is below:
+A sample config file *CustomFunctionSample.config* is included as part of the Izenda API. It is located in **API > bin > Resources**. A snippet of this file is below:
 
 .. code-block:: json
-
+	:linenos:
+	
 	{
 	  "Functions": [
 		{
@@ -79,7 +80,7 @@ A sample config file (**CustomFunctionSample.config**) is included as part of th
 		{
 		  "Name": "FLOOR",
 		  "Description": "Returns the largest integer value that is equal to or less than a given value.",
-		  "Syntax": "RTRIM(character_expression)",
+		  "Syntax": "FLOOR(character_expression)",
 		  "Parameters": [
 			{
 			  "Name": "n",
@@ -101,7 +102,7 @@ A sample config file (**CustomFunctionSample.config**) is included as part of th
 	}
 
 
-In the example above, the SUBSTRING and RTRIM functions have been white-listed for use in the calculated fields designer. The example is fairly straight-forward, but ensure that you are using the correct DatasourceName and Id for your desired database. A table of these values has been provided below:
+In the example above, we are white-listing the *FLOOR* function starting at line 55. The floor function returns the largest integer less than or equal to *n*. This function receives input of type *NUMBER* and also returns a value of type *NUMBER*. The example is fairly straight-forward, but ensure that you are using the correct DatasourceName and Id for your desired database. A table of these values has been provided below:
 
 
 ==================   ============
@@ -135,13 +136,18 @@ Next, you will need to update the 'CustomFunctionFilePath' in the IzendaSystemSe
 Restarting the web sites
 ################
 
-After deploying the configuration file, restart the API and Front-end sites.
+After deploying the configuration file, restart the API and front-end sites.
 
 Verifying the changes
 ################
 
-Functions should be listed in the calculated fields window
+Functions should now be listed in the calculated fields window.
 
+.. figure:: images/floor_function1.png
+
+We can also verify that the function works as expected.
+
+.. figure:: images/floor_function2.png
 
 
 
