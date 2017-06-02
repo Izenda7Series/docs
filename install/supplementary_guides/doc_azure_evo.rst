@@ -21,6 +21,12 @@ Required Components
 
 There are two components needed for the Azure cloud service. 
 
+
+#. On the server hosting the API, navigate to the API directory and create a new folder named `customizations`. 
+#. Copy your  CustomFunctionSample.config
+#. In the first screen select a URL for your cloud service and enable the **Deploy a cloud service package** option. 
+#. In the next screen choose a name for the deployment and browse to **Azure** local folder to choose the **EvoHtmlToPdfAzureService.cspkg** file 
+
 | *EvoHtmlToPdfAzureService.cspkg*
 | *ServiceConfiguration.Cloud.cscfg*
 |
