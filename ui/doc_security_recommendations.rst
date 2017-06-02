@@ -4,7 +4,7 @@
 Security Recommendations
 ==========================
 
-Recommendations on configuring the system for security best-practices.
+This guide outlines general recommendations for securing Izenda deployments. This document may not be all-encompassing, be sure to follow your organizations established security policies and procedures. This document may be updated at any time, without notice.
 
 .. _Web_Server_Security_Configurations:
 
@@ -134,8 +134,15 @@ To allow calls from only the Front-end site while rejecting others:
    Front-end sites, separated by comma. For example:
    ``<add name="Access-Control-Allow-Origin" value="http://www.acme.com,http://www.example.com" />``.
 
+
+SSL/TLS
+~~~~~~~~~~~~~
+Izenda supports and strongly recommends the use of SSL/TLS to secure traffic between the Front-end, Backend (API) sites.
+
+|
+
 Izenda Security Configurations
-------------------------------
+--------------------------------------
 
 Replace the default System Admin account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,13 +151,99 @@ Replace the default System Admin account
 
 The default Izenda System Admin account comes with a pre-defined username. For best security, :ref:`another System Admin account <Add_a_System_Admin_user>` should be created, then the default account be deactivated or deleted to prevent attempts on that pre-defined username.
 
-Set Password Policies
+Security Policies
 ~~~~~~~~~~~~~~~~~~~~~
 
- 
+Izenda has an extensive set of options for configuring security in stand-alone mode. You can configure the Password Complexity, Password Age, Password History, Security Questions, Account Lockout Policies and more. We recommend that you review these options to create a policy that works for your organization. 
 
 Make use of the :ref:`Password Complexity settings <Configure_Password_Complexity_Sample>` in System Configuration > Security Policies page to enforce strong
 passwords.
+
+
+Reporting databases 
+~~~~~~~~~~~~~~~~~~~~~
+Following the principle of least privilege, your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. As Izenda does not update these reporting databases, read-only, and execute (if you are using store procedures) will be sufficient.
+
+
+|
+Embedded Security - Deployment Mode 1
+------------------------------------------------------
+
+In this deployment mode, the API is standalone and the Izenda front-end is embedded into another application. This mode applies to the following kits provided by Izenda:
+
+| https://github.com/Izenda7Series/Angular2Starterkit 
+| https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone 
+
+|
+
+RSA Keys
+~~~~~~~~~~~~~~~~~~~~~
+In versions 1.25.0+, Izenda utilizes RSA keys. These keys are used when exporting, or using any functionality that may itself use exporting (Scheduling, etc.).
+
+| Sample Endpoints (not all inclusive):
+| 
+| http://localhost:1001/api/export/pdf
+| http://localhost:1001/api/export/csv
+
+|
+The high-level work flow is as follows:
+
+#. A user requests an export
+#. The API creates a JSON model of the user including the username and tenantID
+#. The API encrypts the model with the RSA public key
+#. The API makes a request to the endpoint specified for the AuthGetAccessTokenUrl value in the IzendaSystemSetting table. E.g
+
+	AuthGetAccessTokenUrl  -> http://localhost:14809/api/account/GetIzendaAccessToken
+	
+#. The method below (in the front-end application) decrypts the JSON model and returns a token for the specified User/Tenant to the API.
+	
+	.. code-block:: csharp
+		:linenos:
+		
+		[Route("GetIzendaAccessToken")]
+		public IHttpActionResult GetIzendaAccessToken(string message)
+		{
+			var userInfo = IzendaBoundary.IzendaTokenAuthorization.DecryptIzendaAuthenticationMessage(message);
+			var token = IzendaBoundary.IzendaTokenAuthorization.GetToken(userInfo);
+			//return token;
+			return Ok(new { Token = token });
+		}
+
+#. The API uses this token to process the export under the context of the user.
+
+
+Izenda's RSA Key Generator
+~~~~~~~~~~~~~~~~~~~~~
+In order to simplify the process of creating RSA keys, Izenda has provided a tool to generate Public/Private key pairs and convert them to the format required by Izenda. This tool can be found here: http://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip 
+
+**Usage:**
+
+#. Click *Generate* to create a new key pair.
+#. Click *Convert Keys* to convert the public key to XML as shown below.
+#. Alternatively, you can paste an existing key pair. Click *Convert Keys* and this will convert the public key to XML
+
+
+.. figure:: /_static/images/rsa_tool1.png
+
+|
+Token and Key Security
+~~~~~~~~~~~~~~~~~~~~~
+
+In Deployment mode 1, the token management is handled by your application. Izenda has provided samples of generating, encrypting, and decrypting these tokens, but you are not required to use the same implementations. We have provided some basic recommendations below:
+
+|
+**Key recommendations:**
+
+#. Your encryption key should be stored securely. 
+#. Your encryption key should be changed periodically.
+#. Your encryption key should be of sufficient length to mitigate the effectiveness of brute force attacks.
+
+
+**Token recommendations:**
+
+#. Your tokens should be of sufficient length and entropy (randomness) to reduce the effectiveness of brute force attacks.
+#. Your tokens should not be indefinite, and should have an absolute time out. This reduces the window in which a stolen token could be used to impersonate a user.
+
 
 Reference
 ---------
