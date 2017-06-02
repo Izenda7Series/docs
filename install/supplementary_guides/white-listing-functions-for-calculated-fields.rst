@@ -25,7 +25,7 @@ A sample config file (**CustomFunctionSample.config**) is included as part of th
 	{
 	  "Functions": [
 		{
-		  "Name": "MYCUSTOMFUNCTION",
+		  "Name": "SUBSTRING",
 		  "Description": "This is my custom function to get the sub string of the given string",
 		  "Syntax": "SUBSTRING(expression ,start ,length)",
 		  "Parameters": [
