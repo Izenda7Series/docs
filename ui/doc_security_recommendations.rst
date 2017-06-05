@@ -165,7 +165,6 @@ Reporting databases
 Following the principle of least privilege, your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. As Izenda does not update these reporting databases, read-only, and execute (if you are using store procedures) will be sufficient.
 
 
-|
 Embedded Security - Deployment Mode 1
 ------------------------------------------------------
 
@@ -174,7 +173,6 @@ In this deployment mode, the API is standalone and the Izenda front-end is embed
 | https://github.com/Izenda7Series/Angular2Starterkit 
 | https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone 
 
-|
 
 RSA Keys
 ~~~~~~~~~~~~~~~~~~~~~
@@ -185,7 +183,6 @@ In versions 1.25.0+, Izenda utilizes RSA keys. These keys are used when exportin
 | http://localhost:1001/api/export/pdf
 | http://localhost:1001/api/export/csv
 
-|
 The high-level work flow is as follows:
 
 #. A user requests an export
@@ -213,7 +210,7 @@ The high-level work flow is as follows:
 
 
 Izenda's RSA Key Generator
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In order to simplify the process of creating RSA keys, Izenda has provided a tool to generate Public/Private key pairs and convert them to the format required by Izenda. This tool can be found here: http://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip 
 
 **Usage:**
@@ -225,13 +222,12 @@ In order to simplify the process of creating RSA keys, Izenda has provided a too
 
 .. figure:: /_static/images/rsa_tool1.png
 
-|
+
 Token and Key Security
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In Deployment mode 1, the token management is handled by your application. Izenda has provided samples of generating, encrypting, and decrypting these tokens, but you are not required to use the same implementations. We have provided some basic recommendations below:
 
-|
 **Key recommendations:**
 
 #. Your encryption key should be stored securely. 
