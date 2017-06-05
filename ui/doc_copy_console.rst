@@ -127,17 +127,18 @@ Usage
       
 Note
 ----
-   
-If you are using an MVC Kit that was not downloaded from the GitHub repository, the following code needs to be added to your RoutConfig.cs file. Refer to the following link for an example: https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/RouteConfig.cs (Line 23)
 
-.. code-block:: csharp
+*  :download:`A quick sample config file </_static/images/CopyConfig.xml>`
+*  If you are using an MVC Kit that was not downloaded from the GitHub repository, the following code needs to be added to your RoutConfig.cs file. Refer to the following link for an example: https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/RouteConfig.cs (Line 23)
 
-     //configure a custom route to handle requests for "api/user/login"
-    routes.MapRoute(
-              name: "CustomAuth",
-              url: "api/user/login",
-              defaults: new { controller = "Home", action = "CustomAuth" }
-          );
-          
-Then implement a custom action to process requests for "api/user/login" as seen in the example:
-https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/HomeController.cs (Line 548)
+   .. code-block:: csharp
+
+        //configure a custom route to handle requests for "api/user/login"
+       routes.MapRoute(
+                 name: "CustomAuth",
+                 url: "api/user/login",
+                 defaults: new { controller = "Home", action = "CustomAuth" }
+             );
+             
+   Then implement a custom action to process requests for "api/user/login" as seen in the example:
+   https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/HomeController.cs (Line 548)
