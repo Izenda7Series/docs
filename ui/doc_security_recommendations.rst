@@ -172,7 +172,7 @@ In this deployment mode, the API is standalone and the Izenda front-end is embed
 
 | https://github.com/Izenda7Series/Angular2Starterkit 
 | https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone 
-
+|
 
 RSA Keys
 ~~~~~~~~~~~~~~~~~~~~~
