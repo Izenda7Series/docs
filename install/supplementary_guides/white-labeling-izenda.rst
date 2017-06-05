@@ -19,7 +19,7 @@ Creating the custom CSS file
 
 #. Create a new CSS file "customizations.css".
 #. Deploy the file to the web front-end.
-#. Edit the index.html file to include the new CSS file as shown below at line 26.
+#. Edit the index.html file to include the new CSS file as shown below at line 21.
 	
 	.. code-block:: html
 		:linenos:
