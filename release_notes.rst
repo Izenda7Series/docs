@@ -2,6 +2,15 @@
 Release Notes
 ==============
 
+v2.1.2
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 16733  Error when exporting a report with multiple report parts to Excel
+-  Defect 16733  System shows error msg when user drills down on Charts with multiple DateTime fields in x axis when using cross filtering
+-  Defect 16759  Issue with Date Based Click Through in Charts with cross filtering when drilling down from date field formatted as year, and one as Month. The system is not passing proper filter values for dates
+
 v2.1.1
 ~~~~~~~
 
