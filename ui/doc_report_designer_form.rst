@@ -10,7 +10,7 @@ HTML. User can:
 -  Interactively design the form using icons on the toolbar, with
    muli-level Undo and Redo.
 -  Add dynamic content using smart tags.
--  Add recurring content using innovative repeater tags.
+-  Add recurring content using innovative repeater tags, see `Repeater Smart Tag`_.
 -  Leverage existing report parts by embedding them into the form.
 -  Edit the form in HTML format (for experienced users).
 
@@ -316,5 +316,50 @@ In HTML tab:
       :width: 697px
 
       Form - HTML Properties |br|
+
+Repeater Smart Tag
+-------------------
+
+The Repeater smart tag allows repeating form content to dynamically display data. That content will be repeated for each unique set of values of the data.
+
+For example, the Repeater smart tag can be used to display Freight amount for each ShipCity in each ShipCountry, in a format totally customizable by the report designer.
+
+.. figure:: /_static/images/Report_Form/Form_ShipCountry_Repeater_ShipCity_SumFreight_Preview.png
+   :width: 205px
+
+   Form - Sample Repeater Result |br|
+
+To repeat a specific form content:
+
+#. 
+
+   *  Either select the content then click Repeater > Add in Insert group in Report Part Properties panel
+   *  Or wrap the content by <repeater> and </repeater> tags in HTML view
+
+#. Make sure that the field values outside of Repeater tags are either unique or grouped. |br|
+   (In this example ShipCountry field has "Group" as Function in Data Formatting)
+
+The selected content will be highlighted in Visual view.
+
+.. figure:: /_static/images/Report_Form/Form_ShipCountry_Repeater_ShipCity_SumFreight_Visual.png
+   :width: 221px
+
+   Form - Repeater Indicator in Visual view |br|
+
+Steps for this specific sample:
+
+#. Type "In country " then add field ShipCountry, select "Group" as Function in Data Formatting then enter.
+#. Type "In city " then add field ShipCity then select "Group" as Function in Data Formatting.
+#. Select both lines then choose Bullet List in Format group in Report Part Properties panel.
+#. Click anywhere in the second line and choose Increase Indent in Format group in Report Part Properties panel.
+#. Switch to HTML view to easily enter <repeater> and </repeater> tags in correct position. |br|
+
+   Also add one more <br /> tag to make the view prettier.
+
+   .. figure:: /_static/images/Report_Form/Form_ShipCountry_Repeater_ShipCity_SumFreight_HTML.png
+      :width: 923px
+
+      Form - Repeater tags in HTML view |br|
+
 
 .. |Form Link Display.png| image::  /_static/images/Form_Link_Display.png
