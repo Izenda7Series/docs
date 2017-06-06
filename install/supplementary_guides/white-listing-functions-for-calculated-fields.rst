@@ -1,6 +1,6 @@
-=================================
+====================================================
 White-Listing Functions for Calculated Fields
-=================================
+====================================================
 |
 |
 
@@ -16,7 +16,7 @@ Installation & Configuration
 |
 
 Creating the custom configuration file
-########################
+#############################################
 
 A sample config file *CustomFunctionSample.config* is included as part of the Izenda API. It is located in **API > bin > Resources**. A snippet of this file is below:
 
@@ -116,7 +116,7 @@ DatasourceName                 		Id
 
 
 Deploying the configuration file
-####################
+####################################
 
 After white-listing the desired functions, save the file and deploy it to the API folder. You may find it easier to copy the file to a 'customizations' folder as shown below to better organize any customizations.
 
@@ -133,12 +133,12 @@ Next, you will need to update the 'CustomFunctionFilePath' in the IzendaSystemSe
 
 
 Restarting the web sites
-################
+###############################
 
 After deploying the configuration file, restart the API and front-end sites.
 
 Verifying the changes
-################
+###################################
 
 Functions should now be listed in the calculated fields window.
 
@@ -147,6 +147,3 @@ Functions should now be listed in the calculated fields window.
 We can also verify that the function works as expected.
 
 .. figure:: images/floor_function2.png
-
-
-

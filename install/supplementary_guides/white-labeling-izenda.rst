@@ -15,7 +15,7 @@ CSS Overrides
 Most white-labeling can be accomplished via CSS overrides in a custom css file. 
 
 Creating the custom CSS file
-########################
+##############################
 
 #. Create a new CSS file "customizations.css".
 #. Deploy the file to the web front-end.
@@ -70,7 +70,7 @@ Common Examples
 ----------------------------------------------------
 
 Removing the Izenda Copyright notice
-##########################
+#######################################
 
 #. Update the customizations.css file to include the CSS below:
 	
@@ -92,7 +92,7 @@ Removing the Izenda Copyright notice
 .. figure:: /_static/images/copyright_after_white-labeling.png
 		
 Removing the Izenda help icon
-#######################
+################################
 
 #. Update the customizations.css file to include the CSS below:
 	
@@ -102,4 +102,3 @@ Removing the Izenda help icon
 		.icon-help-circled:before {
 			content: "" !important;
 		}
-
