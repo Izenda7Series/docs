@@ -688,9 +688,6 @@ Known Issues
      - 16751
      - User is able to edit the email's content while system is sending email
    * - Defect
-     - 16759
-     - Issue with Date Based Click Through in Charts with cross filtering when drilling down from date field formatted as year, and one as Month. The system is not passing proper filter values for dates.
-   * - Defect
      - 16761
      - Using Round function in a calculated field is not returning the proper results
    * - Defect
