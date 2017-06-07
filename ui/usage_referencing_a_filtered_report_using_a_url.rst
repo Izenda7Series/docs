@@ -76,7 +76,7 @@ Dynamically Passing A Filter Value
 
    The custom URL takes the following form:
 
-      **http://xxxx/report/view/52602346-e6ea-4027-ab75-344fd93c66ce?p1value={Country}**
+      **http://xxxx/report/view/52602346-e6ea-4027-ab75-344fd93c66ce?p1value={[Country]}**
 
 .. figure::  /_static/images/UrlFilters6.png
 
