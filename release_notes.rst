@@ -13,7 +13,17 @@ FIXES
 
 v2.1.1
 ~~~~~~~
+.. warning::
 
+   For version 2.1.1 and above, there are code-level changes that will need to be made when using Izenda in embedded mode. The previous Encryption/Decryption logic has been refactored to use a new StringCipher class local to the kits. You can view the latest commits for more details.
+
+* https://github.com/Izenda7Series/HtmlStarterkit
+* https://github.com/Izenda7Series/Angular2Starterkit
+* https://github.com/Izenda7Series/Mvc5StarterKit
+* https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone
+* https://github.com/Izenda7Series/WebFormsStarterkit
+	   
+   
 FIXES
 ^^^^^
 -  Defect 16800  In integrated instances some users can access modules not allowed for tenant
