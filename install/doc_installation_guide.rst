@@ -100,6 +100,10 @@ Install ASP.NET 4.5 and URL Rewrite Components
 
       Install IIS ASP.NET 4.5 |br|
 
+Application Pool Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When creating your Izenda Sites please ensure you set the Managed pipeline mode to Integrated. Classic is not supported.
+
 Izenda Installation As Two Separate Sites
 ------------------------------------------
 
