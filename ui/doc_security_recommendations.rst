@@ -162,8 +162,7 @@ passwords.
 
 Reporting databases 
 ~~~~~~~~~~~~~~~~~~~~~
-Following the principle of least privilege, your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. As Izenda does not update these reporting databases, read-only, and execute (if you are using store procedures) will be sufficient.
-
+Following the principle of least privilege, your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. Note, if you are using stored procedures, you will need "execute" permissions.
 
 Embedded Security - Deployment Mode 1
 ------------------------------------------------------
