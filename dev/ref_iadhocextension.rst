@@ -560,48 +560,76 @@ You can create custom formats for various datatypes by overriding the LoadCustom
 
 .. code-block:: csharp
 
-    [Export(typeof(IAdHocExtension))]
-    public class CustomAdhocReport : DefaultAdHocExtension
-    {
+        /// <summary>
+        /// Loads the defined custom formats into the Izenda application
+        /// 
+        /// <see href="https://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">Standard Numeric Format Strings</see>
+        /// </summary>
+        /// <returns>A list of custom formats. </returns>
         public override List<DataFormat> LoadCustomDataFormat()
         {
             var result = new List<DataFormat>
                 {
                     new DataFormat
                     {
-                        Name = "0,000",
+                        Name = "£0,000",
                         DataType = DataType.Numeric,
                         Category = IzendaKey.CustomFormat,
                         FormatFunc = (x) =>
                         {
-                            return ((int)x).ToString("0,000");
+                            return ((decimal)x).ToString("C0", CultureInfo.CreateSpecificCulture("en-GB"));
                         }
                     },
                     new DataFormat
                     {
-                        Name = "$0,000",
+                        Name = "¥0,000",
                         DataType = DataType.Numeric,
                         Category = IzendaKey.CustomFormat,
                         FormatFunc = (x) =>
                         {
-                            return ((int)x).ToString("$0,000");
+                            return ((decimal)x).ToString("C0", CultureInfo.CreateSpecificCulture("ja-JP"));
                         }
-                    },
-                    new DataFormat
+
+                },
+            new DataFormat
+            {
+                Name = "0,000",
+                DataType = DataType.Numeric,
+                Category = IzendaKey.CustomFormat,
+                FormatFunc = (x) =>
+                {
+                    return String.Format(CultureInfo.InvariantCulture, "{0:0,0}", x);
+                }
+
+            },
+                new DataFormat
+                {
+                    Name = "$0,000",
+                    DataType = DataType.Numeric,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
                     {
-                        Name = "$0,000",
-                        DataType = DataType.Numeric,
-                        Category = IzendaKey.CustomFormat,
-                        FormatFunc = (x) =>
-                        {
-                            return ((decimal)x).ToString("C0");
-                        }
+                        return String.Format(CultureInfo.InvariantCulture, "${0:0,0}", x);
                     }
+                },
+
+                new DataFormat
+                {
+                    Name = "HH:MM:SS",
+                    DataType = DataType.Numeric,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
+                    {
+                        var newValue = Convert.ToDouble(x);
+                        TimeSpan time = TimeSpan.FromSeconds(newValue);
+
+                        return time.ToString(@"dd\.hh\:mm\:ss");
+                    }
+                 }
                 };
 
             return result;
         }
-    }
     
 See Also
 -----------
