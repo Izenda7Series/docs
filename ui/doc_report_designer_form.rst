@@ -334,7 +334,7 @@ To repeat a specific form content:
 #. 
 
    *  Either select the content then click Repeater > Add in Insert group in Report Part Properties panel
-   *  Or wrap the content by <repeater> and </repeater> tags in HTML view
+   *  Or wrap the content by ``<repeater>`` and ``</repeater>`` tags in HTML view
 
 #. Make sure that the field values outside of Repeater tags are either unique or grouped. |br|
    (In this example ShipCountry field has "Group" as Function in Data Formatting)
@@ -352,7 +352,7 @@ Steps for this specific sample:
 #. Type "In city " then add field ShipCity then select "Group" as Function in Data Formatting.
 #. Select both lines then choose Bullet List in Format group in Report Part Properties panel.
 #. Click anywhere in the second line and choose Increase Indent in Format group in Report Part Properties panel.
-#. Switch to HTML view to easily enter <repeater> and </repeater> tags in correct position. |br|
+#. Switch to HTML view to easily enter ``<repeater>`` and ``</repeater>`` tags in correct position. |br|
 
    Also add one more <br /> tag to make the view prettier.
 
