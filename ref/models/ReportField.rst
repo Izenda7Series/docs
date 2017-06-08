@@ -157,6 +157,11 @@ ReportField
       -
       -  Invalid field setting
       -
+   *  -  **isCrossFilter** |br|
+         boolean
+      -
+      -  Whether this instance is cross filter
+      -
 
 .. container:: toggle
 
