@@ -2330,8 +2330,1106 @@ Needs SystemAdmin permission.
 
 **Response**
 
-    A full :doc:`models/ReportDefinition` object.
+   *  A full :doc:`models/ReportDefinition` object if found
+   *  null if not found
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/findByName HTTP/1.1
+
+   Request payload::
+
+      {
+         "name" : "CalculatedFieldHalfFreight",
+         "tenantId" : null,
+         "isGlobal" : false,
+         "category" : {
+            "name" : "Category 1"
+         }
+      }
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+         {
+            "inaccessible": false,
+            "category": {
+               "name": "Category 1",
+               "type": 0,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": null,
+               "dashboards": null,
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "id": "35229a62-72a5-4052-b576-64caff988b29",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "john doe",
+               "modified": null,
+               "modifiedBy": null
+            },
+            "subCategory": null,
+            "reportRelationship": [],
+            "reportPart": [
+               {
+                  "reportPartContent": {
+                     "columns": {
+                        "text": null,
+                        "properties": {},
+                        "settings": {},
+                        "elements": [
+                           {
+                              "name": "OrderID",
+                              "properties": {
+                                 "isDirty": false,
+                                 "fieldItemVisible": true,
+                                 "dataFormattings": {
+                                    "function": "",
+                                    "functionInfo": {},
+                                    "format": {
+                                       "createNewHiddenPercenOfGroupField": false
+                                    },
+                                    "font": {
+                                       "family": "Roboto",
+                                       "size": 14,
+                                       "bold": false,
+                                       "italic": false,
+                                       "underline": false,
+                                       "color": "",
+                                       "backgroundColor": ""
+                                    },
+                                    "width": {
+                                       "value": null
+                                    },
+                                    "alignment": "alignLeft",
+                                    "sort": "Unsort",
+                                    "color": {
+                                       "textColor": {
+                                          "rangePercent": null,
+                                          "rangeValue": null,
+                                          "value": null
+                                       },
+                                       "cellColor": {
+                                          "rangePercent": null,
+                                          "rangeValue": null,
+                                          "value": null
+                                       }
+                                    },
+                                    "alternativeText": {
+                                       "rangePercent": null,
+                                       "rangeValue": null,
+                                       "value": null
+                                    },
+                                    "customURL": {
+                                       "url": "",
+                                       "option": "LINK_NEW_WINDOW"
+                                    },
+                                    "embeddedJavascript": {
+                                       "script": ""
+                                    },
+                                    "subTotal": {
+                                       "label": "",
+                                       "function": "",
+                                       "expression": "",
+                                       "dataType": "",
+                                       "format": {},
+                                       "previewResult": ""
+                                    },
+                                    "grandTotal": {
+                                       "label": "",
+                                       "function": "",
+                                       "expression": "",
+                                       "dataType": "",
+                                       "format": {},
+                                       "previewResult": ""
+                                    }
+                                 },
+                                 "headerFormating": {
+                                    "font": {
+                                       "family": null,
+                                       "size": null,
+                                       "bold": null,
+                                       "italic": null,
+                                       "underline": null,
+                                       "color": null,
+                                       "backgroundColor": null
+                                    },
+                                    "alignment": null,
+                                    "wordWrap": null,
+                                    "columnGroup": ""
+                                 },
+                                 "drillDown": {
+                                    "subReport": {
+                                       "selectedReport": null,
+                                       "style": null,
+                                       "reportPartUsed": null,
+                                       "reportFilter": true,
+                                       "mappingFields": [],
+                                       "selectedIconValue": {
+                                          "icon": null,
+                                          "value": null
+                                       },
+                                       "viewSettingByLink": null
+                                    }
+                                 },
+                                 "otherProps": {}
+                              },
+                              "settings": {},
+                              "chartType": null,
+                              "showTotal": false,
+                              "position": 1,
+                              "field": {
+                                 "fieldId": "5f24170b-14a0-4ff8-933c-2816d50d2dcb",
+                                 "fieldUniqueName": "[con;#0].[cat;#0].[Orders].[OrderID]",
+                                 "originalName": null,
+                                 "fieldName": "OrderID",
+                                 "fieldNameAlias": "OrderID",
+                                 "dataFieldType": "Numeric",
+                                 "querySourceId": "ab5b596a-6d35-45a0-ad9b-d3188326bafb",
+                                 "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                                 "querySourceType": "Table",
+                                 "sourceAlias": "Orders",
+                                 "querySourceAlias": null,
+                                 "relationshipId": "00000000-0000-0000-0000-000000000000",
+                                 "visible": true,
+                                 "filterable": false,
+                                 "reportId": null,
+                                 "fieldFunctionExpression": "",
+                                 "expression": null,
+                                 "grandTotalExpression": "",
+                                 "grandTotalFormat": null,
+                                 "subTotalExpression": "",
+                                 "subtotalFormat": null,
+                                 "sort": "Unsorted",
+                                 "autoSort": false,
+                                 "function": null,
+                                 "formating": {
+                                    "format": null,
+                                    "createNewHiddenPercenOfGroupField": false
+                                 },
+                                 "functionDataType": "",
+                                 "isCalculated": false,
+                                 "hasAggregatedFunction": false,
+                                 "invalidField": 0,
+                                 "isCrossFilter": false
+                              }
+                           },
+                           {
+                              "name": "HalfFreight",
+                              "properties": {
+                                 "isDirty": false,
+                                 "fieldItemVisible": true,
+                                 "dataFormattings": {
+                                    "function": "",
+                                    "functionInfo": {},
+                                    "format": {
+                                       "createNewHiddenPercenOfGroupField": false
+                                    },
+                                    "font": {
+                                       "family": "Roboto",
+                                       "size": 14,
+                                       "bold": false,
+                                       "italic": false,
+                                       "underline": false,
+                                       "color": "",
+                                       "backgroundColor": ""
+                                    },
+                                    "width": {
+                                       "value": null
+                                    },
+                                    "alignment": "alignLeft",
+                                    "sort": "Unsort",
+                                    "color": {
+                                       "textColor": {
+                                          "rangePercent": null,
+                                          "rangeValue": null,
+                                          "value": null
+                                       },
+                                       "cellColor": {
+                                          "rangePercent": null,
+                                          "rangeValue": null,
+                                          "value": null
+                                       }
+                                    },
+                                    "alternativeText": {
+                                       "rangePercent": null,
+                                       "rangeValue": null,
+                                       "value": null
+                                    },
+                                    "customURL": {
+                                       "url": "",
+                                       "option": "LINK_NEW_WINDOW"
+                                    },
+                                    "embeddedJavascript": {
+                                       "script": ""
+                                    },
+                                    "subTotal": {
+                                       "label": "",
+                                       "function": "",
+                                       "expression": "",
+                                       "dataType": "",
+                                       "format": {},
+                                       "previewResult": "",
+                                       "fieldDataType": "Money",
+                                       "previewRecord": 10
+                                    },
+                                    "grandTotal": {
+                                       "label": "",
+                                       "function": "",
+                                       "expression": "",
+                                       "dataType": "",
+                                       "format": {},
+                                       "previewResult": "",
+                                       "fieldDataType": "Money",
+                                       "previewRecord": 10
+                                    }
+                                 },
+                                 "headerFormating": {
+                                    "font": {
+                                       "family": null,
+                                       "size": null,
+                                       "bold": null,
+                                       "italic": null,
+                                       "underline": null,
+                                       "color": null,
+                                       "backgroundColor": null
+                                    },
+                                    "alignment": null,
+                                    "wordWrap": null,
+                                    "columnGroup": ""
+                                 },
+                                 "drillDown": {
+                                    "subReport": {
+                                       "selectedReport": null,
+                                       "style": null,
+                                       "reportPartUsed": null,
+                                       "reportFilter": true,
+                                       "mappingFields": [],
+                                       "selectedIconValue": {
+                                          "icon": null,
+                                          "value": null
+                                       },
+                                       "viewSettingByLink": null
+                                    }
+                                 },
+                                 "otherProps": {}
+                              },
+                              "settings": {},
+                              "chartType": null,
+                              "showTotal": false,
+                              "position": 2,
+                              "field": {
+                                 "fieldId": "f0db2f29-77d6-4269-bfd6-9b8e2c3a1374",
+                                 "fieldUniqueName": "[HalfFreight]",
+                                 "originalName": null,
+                                 "fieldName": "HalfFreight",
+                                 "fieldNameAlias": "HalfFreight",
+                                 "dataFieldType": "Money",
+                                 "querySourceId": "00000000-0000-0000-0000-000000000000",
+                                 "querySourceUniqueName": null,
+                                 "querySourceType": "",
+                                 "sourceAlias": "Calculated Fields",
+                                 "querySourceAlias": null,
+                                 "relationshipId": "00000000-0000-0000-0000-000000000000",
+                                 "visible": true,
+                                 "filterable": false,
+                                 "reportId": null,
+                                 "fieldFunctionExpression": "",
+                                 "expression": null,
+                                 "grandTotalExpression": "",
+                                 "grandTotalFormat": null,
+                                 "subTotalExpression": "",
+                                 "subtotalFormat": null,
+                                 "sort": "Unsorted",
+                                 "autoSort": false,
+                                 "function": null,
+                                 "formating": {
+                                    "format": null,
+                                    "createNewHiddenPercenOfGroupField": false
+                                 },
+                                 "functionDataType": "",
+                                 "isCalculated": true,
+                                 "hasAggregatedFunction": false,
+                                 "invalidField": 0,
+                                 "isCrossFilter": false
+                              }
+                           }
+                        ]
+                     },
+                     "rows": {
+                        "text": null,
+                        "properties": {},
+                        "settings": {},
+                        "elements": []
+                     },
+                     "values": {
+                        "text": null,
+                        "properties": {},
+                        "settings": {},
+                        "elements": []
+                     },
+                     "separators": {
+                        "text": null,
+                        "properties": {},
+                        "settings": {},
+                        "elements": []
+                     },
+                     "type": 3,
+                     "properties": {
+                        "isDirty": false,
+                        "generalInfo": {
+                           "gridStyle": "Vertical",
+                           "separatorStyle": "Comma"
+                        },
+                        "table": {
+                           "border": {
+                              "top": {},
+                              "right": {},
+                              "bottom": {},
+                              "midVer": {},
+                              "left": {},
+                              "midHor": {}
+                           },
+                           "backgroundColor": "#fff"
+                        },
+                        "columns": {
+                           "width": {
+                              "value": 150
+                           },
+                           "alterBackgroundColor": false
+                        },
+                        "rows": {
+                           "alterBackgroundColor": false
+                        },
+                        "headers": {
+                           "font": {
+                              "family": "Roboto",
+                              "size": 14,
+                              "bold": true,
+                              "italic": false,
+                              "underline": false,
+                              "color": "#000000",
+                              "backgroundColor": "#E4E4E4"
+                           },
+                           "alignment": "center",
+                           "wordWrap": false,
+                           "removeHeaderForExport": false
+                        },
+                        "grouping": {
+                           "useSeparator": true
+                        },
+                        "view": {
+                           "dataRefreshInterval": {
+                              "enable": false,
+                              "updateInterval": 0,
+                              "isAll": true,
+                              "latestRecord": 0
+                           },
+                           "usePagination": true,
+                           "pivotColumnsPerExportedPage": "",
+                           "pageSize": 10
+                        },
+                        "printing": {
+                           "usePageBreakAfterSeparator": false
+                        }
+                     },
+                     "settings": {},
+                     "title": {
+                        "text": "",
+                        "properties": {},
+                        "settings": {
+                           "font": {
+                              "family": "",
+                              "size": 14,
+                              "bold": true,
+                              "italic": false,
+                              "underline": false,
+                              "color": "",
+                              "highlightColor": ""
+                           },
+                           "alignment": {
+                              "alignment": ""
+                           }
+                        },
+                        "elements": []
+                     },
+                     "description": {
+                        "text": "",
+                        "properties": {},
+                        "settings": {
+                           "font": {
+                              "family": "",
+                              "size": 14,
+                              "bold": false,
+                              "italic": false,
+                              "underline": false,
+                              "color": "",
+                              "highlightColor": ""
+                           },
+                           "alignment": {
+                              "alignment": ""
+                           }
+                        },
+                        "elements": []
+                     },
+                     "expandedLevel": -1,
+                     "isCrossFiltering": false
+                  },
+                  "title": "Grid",
+                  "positionX": 0,
+                  "positionY": 0,
+                  "width": 0,
+                  "height": 0,
+                  "reportId": "37045413-72d6-43fe-aa07-83c722b49bb3",
+                  "numberOfRecord": null,
+                  "sourceId": null,
+                  "id": "71f1422b-adca-46a8-87d9-6b866ef17f57",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": 1,
+                  "created": "2017-06-09T04:15:35.803",
+                  "createdBy": "john doe",
+                  "modified": "2017-06-09T04:15:35.803",
+                  "modifiedBy": "john doe"
+               }
+            ],
+            "reportFilter": {
+               "filterFields": [],
+               "logic": "",
+               "visible": false,
+               "reportId": "37045413-72d6-43fe-aa07-83c722b49bb3",
+               "id": "e2c2162b-5650-4784-bf8e-2fe8fcce9b23",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": 1,
+               "created": "2017-06-09T04:15:35.79",
+               "createdBy": "john doe",
+               "modified": "2017-06-09T04:15:35.79",
+               "modifiedBy": "john doe"
+            },
+            "calculatedFields": [
+               {
+                  "name": "HalfFreight",
+                  "alias": "",
+                  "dataType": "",
+                  "izendaDataType": "Money",
+                  "allowDistinct": true,
+                  "visible": true,
+                  "filterable": true,
+                  "querySourceId": "00000000-0000-0000-0000-000000000000",
+                  "parentId": null,
+                  "expressionFields": [
+                     {
+                        "fieldId": "6fb58da5-a0ce-4b3b-bd86-3ed0214f84e2",
+                        "fieldUniqueName": "[con;#0].[cat;#0].[Orders].[Freight]",
+                        "originalName": "Freight",
+                        "fieldName": "Freight",
+                        "fieldNameAlias": "",
+                        "dataFieldType": null,
+                        "querySourceId": "ab5b596a-6d35-45a0-ad9b-d3188326bafb",
+                        "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                        "querySourceType": null,
+                        "sourceAlias": "",
+                        "querySourceAlias": null,
+                        "relationshipId": "00000000-0000-0000-0000-000000000000",
+                        "visible": false,
+                        "filterable": false,
+                        "reportId": null,
+                        "fieldFunctionExpression": null,
+                        "expression": null,
+                        "grandTotalExpression": null,
+                        "grandTotalFormat": null,
+                        "subTotalExpression": null,
+                        "subtotalFormat": null,
+                        "sort": "Unsorted",
+                        "autoSort": false,
+                        "function": null,
+                        "formating": null,
+                        "functionDataType": null,
+                        "isCalculated": false,
+                        "hasAggregatedFunction": false,
+                        "invalidField": 0,
+                        "isCrossFilter": false
+                     }
+                  ],
+                  "filteredValue": "",
+                  "type": 0,
+                  "groupPosition": 0,
+                  "position": 0,
+                  "extendedProperties": "[{\"FieldId\":\"6fb58da5-a0ce-4b3b-bd86-3ed0214f84e2\",\"FieldUniqueName\":\"[con;#0].[cat;#0].[Orders].[Freight]\",\"OriginalName\":\"Freight\",\"FieldName\":\"Freight\",\"FieldNameAlias\":\"\",\"DataFieldType\":null,\"QuerySourceId\":\"ab5b596a-6d35-45a0-ad9b-d3188326bafb\",\"QuerySourceUniqueName\":\"[con;#0].[cat;#0].[Orders]\",\"QuerySourceType\":null,\"SourceAlias\":\"\",\"QuerySourceAlias\":null,\"RelationshipId\":\"00000000-0000-0000-0000-000000000000\",\"Visible\":false,\"Filterable\":false,\"ReportId\":null,\"FieldFunctionExpression\":null,\"Expression\":null,\"GrandTotalExpression\":null,\"GrandTotalFormat\":null,\"SubTotalExpression\":null,\"SubtotalFormat\":null,\"Sort\":\"Unsorted\",\"AutoSort\":false,\"Function\":null,\"Formating\":null,\"FunctionDataType\":null,\"IsCalculated\":false,\"HasAggregatedFunction\":false,\"InvalidField\":0,\"IsCrossFilter\":false}]",
+                  "physicalChange": 0,
+                  "approval": 0,
+                  "existed": false,
+                  "matchedTenant": false,
+                  "functionName": "",
+                  "expression": "[Freight]/2",
+                  "fullName": null,
+                  "calculatedTree": null,
+                  "reportId": "37045413-72d6-43fe-aa07-83c722b49bb3",
+                  "originalName": null,
+                  "originalId": "00000000-0000-0000-0000-000000000000",
+                  "isParameter": false,
+                  "isCalculated": true,
+                  "hasAggregatedFunction": false,
+                  "querySource": null,
+                  "querySourceName": null,
+                  "categoryName": null,
+                  "inaccessible": false,
+                  "originalAlias": null,
+                  "fullPath": null,
+                  "id": "f0db2f29-77d6-4269-bfd6-9b8e2c3a1374",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": 1,
+                  "created": "2017-06-09T04:15:35.76",
+                  "createdBy": "john doe",
+                  "modified": "2017-06-09T04:15:35.76",
+                  "modifiedBy": "john doe"
+               }
+            ],
+            "accesses": [],
+            "schedules": [],
+            "reportParams": [
+               {
+                  "categories": [
+                     {
+                        "querySourceNames": [
+                           "Orders"
+                        ],
+                        "id": "571f2b7c-a301-4957-8568-50510637023d",
+                        "name": "dbo"
+                     }
+                  ],
+                  "id": "99f0fc49-6937-492e-bfd0-04c7c887fec7",
+                  "name": "Northwind"
+               }
+            ],
+            "dynamicQuerySourceFields": [],
+            "name": "CalculatedFieldHalfFreight",
+            "reportDataSource": [
+               {
+                  "reportId": "37045413-72d6-43fe-aa07-83c722b49bb3",
+                  "querySourceId": "ab5b596a-6d35-45a0-ad9b-d3188326bafb",
+                  "querySourceUniqueName": "[con;#0].[cat;#0].[Orders]",
+                  "querySourceCategoryId": null,
+                  "connectionId": null,
+                  "selected": false,
+                  "id": "be8eb462-111a-4957-916f-2c30f828f9fc",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": 1,
+                  "created": "2017-06-09T04:15:35.75",
+                  "createdBy": "john doe",
+                  "modified": "2017-06-09T04:15:35.75",
+                  "modifiedBy": "john doe"
+               }
+            ],
+            "type": 0,
+            "previewRecord": 10,
+            "advancedMode": true,
+            "allowNulls": false,
+            "isDistinct": false,
+            "categoryId": "35229a62-72a5-4052-b576-64caff988b29",
+            "categoryName": "Category 1",
+            "subCategoryId": null,
+            "subCategoryName": null,
+            "tenantId": null,
+            "tenantName": null,
+            "description": "",
+            "title": "",
+            "lastViewed": null,
+            "owner": "john doe",
+            "ownerId": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "excludedRelationships": "",
+            "numberOfView": 0,
+            "renderingTime": 0,
+            "createdById": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "modifiedById": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "snapToGrid": false,
+            "usingFields": "5f24170b-14a0-4ff8-933c-2816d50d2dcb",
+            "hasDeletedObjects": false,
+            "header": {
+               "visible": false,
+               "items": [
+                  {
+                     "isDirty": false,
+                     "type": "image",
+                     "label": "Image",
+                     "id": "formatDetails_56",
+                     "positionX": 0,
+                     "positionY": 0,
+                     "width": 6,
+                     "height": 6,
+                     "name": "Logo Image",
+                     "value": "",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "imageUrl": "http://",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_57",
+                     "positionX": 20,
+                     "positionY": 0,
+                     "width": 12,
+                     "height": 2,
+                     "name": "Report Name",
+                     "value": "{reportName}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "thinHorizontalRule",
+                     "label": "Horizontal Rule",
+                     "id": "formatDetails_58",
+                     "positionX": 20,
+                     "positionY": 4,
+                     "width": 12,
+                     "height": 1,
+                     "name": "Upper Separator Line",
+                     "value": "{horizontalRule}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 2
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_59",
+                     "positionX": 20,
+                     "positionY": 5,
+                     "width": 6,
+                     "height": 2,
+                     "name": "Report Generated",
+                     "value": "Report Generated:",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_60",
+                     "positionX": 20,
+                     "positionY": 7,
+                     "width": 6,
+                     "height": 2,
+                     "name": "User",
+                     "value": "User:",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_61",
+                     "positionX": 20,
+                     "positionY": 9,
+                     "width": 6,
+                     "height": 2,
+                     "name": "Tenant",
+                     "value": "Tenant:",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "dateTime",
+                     "label": "Date Time",
+                     "id": "formatDetails_62",
+                     "positionX": 26,
+                     "positionY": 5,
+                     "width": 6,
+                     "height": 2,
+                     "name": "Current Date Time",
+                     "value": "{currentDateTime}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_63",
+                     "positionX": 26,
+                     "positionY": 7,
+                     "width": 6,
+                     "height": 2,
+                     "name": "Current User Name",
+                     "value": "{currentUserName}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_64",
+                     "positionX": 26,
+                     "positionY": 9,
+                     "width": 6,
+                     "height": 2,
+                     "name": "Tenant Name",
+                     "value": "{tenantName}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "horizontalRule",
+                     "label": "Horizontal Rule",
+                     "id": "formatDetails_65",
+                     "positionX": 0,
+                     "positionY": 11,
+                     "width": 32,
+                     "height": 1,
+                     "name": "Lower Separator Line",
+                     "value": "{horizontalRule}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 4
+                  }
+               ]
+            },
+            "footer": {
+               "visible": false,
+               "items": [
+                  {
+                     "isDirty": false,
+                     "type": "horizontalRule",
+                     "label": "Horizontal Rule",
+                     "id": "formatDetails_66",
+                     "positionX": 0,
+                     "positionY": 0,
+                     "width": 32,
+                     "height": 1,
+                     "name": "Separator Line",
+                     "value": "{horizontalRule}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 4
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_67",
+                     "positionX": 0,
+                     "positionY": 1,
+                     "width": 10,
+                     "height": 2,
+                     "name": "Footer Text",
+                     "value": "Footer Text",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "text",
+                     "label": "Text",
+                     "id": "formatDetails_68",
+                     "positionX": 20,
+                     "positionY": 1,
+                     "width": 4,
+                     "height": 2,
+                     "name": "Page",
+                     "value": "Page",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "pageNumber",
+                     "label": "Page Number",
+                     "id": "formatDetails_69",
+                     "positionX": 24,
+                     "positionY": 1,
+                     "width": 8,
+                     "height": 2,
+                     "name": "Page Number",
+                     "value": "{pageNumber}",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  }
+               ]
+            },
+            "titleDescription": {
+               "visible": false,
+               "items": [
+                  {
+                     "isDirty": false,
+                     "type": "title",
+                     "label": "Title",
+                     "id": "formatDetails_70",
+                     "name": "Title",
+                     "value": "",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  },
+                  {
+                     "isDirty": false,
+                     "type": "description",
+                     "label": "Description",
+                     "id": "formatDetails_71",
+                     "name": "Description",
+                     "value": "",
+                     "font": {
+                        "family": "Roboto",
+                        "size": 14,
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "color": "#000",
+                        "backgroundColor": "#fff"
+                     },
+                     "color": "#000",
+                     "dashStyle": "solid",
+                     "thickness": 1
+                  }
+               ]
+            },
+            "sourceId": null,
+            "checked": false,
+            "copyDashboard": false,
+            "exportFormatSetting": {
+               "orientation": 0,
+               "margins": 0,
+               "centerOnPage": {
+                  "horizontally": false,
+                  "vertically": false
+               },
+               "pageBreakAfterReportPart": false,
+               "marginSettings": [
+                  {
+                     "type": 3,
+                     "topValue": 0.75,
+                     "bottomValue": 0.75,
+                     "leftValue": 0.7,
+                     "rightValue": 0.7,
+                     "headerValue": 0.3,
+                     "footerValue": 0.3
+                  },
+                  {
+                     "type": 0,
+                     "topValue": 0.75,
+                     "bottomValue": 0.75,
+                     "leftValue": 0.7,
+                     "rightValue": 0.7,
+                     "headerValue": 0.3,
+                     "footerValue": 0.3
+                  },
+                  {
+                     "type": 1,
+                     "topValue": 0.75,
+                     "bottomValue": 0.75,
+                     "leftValue": 0.25,
+                     "rightValue": 0.25,
+                     "headerValue": 0.3,
+                     "footerValue": 0.3
+                  },
+                  {
+                     "type": 2,
+                     "topValue": 1,
+                     "bottomValue": 1,
+                     "leftValue": 1,
+                     "rightValue": 1,
+                     "headerValue": 0.5,
+                     "footerValue": 0.5
+                  }
+               ]
+            },
+            "deletable": false,
+            "editable": false,
+            "movable": false,
+            "copyable": false,
+            "accessPriority": 0,
+            "active": false,
+            "fullPath": null,
+            "computeNameSettings": null,
+            "isGlobal": false,
+            "id": "37045413-72d6-43fe-aa07-83c722b49bb3",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": 1,
+            "created": "2017-06-09T04:15:35.647",
+            "createdBy": "john doe",
+            "modified": "2017-06-09T04:15:35.647",
+            "modifiedBy": "john doe"
+         }
