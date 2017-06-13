@@ -23,11 +23,13 @@ Upgrade Preparations
 
       Izenda System Database upgrade scripts.
 
-         The scripts are organized into separate folders, each for upgrading to a specific database version. |br|
+      Each migration script is located in the download folder for the new version as shown below:
+
+      Each patch release will contain the upgrade scripts from all prior versions within that Major/Minor version. For instance, in the upgrade script for 2.1.0 you will see 2.0.0 - 2.1.0. This will upgrade your database from any version in 2.0.x to 2.1.0. |br|
 
    *  .. _Upgrade_Izenda_App_folder:
 
-      .. figure:: /_static/images/Izenda_App_folder.png
+      .. figure:: /_static/images/Izenda_App_folder2.png
          :align: right
          :width: 482px
 
@@ -66,7 +68,9 @@ System Backup
 
 Izenda System Database Backup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. note::
 
+   Izenda recommends that you back up your data before upgrading to a newer version.
  
 
     This is a step-by-step guide for SQL Server using Management Studio
