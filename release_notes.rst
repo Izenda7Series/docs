@@ -10,7 +10,7 @@ FIXES
 -  Defect 17162	 Casing issue on table IzendaReportDataSource causing errors in some MySQL instances
 -  Defect 17125	 Adding aggregate function to form field is not grouping other selected fields as expected
 -  Defect 17071	 Deleting repeaters on forms invalidates field names.
--  Defect 16981	 The wording for the license expiry is incorrect. It states now "The license expired 6 number of days ago"
+-  Defect 16981	 The wording for the license expiry is incorrect. It states now "The license expired x number of days ago"
 -  Defect 16963	 On Header/Footer system is still validating deleted items
 -  Defect 16876	 In Report Designer with aggregated field as filter, error message displays "The application has encountered an unknown error.." after removing aggregated field in Configuration section
 -  Defect 16783	 In Angular 2 embedded scenarios forms are not working properly
