@@ -5,10 +5,7 @@ Supported Database Types
 Supported Databases
 ~~~~~~~~~~~~~~~~~~~
 
--  Izenda fully supports the following database servers:
-
-   .. hlist::
-      :columns: 2
+Izenda fully supports the following database servers:
 
       -  Microsoft SQL Server 2008 or later
       -  Microsoft Azure
