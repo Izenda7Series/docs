@@ -11,21 +11,7 @@ An automatic upgrade process is still in progress. In the mean time, an upgrade 
 Upgrade Preparations
 --------------------
 
--  Izenda installation packages
-
-   *  .. _Database_upgrade_scripts:
-
-      .. figure:: /_static/images/Database_upgrade_scripts.png
-         :align: right
-         :width: 455px
-
-         Version-specific folders containing upgrade scripts
-
-      Izenda System Database upgrade scripts.
-
-      Each migration script is located in the download folder for the new version as shown below:
-
-      Each patch release will contain the upgrade scripts from all prior versions within that Major/Minor version. For instance, in the upgrade script for 2.1.0 you will see 2.0.0 - 2.1.0. This will upgrade your database from any version in 2.0.x to 2.1.0. |br|
+-  Before upgrading Izenda, you will need to download Izenda System Database upgrade scripts. These scripts are located on our downloads page in each respective versoin. For instance, If you are looking to upgrade to 2.1.0, the update scripts will be found in the directory /v2.1.0/ . Each patch release will contain the upgrade scripts from all prior versions within that Major/Minor version. For instance, in the upgrade script for 2.1.0 you will see 2.0.0 - 2.1.0. This will upgrade your database from any version in 2.0.x to 2.1.0. |br|
 
    *  .. _Upgrade_Izenda_App_folder:
 
