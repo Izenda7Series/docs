@@ -223,9 +223,6 @@ Known Issues
      - 15152
      - Performance issue occurs when adding some fields to ROWS container
    * - Defect
-     - 15174
-     - Advance Settings page displays missing a part of "Determine common filter for the same field based on" content on laptop
-   * - Defect
      - 15178
      - Connection Builder Syntax is incorrect for some supported databases
    * - Defect
@@ -477,9 +474,6 @@ Known Issues
    * - Defect
      - 15945
      - No roles/users are displayed when tenant user with Full Report and Dashboard access shares their reports to role/user
-   * - Defect
-     - 15962
-     - On Database Mapping save button is not functioning after deleting a tenant then the whole row
    * - Defect
      - 15966
      - In Oracle Error displays when report contains at least 1 calculated field filter and aggregated field in container
@@ -757,9 +751,6 @@ Known Issues
      - 16873
      - In scheduled instances the same emails are sent to cc-list more than one time (in case more than one email recipient put in to-list)
    * - Defect
-     - 16876
-     - In Report Designer with aggregated field as filter, error message displays "The application has encountered an unknown error.." after removing aggregated field in Configuration section
-   * - Defect
      - 16877
      - Error message 'No result found' appears when clicking on Custom URL link on Chart after adding Separators
    * - Defect
@@ -801,9 +792,6 @@ Known Issues
    * - Defect
      - 16967
      - Runningsum function in calculated fields is not displaying the proper values
-   * - Defect
-     - 16981
-     - The wording for the license expiry is incorrect. It states now "The license expired 6 number of days ago"
    * - Defect
      - 16990
      - Mouse cursor is not released when resizing the grid columns columns in report designer
