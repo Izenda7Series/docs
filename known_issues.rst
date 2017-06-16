@@ -328,9 +328,6 @@ Known Issues
      - 15468
      - For Simple Datasource Mode Subtotal/Grand total preview does not show when having at least 1 relationship
    * - Defect
-     - 15469
-     - No tooltip displays when hovering over Column Group text field
-   * - Defect
      - 15470
      - No record found if both master and sub reports' datetime fields are not formatted
    * - Defect
@@ -756,9 +753,6 @@ Known Issues
    * - Defect
      - 16880
      - System is not properly updating from custom field formats to standard one when changed
-   * - Defect
-     - 16881
-     - Using stored procedures decimal Accuracy Is Not Being Respected
    * - Defect
      - 16882
      - Forms do not render image data types
