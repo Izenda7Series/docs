@@ -2,6 +2,17 @@
 Release Notes
 ==============
 
+v2.1.4
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17258	 When using the Angular 2 kit and creating a dashboard receiving Error 'offsetHeight' of null.
+-  Defect 17131	 Unable to drag and drop field into Report Body on Chrome version 59
+-  Defect 16881	 Using stored procedures decimal Accuracy Is Not Being Respected
+-  Defect 16839	 System is not keeping Sort setting on Field Properties if form contains multi Fields in container
+-  Defect 15469	 No tooltip displays when hovering over Column Group text field
+
 v2.1.3
 ~~~~~~~
 
