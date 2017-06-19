@@ -2,6 +2,8 @@
 Building the MVC Starter Kit
 ===========================================
 
+.. contents:: Table of Contents
+
 Introduction
 ===========================================
 
@@ -35,7 +37,7 @@ This is as simple as just dropping in the Izenda EmbeddedUI Code base.
 
 Once the Izenda ReactJS library is present you’ll have direct access to the IzendaSynergy render functions.
 
-This is done in the `Copying Izenda Resources and References`__ section of the guide below.
+This is done in the `Copying Izenda Resources and References`_ section of the guide below.
 
 The Izenda.integrate.js file
 -------------------------------------------
@@ -44,7 +46,7 @@ This file is a good representation of how to bundle together IzendaSynergy confi
 
 You may choose to create a similar file in your own application code base as it greatly simplifies the amount of on page code you might write to manage your resource references, API endpoint references, passing of the Izenda currentusercontext token, and specific render function.
 
-This is done in the `Copying Izenda Resources and References`__ section of the guide below.
+This is done in the `Copying Izenda Resources and References`_ section of the guide below.
 
 You can view the contents of `Izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`__.
 
@@ -53,7 +55,7 @@ Using the render functions
 
 Once the EmbeddedUI front-end resources are in place, and we’ve configured the configuration, authentication, and render functions. The last thing to do is use these bundled JavaScript functions within our application’s front-end to render specific Izenda containers/pages.
 
-This is done in the `Embedded Front-end <Embedding Front-end Izenda (Izenda UI)>`__ section of the guide below.
+This is done in the `Embedded Front-end <Embedding Front-end Izenda (Izenda UI)>`_ section of the guide below.
 
 Security Handshake
 ===========================================
@@ -210,90 +212,657 @@ The default template of MVC 5 is created, you will use this template to implemen
 
 Copying Izenda Resources and References
 ===========================================
+
+In Solution Explorer of Mvc5StarterKit project, add new folders below:
+
+*  IzendaBoundary
+*  IzendaReferences
+*  IzendaResources
+*  Scripts\\izenda
+
+Copy Izenda Resource to starter kit project:
+
+*  Download and copy `izendadb.config <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config>`__ file into ~\\Mvc5StarterKit
+*  Download latest Izenda API package (API.zip) extract zip file and then:
+
+   -  Copy all sub folders and files in ~\\API\\bin to ~ \\Mvc5StarterKit\\IzendaReferences
+   -  Copy 3 folders API\\Content, API\\EmailTemplates and API\\Export to ~ \\Mvc5StarterKit\\IzendaResources
+
+*  Download latest Izenda Embedded UI package (EmbeddedUI.zip), extract zip file then copy all sub folders and files to ~\\Mvc5StarterKit\\Scripts\\izenda
+*  Download `izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`__, `izenda.utils.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.utils.js>`__ and `alertify.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/alertify.js>`__ then copy to ~\\Mvc5StarterKit\\Scripts
+*  Download `alertify.css <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Content/alertify.css>`__ and copy to ~\\Mvc5StarterKit\\Content
+
 Configuring the Project Build
 ===========================================
 Add Izenda DLLs reference and other dependencies
 ------------------------------------------------
+
+#. Right click Reference node in Mvc5StarterKit Solution Explorer then select Add Reference…
+
+   .. figure:: /_static/images/mvc_add_reference.png
+      :width: 361px
+
+      Add reference
+
+#. On Reference Manager dialog click Browse… button then browse to folder ~\\Mvc5StarterKit\\IzendaReferences, select all DLL files to reference but ignore below dlls (because those dlls have already been referenced in MVC 5 project template by default):
+
+   *  Microsoft.Web.Infrastructure.dll
+   *  Newtonsoft.Json.dll
+   *  System.Net.Http.dll
+   *  System.Web.Razor.dll
+
+   .. note:: In this step if you encounter errors regarding reference conflicts, you must configure Redirecting Assembly as required or contact Izenda Support.
+
+#. You also need to add System.ComponentModel.Composition. |br|
+   Go to Add References again, Assemblies-> Framework and check System.ComponentModel.Composition.
+
+#. Finally, go to Tools->NuGet Packet Manager->Package Manager Console and run the following:
+
+   .. code-block:: console
+
+      Install-Package Microsoft.AspNet.WebApi.Client
+
 Adding post build events to copy the resources
 ------------------------------------------------
+
+Adding post build events to copy the resources
+Open Project Properties page select Build Events then click Edit Post-build… button and then enter the commands below into Post-build event command line box:
+
+.. code-block:: console
+
+   XCOPY /S /I /Y  "$(ProjectDir)IzendaResources\Content" "$(ProjectDir)\bin\Content\"
+   XCOPY /S /I /Y  "$(ProjectDir)IzendaResources\EmailTemplates" "$(ProjectDir)\bin\EmailTemplates\"
+   XCOPY /S /I /Y  "$(ProjectDir)IzendaResources\Export" "$(ProjectDir)\bin\Export\"
+
+.. figure:: /_static/images/mvc_post_build_events.png
+   :width: 806px
+
+   Copy Resources on Post build event
+
 Configuring the Script and Style Bundle
 ===========================================
+
+Open ~\\Mvc5StarterKit\\App_Start\\BundleConfig.cs then config for Izenda as below:
+
+.. literalinclude:: included_samples/mvc_BundleConfig.cs
+   :linenos:
+   :lines: 26-
+   :emphasize-lines: 19-31
+
+`View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/BundleConfig.cs>`__
+
+Open ~\\Views\\Shared\\_Layout.cshtml and add bundle script:
+
+.. literalinclude:: included_samples/mvc_Layout.cshtml
+   :linenos:
+   :lines: 66-
+
 Configuring the Routes
 ===========================================
+
+Open ~\\Mvc5StarterKit\\App_Start\\RouteConfig.cs then modify the routing config as shown below:
+
+.. literalinclude:: included_samples/mvc_RouteConfig.cs
+   :linenos:
+   :lines: 10-
+
+`View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/RouteConfig.cs>`__
+
+The statement ``routes.IgnoreRoute("api/{*pathInfo}")`` is important, do not miss it. This route will instruct MVC routine ignore any request API which is begin with ``api/`` prefix (instead of response as Controller and View request, it will treat as API Service request), and this prefix must be same with value of Izenda API prefix setting ``<add key="izendaapiprefix" value="api" />`` that you will config in section `Izenda API Service Hosting Config`_ later.
+
+Some of the routing configuration may seem strange, but they will be explained later. The table below details the purpose of each URL route:
+
+.. list-table::
+   :widths: 15 25 60
+   :header-rows: 1
+
+   * - Name
+     - URL
+     - Description
+   * - ReportPart
+     - viewer/reportpart/{id}
+     - This route is used by Izenda BE Service to capture html content of report party type chart, gauge or map. Mostly used for report exporting function
+   * - ReportViewer
+     - report/view/{id}
+     - This route is used by Izenda BE Service to capture report content in html format. It is using in exporting report content to embedded html and send it to email (send to email directly or send by report subscription function)
+   * - DashboardViewer
+     - dashboard/view/{id}
+     - The route used by Izenda BE Service to capture dashboard content in html format. Using for exporting dashboard content to email.
+   * - CustomAuth
+     - api/user/login
+     - The route used by the CopyConsole tool to login to your integrated Izenda API for executing Copy Management feature.
+
 Setting up the Database
 ===========================================
+
+In this starter kit, we use SQL Server for the database server. Izenda supports many database engines such as: [MSSQL] SQL Server, [AZSQL] AzureSQL, [MYSQL] MySQL, [ORACL] Oracle and [PGSQL] PostgreSQL. The steps to setting up these databases are similar.
+
 Create Izenda DB
 -------------------------------------------
+
+On your SQL Server create an empty database named IzendaMvc. This database stores Izenda data (report definitions, dashboards, etc.) and the configuration necessary to run Izenda.
+Download `IzendaMvc.sql <https://raw.githubusercontent.com/Izenda7Series/Mvc5StarterKit/master/SQLScript/MSSQL/IzendaMvc.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
+
 Updating the Izenda DB
 -------------------------------------------
+
+The IzendaMvc.sql script will generate a configuration database for Izenda 1.24.4.
+
+If you use an EmbeddedUI and API for a later version of Izenda you will need to run update scripts against your IzendaMvc database.
+
+For example, if you deploy the 2.1.3 API and Embedded UI you’ll need to run the following update scripts:
+
+#. 1.24.0 -1.25.0 - https://downloads.izenda.com/v1.25.0/SchemaMigrationScripts/ 
+#.	1.25.0-2.0.0 - https://downloads.izenda.com/v2.0.0/SchemaMigrationScripts/ 
+#.	2.0.0-2.1.0 - https://downloads.izenda.com/v2.1.0/SchemaMigrationScripts/ 
+#.	2.1.0-2.2.0 - https://downloads.izenda.com/v2.1.3/SchemaMigrationScripts/
+
 Create Authentication DB
 -------------------------------------------
+
+On your SQL Server create an empty database named Mvc5StarterKit. This database is used for storing user authentication information. In your real integrated application, it can be replaced by your system database with your custom user credential information.
+
+Download `Mvc5StarterKit.sql <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/SQLScript/MSSQL/Mvc5StarterKit.sql>`__ and execute on Mvc5StarterKit database to create schema and default user authentication settings.
+
 Verifying Izenda DB and Authentication DB
 -------------------------------------------
+
+After creating the IzendaDB, select all rows in the IzendaSystemSetting table and verify that the values are the same as below:
+
+.. list-table::
+   :widths: 15 15 70
+   :header-rows: 1
+
+   * - Name
+     - Value
+     - Description
+   * - DeploymentMode
+     - 3
+     - The setting for deployment mode, in this starter kit it is fully integrated.
+   * - WebUrl
+     - http://localhost:14809/
+     - The setting value must be base address of your front-end web page url.
+
+Next you must ensure the UserName value of records in AspNetUsers table in Mvc5StarterKit DB must be matched with UserName value in IzendaUser table of IzendaMvc DB.
+
 Configuring the Izenda API Service
 ===========================================
+
+The full configuration file `Web.config <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Web.config>`__ of Izenda API Service is available on GitHub.
+
+`View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Web.config>`__
+
 Izenda API Service Hosting Config
 -------------------------------------------
+
+Izenda uses the Nancy Framework to host the REST API service. To configure Nancy, open the Mvc5StarterKit\\Web.config and add a new section named name="nancyFx" like below:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 6-21
+   :emphasize-lines: 0
+
+Then add the following email config after </nancyFx> close tag:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 17-29
+   :emphasize-lines: 0
+
+Add below Izenda setting key into <appSettings> node:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 77-89
+   :emphasize-lines: 0
+
+.. list-table::
+   :widths: 15 20 65
+   :header-rows: 1
+
+   * - Key Name
+     - Value
+     - Description
+   * - ``izendaapiprefix``
+     - api
+     - This is prefix of your Izenda API service, it is used for distinguish the Izenda API with other api in your application if it expose more than one service endpoint.
+   * - ``izendapassphrase``
+     - vqL7SF+9c9FIQEKUOhSZapacQgUQh
+     - The key used for encryption
+   * - ``IzendaApiUrl``
+     - http://localhost:14809/api/
+     - Your Izenda API endpoint, used to call the Izenda API in your .NET code
+   * - ``izusername``
+     - IzendaAdmin@system.com
+     - Default system level account, in this kit it is used for authentication of specific functions like adding new users, updating the data model, etc. This value must match with the Username in Mvc5StarterKit.AspNetUsers table and IzendaMvc.IzendaUser table
+   * - ``iztenantname``
+     -
+     - The tenant of system level account, have same purpose with ``izusername``
+
+In <system.webServer> config node, add below config:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 95-114
+   :emphasize-lines: 0
+
+This config includes the http header attribute and api action verb for Izenda API. It is also used to config http handler for the API url convention which will be reserved by Izenda API Service. In config above all API urls with a prefix of api/ will be handled by Izenda, note that this handler API prefix must match value of ``izendaapiprefix`` config.
+
 Logging Config
 -------------------------------------------
+
+In <configSections> add a new section named name="log4net" to config logging for Izenda API.
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 8-11
+   :emphasize-lines: 0
+
+Then add log4net node below:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 31-72
+   :emphasize-lines: 0
+
 Configuring Database Connection
 -------------------------------------------
+
+Open ~\\ Mvc5StarterKit\\izendadb.config then update the connection string to your IzendaMvc DB which was created in the steps above. For example with [MSSQL] SQLServer:
+
+.. code-block:: json
+
+   {"ServerTypeId":"572bd576-8c92-4901-ab2a-b16e38144813","ServerTypeName":"[MSSQL] SQLServer","ConnectionString":"[your connection string to IzendaMvc]","ConnectionId":"00000000-0000-0000-0000-000000000000"}
+
+The "ServerTypeName" would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MYSQL] MySQL, [ORACL] Oracle and [PGSQL] PostgreSQL.
+
+.. list-table::
+   :widths: 40 60
+   :header-rows: 1
+
+   * - DatasourceName
+     - Id
+   * - [AZSQL] AzureSQL
+     - d968e96f-91dc-414d-9fd8-aef2926c9a18
+   * - [MYSQL] MySQL
+     - 3d4916d1-5a41-4b94-874f-5bedacb89656
+   * - [ORACL] Oracle
+     - 93942448-c715-4f98-85e2-9292ed7ca4bc
+   * - [PGSQL] PostgreSQL
+     - f2638ed5-70e5-47da-a052-4da0c1888fcf
+   * - [MSSQL] SQLServer
+     - 572bd576-8c92-4901-ab2a-b16e38144813
+
+For starter kit authentication database open ~\\Mvc5StarterKit\\Web.config then modify the DefaultConnection value in connectionStrings node:
+
+.. literalinclude:: included_samples/mvc_Web.config
+   :linenos:
+   :lines: 74-76
+   :emphasize-lines: 0
+
 The first run of Izenda API Service
 ===========================================
 64-bit Oracle DLL Dependencies
 -------------------------------------------
+
+If you encounter an error related to OracleDataAccesssDTC in Visual Studio navigate to Tools -> Options -> Projects and Solutions -> Web Projects -> Turn on Use the 64 bit version of IIS Express for web sites and projects.
+
+.. figure:: /_static/images/mvc_64bit_iis_express.png
+   :width: 560px
+
+   64-bit IIS Express
+
 Run Starter Kit
 -------------------------------------------
+
+In Visual Studio you can press F5 to run your starter kit for the first time, the application page will look like the screenshot below:
+
+.. figure:: /_static/images/mvc_run_starter_kit.png
+   :width: 900px
+
+   Starter kit screen
+
+There is nothing present from the Izenda UI at this time. At this step we are just checking whether Izenda API is able to start up completely or not. On your browser address add /api/ to the end of url (http://localhost:14809/api/) then press enter, you will see Izenda API is hosted completely:
+
+.. figure:: /_static/images/mvc_api_url_404.png
+   :width: 900px
+
+   API screen
+
+In ~\\Mvc5StarterKit project folder you will see a logs folder with the log files mvc5kit-log.log (~\\Mvc5StarterKit\\logs).
+
 Izenda API Hosting Troubleshooting
 -------------------------------------------
+
+If you do not see logs file and 404 page above check following:
+
+*  Nany hosting configuration in Web.config
+*  Ensure Nancy.dll and Nancy.Hosting.Aspnet.dll are referenced in the project.
+*  Check your routing configuration in RouteConfig.cs
+
 Adding Izenda Boundary
 ===========================================
+
+Get all files in `IzendaBoundary <https://github.com/Izenda7Series/Mvc5StarterKit/tree/master/Mvc5StarterKit/IzendaBoundary>`__ folder from GitHub repository then include into Mvc5StarterKit project. Build the project, if there are any errors regarding missing references, update the references as needed.
+
+The table below describes the functionality of each source code file:
+
+.. list-table::
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - File and Folder
+     - Classes
+     - Description
+   * - Models
+     - Model Entity
+     - The definition of transferring model data which is used when communicating between your code and Izenda API.
+   * - CustomAdhocReport.cs
+     - CustomAdhocReport
+     - The IAdHocExtension is used to override many default functions in your Izenda installation. This extension will be automatically injected into the runtime by the Izenda API application. More information on this can be found :doc:`here </dev/ref_iadhocextension>`
+   * - IzendaTokenAuthorization.cs
+     - IzendaTokenAuthorization
+     - The helper class to decrypt and deserialize authentication token to UserInfo object and vice versa (serialize UserInfo object then encrypt to token key).
+   * - IzendaUtility.cs
+     - IzendaUtility
+     - Helper class to get list of data connection info for specific tenant.
+   * - StringCipher.cs
+     - StringCipher
+     - The helper class to encrypt and decrypt string value.
+   * - WebAPIService.cs
+     - WebAPIService
+     - The service proxy class supports to call to Izenda API Service.
+
+These classes just demonstrate simple examples of using each functionality. It is recommended that in your actual integration you use security best practices that follow your organizations established security policies and procedures.
+
 Custom Authentication Logic
 ===========================================
+
+In this starter kit, we use simple authentication with username, password and tenant info. Basically, authorization logic (role, permissions …etc.) will depend on implementation of Izenda backend.
+
+In Mvc5StarterKit database we add a table named Tenants and add a column named TenantID into AspNetUsers table, this new column is a foreign key reference to the Tenants table which demonstrates a one to many relationship between Tenant and User. Other tables are kept same as ASP.NET MVC 5 template, that helps us modify login logic at little as possible, but allows us to show a simple use case for multi-tenant support.
+
+.. figure:: /_static/images/mvc_AspNetUsers_Tenants.png
+   :width: 419px
+
+   Users and Tenants
+
+In integrated mode, authentication is handled by the MVC 5 application, not Izenda. In this starter kit, the Izenda backend will get a token via the ``UserIntegrationConfig.GetAccessToken`` method. You must implement your own code logic to provide this token containing the authenticated user’s information. To ensure security, each request to the Izenda API service will call back to MVC application to validate the token it received from the originating request. You must provide this validation logic in your app inside the ``UserIntegrationConfig.ValidateToken`` method. The diagram below illustrates the token retrieval and validation process in fully integrated mode:
+
+.. figure:: /_static/images/mvc_authentication_sequence_diagram.png
+   :width: 500px
+
+   Authentication Sequence Diagram
+
+To customize the authentication logic, we must modify some existing classes in the ASP.NET MVC 5 application template. The table below lists all the modified classes:
+
+.. list-table::
+   :widths: 30 20 5 45
+   :header-rows: 1
+
+   * - File
+     - Class
+     - State
+     - Description
+   * - IzendaConfig.cs
+     - IzendaConfig
+     - New
+     - The extension class provides Izenda token and token validation for the Izenda backend.
+   * - Models\\IdentityModels.cs
+     - ApplicationUser
+     - Modify
+     - The entity class present user identity model. This model maps to AspNetUsers table.
+   * - Models\\IdentityModels.cs
+     - Tenant
+     - New
+     - The entity model presents a tenant, maps to Tenants table.
+   * - Models\\IdentityModels.cs
+     - ApplicationDBContext
+     - Modify
+     - Entity Framework DB context.
+   * - App_Start\\IdentityConfig.cs
+     - ApplicationUserManager
+     - Modify
+     - Manage authentication user and login context.
+   * - App_Start\\IdentityConfig.cs
+     - ApplicationSignInManager
+     - Modify
+     - Custom sign in logic.
+   * - Controllers\\AccountController.cs
+     - AccountController
+     - Modify
+     - Use custom login logic in Login action..
+
 IzendaConfig
 -------------------------------------------
+
+Create IzendaConfig.cs file within the top level of the project and implement subscription for ``UserIntegrationConfig.GetAccessToken`` action and ``UserIntegrationConfig.ValidateToken`` action.
+
+.. literalinclude:: included_samples/mvc_IzendaConfig.cs
+   :linenos:
+   :lines: 7-27
+   :emphasize-lines: 0
+
+Action ``UserIntegrationConfig.GetAccessToken`` will convert user info to a token value.
+
+Action ``UserIntegrationConfig.ValidateToken`` convert access token to user info.
+
+
 Identity Models – Namespaces
 -------------------------------------------
+
+#. Open Models\\IdentityModels.cs.
+#. Add the following namespaces so that it appears as below:
+
+.. literalinclude:: included_samples/mvc_IdentityModels.cs
+   :linenos:
+   :lines: 1-7
+   :emphasize-lines: 0
+
 Identity Models – ApplicationUser class
 -------------------------------------------
+
+#. Open Models\\IdentityModels.cs.
+#. Add Tenant_Id property and custom claim identity like below:
+
+.. literalinclude:: included_samples/mvc_IdentityModels.cs
+   :linenos:
+   :lines: 12-35
+   :emphasize-lines: 0
+
+The ApplicationUser class represents the user model and maps to AspNetUsers table. The Tenant_Id property is the foreign key reference to the tenant of the user. In the GenerateUserIdentityAsync method we add tenantId into user identity, this value will be used to establish “claims” based on the user’s tenant.
+
 Identity Models – Tenant
 -------------------------------------------
+
+#. Open Models\\IdentityModels.cs.
+#. Add a new Tenant class to represent a tenant object. This class is an entity model that maps to the Tenants table. The example below utilizes a very simple tenant model. You can customize this model to store more complex information.
+
+.. literalinclude:: included_samples/mvc_IdentityModels.cs
+   :linenos:
+   :lines: 37-41
+   :emphasize-lines: 0
+
 Identity Models – ApplicationDBContext
 -------------------------------------------
+
+This is the Entity Framework DB context of the entire authentication database. Because we added a new Tenants table, we must update the DB context to set of Tenant into this class.
+
+.. literalinclude:: included_samples/mvc_IdentityModels.cs
+   :linenos:
+   :lines: 43-55
+   :emphasize-lines: 0
+
+You may need to remove the duplicate ApplicationDBContext to prevent errors.
+
 Identity Config – Namespaces
 -------------------------------------------
+
+#. Open App_Start\\IdentityConfig.cs.
+#. Add the following namespaces so that it appears as below:
+
+.. literalinclude:: included_samples/mvc_IdentityConfig.cs
+   :linenos:
+   :lines: 1-13
+   :emphasize-lines: 0
+
 Identity Config – ApplicationUserManager
 -------------------------------------------
+
+#. Open App_Start\\IdentityConfig.cs.
+#. Add a new method FindTenantUserAsync. This will be used to query and retrieve users by tenant, username, and password.
+
+.. literalinclude:: included_samples/mvc_IdentityConfig.cs
+   :linenos:
+   :lines: 43-59
+   :emphasize-lines: 0
+
 Identity Configs – ApplicationSignInManager
 -------------------------------------------
+
+#. Open App_Start\\IdentityConfig.cs. 
+#. Add a new method PasswordSigninAsync to customize sign in logic. This method utilizes the FindTenantUserAsync method added above to find a user with the specified username, password and tenant.
+
+.. literalinclude:: included_samples/mvc_IdentityConfig.cs
+   :linenos:
+   :lines: 43-59
+   :emphasize-lines: 0
+
 AccountController – Namespace
 -------------------------------------------
+
+#. Open Controllers\\mvc_AccountController.cs.
+#. Add the following namespaces so that it appears as below:
+
+.. literalinclude:: included_samples/mvc_AccountController.cs
+   :linenos:
+   :lines: 1-11
+   :emphasize-lines: 0
+
 AccountController
 -------------------------------------------
+
+#. Open Controllers\\AccountController.cs.
+#. In Login POST method, implement the ApplicationSignInMangager/PasswordSigninAsync method as shown below.
+
+.. literalinclude:: included_samples/mvc_AccountController.cs
+   :linenos:
+   :lines: 65-99
+   :emphasize-lines: 0
+
 UserInfo
 -------------------------------------------
+
+#. Create Models\\UserInfo.cs
+#. Add the following:
+
+.. literalinclude:: included_samples/mvc_AccountController.cs
+
 AccountViewModels
 -------------------------------------------
+
+#. Open Models\\AccountViewModels.cs.
+#. Edit public class LoginViewModel so that it appears as below.
+
+.. literalinclude:: included_samples/mvc_AccountController.cs
+   :lines: 49-67
+   :emphasize-lines: 0
+
 Update Login Page
 -------------------------------------------
+
+#. Open Views\\Account\\Login.cshtml.
+#. Replace the contents of this file with the following from the `GitHub MVC5StarterKit equivalent <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Views/Account/Login.cshtml>`__. This will add a Tenant section to the login page.
+
+.. literalinclude:: included_samples/mvc_Login.cshtml
+   :lines: 14-30
+   :emphasize-lines: 0
+
 Run First Login
 ===========================================
+
+Press F5 to run application, navigate to login page and enter the values below for the respective fields:
+   Tenant = System
+   Email = IzendaAdmin@system.com 
+   Password = Izenda@123 
+
+Then click Login. You will see the home page with the logged in user’s email on top right of the page.
+
+.. figure:: /_static/images/mvc_current_user_ui.png
+   :width: 730px
+
+   Current user and Log off button
+
 Update Shared Layout
 ===========================================
+
 Construct Izenda Menu Items
 -------------------------------------------
+
+Open ~\\Views\\Shared\\_Layout.cshtml then add menu items for Izenda pages:
+
+.. literalinclude:: included_samples/mvc_Layout.cshtml
+   :lines: 23-61
+   :emphasize-lines: 0
+
+Note that the menu routing requires the creation of 2 new controllers; ReportController and DashboardController. These will be created later.
+
 Implement Izenda Configuration Initialization
 ----------------------------------------------
+
+Add Javascript code below into the bottom of the _Layout.cshtml to initialize Izenda Config and sub menu dropdown display. The function DoIzendaConfig() is located in ~\\Scripts\\izenda.integrate.js. It initializes main config value needed to run Izenda’s integrated UI such as API Service Url, the path of the Izenda embedded JavaScript package, custom CSS styling, Izenda UI routing config, and the request timeout.
+
+.. literalinclude:: included_samples/mvc_Layout.cshtml
+   :lines: 80-
+   :emphasize-lines: 0
+
 Embedding Front-end Izenda (Izenda UI)
 ===========================================
 Embedding Izenda full page
 -------------------------------------------
+
+In the HomeController add a new action named Izenda and then create the view Izenda.cshtml for it.
+
+.. literalinclude:: included_samples/mvc_HomeController.cs
+   :lines: 30-40
+   :emphasize-lines: 0
+
+This action is used to embedded the entire Izenda application into one view. The Izenda/* routes are subroutes inside of the fully embedded Izenda page.
+
+In the Izenda.cshtml view, call function izendaInit(), which is defined in ~\\Scripts\\izenda.integrate.js. The full Izenda UI will be rendered when opening this page, including Report, Dashboard and Setting page.
+
+.. literalinclude:: included_samples/mvc_Izenda.cshtml
+
+We have 2 empty div elements for each Izenda page, the ``loader`` div is used for display progress bar when the page is waiting for response from Izenda back-end, the div ``izenda-container`` is the container for Izenda page content.
+
 Embedding Specific Izenda Pages
 -------------------------------------------
 Embedding the Izenda Settings Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create the Settings action in the HomeController
+
+.. literalinclude:: included_samples/mvc_HomeController.cs
+   :lines: 42-45
+   :emphasize-lines: 0
+
+The settings page view Settings.cshtml:
+
+.. literalinclude:: included_samples/mvc_Settings.cshtml
+
 Embedding the Izenda Report List Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create the Reports action in HomeController
+
+.. literalinclude:: included_samples/mvc_HomeController.cs
+   :lines: 47-50
+   :emphasize-lines: 0
+
+The report list view Reports.cshtml:
+
+.. literalinclude:: included_samples/mvc_Reports.cshtml
+
 Embedding the Izenda Report Designer Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Report Part for Exporting
