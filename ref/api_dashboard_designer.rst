@@ -64,6 +64,10 @@ List of APIs
      - Returns data for a dashboard part, given the dashboard part definition.
    * - `POST dashboard/loadDashboardPartData`_
      - Returns data for a dashboard part, given the dashboard part id.
+   * - `POST dashboard/loadDashboardPartData2`_
+     - Returns data for a dashboard part, given the dashboard part id, optionally loads default data.
+
+       .. versionadded:: 2.2.0
    * - `GET dashboard/dashboardPart/{dashboard_part_id}`_
      - Returns dashboard part definition.
    * - `POST dashboard/accesses/validate`_
@@ -87,6 +91,15 @@ List of APIs
      - Saves a dashboard as draft.
    * - `GET dashboard/draft/{dashboard_id}`_
      - Returns a dashboard from draft.
+   * - `GET dashboard/embeddedReports/{dashboard_part_id}`_
+     - Returns reports and report parts embedded inside the specified dashboard part.
+
+       .. versionadded:: 2.2.0
+   * - `GET dashboard/loadRelatedDashboardParts/{dashboard_id}`_
+     - Returns a nested list of dashboard part ids, where each inner list contains dashboard part ids using report parts in a same report.
+
+       .. versionadded:: 2.2.0
+
 
 POST dashboard
 --------------------------------------------------------------
@@ -2154,6 +2167,118 @@ Returns data for a dashboard part, given the dashboard part id.
       
    Response is the same as `POST dashboard/previewDashboardPartData`_
 
+POST dashboard/loadDashboardPartData2
+--------------------------------------------------------------
+
+Returns data for a dashboard part, given the dashboard part id, optionally loads default data.
+
+.. versionadded:: 2.2.0
+
+**Request**
+
+    Payload: a :doc:`models/FusionDataRequest` object with **loadDefaultData** field populated.
+
+**Response**
+
+    A :doc:`models/FusionResult` object
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dashboard/loadDashboardPartData2 HTTP/1.1
+
+   Request payload::
+      
+      {
+         "dashboardPartId": "32025f38-549b-4702-a723-3415ba06a541",
+         "loadDefaultData": true,
+         "filters": []
+      }
+      
+   Response::
+
+      {
+         "grandTotalMapping": [],
+         "subTotalMapping": [],
+         "sideTotalMapping": [],
+         "executionTrace": [],
+         "records": [
+            {
+               "orderid_40544508_b91a_": 10248,
+               "shipcity_3d2b5d33_d539_": "Reims",
+               "rowNumber": 1
+            },
+            {
+               "orderid_40544508_b91a_": 10249,
+               "shipcity_3d2b5d33_d539_": "Münster",
+               "rowNumber": 2
+            },
+            {
+               "orderid_40544508_b91a_": 10251,
+               "shipcity_3d2b5d33_d539_": "Lyon",
+               "rowNumber": 3
+            },
+            {
+               "orderid_40544508_b91a_": 10252,
+               "shipcity_3d2b5d33_d539_": "Charleroi",
+               "rowNumber": 4
+            },
+            {
+               "orderid_40544508_b91a_": 10254,
+               "shipcity_3d2b5d33_d539_": "Bern",
+               "rowNumber": 5
+            },
+            {
+               "orderid_40544508_b91a_": 10255,
+               "shipcity_3d2b5d33_d539_": "Genève",
+               "rowNumber": 6
+            },
+            {
+               "orderid_40544508_b91a_": 10258,
+               "shipcity_3d2b5d33_d539_": "Graz",
+               "rowNumber": 7
+            },
+            {
+               "orderid_40544508_b91a_": 10259,
+               "shipcity_3d2b5d33_d539_": "México D.F.",
+               "rowNumber": 8
+            },
+            {
+               "orderid_40544508_b91a_": 10260,
+               "shipcity_3d2b5d33_d539_": "Köln",
+               "rowNumber": 9
+            },
+            {
+               "orderid_40544508_b91a_": 10263,
+               "shipcity_3d2b5d33_d539_": "Graz",
+               "rowNumber": 10
+            }
+         ],
+         "fieldsMapping": [
+            {
+               "fieldId": "40544508-b91a-4e32-b7ee-0092bc73ba65",
+               "fieldNameAlias": "OrderID",
+               "columnName": "orderid_40544508_b91a_"
+            },
+            {
+               "fieldId": "3d2b5d33-d539-43bf-ac7d-435139d8b176",
+               "fieldNameAlias": "ShipCity",
+               "columnName": "shipcity_3d2b5d33_d539_"
+            }
+         ],
+         "paging": {
+            "pageIndex": 1,
+            "pageSize": 10,
+            "total": 526,
+            "skipItems": 0,
+            "isLastPage": false
+         },
+         "pivotHeaderValues": [],
+         "cities": [],
+         "postalCodes": []
+      }
+
 GET dashboard/dashboardPart/{dashboard_part_id}
 --------------------------------------------------------------
 
@@ -3156,3 +3281,76 @@ Returns a dashboard from draft.
         "modified": null,
         "modifiedBy": null
       }
+
+GET dashboard/embeddedReports/{dashboard_part_id}
+--------------------------------------------------------------
+
+Returns reports and report parts embedded inside the specified dashboard part.
+
+.. versionadded:: 2.2.0
+
+**Request**
+
+    No payload
+
+**Response**
+
+   The following object
+
+   .. list-table::
+      :header-rows: 1
+
+      * - Field
+        - Description
+        - Note
+      * - **reports** |br|
+          array of objects
+        - An array of embedded :doc:`models/ReportDefinition` objects
+        -
+      * - **reportParts** |br|
+          array of objects
+        - An array of embedded :doc:`models/ReportPartDefinition` objects
+        -
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/dashboard/embeddedReports/6b87f048-bffc-4a46-adf4-9a683feb43e2 HTTP/1.1
+
+   Sample response::
+
+      {
+         "reports": [],
+         "reportParts": []
+      }
+
+GET dashboard/loadRelatedDashboardParts/{dashboard_id}
+--------------------------------------------------------------
+
+Returns a nested list of dashboard part ids, where each inner list contains dashboard part ids using report parts in a same report.
+
+.. versionadded:: 2.2.0
+
+**Request**
+
+    No payload
+
+**Response**
+
+   A list of list of strings (GUIDs)
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/dashboard/loadRelatedDashboardParts/aac3c448-99af-4ac3-b8e2-bc27582cee0b HTTP/1.1
+
+   Sample response::
+
+      [
+         [
+            "4522d9e6-786a-49aa-8403-aaa8d89c8790",
+            "2af78b97-a8f8-4c91-b9d4-cb557939203b"
+         ]
+      ]
