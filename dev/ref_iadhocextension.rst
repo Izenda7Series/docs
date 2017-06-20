@@ -281,6 +281,8 @@ Sample code to limit the execution result to the first 1000 rows only (although 
       }
     }
 
+.. _SetHiddenFilters:
+
 SetHiddenFilters
 --------------------
 

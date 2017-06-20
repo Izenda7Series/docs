@@ -7,5 +7,6 @@ Developer Guide for Integrated Scenarios
 
    /dev/.starter_kits
    /dev/.system_customization 
-
+   /dev/.walkthroughs
+   
 .. comment: absolute path since this is included in another file in another folder
