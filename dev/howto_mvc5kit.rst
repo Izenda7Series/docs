@@ -48,7 +48,7 @@ You may choose to create a similar file in your own application code base as it 
 
 This is done in the `Copying Izenda Resources and References`_ section of the guide below.
 
-You can view the contents of `Izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`__.
+You can view the contents of Izenda.integrate.js `here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`__.
 
 Using the render functions
 -------------------------------------------
@@ -60,7 +60,8 @@ This is done in the `Embedded Front-end <Embedding Front-end Izenda (Izenda UI)>
 Security Handshake
 ===========================================
 
-The basic Izenda security handshake is handled through a token which contains two key pieces of user metadata, a unique user identifier, and a unique tenant identifier. You’ll handle role level details through the back-end integration. 
+The basic Izenda security handshake is handled through a token which contains two key pieces of user metadata, a unique user identifier, and a unique tenant identifier. You’ll handle role level details through the back-end integration.
+
 The point here is to create the medium through which Izenda will authenticate interactions between the front-end and back-end API endpoints.
 
 In the `IzendaConfig`_ we’ll create the token for the end-user authentication that will eventually be passed to Izenda’s API endpoints through IzendaSynergy currentUserContext.
@@ -105,7 +106,7 @@ In that file, you can see several references to Izenda DLLs which provide access
 
 We are syncing between the MVC application’s security model and Izenda’s to make them essentially equivalent.
 
-You can see starting `AccountController <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/AccountController.cs#L159>`__ that we are using methods to pass values directly from the MVC application’s security model into Izenda’s by equivocating the MVC application’s Tenant, Role, and User variables with Izenda’s. While some areas of this code contain hard-coded values, in real world implementations those values get replaced with variables or lookups.
+You can see starting `here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/AccountController.cs#L159>`__ that we are using methods to pass values directly from the MVC application’s security model into Izenda’s by equivocating the MVC application’s Tenant, Role, and User variables with Izenda’s. While some areas of this code contain hard-coded values, in real world implementations those values get replaced with variables or lookups.
 
 Much of the code used in the account controller is supported by contents of the `IzendaBoundary <https://github.com/Izenda7Series/Mvc5StarterKit/tree/master/Mvc5StarterKit/IzendaBoundary>`__ directory and `Models <https://github.com/Izenda7Series/Mvc5StarterKit/tree/master/Mvc5StarterKit/Models>`__ from the MVC kit.
 
@@ -136,6 +137,7 @@ Other Integration Concepts
 Beyond front-end, handshake, and back-end, there’s of course an expectation that you’ll want to white label Izenda, integrate with a specific deployment model, and manage record level data permissions beyond what you might define at a Tenant and Role level in Izenda.  
 
 There are many more capabilities and features you may want to explore.
+
 Please reference our GitHub, documentation site, and developer guides for more:
 
 *  `GitHub <https://github.com/Izenda7Series>`__
@@ -154,7 +156,7 @@ Deployment Modes
 
 You may need to integrate only specific areas of Izenda’s codebase, depending upon your integration goals, deployment style, and application technology.
 
-Understanding the Three-tiered Architecture: :doc:`/intro/understanding_the_three-tiered_architecture`
+:doc:`/intro/understanding_the_three-tiered_architecture`.
 
 Hidden Filters
 -------------------------------------------
@@ -185,7 +187,7 @@ To complete this walkthrough, you will need the following:
 *  Izenda Embedded UI package
 *  Sql Server 2016
 
-The Izenda API service is built on .NET framework 4.0, you can build your integrated application on .NET Framework 4.0 or higher, this document will guide you step by step on integrating Izenda into your application. Please note this guide was developed using the versions of each component specified above. For more details on supported components please see other sections in the :doc:` Izenda documentation </index>`.
+The Izenda API service is built on .NET framework 4.0, you can build your integrated application on .NET Framework 4.0 or higher, this document will guide you step by step on integrating Izenda into your application. Please note this guide was developed using the versions of each component specified above. For more details on supported components please see other sections in the :doc:`Izenda documentation </index>`.
 
 Create Your MVC 5 Starter Kit Application
 ===========================================
@@ -284,26 +286,23 @@ Configuring the Script and Style Bundle
 
 Open ~\\Mvc5StarterKit\\App_Start\\BundleConfig.cs then config for Izenda as below:
 
-.. literalinclude:: included_samples/mvc_BundleConfig.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/BundleConfig.cs
    :lines: 26-
-   :emphasize-lines: 19-31
 
 `View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/BundleConfig.cs>`__
 
 Open ~\\Views\\Shared\\_Layout.cshtml and add bundle script:
 
-.. literalinclude:: included_samples/mvc_Layout.cshtml
-   :linenos:
-   :lines: 66-
+.. literalinclude:: included_samples/mvc/Layout.cshtml
+   :lines: 66-79
+   :emphasize-lines: 11-13
 
 Configuring the Routes
 ===========================================
 
 Open ~\\Mvc5StarterKit\\App_Start\\RouteConfig.cs then modify the routing config as shown below:
 
-.. literalinclude:: included_samples/mvc_RouteConfig.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/RouteConfig.cs
    :lines: 10-
 
 `View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/App_Start/RouteConfig.cs>`__
@@ -341,6 +340,7 @@ Create Izenda DB
 -------------------------------------------
 
 On your SQL Server create an empty database named IzendaMvc. This database stores Izenda data (report definitions, dashboards, etc.) and the configuration necessary to run Izenda.
+
 Download `IzendaMvc.sql <https://raw.githubusercontent.com/Izenda7Series/Mvc5StarterKit/master/SQLScript/MSSQL/IzendaMvc.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
 
 Updating the Izenda DB
@@ -397,22 +397,22 @@ Izenda API Service Hosting Config
 
 Izenda uses the Nancy Framework to host the REST API service. To configure Nancy, open the Mvc5StarterKit\\Web.config and add a new section named name="nancyFx" like below:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 6-21
    :emphasize-lines: 0
 
-Then add the following email config after </nancyFx> close tag:
+Then add the following email config after ``</nancyFx>`` close tag:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 17-29
    :emphasize-lines: 0
 
 Add below Izenda setting key into <appSettings> node:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 77-89
    :emphasize-lines: 0
 
@@ -441,8 +441,8 @@ Add below Izenda setting key into <appSettings> node:
 
 In <system.webServer> config node, add below config:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 95-114
    :emphasize-lines: 0
 
@@ -453,15 +453,15 @@ Logging Config
 
 In <configSections> add a new section named name="log4net" to config logging for Izenda API.
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 8-11
    :emphasize-lines: 0
 
 Then add log4net node below:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 31-72
    :emphasize-lines: 0
 
@@ -474,7 +474,7 @@ Open ~\\ Mvc5StarterKit\\izendadb.config then update the connection string to yo
 
    {"ServerTypeId":"572bd576-8c92-4901-ab2a-b16e38144813","ServerTypeName":"[MSSQL] SQLServer","ConnectionString":"[your connection string to IzendaMvc]","ConnectionId":"00000000-0000-0000-0000-000000000000"}
 
-The "ServerTypeName" would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MYSQL] MySQL, [ORACL] Oracle and [PGSQL] PostgreSQL.
+The ``ServerTypeName`` would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MYSQL] MySQL, [ORACL] Oracle and [PGSQL] PostgreSQL.
 
 .. list-table::
    :widths: 40 60
@@ -495,8 +495,8 @@ The "ServerTypeName" would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MYSQ
 
 For starter kit authentication database open ~\\Mvc5StarterKit\\Web.config then modify the DefaultConnection value in connectionStrings node:
 
-.. literalinclude:: included_samples/mvc_Web.config
-   :linenos:
+.. literalinclude:: included_samples/mvc/Web.config
+   :language: xml
    :lines: 74-76
    :emphasize-lines: 0
 
@@ -638,10 +638,9 @@ IzendaConfig
 
 Create IzendaConfig.cs file within the top level of the project and implement subscription for ``UserIntegrationConfig.GetAccessToken`` action and ``UserIntegrationConfig.ValidateToken`` action.
 
-.. literalinclude:: included_samples/mvc_IzendaConfig.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IzendaConfig.cs
    :lines: 7-27
-   :emphasize-lines: 0
+   :emphasize-lines: 5,14
 
 Action ``UserIntegrationConfig.GetAccessToken`` will convert user info to a token value.
 
@@ -654,8 +653,7 @@ Identity Models – Namespaces
 #. Open Models\\IdentityModels.cs.
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc_IdentityModels.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IdentityModels.cs
    :lines: 1-7
    :emphasize-lines: 0
 
@@ -665,10 +663,9 @@ Identity Models – ApplicationUser class
 #. Open Models\\IdentityModels.cs.
 #. Add Tenant_Id property and custom claim identity like below:
 
-.. literalinclude:: included_samples/mvc_IdentityModels.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IdentityModels.cs
    :lines: 12-35
-   :emphasize-lines: 0
+   :emphasize-lines: 3-5,9-
 
 The ApplicationUser class represents the user model and maps to AspNetUsers table. The Tenant_Id property is the foreign key reference to the tenant of the user. In the GenerateUserIdentityAsync method we add tenantId into user identity, this value will be used to establish “claims” based on the user’s tenant.
 
@@ -678,7 +675,7 @@ Identity Models – Tenant
 #. Open Models\\IdentityModels.cs.
 #. Add a new Tenant class to represent a tenant object. This class is an entity model that maps to the Tenants table. The example below utilizes a very simple tenant model. You can customize this model to store more complex information.
 
-.. literalinclude:: included_samples/mvc_IdentityModels.cs
+.. literalinclude:: included_samples/mvc/IdentityModels.cs
    :linenos:
    :lines: 37-41
    :emphasize-lines: 0
@@ -688,10 +685,9 @@ Identity Models – ApplicationDBContext
 
 This is the Entity Framework DB context of the entire authentication database. Because we added a new Tenants table, we must update the DB context to set of Tenant into this class.
 
-.. literalinclude:: included_samples/mvc_IdentityModels.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IdentityModels.cs
    :lines: 43-55
-   :emphasize-lines: 0
+   :emphasize-lines: 8
 
 You may need to remove the duplicate ApplicationDBContext to prevent errors.
 
@@ -701,8 +697,7 @@ Identity Config – Namespaces
 #. Open App_Start\\IdentityConfig.cs.
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc_IdentityConfig.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IdentityConfig.cs
    :lines: 1-13
    :emphasize-lines: 0
 
@@ -712,8 +707,7 @@ Identity Config – ApplicationUserManager
 #. Open App_Start\\IdentityConfig.cs.
 #. Add a new method FindTenantUserAsync. This will be used to query and retrieve users by tenant, username, and password.
 
-.. literalinclude:: included_samples/mvc_IdentityConfig.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/IdentityConfig.cs
    :lines: 43-59
    :emphasize-lines: 0
 
@@ -723,10 +717,9 @@ Identity Configs – ApplicationSignInManager
 #. Open App_Start\\IdentityConfig.cs. 
 #. Add a new method PasswordSigninAsync to customize sign in logic. This method utilizes the FindTenantUserAsync method added above to find a user with the specified username, password and tenant.
 
-.. literalinclude:: included_samples/mvc_IdentityConfig.cs
-   :linenos:
-   :lines: 43-59
-   :emphasize-lines: 0
+.. literalinclude:: included_samples/mvc/IdentityConfig.cs
+   :lines: 110-128
+   :emphasize-lines: 8-
 
 AccountController – Namespace
 -------------------------------------------
@@ -734,8 +727,7 @@ AccountController – Namespace
 #. Open Controllers\\mvc_AccountController.cs.
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc_AccountController.cs
-   :linenos:
+.. literalinclude:: included_samples/mvc/AccountController.cs
    :lines: 1-11
    :emphasize-lines: 0
 
@@ -745,10 +737,9 @@ AccountController
 #. Open Controllers\\AccountController.cs.
 #. In Login POST method, implement the ApplicationSignInMangager/PasswordSigninAsync method as shown below.
 
-.. literalinclude:: included_samples/mvc_AccountController.cs
-   :linenos:
-   :lines: 65-99
-   :emphasize-lines: 0
+.. literalinclude:: included_samples/mvc/AccountController.cs
+   :lines: 69-104
+   :emphasize-lines: 14-21
 
 UserInfo
 -------------------------------------------
@@ -756,7 +747,7 @@ UserInfo
 #. Create Models\\UserInfo.cs
 #. Add the following:
 
-.. literalinclude:: included_samples/mvc_AccountController.cs
+.. literalinclude:: included_samples/mvc/UserInfo.cs
 
 AccountViewModels
 -------------------------------------------
@@ -764,9 +755,9 @@ AccountViewModels
 #. Open Models\\AccountViewModels.cs.
 #. Edit public class LoginViewModel so that it appears as below.
 
-.. literalinclude:: included_samples/mvc_AccountController.cs
+.. literalinclude:: included_samples/mvc/AccountViewModels.cs
    :lines: 49-67
-   :emphasize-lines: 0
+   :emphasize-lines: 3-5
 
 Update Login Page
 -------------------------------------------
@@ -774,17 +765,18 @@ Update Login Page
 #. Open Views\\Account\\Login.cshtml.
 #. Replace the contents of this file with the following from the `GitHub MVC5StarterKit equivalent <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Views/Account/Login.cshtml>`__. This will add a Tenant section to the login page.
 
-.. literalinclude:: included_samples/mvc_Login.cshtml
+.. literalinclude:: included_samples/mvc/Login.cshtml
    :lines: 14-30
-   :emphasize-lines: 0
+   :emphasize-lines: 4-10
 
 Run First Login
 ===========================================
 
 Press F5 to run application, navigate to login page and enter the values below for the respective fields:
-   Tenant = System
-   Email = IzendaAdmin@system.com 
-   Password = Izenda@123 
+
+*  Tenant = System
+*  Email = IzendaAdmin@system.com 
+*  Password = Izenda@123 
 
 Then click Login. You will see the home page with the logged in user’s email on top right of the page.
 
@@ -801,20 +793,20 @@ Construct Izenda Menu Items
 
 Open ~\\Views\\Shared\\_Layout.cshtml then add menu items for Izenda pages:
 
-.. literalinclude:: included_samples/mvc_Layout.cshtml
+.. literalinclude:: included_samples/mvc/Layout.cshtml
    :lines: 23-61
    :emphasize-lines: 0
 
-Note that the menu routing requires the creation of 2 new controllers; ReportController and DashboardController. These will be created later.
+Note that the menu routing requires the creation of 2 new controllers: ReportController and DashboardController. These will be created in a later section.
 
 Implement Izenda Configuration Initialization
 ----------------------------------------------
 
 Add Javascript code below into the bottom of the _Layout.cshtml to initialize Izenda Config and sub menu dropdown display. The function DoIzendaConfig() is located in ~\\Scripts\\izenda.integrate.js. It initializes main config value needed to run Izenda’s integrated UI such as API Service Url, the path of the Izenda embedded JavaScript package, custom CSS styling, Izenda UI routing config, and the request timeout.
 
-.. literalinclude:: included_samples/mvc_Layout.cshtml
+.. literalinclude:: included_samples/mvc/Layout.cshtml
    :lines: 80-
-   :emphasize-lines: 0
+   :emphasize-lines: 1-9
 
 Embedding Front-end Izenda (Izenda UI)
 ===========================================
@@ -823,7 +815,7 @@ Embedding Izenda full page
 
 In the HomeController add a new action named Izenda and then create the view Izenda.cshtml for it.
 
-.. literalinclude:: included_samples/mvc_HomeController.cs
+.. literalinclude:: included_samples/mvc/HomeController.cs
    :lines: 30-40
    :emphasize-lines: 0
 
@@ -831,7 +823,7 @@ This action is used to embedded the entire Izenda application into one view. The
 
 In the Izenda.cshtml view, call function izendaInit(), which is defined in ~\\Scripts\\izenda.integrate.js. The full Izenda UI will be rendered when opening this page, including Report, Dashboard and Setting page.
 
-.. literalinclude:: included_samples/mvc_Izenda.cshtml
+.. literalinclude:: included_samples/mvc/Izenda.cshtml
 
 We have 2 empty div elements for each Izenda page, the ``loader`` div is used for display progress bar when the page is waiting for response from Izenda back-end, the div ``izenda-container`` is the container for Izenda page content.
 
@@ -842,46 +834,247 @@ Embedding the Izenda Settings Page
 
 Create the Settings action in the HomeController
 
-.. literalinclude:: included_samples/mvc_HomeController.cs
+.. literalinclude:: included_samples/mvc/HomeController.cs
    :lines: 42-45
    :emphasize-lines: 0
 
 The settings page view Settings.cshtml:
 
-.. literalinclude:: included_samples/mvc_Settings.cshtml
+.. literalinclude:: included_samples/mvc/Settings.cshtml
 
 Embedding the Izenda Report List Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create the Reports action in HomeController
 
-.. literalinclude:: included_samples/mvc_HomeController.cs
+.. literalinclude:: included_samples/mvc/HomeController.cs
    :lines: 47-50
    :emphasize-lines: 0
 
 The report list view Reports.cshtml:
 
-.. literalinclude:: included_samples/mvc_Reports.cshtml
+.. literalinclude:: included_samples/mvc/Reports.cshtml
+   :emphasize-lines: 12
 
 Embedding the Izenda Report Designer Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create the ReportDesigner action in HomeController
+
+.. literalinclude:: included_samples/mvc/HomeController.cs
+   :lines: 52-55
+   :emphasize-lines: 0
+
+The report designer view ReportDesigner.cshtml:
+
+.. literalinclude:: included_samples/mvc/ReportDesigner.cshtml
+   :emphasize-lines: 12
+
 Report Part for Exporting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This action is not displayed directly to the end-users. It is used for rendering report parts (charts, gauges, and maps) for exporting. Reports containing these report part types must be rendered to capture html content then converted it to image when creating exported material (pdf, word, excel, etc.).
+
+This view is requested by Izenda backend over the route url ``viewer/reportpart/{id}`` in route config ~\\View_Start\\RouteConfig.cs.
+
+Add the ReportPart action in HomeController:
+
+.. literalinclude:: included_samples/mvc/HomeController.cs
+   :lines: 57-62
+   :emphasize-lines: 0
+
+This view is only used by Izenda backend, so it requires a minimal view containing only the report part content. Create a new simple layout named Izenda_Layout.cshtml. This layout does not contain UI for menu item, signed in user information.
+
+The Izenda_Layout.cshtml content:
+
+.. literalinclude:: included_samples/mvc/Izenda_Layout.cshtml
+
+The ReportPart.cshtml content:
+
+.. literalinclude:: included_samples/mvc/ReportPart.cshtml
+   :emphasize-lines: 9
+
 Embedding the Report Viewer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create the ReportController and add a new action named ReportViewer:
+
+.. literalinclude:: included_samples/mvc/ReportController.cs
+   :lines: 18-23
+   :emphasize-lines: 0
+
+Create the view ReportViewer.cshtml:
+
+.. literalinclude:: included_samples/mvc/ReportViewer.cshtml
+   :emphasize-lines: 11
+
+Note that this page also used by Izenda backend in function to export report html content when user wants to send a report via email (directly or over subscription scheduler). The Izenda backend uses the route ``report/view/{id}`` to get report content, then in RouteConfig.cs we have a custom route for this. You must ensure your report viewer page has the same controller and action with the custom route ``ReportViewer``.
+
+.. literalinclude:: included_samples/mvc/RouteConfig.cs
+   :lines: 23-27
+   :emphasize-lines: 0
+
 Embedding Report Parts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This page demonstrates how to display multiple report parts on a page outside of the Report Viewer.  The function ``izendaInitReportPartDemo`` in ~\\Scripts\\izenda.integrate.js is implemented to handle this.
+
+.. literalinclude:: included_samples/mvc/izenda.integrate.js
+   :lines: 96-121
+   :emphasize-lines: 0
+
+In the ReportController create the action ReportParts:
+
+.. literalinclude:: included_samples/mvc/ReportController.cs
+   :lines: 25-28
+   :emphasize-lines: 0
+
+Create the ReportParts.cshtml view:
+
+.. literalinclude:: included_samples/mvc/ReportParts.cshtml
+   :emphasize-lines: 11
+
 Embedding the Dashboard
 -------------------------------------------
 Dashboard List
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This page displays the dashboard list.
+
+In the HomeController create the action Dashboards:
+
+.. literalinclude:: included_samples/mvc/HomeController.cs
+   :lines: 64-67
+   :emphasize-lines: 0
+
+Create the Dashboards.cshtml view:
+
+.. literalinclude:: included_samples/mvc/Dashboards.cshtml
+   :emphasize-lines: 12
+
 New Dashboard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The page for creating a new dashboard.
+
+In the HomeController create the action DashboardDesigner:
+
+.. literalinclude:: included_samples/mvc/HomeController.cs
+   :lines: 69-72
+   :emphasize-lines: 0
+
+Create the DashboardDesigner.cshtml view:
+
+.. literalinclude:: included_samples/mvc/DashboardDesigner.cshtml
+   :emphasize-lines: 9
+
 Dashboard Viewer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Display detail of dashboard, this page also is requested by Izenda backend for dashboard exporting function over route ``dashboard/view/{id}``. In RouteConfig.cs we have a custom route named ``DashboardViewer``, this custom route will map to the controller and view of this page.
+
+Create the DashboardController and action DashboardViewer:
+
+.. literalinclude:: included_samples/mvc/DashboardController.cs
+
+Create the DashboardViewer.cshtml view:
+
+.. literalinclude:: included_samples/mvc/DashboardViewer.cshtml
+   :emphasize-lines: 11
+
 Run Your Izenda Integrated Application
 ===========================================
+
+Press F5 to run debug
+
+Navigate to login page and enter the values below for the respective fields:
+
+*  Tenant = System
+*  Email = IzendaAdmin@system.com 
+*  Password = Izenda@123 
+
+On top menu click Settings link then add your license key
+
+.. figure:: /_static/images/mvc_license_key.png
+   :width: 900px
+
+   Settings license key
+
+Stop your application and start again (this step ensures Izenda reloads the cache).
+
+Click Izenda link on top menu to open full Izenda app
+
+.. figure:: /_static/images/mvc_full_izenda_app.png
+   :width: 900px
+
+   Full Izenda app
+
+Now feel free to explore Izenda integrated application.
+
 Implement Register New Account
 ===========================================
+
+Modify register new user layout in ASP.NET MVC 5
+
+.. figure:: /_static/images/mvc_new_account.png
+   :width: 900px
+
+   New account screen
+
+Add new Tenant property into class RegisterViewModel in ~\\Models\\AccountViewModels.c
+
+.. literalinclude:: included_samples/mvc/AccountViewModels.cs
+   :lines: 69-77
+   :emphasize-lines: 3,4
+
+Add new tenant input element into ~View\\Account\\Register.cshtml
+
+.. literalinclude:: included_samples/mvc/Register.cshtml
+   :lines: 14-25
+   :emphasize-lines: 0
+
+Create Managers folder and Add new TenantManager class to project (~\\Managers\\TenantManager.cs), this class is used to get Tenant and create new tenant info from your authentication DB.
+
+.. literalinclude:: included_samples/mvc/TenantManager.cs
+
+Open AccountController.cs and modify Register http post action to handle new user registration logic.
+
+When registering a new user the new user’s information is stored on both the authentication DB and the Izenda DB, following that we split the registration logic into the steps below:
+
+*  Save new Tenant if needed
+*  Save User and Role in authentication DB
+*  Save User and Role in Izenda DB
+*  Sign in with new user
+
+All step are encapsulated in the Register action in AccountController.
+
+Register tenant:
+
+.. literalinclude:: included_samples/mvc/AccountController.cs
+   :lines: 166-174
+   :emphasize-lines: 0
+
+Save user and role information into authentication DB:
+
+.. literalinclude:: included_samples/mvc/AccountController.cs
+   :lines: 176-179
+   :emphasize-lines: 0
+
+Save user and role into IzendaDB:
+
+.. literalinclude:: included_samples/mvc/AccountController.cs
+   :lines: 180-225
+   :emphasize-lines: 0
+
+Login with newly created user:
+
+.. literalinclude:: included_samples/mvc/AccountController.cs
+   :lines: 227-230
+   :emphasize-lines: 0
+
+You can refer to completed implementation of Register in AccountController on Github `here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/AccountController.cs>`__.
+
 Call Izenda API Service in C#
 ===========================================
+
+On completed sample starter kit on Github, we provide an example demonstrating how to call Izenda API service in C# code, reference to the ~\\IzendaBoundary\\WebAPIService.cs and ~\\IzendaBoundary\\IzendaUtility.cs for more detail. 

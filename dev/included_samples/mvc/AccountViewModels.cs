@@ -69,6 +69,9 @@ namespace Mvc5StarterKit.Models
     public class RegisterViewModel
     {
         [Required]
+        public string Tenant { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

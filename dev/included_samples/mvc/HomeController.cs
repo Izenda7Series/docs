@@ -61,6 +61,15 @@ namespace Mvc5StarterKit.Controllers
             return View();
         }
 
+        public ActionResult Dashboards()
+        { 
+            return View();
+        }
+
+        public ActionResult DashboardDesigner()
+        { 
+            return View();
+        }
 
     }
 }

@@ -9,6 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mvc5StarterKit.Models;
+using Izenda.BI.Logic.CustomConfiguration;
+using System.Collections.Generic;
+using Izenda.BI.Framework.Models.DBStructure;
+using Izenda.BI.Framework.Models;
 
 namespace Mvc5StarterKit.Controllers
 {
@@ -22,7 +26,7 @@ namespace Mvc5StarterKit.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +38,9 @@ namespace Mvc5StarterKit.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -72,16 +76,17 @@ namespace Mvc5StarterKit.Controllers
             {
                 return View(model);
             }
+
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSigninAsync(model.Tenant, model.Email, model.Password, model.RememberMe);
-            if (result)
+            if(result)
                 return RedirectToLocal(returnUrl);
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
-            //// This doesn't count login failures towards account lockout
-            //// To enable password failures to trigger account lockout, change to shouldLockout: true
             //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             //switch (result)
             //{
@@ -127,7 +132,7 @@ namespace Mvc5StarterKit.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -158,25 +163,88 @@ namespace Mvc5StarterKit.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var tenant = new Tenant { Name = model.Tenant };
+                var tenantManager = new Managers.TenantManager();
+                var roleName = IsSystemTenant(tenant.Name) ? "Administrator" : "Manager";
+                var exstingTenant = tenantManager.GetTenantByName(model.Tenant);
+
+                if (exstingTenant != null)
+                    tenant = exstingTenant;
+                else
+                    tenant = await tenantManager.SaveTenantAsync(tenant);
+
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Tenant_Id = tenant.Id };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                //This line below will hard code users who register to a role of Manager and can be changed by altering the role below
+                await UserManager.AddToRoleAsync(user.Id, roleName);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //izenda
+
+                    //determine tenant
+                    Tenants izendaTenant = null;
+                    if (!IsSystemTenant(tenant.Name))
+                    {
+                        izendaTenant = new Tenants();
+                        izendaTenant.Active = true;
+                        izendaTenant.Deleted = false;
+
+                        izendaTenant.Name = tenant.Name;
+                        izendaTenant.TenantID = tenant.Name;
+                        TenantIntegrationConfig.AddOrUpdateTenant(izendaTenant);
+                    }
+
+                    //determine roles
+                    var roleDetail = new RoleDetail()
+                    {
+                        Name = roleName,
+                        TenantUniqueName = tenant.Name,
+                        Active = true,
+                        Permission = new Izenda.BI.Framework.Models.Permissions.Permission(),
+                    };
+
+                    var izendaUser = new UserDetail()
+                    {
+                        UserName = model.Email,
+                        EmailAddress = model.Email,
+                        FirstName = "John", //todo fix this
+                        LastName = "Doe",
+                        TenantDisplayId = izendaTenant?.Name,
+                        SystemAdmin = IsSystemTenant(tenant.Name),
+                        Deleted = false,
+                        Active = true,
+                        Roles = new List<Role>()
+                    };
+
+                    izendaUser.Roles.Add(new Role()
+                    {
+                        Name = roleDetail.Name
+                    });
+
+                    RoleIntegrationConfig.AddOrUpdateRole(roleDetail);
+                    UserIntegrationConfig.AddOrUpdateUser(izendaUser);
+
+                    user.Tenant = tenant;
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     return RedirectToAction("Index", "Home");
                 }
+
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private bool IsSystemTenant(string tenantName)
+        {
+            return tenantName.Equals("System", StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private string ParseTenantFromEmail(string email)
+        {
+            return email.Split(new char[] { '@' })[1];
         }
 
         //
