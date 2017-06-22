@@ -38,7 +38,7 @@ FIXES
 -  Defect 17068  Grand total only shows on the first page in UI of paginated report
 -  Defect 17066  Freeze function does not work in Quick edit mode of report viewer
 -  Defect 17061  Incorrect URL is set when user clicks close button from Report Viewer and Dashboard pages
-"-  Defect 17033  New Setting added to SystemSetting table: RollbackSPWhenLoadSchema By default, RollbackSPWhenLoadSchema = 1. For customers using Linked Server who cannot setup DTC, this can setting can be set as: RollbackSPWhenLoadSchema = 0 to avoid distributed transaction errors when system attempts to fetch stored procedure schema data."
+-  Defect 17033  New Setting added to SystemSetting table: RollbackSPWhenLoadSchema By default, RollbackSPWhenLoadSchema = 1. For customers using Linked Server who cannot setup DTC, this can setting can be set as: RollbackSPWhenLoadSchema = 0 to avoid distributed transaction errors when system attempts to fetch stored procedure schema data.
 -  Defect 17025  In Report Part Form changes in Report Part Properties do not save properly and report shows no changes found on save
 -  Defect 17013  When using Post request to /api/user/load userModeType 0 should return all but returns no results
 -  Defect 17006  Some records in the last page are hidden by report footer
