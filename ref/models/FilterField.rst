@@ -146,6 +146,11 @@ FilterField
       -
       -  The unique name for comparison field
       -
+   *  -  **isNegative** |br|
+         boolean
+      -
+      -  Whether this filter field is indeterminate
+      -
 
 Inherited fields:
 

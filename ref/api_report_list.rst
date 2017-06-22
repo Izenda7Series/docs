@@ -34,8 +34,13 @@ List of APIs
        Returns reports for the report list.
    * - `POST report/list2(?includeHashCode=true)`_
      - Returns reports for the report list with total number of items.
-   * - `GET report/info/{report_id}`_
-     - Returns report properties for the report specified by report_id.
+   * - `GET report/info/{report_id}/(version)`_
+     - Returns report properties for the report specified by report_id and version. |br|
+       Returns latest version if version parameter is null.
+
+       .. versionchanged:: 2.2
+
+          Added optional version parameter
    * - `POST report/copy`_
      - Copies report to another name or category.
    * - `POST report/move`_
@@ -688,10 +693,15 @@ Returns reports for the report list with total number of item
             "isLastPage": true
          }
 
-GET report/info/{report_id}
+GET report/info/{report_id}/(version)
 ------------------------------------------------
 
-Returns report properties for the report specified by report_id.
+Returns report properties for the report specified by report_id and version. |br|
+Returns latest version if version parameter is null.
+
+.. versionchanged:: 2.2
+
+   Added optional version parameter
 
 **Request**
 
