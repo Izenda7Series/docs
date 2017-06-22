@@ -190,9 +190,6 @@ Known Issues
      - 14957
      - Error message is displayed incorrectly after calculated field contains a field that is no longer available
    * - Defect
-     - 14959
-     - Image from relative path does not display in exported file for Tenant Logo
-   * - Defect
      - 14960
      - Incorrect Error message displayed when report is missing fields in data model "This report is no longer valid..." & the Design button in reportviewer
    * - Defect
@@ -616,9 +613,6 @@ Known Issues
      - 16550
      - Missing highlight of the focus item in middle panel of integrated kit example on MVC
    * - Defect
-     - 16551
-     - In Form report part user cannot uncheck "Visible" of fields on Field Properties -> Data Source
-   * - Defect
      - 16552
      - For map report part Bubble does not show for USA while drilling down into North America area
    * - Defect
@@ -695,10 +689,7 @@ Known Issues
      - I report designer info of deleted filter still displays in Filter Properties drop down when un-selecting its associated data source.
    * - Defect
      - 16798
-     - An error is shown when User saves a report without image on header.
-   * - Defect
-     - 16799
-     - Close button on report viewer and dashboard does not work in some integrated environments
+     - An error is shown when User saves a report without image on header
    * - Defect
      - 16801
      - Filter values in drop downs are sorted A->Z when sorting Z-A
@@ -745,9 +736,6 @@ Known Issues
      - 16872
      - In Report Designer grids, user is unable to set Color Settings with 'Value Range' or Percentage Range' type after setting color with 'Value' type
    * - Defect
-     - 16873
-     - In scheduled instances the same emails are sent to cc-list more than one time (in case more than one email recipient put in to-list)
-   * - Defect
      - 16877
      - Error message 'No result found' appears when clicking on Custom URL link on Chart after adding Separators
    * - Defect
@@ -789,9 +777,6 @@ Known Issues
    * - Defect
      - 16990
      - Mouse cursor is not released when resizing the grid columns columns in report designer
-   * - Defect
-     - 17006
-     - Missing records in printing
    * - Defect
      - 2972
      - Relationships are not arranged well in the schema tab of the data model and difficult to read as the tables overlay the connectors
