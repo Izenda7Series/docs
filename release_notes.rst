@@ -2,6 +2,51 @@
 Release Notes
 ==============
 
+v2.1.5
+~~~~~~~
+FIXES
+^^^^^
+-  Defect 17436	 In some Angular applications using polyfills, errors occur on Dashboard page in Izenda 
+-  Defect 17399  When clicking the option "Show Filters Under Report Description", filters are not consistently displayed
+-  Defect 17386  Error occurs on row count queries when row count is larger than max int field limit
+-  Defect 17381  User is allowed to save calculated field that is not valid and is showing error
+-  Defect 17376  Some calculated fields saved in data model do not show up in reports after saving
+-  Defect 17366  Dynamic Threshold color values are lost when saving a report
+-  Defect 17364  Users without access to system messages still seeing system message
+-  Defect 17363  In Datamodel when clicking reconnect some Calculated Fields show deleted
+-  Defect 17316  Exporting fails when using 2 grids when one contains a calculated field
+-  Defect 17288  Field in subreport mapping is blank when opening global report at tenant level in report designer
+-  Defect 17254  After creating an active version of an archived report is is showing the configuration of the active report not the archived version
+-  Defect 17244  System shows normal Field in Aggregated Group in Filter drop down list
+-  Defect 17225  'Custom URL' and 'Embedded Javascript' field options are hidden in Field Properties when user has those permissions but Subreport is disabled for the user
+-  Defect 17223  Remove Page Break After Each Entry setting under Report Part Properties in Forms as it is not an available feature
+-  Defect 17222  When using PostgreSQL as Izenda configuration database, the report version history list shows no record found in display when viewing archived versions
+-  Defect 17198  In Angular2 embedded kit, print option from report list is not working
+-  Defect 17196  User can create/copy a report when 'Can create new report?' option is unchecked for a tenant
+-  Defect 17186  User cannot create a new role when role has 'Create' but 'Permissions' option is unchecked for Role Setup
+-  Defect 17168  In Form report part fields outside of repeater is auto changed to sort by A-Z
+-  Defect 17164  Missing date and time only filter operators for datetime/time input-param field of stored procedures 
+-  Defect 17163  Select All Gives Roles Tenant Permissions in Single Tenant Deployments
+-  Defect 17155  'Next Scheduled Run' is showing start-date instead of next-run date after editing the schedule/subscription
+-  Defect 17147  After adding join alias to joins containing additional join conditions some data is no longer returning
+-  Defect 17140  In MVC kit error message appears when adding new PostgreSQL connection string for Tenant
+-  Defect 17129  In MVC kit GUI is cut-off when user selects Presentation Mode icon after opening dashboard on some smaller screens
+-  Defect 17110  Query execution export is blank if report part uses calculated fields
+-  Defect 17099  Forms lose style settings in the HTML tab if fields are added/removed in the Visual Tab
+-  Defect 17083  Subreport shows incorrect data when using group by year of date field in top level report and navigating to subreport
+-  Defect 17079  User is able to access to New Dashboard although has no dashboard permission on Tenant setup
+-  Defect 17068  Grand total only shows on the first page in UI of paginated report
+-  Defect 17066  Freeze function does not work in Quick edit mode of report viewer
+-  Defect 17061  Incorrect URL is set when user clicks close button from Report Viewer and Dashboard pages
+"-  Defect 17033  New Setting added to SystemSetting table: RollbackSPWhenLoadSchema By default, RollbackSPWhenLoadSchema = 1. For customers using Linked Server who cannot setup DTC, this can setting can be set as: RollbackSPWhenLoadSchema = 0 to avoid distributed transaction errors when system attempts to fetch stored procedure schema data."
+-  Defect 17025  In Report Part Form changes in Report Part Properties do not save properly and report shows no changes found on save
+-  Defect 17013  When using Post request to /api/user/load userModeType 0 should return all but returns no results
+-  Defect 17006  Some records in the last page are hidden by report footer
+-  Defect 16873  In scheduled instances the same emails are sent to cc-list more than one time (in case more than one email recipient put in to-list)
+-  Defect 16799  Close button on report viewer and dashboard does not work in some integrated environments
+-  Defect 16551  In Form report part user cannot uncheck "Visible" of fields on Field Properties -> Data Source
+-  Defect 14959  Image from relative path does not display in exported file for Tenant Logo
+
 v2.1.4
 ~~~~~~~
 
