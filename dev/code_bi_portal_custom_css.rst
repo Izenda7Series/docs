@@ -2,12 +2,17 @@
 BI Portal Custom CSS
 =====================
 
+.. note::
+
+   Whenever possible, we encourage you to adhere to the official CSS Guidelines for cascading styles. For the main styles, we recommend to make a copy of the izenda-us.css to modify and add the reference to the index.html.
+
+
 Location of CSS
 ---------------
 
--  izenda-app-blessed1.css : Main location for CSS Stylings. Try to
-   modify this file first.
--  izenda-ui.css
+-  izenda-ui.css : Main location for CSS Stylings.
+
+
 
 Customization (Simple)
 ----------------------
@@ -37,7 +42,7 @@ our CSS selectors.
 
    This solution is currently supported in Chrome and Firefox.
 
--  Add the following on top of blessed1.css
+-  Add the following on top of izenda-ui.css
 
    .. figure::  /_static/images/Figure2.png
 
@@ -60,7 +65,7 @@ our CSS selectors.
 Key Styling Colors
 ------------------
 
-Key styling for Chrome and Firefox is located in the file ``izenda-app-blessed1.css``. Below, we list 11 variables that will help
+Key styling for Chrome and Firefox is located in the file ``izenda-ui.css``. Below, we list 11 variables that will help
 you stylize your application.
 
 .. note::
@@ -171,7 +176,7 @@ Sample Code
 ~~~~~~~~~~~
 
 The following code sample can be added to the top of your
-izenda-app-blessed1.css . If you replace the color code provided in the
+izenda-ui.css . If you replace the color code provided in the
 CSS comments with the name of the variable, the new color will be
 applied. The results will be striking.
 
