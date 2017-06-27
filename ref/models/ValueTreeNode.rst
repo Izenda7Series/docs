@@ -37,6 +37,27 @@ ValueTreeNode
       -
       -  The value of the object
       -
+   *  -  **numOfChilds** |br|
+         integer
+      -
+      -  The number of children
+      -
+   *  -  **numOfCheckedChilds** |br|
+         integer
+      -
+      -  The number of selected children
+      -
+   *  -  **indeterminate** |br|
+         boolean
+      -
+      -  *  true if 0 < numOfCheckedChilds < numOfChilds
+         *  false if not
+      -
+   *  -  **isCheck** |br|
+         boolean
+      -
+      -  Whether this instance is selected
+      -
 
 .. container:: toggle
 
