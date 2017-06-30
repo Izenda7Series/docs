@@ -59,6 +59,10 @@ div.topic {
    font-weight: bold;
 }
 
+.red {
+   color: red;
+}
+
 /* Text will wrap when necessary, and on line breaks */
 div[class^='highlight'] pre {
     white-space: pre-wrap !important;

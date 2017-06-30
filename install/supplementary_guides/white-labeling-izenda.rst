@@ -78,9 +78,7 @@ Removing the Izenda Copyright notice
 		:linenos:
 		
 		.izenda-Footer .izenda-Footer-copyright {
-			line-height: 30px;
-			margin-left: 15px;
-			font-size: 0px;
+			visibility: hidden;
 		}
 
 **Before:**
@@ -100,5 +98,5 @@ Removing the Izenda help icon
 		:linenos:
 		
 		.icon-help-circled:before {
-			content: "" !important;
+			visibility: hidden;
 		}

@@ -57,6 +57,8 @@ Standalone Deployment
 
       A diagram of implementation
 
+.. _Fully_Integrated_Deployment:
+
 Fully Integrated Deployment
 ---------------------------
 

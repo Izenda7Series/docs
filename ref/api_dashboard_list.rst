@@ -1708,8 +1708,74 @@ Needs SystemAdmin permission.
 
 **Response**
 
-    A full :doc:`models/DashboardDefinition` object.
+   *  A full :doc:`models/DashboardDefinition` object if found
+   *  null if not found
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/dashboard/findByName HTTP/1.1
+
+   Request payload::
+
+      {
+        "name" : "Empty Dashboard",
+        "tenantId" : null,
+        "isGlobal" : false,
+        "categoryName" : "Dashboard Category 1"
+      }
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+         {
+            "commonFilterFields": [],
+            "accesses": [],
+            "subscriptions": [],
+            "inaccessible": false,
+            "name": "Empty Dashboard",
+            "description": null,
+            "categoryId": "1b066da5-7afe-4110-ac69-be9a2a61b6a1",
+            "categoryName": "Dashboard Category 1",
+            "subCategoryId": null,
+            "subCategoryName": null,
+            "tenantId": null,
+            "imageUrl": null,
+            "stretchImage": false,
+            "backgroundColor": "",
+            "showFilterDescription": false,
+            "lastViewed": null,
+            "owner": "john doe",
+            "ownerId": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "createdById": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "modifiedById": "dc18316c-bd87-4af2-9d98-e196a5c1fa6c",
+            "checked": false,
+            "numberOfView": 0,
+            "renderingTime": 0,
+            "sourceId": null,
+            "isGlobal": false,
+            "deletable": false,
+            "editable": false,
+            "movable": false,
+            "copyable": false,
+            "accessPriority": 0,
+            "dashboardParts": [],
+            "indeterminate": false,
+            "fullPath": null,
+            "computeNameSettings": null,
+            "id": "baa03250-9a06-46e1-8cce-bfae8c12c4fe",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": 1,
+            "created": "2017-06-09T04:38:33.233",
+            "createdBy": "john doe",
+            "modified": "2017-06-09T04:38:33.233",
+            "modifiedBy": "john doe"
+         }

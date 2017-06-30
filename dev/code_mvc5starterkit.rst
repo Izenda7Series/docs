@@ -240,6 +240,12 @@ Depending on your deployment mode, you may want to invoke the Izenda API in diff
 Updates
 -------
 
+06/23/2017
+~~~~~~~~~~
+
+If you are using a different route thatn Izenda's default API route (/api), the URL must be set in the web.config.
+
+
 05/08/2017
 ~~~~~~~~~~
 
