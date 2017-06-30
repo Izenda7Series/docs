@@ -26,6 +26,16 @@ FilterItem
       -
       -  Whether filter is link report filter
       -
+   *  -  **aliasUnique** |br|
+         string
+      -
+      -  The unique alias
+      -
+   *  -  **isCrossFilter** |br|
+         boolean
+      -
+      -  Whether this instance is cross filter
+      -
 
 Inherited fields:
 

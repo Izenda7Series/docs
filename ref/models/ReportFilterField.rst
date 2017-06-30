@@ -125,6 +125,11 @@ ReportFilterField
       -
       -  Whether this instance is hidden filter
       -
+   *  -  **isInheritableFilter** |br|
+         boolean
+      -
+      -  Whether this filter is inherited from its master report
+      -
 
 Inherited fields:
 

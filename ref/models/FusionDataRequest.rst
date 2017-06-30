@@ -92,6 +92,11 @@ FusionDataRequest
       -
       -  Whether to load all records for exporting or printing
       -
+   *  -  **loadDefaultData** |br|
+         boolean
+      -
+      -  Whether to load default data for dashboard part
+      -
 
 .. container:: toggle
 
