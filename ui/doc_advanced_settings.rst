@@ -155,7 +155,7 @@ automatic filter condition to always restrict data retrieval to only
 that of the current tenant. To enable this feature:
 
 #. Untick Show Tenant Field check-box.
-#. Enter the name of tenant id fields into the Tenant Field box, separated by semi-colon.
+#. Enter the name of tenant id fields into the Tenant Field box. The Tenant Field must be enclosed in brackets [fieldname] and multiple fields should be separated by a semi-colon.
 #. Click Save button at the top.
 #. Then:
 
