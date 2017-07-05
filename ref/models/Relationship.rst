@@ -131,12 +131,16 @@ Relationship
       -
       -  The original id of the relationship - in case this is cloned from a physical relationship
       -
+   *  -  **isForeignDataObjectAlias** |br|
+         boolean
+      -
+      -  Whether this instance is foreign data object alias
+      -
    *  -  **selectedForeignAlias** |br|
          string
       -
       -  ``<foreignQuerySourceId>_[<foreignAlias>|<foreignQuerySourceName>]``
       -
-
 
 Inherited fields:
 

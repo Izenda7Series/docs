@@ -57,7 +57,13 @@ ReportSavingParameter
       -
       -  Whether to override calculated fields
       -
-
+   *  -  **reportState** |br|
+         integer
+      -
+      -  +  0 = Posted - Report is posted from client
+         +  1 = Saved  - Get report from database
+         +  2 = Draft  - Get report from draft
+      -
 
 Inherited fields:
 

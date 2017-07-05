@@ -3,7 +3,7 @@ Release Notes
 ==============
 
 v2.2.0 June 30, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
 ^^^^^^^^
@@ -15,16 +15,17 @@ FEATURES
 -  For report part containers which do not require sorting, the system will no longer create an automatic ascending sort for each field added to a report part.
 -  New option added to Data Model Others page, "Allow Multiple Sorts on Grid Header". This is selected by default. When unchecked this will allow users to resort column in the report viewer without unsorting other columns. The sort in the report viewer will be only one column at a time when the user changes the sort. These are not saved in the report, but a user defined sort on the report viewer.
 -  Added new JavaScript API for rendering Dashboard "IzendaSynergy.renderDashboardViewerPage(#container, dashboardId, { p1: "abc;#def", p2: "xyz" })"
--  Added additional performance improvements 
-  - Changed the projection for select statements to use * rather than select specific columns
-  - Unique name checking was creating table scans, so created index on Name field
-  - Removed some redundant SQL queries
-  - Removed redundant calls in the save process
-  - Added caching for validation result of report to reduce api calls
-  - Added caching for data formats of all data types
-  - Performance improvement for API for /api/allcategories   
-  - Removed redundant calls from Report Viewer 
-  - Removed calls to api/report/loadAllFilterFieldsData from Report Viewer and Dashboard Viewer 
+-  Added additional performance improvements
+
+   - Changed the projection for select statements to use * rather than select specific columns
+   - Unique name checking was creating table scans, so created index on Name field
+   - Removed some redundant SQL queries
+   - Removed redundant calls in the save process
+   - Added caching for validation result of report to reduce api calls
+   - Added caching for data formats of all data types
+   - Performance improvement for API for /api/allcategories   
+   - Removed redundant calls from Report Viewer 
+   - Removed calls to api/report/loadAllFilterFieldsData from Report Viewer and Dashboard Viewer 
 
 FIXES
 ^^^^^
@@ -115,7 +116,7 @@ FIXES
 
 
 v2.1.5 June 22, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 FIXES
 ^^^^^
 -  Defect 17436	 In some Angular applications using polyfills, errors occur on Dashboard page in Izenda 
@@ -160,7 +161,7 @@ FIXES
 -  Defect 14959  Image from relative path does not display in exported file for Tenant Logo
 
 v2.1.4 June 16, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
 ^^^^^
@@ -171,7 +172,7 @@ FIXES
 -  Defect 15469	 No tooltip displays when hovering over Column Group text field
 
 v2.1.3 June 13, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
 ^^^^^
@@ -186,7 +187,7 @@ FIXES
 -  Defect 15174	 Advance Settings page display is missing part of text "Determine common filter for the same field based on" on smaller screens
 
 v2.1.2 June 6, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
 ^^^^^
@@ -195,7 +196,7 @@ FIXES
 -  Defect 16759  Issue with Date Based Click Through in Charts with cross filtering when drilling down from date field formatted as year, and one as Month. The system is not passing proper filter values for dates
 
 v2.1.1 June 2, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 .. warning::
 
    For version 2.1.1 and above, there are code-level changes that will need to be made when using Izenda in embedded mode. The previous Encryption/Decryption logic has been refactored to use a new StringCipher class local to the kits. You can view the latest commits for more details.
@@ -215,7 +216,7 @@ FIXES
 -  Defect 17042  Subtotal is null when not using a grouping level in grid
 
 v2.1.0 May 31, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 BREAKING CHANGES
 ^^^^^^^^^^^^^^^^
