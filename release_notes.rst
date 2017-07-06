@@ -2,6 +2,29 @@
 Release Notes
 ==============
 
+v2.2.1 July 6, 2017
+~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17597  Calculated fields are not working properly showing missing fields which were saved in the report.
+-  Defect 17578  Successive API Calls would Result in Recursive Write Lock Errors
+-  Defect 17539  Deactivate/Activate is NOT hidden in Role Setup when user has no permission to edit role
+-  Defect 17505  Non-Visible Fields in Form Tables Appear in Exports
+-  Defect 17499  Missing Copy/Save/Save As features when accessing report by account that is full permission in report and not admin system
+-  Defect 17472  For Dashboard access button is still enabled when 'Configure Access Rights' is unchecked in Tenant Setup > Permissions
+-  Defect 17469  In MVC integration example kit user cannot delete a tenant
+-  Defect 17461  Cannot create new dashboard when user has permission to create dashboard but not category
+-  Defect 17453  In Tenant permissions 'Register for Alerts' checkbox is not automatically unchecked and disabled when 'Schedule' is unchecked
+-  Defect 17419  The field status is not refreshed when reconnecting to the database in some cases.
+-  Defect 17402  System scales the slave section of data model fields and it is not fixed with the bottom of the page
+-  Defect 17323  From the second field of form, when user selects 1 function from drop down list, it is not updating the field. User must select it from the function list a second time 
+-  Defect 17295  Cannot use Enter or Tab when saving Category or Subcategory of Dashboard
+-  Defect 17282  After user reformats HTML in Form, and changes any function for a Field, system still keeps the old function for the Field on the Visual tab. 
+-  Defect 17253  After user click format HTML in form and adds a new field the HTML is no longer formatted
+-  Defect 17082  Error 'The tenant ID already exists' displays when Deactivate or Activate a tenant after adding a duplicated one
+-  Defect 16774  Created Date, Number of Views and Average Rendering Time of copied report/dashboard still keep values of the old report/dashboard
+
 v2.2.0 June 30, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -34,7 +57,7 @@ FIXES
 -  Defect  17529 For equals checkbox filter type user needs to refresh to load filter values on the first time entering report viewer
 -  Defect  17528 Sub and Grad totals are not displaying values when exported for forms, they show field values instead.
 -  Defect  17515 System shows error msg for report created using PostgreSQL stored procedure and valid value is entered in input parameter. 
--  Defect  17494 User can not delete Report on Tenant Level, after clicking delete the report still shows, and when user tries to open, system shows: "This report is no longer valid"
+-  Defect  17494 User cannot delete Report on Tenant Level, after clicking delete the report still shows, and when user tries to open, system shows: "This report is no longer valid"
 -  Defect  17485 Pivots are showing incorrect values for dates as columns when changing from Grouped by year to grouped by other date formats.
 -  Defect  17484 Subtotal showing first item in list of values, not the actual subtotal.
 -  Defect  17445 When copying a report from a subcategory to a new category, a new subcategory is created.
