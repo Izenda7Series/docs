@@ -43,12 +43,6 @@ Known Issues
      - 15967
      - After unchecking some data sources in data model copy, the confirmation for overwrite shows items not expected 
    * - Defect
-     - 17253
-     - After user click format HTML in form and adds a new field the HTML is no longer formatted
-   * - Defect
-     - 17282
-     - After user reformats HTML in Form, and changes any function for a Field, system still keeps the old function for the Field on the Visual tab. 
-   * - Defect
      - 14694
      - Application detects incorrect data type of Aggregated Function so it throws incorrect error msg: "Value should be valid compared with filter data type"
    * - Defect
@@ -91,14 +85,8 @@ Known Issues
      - 17116
      - Can export query execution although there is no report part, so export is blank
    * - Defect
-     - 17461
-     - Cannot create new dashboard when user has permission to create dashboard but not category
-   * - Defect
      - 17123
      - Cannot create report type chart on Mac OS Safari
-   * - Defect
-     - 17295
-     - Cannot use Enter or Tab when saving Category or Subcategory of Dashboard
    * - Defect
      - 17045
      - Can't change status from Deactivate to Active for user in MVC kit
@@ -151,9 +139,6 @@ Known Issues
      - 17101
      - Country level map is missing resources for Italy, Hoduras, Hungary, Iran, Vanuata, Uganda, Taiwan, Slovakia, Mauritaria, Norway, Peru, Republic of Serbia, United Replic of Tanzania and shows error when attempting to create these maps
    * - Defect
-     - 16774
-     - Created Date, Number of Views and Average Rendering Time of copied report/dashboard still keep values of the old report/dashboard
-   * - Defect
      - 16867
      - Cross Filter section and Delete icon is displayed when user does not set config for Cross Filtering
    * - Defect
@@ -186,9 +171,6 @@ Known Issues
    * - Defect
      - 15472
      - Datetime fields Between function, the TO date/time should be restricted to be after the FROM datetime
-   * - Defect
-     - 17539
-     - Deactivate/Activate is NOT hidden in Role Setup when user has no permission to edit role
    * - Defect
      - 14293
      - Default sorting function is removed when user returns to visual tab from HTML tab
@@ -295,9 +277,6 @@ Known Issues
      - 15754
      - For charts Hover Label Checkbox Does Not Remove Hover Labels
    * - Defect
-     - 17472
-     - For Dashboard access button is still enabled when 'Configure Access Rights' is unchecked in Tenant Setup > Permissions
-   * - Defect
      - 16552
      - For map report part Bubble does not show for USA while drilling down into North America area
    * - Defect
@@ -323,10 +302,7 @@ Known Issues
      - From emailed dashboard sent email shows First and Last name instead of configured 'Display Name'
    * - Defect
      - 17382
-     - From emailed dashboard/report sent, email address shows 'SMTP Login' instead of 'Email From Address'
-   * - Defect
-     - 17323
-     - From the second field of form, when user selects 1 function from drop down list, it is not updating the field. User must select it from the function list a second time 
+     - From emailed dashboard/report sent, email address shows 'SMTP Login' instead of 'Email From Address' 
    * - Defect
      - 14775
      - Function dropdown list carries over from one field to another field in forms
@@ -430,9 +406,6 @@ Known Issues
      - 15743
      - In Key join value when user uses Home/End key in text field the value changes to -number
    * - Defect
-     - 17469
-     - In MVC integration example kit can not delete a tenant
-   * - Defect
      - 17103
      - In MVC integration example kit User must select tenant 2 times to change selected tenant in settings level dropdown
    * - Defect
@@ -487,9 +460,6 @@ Known Issues
      - 17136
      - In Tenant Permissions page The section in the header section is not auto highlighted when its name hits the bottom of the header section.
    * - Defect
-     - 17453
-     - In Tenant permissions 'Register for Alerts' checkbox is not automatically unchecked and disabled when 'Schedule' is unchecked
-   * - Defect
      - 15912
      - In User Setup, When You Input Non Decimals, Timezone Data Offset Breaks Datetime Filters In Reports 
    * - Defect
@@ -532,9 +502,6 @@ Known Issues
      - 16850
      - Min & Max of Gauge report have 14 decimal digits while value has only 2 decimal digits in db
    * - Defect
-     - 17499
-     - Missing Copy/Save/Save As features when accessing report by account that is full permission in report and not admin system
-   * - Defect
      - 17171
      - Missing plus (+) when mouseover on the first tile of dashboard when creating blank dashoard type
    * - Defect
@@ -576,9 +543,6 @@ Known Issues
    * - Defect
      - 16386
      - No successful message appears when editing & saving the report linked to an invisible connection in the data model
-   * - Defect
-     - 17505
-     - Non-Visible Fields in Form Tables Appear in Exports
    * - Defect
      - 17197
      - Not Equal (Checkbox) filter is not appearing as a common filter in dashboard.
@@ -739,9 +703,6 @@ Known Issues
      - 13736
      - Success message displays even after clicking Cancel button on Overwrite popup when copying reports
    * - Defect
-     - 17578
-     - Successive API Calls would Result in Recursive Write Lock Errors
-   * - Defect
      - 14914
      - Suggested Data Type is incorrect when user changes the Field in Expression text box for Calculated Field
    * - Defect
@@ -780,9 +741,6 @@ Known Issues
    * - Defect
      - 15094
      - System Parameters used in sp params are not correct when using @UserID the report loads with the initial stored value not the current user id
-   * - Defect
-     - 17402
-     - System scales the slave section of data model fields and it is not fixed with the bottom of the page
    * - Defect
      - 15242
      - System should allow user back to data source tab, instead of display the information message when distinct is not valid
@@ -858,9 +816,6 @@ Known Issues
    * - Defect
      - 17351
      - The export process bar shows process status of report part, not entire report
-   * - Defect
-     - 17419
-     - The field status is not refreshed when reconnecting to the database in some cases.
    * - Defect
      - 16512
      - The filter set on the calculated field is not inherited in subreports even though both reports have the same calculated fields and datasources
