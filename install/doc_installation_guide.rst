@@ -104,6 +104,8 @@ Application Pool Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 When creating your Izenda Sites please ensure you set the Managed pipeline mode to Integrated. Classic is not supported.
 
+|
+
 Izenda Installation As Two Separate Sites
 ------------------------------------------
 
@@ -172,6 +174,9 @@ The most common testing scenario places the front-end and the back-end on two se
    #. Update the Back-end API url in Front-end package: |br|
       Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
       ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
+|
+|
+|
 
 Deploying Izenda as a Virtual Directory or Application
 ------------------------------------------------------
