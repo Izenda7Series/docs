@@ -15,7 +15,7 @@ FIXES
 -  Defect 17441	 System lost focus on Form and new added Field is not displayed in Visual tab when Form has style setting.
 -  Defect 17152	 When setting time for dashboard tiles to cycle through presentation mode and clicking full screen mode, tiles are not auto advancing.
 -  Defect 17065	 Subtotal does not show for field with aggregated function field for row container of pivot grid.
--  Defect 16252	 Lookup values set in the data model are not available in the dashboard filters
+-  Defect 16252	 Lookup values set in the data model are not available in the dashboard filters; Stored procedure input parameters are not being shown as common filters when reports are created from the same stored procedure.
 
 v2.2.1 July 6, 2017
 ~~~~~~~~~~~~~~~~~~~~~
