@@ -87,7 +87,7 @@ ReportDashboardSearchCriteria
       -  Whether to include Uncategorized
       -
 
-.. deprecated:: 1.25
+.. deprecated:: 2.0.0
    tenantId field is removed
 
 .. container:: toggle
