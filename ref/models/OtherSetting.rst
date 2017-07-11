@@ -123,6 +123,16 @@ OtherSetting
       -
       -  The default value for Allow Multiple Sorts on Grid Header
       -
+   *  -  **showPreviewValue** |br|
+         boolean
+      -
+      -  Option for Show Preview
+      -
+   *  -  **showPreviewDefaultValue** |br|
+         boolean
+      -
+      -  The default value for Show Preview
+      -
    *  -  **tenantId** |br|
          string (GUID)
       -  Y
