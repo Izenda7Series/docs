@@ -72,8 +72,6 @@ Available Calculated Field Expressions
       -  boolean_expression OR boolean_expression
    *  -  ROUND 
       -  ROUND (expression, length[, function])
-   *  -  RTRIM 
-      -  RTRIM (character_expression)
    *  -  RUNNING AVG 
       -  RUNNINGAVG (column)
    *  -  RUNNING COUNT 
