@@ -368,7 +368,7 @@ Common Izenda Stand-alone Installation Issues
    Izenda’s Oracle Drivers utilize the Microsoft Visual C++ 2010 Redistributable.
 
    These can be installed by downloading the installer from Microsoft: |br|
-   `Microsoft Visual C++ 2010 Redistributable Package (x64) <https://d.docs.live.net/df747aa7afec615b/WorkDocuments/Microsoft Visual C++ 2010 Redistributable Package (x64)>`__
+   `Microsoft Visual C++ 2010 Redistributable Package (x64) <https://www.microsoft.com/en-us/download/details.aspx?id=14632>`__
 
    Without this dependency installed you may encounter errors like the following.
 
