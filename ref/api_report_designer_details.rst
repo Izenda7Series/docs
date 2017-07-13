@@ -123,9 +123,13 @@ List of APIs
    * - `DELETE report/timePeriod/{time_period_id}`_
      - Deletes the customed InTimePeriod specified by time_period_id.
    * - `GET report/reportPart/crossfiltering/{report_part_id}`_
-     - Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including it.
+     - Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including itself.
 
        .. versionadded:: 2.0.6
+   * - `GET report/validateEmbeddedReport/(tenant_id)?reportId=value&reportName=value&reportPartName=value`_
+     - Validates that logged in user can access one and only one report part from the specified reportName and reportPartName.
+
+       .. versionadded:: 2.2.2
 
 GET report/category/{type}/(tenant\_id)
 ---------------------------------------
@@ -5223,7 +5227,7 @@ Deletes the customed InTimePeriod specified by time_period_id.
 GET report/reportPart/crossfiltering/{report_part_id}
 ------------------------------------------------------------------
 
-Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including it.
+Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including itself.
 
 .. versionadded:: 2.0.6
 
@@ -5244,3 +5248,52 @@ Returns a list of ids of cross-filtering report parts in the same report as the 
    Response::
 
       ["04192bb1-7138-4e45-8fd4-506793a29704","edaf3f13-7ff8-4d0f-a99b-56396080155a"]
+
+
+GET report/validateEmbeddedReport/(tenant_id)?reportId=value&reportName=value&reportPartName=value
+-----------------------------------------------------------------------------------------------------
+
+Validates that logged in user can access one and only one report part from the specified reportName and reportPartName.
+
+.. versionadded:: 2.2.2
+
+**Request**
+
+   .. list-table::
+      :header-rows: 1
+      :widths: 20 10 70
+
+      *  -  Parameter
+         -  Required
+         -  Description
+      *  -  **reportId** |br|
+            string (GUID)
+         -  O
+         -  The id of the embedded report. |br|
+            If not available, all reports containing the specified reportPartName will be checked.
+      *  -  **reportName** |br|
+            string
+         -  R
+         -  The name of the embedded report.
+      *  -  **reportPartName** |br|
+            string
+         -  R
+         -  The name of the embedded report part.
+
+**Response**
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+      *  - **reportId** |br|
+           string (GUID)
+         -  The id of the unique report
+      *  - **reportPartId** |br|
+           string (GUID)
+         -  The id of the unique report part
+
+**Samples**
+
+   To be updated
