@@ -2,6 +2,21 @@
 Release Notes
 ==============
 
+v2.2.2 July 11, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17656	 User cannot select a field in Subtotal/Grandtotal smart tag popup
+-  Defect 17635	 User is unable to select item in dropdown lists for database mapping
+-  Defect 17612	 Fixed privilege escalation issue in the myprofile settings
+-  Defect 17598	 Stored Procedure cascading option is disabled in the report designer for use in OnPreLoadFilterData.
+-  Defect 17561	 Reports with required filters are still querying the database prior to filter value being added to the report in the report viewer. 
+-  Defect 17441	 System lost focus on Form and new added Field is not displayed in Visual tab when Form has style setting.
+-  Defect 17152	 When setting time for dashboard tiles to cycle through presentation mode and clicking full screen mode, tiles are not auto advancing.
+-  Defect 17065	 Subtotal does not show for field with aggregated function field for row container of pivot grid.
+-  Defect 16252	 Lookup values set in the data model are not available in the dashboard filters; Stored procedure input parameters are not being shown as common filters when reports are created from the same stored procedure.
+
 v2.2.1 July 6, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 

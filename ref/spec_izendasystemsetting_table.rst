@@ -136,6 +136,9 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
    * - **LayoutSize**
      - The number of report tiles per screen width, used for calculating export size
      - 12
+   * - **AuthRSAPublicKey**
+     - The Public key from the RSA key pair used for encrypting export requests on Integrated Front-end modes
+     - Site-specific
    * - **ProvisionStaticDataStatus**
      - .. container:: 
 

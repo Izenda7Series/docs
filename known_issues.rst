@@ -490,9 +490,6 @@ Known Issues
      - 17487
      - Loading icon appears in print previewer
    * - Defect
-     - 16252
-     - Lookup values set in the data model are not available in the dashboard filters
-   * - Defect
      - 16354
      - Maps seems to have difficulty with US Maps without territories, if data for a US territory is available.
    * - Defect
@@ -622,9 +619,6 @@ Known Issues
      - 14949
      - Report Part should be displayed in the report when error is shown that fields are not visible
    * - Defect
-     - 17561
-     - Reports with required filters are still querying the database prior to filter value being added to the report in the report viewer. 
-   * - Defect
      - 17437
      - Required filters set to not visible in the report designer cause report to fail copy process.
    * - Defect
@@ -694,9 +688,6 @@ Known Issues
      - 17554
      - SubReport link from printed PDF and embedded email shows blank page when clicked by user.	
    * - Defect
-     - 17065
-     - Subtotal does not show for field with aggregated function field for row container of pivot grid.
-   * - Defect
      - 15398
      - Subtotals on Drill Down Grid Inaccurate When Collapsed
    * - Defect
@@ -735,9 +726,6 @@ Known Issues
    * - Defect
      - 15652
      - System loads the grey content below Reconnect button after user saving a first new connection string
-   * - Defect
-     - 17441
-     - System lost focus on Form and new added Field is not displayed in Visual tab when Form has style setting.
    * - Defect
      - 15094
      - System Parameters used in sp params are not correct when using @UserID the report loads with the initial stored value not the current user id
@@ -957,9 +945,6 @@ Known Issues
    * - Defect
      - 13912
      - When setting a role to Full Report and Dashboard Access defaults for each area are not correct. Example, user should always be able to create a report but if it is not the default for tenant this is not checked and is hidden when using this setting.
-   * - Defect
-     - 17152
-     - When setting time for dashboard tiles to cycle through presentation mode and clicking full screen mode, tiles are not auto advancing.
    * - Defect
      - 17410
      - When setting up a new instance, create new Report/Dashboard options are missing after adding License
