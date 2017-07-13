@@ -499,6 +499,13 @@ Permission
       -
    *  -  .. container:: lpad4
    
+            **CrossFiltering** |br|
+            boolean
+      -
+      -  Is permission for Cross Filtering set
+      -
+   *  -  .. container:: lpad4
+   
             **tenantAccess** |br|
             integer
       -
