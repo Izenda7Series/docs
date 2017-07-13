@@ -99,6 +99,8 @@ For production web site, we will replace ``vendor/jquery-1.12.2.js``
 with the link for Google or Microsoft hosted, minified and compressed
 library.
 
+.. _Code_sample_for_calling_REST_API:
+
 Code sample for calling REST API
 --------------------------------
 

@@ -4,6 +4,29 @@ REST API Documentation
 
 A master list of REST API endpoints, their purpose, parameters and return types - together with cross-references to UI functions and sample API calls.
 
+List of Request Headers
+-----------------------
+
+.. list-table::
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Request header
+     - Description
+   * - ``access_token`` |br| |br|
+       **Required**, except for :ref:`POST_user/login` API
+     - The access token, which should be requested firstly using :ref:`POST_user/login` API
+   * - ``current_tenant`` |br| |br|
+       **Required** if logged in user is a tenant user
+     - The id of the tenant of the logged in user
+   * - ``select_tenant`` |br|
+     - The id of the selected tenant. This is used in case the logged in user is a system user, and selects setting level as a specific tenant.
+
+For an example on adding request headers, please see :ref:`Code_sample_for_calling_REST_API`.
+
+List of APIs
+------------------
+
 .. toctree::
    :maxdepth: 2
 

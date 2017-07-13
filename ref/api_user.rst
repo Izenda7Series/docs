@@ -349,6 +349,7 @@ Returns an array of users, with paging.
         "total" : 3
       }
 
+.. _POST_user/login:
 
 POST user/login
 --------------------------------------------------------------
