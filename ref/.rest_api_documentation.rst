@@ -19,7 +19,7 @@ List of Request Headers
    * - ``current_tenant`` |br| |br|
        **Required** if logged in user is a tenant user
      - The id of the tenant of the logged in user
-   * - ``select_tenant`` |br|
+   * - ``selected_tenant`` |br|
      - The id of the selected tenant. This is used in case the logged in user is a system user, and selects setting level as a specific tenant.
 
 For an example on adding request headers, please see :ref:`Code_sample_for_calling_REST_API`.
