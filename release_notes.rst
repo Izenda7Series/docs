@@ -2,6 +2,23 @@
 Release Notes
 ==============
 
+v2.2.3 July 14, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17711  In GetAccessToken method, lookup being performed by Tenant Name not Tenant ID causing Tenant to be generated as NULL in exporting and validation fails.
+-  Defect 17693  All setting on "Field Properties" tab are invisible after User set subreport.
+-  Defect 17674  Comparing the encoded location hash is causing infinite appending to the location hash.
+-  Defect 17662  "Required" message in report viewer reflects the field name, not the alias name
+-  Defect 17644  Scheduled jobs that fail to run for any reason are not rescheduled for immediate delivery.
+-  Defect 17633  Modifying the Alias of a Grid Field With Grand/Sub Total causes Grand/Sub Total Expressions to error
+-  Defect 17623  "No Record Found" when opening a subreport without filter values.
+-  Defect 17593  KeyJoin on an existing report has blank and marked Field if alias is changed in data model for one of the data sources used
+-  Defect 14605  Permissions summary data is showing Global and Local category names not the actual category names
+
+
+
 v2.2.2 July 11, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
