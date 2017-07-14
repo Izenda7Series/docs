@@ -478,9 +478,6 @@ Known Issues
      - 16444
      - Json node createdBy and modified are incorrect when saving a new category
    * - Defect
-     - 17593
-     - KeyJoin on an existing report has blank and marked Field if alias is changed in data model for one of the data sources used
-   * - Defect
      - 14010
      - Known issue with Oracle .net driver any repeating decimals will cause an error to resolve in the Application use ROUND(field/field,3) to round the decimal
    * - Defect
@@ -573,9 +570,6 @@ Known Issues
    * - Defect
      - 13794
      - Performance on MS Edge is slow, nearly frozen
-   * - Defect
-     - 14605
-     - Permissions summary data is showing Global and Local category names not the actual category names
    * - Defect
      - 15497
      - Pivot Grid Column Field Text Color Does Not Change
