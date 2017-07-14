@@ -70,7 +70,8 @@ Add Web Server Role and .NET Framework
 #. Click Add Features in the next dialog box.
 #. Expand .NET Framework 3.5 features and tick .NET Framework 3.5
    check-box.
-#. Expand .NET Framework 4.5 features and tick .NET Framework 4.5
+#. Expand .NET Fra
+mework 4.5 features and tick .NET Framework 4.5
    check-box.
 
    .. note::
@@ -185,9 +186,9 @@ The most common testing scenario places the front-end and the back-end on two se
       
  This concludes the steps necessary to install Izenda using two separate websites. 
  Please refer to the following guides below: 
- - :ref:`Troubleshooting & Verifying the Installation` 
- - :ref: 'Common Izenda Stand-alone Installation Issues' 
- - :ref: 'Editing the Configuration Files'
+ - Troubleshooting & Verifying the Installation
+ - Common Izenda Stand-alone Installation Issues
+ - Editing the Configuration Files
 
 Deploying Izenda as a Virtual Directory or Application
 ------------------------------------------------------
@@ -316,10 +317,10 @@ Within the API Folder of your Deployment
          </handlers>
 
  This concludes the steps necessary to install Izenda using virtual directories/applications.
-  Please refer to the following guides below: 
- - :ref:`Troubleshooting & Verifying the Installation` 
- - :ref: 'Common Izenda Stand-alone Installation Issues' 
- - :ref: 'Editing the Configuration Files'
+ Please refer to the following guides below: 
+ - Troubleshooting & Verifying the Installation
+ - Common Izenda Stand-alone Installation Issues
+ - Editing the Configuration Files
  
 
 Troubleshooting & Verifying the Installation
