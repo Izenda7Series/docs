@@ -183,7 +183,11 @@ The most common testing scenario places the front-end and the back-end on two se
       Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
       ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
       
- This concludes the steps necessary to install Izenda using two separate websites. Please refer to the :ref:`Troubleshooting & Verifying the Installation` , :ref: 'Common Izenda Stand-alone Installation Issues' , and :ref: 'Editing the Configuration Files' guides below.
+ This concludes the steps necessary to install Izenda using two separate websites. 
+ Please refer to the following guides below: 
+ - :ref:`Troubleshooting & Verifying the Installation` 
+ - :ref: 'Common Izenda Stand-alone Installation Issues' 
+ - :ref: 'Editing the Configuration Files'
 
 Deploying Izenda as a Virtual Directory or Application
 ------------------------------------------------------
@@ -311,7 +315,12 @@ Within the API Folder of your Deployment
             <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*"/>
          </handlers>
 
- This concludes the steps necessary to install Izenda using virtual directories/applications. Please refer to the :ref:`Troubleshooting & Verifying the Installation` , :ref: 'Common Izenda Stand-alone Installation Issues' , and :ref: 'Editing the Configuration Files' guides below.
+ This concludes the steps necessary to install Izenda using virtual directories/applications.
+  Please refer to the following guides below: 
+ - :ref:`Troubleshooting & Verifying the Installation` 
+ - :ref: 'Common Izenda Stand-alone Installation Issues' 
+ - :ref: 'Editing the Configuration Files'
+ 
 
 Troubleshooting & Verifying the Installation
 -------------------------------------------------------
