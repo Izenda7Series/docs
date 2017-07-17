@@ -425,7 +425,7 @@ Validates that relationships correctly link selected data sources, have correct 
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object
+    Payload: a :doc:`models/ReportSavingParameter` object, with **reportKey**, **report.reportRelationship** and **report.reportDataSource** fields populated.
 
 **Response**
 

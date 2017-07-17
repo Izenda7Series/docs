@@ -21,7 +21,7 @@ Architectural Goal
    A diagram of implementation
 
 Pre-installation Preparations
-------------------------
+------------------------------
 
 The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on a local machine on a Windows machine for testing purposes and is a best practice for ensuring permissions and performance can be validated locally prior to moving toward more embedded and integrated examples, but it is not recommended for live deployments.
 
@@ -70,8 +70,7 @@ Add Web Server Role and .NET Framework
 #. Click Add Features in the next dialog box.
 #. Expand .NET Framework 3.5 features and tick .NET Framework 3.5
    check-box.
-#. Expand .NET Fra
-mework 4.5 features and tick .NET Framework 4.5
+#. Expand .NET Framework 4.5 features and tick .NET Framework 4.5
    check-box.
 
    .. note::
