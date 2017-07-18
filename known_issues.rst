@@ -844,9 +844,6 @@ Known Issues
      - 17300
      - UI of slide show panel on Presentation mode of Dashboard is not aligned on FireFox and IE11
    * - Defect
-     - 15236
-     - Unable to select the field with suffix in field selection popup.
-   * - Defect
      - 16278
      - Unit label not displayed on Linear Gauge report
    * - Defect
