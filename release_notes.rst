@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v2.2.4 July 18, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17751  Export of embedded subreports in forms fail due to dynamic variables
+-  Defect 17749  Custom Tree Filters do not load in Report Viewer
+-  Defect 17737  All subscriptions are run again immediately when app re-starts
+-  Defect 17711  Additional fix for GetAccessToken method, lookup being performed by Tenant Name not Tenant ID causing Tenant to be generated as NULL in exporting and validation fails
+-  Defect 17709  Header & Footer formatting issues, when clicking image to add focus the item is removed. Header is not fully expanded and will not accept additional items from add new
+-  Defect 15236  Unable to select the field with suffix in field selection popup
+
 v2.2.3 July 14, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
