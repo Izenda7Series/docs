@@ -16,3 +16,19 @@ If you encounter errors stating that certain HTTP methods are not allowed, pleas
 .. Note::
 
    These values may change in a future release, please be sure to review the release notes before upgrading.
+
+
+
+If you are still receiving 405 errors, try adding the following to your web.config:
+
+.. code-block:: xml
+
+	<system.webServer>
+   	    <modules>
+      	      <remove name="WebDAVModule" />
+   	    </modules>
+   	    <handlers>
+      	      <remove name="WebDAV" />
+   	    </handlers>
+	</system.webServer>
+
