@@ -8,7 +8,7 @@ v2.2.5 July 20, 2017
 FIXES
 ^^^^^
 -  Defect 17758	 System errors on queries where multiple relationships are set between 2 objects in the data model
--  Defect 17733	 User is unable to select item in dropdown lists for database mapping
+-  Defect 17733	 When deleting join from report that was added by model and switching the order and then linking to a similar subreport, the join shows a query error due to extra join condition
 -  Defect 17759	 Current tenant and user info wasn’t updated accordingly when updating token via SetCurrentUserContext API
 
 v2.2.4 July 18, 2017
