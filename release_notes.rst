@@ -2,6 +2,15 @@
 Release Notes
 ==============
 
+v2.2.5 July 20, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17758	 System errors on queries where multiple relationships are set between 2 objects in the data model
+-  Defect 17733	 User is unable to select item in dropdown lists for database mapping
+-  Defect 17759	 Current tenant and user info wasn’t updated accordingly when updating token via SetCurrentUserContext API
+
 v2.2.4 July 18, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
