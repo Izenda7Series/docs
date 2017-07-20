@@ -46,7 +46,10 @@ List of APIs
           
           To be renamed to "integration"
 
-
+   * - `GET tenant/basicInfos`_
+     - Returns all active tenants with basic info.
+   * - `GET tenant/namesOnly`_
+     - Returns all active tenants with names only.
 
 GET tenant/allTenants
 --------------------------------------------------------------
@@ -636,3 +639,111 @@ Adds or updates external tenant.
 **Samples**
 
    To be updated
+
+GET tenant/basicInfos
+--------------------------------------------------------------
+
+Returns all active tenants with basic info.
+
+Returns only the current tenant with basic info if logged in user is a tenant user.
+
+**Request**
+
+    No payload
+
+**Response**
+
+   An array of the following objects:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **id** |br|
+            string (GUID)
+         - The id of the tenant
+         -
+      *  -  **tenantId** |br|
+            string
+         - The user-selected id of the tenant
+         -
+      *  -  **name** |br|
+            string
+         - The name of the tenant
+         -
+      *  -  **active** |br|
+            boolean
+         - Whether the tenant is active
+         -
+      *  -  **description** |br|
+            string
+         - The description of the tenant
+         -
+      *  -  **tenantModules** |br|
+            array of strings
+         -  An array of selected module names for the tenant
+         -
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/tenant/basicInfos HTTP/1.1
+
+   Sample response if logged in user is system user::
+
+      To be updated
+
+   Sample response if logged in user is tenant user::
+
+      To be updated
+
+GET tenant/namesOnly
+--------------------------------------------------------------
+
+Returns all active tenants with names only.
+
+Returns only the current tenant with name only if logged in user is a tenant user.
+
+**Request**
+
+    No payload
+
+**Response**
+
+   An array of the following objects:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **id** |br|
+            string (GUID)
+         - The id of the tenant
+         -
+      *  -  **tenantId** |br|
+            string
+         - The user-selected id of the tenant
+         -
+      *  -  **name** |br|
+            string
+         - The name of the tenant
+         -
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/tenant/namesOnly HTTP/1.1
+
+   Sample response if logged in user is system user::
+
+      To be updated
+
+   Sample response if logged in user is tenant user::
+
+      To be updated

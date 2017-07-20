@@ -81,7 +81,7 @@ List of APIs
    * - `POST report/detectReportChange`_
      - Verifies that all report details are up to date, without physical changes, and valid.
    * - `POST report/function/{function\_mode}/{data\_type}/(tenant\_id)`_
-     - Returns a list of report functions filtered by mode (field, sub-total, grand-total), by data type and by tenant_id if provided.
+     - Returns a list of report functions filtered by mode (field, sub-total, grand-total), data type, tenant_id, and optionally filtered by connections of the selected query source ids in payload.
 
        .. versionchanged:: 1.25
           Changed from GET to POST
@@ -2995,18 +2995,31 @@ Verifies that all report details are up to date, without physical changes, and v
 POST report/function/{function_mode}/{data_type}/(tenant_id)
 ---------------------------------------------------------------
 
-Returns a list of report functions filtered by mode (field, sub-total, grand-total), by data type and by tenant_id if provided.
+Returns a list of report functions filtered by mode (field, sub-total, grand-total), data type, tenant_id, and optionally filtered by connections of the selected query source ids in payload.
 
 .. versionchanged:: 1.25
    Changed from GET to POST
 
 **Request**
 
-   Payload: to be updated
+   Available values for ``function_mode``:
 
-    *  0 = Field
-    *  1 = Sub-total
-    *  2 = Grand total
+      *  0 = Field
+      *  1 = Sub-total
+      *  2 = Grand total
+
+   Optional payload: the following object:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **querySourceIds** |br|
+            array of strings (GUIDs)
+         -  An array of ids of query sources 
+         -
 
 **Response**
 
@@ -3016,7 +3029,9 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
 
    .. code-block:: http
 
-      GET /api/report/function/0/Numeric HTTP/1.1
+      POST /api/report/function/0/Text HTTP/1.1
+
+   Case 1: no Payload
 
    .. container:: toggle
 
@@ -3028,22 +3043,10 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
 
          [
             {
-               "id": "8dc8efc6-9e0a-4c3e-bea0-4daf541ceae4",
-               "name": "Average",
-               "expression": null,
-               "dataType": "Numeric",
-               "formatDataType": "Numeric",
-               "syntax": null,
-               "expressionSyntax": null,
-               "isOperator": false,
-               "userDefined": false,
-               "extendedProperties": {}
-            },
-            {
                "id": "8a74f4e0-b845-4b9e-adfa-bb678a116878",
                "name": "Count",
                "expression": null,
-               "dataType": "Numeric",
+               "dataType": "Text",
                "formatDataType": "Numeric",
                "syntax": null,
                "expressionSyntax": null,
@@ -3055,7 +3058,7 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "id": "e3e16575-9739-4ff3-950a-7d149f96b4f0",
                "name": "Count Distinct",
                "expression": null,
-               "dataType": "Numeric",
+               "dataType": "Text",
                "formatDataType": "Numeric",
                "syntax": null,
                "expressionSyntax": null,
@@ -3067,8 +3070,8 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
                "name": "Group",
                "expression": null,
-               "dataType": "Numeric",
-               "formatDataType": "Numeric",
+               "dataType": "Text",
+               "formatDataType": "Text",
                "syntax": null,
                "expressionSyntax": null,
                "isOperator": false,
@@ -3079,8 +3082,8 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "id": "10a6655f-6954-462d-a57e-5df3c17089d5",
                "name": "Maximum",
                "expression": null,
-               "dataType": "Numeric",
-               "formatDataType": "Numeric",
+               "dataType": "Text",
+               "formatDataType": "Text",
                "syntax": null,
                "expressionSyntax": null,
                "isOperator": false,
@@ -3091,7 +3094,42 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "id": "36d8f605-1242-4c43-9b46-aced94b62709",
                "name": "Minimum",
                "expression": null,
-               "dataType": "Numeric",
+               "dataType": "Text",
+               "formatDataType": "Text",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            }
+         ]
+
+   .. code-block:: http
+
+      POST /api/report/function/0/Text HTTP/1.1
+
+   Case 2: with Request Payload::
+
+      {
+         "querySourceIds": [
+            "35af86ee-6e8b-4e9b-829d-ea0b38ec575b"
+         ]
+      }
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+         [
+            {
+               "id": "8a74f4e0-b845-4b9e-adfa-bb678a116878",
+               "name": "Count",
+               "expression": null,
+               "dataType": "Text",
                "formatDataType": "Numeric",
                "syntax": null,
                "expressionSyntax": null,
@@ -3100,10 +3138,10 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "extendedProperties": {}
             },
             {
-               "id": "902a9168-fc01-4a35-92fb-ea67942d099d",
-               "name": "Sum",
+               "id": "e3e16575-9739-4ff3-950a-7d149f96b4f0",
+               "name": "Count Distinct",
                "expression": null,
-               "dataType": "Numeric",
+               "dataType": "Text",
                "formatDataType": "Numeric",
                "syntax": null,
                "expressionSyntax": null,
@@ -3112,11 +3150,35 @@ Returns a list of report functions filtered by mode (field, sub-total, grand-tot
                "extendedProperties": {}
             },
             {
-               "id": "ab4bbbef-1dcf-4f15-88a1-f3bc0da6a076",
-               "name": "Sum Distinct",
+               "id": "7f942ac7-08d8-41fa-9e89-bad96f07f102",
+               "name": "Group",
                "expression": null,
-               "dataType": "Numeric",
-               "formatDataType": "Numeric",
+               "dataType": "Text",
+               "formatDataType": "Text",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "10a6655f-6954-462d-a57e-5df3c17089d5",
+               "name": "Maximum",
+               "expression": null,
+               "dataType": "Text",
+               "formatDataType": "Text",
+               "syntax": null,
+               "expressionSyntax": null,
+               "isOperator": false,
+               "userDefined": false,
+               "extendedProperties": {}
+            },
+            {
+               "id": "36d8f605-1242-4c43-9b46-aced94b62709",
+               "name": "Minimum",
+               "expression": null,
+               "dataType": "Text",
+               "formatDataType": "Text",
                "syntax": null,
                "expressionSyntax": null,
                "isOperator": false,
@@ -5055,9 +5117,9 @@ Returns list of reports by tenant, with each report containing a list of report 
 
       GET /api/report/reportsByTenant HTTP/1.1
 
-   Request payload::
+   Request:
 
-      To be updated
+      No payload
 
    Sample response::
 
