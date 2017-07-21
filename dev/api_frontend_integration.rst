@@ -53,7 +53,7 @@ List of APIs
      - Render Izenda New Dashboard page
    * - .. container:: lpad2
    
-          `setCurrentUserContext({"token":access_token}`_
+          `setCurrentUserContext({"token":access_token})`_
      - Authentication and authorization between hosting web and Izenda
    * - .. container:: lpad2
    
@@ -288,7 +288,7 @@ Render Izenda New Dashboard page
 
        Izenda Dashboard Designer Only
 
-setCurrentUserContext({"token":access_token}
+setCurrentUserContext({"token":access_token})
 ----------------------------------------------------------------------------------------------
 
 Authentication and authorization between hosting web and Izenda
