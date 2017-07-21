@@ -107,6 +107,12 @@ CHANGES FOR INTEGRATION KITS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 -  Integration kits using deployment mode 1 (Angular2Starterkit, Mvc5 Backend standalone) have been updated to use the following API  "user/integration/saveUser" endpoint when creating new users. This change resolves issues found after defect 16779 was resolved in this release. Prior to this change the user active flag was not properly checked in integrated scenarios. After this change you must use "user/integration/saveUser" to set the user to Active and InitPassword to true when creating the new user, these flags cannot be set using "/user" (POST).
 
+
+.. note::
+
+	If you experience any errors stating 'Your user ID is inactive.', please see our  `troubleshooting guide <https://www.izenda.com/docs/install/troubleshooting/general.html#your-user-id-is-inactive-integrated-mode-only>`__.
+
+
 FIXES
 ^^^^^
 -  Defect  17555 Key joins in Global reports cause errors and blank fields when tenant users can edit with save as permissions.
