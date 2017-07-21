@@ -8,3 +8,4 @@ Troubleshooting
    troubleshooting/exporting
    troubleshooting/http
    troubleshooting/logging
+   troubleshooting/general
