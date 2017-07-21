@@ -5186,6 +5186,8 @@ Returns access priority for report/dashboard.
 
       1
 
+.. _POST_report/timePeriod:
+
 POST report/timePeriod
 ------------------------------------------------
 
