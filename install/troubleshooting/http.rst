@@ -19,7 +19,7 @@ If you encounter errors stating that certain HTTP methods are not allowed, pleas
 
 
 
-If you are still receiving 405 errors, try adding the following to your web.config:
+In some cases, this error may be caused by the WebDAVModule. Try adding the following to your web.config:
 
 .. code-block:: xml
 
@@ -32,3 +32,5 @@ If you are still receiving 405 errors, try adding the following to your web.conf
    	    </handlers>
 	</system.webServer>
 
+	
+If you are still receiving 405 errors, enabling trace logging for failed requests in IIS may provide more details: https://technet.microsoft.com/en-us/library/cc725786(v=ws.10).aspx
