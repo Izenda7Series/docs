@@ -734,10 +734,7 @@ Known Issues
      - System show error msg after user confirms Yes on Dirty Form (changes made in current session and not saved) but clicks on Stay in browser's confirmation msg
    * - Defect
      - 17519
-     - System shows (GET http:url/undefined 404 (Not Found)) in browser console when using deployment mode 1
-   * - Defect
-     - 17096
-     - System shows error msg when user add 1 field only to Value container of all gauges. The error can be easily removed by adding a sort to the field. 
+     - System shows (GET http:url/undefined 404 (Not Found)) in browser console when using deployment mode 1 
    * - Defect
      - 17489
      - System shows error msg when user creates Key Join which has Time value in comparison
@@ -957,7 +954,5 @@ Known Issues
    * - Defect
      - 16892
      - When using custom formats as field mapping values for subreports, the values do not match. System is passing formatted values, instead of the raw data for field mapping.	
-   * - Defect
-     - 17557
-     - When you creating a funnel chart and no sort is applied to the x axis, a sort is forced on the x axis when you alias the Y axis. 
+ 
 

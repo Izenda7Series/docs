@@ -2,6 +2,25 @@
 Release Notes
 ==============
 
+v2.2.6 July 25, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17832  Query Error on Role set up page when working with MySQL as Izenda Database
+-  Defect 17784  System shows no record found when joining data sources using Fusion, Tree Filter in memory and Hidden Filters
+-  Defect 17771  After adding a user to an additional role, this user does not show up in the role for sharing for users who have access to share with the role
+-  Defect 17762  When using multiple aliased joins and filters passed to subreport, system error is displayed
+-  Defect 17761  Comparing the encoded location hash on hash changed is causing infinite appending to the location hash
+-  Defect 17730  Alternative text settings show in designer and viewer but do not properly export
+-  Defect 17710  Second pvalue (p2value) for custom URL is not being validate by the system and shows an error
+-  Defect 17661  SMTP info is added to logs and should not be shown in plain text
+-  Defect 17622  Unknown error displays when modifying the filter of a report if this filter is the common filter in the dashboard when using only one report
+-  Defect 17611  Error message is received when saving a report which contains a stored procedure data source and distinct flag is checked
+-  Defect 17573  User with role which has permission on 'Visible Categories' in Dashboards is not able to open the dashboard
+-  Defect 17557  When you creating a funnel chart and no sort is applied to the x axis, a sort is forced on the x axis when you alias the Y axis 
+-  Defect 17096  System shows error msg when user add 1 field only to Value container of all gauges. The error can be easily removed by adding a sort to the field 
+
 v2.2.5 July 20, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
