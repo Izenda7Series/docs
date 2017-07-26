@@ -53,6 +53,11 @@ ReportPartContent
       -
       -  Whether this is selected to apply :term:`cross filtering`
       -
+   *  -  **isFormatted** |br|
+         boolean
+      -
+      -  Whether this report part is formatted
+      -
 
 .. container:: toggle
 
