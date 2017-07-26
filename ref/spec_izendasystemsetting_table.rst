@@ -151,6 +151,9 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
    * - **HelpSystemUrl**
      - The URL link which is used when users click the Help Sysetm "?" icon on the Izenda header bar
      - http://www.izenda.com
+   * - **InsertBatchSize**
+     - Limits large insert statements to smaller batches for the Izenda database  
+     - 10000
    * - **ProvisionStaticDataStatus**
      - .. container:: 
 
