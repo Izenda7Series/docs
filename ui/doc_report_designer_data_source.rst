@@ -310,6 +310,17 @@ The joined tables can be given alias to be referred to in subsequent join clause
 
       The alias OD must be selected instead of the original table name Order Details |br|
 
+   That is equivalent to the following SQL statement:
+
+   .. code-block:: sql
+
+      SELECT *
+      FROM
+         [Order Details] AS OD
+         INNER JOIN [Products]
+            ON OD.[ProductID] = [Products].[ProductID]
+               AND OD.[Quantity] = [Products].[UnitsOnOrder]
+
 *  An alias is also required in case of a self-join. For example, [Employees].[ReportsTo] is foreign key to [EmployeesID] in the same table, hence, an alias must be given to differentiate the two different [Employees] tables.
 
    .. figure:: /_static/images/Table_Alias_Self_Join_Employees.png
