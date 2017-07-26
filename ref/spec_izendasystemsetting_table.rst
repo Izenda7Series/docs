@@ -139,6 +139,18 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
    * - **AuthRSAPublicKey**
      - The Public key from the RSA key pair used for encrypting export requests on Integrated Front-end modes
      - Site-specific
+   * - **Token Timeout**
+     - The number of minutes before inactive user's token expires in standalone versions
+     - 20
+   * - **StoredProcParamDelimiter**
+     - The delimiter which will be used to separate values for stored procedure input parameters which accept multiple values
+     - ,
+   * - **CommandTimeout**
+     - Timeout used for all queries to the Izenda Configuration Database, in seconds
+     - 500
+   * - **HelpSystemUrl**
+     - The URL link which is used when users click the Help Sysetm "?" icon on the Izenda header bar
+     - http://www.izenda.com
    * - **ProvisionStaticDataStatus**
      - .. container:: 
 
