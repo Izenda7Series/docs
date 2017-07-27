@@ -45,7 +45,7 @@ Installation
 #. When the deployment has completed, navigate to the cloud service dashboard. Under the Properties > Input Endpoints, you can find the service IP address and port number. You will use this information configure Azure exporting in Izenda.
 
 	.. figure:: images/azure_cs4.png
-|
+
 
 Configuring the Izenda instance
 ----------------------------------------------------
