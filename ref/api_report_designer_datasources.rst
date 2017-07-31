@@ -575,7 +575,10 @@ Returns a list of data source fields in selected query sources of a report.
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object
+    Payload: a :doc:`models/ReportSavingParameter` object, with either:
+
+   *  **reportKey** field populated - for an existing/draft report.
+   *  **reportKey** empty and **reportDataSource**.\ **querySourceId** populated - for a new report.
 
 **Response**
 
@@ -587,7 +590,7 @@ Returns a list of data source fields in selected query sources of a report.
 
       POST /api/report/availableQuerySourceFields HTTP/1.1
 
-   Request payload::
+   Request payload for a draft report::
 
       {
         "reportKey" : {
@@ -645,6 +648,29 @@ Returns a list of data source fields in selected query sources of a report.
             }]
          }]
       }]
+
+   Request payload for a new report::
+
+      {
+         "reportKey": {
+            "key": null,
+            "modified": null,
+            "tenantId": null
+         },
+         "report": {
+            "reportDataSource": [
+               {
+                  "querySourceId": "ab5b596a-6d35-45a0-ad9b-d3188326bafb",
+                  "querySourceName": "Orders",
+               }
+            ],
+            "reportRelationship": [],
+            "dynamicQuerySourceFields": [],
+            "calculatedFields": []
+         }
+      }
+
+   Sample response is similar to above.
 
 GET report/availableReportMappingFields/{report_id}
 -----------------------------------------------------------

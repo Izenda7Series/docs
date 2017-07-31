@@ -572,7 +572,10 @@ Returns a list of available report filter fields.
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object, with **reportKey** field populated.
+   Payload: a :doc:`models/ReportSavingParameter` object, with either:
+
+   *  **reportKey** field populated - for an existing/draft report.
+   *  **reportKey** empty and **reportDataSource**.\ **querySourceId** populated - for a new report.
 
 **Response**
 
@@ -584,52 +587,172 @@ Returns a list of available report filter fields.
 
       POST /api/report/loadFilterDataSource HTTP/1.1
 
-   Request payload::
+   Request payload for a draft report::
 
       {
          "reportKey":{"key":"b95d2611-10c5-4808-aa68-9db2ccc719ff"}
       }
 
-   Response::
+   Sample response::
 
-      [{
-        "connectionName" : "Northwind",
-        "querySourceCategoryName" : "dbo",
-        "sourceFieldName" : "CategoryID",
-        "sourceFieldVisible" : true,
-        "sourceFieldFilterable" : true,
-        "sourceDataObjectName" : "Categories",
-        "sourceDataObjectFullName" : null,
-        "dataType" : "Numeric",
-        "isParameter" : false,
-        "calculatedTree" : null,
-        "selected" : false,
-        "filterId" : "00000000-0000-0000-0000-000000000000",
-        "reportFieldAlias" : null,
-        "querySourceFieldId" : "760b39cd-3bdc-426c-9954-f103fb944940",
-        "querySourceType" : "Table",
-        "querySourceId" : "1a67e4e1-7b76-4aac-b905-027bb4302845",
-        "sortType" : "Unsorted",
-      }, {
-        "connectionName" : "Northwind",
-        "querySourceCategoryName" : "dbo",
-        "sourceFieldName" : "CategoryName",
-        "sourceFieldVisible" : true,
-        "sourceFieldFilterable" : true,
-        "sourceDataObjectName" : "Categories",
-        "sourceDataObjectFullName" : null,
-        "dataType" : "Text",
-        "isParameter" : false,
-        "calculatedTree" : null,
-        "selected" : false,
-        "filterId" : "00000000-0000-0000-0000-000000000000",
-        "reportFieldAlias" : null,
-        "querySourceFieldId" : "0c140c5a-fa48-46f8-91ae-656a394c48ce",
-        "querySourceType" : "Table",
-        "querySourceId" : "1a67e4e1-7b76-4aac-b905-027bb4302845",
-        "sortType" : "Unsorted",
-      }]
+      [
+         {
+            "connectionName": "MSSQL",
+            "querySourceCategoryName": "dbo",
+            "sourceFieldName": "CategoryID",
+            "sourceFieldVisible": true,
+            "sourceFieldFilterable": true,
+            "sourceDataObjectName": "Categories",
+            "sourceDataObjectFullName": null,
+            "dataType": "Numeric",
+            "isParameter": false,
+            "isCalculated": false,
+            "calculatedTree": null,
+            "compareFieldCalculatedTree": null,
+            "compareValueCalculatedTree": null,
+            "compareField": null,
+            "selected": false,
+            "dataFormat": null,
+            "reportId": null,
+            "useMappedFieldAlias": false,
+            "uniqueId": null,
+            "comparisionValue": null,
+            "inTimePeriodType": null,
+            "valueInTimePeriod": null,
+            "hasModifiedCalculatedTree": false,
+            "isHiddenFilter": false,
+            "isInheritableFilter": false,
+            "operatorName": null,
+            "filterId": "00000000-0000-0000-0000-000000000000",
+            "reportFieldAlias": null,
+            "reportPartTitle": null,
+            "querySourceFieldId": "1c21c9b2-cc58-4181-89b5-76740bf04c64",
+            "querySourceType": "Table",
+            "querySourceId": "8ea14631-ce4f-4546-a6e9-04094c69d4af",
+            "relationshipId": null,
+            "alias": null,
+            "position": 0,
+            "visible": true,
+            "required": false,
+            "cascading": true,
+            "operatorId": null,
+            "operatorSetting": null,
+            "value": null,
+            "dataFormatId": null,
+            "sortType": "Unsorted",
+            "fontFamily": null,
+            "fontSize": 0,
+            "textColor": null,
+            "backgroundColor": null,
+            "fontBold": false,
+            "fontItalic": false,
+            "fontUnderline": false,
+            "querySourceUniqueName": null,
+            "querySourceFieldName": null,
+            "comparisonFieldUniqueName": null,
+            "isNegative": false,
+            "id": "00000000-0000-0000-0000-000000000000",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": null,
+            "modified": null,
+            "modifiedBy": null
+         },
+         {
+            "connectionName": "MSSQL",
+            "querySourceCategoryName": "dbo",
+            "sourceFieldName": "CategoryName",
+            "sourceFieldVisible": true,
+            "sourceFieldFilterable": true,
+            "sourceDataObjectName": "Categories",
+            "sourceDataObjectFullName": null,
+            "dataType": "Text",
+            "isParameter": false,
+            "isCalculated": false,
+            "calculatedTree": null,
+            "compareFieldCalculatedTree": null,
+            "compareValueCalculatedTree": null,
+            "compareField": null,
+            "selected": false,
+            "dataFormat": null,
+            "reportId": null,
+            "useMappedFieldAlias": false,
+            "uniqueId": null,
+            "comparisionValue": null,
+            "inTimePeriodType": null,
+            "valueInTimePeriod": null,
+            "hasModifiedCalculatedTree": false,
+            "isHiddenFilter": false,
+            "isInheritableFilter": false,
+            "operatorName": null,
+            "filterId": "00000000-0000-0000-0000-000000000000",
+            "reportFieldAlias": null,
+            "reportPartTitle": null,
+            "querySourceFieldId": "8a628514-1024-4051-92a8-33752b79d58b",
+            "querySourceType": "Table",
+            "querySourceId": "8ea14631-ce4f-4546-a6e9-04094c69d4af",
+            "relationshipId": null,
+            "alias": null,
+            "position": 0,
+            "visible": true,
+            "required": false,
+            "cascading": true,
+            "operatorId": null,
+            "operatorSetting": null,
+            "value": null,
+            "dataFormatId": null,
+            "sortType": "Unsorted",
+            "fontFamily": null,
+            "fontSize": 0,
+            "textColor": null,
+            "backgroundColor": null,
+            "fontBold": false,
+            "fontItalic": false,
+            "fontUnderline": false,
+            "querySourceUniqueName": null,
+            "querySourceFieldName": null,
+            "comparisonFieldUniqueName": null,
+            "isNegative": false,
+            "id": "00000000-0000-0000-0000-000000000000",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": null,
+            "modified": null,
+            "modifiedBy": null
+         }
+      ]
 
+   Request payload for a new report::
+
+      {
+         "reportKey": {
+            "key": null,
+            "modified": null,
+            "tenantId": null
+         },
+         "report": {
+            "reportDataSource": [
+               {
+                  "querySourceId": "8ea14631-ce4f-4546-a6e9-04094c69d4af",
+                  "querySourceName": "Categories"
+               },
+               {
+                  "querySourceId": "9338a5fd-336b-4fdf-a9c5-dfe9e66b5be2",
+                  "querySourceName": "Products"
+               }
+            ]
+         }
+      }
+
+   Sample response is similar to above.
+
+       
 
 POST report/validateFilterSyntax
 ------------------------------------------------
