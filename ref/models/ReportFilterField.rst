@@ -130,6 +130,11 @@ ReportFilterField
       -
       -  Whether this filter is inherited from its master report
       -
+   *  -  **operatorName** |br|
+         string
+      -
+      -  The name of the operator
+      -
 
 Inherited fields:
 

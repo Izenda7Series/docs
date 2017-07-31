@@ -12,14 +12,20 @@ IAdHocExtension
      - Method & Sample
      - Description
    * - Filter data tree lookup
+     - `OnPreLoadFilterDataTree`_
+     - Allows customizing the tree of filter values displayed for selection under Report Designer filter fields, Equals (Tree) dropdown menu. This has extra report filter settings, which contains the other filter values selected by the user in the report. This allows for easy set up of cascading behavior in your custom code. If this is implemented OnLoadFilterDataTree will be ignored.  
+   * - Filter data tree lookup (To be deprecated in 3.0.0)
      - `OnLoadFilterDataTree`_
-     - Allows customizing the tree of filter values displayed for selection under Report Designer filter fields, Equals (Tree) dropdown menu
-   * - Filter data display
-     - `OnPostLoadFilterData`_
-     - Allows overriding filter values displayed for selection under Report Designer filter fields
+     - Allows customizing the tree of filter values displayed for selection under Report Designer filter fields, Equals (Tree) dropdown menu. This will be deprecated in favor of OnPreLoadFilterDataTree, please make plans to convert to this implementation prior to release of 3.0.0 
+   * - Customize filter data tree lookup results
+     - `OnPostLoadFilterDataTree`_
+     - Allows override of the filter tree just before the results are returned to the user.
    * - Filter data
      - `OnPreLoadFilterData`_
      - Allows injecting report filter data instead of querying the database
+   * - Filter data display
+     - `OnPostLoadFilterData`_
+     - Allows overriding filter values displayed for selection under Report Designer filter fields
    * - ReportDefinition object
      - `OnPreExecute`_
      - Allows on-the-fly customization of the report content
@@ -39,6 +45,7 @@ IAdHocExtension
      - `LoadCustomDataFormat`_
      - Adds custom data formats for specified data types
 
+
 The companion wrapper class **DefaultAdHocExtension** in  Izenda.BI.Framework.CustomConfiguration should be used as the base class for customization.
 
 .. figure:: /_static/images/DefaultAdHocExtension_class.png
@@ -48,6 +55,36 @@ The companion wrapper class **DefaultAdHocExtension** in  Izenda.BI.Framework.Cu
 .. seealso::
 
    :doc:`Full-code Samples for all IAdHocExtension Methods <code_iadhocextension_samples>`
+
+OnPreLoadFilterDataTree
+-----------------------------------
+
+``List<ValueTreeNode> OnPreLoadFilterDataTree(ReportFilterField filterField, ReportFilterSetting filterSetting, out bool handled)``
+
+This method customizes the behavior of :ref:`POST_report/loadFilterFieldDataAsTree` and :ref:`POST_dashboard/loadFilterFieldDataAsTree` APIs.
+
+   .. code-block:: csharp
+
+       public override List<ValueTreeNode> OnPreLoadFilterDataTree(ReportFilterField filterField, ReportFilterSetting filterSetting, out bool handled)
+       {
+         handled = false; 
+         var result = new List<ValueTreeNode>(); 
+         var shipCountry = filterSetting.FilterFields.FirstOrDefault(f => f.SourceFieldName == "ShipCountry"); 
+         if (filterField.SourceFieldName == "ShipCity" && shipCountry != null) 
+         { 
+             if(shipCountry.Value == "Argentina") 
+             { 
+                 handled = true; 
+                 var rootNode = new ValueTreeNode { Text = "[All]", Value = "[All]" }; 
+                 rootNode.Nodes = new List<ValueTreeNode>(); 
+                 rootNode.Nodes.Add(new ValueTreeNode { Text = "Buenos Aires", Value = "Buenos Aires" }); 
+                 rootNode.Nodes.Add(new ValueTreeNode { Text = "Mendoza", Value = "Mendoza" }); 
+                 rootNode.Nodes.Add(new ValueTreeNode { Text = "Salta", Value = "Salta" }); 
+                 result.Add(rootNode); 
+             } 
+         } 
+         return result; 
+       }
 
 OnLoadFilterDataTree
 -----------------------------------
@@ -92,42 +129,31 @@ Sample code to display All > South America and North America for Manager role:
               return result;
          }
        }
+      
+OnPostLoadFilterDataTree
+-----------------------------------
 
-OnPostLoadFilterData
----------------------
+``List<ValueTreeNode> OnPostLoadFilterDataTree(ReportFilterField filterField, List<ValueTreeNode> data, ReportFilterSetting filterSetting)``
 
-``List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)``
+This method customizes the behavior of :ref:`POST_report/loadFilterFieldDataAsTree` and :ref:`POST_dashboard/loadFilterFieldDataAsTree` APIs.
 
-This method allows overriding filter values displayed for selection under Report Designer filter fields.
+   .. code-block:: csharp
 
+       public override List<ValueTreeNode> OnPostLoadFilterDataTree(ReportFilterField filterField, List<ValueTreeNode> data, ReportFilterSetting filterSetting)
+       {
+         var shipCountry = filterSetting.FilterFields.FirstOrDefault(f => f.SourceFieldName == "ShipCountry"); 
+         if (filterField.SourceFieldName == "ShipCity" && shipCountry != null) 
+         { 
+             if (shipCountry.Value == "Argentina") 
+             { 
+                 var rootNode = data[0]; 
+                 rootNode.Nodes.Add(new ValueTreeNode { Text = "La Plata - After", Value = "La Plata" }); 
+             } 
+         } 
 
-For example, it can be used to:
-* do a secondary lookup on filter values returned from system to add more information such as appending population to city names
-* format values returned from system for example to proper case or title case
-* add or remove values from the list
-
-
-Sample code to change Europe to EU for Employee role:
-
-.. code-block:: csharp
-
-    [Export(typeof(IAdHocExtension))]
-    public class AdHocExtensionSample : DefaultAdHocExtension
-    {
-      public override List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)
-      {
-           // override dropdown value based on user role for filter on view "OrderDetailsByRegion" and field "CountryRegionName"
-           if (filterField.SourceDataObjectName == "OrderDetailsByRegion" && filterField.SourceFieldName == "CountryRegionName"
-               && HttpContext.Current.User.IsInRole("Employee"))
-           {
-             var indexEU = data.IndexOf("Europe");
-             if (indexEU != -1)
-               data[indexEU] = "EU";
-           }
-           return base.OnPostLoadFilterData(filterField, data);
-      }
-    }
-
+         return data; 
+       }
+       
 OnPreLoadFilterData
 -------------------
 
@@ -172,6 +198,41 @@ Sample code to use a pre-defined list for filters on OrdersByRegion.CountryRegio
            }
    
            return result;
+      }
+    }
+
+OnPostLoadFilterData
+---------------------
+
+``List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)``
+
+This method allows overriding filter values displayed for selection under Report Designer filter fields.
+
+
+For example, it can be used to:
+* do a secondary lookup on filter values returned from system to add more information such as appending population to city names
+* format values returned from system for example to proper case or title case
+* add or remove values from the list
+
+
+Sample code to change Europe to EU for Employee role:
+
+.. code-block:: csharp
+
+    [Export(typeof(IAdHocExtension))]
+    public class AdHocExtensionSample : DefaultAdHocExtension
+    {
+      public override List<string> OnPostLoadFilterData(ReportFilterField filterField, List<string> data)
+      {
+           // override dropdown value based on user role for filter on view "OrderDetailsByRegion" and field "CountryRegionName"
+           if (filterField.SourceDataObjectName == "OrderDetailsByRegion" && filterField.SourceFieldName == "CountryRegionName"
+               && HttpContext.Current.User.IsInRole("Employee"))
+           {
+             var indexEU = data.IndexOf("Europe");
+             if (indexEU != -1)
+               data[indexEU] = "EU";
+           }
+           return base.OnPostLoadFilterData(filterField, data);
       }
     }
 
