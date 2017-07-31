@@ -27,7 +27,7 @@ List of APIs
    * - `GET report/filter/operators`_
      - Returns the list filter operators grouped by data type.
    * - `POST report/loadFilterDataSource`_
-     - Returns the list filter operators grouped by data type.
+     - Returns a list of available report filter fields.
    * - `POST report/validateFilterSyntax`_
      - Validates a filter syntax.
    * - `POST report/loadFilter`_
@@ -568,7 +568,7 @@ Returns the list filter operators grouped by data type.
 POST report/loadFilterDataSource
 ------------------------------------------------
 
-Returns the list filter operators grouped by data type.
+Returns a list of available report filter fields.
 
 **Request**
 
