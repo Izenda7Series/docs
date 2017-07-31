@@ -49,7 +49,8 @@ List of APIs
    * - `POST report/loadPartialFilterFieldDataAsTree`_
      - Returns paged data source field data in a hierarchy for the filter operators Equals (Tree) and Not Equal (Tree).
    * - `POST report/loadAllFilterFieldsData`_
-     - Returns all data values for all filter fields in a report.
+     - Returns all data values for all filter fields in a report. |br|
+       Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeouts loading large data.
 
 .. _GET_report/filter/operators:
 
@@ -571,7 +572,7 @@ Returns the list filter operators grouped by data type.
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object
+    Payload: a :doc:`models/ReportSavingParameter` object, with **reportKey** field populated.
 
 **Response**
 
@@ -581,12 +582,12 @@ Returns the list filter operators grouped by data type.
 
    .. code-block:: http
 
-      GET /api/report/loadFilterDataSource HTTP/1.1
+      POST /api/report/loadFilterDataSource HTTP/1.1
 
    Request payload::
 
       {
-         "reportKey":{"key":"b95d2611-10c5-4808-aa68-9db2ccc719ff"
+         "reportKey":{"key":"b95d2611-10c5-4808-aa68-9db2ccc719ff"}
       }
 
    Response::
@@ -5164,7 +5165,8 @@ Returns paged data source field data in a hierarchy for Equivalence operators in
 POST report/loadAllFilterFieldsData
 ------------------------------------------------
 
-Returns all data values for all filter fields in a report.
+Returns all data values for all filter fields in a report. |br|
+Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeouts loading large data.
 
 **Request**
 
