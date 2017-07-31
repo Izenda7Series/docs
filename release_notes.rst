@@ -2,6 +2,51 @@
 Release Notes
 ==============
 
+v2.3.0 July 31, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^
+-  For customers using very large data sets or views which require heavy processing. In Data Setup > Advanced Settings > Others a new setting has been added, "Show Preview section in Configuration Mode", the default is true. When set to false, users will no longer see the report part preview on the configuration side of report parts. This changes the default behavior of querying the data when adding fields to the report parts. Instead, Izenda will only query the data when the user flips the report part to view the front side of report parts. When this setting is false, the preivews on charts in adding configuration options like borders, background colors, grid lines, XY-Plane options will be hidden as well.
+In addition, any time the user hides the preview section by sliding it closed on the configuration side of the report part, the queries for field data will not be executed until the user either flips to the front of the report part or expands the preview section of the report part.
+To incorporate this changes the following API were made: /api/advancedSetting/miscSetting/ and corresponding model :doc:`OtherSetting </ref/models/OtherSetting>` 
+ 
+- New filter operators added for "Null" and "Not Null", these operators will show all Null values or values which are not Null
+ 
+- Convert Null to Empty String enhancements. This setting in Data Setup > Advanced Settings > Others when set to true (default is false) will no longer show null in the reports for values in the database which are null. The null values will show as empty string. When using this setting, and selecting filter operators, Null and Not Null will return no results as these values have been converted to BLANK or emtpy string.
+ 
+- Changes to common Dashboard Filter queries. Prior to this release all fields for common filters were queried and results for dropdowns were aggregated in memory to form one list of possible values. After this change, only the common filters from the first report part will be queried to obtain data for any  dropdown, popup, tree, or other filter presenting data to the end user for selection. This change will increase performance for loading large dashboards or dashboard containing many fitlers
+
+- Improvements made to rendering Charts, Gauges and Maps by reducing the number of times these items are re-rendered and number of times data is queried to draw elements
+
+- Changes made to stored procedure execution, prior to this change full create rights were required to make full tables, now the system uses temp tables. This requires lower permission levels for the reporting connection string when using stored procedures
+
+- Enhance C# API to include the cascading lookup filter field along with tree filter field. **Please note these changes as a new implementation for Filter Tree Data was added and deprecation of OnLoadFilterDataTree is planned for 3.0.0** :doc:`IAdHoc_Extension </dev/ref_iadhocextension>` 
+
+- Enhance performance of embedded subreports by reducing the number of validation requests for these report parts
+
+- New API added to tenant /api/tenant/namesOnly to improve loading times for setting level dropdown, :doc:`Tenant </ref/api_tenant>` 
+
+
+FIXES
+^^^^^
+-  Defect  17885  Export drops leading zeros from all text fields
+-  Defect  17877  Caching issue in dashboard does not fully load the categories for the user.
+-  Defect  17861  Chart breadcrumb shows undefined value when drilling down on null or blank values, should show null or blank
+-  Defect  17833  Error when using 3 tables in join with 3 relationships in data model. System is not properly changing the join to accommodate the join reversal.
+-  Defect  17824  In drilldown grid the list collapses again when expanding it in Report Viewer, user cannot expand report level
+-  Defect  17815  Error message appears when adding filter/field of report that has Cross join type
+-  Defect  17814  Error message appears when selecting Field Comparison for Filter
+-  Defect  17801  Lazy loading is NOT applied when Page Break After Report Part is checked/un-checked.
+-  Defect  17761  Comparing the encoded location hash on hash changed is causing infinite appending to the location hash.
+-  Defect  17748  Existing categories do not display in Save popup for user with Full Report and Dashboard Access
+-  Defect  17736  Charts with Separators are missing the separator after drilldown
+-  Defect  17579  E-mail links for dashboards were not resolving correctly in the browser.
+-  Defect  17525  Sub Totals on Form shows incorrect value, it shows the first value in the list not the actual subtotal
+-  Defect  17394  Sparkine chart does not render properly when created, user must resize tile much larger than needed to have it show properly. 
+-  Defect  17045  Can't change status from Deactivate to Active for user in MVC kit
+
+
 v2.2.6 July 25, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
