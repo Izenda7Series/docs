@@ -1419,7 +1419,7 @@ Validates that a report name is unique and not empty.
 
 **Request**
 
-    Payload: a :doc:`models/ReportDefinition` object
+    Payload: a :doc:`models/ReportDefinition` object, with **name**, **type**, **category** and **subCategory** fields populated.
 
 **Response**
 
@@ -1434,24 +1434,37 @@ Validates that a report name is unique and not empty.
    Request payload::
 
       {
-        	"name" : "AnExistingName",
-        	"type" : "Templates",
-        	"category" : {
-        		"id" : "0adae39c-1db0-466d-820b-9f3f59c8e199"
-        	},
-        	"subCategory" : {
-        		"id" : null
-        	}
+         "id": null,
+         "name": "AnExistingName",
+         "type": 1,
+         "category": {
+            "id": "b45d865c-bea2-41be-9986-8a912981bfed",
+            "name": "Category A",
+            "type": 1,
+            "tenantId": null
+         },
+         "subCategory": {
+            "id": null,
+            "name": "",
+            "type": 1,
+            "tenantId": null
+         }
       }
 
-   Response when that report name already exists in Uncategorized category::
+   Response when that report name already exists in Category A::
 
       {
          "success": false,
-         "messages": [{
-             "key": "",
-             "messages": ["This report name already exists in \"Uncategorized\" category."]
-         }]
+         "messages": [
+            {
+               "key": "Name",
+               "detail": null,
+               "messages": [
+                  "This template name already exists in the \"Category A\" category."
+               ]
+            }
+         ],
+         "data": null
       }
 
 
@@ -5251,6 +5264,8 @@ Returns access priority for report/dashboard.
    Response::
 
       1
+
+.. _POST_report/timePeriod:
 
 POST report/timePeriod
 ------------------------------------------------

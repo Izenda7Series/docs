@@ -574,6 +574,8 @@ In some scenarios, you will require several values passed into the same filter, 
         }
    }
 
+.. _CustomTimePeriod:
+
 CustomTimePeriod
 -----------------------------------
 
@@ -611,6 +613,8 @@ You can create custom time period filters for various datatypes by overriding th
             return result;
         }
     }
+
+.. _LoadCustomDataFormat:
 
 LoadCustomDataFormat
 -----------------------------------

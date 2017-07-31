@@ -2,8 +2,80 @@
 Release Notes
 ==============
 
+v2.2.6 July 25, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17832  Query Error on Role set up page when working with MySQL as Izenda Database
+-  Defect 17784  System shows no record found when joining data sources using Fusion, Tree Filter in memory and Hidden Filters
+-  Defect 17771  After adding a user to an additional role, this user does not show up in the role for sharing for users who have access to share with the role
+-  Defect 17762  When using multiple aliased joins and filters passed to subreport, system error is displayed
+-  Defect 17761  Comparing the encoded location hash on hash changed is causing infinite appending to the location hash
+-  Defect 17730  Alternative text settings show in designer and viewer but do not properly export
+-  Defect 17710  Second pvalue (p2value) for custom URL is not being validate by the system and shows an error
+-  Defect 17661  SMTP info is added to logs and should not be shown in plain text
+-  Defect 17622  Unknown error displays when modifying the filter of a report if this filter is the common filter in the dashboard when using only one report
+-  Defect 17611  Error message is received when saving a report which contains a stored procedure data source and distinct flag is checked
+-  Defect 17573  User with role which has permission on 'Visible Categories' in Dashboards is not able to open the dashboard
+-  Defect 17557  When you creating a funnel chart and no sort is applied to the x axis, a sort is forced on the x axis when you alias the Y axis 
+-  Defect 17096  System shows error msg when user add 1 field only to Value container of all gauges. The error can be easily removed by adding a sort to the field 
+
+v2.2.5 July 20, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17758	 System errors on queries where multiple relationships are set between 2 objects in the data model
+-  Defect 17733	 When deleting join from report that was added by model and switching the order and then linking to a similar subreport, the join shows a query error due to extra join condition
+-  Defect 17759	 Current tenant and user info wasn’t updated accordingly when updating token via SetCurrentUserContext API
+
+v2.2.4 July 18, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17751  Export of embedded subreports in forms fail due to dynamic variables
+-  Defect 17749  Custom Tree Filters do not load in Report Viewer
+-  Defect 17737  All subscriptions are run again immediately when app re-starts
+-  Defect 17711  Additional fix for GetAccessToken method, lookup being performed by Tenant Name not Tenant ID causing Tenant to be generated as NULL in exporting and validation fails
+-  Defect 17709  Header & Footer formatting issues, when clicking image to add focus the item is removed. Header is not fully expanded and will not accept additional items from add new
+-  Defect 15236  Unable to select the field with suffix in field selection popup
+
+v2.2.3 July 14, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17711  In GetAccessToken method, lookup being performed by Tenant Name not Tenant ID causing Tenant to be generated as NULL in exporting and validation fails.
+-  Defect 17693  All setting on "Field Properties" tab are invisible after User set subreport.
+-  Defect 17674  Comparing the encoded location hash is causing infinite appending to the location hash.
+-  Defect 17662  "Required" message in report viewer reflects the field name, not the alias name
+-  Defect 17644  Scheduled jobs that fail to run for any reason are not rescheduled for immediate delivery.
+-  Defect 17633  Modifying the Alias of a Grid Field With Grand/Sub Total causes Grand/Sub Total Expressions to error
+-  Defect 17623  "No Record Found" when opening a subreport without filter values.
+-  Defect 17593  KeyJoin on an existing report has blank and marked Field if alias is changed in data model for one of the data sources used
+-  Defect 14605  Permissions summary data is showing Global and Local category names not the actual category names
+
+
+
+v2.2.2 July 11, 2017
+~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect 17656	 User cannot select a field in Subtotal/Grandtotal smart tag popup
+-  Defect 17635	 User is unable to select item in dropdown lists for database mapping
+-  Defect 17612	 Fixed privilege escalation issue in the myprofile settings
+-  Defect 17598	 Stored Procedure cascading option is disabled in the report designer for use in OnPreLoadFilterData.
+-  Defect 17561	 Reports with required filters are still querying the database prior to filter value being added to the report in the report viewer. 
+-  Defect 17441	 System lost focus on Form and new added Field is not displayed in Visual tab when Form has style setting.
+-  Defect 17152	 When setting time for dashboard tiles to cycle through presentation mode and clicking full screen mode, tiles are not auto advancing.
+-  Defect 17065	 Subtotal does not show for field with aggregated function field for row container of pivot grid.
+-  Defect 16252	 Lookup values set in the data model are not available in the dashboard filters; Stored procedure input parameters are not being shown as common filters when reports are created from the same stored procedure.
+
 v2.2.1 July 6, 2017
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
 ^^^^^
@@ -53,6 +125,12 @@ FEATURES
 CHANGES FOR INTEGRATION KITS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 -  Integration kits using deployment mode 1 (Angular2Starterkit, Mvc5 Backend standalone) have been updated to use the following API  "user/integration/saveUser" endpoint when creating new users. This change resolves issues found after defect 16779 was resolved in this release. Prior to this change the user active flag was not properly checked in integrated scenarios. After this change you must use "user/integration/saveUser" to set the user to Active and InitPassword to true when creating the new user, these flags cannot be set using "/user" (POST).
+
+
+.. note::
+
+	If you experience any errors stating 'Your user ID is inactive.', please see our  `troubleshooting guide <https://www.izenda.com/docs/install/troubleshooting/general.html#your-user-id-is-inactive-integrated-mode-only>`__.
+
 
 FIXES
 ^^^^^

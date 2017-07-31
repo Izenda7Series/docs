@@ -53,9 +53,12 @@ List of APIs
      - Render Izenda New Dashboard page
    * - .. container:: lpad2
    
-          `setCurrentUserContext({"token":access_token}`_
+          `setCurrentUserContext({"token":access_token})`_
      - Authentication and authorization between hosting web and Izenda
-
+   * - .. container:: lpad2
+   
+          `renderDashboardViewerPage(element, dashboard_id, filter, integrationStyle)`_
+     - Render Izenda Dashboard Viewer page
 
 
 
@@ -285,7 +288,7 @@ Render Izenda New Dashboard page
 
        Izenda Dashboard Designer Only
 
-setCurrentUserContext({"token":access_token}
+setCurrentUserContext({"token":access_token})
 ----------------------------------------------------------------------------------------------
 
 Authentication and authorization between hosting web and Izenda
@@ -305,6 +308,43 @@ Authentication and authorization between hosting web and Izenda
        };
        
        IzendaSynergy.setCurrentUserContext(currentUserContext);
+
+renderDashboardViewerPage(element, dashboard_id, filter, integrationStyle)
+----------------------------------------------------------------------------------------------
+
+Render Izenda Dashboard Viewer page
+
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - element
+        - The element to render in
+      * - dashboard_id
+        - The id of the dashboard
+      * - filter
+        - The values for the filters, in this format ``{ p1: a_value, p2: another_value, .. }``
+      * - integrationStyle
+        - The options for toolbar and common filter section, in this format ``{ hideDashboardToolbar: true/false, hideCommonFilter: true/false }``
+
+**Samples**
+
+   .. code-block:: javascript
+
+      IzendaSynergy.renderDashboardViewerPage(
+         document.getElementById('izenda-root'),
+         '9371375f-2fe7-43f1-b83a-e69340f6136d',
+         {
+            p1: "10366",
+            p2: "Barcelona"
+         }, {
+            hideDashboardToolbar: true,
+            hideCommonFilter: false
+         });
+
+
 
 **Tags**
 

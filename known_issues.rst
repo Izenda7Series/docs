@@ -478,9 +478,6 @@ Known Issues
      - 16444
      - Json node createdBy and modified are incorrect when saving a new category
    * - Defect
-     - 17593
-     - KeyJoin on an existing report has blank and marked Field if alias is changed in data model for one of the data sources used
-   * - Defect
      - 14010
      - Known issue with Oracle .net driver any repeating decimals will cause an error to resolve in the Application use ROUND(field/field,3) to round the decimal
    * - Defect
@@ -489,9 +486,6 @@ Known Issues
    * - Defect
      - 17487
      - Loading icon appears in print previewer
-   * - Defect
-     - 16252
-     - Lookup values set in the data model are not available in the dashboard filters
    * - Defect
      - 16354
      - Maps seems to have difficulty with US Maps without territories, if data for a US territory is available.
@@ -577,9 +571,6 @@ Known Issues
      - 13794
      - Performance on MS Edge is slow, nearly frozen
    * - Defect
-     - 14605
-     - Permissions summary data is showing Global and Local category names not the actual category names
-   * - Defect
      - 15497
      - Pivot Grid Column Field Text Color Does Not Change
    * - Defect
@@ -621,9 +612,6 @@ Known Issues
    * - Defect
      - 14949
      - Report Part should be displayed in the report when error is shown that fields are not visible
-   * - Defect
-     - 17561
-     - Reports with required filters are still querying the database prior to filter value being added to the report in the report viewer. 
    * - Defect
      - 17437
      - Required filters set to not visible in the report designer cause report to fail copy process.
@@ -694,9 +682,6 @@ Known Issues
      - 17554
      - SubReport link from printed PDF and embedded email shows blank page when clicked by user.	
    * - Defect
-     - 17065
-     - Subtotal does not show for field with aggregated function field for row container of pivot grid.
-   * - Defect
      - 15398
      - Subtotals on Drill Down Grid Inaccurate When Collapsed
    * - Defect
@@ -736,9 +721,6 @@ Known Issues
      - 15652
      - System loads the grey content below Reconnect button after user saving a first new connection string
    * - Defect
-     - 17441
-     - System lost focus on Form and new added Field is not displayed in Visual tab when Form has style setting.
-   * - Defect
      - 15094
      - System Parameters used in sp params are not correct when using @UserID the report loads with the initial stored value not the current user id
    * - Defect
@@ -752,10 +734,7 @@ Known Issues
      - System show error msg after user confirms Yes on Dirty Form (changes made in current session and not saved) but clicks on Stay in browser's confirmation msg
    * - Defect
      - 17519
-     - System shows (GET http:url/undefined 404 (Not Found)) in browser console when using deployment mode 1
-   * - Defect
-     - 17096
-     - System shows error msg when user add 1 field only to Value container of all gauges. The error can be easily removed by adding a sort to the field. 
+     - System shows (GET http:url/undefined 404 (Not Found)) in browser console when using deployment mode 1 
    * - Defect
      - 17489
      - System shows error msg when user creates Key Join which has Time value in comparison
@@ -862,9 +841,6 @@ Known Issues
      - 17300
      - UI of slide show panel on Presentation mode of Dashboard is not aligned on FireFox and IE11
    * - Defect
-     - 15236
-     - Unable to select the field with suffix in field selection popup.
-   * - Defect
      - 16278
      - Unit label not displayed on Linear Gauge report
    * - Defect
@@ -958,9 +934,6 @@ Known Issues
      - 13912
      - When setting a role to Full Report and Dashboard Access defaults for each area are not correct. Example, user should always be able to create a report but if it is not the default for tenant this is not checked and is hidden when using this setting.
    * - Defect
-     - 17152
-     - When setting time for dashboard tiles to cycle through presentation mode and clicking full screen mode, tiles are not auto advancing.
-   * - Defect
      - 17410
      - When setting up a new instance, create new Report/Dashboard options are missing after adding License
    * - Defect
@@ -981,7 +954,5 @@ Known Issues
    * - Defect
      - 16892
      - When using custom formats as field mapping values for subreports, the values do not match. System is passing formatted values, instead of the raw data for field mapping.	
-   * - Defect
-     - 17557
-     - When you creating a funnel chart and no sort is applied to the x axis, a sort is forced on the x axis when you alias the Y axis. 
+ 
 

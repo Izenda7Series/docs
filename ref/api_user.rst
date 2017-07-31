@@ -548,6 +548,7 @@ Returns an array of users for Report Access or Schedule, with paging.
          ]
       }
 
+
    Sample response::
 
       {
@@ -1037,6 +1038,7 @@ Returns an array of users for Report Access or Schedule, with paging.
          "skipItems": 0,
          "isLastPage": false
       }
+
 
 POST user/login
 --------------------------------------------------------------

@@ -14,6 +14,7 @@ The **Report Designer/Fields** page allows user to
    :columns: 2
 
    -  view data source fields' properties
+   -  add report-level calculated fields
    -  define report filters based on data source fields
    -  add report parts to report body
    -  add data source fields to report
@@ -66,6 +67,48 @@ View data source fields' properties
    Select a data source field to view its properties.
 #. Properties of the selected field is displayed in the Field Properties
    box. (:numref:`Report_Designer_Fields_Field_Properties`) |br|
+
+Add Calculated Field
+======================
+
+Calculated fields can also be added to a specific report.
+
+   .. figure:: /_static/images/Report_Level_Calculated_Field_Discounted_Cost.png
+      :width: 724px
+
+   A report-level calculated field. Note that in Expression box the connection name [Northwind] and schema name [dbo] are included since the fields can come from different connections. |br|
+
+.. commented_out
+
+   .. warning::
+
+      Please write the whole expression in a single line. New line characters such as Enter will break the syntax.
+
+Sample expressions:
+
+   .. code-block:: sql
+
+      Case when ([northwind].[dbo].[Orders].[EmployeeID] = 1) then 'less' when ([northwind].[dbo].[Orders].[EmployeeID] = 3 ) then 'mid' when ([northwind].[dbo].[Orders].[EmployeeID] = 4)  then 'high' else 'not evaluated' end
+
+      Case when (BETWEEN([northwind].[dbo].[Orders].[EmployeeID], 1,3)) then 'less' when (BETWEEN([northwind].[dbo].[Orders].[EmployeeID], 4,6) ) then 'mid' when ( BETWEEN([northwind].[dbo].[Orders].[EmployeeID], 7,10))  then 'high' else 'not evaluated' end
+
+      IF ([northwind].[dbo].[Orders].[EmployeeID] < 3) then 'Less' else ( IF (BETWEEN ([northwind].[dbo].[Orders].[EmployeeID] , 3, 6)) then  'More' else 'Most' END) END
+
+      Count(DISTINCT([Northwind].[dbo].[Orders].[ShipCity]))
+
+      DATEPART(yyyy,[Northwind].[dbo].[Orders].[OrderDate])
+
+      DATEPART(m,[Northwind].[dbo].[Orders].[OrderDate])
+
+      CASE when (DATEPART(yyyy,[Northwind].[dbo].[Orders].[OrderDate]) = 1996) then 1 else 0 end
+
+      DATEADD(year,1,[Northwind].[dbo].[Orders].[OrderDate])
+
+      CAST([Northwind].[dbo].[Orders].[OrderID] as text)
+
+.. seealso::
+
+   -  :doc:`doc_available_calculated_field_expressions`
 
 Add a report filter
 ===================

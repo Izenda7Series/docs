@@ -2,7 +2,15 @@
 Installation Guide
 ==========================
 
-The following outlines the steps to install Izenda's Stand Alone Portal. While our installation process is still in progress, you can follow the steps below to install Izenda.
+The following outlines the steps to install Izenda's Stand Alone Portal.
+
+Standalone Installation Options
+--------------------------------
+There are two main options when deploying a "vanilla" instnace of our standalone environment.
+-  Installing Izenda's front end and back end as two separate sites
+-  Installing Izenda's front end and back end as virtual directories/applications under a host site
+
+The architectural goal, pre-installation preparations, and web server setup are the same for both deployment options.
 
 
 Architectural Goal
@@ -12,8 +20,8 @@ Architectural Goal
 
    A diagram of implementation
 
-Pre-install Preparations
-------------------------
+Pre-installation Preparations
+------------------------------
 
 The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on a local machine on a Windows machine for testing purposes and is a best practice for ensuring permissions and performance can be validated locally prior to moving toward more embedded and integrated examples, but it is not recommended for live deployments.
 
@@ -174,15 +182,17 @@ The most common testing scenario places the front-end and the back-end on two se
    #. Update the Back-end API url in Front-end package: |br|
       Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
       ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
-|
-|
-|
+      
+ This concludes the steps necessary to install Izenda using two separate websites. 
+ Please refer to the following guides below: 
+ - Troubleshooting & Verifying the Installation
+ - Common Izenda Stand-alone Installation Issues
+ - Editing the Configuration Files
 
 Deploying Izenda as a Virtual Directory or Application
 ------------------------------------------------------
+ Installing Izenda as a virtual directorys will mirror the steps taken required to deploy Izenda using two separate websites but additional modifications are necessary for the front end and back end to interact correctly together.
 
-For Setting Izenda up using a Virtual Directory the following steps must
-be taken.
 
 Initial Set Up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -305,6 +315,13 @@ Within the API Folder of your Deployment
             <add name="Nancy" verb="*" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" path="/IzendaBack/api/*"/>
          </handlers>
 
+ This concludes the steps necessary to install Izenda using virtual directories/applications.
+ Please refer to the following guides below: 
+ - Troubleshooting & Verifying the Installation
+ - Common Izenda Stand-alone Installation Issues
+ - Editing the Configuration Files
+ 
+
 Troubleshooting & Verifying the Installation
 -------------------------------------------------------
 
@@ -317,6 +334,9 @@ Troubleshooting & Verifying the Installation
       Successful Connection to API displays a stylized 404 error
 
 *  Navigate to the API folder, you should see a 'logs' folder with with at least one log file. If you do not see the folder and/or files, verify that the application pool and/or web site user have write permissions to the API folder.
+
+
+
 
 Common Izenda Stand-alone Installation Issues
 -------------------------------------------------------
@@ -371,7 +391,7 @@ Common Izenda Stand-alone Installation Issues
    Izenda’s Oracle Drivers utilize the Microsoft Visual C++ 2010 Redistributable.
 
    These can be installed by downloading the installer from Microsoft: |br|
-   `Microsoft Visual C++ 2010 Redistributable Package (x64) <https://d.docs.live.net/df747aa7afec615b/WorkDocuments/Microsoft Visual C++ 2010 Redistributable Package (x64)>`__
+   `Microsoft Visual C++ 2010 Redistributable Package (x64) <https://www.microsoft.com/en-us/download/details.aspx?id=14632>`__
 
    Without this dependency installed you may encounter errors like the following.
 

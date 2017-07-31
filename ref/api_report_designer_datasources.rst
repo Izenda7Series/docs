@@ -35,7 +35,7 @@ List of APIs
    * - `POST report/loadRelationships`_
      - Returns an updated list of relationships from an existing report together with an updated list of data sources.
    * - `POST report/validateRelationshipSyntax`_
-     - Validates that relationships correctly link selected data sources, have correct alias and data types, and support distinct option if checked.
+     - Validates relationship syntax.
    * - `POST report/detectRelationshipsChange`_
      - Detects if any relationship should be removed because of changes in data sources.
    * - `POST report/availableQuerySourceFields`_
@@ -421,11 +421,45 @@ Returns an updated list of relationships from an existing report together with a
 POST report/validateRelationshipSyntax
 ------------------------------------------------
 
-Validates that relationships correctly link selected data sources, have correct alias and data types, and support distinct option if checked.
+Validates relationship syntax, as following:
+
+In Report Simple mode, validates that selected data sources have relationships.
+
+In Report Advanced mode, validates that specified relationships correctly joins selected data sources. Also validates:
+
+*  Alias is required for the same selected object
+*  Aliases in relationships are not duplicated
+*  Aliases between relationships and data sources are not duplicated 
+*  Relationship key joins have correct syntax
+*  Data types between join fields and foreign fields are compatible (same Izenda data type)
+*  Relationships are not duplicated
+*  Relationship key joins are not duplicated
+
+.. note::
+
+   Ignores data sources, relationships and relationship key joins with **state** = 2 (deleted)
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object
+   Payload: a :doc:`models/ReportSavingParameter` object, with **reportKey**, **report.reportDataSource** and **report.reportRelationship** fields populated.
+
+   Required fields for **report.reportDataSource**:
+
+   *  querySourceId
+   *  state
+
+   Required fields for **report.reportRelationship** in Report Advanced mode:
+
+   *  state
+   *  joinType
+   *  joinQuerySourceId
+   *  foreignQuerySourceId
+   *  joinFieldId (nullable when joinType is "Cross")
+   *  foreignFieldId (nullable when joinType is "Cross")
+   *  alias (nullable)
+   *  relationshipKeyJoins
+
+   **report.reportRelationship** should be empty in Report Simple mode.
 
 **Response**
 
@@ -458,12 +492,14 @@ Validates that relationships correctly link selected data sources, have correct 
                  "aliasId" : "479be129-338d-45f1-b216-1d95957fe2c8_Order Details",
                  "querySourceId" : "479be129-338d-45f1-b216-1d95957fe2c8",
                  "querySourceName" : "Order Details",
-                 "selected" : true
+                 "selected" : true,
+                 "state" : 1
               }, {
                  "aliasId" : "54852be4-5584-4c23-ae5d-4197724059e1_Orders",
                  "querySourceId" : "54852be4-5584-4c23-ae5d-4197724059e1",
                  "querySourceName" : "Orders",
-                 "selected" : true
+                 "selected" : true,
+                 "state" : 1
               }
            ],
            "reportRelationship" : [{
@@ -539,7 +575,10 @@ Returns a list of data source fields in selected query sources of a report.
 
 **Request**
 
-    Payload: a :doc:`models/ReportSavingParameter` object
+    Payload: a :doc:`models/ReportSavingParameter` object, with either:
+
+   *  **reportKey** field populated - for an existing/draft report.
+   *  **reportKey** empty and **reportDataSource**.\ **querySourceId** populated - for a new report.
 
 **Response**
 
@@ -551,7 +590,7 @@ Returns a list of data source fields in selected query sources of a report.
 
       POST /api/report/availableQuerySourceFields HTTP/1.1
 
-   Request payload::
+   Request payload for a draft report::
 
       {
         "reportKey" : {
@@ -609,6 +648,29 @@ Returns a list of data source fields in selected query sources of a report.
             }]
          }]
       }]
+
+   Request payload for a new report::
+
+      {
+         "reportKey": {
+            "key": null,
+            "modified": null,
+            "tenantId": null
+         },
+         "report": {
+            "reportDataSource": [
+               {
+                  "querySourceId": "ab5b596a-6d35-45a0-ad9b-d3188326bafb",
+                  "querySourceName": "Orders",
+               }
+            ],
+            "reportRelationship": [],
+            "dynamicQuerySourceFields": [],
+            "calculatedFields": []
+         }
+      }
+
+   Sample response is similar to above.
 
 GET report/availableReportMappingFields/{report_id}
 -----------------------------------------------------------

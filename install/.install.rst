@@ -9,4 +9,5 @@ The Installation Guide is intended for users with system environment-level acces
 
    .stand_alone_deployment
    .integrated_deployment
+   troubleshooting
    .supplementary_installation_guides

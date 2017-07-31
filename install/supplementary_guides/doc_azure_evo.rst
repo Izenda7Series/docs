@@ -31,12 +31,21 @@ http://www.evopdf.com/Downloads/Support/Archive/EvoHtmlToPdf-Azure-v6.16.zip (Pl
 Installation
 #####################
 
-#. Login into your Microsoft Azure portal and create a new Cloud Service choosing the **Custom Create** option. 
-#. In the first screen select a URL for your cloud service and enable the **Deploy a cloud service package** option. 
-#. In the next screen choose a name for the deployment and browse to **Azure** local folder to choose the **EvoHtmlToPdfAzureService.cspkg** file for package option and **ServiceConfiguration.Cloud.cscfg** file for configuration option. Enable the **Deploy even if one or more roles contain a single instance** option and finish the wizard. The deployment process may take several minutes. 
-#. When the deployment has completed, navigate to the cloud service dashboard. Under the input endpoints section, you can find the service IP address and port number. You will use this information configure Azure exporting in Izenda.
+#. Login into your Microsoft Azure portal and create a new Cloud Service.
 
-|
+	.. figure:: images/azure_cs1.png
+
+	.. figure:: images/azure_cs2.png
+
+#. In the first screen select a DNS name for your cloud service and then select a package. 
+#. In the next screen choose a deployment label and choose the **EvoHtmlToPdfAzureService.cspkg** file for package option and **ServiceConfiguration.Cloud.cscfg** file for configuration option. Enable the **Deploy even if one or more roles contain a single instance** option and finish the wizard. The deployment process may take several minutes. 
+
+	.. figure:: images/azure_cs3.png
+	
+#. When the deployment has completed, navigate to the cloud service dashboard. Under the Properties > Input Endpoints, you can find the service IP address and port number. You will use this information configure Azure exporting in Izenda.
+
+	.. figure:: images/azure_cs4.png
+
 
 Configuring the Izenda instance
 ----------------------------------------------------
@@ -52,3 +61,4 @@ After the service has been configured, you must configure the Izenda application
 	    <azureCloudService server="120.0.0.1" port="40001" servicePassword="" />
 	  </evoPdfSettings>
 	</configuration>
+	

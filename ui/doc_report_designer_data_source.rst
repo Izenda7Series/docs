@@ -272,3 +272,68 @@ that user needs to build is
       :width: 600px
 
       [Order Details].[Quantity] = [Products].[UnitsOnOrder] |br|
+
+
+Add Join Alias
+-------------------------
+
+The joined tables can be given alias to be referred to in subsequent join clauses.
+
+*  For example, to get data of Products and related Categories and Suppliers, the [Products] table needs to be joined with:
+
+   -  [Categories] table ``[Products].[CategoryID] = [Categories].[CategoryID]``
+   -  [Suppliers] table ``[Products].[SupplierID] = [Suppliers].[SupplierID]``
+
+   |br| The [Products] table is used twice and therefore should be given an alias as below:
+
+   .. figure:: /_static/images/Table_Alias_Products_Categories_Suppliers.png
+      :width: 900px
+
+      The alias PRD must be selected instead of the original table name Products |br|
+
+   That is equivalent to the following SQL statement:
+
+   .. code-block:: sql
+
+      SELECT *
+      FROM
+         [Products] AS PRD
+         INNER JOIN [Categories]
+            ON PRD.[CategoryID] = [Categories].[CategoryID]
+         INNER JOIN [Suppliers]
+            ON PRD.[SupplierID] = [Suppliers].[SupplierID]
+
+*  Effects of alias in a key join: if the original table is given an alias, that alias must be selected in the key join.
+
+   .. figure:: /_static/images/Table_Alias_Key_Join_OrderDetails_Products.png
+      :width: 900px
+
+      The alias OD must be selected instead of the original table name Order Details |br|
+
+   That is equivalent to the following SQL statement:
+
+   .. code-block:: sql
+
+      SELECT *
+      FROM
+         [Order Details] AS OD
+         INNER JOIN [Products]
+            ON OD.[ProductID] = [Products].[ProductID]
+               AND OD.[Quantity] = [Products].[UnitsOnOrder]
+
+*  An alias is also required in case of a self-join. For example, [Employees].[ReportsTo] is foreign key to [EmployeesID] in the same table, hence, an alias must be given to differentiate the two different [Employees] tables.
+
+   .. figure:: /_static/images/Table_Alias_Self_Join_Employees.png
+      :width: 900px
+
+      The alias Subordinate must be given |br|
+
+   That is equivalent to the following SQL statement:
+
+   .. code-block:: sql
+
+      SELECT *
+      FROM
+         [Employees] AS Subordinate
+         INNER JOIN [Employees]
+            ON Subordinate.[ReportsTo] = [Employees].[EmployeeID]

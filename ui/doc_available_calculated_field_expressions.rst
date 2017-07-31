@@ -40,8 +40,6 @@ Available Calculated Field Expressions
       -  CASE (input_expression) WHEN (when_expression) THEN (result_expression) [...n] [ELSE (else_result_expression)] END
    *  -  CAST...AS 
       -  CAST (expression AS data_type)
-   *  -  CHAR 
-      -  CHAR (integer_expression)
    *  -  CONCAT 
       -  CONCAT (expression, expression[,expression...])
    *  -  CONVERT 
@@ -64,35 +62,21 @@ Available Calculated Field Expressions
       -  IIF (boolean_expression, true_expression, [false_expression])
    *  -  ISNULL 
       -  ISNULL (check_expression, replacement_value)
-   *  -  LEFT 
-      -  LEFT (character_expression, integer_expression)
    *  -  LEN 
       -  LEN (expression)
-   *  -  LTRIM 
-      -  LTRIM (character_expression)
    *  -  MAX 
       -  MAX (expression)
    *  -  MIN 
       -  MIN (expression)
-   *  -  NOTBETWEEN 
-      -  NOTBETWEEN (test_expression, begin_expression, end_expression)
    *  -  OR 
       -  boolean_expression OR boolean_expression
-   *  -  REPLACE 
-      -  REPLACE (string_expression, string_pattern, string_replacement)
-   *  -  RIGHT 
-      -  RIGHT (character_expression, integer_expression)
    *  -  ROUND 
       -  ROUND (expression, length[, function])
-   *  -  RTRIM 
-      -  RTRIM (character_expression)
    *  -  RUNNING AVG 
       -  RUNNINGAVG (column)
    *  -  RUNNING COUNT 
       -  RUNNINGCOUNT (column)
    *  -  RUNNING SUM 
       -  RUNNINGSUM (column)
-   *  -  SUBSTRING 
-      -  SUBSTRING (expression, start, length)
    *  -  SUM 
       -  SUM (expression)
