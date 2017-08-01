@@ -11,77 +11,106 @@ List of APIs
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 45 30
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET user/all/(tenant_id)`_
      - Returns an array of users, filtered by tenant_id if available.
+
+       Deprecated, please use `POST user/all`_ to avoid timeouts loading large data.
+     - Settings menu > User Setup
    * - `POST user/all`_
      - Returns an array of users by tenant.
+     - Settings menu > User Setup
    * - `POST user/load`_
      - Returns an array of users for Report Access or Schedule, with paging.
+     - Report Designer > Schedule > Add Schedule > select Recipient(s) |br|
+       Report Designer > Access > Add Sharing > Share With > User > select
    * - `POST user/login`_
      - Performs login.
+     - Login page
    * - `POST user/logout`_
      - Performs logout.
+     - User section in page header > Sign Out
    * - `POST user`_
      - Saves a user.
 
        .. note::
 
           To set up a user with password, this API is only the first step. See :doc:`/dev/code_javascript_add_internal_user` for the guide.
+     - Settings menu > User Setup > Add User > Save
    * - `POST user/userProfile`_
      - Saves a user profile.
+     - not used
    * - `POST user/passwordProfile`_
      - Saves a password profile.
+     - not used
    * - `POST user/securityQuesitions`_
      - Saves security questions for a user.
 
        .. note::
 
           Will be renamed to securityQuestions
+     - User section in page header > My Profile > Security Options > Change Security Options > Save
    * - POST user/password
      - Saves password for a user.
 
        .. note::
 
           Obsolete, use `POST user/passwordAndSecurityQuestion`_ instead
+     - Not used
    * - `POST user/active`_
      - Activates a user.
+     - Settings menu > User Setup > Activate link
    * - `POST user/deactive`_
      - Deactivates a user.
+     - Settings menu > User Setup > Deactivate link
    * - `DELETE user/{user_id}`_
      - Deletes a user.
+     - Settings menu > User Setup > Delete link
    * - `POST user/passwordAndSecurityQuestion`_
      - Saves a user password and security question.
+     - Password Link page > Save
    * - `GET user/securityQuestion/{user_name}/(tenant_display_id)`_
      - Returns security question for a user and tenant.
+     - User section in page header > My Profile > Security Options
    * - `POST user/generatePasswordLink`_
      - Generates :term:`password link`.
+     - Settings menu > User Setup > Configure Password Option > Generate Password Link
    * - `POST user/validatePasswordLink`_
      - Validates :term:`password link`.
+     - Not used
    * - `POST user/validateSecurityQuestion`_
      - Validates security questions.
+     - Not used
    * - `POST user/validateUserInfo`_
      - Validates user information.
+     - Not used
    * - `POST user/validateExpirationPasswordLink`_
      - Validates password expiration link.
+     - When user opens password link
    * - `POST user/sendPasswordLink`_
      - Sends :term:`password link` via email to user.
+     - Settings menu > User Setup > Configure Password Option > Generate Password Link > Send password link in email
    * - `POST user/integration/saveUser`_
      - Adds or updates external user.
 
        .. versionchanged:: 1.25
 
           Used to be named "intergration"
+     - Not used
    * - `POST user/validateUserRoleAssociation`_
      - Validates user and role association after some roles are removed.
+     - Settings menu > User Setup > remove a role > Save
    * - `POST user/allowedSharingUsers/(tenant_id)`_
      - Returns a list of users allowed to be selected in report/dashboard access.
+     - Report Designer > Access > Add Sharing
    * - `GET user/isLastSystemAdmin`_
      - Checks if the number of not deleted system admins equals 1.
+     - Settings menu > User Setup > delete a system admin
 
 GET user/all/(tenant_id)
 --------------------------------------------------------------
