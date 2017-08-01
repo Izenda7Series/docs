@@ -16,7 +16,7 @@ For MVC set up steps, please refer to the :doc:`/install/doc_mvc_setup_guide`.
 
 
 Packages Used
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 The following is not a comprehensive list but it will give you a good idea of the packages used for Izenda’s authentication/authorization.
 	- **.Net MVC5 Starter Project:** In order to maintain simplicity, our kit uses Microsoft’s default MVC5 Project structure. There may be slight modifications to the code to showcase certain Izenda concepts. This skeleton simulates the role of your application in the embedded process. For more information of the default structure, please see http://jameschambers.com/2014/06/day-2-examining-the-solution-structure/
 	- **OWIN Authentication:** In our kit, the OWIN Authentication component simulates the method of logging in to your application. Once you are authenticated with your application, a UserInfo object is generated that contains the username and tenant needed for Izenda authorization.
@@ -39,7 +39,7 @@ Location and Description of Features
     which files to review for each feature.*
 
 Unique Styling For Tenants
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Content Folder for tenants
 
@@ -47,14 +47,14 @@ Unique Styling For Tenants
    * Top of Layout.cshtml
 
 Izenda User Creation
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 -  AccountController.cs
 
    * Register, line 162
 
 Izenda User Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  **Login.cshtml:** User input form for login information
 -  **UserInfo.cs:** Contains the definition of the token required for Izenda. This includes 2 public strings UserName and TenantUniqueName. Upon successful authentication, a UserInfo object is created in the model.
@@ -71,13 +71,13 @@ Izenda User Authentication
    * Login, line 73
 
 Rendering Izenda UI
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 -  **Izenda.integrate.js:** This is the backbone for rendering Izenda into our kit. The 216 lines of code contain a plethora of examples of how to render single Izenda components, how to render single Izenda pages, and even how to embed Izenda as a whole. You are certainly welcome to use this file in your own development but you may find it useful to tailor it to your needs.
 -  Views -> Home and Views -> Report
 
 Rendering Report Parts & Reports
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 -  Report Parts are rendered using Mvc5StarterKit -> Views -> Report -> ReportParts.cshtml
 -  Report Parts to be rendered are defined by report part id in Mvc5StarterKit -> Scripts -> izenda.integrate.js
 
@@ -117,7 +117,7 @@ Rendering Report Parts & Reports
 	<li>@Html.ActionLink("Report Viewer", "ReportViewer", "Report", new { id = "<add your report id here>" }, null)</li>
 
 Hidden Filters
-~~~~~~~~~~~~~~~~~~~	
+^^^^^^^^^^^^^^^^^^^	
 -  Hidden Filter examples are shown in Mvc5StarterKit -> IzendaBoundary -> CustomAdhocReport.cs
 
 Understanding the Front End Contents
@@ -136,7 +136,7 @@ Understanding the Back End Contents
     end components a developer might define in an integrated scenario.*
 
 App\_Start
-~~~~~~~~~~
+^^^^^^^^^^
 
    This folder is contained at the root directory and is among the main
    driving components of an MVC Solution. This folder's classes are
@@ -158,13 +158,13 @@ App\_Start
 
       .. code-block:: javascript
 
-          bundles.Add(new ScriptBundle("~/bundles/izenda").Include(
-                                  "~/Scripts/izenda/izenda_common.js",
-                                  "~/Scripts/izenda/izenda_locales.js",
-                                 "~/Scripts/izenda/izenda_vendors.js",
-                                 "~/Scripts/izenda/izenda_ui.js",
-                                 "~/Scripts/izenda.integrate.js",
-                                 "~/Scripts/izenda.utils.js"));
+          bundles.Add(new ScriptBundle("^/bundles/izenda").Include(
+                                  "^/Scripts/izenda/izenda_common.js",
+                                  "^/Scripts/izenda/izenda_locales.js",
+                                 "^/Scripts/izenda/izenda_vendors.js",
+                                 "^/Scripts/izenda/izenda_ui.js",
+                                 "^/Scripts/izenda.integrate.js",
+                                 "^/Scripts/izenda.utils.js"));
 
    *  **RouteConfig.cs:** This class contains all the routing
       configuration for your urls in an MVC application. A Route simply
@@ -174,7 +174,7 @@ App\_Start
       handler to reference the MVC controllers.
 
 Izenda's Web.config overview
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Izenda utilizes **Nancy**, a light-weight framework for building HTTP
 based services on .NET and Mono. Nancy supports all the common HTTP
@@ -206,13 +206,13 @@ Understanding the Data Model
     kit.*
 
 Izenda Configuration Database 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :doc:`/ref/spec_izendasystemsetting_table`
 
 
 MVC5 User Database
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
     ''The MVC5 User Database is located within the *'[insert database
     location here]. It simulates a your company's database information
@@ -220,7 +220,7 @@ MVC5 User Database
     Configuration Database.*
 
 Methods of Calling the Izenda API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Depending on your deployment mode, you may want to invoke the Izenda API in different ways. Our standard MVC Kit provides examples for both RESTful API Calls and .Net API Calls 
    * RESTful API Calls
    	* Home Controller
@@ -241,16 +241,16 @@ Updates
 -------
 
 06/23/2017
-~~~~~~~~~~
+^^^^^^^^^^
 
 If you are using a different route thatn Izenda's default API route (/api), the URL must be set in the web.config.
 
 
 05/08/2017
-~~~~~~~~~~
+^^^^^^^^^^
 
-Updates to the Mvc5StarterKit required for exporting:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Updates to the Mvc5StarterKit required for exporting:**
+
 If your API is separate (deployment mode 1), you will need to set Public and Private RSA Keys. Previous versions of the deployment mode didn’t require any sort of keys and, since you don’t need a password to be authorized for this deployment mode, you can simply call the API with the tenant unique name and user name have access to Izenda (bad). We implemented the RSA Keys for verification that the source of your API calls are correct.
 
 With the latest update of Izenda, we have made a few changes to the database to ensure that deployment mode 1 is as secure as deployment modes 0 and 3. There are now two RSA keys (public and private) found within Izenda. Since these values aren't updated, a System.Security.XmlSyntaxException was thrown and documented in your log file.
@@ -263,10 +263,9 @@ The keys can be declared in the following locations:
 To generate your RSA keys, you can use our RSA Key Generator utility found at http://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip .
 
 02/08/2017
-~~~~~~~~~~
+^^^^^^^^^^
 
-Updates to the Mvc5StarterKit required for exporting:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Updates to the Mvc5StarterKit required for exporting:**
 
 1. Ensure you have set the front end url in the IzendaSystemSettings
 table for WebUrl If you are using the standard MvcStarterKit it will be
@@ -328,7 +327,7 @@ Mvc5StarterKit/Scripts/izenda.integrate.js
 ::
 
     @{
-       Layout = "~/Views/Shared/Izenda_Layout.cshtml";
+       Layout = "^/Views/Shared/Izenda_Layout.cshtml";
        ViewBag.Title = "Report Viewer";
     }
 

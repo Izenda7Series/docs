@@ -1039,6 +1039,7 @@ Returns an array of users for Report Access or Schedule, with paging.
          "isLastPage": false
       }
 
+.. _POST_user/login:
 
 POST user/login
 --------------------------------------------------------------
