@@ -6,7 +6,7 @@ User APIs
 
 The User APIs are used in the log in, log out, user setup and migration features.
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
