@@ -338,10 +338,7 @@ Known Issues
      - System shows (GET http:url/undefined 404 (Not Found)) in browser console when using deployment mode 1
    * - Defect
      - 17506
-     - Text 'Roles/Users allowed to share with' displays in Scheduling section instead of 'Roles/Users allowed to schedule for'
-   * - Defect
-     - 17504
-     - Sub and Grand total smart tags not working properly when used in form.
+     - Text 'Roles/Users allowed to share with' displays in Scheduling section instead of 'Roles/Users allowed to schedule for'.
    * - Defect
      - 17503
      - Grand total still appears when System shows "No records found"

@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v2.3.1 August 2, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  17923  System shows error message when adding some div styling on form report parts in the designer
+-  Defect  17912  InTimePeriod Filters returning errors when used in reports
+-  Defect  17911  Error in initial create script for MySQL instances of Izenda database
+-  Defect  17910  Cascading option is disabled for the stored procedure input parameter
+-  Defect  17902  Sub and Grand totals not loading on newly report parts
+-  Defect  17504  Sub and Grand total smart tags not working properly when used in form
+
 v2.3.0 July 31, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
