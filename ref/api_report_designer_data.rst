@@ -14,56 +14,71 @@ The **Report Designer** page allows user to
 
 This page documents the APIs related to data and expressions.
 
-List of APIs
+Summary 
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 45 30
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `POST fusion/validateExpression`_
-     - Validates filter expression syntax and returns a suggested data type (for multiple data sources). |br| |br|
+     - Validates calculated field expression syntax and returns a suggested data type (can handle multiple data sources). |br| |br|
        See also: `POST fusion/validateDataModelExpression`_
+     - Report Designer > Fields > Add Calculated Field > Expression
    * - `POST fusion/validateGrandTotalExpression`_
      - Validates grand total expression syntax and returns a suggested data type.
+     -
    * - POST fusion/validateSubTotalExpression
      - Validates sub total expression syntax and returns a suggested data type. |br| |br|
        Same request and response as `POST fusion/validateGrandTotalExpression`_
+     -
    * - `POST fusion/loadData`_
      - Loads data for report.
+     - Report Viewer
    * - `POST fusion/reportPartPreview`_
      - Loads preview data for report part.
+     -
    * - `POST fusion/previewGrandTotal`_
      - Loads preview data for grand total.
+     -
    * - `GET fusion/{report_id}/{report_part_id}/(pageIndex)/(pageSize)`_
      - Loads report part data with paging and optional overridden filter values and operators.
+     -
    * - `POST fusion/validateDataModelExpression`_
-     - Validates a calculated field expression and returns a suggested data type (in a single data source). |br| |br|
+     - Validates a calculated field expression in Data Model and returns a suggested data type (in a single data source). |br| |br|
        See also: `POST fusion/validateExpression`_
+     - Settings > Data Setup > Data Model > Tables > Add Calculated Field > Expression
    * - `POST fusion/previewCalculatedField`_
      - Loads preview data for a calculated field. |br| |br|
        Obsolete, use `POST fusion/validateExpression`_ instead
+     - Not used
    * - `POST fusion/previewSubTotal`_
      - Loads preview data for sub total.
+     -
    * - `POST fusion/calculatedFieldValue`_
      - Returns a single calculated field value for preview section.
+     -
    * - `POST fusion/retrieveRandomExpandedLevelData`_
      - Returns random expanded level data.
+     -
    * - `POST fusion/printQuery`_
      - Returns the sql query for a data request.
-   * - `POST fusion/printQuery/reportPartPreview`_
-     - Returns the sql query for a report part preview request.
+     -
+   * - `POST fusion/reportPartPreview`_
+     - Returns data for a report part preview request.
+     - Report Designer, preview a report part
    * - `GET fusion/printQuery/{reportId}/{reportPartId}/(pageIndex)/(pageSize)`_
      - Returns the sql query for a report part load with paging and optional overridden filter values and operators.
-
+     -
 
 POST fusion/validateExpression
 --------------------------------------------------------------
 
-Validates filter expression syntax and returns a suggested data type (for multiple data sources). |br| |br|
+Validates filter expression syntax and returns a suggested data type (can handle multiple data sources). |br| |br|
 See also: `POST fusion/validateDataModelExpression`_
 
 **Request**
@@ -1790,7 +1805,7 @@ Loads report part data with paging and optional overridden filter values and ope
 POST fusion/validateDataModelExpression
 --------------------------------------------------------------
 
-Validates a calculated field expression and returns a suggested data type (in a single data source). |br| |br|
+Validates a calculated field expression in Data Model and returns a suggested data type (in a single data source). |br| |br|
 See also: `POST fusion/validateExpression`_
 
 **Request**

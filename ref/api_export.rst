@@ -5,27 +5,34 @@ Export APIs
 ============================
 
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 45 30
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `POST export/{format:exportformat}`_
      - Exports the dashboard, report or report part specified in request parameters.
+     - Report List > Expand a report > Export
    * - `POST export/email`_
      - Emails or exports report/dashboard based on the input subscription parameter.
+     -
    * - `POST export/performanceStatisticsTrend`_
      - Exports the performance statistics trend to csv.
+     -
    * - `GET export/checkExportStatus/{fileSession}`_
      - Returns true if the export has been completed for the specified fileSession. |br|
        This should be the value in fileSessionKey in `POST export/{format:exportformat}`_.
 
        .. versionadded:: 2.0.6
+     - \- Report List > Expand a report > Export |br|
+       \- Report Designer > Export |br|
+       \- Report Viewer > Export |br|
 
 POST export/{format:exportformat}
 --------------------------------------------------------------

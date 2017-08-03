@@ -43,7 +43,7 @@ Summary
      -
    * - `POST report/allCategories`_
      - Returns the list of categories in parent-child hierarchy, with total number of items.
-     -
+     - Report List
    * - `POST report/category`_
      - Renames a report category.
      -
@@ -55,7 +55,7 @@ Summary
      -
    * - `GET report/reportByProperty/{report\_id}/{property}`_
      - Returns a report section.
-     -
+     - Dashboard Designer
    * - `POST report`_
      - Saves a report.
      - Report Designer > Save (As)
@@ -99,7 +99,7 @@ Summary
      -
    * - `GET report/reportMode`_
      - Returns the report mode.
-     -
+     - Report Designer
    * - `POST report/reportMode/{value}`_
      - Sets the report mode to Simple or Advanced.
      -
@@ -111,7 +111,7 @@ Summary
 
        .. versionchanged:: 1.25
           Changed from GET to POST
-     -
+     - Report Designer, when adding a data source field to a report part
    * - `GET report/allReports/(tenant\_id)`_
      - Returns a list of all reports filtered by tenant_id if provided.
      -
@@ -155,14 +155,14 @@ Summary
      - Validates if reports are valid.
      -
    * - `POST report/printDraft`_
-     - Saves report as draft for printing.
-     -
+     - Saves report as draft and print.
+     - Report Designer > Export - to allow printing unsaved changes
    * - `GET report/printDraft/{report\_id}`_
      - Gets report as draft for printing.
      -
    * - `GET report/accessPriority/(report\_dashboard\_id)`_
      - Returns access priority for report/dashboard.
-     -
+     - To be updated
    * - `POST report/timePeriod`_
      - Saves a customed InTimePeriod.
      -
