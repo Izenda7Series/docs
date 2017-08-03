@@ -2,6 +2,11 @@
 Release Notes
 ==============
 
+.. note::
+	- Weekly Release - Defect Fixes, Patch release x.x.1
+	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
+	- Major Release - Larger Features, Major release 1.x.x
+
 v2.3.1 August 2, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -19,7 +24,7 @@ v2.3.0 July 31, 2017
 
 FEATURES
 ^^^^^^^^
--  For customers using very large data sets or views which require heavy processing. In Data Setup > Advanced Settings > Others a new setting has been added, "Show Preview section in Configuration Mode", the default is true. When set to false, users will no longer see the report part preview on the configuration side of report parts. This changes the default behavior of querying the data when adding fields to the report parts. Instead, Izenda will only query the data when the user flips the report part to view the front side of report parts. When this setting is false, the preivews on charts in adding configuration options like borders, background colors, grid lines, XY-Plane options will be hidden as well. In addition, any time the user hides the preview section by sliding it closed on the configuration side of the report part, the queries for field data will not be executed until the user either flips to the front of the report part or expands the preview section of the report part. **To incorporate this, changes the following API were made: /api/advancedSetting/miscSetting/ and corresponding model :doc:`OtherSetting </ref/models/OtherSetting>`** 
+- For customers using very large data sets or views which require heavy processing. In Data Setup > Advanced Settings > Others a new setting has been added, "Show Preview section in Configuration Mode", the default is true. When set to false, users will no longer see the report part preview on the configuration side of report parts. This changes the default behavior of querying the data when adding fields to the report parts. Instead, Izenda will only query the data when the user flips the report part to view the front side of report parts. When this setting is false, the preivews on charts in adding configuration options like borders, background colors, grid lines, XY-Plane options will be hidden as well. In addition, any time the user hides the preview section by sliding it closed on the configuration side of the report part, the queries for field data will not be executed until the user either flips to the front of the report part or expands the preview section of the report part. **To incorporate this, changes the following API were made: /api/advancedSetting/miscSetting/ and corresponding model :doc:`OtherSetting </ref/models/OtherSetting>`** 
  
 - New filter operators added for "Null" and "Not Null", these operators will show all Null values or values which are not Null
  
