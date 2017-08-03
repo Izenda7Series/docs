@@ -33,7 +33,170 @@ Basic formatting
                *  -  Name
                   -  "John Doe"
 
+* 
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Code
+         -  Result
+      *  -
+            .. code-block:: rst
+
+               .. list-table::
+                  :header-rows: 1
+
+                  *  -  Field
+                     -  Value
+                  *  -  Name
+                     -  * Firstname: "John"
+                        * Lastname: "Doe"
+         -
+            .. list-table::
+               :header-rows: 1
+
+               *  -  Field
+                  -  Value
+               *  -  Name
+                  - * Firstname: "John"
+                    * Lastname: "Doe"
+      *  -
+            .. code-block:: rst
+
+               .. list-table::
+                  :header-rows: 1
+
+                  *  -  Field
+                     -  Value
+                  *  -  Name
+                     -  \- Firstname: "John" |br|
+                        \- Lastname: "Doe"
+         -
+            .. list-table::
+               :header-rows: 1
+
+               *  -  Field 
+                  -  Value
+               *  -  Name
+                  - \- Firstname: "John" |br|
+                    \- Lastname: "Doe"
+
+* Link 
+
+
+    .. list-table::
+        :header-rows: 1
+
+        *   -  Code
+            -  Result
+        *   -
+                .. code-block:: rst
+
+                    `<www.wikipedia.org>`_
+
+            -  
+                `<www.wikipedia.org>`_ 
+        *   -
+                .. code-block:: rst
+
+                   .. container:: bold
+
+                      `<www.wikipedia.org>`_
+
+            -  
+                   .. container:: bold
+
+                      `<www.wikipedia.org>`_
+
+*   doc, ref, anonymous hyperlink, internal hyperlink
+
+.. list-table::
+   :header-rows: 1
+
+   * - Code
+     - Result
+   * - 
+       .. code-block:: rst
+
+          `Third section <Image Layout>`_
+     -
+       `Third section <Image Layout>`_
+   * -
+       .. code-block:: rst
+
+          :doc:`/editor_guide`
+     -
+       :doc:`/editor_guide`
+   * -
+       .. code-block:: rst
+
+          :ref:`random location <random_location>`
+     -
+       :ref:`random location <random_location>`
+
+* 
+    .. list-table::
+        :header-rows: 1
+
+        *   -  Code
+            -  Result
+        *   -
+                .. code-block:: rst
+
+                    Line 1 |br| |br|
+                    Line 2
+            -
+                Line 1 |br| |br|
+                Line 2
+        *   -
+                .. code-block:: rst
+
+                    .. container:: italic
+                    
+                       A.B.C
+            -
+                .. container:: italic
+                
+                   A.B.C
+        *   -
+                .. code-block:: rst
+
+                    **A\ .B\ .C**
+            -
+                **A\ .B\ .C**
+        *   -
+                .. code-block:: rst
+
+                    A |nbsp| |nbsp| B
+            -
+                A |nbsp| |nbsp| B
+
+.. |nbsp| raw:: html
+
+   &nbsp;
+
 *  Please see http://docutils.sourceforge.net/docs/user/rst/quickref.html for other items.
+
+Code-block
+----------
+
+.. code-block:: text
+
+   var firstFilter = new ReportFilterField
+   {
+    Alias = $"ShipRegion{filterPosition}",
+    QuerySourceId = querySource.Id,
+    SourceDataObjectName = querySource.Name,
+    QuerySourceType = querySource.Type,
+    QuerySourceFieldId = field.Id,
+    SourceFieldName = field.Name,
+    DataType = field.DataType,
+    Position = ++filterPosition,
+    OperatorId = equalOperator,
+    Value = "WA",
+    RelationshipId = rel?.Id,
+    IsParameter = false,
+    ReportFieldAlias = null
+   };
 
 Collapsible Content
 --------------------
@@ -74,6 +237,9 @@ Image Layout
 ------------
 
 * The images are displayed in 3/4th of their original sizes to look best proportionally with the text size.
+
+  .. _random_location:
+
 * The ``figure`` directive with ``:align: right`` option is currently used. It allows for a resonably consistent look among different screen dimensions. The "text flowing around" effect is stopped using ``|br|`` (which will be replaced by the HTML code ``<br clear="right">``).
 
 **Examples**
