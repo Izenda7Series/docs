@@ -25,7 +25,7 @@ Pre-installation Preparations
 
 The setup of Izenda requires a download of the latest version of the stand-alone front-end and the back-end and a proper web server setup. Izenda can be installed on a local machine on a Windows machine for testing purposes and is a best practice for ensuring permissions and performance can be validated locally prior to moving toward more embedded and integrated examples, but it is not recommended for live deployments.
 
--  Izenda installation packages
+-  Izenda installation packages, download them from https://downloads.izenda.com/latest/
 
    *  .. _Izenda_App_folder:
 
