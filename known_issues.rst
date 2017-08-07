@@ -19,12 +19,6 @@ Known Issues
      - 17889
      - Data time zone offset is not applied to separator and filter values.
    * - Defect
-     - 17888
-     - When validate access token returns null, system should return 401 error, currently returning 500 error.
-   * - Defect
-     - 17887
-     - When creating calculated fields using other calculated fields in a report the report errors when the order is changed. 
-   * - Defect
      - 17886
      - User cannot change filters on any report/dashboard where pvalues were set in url or by inheriting the values from the master report. The system should accept the new values the user entered once the report is open.
    * - Defect
@@ -39,9 +33,6 @@ Known Issues
    * - Defect
      - 17872
      - System shows error msg after user saved a report created from a stored proc and then changes report to report from a table instead. 
-   * - Defect
-     - 17866
-     - Using the + to add all fields from a stored procedure data source the screen hangs on field selection and some fields are not properly added to report part.
    * - Defect
      - 17865
      - The system highlights the wrong filter field when User doesn't select Filter Operator when using 2 stored procs with params when setting value for second filter but omits value for first filter
@@ -187,9 +178,6 @@ Known Issues
      - 17729
      - Date format MM/dd/yyyy HH:mm:ss tt in Izenda exports to excel and shows tt instead of AM/PM format.
    * - Defect
-     - 17728
-     - System allows exporting of reports which contain required filters when no filter value is set.
-   * - Defect
      - 17725
      - Time only fields are not exported with proper formats in excel.
    * - Defect
@@ -276,9 +264,6 @@ Known Issues
    * - Defect
      - 17596
      - Tenant users are still seeing some modules after they have been disabled at the Tenant level.
-   * - Defect
-     - 17594
-     - TenantID is used in Header of report instead of Tenant Name
    * - Defect
      - 17583
      - MySQL - Column Sorting is not Alphabetically in Designer when selected in advanced settings of data model.
@@ -498,9 +483,6 @@ Known Issues
    * - Defect
      - 17210
      - Text color settings should not be shown on fields of type image
-   * - Defect
-     - 17207
-     - When using PostgreSQL Returned Value and Input Params are empty for all functions that have parameters defined in database.
    * - Defect
      - 17203
      - 'Can create new reports?' text displays under Reports > Report Categories/Sub Categories instead of 'Can create new categories?'
