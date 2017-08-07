@@ -7,6 +7,30 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.3.2 August 7, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  17567 Performance Improvements for Report Part Property Panel 
+-  Defect  17566 Performance Improvements for Field Property Panel 
+-  Defect  17565 Performance Improvements for Filter Property Panel
+-  Defect  17702 Performance Improvements for /report/list2 and /allcategories APIs to speed report list rendering
+-  Defect  16646 Performance Improvement for loading User Setup Page
+-  Defect  17982 Using Filter Operators Equals and Not Equals for Datetime field creates syntax error in the query generation 
+-  Defect  17959 InTimePeriod filters in Calendar Year and Calendar Month show system error when executing report while using PostgreSQL reporting connecton
+-  Defect  17948 Default access rights are not properly applied to reports copied from the report list using the copy button
+-  Defect  17936 When clicking update results in the Report Viewer and Quick Edit modes without updating filter values causes the report body to be blank
+-  Defect  17889 Data time zone offset is not applied to separator and filter values
+-  Defect  17888 When validate access token returns null, system should return 401 error, currently returning 500 error
+-  Defect  17887 When creating calculated fields using other calculated fields in a report the report errors when the order is changed 
+-  Defect  17866 Using the + to add all fields from a stored procedure data source the screen hangs on field selection and some fields are not properly added to report part
+-  Defect  17728 System allows exporting of reports which contain required filters when no filter value is set
+-  Defect  17687 Default Access Rights are not added to report definition when using Copy button from report list or Save As options
+-  Defect  17671 When copying data model, report and dashboard from one tenant to another, dashboard shows empty at destination after copy shows success
+-  Defect  17594 TenantName system variable in report heaader shows tenantID not Tenant Name
+-  Defect  17207 When using PostgreSQL Returned Value and Input Params are empty for all functions that have parameters defined in database
+
 v2.3.1 August 2, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
