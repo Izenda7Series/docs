@@ -26,59 +26,78 @@ The **Dashboard List and Viewer** page allows user to
 
 This page documents the APIs related to dashboard list.
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET dashboard/categories/(tenant_id)`_
      - Returns an array of dashboard categories, filtered by tenant_id if available.
+     - Not used
    * - `POST dashboard/categories`_
      - Returns a paged array of dashboard categories.
+     - Dashboard List
    * - `POST dashboard/category`_
      - Renames a dashboard category.
+     - Dashboard List > Rename icon > Update change
    * - `DELETE dashboard/category/{dashboard_category_id}`_
      - Removes a dashboard category.
+     - Not used
    * - `POST dashboard/validateCategoryName`_
      - Validates dashboard category name.
+     - Dashboard List > Rename icon > Update change
    * - `GET dashboard/emailTemplates/{isSubscription}`_
      - Returns a list of dashboard email templates.
+     - Dashboard List > Expand a dashboard > Subscribe
    * - `POST dashboard/rename`_
      - Renames a dashboard.
+     - Dashboard List > Expand a dashboard > Rename icon > Update change
    * - `POST dashboard/move`_
      - Moves a dashboard to another category / sub-category.
+     - Dashboard List > Expand a dashboard > Move > OK
    * - `POST dashboard/copy`_
      - Copies a dashboard.
+     - Dashboard List > Expand a dashboard > Copy > OK
    * - `DELETE dashboard/{dashboard_id}`_
      - Deletes a dashboard.
+     - Dashboard List > Expand a dashboard > Delete > OK
    * - `POST dashboard/loadFilterDescription`_
      - Returns a list of report filters data including a filter description.
+     - To be updated
    * - `POST dashboard/list`_
      - .. deprecated:: 2.0.0
           superseded by `POST dashboard/list2(?includeHashCode=true)`_
 
        Returns dashboards for the dashboard list screen.
+     - Not used
    * - `POST dashboard/list2(?includeHashCode=true)`_
      - Returns dashboards for the dashboard list screen, with total number of item.
+     - Dashboard List
    * - `POST dashboard/search`_
      - .. deprecated:: 2.0.0
           superseded by `POST dashboard/search2`_
 
        Searches dashboards.
+     - Not used
    * - `POST dashboard/search2`_
      - Searches dashboards, with total number of item.
+     - Dashboard List > Search
    * - `POST dashboard/loadAccesses`_
      - Returns a list of user permissions for dashboard.
+     - Dashboard List > Expand a dashboard > Access
    * - `POST dashboard/findByName`_
      - Returns the first dashboard definition matching specified name and other criteria. |br|
        Needs SystemAdmin permission.
 
        .. versionadded:: 2.0.3
+
+     - To be updated
 
 GET dashboard/categories/(tenant_id)
 --------------------------------------------------------------

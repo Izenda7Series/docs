@@ -9,61 +9,81 @@ The **Connection String** page allows user to
 * manage the list of connections
 * select individual items from these connections to be visible in reports
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET systemSetting/databaseSetup`_
      - Returns whether the system database has been set up.
+     - On Front-end load
    * - `GET dataAdaptor`_
      - Returns an array of database server types currently supported for queries. |br|
        See also: :ref:`GET_databaseSetup/supportedDatabaseType`
+     - Settings > Data Setup > Connection String > populate Data Server Type box
    * - `POST connection/verify`_
      - Validates a connection string. |br|
        See also: :ref:`POST_databaseSetup/testConnection`
+     - Settings > Data Setup > Connection String > Test
    * - `POST connection/loadRemoteSchema`_
      - Returns an enumeration of all supported objects (query sources) from a connection string.
+     - Settings > Data Setup > Connection String > Test > Connect
    * - `POST connection`_
      - Adds a new connection or updates an existing one. |br|
        Only visible query sources should be saved.
+     - Settings > Data Setup > Connection String > Save
    * - `GET connection/(tenant_id)`_
      - Returns an array of connections (filtered by tenant_id if given).
+     - Settings > Data Setup > Connection String, for a specific tenant
    * - `GET connection/detail/{connection_id}`_
      - Returns the details of the connection specified by the {connection_id} value.
+     - Settings > Data Setup > Connection String > select an existing connection
    * - `GET connection/basicInfo/(tenant_id)`_
      - Returns an array of id and name of connections (filtered by tenant_id if given).
+     - To be updated
    * - `GET connection/detailInfo/(tenant_id)/{loadField}`_
      - Returns an array of connection details.
+     - To be updated
    * - `POST connection/detailInfo`_
      - Returns an array of connection details with paging.
+     - To be updated
    * - `POST connection/invisible/{connection_id}`_
      - Hides from Data Model and Reports all query sources in the connection specified by the {connection_id} value.
+     - Settings > Data Setup > Connection String > click Visibility icon of a visible connection
    * - `POST connection/visible/{connection_id}`_
      - Restores the visibility of all query sources in the connection specified by the {connection_id} value.
+     - Settings > Data Setup > Connection String > click Visibility icon of a hidden connection
    * - `DELETE connection/{connection_id}`_
      - Deletes the connection specified by the {connection_id} value.
+     - Settings > Data Setup > Connection String > click Delete icon of a connection
    * - `POST connection/reloadRemoteSchema`_
      - Returns an enumeration of all supported objects (query sources) from an existing connection with detected changes.
+     - Settings > Data Setup > Connection String > Reconnect an existing connection
    * - `POST connection/databaseName`_
      - Returns the database name from a connection string.
+     - Settings > Data Setup > Connection String > Test
    * - `POST connection/validateSchema`_
      - Returns true if remote schema has not changed, otherwise returns false.
+     - To be updated
    * - GET connection/systemIndicator/(tenantId)
      - Returns the number of changes in Connection String and Data Model (filtered by tenant_id if provided). |br|
      
        .. warning::
           
           Obsolete, use :ref:`GET_systemSetting/systemIndicator/(tenant_id)` instead
+     - Not used
    * - `GET connection/visible/(tenant_id)/count`_
      - Returns the count of visible connections, filtered by tenant_id if available.
+     - Settings > Data Setup > Connection String
    * - `POST connection/loadDistinctConnections`_
      - Returns an array of distinct connections (by server type and database name) from a list of tenant ids.
+     - Settings > Data Setup > Copy Management
 
 GET systemSetting/databaseSetup
 --------------------------------------------------------------

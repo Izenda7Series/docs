@@ -22,84 +22,115 @@ The **Dashboard Designer** page allows user to
 
 This page documents the APIs related to dashboard designer.
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `POST dashboard`_
      - Saves a dashboard.
+     - Dashboard Designer > Save (As) > OK
    * - `POST dashboard/loadFilterFieldData`_
      - Returns data source field data for Equivalence operators in filter.
+     - Dashboard Designer/Viewer with Equivalence filter
    * - `POST dashboard/loadFilterFieldDataAsTree`_
      - Returns data source field data in a hierarchy for Equivalence operators in filter.
+     - To be updated
    * - `POST dashboard/loadPartialFilterFieldData`_
      - Returns paged data source field data for Equivalence operators in filter.
+     - To be updated
    * - `POST dashboard/loadPartialFilterFieldDataAsTree`_
      - Returns paged data source field data in a hierarchy for Equivalence operators in filter.
+     - To be updated
    * - `POST dashboard/loadFilterComparisonFields`_
      - Returns a list of available dashboard filter fields for a common filter field.
+     - To be updated
    * - `POST dashboard/detectDashboardChange`_
      - Verifies that all dashboard filters are not changed.
+     - To be updated
    * - `POST dashboard/loadDashboard`_
      - Returns a dashboard object.
+     - Open an existing dashboard
    * - `POST dashboard/loadSubscriptions`_
      - Returns a list of dashboard subscriptions.
+     - Dashboard Designer > Schedule
    * - `POST dashboard/subscription/validate`_
      - Validates a subscription schedule and delivery template.
+     - Dashboard Designer > Schedule > Add Schedule > OK
    * - `POST dashboard/subscriptions`_
      - Saves a list of dashboard subscriptions.
+     - Dashboard Designer > Schedule > Add Schedule > OK
    * - `POST dashboard/validateDashboardName`_
      - Validates dashboard name.
+     - Dashboard Designer > Save (As) > Dashboard Name
    * - `POST dashboard/validate`_
      - Validates dashboard.
+     - Dashboard Designer > Save (As) > OK
    * - `POST dashboard/validateGlobalDashboard`_
      - Validates that dashboard contains only global report parts.
+     - Dashboard Designer > Save (As) > Save into Global Categories > OK
    * - `POST dashboard/previewDashboardPartData`_
      - Returns data for a dashboard part, given the dashboard part definition.
+     - Dashboard Designer > create a Dashboard Part
    * - `POST dashboard/loadDashboardPartData`_
      - Returns data for a dashboard part, given the dashboard part id.
+     - Not used
    * - `POST dashboard/loadDashboardPartData2`_
      - Returns data for a dashboard part, given the dashboard part id, optionally loads default data.
 
        .. versionadded:: 2.2.0
+     - Dashboard Viewer
    * - `GET dashboard/dashboardPart/{dashboard_part_id}`_
      - Returns dashboard part definition.
+     - To be updated
    * - `POST dashboard/accesses/validate`_
      - Validates dashboard access.
+     - Dashboard Designer > Save (As)
    * - `GET dashboard/allowedSavingCategories`_
      - .. deprecated:: 2.0.0
             superseded by `POST dashboard/allowedSavingCategories`_ and `POST dashboard/allowedSavingSubCategories`_ |br| |br|
 
        Returns an array of allowed saving categories for dashboard.
+     - Not used
    * - `POST dashboard/allowedSavingCategories`_
      - Returns an array of allowed saving categories for dashboard, with total number of items.
+     - Dashboard Designer > Save (As) > Category
    * - `POST dashboard/allowedSavingSubCategories`_
      - Returns an array of allowed saving sub-categories for dashboard, with total number of items.
+     - Dashboard Designer > Save (As) > Sub-category
    * - `POST dashboard/loadCommonFilters`_
      - Returns a list of report filters that are common among all report parts from a dashboard definition.
+     - Dashboard Viewer
    * - `GET dashboard/commonFilters/{dashboard_id}`_
      - Returns the saved common filters from a dashboard_id.
+     - Dashboard Viewer
    * - `POST dashboard/updateRenderingTime`_
      - Updates the rendering time of a dashboard.
+     - Dashboard Viewer
    * - `POST dashboard/draft`_
      - Saves a dashboard as draft.
+     - Dashboard Designer > Print before saving
    * - `GET dashboard/draft/{dashboard_id}`_
      - Returns a dashboard from draft.
+     - To be updated
    * - `GET dashboard/embeddedReports/{dashboard_part_id}`_
      - Returns reports and report parts embedded inside the specified dashboard part.
 
        .. versionadded:: 2.2.0
+
+     - Dashboard Viewer
    * - `GET dashboard/loadRelatedDashboardParts/{dashboard_id}`_
      - Returns a nested list of dashboard part ids, where each inner list contains dashboard part ids using report parts in a same report.
 
        .. versionadded:: 2.2.0
 
+     - Dashboard Viewer
 
 POST dashboard
 --------------------------------------------------------------

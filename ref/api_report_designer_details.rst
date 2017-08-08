@@ -150,7 +150,8 @@ Summary
      - Returns true if there is a report definition for the specified report_id.
      - \- Report Designer for an existing report |br|
        \- Report Viewer |br|
-       \- Report List > Expand a report > Edit > Quick Edit
+       \- Report List > Expand a report > Edit > Quick Edit |br|
+       \- Dashboard Viewer
    * - `POST report/areReportsValid`_
      - Validates if reports are valid.
      -
