@@ -1,3 +1,4 @@
+:orphan:
 
 ==========================
 Custom View Setup Guide
@@ -27,7 +28,7 @@ In the Custom View, user can limit :term:`data source fields <data source field>
                COUNT(employeeID)
                FOR employeeID IN ([1],[2],[3],[4],[5],[6],[7],[8],[9] ) ) p
 
-   The above query uses native SQL Server PIVOT function, which 
+   The above query uses SQL Server's native function PIVOT, which is faster to set up than using a Pivot Grid.
 
 Add Custom View
 --------------------
