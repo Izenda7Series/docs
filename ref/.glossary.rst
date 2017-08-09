@@ -29,6 +29,9 @@ Glossary
    cross filtering
       The option to filter data of two or more report parts together. Drilling down a report part will also drill down other report parts in the same report/dashboard that are selected for cross filtering. 
 
+   custom view
+      To be updated
+
    dashboard part
       A dashboard area that holds a :term:`report part`.
 
