@@ -154,6 +154,8 @@ Returns reports for the report list.
         }
       ]
 
+.. _POST_report/list2:
+
 POST report/list2(?includeHashCode=true)
 ------------------------------------------------
 
