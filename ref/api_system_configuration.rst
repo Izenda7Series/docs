@@ -11,36 +11,49 @@ System Configuration APIs allow user to:
 *  search for schedule instances
 *  view, edit and delete schedule instances
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `POST systemSetting/reportSetting`_
      - Saves report setting.
+     - Settings > System Configuration > Report > Save
    * - `GET systemSetting/reportSetting`_
      - Gets report setting.
+     - Settings > System Configuration > Report
    * - `GET systemSetting/securityPolicy`_
      - Returns the security policies.
+     - Settings > System Configuration > Sercurity Policies
    * - `POST systemSetting/securityPolicy`_
      - Updates the security policies.
+     - Settings > System Configuration > Sercurity Policies > Save
    * - `POST systemSetting/loadSchedules`_
      - Searches for schedule instances.
+     - Settings > System Configuration > Scheduling > Search
    * - `GET systemSetting/schedules/reportDashboardName/{reportingType}/(tenant_id)`_
      - Returns an array of possible report names (reportingType=1), dashboard names (reportingType=2), or both (reportingType=0) for schedule search screen.
+     - 
+       -\ Settings > System Configuration > Scheduling |br|
+       -\ Settings > System Configuration > Scheduling > Choose Dashboard report type > Search
    * - `GET systemSetting/schedules/recipients/(tenant_id)`_
      - Returns an array of possible recipients for schedule search screen.
+     - Settings > System Configuration > Scheduling
    * - `GET systemSetting/schedules/creators/(tenant_id)`_
      - Returns an array of possible owners for schedule search screen.
+     - Settings > System Configuration > Scheduling
    * - `POST systemSetting/deleteSchedules`_
      - Deletes schedules from an array of ids.
+     - Settings > System Configuration > Scheduling > Pick reports > Delete > OK
    * - `GET systemSetting/categorySetting`_
      - Returns the global category and local category.
+     - Not used, replaced by `GET systemSetting/reportSetting`_
 
 
 

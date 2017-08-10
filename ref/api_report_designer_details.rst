@@ -14,122 +14,174 @@ The **Report Designer** page allows user to
 
 This page documents the APIs related to report details.
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 45 30
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET report/category/{type}/(tenant\_id)`_
      - Returns an array of allowed saving categories for Report (type=0), Template (type=1) or Dashboard (type=2).
+     - \- Report Designer > Save (As) > Category |br|
+       \- Report List > Expand a report > Copy/Move > Category
    * - `POST report/allowedSavingCategories`_
      - Returns an array of allowed saving categories for Report, with total number of items.
+     - To be updated
    * - `POST report/allowedSavingSubCategories`_
      - Returns an array of allowed saving sub-categories for Report, with total number of items.
+     - To be updated
    * - `GET report/subcategory/{parent\_category\_id}`_
      - Returns an array of allowed saving sub-categories under the Report category specified by parent_category_id.
+     - \- Report Designer > Save (As) > Category > Sub-category |br|
+       \- Report List > Expand a report > Copy/Move > Category > Sub-category
    * - `GET report/allCategories/{type}/(tenant\_id)`_
      - Returns the list of categories by type (Reports/Templates/Dashboards) in parent-child hierarchy.
+     - Not used
    * - `POST report/allCategories`_
      - Returns the list of categories in parent-child hierarchy, with total number of items.
+     - Report List
    * - `POST report/category`_
      - Renames a report category.
+     - Report List > Rename icon > Update change
    * - `DELETE report/category/{report\_category\_id}`_
      - Removes the report category specified by report_category_id.
+     - Not used
    * - `POST report/validateCategoryName`_
      - Validates a report category name.
+     - To be updated
    * - `GET report/reportByProperty/{report\_id}/{property}`_
      - Returns a report section.
+     - Dashboard Designer
    * - `POST report`_
      - Saves a report.
+     - Report Designer > Save (As)
    * - `POST report/draft`_
      - Saves a report as draft.
+     - Report Designer, when switching between Data Source, Fields, Format.. sections - to store unsaved changes
    * - `POST report/cancel`_
      - Deletes temporary data of a report.
+     - Report Designer > Cancel
    * - `POST report/loadReport`_
-     - Returns a report's details.
-
-       .. warning::
-
-          This API is obsolete, use `POST report/loadForEdit`_ instead.
-
+     - Returns a report's details. |br|
+       Deprecated, please use `POST report/loadForEdit`_ instead.
+     - Not used
    * - `POST report/loadForEdit`_
-     - Returns an object with report key and report's  data.
+     - Returns an object with report key and report's data.
+     - \- Report List > Expand a report > Edit > Design |br|
+       \- Report Viewer > Edit > Design
    * - `GET report/(tenant\_id)`_
      - Returns all report categories together with the reports inside.
+     - Not used
    * - `POST report/validateReportName`_
      - Validates that a report name is unique and not empty.
+     - \- Report Designer > Save (As) > OK |br|
+       \- Report Designer > Rename icon > Update change |br|
+       \- Report List > Expand a report > Rename icon > Update change |br|
+       \- Report Viewer > Rename icon > Update change
    * - `POST report/validate`_
      - Validates that a report name is unique and its filter and relationships are valid.
+     - Report Designer > Update Result
    * - `POST report/search`_
      - .. deprecated:: 2.0.0
           superseded by `POST report/search2`_ |br| |br|
 
        Searches for reports.
+     - Not used
    * - `POST report/search2`_
      - Searches for reports, with total number of items.
+     - Not used, replaced by :ref:`POST_report/list2`
    * - `POST report/advancedSearch`_
      - Searches for reports with advanced options.
+     - Not used, replaced by :ref:`POST_report/list2`
    * - `GET report/reportMode`_
      - Returns the report mode.
+     - Report Designer
    * - `POST report/reportMode/{value}`_
      - Sets the report mode to Simple or Advanced.
+     - To be updated
    * - `POST report/detectReportChange`_
      - Verifies that all report details are up to date, without physical changes, and valid.
+     - Report Designer, when switching between Data Source, Fields, Format.. sections
    * - `POST report/function/{function\_mode}/{data\_type}/(tenant\_id)`_
      - Returns a list of report functions filtered by mode (field, sub-total, grand-total), data type, tenant_id, and optionally filtered by connections of the selected query source ids in payload.
 
        .. versionchanged:: 1.25
           Changed from GET to POST
-
+     - Report Designer, when adding a data source field to a report part
    * - `GET report/allReports/(tenant\_id)`_
      - Returns a list of all reports filtered by tenant_id if provided.
+     - To be updated
    * - `POST report/detectSchemaChange`_
      - Verifies that all report filter fields are without changes.
+     - \- Report Designer, when switching between Data Source, Fields, Format.. sections |br|
+       \- Report Designer > Update Result
    * - `POST report/updateResults`_
      - Updates the report data model.
+     - Report Designer > Update Result when there are schema changes
    * - `POST report/loadAccesses`_
      - Returns a list of all accesses.
+     - Report Designer > Access
    * - `POST report/loadSchedules`_
      - Returns a list of all scheduled deliveries.
+     - Report Designer > Schedules
    * - `GET report/reportPart/{report\_part\_id}/(report\_id)`_
      - Returns the report part definition specified by report_part_id from draft (using report_id) or from database (without report_id).
+     - Dashboard Designer
    * - `POST report/validateExistingField`_
      - Validates that some fields exist in a report.
+     - To be updated
    * - `GET report/reportId/(tenant\_id)?reportName=value&categoryName=value`_
      - Returns report id from report name and category name.
+     - To be updated
    * - `POST report/validateExistingReport`_
      - Validates that a report exists in a category.
+     - To be updated
    * - `GET report/reportsByTenant/(tenant\_id)`_
      - Returns list of reports by tenant, with each report containing a list of report parts.
+     - To be updated
    * - `POST report/updateRenderingTime`_
      - Updates the rendering time of a report.
+     - \- Report Viewer |br|
+       \- Report List > Expand a report > Edit > Quick Edit
    * - `GET report/isReportValid/(report\_id)`_
      - Returns true if there is a report definition for the specified report_id.
+     - \- Report Designer for an existing report |br|
+       \- Report Viewer |br|
+       \- Report List > Expand a report > Edit > Quick Edit |br|
+       \- Dashboard Viewer
    * - `POST report/areReportsValid`_
      - Validates if reports are valid.
+     - To be updated
    * - `POST report/printDraft`_
-     - Saves report as draft for printing.
+     - Saves report as draft and print.
+     - Report Designer > Export - to allow printing unsaved changes
    * - `GET report/printDraft/{report\_id}`_
      - Gets report as draft for printing.
+     - To be updated
    * - `GET report/accessPriority/(report\_dashboard\_id)`_
      - Returns access priority for report/dashboard.
+     - To be updated
    * - `POST report/timePeriod`_
      - Saves a customed InTimePeriod.
+     - Not used
    * - `DELETE report/timePeriod/{time_period_id}`_
      - Deletes the customed InTimePeriod specified by time_period_id.
+     - Not used
    * - `GET report/reportPart/crossfiltering/{report_part_id}`_
      - Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including itself.
 
        .. versionadded:: 2.0.6
+     - To be updated
    * - `GET report/validateEmbeddedReport/(tenant_id)?reportId=value&reportName=value&reportPartName=value`_
      - Validates that logged in user can access one and only one report part from the specified reportName and reportPartName.
 
        .. versionadded:: 2.2.2
+     - To be updated
 
 GET report/category/{type}/(tenant\_id)
 ---------------------------------------

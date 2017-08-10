@@ -5,55 +5,74 @@ System DB and License APIs
 ============================
 
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET databaseSetup/supportedDatabaseType`_
      - Returns an array of database server types currently supported for installation. |br|
        See also: :ref:`GET_dataAdaptor`
+     - Settings > System DB & License > populate Data Server Type box
    * - `POST databaseSetup/testConnection`_
      - Tests the database connection and license validity if existing. |br|
        See also: :ref:`POST_connection/verify`
+     - Settings > System DB & License > Connect
    * - `GET databaseSetup/databaseInfo`_
      - Returns the current database server type and connection string.
+     - Settings > System DB & License
    * - `POST databaseSetup/databaseInfo`_
      - Sets up system database and saves the database server type and the connection string.
+     - Settings > System DB & License > Connect
    * - `POST databaseSetup/provisionStaticData`_
      - Provisions static data into system database.
+     - Settings > System DB & License > Provision Map Data
    * - `GET databaseSetup/provisionStaticDataStatus`_
      - Returns status of provision static data.
+     - On Front-end load
    * - `POST databaseSetup/staticData/city`_
      - Returns provision city data.
+     - Report Designer > Map Report Part > add Field to City box
    * - `POST databaseSetup/staticData/postalCode`_
      - Returns provision postal code data.
-   * - GET databaseSetup/staticData/countryCodes
+     - Report Designer > Map Report Part > add Field to Postal Code box
+   * - `GET databaseSetup/staticData/countryCodes`_
      - Returns provision country code data.
        .. versionadded:: 2.0.3
+     - Report Designer > Map Report Part > add Field to Country box
    * - `GET systemSetting/systemMode`_
      - Returns the current system or tenant mode of the settings.
+     - On Front-end load
    * - `GET systemSetting/systemModeSettings`_
      - Returns data in System Mode Settings section.
+     - Settings > System DB & License
    * - `POST systemSetting/systemModeSettings`_
      - Saves data in System Mode Settings section.
+     - Settings > System DB & License > change an option
    * - `GET systemSetting/deploymentMode`_
      - Returns the deployment mode.
+     - On Front-end load
    * - `GET systemSetting/systemIndicator/(tenant_id)`_
      - Returns the number of changes in Connection String and Data Model (filtered by tenant_id if provided).
+     - Settings > Data Setup > Connection String
    * - `GET license/status`_
      - Returns up-to-date expiration status of the license.
+     - On Front-end load
    * - `GET license/currentToken`_
      - Returns the details of the current token.
+     - On Front-end load
    * - `POST license/validate`_
      - Validates the license for both online and offline modes, then save it in the database.
+     - Settings > System DB & License > enter the license > Validate
    * - `POST license/requestToken`_
      - Returns a newly-generated token for the license key in parameter.
+     - To be updated
 
 .. _GET_databaseSetup/supportedDatabaseType:
 
