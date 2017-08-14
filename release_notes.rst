@@ -7,6 +7,30 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.3.3 August 14, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18043  Failed to save connection which has more than 1000+ tables or 100,000+ fields
+-  Defect  17995  Join in data model causing error in report after validation of proper join syntax
+-  Defect  17987  Group by date field with any format other than year is causing errors in PostgreSQL environments.
+-  Defect  17986  Field value, not separator is shown in a chart when data point only has one value.
+-  Defect  17983  General error message shows when formatting the same field as MM/YY with filter operator as Year/Month
+-  Defect  17980  Charts fail to change x/y plane and threshold settings when there are "." in the field name
+-  Defect  17976  New category does not display in left panel when copying a report with new category
+-  Defect  17961  When posting a to /api/role or  api/role/intergration/saveRole with an ID for the role, if the role does not exist a success message is returned when it should be false.
+-  Defect  17932  Users could add more fields through the Field Selection dialogue than were shared with them.
+-  Defect  17876  Report-level calculated fields are not copied when using the copy console.
+-  Defect  17818  Subtotals auto applying to numeric fields when it has format. Reproducible when adding a subtotal and removing it later.
+-  Defect  17746  Configuration section of report part in Quick Edit should not be displayed in View Mode.
+-  Defect  17716   Previous tenant level is set instead of system level when going back to report list from Settings
+-  Defect  17675  When integrating Izenda and host application does not have a footer element, Freeze button shows error, "cannot read property getBoundingClientRect of undefined".
+-  Defect  17022  Missing value on Filter drop down when deleting a self join relationship in designer and returning to the fields tab.
+-  Defect  15945  No roles/users are displayed when tenant user with Full Report and Dashboard access shares their reports to role/user
+-  Defect  14201  Position of tick mark is incorrect on linear gauge when metric value returns a negative number
+
+
 v2.3.2 August 7, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
