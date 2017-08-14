@@ -25,9 +25,6 @@ Known Issues
      - 17878
      - When modifying a field Alias Report shows "This field is invalid" for field with Grand Total/SubTotal if field alias used more than once in calculation
    * - Defect
-     - 17876
-     - Report-level calculated fields are not copied when using the copy console.
-   * - Defect
      - 17875
      - Selected Field of SubTotal/Grand Total is not displayed when user selects a smart tag Subtotal/Grand Total to view it
    * - Defect
@@ -72,9 +69,6 @@ Known Issues
    * - Defect
      - 17819
      - System shows error msg when copying a report using copy management which has an aggregated filter
-   * - Defect
-     - 17818
-     - Subtotals auto applying to numeric fields when it has format. Reproducible when adding a subtotal and removing it later.
    * - Defect
      - 17808
      - Border color on gird can be changed but is not reflected in the grid. 
@@ -154,9 +148,6 @@ Known Issues
      - 17747
      - When setting Data Setup > Advanced Settings > Show Schema Name at system level, this setting is being used at all tenant levels too.
    * - Defect
-     - 17746
-     - Configuration section of report part in Quick Edit should not be displayed in View Mode.
-   * - Defect
      - 17744
      - User is able to add duplicate database mappings and save. System should not allow duplicate mappings.
    * - Defect
@@ -199,9 +190,6 @@ Known Issues
      - 17718
      - Grid - Data shows incorrectly when sorting the column which has subtotal configured 
    * - Defect
-     - 17716
-     -  Previous tenant level is set instead of system level when going back to report list from Settings
-   * - Defect
      - 17708
      - The /api/repost/list2?includeHashCode=true, reports are always contained in null subcategories, instead of its actual subcategory.
    * - Defect
@@ -225,9 +213,6 @@ Known Issues
    * - Defect
      - 17689
      - Column Alias is lost when executing stored procedure when there is no change to the field in the physical database
-   * - Defect
-     - 17675
-     - When integrating Izenda and host application does not have a footer element, Freeze button shows error, "cannot read property getBoundingClientRect of undefined".
    * - Defect
      - 17673
      - System shows ability for user to create sub total/Grand total with Boolean using AVG, SUM and SUM Distinct, this is not allowed by database and these options should be removed for this data type.
@@ -808,9 +793,6 @@ Known Issues
      - 15966
      - In Oracle Error displays when report contains at least 1 calculated field filter and aggregated field in container
    * - Defect
-     - 15945
-     - No roles/users are displayed when tenant user with Full Report and Dashboard access shares their reports to role/user
-   * - Defect
      - 15925
      - In Global Report Role list is not sorted by AZ for access rights dropdown
    * - Defect
@@ -1062,9 +1044,6 @@ Known Issues
    * - Defect
      - 14223
      - Missing some configurations on sorting feature for pivot and drill down grids
-   * - Defect
-     - 14201
-     - Position of tick mark is incorrect on linear gauge when metric value returns a negative number
    * - Defect
      - 14174
      - Query execution is not available for stored procedures in MySQL
