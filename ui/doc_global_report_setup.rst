@@ -62,3 +62,4 @@ Features of Global Report
 *  The Global Categories is well positioned in Left Navigation, easily accessible.
 *  Report data is read from the tenant's connection only.
 *  The names "Global Categories" and "Local Categories" can be aliased in :ref:`Report Setting <Customize_the_names_for_Global_Categories_and_Local_Categories>`.
+*  When saving an existing report in a local system category as a global report, please note that any subreports used in the report must also be saved into global categories as well. Once this is complete the subreport links must be udpated to point to the correct global subreport as the report ids will be new in the global categories.
