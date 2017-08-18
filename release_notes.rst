@@ -2,6 +2,18 @@
 Release Notes
 ==============
 
+v.? August ?, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FEARTURES
+^^^^^^^^^^
+- Custom Views - Allows users to define views in the model using any SQL query that excutes outside of the query tree. Please see user guide :doc:`/ui/doc_data_model_custom_view`.
+
+- New API addded to report report/validateFilter/{report_id} to validate that all required filters in specified report have filter value :ref:`report/validateFilter/{report_id} <Validate_Filter>`.
+
+FIXES
+^^^^^^
+
 v2.3.0 July 31, 2017
 ~~~~~~~~~~~~~~~~~~~~
 

@@ -1,4 +1,4 @@
-:orphan:
+.. :orphan:
 
 ==========================
 Custom View Setup Guide
@@ -6,7 +6,7 @@ Custom View Setup Guide
 
 .. tip::
 
-   Custom View is available from release.........
+   Custom View is available from release ?
 
 The Custom View allows user to add user-defined views using SQL SELECT query.
 
@@ -36,21 +36,40 @@ Add Custom View
 #. Click **Settings**, then **Data Setup** then **Data Model** in the left menu.
 #. Select the Setting Level: either System or a specific tenant.
 #. Click **Views** in the Middle Panel.
+
+   .. _Data_Model_View_Location:
+
+   .. figure:: /_static/images/Data_Model_Custom_View_Location.png
+
+      Data Model - View |br|
+
 #. Click on **Add Custom View** button to open the **Add Custom View** popup.
-#. Input all required information.|br|
+
+   .. _Data_Model_Add_Custom_View_Button:
+
+   .. figure:: /_static/images/Data_Model_Add_Custom_View_Button.png
+
+
+      Data Model - Add Custom View Button |br|
+
+#. Input all required information. |br|
    - Input Custom View Name |br|
    - Select one Database Name.  |br|
-   - Select one Schema Name |br|
-   - Input select statements to optimize the query |br|
+   - Select Schema Name |br|
+   - Enter the SELECT query |br|
+
+   .. _Data_Model_Add_Custom_View_popup:
+
+   .. figure:: /_static/images/Data_Model_Add_Custom_View_Popup.png
+
+      Data Model - Add Custom View Popup |br|
 
    .. warning::
    
-      Existing hidden filters are not added to this query. Thus, user must add SQL WHERE conditions to make sure that ? data is filtered by the correct tenant or any other criteria.
-   
-   (native to the connection like Oracle, mssql, mysql, postgresql, etc) |br|
-   
-#. Click on **Excute & Save** button.
+      - User must make sure to include the Tenant ID field if needed (for multi-tenant mode)
+      - Also, existing hidden filters are not added to this query. Thus, user must add SQL WHERE conditions to apply the filters.
 
+#. Click on **Save & Execute** button.
 
 Edit Custom View
 -------------------
@@ -59,5 +78,22 @@ Edit Custom View
 #. Select the Setting Level: either System or a specific tenant.
 #. Click **Views** in the Middle Panel.
 #. Click on the link of existing custom view name to open the **Edit Custom View** popup
+
+   .. _Data_Model_Existing_Custom_View:
+
+   .. figure:: /_static/images/Data_Model_Existing_Custom_View.png
+
+      Data Model - An Existing Custom View |br|
+
+
+
+   .. _Data_Model_Edit_Custom_View_popup:
+
+   .. figure:: /_static/images/Data_Model_Edit_Custom_View_Popup.png
+
+
+      Data Model - Edit Custom View Popup |br|
+
+
 #. Modify some fields.
-#. Click on **Excute & Save** button.
+#. Click on **Save & Execute** button.

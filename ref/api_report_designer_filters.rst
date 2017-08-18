@@ -5337,6 +5337,8 @@ Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeou
         }
       ]
 
+.. _Validate_Filter:
+
 GET report/validateFilter/{report_id}
 --------------------------------------
 
