@@ -460,9 +460,6 @@ Known Issues
      - 17219
      - Filter value shows in list and added as selected filter when setting it in render api and using list type filter.
    * - Defect
-     - 17218
-     - System shows error msg when user changes aggregated function for any aggregated field which is used as a filter
-   * - Defect
      - 17214
      - Filter Values need blank space between 2 values when input in the user defined filter values for input parameters
    * - Defect
