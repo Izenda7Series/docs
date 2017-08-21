@@ -7,6 +7,28 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+
+v2.3.4 August 21, 2017
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+FIXES
+^^^^^
+-  Defect  18111  When using date value on the X-axis in chart and separator values contain # the legend of the chart shows the # as a date.
+-  Defect  18107  Dashboard tile is removed until page reload after saving in the access area of the dashboard.
+-  Defect  18106  No Reports can be saved in Oracle Izenda Config DB
+-  Defect  18075  Fields set to not visible still display in pivot grid
+-  Defect  18071  Fields in a form within a repeater that are set to not visible are still shown in the report
+-  Defect  18049  Fields deleted in the database continue to show on report creation after schema update to the model.  
+-  Defect  18044  When attempting to create a calculated field in IE browser, the fields added by the lightbulb pop up are removed when attempting to add another field or a function.
+-  Defect  18036  Caching issue found when logging out and back in with different users under different tenants on the same browser.
+-  Defect  18014  When adding subtotals to groupings, the subtotal must be calculated before formats are applied.
+-  Defect  18012  PostgreSQL function parameters do not show in the data model on the function page
+-  Defect  18010  Integration Mode # and & in data or filter separator breaks subreport URL
+-  Defect  17930  Tree Filter values are not properly displayed in Quick Edit mode.
+-  Defect  17654  Saving a report fails after user changes the data sources used in the report.
+-  Defect  17218  System shows error msg when user changes aggregated function for any aggregated field which is used as a filter
+
 v2.3.3 August 14, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
