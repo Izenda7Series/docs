@@ -353,7 +353,7 @@ This method adds customized filters to every reports while hiding them from UI u
 
 For example, it can be used to:
 
-* filter data to rows with ShipCountry = 'USA' only.
+* filter data to rows with ShipRegion = 'WA' or BLANK only.
 * automatically filter all tables to non-deleted data (IsDeleted = FALSE).
 * in a Shared Schema Multi-Tenant Architecture, filter every table to only data of the tenant of current logged in user.
 
@@ -364,103 +364,114 @@ Sample code to add hidden filter ShipCountry = "WA" or "[Blank]" for all:
 .. code-block:: csharp
 
      [Export(typeof(IAdHocExtension))]
-     public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
-     {
-         var filterFieldName = "ShipRegion";
-   
-         Func<ReportFilterSetting, int, QuerySource, QuerySourceField, Guid, Relationship, int> addHiddenFilters = (result, filterPosition, querySource, field, equalOperator, rel) =>
-         {
-             var firstFilter = new ReportFilterField
-             {
-                 Alias = $"ShipRegion{filterPosition}",
-                 QuerySourceId = querySource.Id,
-                 SourceDataObjectName = querySource.Name,
-                 QuerySourceType = querySource.Type,
-                 QuerySourceFieldId = field.Id,
-                 SourceFieldName = field.Name,
-                 DataType = field.DataType,
-                 Position = ++filterPosition,
-                 OperatorId = equalOperator,
-                 Value = "WA",
-                 RelationshipId = rel?.Id,
-                 IsParameter = false,
-                 ReportFieldAlias = null
-             };
-   
-             var secondFilter = new ReportFilterField
-             {
-                 Alias = $"ShipRegion{filterPosition}",
-                 QuerySourceId = querySource.Id,
-                 SourceDataObjectName = querySource.Name,
-                 QuerySourceType = querySource.Type,
-                 QuerySourceFieldId = field.Id,
-                 SourceFieldName = field.Name,
-                 DataType = field.DataType,
-                 Position = ++filterPosition,
-                 OperatorId = equalOperator,
-                 Value = "[Blank]",
-                 RelationshipId = rel?.Id,
-                 IsParameter = false,
-                 ReportFieldAlias = null
-             };
-             result.FilterFields.Add(firstFilter);
-             result.FilterFields.Add(secondFilter);
-   
-             var logic = $"({filterPosition - 1} OR {filterPosition})";
-             if (string.IsNullOrEmpty(result.Logic))
-             {
-                 result.Logic = logic;
-             }
-             else
-             {
-                 result.Logic += $" AND {logic}";
-             }
-   
-             return filterPosition;
-         };
-   
-         var filterSetting = new ReportFilterSetting()
-         {
-             FilterFields = new List<ReportFilterField>()
-         };
-         var position = 0;
-   
-         var ds = param.ReportDefinition.ReportDataSource;
-   
-         // Build the hidden filters for ship country fields
-         foreach (var querySource in param.QuerySources // Scan thru the query sources that are involved in the report
-             .Where(x => x.QuerySourceFields.Any(y => y.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase)))) // Take only query sources that have filter field name
-         {
-             // Pick the relationships that joins the query source as primary source
-             // Setting the join ensure the proper table is assigned when using join alias in the UI
-             var rels = param.ReportDefinition.ReportRelationship.
-                 Where(x => x.JoinQuerySourceId == querySource.Id)
-                 .ToList();
-   
-             // Find actual filter field in query source
-             var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase));
-   
-             // Pick the equal operator
-             var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
-   
-             // In case there is no relationship that the query source is joined as primary
-             if (rels.Count() == 0)
-             {
-                 // Just add hidden filter with null relationship
-                 position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
-             }
-             else
-             {
-                 // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
-                 foreach (var rel in rels)
-                 {
-                     position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
-                 }
-             }
-         }
-   
-         return filterSetting;
-     }
+
+        public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
+        {
+            var filterFieldName = "ShipRegion";
+
+            Func<ReportFilterSetting, int, QuerySource, QuerySourceField, Guid, Relationship, int> addHiddenFilters = (result, filterPosition, querySource, field, equalOperator, rel) =>
+            {
+                var firstFilter = new ReportFilterField
+                {
+                    Alias = $"ShipRegion{filterPosition}",
+                    QuerySourceId = querySource.Id,
+                    SourceDataObjectName = querySource.Name,
+                    QuerySourceType = querySource.Type,
+                    QuerySourceFieldId = field.Id,
+                    SourceFieldName = field.Name,
+                    DataType = field.DataType,
+                    Position = ++filterPosition,
+                    OperatorId = equalOperator,
+                    Value = "WA",
+                    RelationshipId = rel?.Id,
+                    IsParameter = false,
+                    ReportFieldAlias = null
+                };
+
+                var secondFilter = new ReportFilterField
+                {
+                    Alias = $"ShipRegion{filterPosition}",
+                    QuerySourceId = querySource.Id,
+                    SourceDataObjectName = querySource.Name,
+                    QuerySourceType = querySource.Type,
+                    QuerySourceFieldId = field.Id,
+                    SourceFieldName = field.Name,
+                    DataType = field.DataType,
+                    Position = ++filterPosition,
+                    OperatorId = equalOperator,
+                    Value = "[Blank]",
+                    RelationshipId = rel?.Id,
+                    IsParameter = false,
+                    ReportFieldAlias = null
+                };
+                result.FilterFields.Add(firstFilter);
+                result.FilterFields.Add(secondFilter);
+
+                var logic = $"({filterPosition - 1} OR {filterPosition})";
+                if (string.IsNullOrEmpty(result.Logic))
+                {
+                    result.Logic = logic;
+                }
+                else
+                {
+                    result.Logic += $" AND {logic}";
+                }
+
+                return filterPosition;
+            };
+
+            var filterSetting = new ReportFilterSetting()
+            {
+                FilterFields = new List<ReportFilterField>()
+            };
+            var position = 0;
+
+            var ds = param.ReportDefinition.ReportDataSource;
+
+            // Build the hidden filters for ship country fields
+            foreach (var querySource in param.QuerySources // Scan thru the query sources that are involved in the report
+                .Where(x => x.QuerySourceFields.Any(y => y.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase)))) // Take only query sources that have filter field name
+            {
+                // Pick the relationships that joins the query source as primary source
+                // Setting the join ensure the proper table is assigned when using join alias in the UI
+                var rels = param.ReportDefinition.ReportRelationship.
+                    Where(x => x.JoinQuerySourceId == querySource.Id)
+                    .ToList();
+
+                // Count the relationships that the filter query source is foreign query source
+                var foreignRelCounts = param.ReportDefinition.ReportRelationship
+                    .Where(x => x.ForeignQuerySourceId == querySource.Id)
+                    .Count();
+
+                // Find actual filter field in query source
+                var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase));
+
+                // Pick the equal operator
+                var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
+
+                // In case there is no relationship that the query source is joined as primary
+                if (rels.Count() == 0)
+                {
+                    // Just add hidden filter with null relationship
+                    position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
+                }
+                else
+                {
+                    if(foreignRelCounts > 0)
+                    {
+                        // If this filter query source also is foreign query source of other relationship, it should add additional filter
+                        position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
+                    }
+                    // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
+                    foreach (var rel in rels)
+                    {
+                        position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
+                    }
+                }
+            }
+
+            return filterSetting;
+        }
 
 Application Scenarios
 -----------------------
