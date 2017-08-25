@@ -357,7 +357,7 @@ For example, it can be used to:
 * automatically filter all tables to non-deleted data (IsDeleted = FALSE).
 * in a Shared Schema Multi-Tenant Architecture, filter every table to only data of the tenant of current logged in user.
 
-Sample code to add hidden filter ShipCountry = "WA" or "[Blank]" for all:
+Sample code to add hidden filter ShipRegion = "WA" or "[Blank]" for all:
 
 .. comment: Not highlighted: Pygments does not support interpolated string in C# 6 yet https://bitbucket.org/birkenfeld/pygments-main/issues/1138/supporting-c-60
 
