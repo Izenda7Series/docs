@@ -457,14 +457,25 @@ Sample code to add hidden filter ShipRegion = "WA" or "[Blank]" for all:
                 }
                 else
                 {
-                    if(foreignRelCounts > 0)
+                    // Add another hidden filter for query source that appears in both alias primary and foreign query source of relationships.
+                    // This step is mandatory because when aliasing a primary query source, it becomes another instance of query source in the query. 
+                    // So if we only add filter for alias, the original query source instance will not be impacted by the filter. That's why we need
+                    // to add another filter for original instance when it appears in both side of alias and foreign.
+                    // For example:
+                    //          [Order] LEFT JOIN [Employee]
+                    //      [Aliased Employee] LEFT JOIN [Department]
+                    // If the system needs to add a hidden filter to [Employee], for example: [CompanyId] = 'ALKA'
+                    // It needs to add
+                    //          [Employee].[CompanyId] = 'ALKA' AND [Aliased Employee].[CompanyId] = 'ALKA'
+                    // By this way, it ensures all [Employee] instances are filtered by ALKA company id.
+                    if (foreignRelCounts > 0)
                     {
-                        // If this filter query source also is foreign query source of other relationship, it should add additional filter
                         position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
                     }
-                    // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
+                    
                     foreach (var rel in rels)
                     {
+                        // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
                         position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
                     }
                 }
