@@ -5,14 +5,18 @@ Release Notes
 v.? August ?, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
-FEARTURES
-^^^^^^^^^^
-- Custom Views - Allows users to define views in the model using any SQL query that excutes outside of the query tree. Please see user guide :doc:`/ui/doc_data_model_custom_view`.
+FEATURES
+^^^^^^^^^
+- Custom View – allows users with the proper permissions, the ability to create views in the context of the Izenda application. These views are not persisted to the underlying databases. However, due to the nature of this functionality, SQL statements contained in these views will be executed directly against your reporting database(s). (this functionality is outside of the Izenda Query Tree). Please see user guide :doc:`/ui/doc_data_model_custom_view`.
+ **We strongly recommend access to this feature should be granted with caution. If you choose to use this feature, please review the items below:** |br|
+   * Ensure that only trusted users are granted access to the Custom View feature. If you have questions on doing this, please contact our support team for guidance.
+   * Your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. If you are using stored procedures, you will need “execute” permissions. Please consult your DBA for assistance.
+   * This functionality can create security issues in shared multi-tenant environments if tenant fields and hidden filters are not properly configured.
 
 - New API addded to report report/validateFilter/{report_id} to validate that all required filters in specified report have filter value :ref:`report/validateFilter/{report_id} <Validate_Filter>`.
 
 FIXES
-^^^^^^
+^^^^^
 
 v2.3.0 July 31, 2017
 ~~~~~~~~~~~~~~~~~~~~

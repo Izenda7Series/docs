@@ -55,8 +55,8 @@ Add Custom View
 #. Input all required information. |br|
    - Input Custom View Name |br|
    - Select one Database Name.  |br|
-   - Select Schema Name |br|
-   - Enter the SELECT query |br|
+   - Select one Schema Name |br|
+   - Enter a SELECT query |br|
 
    .. _Data_Model_Add_Custom_View_popup:
 
@@ -68,6 +68,10 @@ Add Custom View
    
       - User must make sure to include the Tenant ID field if needed (for multi-tenant mode)
       - Also, existing hidden filters are not added to this query. Thus, user must add SQL WHERE conditions to apply the filters.
+      - User can not select multiple database in a view. Only selected database in Database Name can be used.
+      - User can select multiple chemas in a view (can include or exclude selected chema in Schema Name dropdown).
+      - No Store Procedure can be selected in a view.
+      - 
 
 #. Click on **Save & Execute** button.
 
