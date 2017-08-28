@@ -48,7 +48,7 @@ List of Data Types
      - smaldatetime, datetime, date, datetime2
      - date, datetime, timestamp
      - date, timestamp
-     - date, timestamp
+     - date, timestamp, timestamp without time zone, timestamp with time zone
    * - Money
      - Currency amount.
      - numeric
@@ -83,7 +83,7 @@ List of Data Types
      - Time
      - Time
      - N/A
-     - time, time without time zone, time with time zone, timestamp, timestamp without time zone, timestamp with time zone
+     - time, time without time zone, time with time zone
    * - XML
      - Extensible Markup Language (XML) data type
      - N/A
