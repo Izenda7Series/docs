@@ -88,7 +88,10 @@ Configure Izenda
             "ReportViewerPopup": "reportviewerpopup",
             "Viewer": "viewer"
           },
-          "Timeout": 3600,
+          "TimeOut": 3600,
+          "UIPreferences": { 
+                "ReportFilterSectionExpanded": true 
+            },
           "NeedToEncodeUrl" : true
        }
 
@@ -117,7 +120,10 @@ Configure Izenda
             "ReportViewerPopup": "reportviewerpopup",
             "Viewer": "viewer"
           },
-          "Timeout": 3600
+          "TimeOut": 3600,
+          "UIPreferences": { 
+            "ReportFilterSectionExpanded": true 
+          }
        };
        
        IzendaSynergy.config(configJson);
