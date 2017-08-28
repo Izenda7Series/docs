@@ -7,10 +7,18 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.3.5 August 28, 2017
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+FIXES
+^^^^^
+-  Defect  18152  Category clean up job clears access to global reports for tenant users
+-  Defect  18172  Top level of chart with drilldown is not respecting the report filter
+-  Defect  18206  Filters are not respected in export with embedded mode, missing request parameter
 
 v2.3.4 August 21, 2017
 ~~~~~~~~~~~~~~~~~~~~~~
-
 
 FIXES
 ^^^^^
