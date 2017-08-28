@@ -27,7 +27,7 @@ List of APIs
    * - `POST copyManagement/console/validate/destination`_
      - Validates that destination tenants, database mappings and role mappings are correct.
    * - `POST copyManagement/console/loadreport`_
-     - Returns all report and related data to be copied to another system.
+     - Returns all report/template and related data to be copied to another system.
    * - `POST copyManagement/console/copyreport`_
      - Copies report and related data to a system.
    * - `POST copyManagement/console/updatesubreport`_
@@ -155,7 +155,7 @@ Validates that destination tenants, database mappings and role mappings are corr
 POST copyManagement/console/loadreport
 --------------------------------------------------------------
 
-Returns all report and related data to be copied to another system.
+Returns all report/template and related data to be copied to another system.
 
 **Request**
 
