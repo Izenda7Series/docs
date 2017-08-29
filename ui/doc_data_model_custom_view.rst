@@ -66,12 +66,13 @@ Add Custom View
 
    .. warning::
    
-      - User must make sure to include the Tenant ID field if needed (for multi-tenant mode)
+      - User must make sure to include the Tenant ID field if needed (for multi-tenant mode).
       - Also, existing hidden filters are not added to this query. Thus, user must add SQL WHERE conditions to apply the filters.
-      - User can not select multiple database in a view. Only selected database in Database Name can be used.
+      - User can not query cross database in a view. Only selected database in Database Name dropdown can be used.
+      - No store procedure can be selected in a view.
       - User can select multiple chemas in a view (can include or exclude selected chema in Schema Name dropdown).
-      - No Store Procedure can be selected in a view.
-      - 
+      - User must use underlying tables/views/functions name, not aliases in Data Model.
+      - Custom View can also use tables/views/functions not included in Data Model. For example table [dbo].[Order Details] can be used even if it is not selected in Data Model.
 
 #. Click on **Save & Execute** button.
 
@@ -81,7 +82,7 @@ Edit Custom View
 #. Click **Settings**, then **Data Setup** then **Data Model** in the left menu.
 #. Select the Setting Level: either System or a specific tenant.
 #. Click **Views** in the Middle Panel.
-#. Click on the link of existing custom view name to open the **Edit Custom View** popup
+#. Click on the link of existing custom view name to open the **Edit Custom View** popup.
 
    .. _Data_Model_Existing_Custom_View:
 
