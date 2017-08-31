@@ -65,7 +65,7 @@ Add Custom View
       Data Model - Add Custom View Popup |br|
 
    .. warning::
-   
+
       - User must make sure to include the Tenant ID field if needed (for multi-tenant mode).
       - Also, existing hidden filters are not added to this query. Thus, user must add SQL WHERE conditions to apply the filters.
       - User can not query cross database in a view. Only selected database in Database Name dropdown can be used.
@@ -73,6 +73,7 @@ Add Custom View
       - User can select multiple chemas in a view (can include or exclude selected chema in Schema Name dropdown).
       - User must use underlying tables/views/functions name, not aliases in Data Model.
       - Custom View can also use tables/views/functions not included in Data Model. For example table [dbo].[Order Details] can be used even if it is not selected in Data Model.
+      - User that can access to system databases must ensure that protected data will not be shown in custom view.
 
 #. Click on **Save & Execute** button.
 
