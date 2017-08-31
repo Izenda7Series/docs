@@ -35,6 +35,8 @@ List of APIs
        .. note::
           
           The same as :ref:`GET_connection/basicInfo/(tenant_id)`
+   * - `POST dataModel/basicConnectionsInfo`_
+     - Returns an array of connections infor with paging.
    * - `GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}`_
      - Returns an array of the :term:`query source categories <query source category>` in the specified connection.
      
@@ -274,6 +276,67 @@ Returns an array of id and name of connections (filtered by tenant_id if given).
          "value": "Northwind"
       }]
 
+POST dataModel/basicConnectionsInfo
+--------------------------------------------------------------
+
+Returns an array of connections infor with paging.
+
+.. versionadded:: 2.4.0
+
+.. note::
+
+   The same as :ref:`GET_connection/basicInfo/(tenant_id)`
+
+**Request**
+
+    Payload: a :doc:`models/PagedRequest` object.
+
+**Response**
+
+    - An array of objects with two fields **key** and **value** 
+    
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **key** |br|
+             string (GUID)
+          -  The id of the connection
+          -
+       *  -  **value** |br|
+             string
+          -  The name of the connection
+          -
+
+    - A :doc:`models/PagedRequest` object.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dataModel/basicConnectionsInfo HTTP/1.1
+
+   Sample response::
+
+      {
+        [{
+          "key": "48733501-c57d-48ca-aded-501d5ebdaad9",
+          "value": "Northwind"
+        },
+        {
+          "key": "ed13d1d0-cc0c-49bc-8925-3a11da65ef65",
+          "value": "MVC5-ViTest",
+        }],
+        "pageIndex": 0,
+        "pageSize": 1000,
+        "total": 17,
+        "skipItems": 0,
+        "isLastPage": true
+      }
+
+
 GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}
 --------------------------------------------------------------
 
@@ -284,6 +347,25 @@ Returns an array of the :term:`query source categories <query source category>` 
 **Request**
 
     No payload
+
+**Response**
+
+    To be updated
+
+**Samples**
+
+   To be updated
+
+POST dataModel/basicQuerySourceCategoriesInfo/
+--------------------------------------------------------------
+
+Returns an array of the :term:`query source categories <query source category>` with paging.
+
+.. versionadded:: 2.4.0
+
+**Request**
+
+    Payload: a :doc:`models/QuerySourceCategoryPagedRequest` object.
 
 **Response**
 
