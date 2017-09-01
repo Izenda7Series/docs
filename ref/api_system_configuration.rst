@@ -11,7 +11,7 @@ System Configuration APIs allow user to:
 *  search for schedule instances
 *  view, edit and delete schedule instances
 
-List of APIs
+Summary
 ------------
 
 .. list-table::

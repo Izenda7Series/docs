@@ -14,46 +14,61 @@ The **Report Designer** page allows user to
 
 This page documents the APIs related to data sources, relationships and fields.
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET report/dataSourceCategory/(tenant_id)`_
      - Returns data sources and data source fields grouped by data source categories (filtered by tenant_id if provided). |br| |br|
        See also: :ref:`POST_advancedSetting/category` and :ref:`POST_dataModel` for APIs that create these data source categories.
+     - Not used
    * - `POST report/loadDataSourceCategory`_
      - For a report, returns both selected, visible data sources and other available data sources, all grouped by data source categories. |br| |br|
        Compared with `GET report/dataSourceCategory/(tenant_id)`_, this API sets the "selected" and "visible" flags.
+     - Report Designer > Data Source
    * - `POST report/loadQuerySources`_
      - Returns details for a list of query sources and a list of related query sources.
+     - To be updated
    * - `POST report/loadRelationships`_
      - Returns an updated list of relationships from an existing report together with an updated list of data sources.
+     - Report Designer for an existing report
    * - `POST report/validateRelationshipSyntax`_
      - Validates relationship syntax.
+     - Report Designer > Data Source > Validate Syntax
    * - `POST report/detectRelationshipsChange`_
      - Detects if any relationship should be removed because of changes in data sources.
+     - To be updated
    * - `POST report/availableQuerySourceFields`_
      - Returns a list of data source fields in selected query sources of a report.
+     - Report Designer > Data Source > select a data source
    * - `GET report/availableReportMappingFields/{report_id}`_
      - Returns a list of data source fields, alias fields, and calculated fields in selected query sources of a report.
+     - To be updated
    * - `GET report/fieldProperties/{query_source_field_id}`_
      - Returns the properties of query source field specified by query_source_field_id.
+     - 
    * - `POST report/calculatedField`_
      - Saves a calculated field after validating name duplication (does not validate the expression).
+     - Report Designer > Fields > Add Calculated Field > OK
    * - `GET report/calculatedField/{calculated_field_id}`_
      - Returns the calculated field specified by calculated_field_id.
+     - To be updated
    * - `GET report/hasReportUseCalculatedField/{calculated_field_id}`_
      - Returns true if the calculated field is being used in any report part or report filter.
+     - To be updated
    * - `GET report/hasReportUseRelationship/{relationship_id}`_
      - Returns true if the relationship is being used in report.
+     - To be updated
    * - `POST report/deleteReportCalculatedField`_
      - Removes a calculated field from report.
+     - Report Designer > Fields > Delete icon on a calculated field
 
 GET report/dataSourceCategory/(tenant_id)
 ------------------------------------------------

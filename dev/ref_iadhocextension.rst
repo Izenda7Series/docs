@@ -353,114 +353,136 @@ This method adds customized filters to every reports while hiding them from UI u
 
 For example, it can be used to:
 
-* filter data to rows with ShipCountry = 'USA' only.
+* filter data to rows with ShipRegion = 'WA' or BLANK only.
 * automatically filter all tables to non-deleted data (IsDeleted = FALSE).
 * in a Shared Schema Multi-Tenant Architecture, filter every table to only data of the tenant of current logged in user.
 
-Sample code to add hidden filter ShipCountry = "WA" or "[Blank]" for all:
+Sample code to add hidden filter ShipRegion = "WA" or "[Blank]" for all:
 
 .. comment: Not highlighted: Pygments does not support interpolated string in C# 6 yet https://bitbucket.org/birkenfeld/pygments-main/issues/1138/supporting-c-60
 
 .. code-block:: csharp
 
      [Export(typeof(IAdHocExtension))]
-     public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
-     {
-         var filterFieldName = "ShipRegion";
-   
-         Func<ReportFilterSetting, int, QuerySource, QuerySourceField, Guid, Relationship, int> addHiddenFilters = (result, filterPosition, querySource, field, equalOperator, rel) =>
-         {
-             var firstFilter = new ReportFilterField
-             {
-                 Alias = $"ShipRegion{filterPosition}",
-                 QuerySourceId = querySource.Id,
-                 SourceDataObjectName = querySource.Name,
-                 QuerySourceType = querySource.Type,
-                 QuerySourceFieldId = field.Id,
-                 SourceFieldName = field.Name,
-                 DataType = field.DataType,
-                 Position = ++filterPosition,
-                 OperatorId = equalOperator,
-                 Value = "WA",
-                 RelationshipId = rel?.Id,
-                 IsParameter = false,
-                 ReportFieldAlias = null
-             };
-   
-             var secondFilter = new ReportFilterField
-             {
-                 Alias = $"ShipRegion{filterPosition}",
-                 QuerySourceId = querySource.Id,
-                 SourceDataObjectName = querySource.Name,
-                 QuerySourceType = querySource.Type,
-                 QuerySourceFieldId = field.Id,
-                 SourceFieldName = field.Name,
-                 DataType = field.DataType,
-                 Position = ++filterPosition,
-                 OperatorId = equalOperator,
-                 Value = "[Blank]",
-                 RelationshipId = rel?.Id,
-                 IsParameter = false,
-                 ReportFieldAlias = null
-             };
-             result.FilterFields.Add(firstFilter);
-             result.FilterFields.Add(secondFilter);
-   
-             var logic = $"({filterPosition - 1} OR {filterPosition})";
-             if (string.IsNullOrEmpty(result.Logic))
-             {
-                 result.Logic = logic;
-             }
-             else
-             {
-                 result.Logic += $" AND {logic}";
-             }
-   
-             return filterPosition;
-         };
-   
-         var filterSetting = new ReportFilterSetting()
-         {
-             FilterFields = new List<ReportFilterField>()
-         };
-         var position = 0;
-   
-         var ds = param.ReportDefinition.ReportDataSource;
-   
-         // Build the hidden filters for ship country fields
-         foreach (var querySource in param.QuerySources // Scan thru the query sources that are involved in the report
-             .Where(x => x.QuerySourceFields.Any(y => y.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase)))) // Take only query sources that have filter field name
-         {
-             // Pick the relationships that joins the query source as primary source
-             // Setting the join ensure the proper table is assigned when using join alias in the UI
-             var rels = param.ReportDefinition.ReportRelationship.
-                 Where(x => x.JoinQuerySourceId == querySource.Id)
-                 .ToList();
-   
-             // Find actual filter field in query source
-             var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase));
-   
-             // Pick the equal operator
-             var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
-   
-             // In case there is no relationship that the query source is joined as primary
-             if (rels.Count() == 0)
-             {
-                 // Just add hidden filter with null relationship
-                 position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
-             }
-             else
-             {
-                 // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
-                 foreach (var rel in rels)
-                 {
-                     position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
-                 }
-             }
-         }
-   
-         return filterSetting;
-     }
+
+        public override ReportFilterSetting SetHiddenFilters(SetHiddenFilterParam param)
+        {
+            var filterFieldName = "ShipRegion";
+
+            Func<ReportFilterSetting, int, QuerySource, QuerySourceField, Guid, Relationship, int> addHiddenFilters = (result, filterPosition, querySource, field, equalOperator, rel) =>
+            {
+                var firstFilter = new ReportFilterField
+                {
+                    Alias = $"ShipRegion{filterPosition}",
+                    QuerySourceId = querySource.Id,
+                    SourceDataObjectName = querySource.Name,
+                    QuerySourceType = querySource.Type,
+                    QuerySourceFieldId = field.Id,
+                    SourceFieldName = field.Name,
+                    DataType = field.DataType,
+                    Position = ++filterPosition,
+                    OperatorId = equalOperator,
+                    Value = "WA",
+                    RelationshipId = rel?.Id,
+                    IsParameter = false,
+                    ReportFieldAlias = null
+                };
+
+                var secondFilter = new ReportFilterField
+                {
+                    Alias = $"ShipRegion{filterPosition}",
+                    QuerySourceId = querySource.Id,
+                    SourceDataObjectName = querySource.Name,
+                    QuerySourceType = querySource.Type,
+                    QuerySourceFieldId = field.Id,
+                    SourceFieldName = field.Name,
+                    DataType = field.DataType,
+                    Position = ++filterPosition,
+                    OperatorId = equalOperator,
+                    Value = "[Blank]",
+                    RelationshipId = rel?.Id,
+                    IsParameter = false,
+                    ReportFieldAlias = null
+                };
+                result.FilterFields.Add(firstFilter);
+                result.FilterFields.Add(secondFilter);
+
+                var logic = $"({filterPosition - 1} OR {filterPosition})";
+                if (string.IsNullOrEmpty(result.Logic))
+                {
+                    result.Logic = logic;
+                }
+                else
+                {
+                    result.Logic += $" AND {logic}";
+                }
+
+                return filterPosition;
+            };
+
+            var filterSetting = new ReportFilterSetting()
+            {
+                FilterFields = new List<ReportFilterField>()
+            };
+            var position = 0;
+
+            var ds = param.ReportDefinition.ReportDataSource;
+
+            // Build the hidden filters for ship country fields
+            foreach (var querySource in param.QuerySources // Scan thru the query sources that are involved in the report
+                .Where(x => x.QuerySourceFields.Any(y => y.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase)))) // Take only query sources that have filter field name
+            {
+                // Pick the relationships that joins the query source as primary source
+                // Setting the join ensure the proper table is assigned when using join alias in the UI
+                var rels = param.ReportDefinition.ReportRelationship.
+                    Where(x => x.JoinQuerySourceId == querySource.Id)
+                    .ToList();
+
+                // Count the relationships that the filter query source is foreign query source
+                var foreignRelCounts = param.ReportDefinition.ReportRelationship
+                    .Where(x => x.ForeignQuerySourceId == querySource.Id)
+                    .Count();
+
+                // Find actual filter field in query source
+                var field = querySource.QuerySourceFields.FirstOrDefault(x => x.Name.Equals(filterFieldName, StringComparison.OrdinalIgnoreCase));
+
+                // Pick the equal operator
+                var equalOperator = Izenda.BI.Framework.Enums.FilterOperator.FilterOperator.EqualsManualEntry.GetUid();
+
+                // In case there is no relationship that the query source is joined as primary
+                if (rels.Count() == 0)
+                {
+                    // Just add hidden filter with null relationship
+                    position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
+                }
+                else
+                {
+                    // Add another hidden filter for query source that appears in both alias primary and foreign query source of relationships.
+                    // This step is mandatory because when aliasing a primary query source, it becomes another instance of query source in the query. 
+                    // So if we only add filter for alias, the original query source instance will not be impacted by the filter. That's why we need
+                    // to add another filter for original instance when it appears in both side of alias and foreign.
+                    // For example:
+                    //          [Order] LEFT JOIN [Employee]
+                    //      [Aliased Employee] LEFT JOIN [Department]
+                    // If the system needs to add a hidden filter to [Employee], for example: [CompanyId] = 'ALKA'
+                    // It needs to add
+                    //          [Employee].[CompanyId] = 'ALKA' AND [Aliased Employee].[CompanyId] = 'ALKA'
+                    // By this way, it ensures all [Employee] instances are filtered by ALKA company id.
+                    if (foreignRelCounts > 0)
+                    {
+                        position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, null);
+                    }
+                    
+                    foreach (var rel in rels)
+                    {
+                        // Loop thru all relationships that the query source is joined as primary and add the hidden field associated with each relationship
+                        position = addHiddenFilters(filterSetting, position, querySource, field, equalOperator, rel);
+                    }
+                }
+            }
+
+            return filterSetting;
+        }
 
 Application Scenarios
 -----------------------
@@ -633,14 +655,62 @@ You can create custom formats for various datatypes by overriding the LoadCustom
         /// <see href="https://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">Standard Numeric Format Strings</see>
         /// </summary>
         /// <returns>A list of custom formats. </returns>
-        public override List<DataFormat> LoadCustomDataFormat()
+         public override List<DataFormat> LoadCustomDataFormat()
+
         {
+
             var result = new List<DataFormat>
+
+            {
+
+                 new DataFormat
                 {
-                    new DataFormat
+                    Name = "By Hour",
+                    DataType = IzendaDataType.DatetimeType,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
+                    {
+                        return ((DateTime)x).ToString("M/d/yyyy h:00 tt");
+                    }
+                },
+       
+                new DataFormat
+                {
+                    Name = "dd MM:mm",
+                    DataType = IzendaDataType.DatetimeType,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
+                    {
+                        var date = Convert.ToDateTime(x);
+                        return date.ToString("dd HH:mm");
+                    }
+                },
+                new DataFormat
+                {
+                    Name = "dd HH:mm:ss",
+                    DataType = IzendaDataType.DatetimeType,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
+                    {
+                        var date = Convert.ToDateTime(x);
+                        return date.ToString("dd HH:mm:ss");
+                    }
+                },
+                new DataFormat
+                {
+                    Name = "dd mm:ss",
+                    DataType = IzendaDataType.DatetimeType,
+                    Category = IzendaKey.CustomFormat,
+                    FormatFunc = (x) =>
+                    {
+                        var date = Convert.ToDateTime(x);
+                        return date.ToString("dd mm:ss");
+                    }
+                },
+                new DataFormat
                     {
                         Name = "£0,000",
-                        DataType = DataType.Numeric,
+                        DataType = IzendaDataType.NumericType,
                         Category = IzendaKey.CustomFormat,
                         FormatFunc = (x) =>
                         {
@@ -650,52 +720,55 @@ You can create custom formats for various datatypes by overriding the LoadCustom
                     new DataFormat
                     {
                         Name = "¥0,000",
-                        DataType = DataType.Numeric,
+                        DataType = IzendaDataType.NumericType,
                         Category = IzendaKey.CustomFormat,
                         FormatFunc = (x) =>
                         {
                             return ((decimal)x).ToString("C0", CultureInfo.CreateSpecificCulture("ja-JP"));
                         }
 
-                },
-            new DataFormat
-            {
-                Name = "0,000",
-                DataType = DataType.Numeric,
-                Category = IzendaKey.CustomFormat,
-                FormatFunc = (x) =>
-                {
-                    return String.Format(CultureInfo.InvariantCulture, "{0:0,0}", x);
-                }
-
-            },
-                new DataFormat
-                {
-                    Name = "$0,000",
-                    DataType = DataType.Numeric,
-                    Category = IzendaKey.CustomFormat,
-                    FormatFunc = (x) =>
+                        },
+                    new DataFormat
                     {
-                        return String.Format(CultureInfo.InvariantCulture, "${0:0,0}", x);
-                    }
-                },
+                        Name = "0,000",
+                        DataType = IzendaDataType.NumericType,
+                        Category = IzendaKey.CustomFormat,
+                        FormatFunc = (x) =>
+                        {
+                            return String.Format(CultureInfo.InvariantCulture, "{0:0,0}", x);
+                        }
 
-                new DataFormat
-                {
-                    Name = "HH:MM:SS",
-                    DataType = DataType.Numeric,
-                    Category = IzendaKey.CustomFormat,
-                    FormatFunc = (x) =>
-                    {
-                        var newValue = Convert.ToDouble(x);
-                        TimeSpan time = TimeSpan.FromSeconds(newValue);
+                    },
+                        new DataFormat
+                        {
+                            Name = "$0,000",
+                            DataType = IzendaDataType.NumericType,
+                            Category = IzendaKey.CustomFormat,
+                            FormatFunc = (x) =>
+                            {
+                                return String.Format(CultureInfo.InvariantCulture, "${0:0,0}", x);
+                            }
+                        },
 
-                        return time.ToString(@"dd\.hh\:mm\:ss");
-                    }
-                 }
-                };
+                        new DataFormat
+                        {
+                            Name = "HH:MM:SS",
+                            DataType = IzendaDataType.NumericType,
+                            Category = IzendaKey.CustomFormat,
+                            FormatFunc = (x) =>
+                            {
+                                var newValue = Convert.ToDouble(x);
+                                TimeSpan time = TimeSpan.FromSeconds(newValue);
+
+                                return time.ToString(@"dd\.hh\:mm\:ss");
+                            }
+
+                        }
+
+            };
 
             return result;
+
         }
     
 See Also

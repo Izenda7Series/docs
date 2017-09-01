@@ -9,38 +9,52 @@ The **Advanced Settings** page allows user to
 * manage the list of data source categories
 * update system settings in related groups
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `POST advancedSetting/category`_
-     - Updates the list of :term:`categories<data source category>`.
+     - Updates the list of :term:`categories <data source category>`.
+     - Settings > Data Setup > Advanced Settings > Category > Save
    * - `GET advancedSetting/category/(tenant_id)`_
-     - Returns an array of :term:`categories<data source category>` (filtered by tenant_id if provided).
+     - Returns an array of :term:`categories <data source category>` (filtered by tenant_id if provided).
+     - Settings > Data Setup > Advanced Settings > Category
    * - `DELETE advancedSetting/category/{category_id}`_
-     - Deletes the :term:`category<data source category>` specified by category_id.
+     - Deletes the :term:`category <data source category>` specified by category_id.
+     - Settings > Data Setup > Advanced Settings > Category > click Remove icon
    * - `GET advancedSetting/performance/(tenant_id)`_
      - Returns the settings in Performance group (filtered by tenant_id if provided).
+     - \- On Front-end load |br|
+       \- Settings > Data Setup > Advanced Settings > Performance
    * - `POST advancedSetting/performance`_
      - Updates the settings in Performance group.
+     - Settings > Data Setup > Advanced Settings > Performance > Save
    * - `GET advancedSetting/security/(tenant_id)`_
      - Returns the settings in Security group (filtered by tenant_id if provided).
+     - \- On Front-end load |br|
+       \- Settings > Data Setup > Advanced Settings > Security
    * - `POST advancedSetting/security`_
      - Updates the settings in Security group.
+     - Settings > Data Setup > Advanced Settings > Security > Save
    * - `GET advancedSetting/miscSetting/(tenant_id)`_
      - Returns the settings in Others group (filtered by tenant_id if provided).
+     - Settings > Data Setup > Advanced Settings > Others
    * - `POST advancedSetting/miscSetting`_
      - Updates the settings in Others group.
+     - Settings > Data Setup > Advanced Settings > Others > Save
    * - `POST advancedSetting/defaultImageUrl`_
      - Updates the default image url setting.
+     - Not used
    * - `GET advancedSetting/defaultImageUrl(?tenantId=tenant_id)`_
      - Returns the default image url setting.
+     - Setting Level Tenant is selected
 
 .. _POST_advancedSetting/category:
 

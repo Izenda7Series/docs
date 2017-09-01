@@ -15,7 +15,7 @@ In this sample, we will use `Redis <http://redis.io/>`__ as an
 alternative cache server - there is no intentional comparison between
 Memcached and Redis here, we just pick Redis as an example.
 
-Summay of the Steps
+Summary of the Steps
 
 #. :ref:`Reference the interface library Izenda.BI.CacheProvider.dll in our code base. <Reference_ICacheProvider_Interface_in_a_New_Project>`
 #. :ref:`Provide our own implementation of the ICacheProvider interface. <Implement_the_ICacheProvider_Interface>`

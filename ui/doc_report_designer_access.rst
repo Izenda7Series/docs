@@ -95,7 +95,7 @@ Add a Sharing
    *  - **Modify the report in Report Designer**
       - ✔
       - ✖
-      - ✖
+      - ✔
       - ✖
       - ✖
       - ✖
@@ -120,8 +120,8 @@ Add a Sharing
 
    *  - **Access Right**
    *  - Full Access
-   *  - Quick Edit
    *  - Save As
+   *  - Quick Edit
    *  - Locked
    *  - View Only
    *  - No Access

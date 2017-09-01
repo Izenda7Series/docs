@@ -2,6 +2,10 @@
 Release Notes
 ==============
 
+.. note::
+	- Weekly Release - Defect Fixes, Patch release x.x.1
+	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
+	- Major Release - Larger Features, Major release 1.x.x
 
 v.2.4.0 September 1, 2017
 ~~~~~~~~~~~~~~~~~~~~~
@@ -47,15 +51,101 @@ FIXES
 -  Defect  18266  User cannot save a report contining a filter in an Izenda Oracle Configuraiton Database
 -  Defect  18228  Configured Save process on Role update to work with CommandTimeOut Setting in Izenda System Settings Table to allow for extended Timeout values
 
+v2.3.5 August 28, 2017
+~~~~~~~~~~~~~~~~~~~~~~
+
 FIXES
 ^^^^^
+-  Defect  18152  Category clean up job clears access to global reports for tenant users
+-  Defect  18172  Top level of chart with drilldown is not respecting the report filter
+-  Defect  18206  Filters are not respected in export with embedded mode, missing request parameter
+
+v2.3.4 August 21, 2017
+~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18111  When using date value on the X-axis in chart and separator values contain # the legend of the chart shows the # as a date.
+-  Defect  18107  Dashboard tile is removed until page reload after saving in the access area of the dashboard.
+-  Defect  18106  No Reports can be saved in Oracle Izenda Config DB
+-  Defect  18075  Fields set to not visible still display in pivot grid
+-  Defect  18071  Fields in a form within a repeater that are set to not visible are still shown in the report
+-  Defect  18049  Fields deleted in the database continue to show on report creation after schema update to the model.  
+-  Defect  18044  When attempting to create a calculated field in IE browser, the fields added by the lightbulb pop up are removed when attempting to add another field or a function.
+-  Defect  18036  Caching issue found when logging out and back in with different users under different tenants on the same browser.
+-  Defect  18014  When adding subtotals to groupings, the subtotal must be calculated before formats are applied.
+-  Defect  18012  PostgreSQL function parameters do not show in the data model on the function page
+-  Defect  18010  Integration Mode # and & in data or filter separator breaks subreport URL
+-  Defect  17930  Tree Filter values are not properly displayed in Quick Edit mode.
+-  Defect  17654  Saving a report fails after user changes the data sources used in the report.
+-  Defect  17218  System shows error msg when user changes aggregated function for any aggregated field which is used as a filter
+
+v2.3.3 August 14, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18043  Failed to save connection which has more than 1000+ tables or 100,000+ fields
+-  Defect  17995  Join in data model causing error in report after validation of proper join syntax
+-  Defect  17987  Group by date field with any format other than year is causing errors in PostgreSQL environments.
+-  Defect  17986  Field value, not separator is shown in a chart when data point only has one value.
+-  Defect  17983  General error message shows when formatting the same field as MM/YY with filter operator as Year/Month
+-  Defect  17980  Charts fail to change x/y plane and threshold settings when there are "." in the field name
+-  Defect  17976  New category does not display in left panel when copying a report with new category
+-  Defect  17961  When posting a to /api/role or  api/role/intergration/saveRole with an ID for the role, if the role does not exist a success message is returned when it should be false.
+-  Defect  17932  Users could add more fields through the Field Selection dialogue than were shared with them.
+-  Defect  17876  Report-level calculated fields are not copied when using the copy console.
+-  Defect  17818  Subtotals auto applying to numeric fields when it has format. Reproducible when adding a subtotal and removing it later.
+-  Defect  17746  Configuration section of report part in Quick Edit should not be displayed in View Mode.
+-  Defect  17716   Previous tenant level is set instead of system level when going back to report list from Settings
+-  Defect  17675  When integrating Izenda and host application does not have a footer element, Freeze button shows error, "cannot read property getBoundingClientRect of undefined".
+-  Defect  17022  Missing value on Filter drop down when deleting a self join relationship in designer and returning to the fields tab.
+-  Defect  15945  No roles/users are displayed when tenant user with Full Report and Dashboard access shares their reports to role/user
+-  Defect  14201  Position of tick mark is incorrect on linear gauge when metric value returns a negative number
+
+
+v2.3.2 August 7, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  17567 Performance Improvements for Report Part Property Panel 
+-  Defect  17566 Performance Improvements for Field Property Panel 
+-  Defect  17565 Performance Improvements for Filter Property Panel
+-  Defect  17702 Performance Improvements for /report/list2 and /allcategories APIs to speed report list rendering
+-  Defect  16646 Performance Improvement for loading User Setup Page
+-  Defect  17982 Using Filter Operators Equals and Not Equals for Datetime field creates syntax error in the query generation 
+-  Defect  17959 InTimePeriod filters in Calendar Year and Calendar Month show system error when executing report while using PostgreSQL reporting connecton
+-  Defect  17948 Default access rights are not properly applied to reports copied from the report list using the copy button
+-  Defect  17936 When clicking update results in the Report Viewer and Quick Edit modes without updating filter values causes the report body to be blank
+-  Defect  17889 Data time zone offset is not applied to separator and filter values
+-  Defect  17888 When validate access token returns null, system should return 401 error, currently returning 500 error
+-  Defect  17887 When creating calculated fields using other calculated fields in a report the report errors when the order is changed 
+-  Defect  17866 Using the + to add all fields from a stored procedure data source the screen hangs on field selection and some fields are not properly added to report part
+-  Defect  17728 System allows exporting of reports which contain required filters when no filter value is set
+-  Defect  17687 Default Access Rights are not added to report definition when using Copy button from report list or Save As options
+-  Defect  17671 When copying data model, report and dashboard from one tenant to another, dashboard shows empty at destination after copy shows success
+-  Defect  17594 TenantName system variable in report heaader shows tenantID not Tenant Name
+-  Defect  17207 When using PostgreSQL Returned Value and Input Params are empty for all functions that have parameters defined in database
+
+v2.3.1 August 2, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  17923  System shows error message when adding some div styling on form report parts in the designer
+-  Defect  17912  InTimePeriod Filters returning errors when used in reports
+-  Defect  17911  Error in initial create script for MySQL instances of Izenda database
+-  Defect  17910  Cascading option is disabled for the stored procedure input parameter
+-  Defect  17902  Sub and Grand totals not loading on newly report parts
+-  Defect  17504  Sub and Grand total smart tags not working properly when used in form
 
 v2.3.0 July 31, 2017
 ~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
 ^^^^^^^^
--  For customers using very large data sets or views which require heavy processing. In Data Setup > Advanced Settings > Others a new setting has been added, "Show Preview section in Configuration Mode", the default is true. When set to false, users will no longer see the report part preview on the configuration side of report parts. This changes the default behavior of querying the data when adding fields to the report parts. Instead, Izenda will only query the data when the user flips the report part to view the front side of report parts. When this setting is false, the preivews on charts in adding configuration options like borders, background colors, grid lines, XY-Plane options will be hidden as well. In addition, any time the user hides the preview section by sliding it closed on the configuration side of the report part, the queries for field data will not be executed until the user either flips to the front of the report part or expands the preview section of the report part. **To incorporate this, changes the following API were made: /api/advancedSetting/miscSetting/ and corresponding model :doc:`OtherSetting </ref/models/OtherSetting>`** 
+- For customers using very large data sets or views which require heavy processing. In Data Setup > Advanced Settings > Others a new setting has been added, "Show Preview section in Configuration Mode", the default is true. When set to false, users will no longer see the report part preview on the configuration side of report parts. This changes the default behavior of querying the data when adding fields to the report parts. Instead, Izenda will only query the data when the user flips the report part to view the front side of report parts. When this setting is false, the preivews on charts in adding configuration options like borders, background colors, grid lines, XY-Plane options will be hidden as well. In addition, any time the user hides the preview section by sliding it closed on the configuration side of the report part, the queries for field data will not be executed until the user either flips to the front of the report part or expands the preview section of the report part. **To incorporate this, changes the following API were made: /api/advancedSetting/miscSetting/ and corresponding model :doc:`OtherSetting </ref/models/OtherSetting>`** 
  
 - New filter operators added for "Null" and "Not Null", these operators will show all Null values or values which are not Null
  

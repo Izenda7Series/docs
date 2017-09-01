@@ -5,76 +5,100 @@ Misc System Settings APIs
 ============================
 
 
-List of APIs
+Summary
 ------------
 
 .. list-table::
    :class: apitable
-   :widths: 35 65
+   :widths: 25 35 40
    :header-rows: 1
 
    * - API
      - Purpose
+     - Usage in Izenda Front-end
    * - `GET accessRight/reportDashboard/{type}`_
      - Returns access right for report/template (type=0) or dashboard (type=1).
+     -
    * - `GET accessRight/authentication/{type}`_
      - Returns access right for authentication setup for report/template (type=0) or dashboard (type=1).
+     -
    * - `POST accessRight/load`_
      - Searches for access rights.
+     -
    * - `POST accessRight/validate`_
      - Validates an array of user permissions.
+     -
    * - `POST authorization/checkPermissions`_
      - Returns an array of permissions with boolean values depending on permissions of current user.
+     -
    * - `GET authorization/permission/(section)`_
      - Returns an array of permissions for current user.
+     -
    * - `GET accessRight/loadAccessDefaults/{reportingType}`_
      - Returns an array of access defaults for report (reportingType=1), dashboard (reportingType=2), or both (reportingType=0).
+     -
    * - `GET systemSetting/status`_
      - Returns system time, for system alive check.
+     -
    * - `GET systemSetting/reset`_
      - Resets system settings.
+     -
    * - `GET systemSetting/systemVariables`_
      - Returns an array of system variable names.
+     -
    * - `GET systemSetting/supportedDataSourceTypes`_
      - Returns an array of supported data source types.
+     -
    * - `POST systemSetting/loadEmailVariables`_
      - Returns an array of supported email variables.
+     -
    * - GET systemSetting/securityQuestions
      - Returns an array of security questions.
 
        .. note::
 
           Removed
+
+     -
    * - POST systemSetting/securityQuestions
      - Saves a new security question.
 
        .. note::
 
           Removed
+     -
    * - PUT systemSetting/securityQuestions
      - Updates an existing security question.
 
        .. note::
 
           Removed
+     -
    * - DELETE systemSetting/securityQuestions/{security_question_id}
      - Deletes a security question.
 
        .. note::
 
           Removed
+     -
    * - `GET systemSetting/securityQuestions/{user_name}/(tenant_display_id)`_
      - Returns security question for a user and tenant display id.
+     -
    * - `GET systemSetting/email/(tenant_id)`_
      - Returns email setting.
+     -
    * - `POST systemSetting/email`_
      - Saves email setting.
+     -
    * - `GET systemSetting/email/status/(tenant_id)`_
      - Returns email setting status.
+     -
    * - `GET systemSetting/language`_
      - Returns all supported languages.
+     -
    * - `GET systemSetting/dateFormat`_
      - Returns all supported date formats.
+     -
 
 GET accessRight/reportDashboard/{type}
 --------------------------------------------------------------
