@@ -25,11 +25,14 @@ FEATURES
 - Added JavaScript function to allow the Report Filter block to be Open or Closed by default in Report Viewer and Report Designer:
 	- To Implement this setting please see below:
 		For Standalone use the izenda_config.js file for integrated scenarios like the MVC kit use the Scripts/izenda.integration.js file
+		
 		.. code-block:: javascript
-		UIPreferences: { 
-		ReportFilterSectionExpanded: false 
-		} 
-- Expanded character limit for caluclated fields. The charachter limit is 
+		
+		    // to collapse by default, the value should be 1
+			UIPreferences: { 
+				ReportFilterSectionExpanded: !0
+			}	 
+- Expanded the character limit for calculated fields. The previous character limit was 500.
 
 FIXES
 ^^^^^
