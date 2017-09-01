@@ -3,7 +3,7 @@ Release Notes
 ==============
 
 
-v.2.4.0 August 31, 2017
+v.2.4.0 September 1, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
