@@ -6,7 +6,7 @@ Custom View Setup Guide
 
 .. tip::
 
-   Custom View is available from release ?
+   Custom View is available from release 2.4.0
 
 The Custom View allows user to add user-defined views using SQL SELECT query.
 
