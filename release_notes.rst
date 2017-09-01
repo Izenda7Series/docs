@@ -28,10 +28,11 @@ FEATURES
 		
 		.. code-block:: javascript
 		
+		    // to collapse by default, the value should be 1
 			UIPreferences: { 
-				ReportFilterSectionExpanded: false 
+				ReportFilterSectionExpanded: !0
 			}	 
-- Expanded character limit for caluclated fields. The charachter limit is 
+- Expanded the character limit for calculated fields. The previous character limit was 500.
 
 FIXES
 ^^^^^
