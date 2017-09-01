@@ -32,7 +32,10 @@ FEATURES
 			UIPreferences: { 
 				ReportFilterSectionExpanded: !0
 			}	 
-- Expanded the character limit for calculated fields. The previous character limit was 500.
+
+- Expanded the character limit (previously 500) for calculated fields. The field size has been increased to the maximum size text field supported by your configuration database type.
+- Added lazy-loading to the dashboard filters to improve performance.
+- Modified SASS files to support additional compilers.
 
 FIXES
 ^^^^^
