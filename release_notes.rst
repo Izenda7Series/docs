@@ -7,9 +7,52 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v.2.4.0 September 1, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Copy Global Report & Dashboard in Copy Console is now supported. There is proccess change but note that Global reports can only be copied from one System level to another System level
+- Custom View – allows users with the proper permissions, the ability to create views in the context of the Izenda application. These views are not persisted to the underlying databases. However, due to the nature of this functionality, SQL statements contained in these views will be executed directly against your reporting database(s). (this functionality is outside of the Izenda Query Tree). Please see user guide :doc:`/ui/doc_data_model_custom_view`.
+ **We strongly recommend access to this feature should be granted with caution. If you choose to use this feature, please review the items below:** |br|
+   * Ensure that only trusted users are granted access to the Custom View feature. If you have questions on doing this, please contact our support team for guidance.
+   * Your connection strings for the reporting database(s) should have the most restrictive permissions necessary to the application. If you are using stored procedures, you will need “execute” permissions. Please consult your DBA for assistance.
+   * This functionality can create security issues in shared multi-tenant environments if tenant fields and hidden filters are not properly configured.
+
+- New API addded to report report/validateFilter/{report_id} to validate that all required filters in specified report have filter value :ref:`report/validateFilter/{report_id} <Validate_Filter>`.
+- Removed Items per page dropdown in Report Viewer. This control was disabled in the Viewer and was confusing to users, so it has now been removed from the reports in the report viewer.
+- Moved the pagination control from the right side of the report part to the left to allow ease of use when large grids are displayed.
+- Added JavaScript function to allow the Report Filter block to be Open or Closed by default in Report Viewer and Report Designer:
+	- To Implement this setting please see below:
+		For Standalone use the izenda_config.js file for integrated scenarios like the MVC kit use the Scripts/izenda.integration.js file
+		.. code-block:: javascript
+		UIPreferences: { 
+		ReportFilterSectionExpanded: false 
+		} 
+- Expanded character limit for caluclated fields. The charachter limit is 
+
+FIXES
+^^^^^
+-  Defect  18222  Tenant user cannot save Subscription 
+-  Defect  18166  Update result does not work for pre-selected common filter value 
+-  Defect  18157  Calculated Field displays in Join Field/Field list when adding relationship
+-  Defect  18153  Subscribe button is not working when user clicks it form the report list
+-  Defect  18146  Categories are not shown in template list, Report without category is shown in middle panel of Template
+-  Defect  18144  When setting to API's to one Izenda Configuration database the system allows copying from tenant to system - this should not be allowed
+-  Defect  18128  User without permissions to overwrite existing dashboard is not shown save or save as options when attempting to save dashboard
+-  Defect  18110  US country map shows javascript error when drilling down to the state
+-  Defect  18104  View in Available Data Source of Connection String that has the sames name with alias of existing view in Visible Data Source can be assigned to Visible Data Source
+-  Defect  17985  Tooltips do not appear on field values in drilldown grid
+-  Defect  17963  ISNULL function on Fusion join is not returning proper data
+-  Defect  17958  Routing is incorrect for some ares when using Angular2 host application
+-  Defect  17891  In Form report part, all fields are removed in "Visual" tab after User select [Date Time] smart tag and "Remove" from "Repeater"
+-  Defect  17805  System is now storing non-serializable items in the cache which only works with default memory cache causing breaking changes to custom cache provider
+-  Defect  17804  Failed to save connection to a case-sensitive collation Izenda SQL database
+-  Defect  18266  User cannot save a report contining a filter in an Izenda Oracle Configuraiton Database
+-  Defect  18228  Configured Save process on Role update to work with CommandTimeOut Setting in Izenda System Settings Table to allow for extended Timeout values
+
 v2.3.5 August 28, 2017
 ~~~~~~~~~~~~~~~~~~~~~~
-
 
 FIXES
 ^^^^^
