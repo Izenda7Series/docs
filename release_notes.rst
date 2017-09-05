@@ -7,6 +7,17 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v.2.4.1 September 5, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18263  Calculated Field with Aggregate fails to show format tab to format the newly created field
+-  Defect  18207  In Oracle and PostgreSQL timestamp datatypes are not visible in the data model.
+-  Defect  18175  When sending a report which contains a Calculated Field as PDF in Email the PDF is blank
+-  Defect  18160  Custom Function does not work in nested function
+-  Defect  18147  In time period filter for week is picking up Sunday of next week with anything in 00:00:00 time - should cut off at Saturday 12:59:59:999
+
 v.2.4.0 September 1, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
