@@ -61,17 +61,11 @@ Known Issues
      - 18209
      - Scatter chart labels are shown incorrectly, value label is shown as label and label for y axis
    * - Defect
-     - 18207
-     - In Oracle and PostgreSQL timestamp datatypes are not visible in the data model.
-   * - Defect
      - 18204
      - In Edge Browser the HTML of form is shown in visual tab
    * - Defect
      - 18176
      - Hamburger for category shows in report/dashboard view mode for mobile screens
-   * - Defect
-     - 18175
-     - When sending a report which contains a Calculated Field as PDF in Email the PDF is blank
    * - Defect
      - 18174
      - Export to Excel fails when field mapping to subreport is added to pivot
@@ -91,9 +85,6 @@ Known Issues
      - 18161
      - Permission Summary shows "Can create new category?" instead of "Can create new report?" under Report Categories/Sub Categories permission
    * - Defect
-     - 18160
-     - Custom Function does not work in nested function
-   * - Defect
      - 18159
      - User cannot select System Variables in Delivery tab when add/edit a Schedule
    * - Defect
@@ -108,9 +99,6 @@ Known Issues
    * - Defect
      - 18150
      - Tool tip for Query Timeout in Advanced Settings is incorrect.
-   * - Defect
-     - 18147
-     - In time period filter for week is picking up Sunday of next week with anything in 00:00:00 time - should cut off at Saturday 12:59:59:999
    * - Defect
      - 18145
      - Database IP address is disclosed when calling "/api/connection"
