@@ -24,7 +24,7 @@ FEATURES
 - Moved the pagination control from the right side of the report part to the left to allow ease of use when large grids are displayed.
 - Added JavaScript function to allow the Report Filter block to be Open or Closed by default in Report Viewer and Report Designer:
 	- To Implement this setting please see below:
-		For Standalone use the izenda_config.js file for integrated scenarios like the MVC kit use the Scripts/izenda.integration.js file
+		For Standalone use the izenda_config.js file 
 		
 		.. code-block:: javascript
 		
@@ -32,7 +32,34 @@ FEATURES
 			UIPreferences: { 
 				ReportFilterSectionExpanded: !0
 			}	 
+			
+		For integrated scenarios like the MVC kit, use the Scripts/izenda.integrate.js (or izenda.integrate.ts for the Angular kit)
 
+		.. code-block:: javascript
+		   :emphasize-lines: 15-18
+		   
+		    var configJson = {
+				"WebApiUrl": hostApi,
+				"BaseUrl": "/izenda",
+				"RootPath": "/Scripts/izenda",
+				"CssFile": "izenda-ui.css",
+				"Routes": {
+					"Settings": "settings",
+					"New": "new",
+					"Dashboard": "dashboard",
+					"Report": "report",
+					"ReportViewer": "reportviewer",
+					"ReportViewerPopup": "reportviewerpopup",
+					"Viewer": "viewer"
+				},
+				// to collapse by default, the value should be 1
+				"UIPreferences": {
+					"ReportFilterSectionExpanded": !1
+				},
+				"OnReceiveUnauthorizedResponse": redirectToLoginPage,
+				"Timeout": 3600
+			};
+			
 - Expanded the character limit (previously 500) for calculated fields. The field size has been increased to the maximum size text field supported by your configuration database type.
 - Added lazy-loading to the dashboard filters to improve performance.
 - Modified SASS files to support additional compilers.
