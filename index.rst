@@ -27,7 +27,6 @@ Welcome to Izenda's BI documentation!
    faq/.faq
    ref/.glossary
    release_notes
-   known_issues
    acknowledgements
    6 Series Documentation <http://wiki.izenda.us>
    White Labeling Documentation <https://github.com/Izenda7Series/docs/wiki>
