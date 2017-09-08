@@ -1,0 +1,29 @@
+=================================
+Using HTTPS 
+=================================
+|
+
+Introduction
+------------------------------------------
+
+This guides demonstrates how to configure Izenda to us HTTPS.
+
+|
+
+Setting Updates
+----------------------------------------------------
+Most white-labeling can be accomplished via CSS overrides in a custom css file. 
+
+Creating the custom CSS file
+##############################
+
+#. Add SSL bindings for the API and Front-end sites
+#. Update the izenda_config.js (Front-end) to use the new HTTPS binding for the API|br|
+
+    WebApiUrl:"https://localhost/api/"
+    
+#. Update the following settings in the IzendaSystemSetting table to use HTTPS:
+WebAPIUrl example:https://localhost:5555/
+WebUrl    example:https://localhost:5556/
+AuthValidateAccessTokenUrl example:https://example.com/api/validateAccessToken
+AuthGetAccessTokenUrl example: http://example.com/api/getAccessToken
