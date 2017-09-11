@@ -62,14 +62,12 @@ Summary
      - Report Designer > Save (As)
    * - `POST report/draft`_
      - Saves a report as draft.
-     - Report Designer, when switching between Data Source, Fields, Format.. sections - to store unsaved changes
+     - \- Report Designer, when switching between Data Source, Fields, Format.. sections - to store unsaved changes |br|
+       \- Update Result |br|
+       \- Save |br|
    * - `POST report/cancel`_
      - Deletes temporary data of a report.
      - Report Designer > Cancel
-   * - `POST report/loadReport`_
-     - Returns a report's details. |br|
-       Deprecated, please use `POST report/loadForEdit`_ instead.
-     - Not used
    * - `POST report/loadForEdit`_
      - Returns an object with report key and report's data.
      - \- Report List > Expand a report > Edit > Design |br|
@@ -181,6 +179,9 @@ Summary
      - Validates that logged in user can access one and only one report part from the specified reportName and reportPartName.
 
        .. versionadded:: 2.2.2
+     - To be updated
+   * - `POST report/deleteAllArchiveVersions`_
+     - Delete all archive version.
      - To be updated
 
 GET report/category/{type}/(tenant\_id)
@@ -509,7 +510,76 @@ Returns the list of categories in parent-child hierarchy, with total number of i
 
       POST /api/report/allCategories HTTP/1.1
 
-   To be updated
+   Sample response::
+
+     {
+       "data": [
+         {
+           "name": "Local Categories",
+           "type": 0,
+           "parentId": null,
+           "tenantId": null,
+           "isGlobal": false,
+           "canDelete": false,
+           "editable": false,
+           "savable": false,
+           "subCategories": [
+             {
+               "name": "CN",
+               "type": 0,
+               "parentId": null,
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": [],
+               "dashboards": [],
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "isCheck": false,
+               "id": "dc04087a-a761-43fb-b82d-13d2ffe8d9e3",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+             }
+           ],
+           "checked": false,
+           "reports": [],
+           "dashboards": [],
+           "numOfChilds": 1,
+           "numOfCheckedChilds": 0,
+           "indeterminate": false,
+           "fullPath": null,
+           "computeNameSettings": null,
+           "isCheck": false,
+           "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+           "state": 0,
+           "deleted": false,
+           "inserted": true,
+           "version": null,
+           "created": null,
+           "createdBy": "John Doe",
+           "modified": null,
+           "modifiedBy": null
+         }
+        ],
+      "totalItems": 2,
+      "numOfChilds": 1,
+      "numOfCheckedChilds": 0,
+      "indeterminate": false,
+      "isLastPage": true
+   }
 
 
 POST report/category
@@ -642,7 +712,11 @@ Validates a report category name.
 
    Sample response::
 
-      true
+      {
+         "success": true,
+         "messages": null,
+         "data": null
+      }
 
 GET report/reportByProperty/{report\_id}/{property}
 ------------------------------------------------------------
@@ -1231,15 +1305,6 @@ Deletes temporary data of a report.
          "report": null
       }
 
-
-POST report/loadReport
----------------------------------------
-
-Returns a report's details.
-
-.. warning::
-
-   This API is obsolete, use `POST report/loadForEdit`_ instead.
 
 POST report/loadForEdit
 ---------------------------------------
@@ -3267,7 +3332,151 @@ Returns a list of all reports filtered by tenant_id if provided.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/allReports HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+
+          [
+            {
+              "name": "CN",
+              "type": 0,
+              "parentId": null,
+              "tenantId": null,
+              "isGlobal": false,
+              "createdById": null,
+              "canDelete": false,
+              "editable": false,
+              "savable": false,
+              "subCategories": [
+                {
+                  "name": null,
+                  "type": 0,
+                  "parentId": "dc04087a-a761-43fb-b82d-5dd56fe8d6f3",
+                  "tenantId": null,
+                  "isGlobal": false,
+                  "createdById": null,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [
+                    {
+                      "name": "091117_api",
+                      "reportDataSource": [],
+                      "type": 0,
+                      "previewRecord": 0,
+                      "advancedMode": false,
+                      "allowNulls": false,
+                      "isDistinct": false,
+                      "categoryId": "dc04087a-a761-43fb-b82d-5dd56fe8d6f3",
+                      "categoryName": null,
+                      "subCategoryId": null,
+                      "subCategoryName": null,
+                      "tenantId": "00000000-0000-0000-0000-000000000000",
+                      "tenantName": null,
+                      "description": "",
+                      "title": null,
+                      "lastViewed": "2017-09-11T04:43:31.5100000+07:00",
+                      "owner": "Pikachu Pikachu",
+                      "ownerId": "376545c8-6bfa-4025-9d25-374f3a61be78",
+                      "headerContent": null,
+                      "footerContent": null,
+                      "excludedRelationships": null,
+                      "numberOfView": 1,
+                      "renderingTime": 163,
+                      "createdById": "376545c8-6bfa-4025-9d25-374f3a61be78",
+                      "modifiedById": null,
+                      "snapToGrid": false,
+                      "usingFields": null,
+                      "usingFieldIds": null,
+                      "usingFieldNames": "[\"[con;#0].[cat;#0].[Order Details].[OrderID]\",\"[con;#0].[cat;#0].[Order Details].[UnitPrice]\"]",
+                      "hasDeletedObjects": false,
+                      "excludedRelationshipIds": [],
+                      "header": null,
+                      "footer": null,
+                      "titleDescriptionContent": null,
+                      "titleDescription": null,
+                      "exportFormatSettingData": null,
+                      "sourceId": null,
+                      "params": "[{\"Categories\":[{\"QuerySourceNames\":[\"Order Details\"],\"Id\":\"d555363d-5eb8-476d-8987-702f89750edd\",\"Name\":\"dbo\"}],\"Id\":\"068df001-a54b-466f-89ff-4bcc645f5b47\",\"Name\":\"AZ-Northwind-a8tju4mdx0\"}]",
+                      "relationships": null,
+                      "checked": false,
+                      "copyDashboard": false,
+                      "exportFormatSetting": null,
+                      "deletable": true,
+                      "editable": true,
+                      "movable": true,
+                      "copyable": true,
+                      "accessPriority": 1,
+                      "active": true,
+                      "fullPath": null,
+                      "computeNameSettings": null,
+                      "numOfChilds": 0,
+                      "numOfCheckedChilds": 0,
+                      "indeterminate": false,
+                      "isGlobal": false,
+                      "isCheck": false,
+                      "id": "b3279ee1-9188-484f-9255-31417b92f68e",
+                      "state": 0,
+                      "deleted": false,
+                      "inserted": true,
+                      "version": 1,
+                      "created": "2017-09-11T03:38:05.6530000+07:00",
+                      "createdBy": "John Doe",
+                      "modified": null,
+                      "modifiedBy": null
+                    }
+                  ],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "status": 0,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": "00000000-0000-0000-0000-000000000000",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": null,
+                  "modified": null,
+                  "modifiedBy": null
+                }
+            
+              ],
+              "checked": false,
+              "reports": [],
+              "dashboards": null,
+              "numOfChilds": 0,
+              "numOfCheckedChilds": 0,
+              "indeterminate": false,
+              "status": 2,
+              "fullPath": null,
+              "computeNameSettings": null,
+              "isCheck": false,
+              "id": "dc04087a-a761-43fb-b82d-5dd56fe8d6f3",
+              "state": 0,
+              "deleted": false,
+              "inserted": true,
+              "version": null,
+              "created": null,
+              "createdBy": null,
+              "modified": null,
+              "modifiedBy": null
+            },
+          ]
 
 POST report/detectSchemaChange
 ---------------------------------------
@@ -4554,7 +4763,19 @@ Updates the report data model.
 
 **Samples**
 
-      To be updated
+   .. code-block:: http
+
+      POST /api/report/updateResults HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample payload:
+
+      .. code-block:: json
+          
+
 
 POST report/loadAccesses
 ---------------------------------------
@@ -5188,7 +5409,34 @@ Returns list of reports by tenant, with each report containing a list of report 
 
    Sample response::
 
-      To be updated
+      [
+        {
+          "id": "b3279ee1-9188-484f-9255-31417b92f68e",
+          "name": "Test1",
+          "reportParts": [
+            {
+              "id": "1927af27-c7fb-42ef-9a8a-5bdbe810135f",
+              "title": "Grid",
+              "type": "Grid",
+              "width": 0,
+              "height": 0
+            }
+          ]
+        },
+        {
+          "id": "c8bf2254-6377-47ae-aa7f-570ec19206de",
+          "name": "Test2",
+          "reportParts": [
+            {
+              "id": "6d832822-5e28-43f4-b6d8-30d635ac3f5b",
+              "title": "Grid",
+              "type": "Grid",
+              "width": 4,
+              "height": 7
+            }
+          ]
+        }
+      ]
 
 
 POST report/updateRenderingTime
@@ -5241,7 +5489,11 @@ Returns true if there is a report definition for the specified report_id.
 
    Sample response::
 
-      true
+      {
+        "success": true,
+        "messages": [],
+        "data": null
+      }
 
 POST report/areReportsValid
 ---------------------------------------
@@ -5258,7 +5510,31 @@ Validates if reports are valid.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/updateRenderingTime HTTP/1.1
+
+   Request payload::
+
+      [
+        "c8bf2254-6377-47ae-aa7f-570ec19206de",
+        "1927af27-6377-2539-aa7f-570ec19206de
+      ]
+
+   Sample response::
+
+      [
+        {
+          "success": true,
+          "messages": [],
+          "data": null
+        },
+        {
+          "success": true,
+          "messages": [],
+          "data": null
+        }
+      ]
 
 POST report/printDraft
 ---------------------------------------
@@ -5275,7 +5551,14 @@ Saves report as draft for printing.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/printDraft HTTP/1.1
+
+   Request payload::
+    {
+      "id": "5a35257c-4c64-401c-b15f-f9f5681ccdc8"
+    }
 
 GET report/printDraft/{report_id}
 ---------------------------------------
@@ -5292,7 +5575,9 @@ Gets report as draft for printing.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      GET /api/report/printDraft/5a35257c-4c64-401c-b15f-f9f5681ccdc8 HTTP/1.1
 
 GET report/accessPriority/(report_dashboard_id)
 ------------------------------------------------
@@ -5426,3 +5711,37 @@ Validates that logged in user can access one and only one report part from the s
 **Samples**
 
    To be updated
+
+
+POST report/deleteAllArchiveVersions
+-------------------------------------
+
+Delete all archive versions.
+
+**Request**
+
+   .. No payload.
+
+**Response**
+
+   * true if user has System Admin Permission
+   * Error message if user does not have System Admin Permission
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/deleteAllArchiveVersions HTTP/1.1
+
+   Sample response in case user has  System Admin Permission
+   Response::
+
+      true
+
+   Sample response in case user does not have System Admin Permission
+   Response::
+
+    {
+      "message" : "You don't have permission to perform this action",
+      "detail" : "NoPermission"
+    }
