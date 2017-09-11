@@ -35,10 +35,16 @@ List of APIs
        .. note::
           
           The same as :ref:`GET_connection/basicInfo/(tenant_id)`
+   * - `POST dataModel/basicConnectionsInfo`_
+     - Returns an array of connections infor with paging.
    * - `GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}`_
      - Returns an array of the :term:`query source categories <query source category>` in the specified connection.
      
        .. versionadded:: 2.0.3
+   * - `POST dataModel/basicQuerySourceCategoriesInfo`_
+     - Returns an array of the :term:`query source categories <query source category>` with paging in the specified connection.
+     
+       .. versionadded:: 2.4.0
    * - `GET dataModel/basicQuerySourcesInfo/{connection_id}/(type)`_
      - Returns an array of id and name of the query sources in the specified connection, filtered by type (Table, View or Stored Procedure).
    * - `GET dataModel/querySourcesInfo/{connection_id}/(type)`_
@@ -274,6 +280,67 @@ Returns an array of id and name of connections (filtered by tenant_id if given).
          "value": "Northwind"
       }]
 
+POST dataModel/basicConnectionsInfo
+--------------------------------------------------------------
+
+Returns an array of connections infor with paging.
+
+.. versionadded:: 2.4.0
+
+.. note::
+
+   The same as :ref:`GET_connection/basicInfo/(tenant_id)`
+
+**Request**
+
+    Payload: a :doc:`models/PagedRequest` object.
+
+**Response**
+
+    - An array of objects with two fields **key** and **value** 
+    
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **key** |br|
+             string (GUID)
+          -  The id of the connection
+          -
+       *  -  **value** |br|
+             string
+          -  The name of the connection
+          -
+
+    - A :doc:`models/PagedRequest` object.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dataModel/basicConnectionsInfo HTTP/1.1
+
+   Sample response::
+
+      {
+        [{
+          "key": "48733501-c57d-48ca-aded-501d5ebdaad9",
+          "value": "Northwind"
+        },
+        {
+          "key": "ed13d1d0-cc0c-49bc-8925-3a11da65ef65",
+          "value": "MVC5-ViTest",
+        }],
+        "pageIndex": 0,
+        "pageSize": 1000,
+        "total": 2,
+        "skipItems": 0,
+        "isLastPage": true
+      }
+
+
 GET dataModel/basicQuerySourceCategoriesInfo/{connection_id}
 --------------------------------------------------------------
 
@@ -291,7 +358,83 @@ Returns an array of the :term:`query source categories <query source category>` 
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      GET /api/dataModel/basicQuerySourceCategoriesInfo/2a35c03b-3830-4385-9ac0-12695e92bc49 HTTP/1.1
+
+   Sample response::
+
+      [
+        {
+          "key": "34dc82ea-890d-4e3a-86a9-91ef171fd6f5",
+          "value": "Application",
+          "originalValue": null,
+          "dataFormat": null,
+          "intimePeriodType": null,
+          "valueInTimePeriod": 0,
+          "function": null
+        },
+        {
+          "key": "e3354049-cffc-4b3d-1g25-e9f518d12d01",
+          "value": "DataLoadSimulation",
+          "originalValue": null,
+          "dataFormat": null,
+          "intimePeriodType": null,
+          "valueInTimePeriod": 0,
+          "function": null
+        }
+      ]
+
+POST dataModel/basicQuerySourceCategoriesInfo/
+--------------------------------------------------------------
+
+Returns an array of the :term:`query source categories <query source category>` with paging.
+
+.. versionadded:: 2.4.0
+
+**Request**
+
+    Payload: a :doc:`models/QuerySourceCategoryPagedRequest` object.
+
+**Response**
+
+    
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/dataModel/basicQuerySourceCategoriesInfo HTTP/1.1
+
+   Sample response::
+
+      {
+        "result": [
+          {
+            "key": "34dc82ea-890d-4e3a-86a9-91ef171fd6f5",
+            "value": "Application",
+            "originalValue": null,
+             "dataFormat": null,
+            "intimePeriodType": null,
+            "valueInTimePeriod": 0,
+            "function": null
+          },
+          {
+            "key": "e3354049-cffc-4b3d-1g25-e9f518d12d01",
+            "value": "DataLoadSimulation",
+            "originalValue": null,
+            "dataFormat": null,
+            "intimePeriodType": null,
+            "valueInTimePeriod": 0,
+            "function": null
+          }
+        ],
+        "pageIndex": 1,
+        "pageSize": 100,
+        "total": 2,
+        "skipItems": 0,
+        "isLastPage": true
+      }
 
 GET dataModel/basicQuerySourcesInfo/{connection_id}/(type)
 --------------------------------------------------------------
@@ -1794,11 +1937,30 @@ Validates that name of custom query source is unique.
 
 **Response**
 
-   An :doc:`models/OperationResult` object, with **success** field true if name of custom query source is unique.
+   An :doc:`models/OperationResult` object, with **success** field true if View Name is unique and other custom view contents are valid.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST api/dataModel/validateCustomQuerySource HTTP/1.1
+
+   Request Payload::
+
+      {
+        "name": "Test",
+        "connectionId": "3562497d-07a1-4a0a-823d-811b8a098d73",
+        "categoryId": "533f001b-88ef-46d5-b0c1-69b774c81aba",
+        "customDefinition": "SELECT customerID,employeeID\nFROM  Orders "
+      }
+
+   Sample response::
+
+      {
+        "success": true,
+        "confirmation": false,
+        "messages": []
+      }
 
 POST dataModel/deleteCustomQuerySource
 --------------------------------------------------------------
