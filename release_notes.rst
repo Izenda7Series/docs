@@ -7,6 +7,21 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v.2.4.2 September 11, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18289  The subscription doesn't trigger the last scheduled run if the system was offline and restarts later than that moment
+-  Defect  18229  When using embedded mode the URL for Custom URL and Custom JS on field values are encoded twice and cause navigation issues to the links.
+-  Defect  18174  Export to Excel fails when field mapping to subreport is added to pivot
+-  Defect  18127  TIMESTAMP data type with fractional seconds precision was not recognized properly 
+-  Defect  18123  Adding a new field removes Embedded JavaScript from first field (On Field Properties Panel). Clickable link still available on first field.
+-  Defect  18055  System shows incorrect value for Sub Total if date field has format, when user attempts to format the subtotal the data shows no results.
+-  Defect  18054  Duplicated Data Object is not automatically swapped at tenant level/ tenant user
+-  Defect  17988  APIs - report - User can delete archived version by sending request to "api/report/deleteAllArchiveVersions"
+
+
 v.2.4.1 September 5, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
