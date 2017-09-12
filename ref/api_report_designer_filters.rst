@@ -5266,7 +5266,163 @@ Returns paged data source field data for Equivalence operators in filter.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/loadPartialFilterFieldData HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Request payload:
+
+      .. code-block:: json
+
+            {
+               "skipItems": 0,
+               "pageSize": 100,
+               "reportParameter": {
+                  "reportKey": {
+                     "key": "968a482b-bda8-4650-b09a-bf35b4d734b3",
+                     "modified": null,
+                     "tenantId": null
+                  },
+                  "section": 0,
+                  "saveAs": false,
+                  "ignoreCheckChange": false,
+                  "report": {
+                     "name": "Example Report",
+                     "type": 1,
+                     "previewRecord": 10,
+                     "advancedMode": true,
+                     "allowNulls": false,
+                     "isDistinct": false,
+                     "categoryId": null,
+                     "category": {
+                        "id": null,
+                        "name": "",
+                        "type": 1,
+                        "tenantId": null
+                     },
+                     "subCategory": {
+                        "id": null,
+                        "name": "",
+                        "type": 1,
+                        "tenantId": null
+                     },
+                     "subCategoryId": null,
+                     "reportDataSource": [{
+                        "aliasId": "205c0e5f-fff8-409b-a54a-b6687619486d_Orders",
+                        "querySourceId": "205c0e5f-fff8-409b-a54a-b6687619486d",
+                        "querySourceName": "Orders",
+                        "selected": true,
+                        "categoryId": "fe0c29b6-6f72-40f4-bb92-cfb6b05bd00e",
+                        "primaryFields": [{
+                           "name": "OrderID",
+                           "alias": "",
+                           "dataType": "int",
+                           "izendaDataType": "Numeric",
+                           "allowDistinct": false,
+                           "visible": true,
+                           "filterable": true,
+                           "querySourceId": "00000000-0000-0000-0000-000000000000",
+                           "parentId": null,
+                           "expressionFields": [],
+                           "filteredValue": "",
+                           "type": 0,
+                           "groupPosition": 0,
+                           "position": 0,
+                           "extendedProperties": "{\"PrimaryKey\":true}",
+                           "physicalChange": 0,
+                           "approval": 0,
+                           "existed": false,
+                           "matchedTenant": false,
+                           "originalName": "OrderID",
+                           "originalId": "00000000-0000-0000-0000-000000000000",
+                           "isParameter": false,
+                           "isCalculated": false,
+                           "hasAggregatedFunction": false,
+                           "inaccessible": false,
+                           "isCheck": false,
+                           "id": "2be8c595-91a3-4250-8828-dbbc07eaba83"
+                        }]
+                     }],
+                     "reportRelationship": [],
+                     "reportFilter": {
+                        "logic": "",
+                        "visible": false,
+                        "filterFields": [{
+                           "connectionName": "Northwind-BA",
+                           "querySourceCategoryName": "dbo",
+                           "sourceFieldName": "ShipPostalCode",
+                           "sourceFieldVisible": true,
+                           "sourceFieldFilterable": true,
+                           "sourceDataObjectName": "Orders",
+                           "dataType": "Text",
+                           "filterId": "00000000-0000-0000-0000-000000000000",
+                           "querySourceFieldId": "cacc4fe7-797f-405e-bb92-7a4b8afcddcc",
+                           "querySourceType": "Table",
+                           "querySourceId": "205c0e5f-fff8-409b-a54a-b6687619486d",
+                           "alias": "ShipPostalCode",
+                           "position": 1,
+                           "visible": true,
+                           "required": false,
+                           "cascading": true,
+                           "operatorId": "737307d1-1e5f-407f-889f-1b3c9a66dd6f",
+                           "value": "",
+                           "sortType": "ASC",
+                           "fontBold": false,
+                           "fontItalic": false,
+                           "fontUnderline": false,
+                           "state": 1,
+                           "dateTimeNow": "",
+                           "isParameter": false,
+                           "sourceDataObjectFullName": "Northwind-BA.dbo.Orders",
+                           "selected": true,
+                           "uniqueId": "42",
+                           "isInheritableFilter": false
+                        }],
+                        "id": "0a1a5771-dbe9-4148-9d2f-f79a4c83b962",
+                        "reportId": "968a482b-bda8-4650-b09a-bf35b4d734b3"
+                     },
+                     "reportPart": [],
+                     "version": 0,
+                     "schedules": [],
+                     "ownerId": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                     "accesses": [],
+                     "dynamicQuerySourceFields": [],
+                     "snapToGrid": false,
+                     "isGlobal": false
+                  },
+                  "expandedLevel": 0,
+                  "reportState": 0
+               },
+               "includeAll": false,
+               "includeBlank": true,
+               "criteria": [{
+                  "key": "filter"
+               }]
+            }
+
+   Response::
+
+      {
+         "result": [
+            "[BLANK]",
+            "[NULL]",
+            "02389-673",
+            "82520",
+            "83720",
+            "PO31 7PJ",
+            "T2F 8M4",
+            "V3F 2K1"
+         ],
+         "pageIndex": 0,
+         "pageSize": 100,
+         "total": 8,
+         "skipItems": 0,
+         "isLastPage": true
+      }
 
 POST report/loadPartialFilterFieldDataAsTree
 --------------------------------------------------------------
@@ -5283,7 +5439,146 @@ Returns paged data source field data in a hierarchy for Equivalence operators in
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/loadPartialFilterFieldDataAsTree HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample Response:
+
+      .. code-block:: json
+
+         {
+            "result": [
+               {
+                     "nodes": [
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "[Blank]",
+                           "value": "[Blank]",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "[Null]",
+                           "value": "[Null]",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "02389-673",
+                           "value": "02389-673",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "82520",
+                           "value": "82520",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "83720",
+                           "value": "83720",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "PO31 7PJ",
+                           "value": "PO31 7PJ",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "T2F 8M4",
+                           "value": "T2F 8M4",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        },
+                        {
+                           "nodes": [],
+                           "parent": null,
+                           "id": 0,
+                           "text": "V3F 2K1",
+                           "value": "V3F 2K1",
+                           "numOfChilds": 0,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false
+                        }
+                     ],
+                     "parent": null,
+                     "id": 0,
+                     "text": "[All]",
+                     "value": "[All]",
+                     "numOfChilds": 30,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "isCheck": false
+               }
+            ],
+            "pageIndex": 0,
+            "pageSize": 100,
+            "total": 0,
+            "skipItems": 0,
+            "isLastPage": false
+         }
+
 
 POST report/loadAllFilterFieldsData
 ------------------------------------------------

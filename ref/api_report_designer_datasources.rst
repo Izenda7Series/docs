@@ -579,7 +579,51 @@ Detects if any relationship should be removed because of changes in data sources
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/report/detectRelationshipsChange HTTP/1.1
+
+   Request payload::
+
+      {
+         "objectId": "9197f210-766a-45d3-a1f9-5c4f4a4aa8ba",
+         "criteria": [
+            {
+               "key": "All",
+               "value": "",
+               "operation": 1
+            }
+         ],
+         "pageIndex": 1,
+         "pageSize": 1000,
+         "querySources": [
+            {
+               "querySourceId": "d38e8059-6b7e-49a7-be68-ec02d2b42168",
+               "selected": true,
+               "physicalChange": 0,
+               "state": 1
+            },
+            {
+               "querySourceId": "205c0e5f-fff8-409b-a54a-b6687619486d",
+               "selected": true,
+               "physicalChange": 0,
+               "state": 1
+            },
+            {
+               "querySourceId": "ec580d6d-709a-41fd-b71e-489795e7428f",
+               "selected": true,
+               "physicalChange": 2,
+               "state": 1
+            }
+         ],
+         "relationshipOrders": [],
+         "tenantId": null,
+         "selectedDataSourceChanged": true
+      }
+
+   Response::
+
+   false
 
 .. _POST_report/availableQuerySourceFields:
 
