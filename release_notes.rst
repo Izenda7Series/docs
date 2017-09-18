@@ -7,6 +7,28 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v.2.4.3 September 18, 2017
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18368  Stored Procedure Lookups are Failing when Key and Value are different data types
+-  Defect  18346  New Chrome release Version 61.0.3163.79 causes issues in rendering charts, maps and gauges.
+-  Defect  18332  Relationships order is changeduser goes back to data source from report viewer when self join is created. 
+-  Defect  18319  Grid does not export, print or show in emailed items when some fields are hidden a grid
+-  Defect  18309  Latitude & longitude do not work on any map report parts.
+-  Defect  18287  Existing Users Can Be Modified to have User IDs that are already in use
+-  Defect  18268  When adding a date field to the x axis of any gauge and using M/d/yyyy format the year of the date is displayed incorrectly.
+-  Defect  18267  Using Calculated Field for subreport field mapping Breaks and does not show proper subreport values
+-  Defect  18256  Javascript declarations were being deleted upon using the visual tab.
+-  Defect  18209  Scatter chart labels are shown incorrectly, value label is shown as label and label for y axis
+-  Defect  18074  Subtotals of side total on Pivot grids is incorrect 
+-  Defect  18073  Side Total in Pivot Are not calculating properly
+-  Defect  18023  System shows blank value on filter value for parameter of stored procedure on Schedules/Subscriptions after saving
+-  Defect  17991  APIs - License - User can get Izenda "License Key and Token" by sending request to "api/License/currenttoken"
+-  Defect  17744  User is able to add duplicate database mappings and save. System should not allow duplicate mappings.
+-  Defect  17554  SubReport link from printed PDF and embedded email shows blank page when clicked by user.
+
 v.2.4.2 September 11, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
