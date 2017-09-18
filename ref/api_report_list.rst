@@ -2324,13 +2324,11 @@ Removes all archived versions of all reports.
 
       POST /api/report/deleteAllArchiveVersions HTTP/1.1
 
-   Sample response in case user has  System Admin Permission
-   Response::
+   Sample response in case user has  System Admin Permission::
 
       true
 
-   Sample response in case user does not have System Admin Permission
-   Response::
+   Sample response in case user does not have System Admin Permission::
 
     {
       "message" : "You don't have permission to perform this action",

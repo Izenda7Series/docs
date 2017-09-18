@@ -55,7 +55,7 @@ Summary
 
           Will be renamed to securityQuestions
      - User section in page header > My Profile > Security Options > Change Security Options > Save
-   * - POST user/password
+   * - `POST user/password`_
      - Saves password for a user.
 
        .. note::
@@ -131,114 +131,118 @@ Returns an array of users, filtered by tenant_id if available.
 
       GET /api/user/all HTTP/1.1
 
-   Sample response::
+   .. container:: toggle
 
-      [{
-           "password" : null,
-           "roles" : [],
-           "userName" : "Anna",
-           "emailAddress" : null,
-           "firstName" : "An",
-           "lastName" : "Na",
-           "passwordHash" : null,
-           "passwordSalt" : null,
-           "currentTokenHash" : null,
-           "tenantId" : null,
-           "active" : false,
-           "deleted" : false,
-           "dataOffset" : 0,
-           "timestampOffset" : 0,
-           "fullName" : "An Na",
-           "id" : "9f58703e-0dff-4690-9dc6-c595a6fd84e5",
-           "state" : 0,
-           "inserted" : true,
-           "version" : 1,
-           "created" : null,
-           "createdBy" : null,
-           "modified" : null,
-           "modifiedBy" : null
-        }, {
-           "password" : null,
-           "roles" : [{
-                 "name" : "Singer",
-                 "tenantId" : null,
-                 "active" : false,
-                 "deleted" : false,
-                 "permissionData" : "",
-                 "querySourceFields" : "",
-                 "id" : "0d030b1a-9568-4c98-8b1e-5dcc94dbd283",
-                 "state" : 0,
-                 "inserted" : true,
-                 "version" : 1,
-                 "created" : null,
-                 "createdBy" : null,
-                 "modified" : null,
-                 "modifiedBy" : null
-              }
-           ],
-           "userName" : "Member1",
-           "emailAddress" : "justin@thisispopstart.com",
-           "firstName" : "Justin",
-           "lastName" : "Timber",
-           "passwordHash" : null,
-           "passwordSalt" : null,
-           "currentTokenHash" : null,
-           "tenantId" : null,
-           "active" : false,
-           "deleted" : false,
-           "dataOffset" : 0,
-           "timestampOffset" : 0,
-           "fullName" : "Justin Timber",
-           "id" : "9f58703e-0dff-4690-9dc6-c595a6fd84e3",
-           "state" : 0,
-           "inserted" : true,
-           "version" : 1,
-           "created" : null,
-           "createdBy" : null,
-           "modified" : null,
-           "modifiedBy" : null
-        }, {
-           "password" : null,
-           "roles" : [{
-                 "name" : "Analyst",
-                 "tenantId" : null,
-                 "active" : false,
-                 "deleted" : false,
-                 "permissionData" : "",
-                 "querySourceFields" : "",
-                 "id" : "0d030b1a-9568-4c98-8b1e-5dcc94dbd281",
-                 "state" : 0,
-                 "inserted" : true,
-                 "version" : 1,
-                 "created" : null,
-                 "createdBy" : null,
-                 "modified" : null,
-                 "modifiedBy" : null
-              }
-           ],
-           "userName" : "User1",
-           "emailAddress" : "katty@email.com",
-           "firstName" : "Katty",
-           "lastName" : "Doe",
-           "passwordHash" : null,
-           "passwordSalt" : null,
-           "currentTokenHash" : null,
-           "tenantId" : null,
-           "active" : false,
-           "deleted" : false,
-           "dataOffset" : 0,
-           "timestampOffset" : 0,
-           "fullName" : "Katty Doe",
-           "id" : "9f58703e-0dff-4690-9dc6-c595a6fd84e1",
-           "state" : 0,
-           "inserted" : true,
-           "version" : 1,
-           "created" : null,
-           "createdBy" : null,
-           "modified" : null,
-           "modifiedBy" : null
-        }
-      ]
+      .. container:: header
+      
+         Sample Response:
+
+      .. code-block:: json
+
+         [
+            {
+               "password": null,
+               "roles": [],
+               "userRoles": null,
+               "userSecurityQuestions": null,
+               "status": 1,
+               "issueDate": "0001-01-01T00:00:00",
+               "autoLogin": false,
+               "newPassword": null,
+               "userName": "johndoe@system.com",
+               "emailAddress": "johndoe@system.com",
+               "firstName": "John",
+               "lastName": "Doe",
+               "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+               "tenantDisplayId": null,
+               "tenantName": null,
+               "dataOffset": null,
+               "timestampOffset": null,
+               "initPassword": false,
+               "active": true,
+               "retryLoginTime": null,
+               "lastTimeAccessed": null,
+               "passwordLastChanged": null,
+               "locked": null,
+               "lockedDate": null,
+               "cultureName": null,
+               "securityQuestionLastChanged": null,
+               "dateFormat": "MM/DD/YYYY",
+               "systemAdmin": false,
+               "notAllowSharing": false,
+               "numberOfFailedSecurityQuestion": null,
+               "fullName": "John Doe",
+               "currentModules": null,
+               "id": "f6923261-b8bf-4f7a-a5a6-7d7ca61d8ccb",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": 1,
+               "created": "2017-09-08T07:54:22.597",
+               "createdBy": "$RootAdmin$",
+               "modified": "2017-09-08T07:54:22.597",
+               "modifiedBy": "$RootAdmin$"
+            },
+            {
+               "password": null,
+               "roles": [
+                     {
+                        "name": "Manager",
+                        "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                        "active": true,
+                        "notAllowSharing": false,
+                        "id": "d256d058-aeb7-468f-9f95-962d65979707",
+                        "state": 0,
+                        "deleted": false,
+                        "inserted": true,
+                        "version": 4,
+                        "created": "2017-09-08T07:11:11.24",
+                        "createdBy": "$RootAdmin$",
+                        "modified": "2017-09-15T07:12:01.527",
+                        "modifiedBy": null
+                     }
+               ],
+               "userRoles": null,
+               "userSecurityQuestions": null,
+               "status": 1,
+               "issueDate": "0001-01-01T00:00:00",
+               "autoLogin": false,
+               "newPassword": null,
+               "userName": "Acme@system.com",
+               "emailAddress": "acme@system.com",
+               "firstName": "Anna",
+               "lastName": "Belle",
+               "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+               "tenantDisplayId": null,
+               "tenantName": null,
+               "dataOffset": null,
+               "timestampOffset": null,
+               "initPassword": false,
+               "active": true,
+               "retryLoginTime": null,
+               "lastTimeAccessed": null,
+               "passwordLastChanged": null,
+               "locked": null,
+               "lockedDate": null,
+               "cultureName": null,
+               "securityQuestionLastChanged": null,
+               "dateFormat": "MM/DD/YYYY",
+               "systemAdmin": false,
+               "notAllowSharing": false,
+               "numberOfFailedSecurityQuestion": null,
+               "fullName": "Poke Pippi",
+               "currentModules": null,
+               "id": "14fbf9ac-2d7b-41e9-a272-dd51e161914d",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": 2,
+               "created": "2017-09-15T07:12:01.74",
+               "createdBy": "$RootAdmin$",
+               "modified": "2017-09-15T07:26:29.357",
+               "modifiedBy": "$RootAdmin$"
+            }
+         ]
 
 POST user/all
 --------------------------------------------------------------
@@ -259,6 +263,18 @@ Returns an array of users by tenant.
 
       POST /api/user/all HTTP/1.1
 
+   Request Payload::
+
+      {
+         "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+         "skipItems": 0,
+         "pageSize": 100,
+         "criteria": [{
+            "key": "FullName",
+            "value": null
+         }]
+      }
+
    Sample response::
 
       {
@@ -268,50 +284,50 @@ Returns an array of users by tenant.
                   "roles": [],
                   "userRoles": null,
                   "userSecurityQuestions": null,
-                  "status": 3,
+                  "status": 1,
                   "issueDate": "0001-01-01T00:00:00",
                   "autoLogin": false,
                   "newPassword": null,
-                  "userName": "acme",
-                  "emailAddress": "acme@system.com",
-                  "firstName": "Acme",
-                  "lastName": "Yolo123",
-                  "tenantId": null,
+                  "userName": "pokemon@system.com",
+                  "emailAddress": "pokemon@system.com",
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
                   "tenantDisplayId": null,
                   "tenantName": null,
-                  "dataOffset": 0,
-                  "timestampOffset": 0,
+                  "dataOffset": null,
+                  "timestampOffset": null,
                   "initPassword": false,
-                  "active": false,
-                  "retryLoginTime": 0,
+                  "active": true,
+                  "retryLoginTime": null,
                   "lastTimeAccessed": null,
                   "passwordLastChanged": null,
-                  "locked": false,
+                  "locked": null,
                   "lockedDate": null,
-                  "cultureName": "en-US",
+                  "cultureName": null,
                   "securityQuestionLastChanged": null,
                   "dateFormat": "MM/DD/YYYY",
-                  "systemAdmin": true,
+                  "systemAdmin": false,
                   "notAllowSharing": false,
-                  "numberOfFailedSecurityQuestion": 0,
-                  "fullName": "Acme Yolo123",
+                  "numberOfFailedSecurityQuestion": null,
+                  "fullName": "John Doe",
                   "currentModules": null,
-                  "id": "1fbb3ab5-4198-4855-b49d-572658043fa9",
+                  "id": "f6923261-b8bf-4f7a-a5a6-7d7ca61d8ccb",
                   "state": 0,
                   "deleted": false,
                   "inserted": true,
-                  "version": 5,
-                  "created": "2017-09-01T03:22:14.383",
-                  "createdBy": "System5 Admin5",
-                  "modified": "2017-09-08T08:32:51.043",
-                  "modifiedBy": "System5 Admin5"
+                  "version": 1,
+                  "created": "2017-09-08T07:54:22.597",
+                  "createdBy": "$RootAdmin$",
+                  "modified": "2017-09-08T07:54:22.597",
+                  "modifiedBy": "$RootAdmin$"
             }
          ],
          "pageIndex": 1,
-         "pageSize": 10,
+         "pageSize": 100,
          "total": 1,
          "skipItems": 0,
-         "isLastPage": false
+         "isLastPage": true
       }
 
 POST user/load
@@ -1592,6 +1608,54 @@ Saves security questions for a user.
          }
          }
 
+POST user/password
+--------------------------------------------------------------
+
+Saves password for a user.
+
+**Request**
+
+    A :doc:`models/UserDetail` object.
+
+**Response**
+
+    The updated :doc:`models/OperationResult` object.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/user/password HTTP/1.1
+
+   Simple Request Payload::
+
+      {
+         "password": "P4@ssW0rd",
+         "userSecurityQuestions": null,
+         "newPassword": "P1k@P1k@123",
+         "userName": "acme@system.com",
+         "emailAddress": "ecme@system.com",
+         "firstName": "John",
+         "lastName": "Doe",
+         "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+         "id":"88ca2835-81e0-443b-b29e-e694a66b8e7a"
+      }
+
+   Sample Response::
+
+      {
+         "success": true,
+         "messages": null,
+         "data": {
+            "token": "",
+            "tenant": null,
+            "cultureName": null,
+            "dateFormat": null,
+            "systemAdmin": false,
+            "isExpired": false,
+            "notifyDuringDay": null
+         }
+      }
 
 POST user/active
 --------------------------------------------------------------
@@ -2232,8 +2296,65 @@ Adds or updates external user.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
 
+      POST /api/user/integration/saveUser HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+      
+         Request Payload:
+
+      .. code-block:: json
+
+         {
+            "password": "123",
+            "roles": [],
+            "userRoles": null,
+            "userSecurityQuestions": null,
+            "status": 1,
+            "issueDate": "0001-01-01T00:00:00",
+            "autoLogin": false,
+            "newPassword": null,
+            "userName": "yolo@system.com",
+            "emailAddress": "yolo@system.com",
+            "firstName": "John",
+            "lastName": "Doe",
+            "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+            "tenantDisplayId": null,
+            "tenantName": null,
+            "dataOffset": null,
+            "timestampOffset": null,
+            "initPassword": false,
+            "active": true,
+            "retryLoginTime": null,
+            "lastTimeAccessed": null,
+            "passwordLastChanged": null,
+            "locked": null,
+            "lockedDate": null,
+            "cultureName": null,
+            "securityQuestionLastChanged": null,
+            "dateFormat": "MM/DD/YYYY",
+            "systemAdmin": false,
+            "notAllowSharing": false,
+            "numberOfFailedSecurityQuestion": null,
+            "fullName": "John Doe",
+            "currentModules": null,
+            "id": null,
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": 1,
+            "created": null,
+            "createdBy": null,
+            "modified": null,
+            "modifiedBy": null
+         }
+
+   Sample Response::
+
+      true
 
 POST user/validateUserRoleAssociation
 --------------------------------------------------------------
@@ -2251,7 +2372,21 @@ Validates user and role association after some roles are removed.
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
+
+      POST /api/user/validateUserRoleAssociation HTTP/1.1
+
+   Request payload::
+
+      {
+         "userId": "14fbf9ac-2d7b-41e9-a272-dd51e161914d",
+         "removedRoleIds": ["d256d058-aeb7-468f-9f95-962d65979707"],
+         "addedRoleIds": []
+      }
+
+   Sample Response::
+
+      true
 
 POST user/allowedSharingUsers/(tenant_id)
 --------------------------------------------------------------

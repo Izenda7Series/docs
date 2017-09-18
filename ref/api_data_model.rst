@@ -1989,13 +1989,20 @@ Saves an array of database mappings.
          }
       ]
 
-   Sample response::
+   Sample response in case user has System Admin Permission::
 
       {
          "success":true
          "messages" : [],
          "data" : null
       }
+
+   Sample response in case user does not have System Admin Permission::
+
+    {
+      "message" : "You don't have permission to perform this action",
+      "detail" : "NoPermission"
+    }
 
 POST dataModel/loadDatabaseNames
 --------------------------------------------------------------

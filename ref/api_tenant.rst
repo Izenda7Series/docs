@@ -130,7 +130,7 @@ Returns the tenant specified by tenant_id.
 
    .. code-block:: http
 
-      POST /api/tenant/e4c784eb-3e41-4849-925c-a9094b73dfb7 HTTP/1.1
+      GET /api/tenant/e4c784eb-3e41-4849-925c-a9094b73dfb7 HTTP/1.1
 
    .. container:: toggle
 
