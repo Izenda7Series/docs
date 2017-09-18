@@ -1411,9 +1411,6 @@ Known Issues
      - 18257
      - Schema query which pulls data to data model should include database name in where clause based on given database from connection string.
    * - Defect
-     - 18256
-     - Javascript declarations were being deleted upon using the visual tab.
-   * - Defect
      - 18249
      - Error in IE/IE Edge with params of datetime used in URL with integrated Angular environment.
    * - Defect
