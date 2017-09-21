@@ -22,7 +22,7 @@ Deployment Mode 3 refers to a fully integrated front end and back end.
 * `MVC 5 Starter Kit Fully Integrated <https://github.com/Izenda7Series/Mvc5StarterKit>`_
 
   * `Installation Video <https://www.izenda.com/7-series-installation-videos/#mvc5starter>`_
-  * `MVC 5 Starter Kit Contents < https://www.izenda.com/docs/dev/code_mvc5starterkit.html>`_
+  * `MVC 5 Starter Kit Contents <https://www.izenda.com/docs/dev/code_mvc5starterkit.html>`_
 
 * `Webforms Starter Kit <https://github.com/Izenda7Series/WebFormsStarterkit>`_ 
 
