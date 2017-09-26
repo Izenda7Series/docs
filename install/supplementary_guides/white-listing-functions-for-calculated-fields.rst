@@ -9,8 +9,11 @@ Introduction
 
 Izenda allows users to white-list SQL functions for calculated fields. This allows the use of native SQL functions supported by database type, which are not available in Izenda out of the box. This is accomplished by configuring and deploying a custom config file.
 
-The following are some examples (not all encompassing) of aggregated functions which should not be white-listed (the only supported aggregated functions are already included within Izenda): 
+Sample of Unsupported Functions
+``````````````````````````````
+The following are some examples (not all encompassing) of functions which should not be white-listed.
 
+Aggregated Functions (the only supported aggregated functions are already included within Izenda):
 -  STDEV
 -  STDEVP
 -  VAR
@@ -20,6 +23,45 @@ The following are some examples (not all encompassing) of aggregated functions w
 -  VAR_SAMP
 -  VARIANCE
 -  RANK
+|
+
+Functions Using the "Over" Clause:
+-  CUME_DIST
+-  FIRST_VALUE
+-  LAG
+-  LAST_VALUE
+-  LEAD
+-  PERCENTILE_CONT
+-  PERCENTILE_DISC
+-  PERCENT_RANK
+|
+
+Functions Using the "Order" Clause:
+- STRING_AGG
+|
+
+Return types that are not found Izenda:
+- DATETIME2FROMPARTS (returns datetime2 value)
+- DATETIMEOFFSETFROMPARTS (returns datetimeoffset value)
+- SMALLDATETIMEFROMPARTS (returns smalldatetime)
+- SWITCHOFFSET (returns datetimeoffset)
+- TIMEFROMPARTS (returns time)
+- TODATETIMEOFFSET (returns datetimeoffset)
+
+Sample of Supported Functions
+``````````````````````````````
+- FORMAT
+- PARSE
+- TRY_CAST
+- TRY_CONVERT
+- TRY_PARSE
+- DATEDIFF_BIG
+- DATENAME
+|
+
+Optional/Variable Number of Parameters:
+- CHOOSE
+- STR
 |
 
 Installation & Configuration
