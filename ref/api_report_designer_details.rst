@@ -19,7 +19,7 @@ Summary
 
 .. list-table::
    :class: apitable
-   :widths: 25 45 30
+   :widths: 25 40 35
    :header-rows: 1
 
    * - API
@@ -31,10 +31,10 @@ Summary
        \- Report List > Expand a report > Copy/Move > Category
    * - `POST report/allowedSavingCategories`_
      - Returns an array of allowed saving categories for Report, with total number of items.
-     - To be updated
+     - Not used
    * - `POST report/allowedSavingSubCategories`_
      - Returns an array of allowed saving sub-categories for Report, with total number of items.
-     - To be updated
+     - Not used
    * - `GET report/subcategory/{parent\_category\_id}`_
      - Returns an array of allowed saving sub-categories under the Report category specified by parent_category_id.
      - \- Report Designer > Save (As) > Category > Sub-category |br|
@@ -101,7 +101,7 @@ Summary
      - Report Designer
    * - `POST report/reportMode/{value}`_
      - Sets the report mode to Simple or Advanced.
-     - To be updated
+     - Not used
    * - `POST report/detectReportChange`_
      - Verifies that all report details are up to date, without physical changes, and valid.
      - Report Designer, when switching between Data Source, Fields, Format.. sections
@@ -120,7 +120,10 @@ Summary
        \- Report Designer > Update Result
    * - `POST report/updateResults`_
      - Updates the report data model.
-     - Report Designer > Update Result when there are schema changes
+     - 
+       \- Create a report, in Data Source tab, choose a dynamic Store Procedure |br|
+       \- Input parameter values |br|
+       \- Click **Update Result** button
    * - `POST report/loadAccesses`_
      - Returns a list of all accesses.
      - Report Designer > Access
@@ -154,7 +157,7 @@ Summary
        \- Dashboard Viewer
    * - `POST report/areReportsValid`_
      - Validates if reports are valid.
-     - To be updated
+     - Not used
    * - `POST report/printDraft`_
      - Saves report as draft and print.
      - Report Designer > Export - to allow printing unsaved changes
@@ -163,23 +166,21 @@ Summary
      - To be updated
    * - `GET report/accessPriority/(report\_dashboard\_id)`_
      - Returns access priority for report/dashboard.
-     - To be updated
-   * - `POST report/timePeriod`_
-     - Saves a customed InTimePeriod.
-     - Not used
-   * - `DELETE report/timePeriod/{time_period_id}`_
-     - Deletes the customed InTimePeriod specified by time_period_id.
-     - Not used
+     - Open a report in Design mode OR open a dashboard
    * - `GET report/reportPart/crossfiltering/{report_part_id}`_
      - Returns a list of ids of cross-filtering report parts in the same report as the specified report part, including itself.
 
        .. versionadded:: 2.0.6
-     - To be updated
+     - Not used
    * - `GET report/validateEmbeddedReport/(tenant_id)?reportId=value&reportName=value&reportPartName=value`_
      - Validates that logged in user can access one and only one report part from the specified reportName and reportPartName.
 
        .. versionadded:: 2.2.2
-     - To be updated
+     - 
+       \- Create a Form report part |br|
+       \- Drag and drop a field to the container |br|
+       \- In Report Part Properties tab, choose Embedded Report Settings, choose a report and report part |br|
+       \- Switch to preview mode OR Save the report and switch to Report Viewer
 
 GET report/category/{type}/(tenant\_id)
 ---------------------------------------
@@ -259,23 +260,6 @@ Returns an array of allowed saving categories for report, with total number of i
                array of objects
             -  An array of :doc:`models/Category` objects
             -
-         *  -  **totalItems** |br|
-               string
-            -  The number of all reports
-            -
-         *  -  **numOfChilds** |br|
-               integer
-            -  The number of children
-            -
-         *  -  **numOfCheckedChilds** |br|
-               integer
-            -  The number of selected children
-            -
-         *  -  **indeterminate** |br|
-               boolean
-            -  *  true if 0 < numOfCheckedChilds < numOfChilds
-               *  false if not
-            -
          *  -  **isLastPage** |br|
                boolean
             -  Whether this is the last page
@@ -287,7 +271,81 @@ Returns an array of allowed saving categories for report, with total number of i
 
       POST /api/report/allowedSavingCategories HTTP/1.1
 
-   To be updated
+   Sample Request Payload::
+
+      {
+         "tenantId" : null,
+         "isUncategorized" : false,
+         "criterias" : [],
+         "ParentIds" : ["5ca51cd0-1f63-44ca-9711-ba6c988a520a"]
+      }
+
+   Sample Response::
+
+      {
+         "data": [
+            {
+                  "name": "Category01",
+                  "type": 0,
+                  "parentId": null,
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": "f93c0770-9629-41ee-9ac2-48e4c89fc2d0",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "System5 Admin5",
+                  "modified": null,
+                  "modifiedBy": null
+            },
+
+            {
+                  "name": "Category02",
+                  "type": 0,
+                  "parentId": null,
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "System5 Admin5",
+                  "modified": null,
+                  "modifiedBy": null
+            }
+         ],
+         "isLastPage": true
+      }
 
 POST report/allowedSavingSubCategories
 --------------------------------------------------------------
@@ -334,7 +392,80 @@ Returns an array of allowed saving sub-categories for report, with total number 
 
       POST /api/report/allowedSavingSubCategories HTTP/1.1
 
-   To be updated
+   Sample Request Payload::
+
+      {
+      "tenantId" : "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+      "isUncategorized" : false,
+      "criterias" : [],
+      "ParentIds" : ["5ca51cd0-1f63-44ca-9711-ba6c988a520a"]
+      }
+
+   Sample Response::
+
+      {
+         "data": [
+            {
+                  "name": "SubCategory02",
+                  "type": 0,
+                  "parentId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": "0e771076-c385-4c1f-a10d-a89c2b473405",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "System5 Admin5",
+                  "modified": null,
+                  "modifiedBy": null
+            },
+            {
+                  "name": "SubCategory02",
+                  "type": 0,
+                  "parentId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": "f432f63a-92f4-4b9d-8d1f-1433c5f323f8",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "System5 Admin5",
+                  "modified": null,
+                  "modifiedBy": null
+            }
+         ],
+         "isLastPage": true
+      }
 
 GET report/subcategory/{parent\_category\_id}
 ---------------------------------------------
@@ -509,19 +640,17 @@ Returns the list of categories in parent-child hierarchy, with total number of i
 
    Sample response::
 
-     {
-       "data": [
-         {
-           "name": "Local Categories",
-           "type": 0,
-           "parentId": null,
-           "tenantId": null,
-           "isGlobal": false,
-           "canDelete": false,
-           "editable": false,
-           "savable": false,
-           "subCategories": [
-             {
+      {
+         "data": [{
+            "name": "Local Categories",
+            "type": 0,
+            "parentId": null,
+            "tenantId": null,
+            "isGlobal": false,
+            "canDelete": false,
+            "editable": false,
+            "savable": false,
+            "subCategories": [{
                "name": "CN",
                "type": 0,
                "parentId": null,
@@ -549,34 +678,32 @@ Returns the list of categories in parent-child hierarchy, with total number of i
                "createdBy": "John Doe",
                "modified": null,
                "modifiedBy": null
-             }
-           ],
-           "checked": false,
-           "reports": [],
-           "dashboards": [],
-           "numOfChilds": 1,
-           "numOfCheckedChilds": 0,
-           "indeterminate": false,
-           "fullPath": null,
-           "computeNameSettings": null,
-           "isCheck": false,
-           "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
-           "state": 0,
-           "deleted": false,
-           "inserted": true,
-           "version": null,
-           "created": null,
-           "createdBy": "John Doe",
-           "modified": null,
-           "modifiedBy": null
-         }
-        ],
-      "totalItems": 2,
-      "numOfChilds": 1,
-      "numOfCheckedChilds": 0,
-      "indeterminate": false,
-      "isLastPage": true
-   }
+            }],
+            "checked": false,
+            "reports": [],
+            "dashboards": [],
+            "numOfChilds": 1,
+            "numOfCheckedChilds": 0,
+            "indeterminate": false,
+            "fullPath": null,
+            "computeNameSettings": null,
+            "isCheck": false,
+            "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": "John Doe",
+            "modified": null,
+            "modifiedBy": null
+         }],
+         "totalItems": 2,
+         "numOfChilds": 1,
+         "numOfCheckedChilds": 0,
+         "indeterminate": false,
+         "isLastPage": true
+      }
 
 
 POST report/category
@@ -676,6 +803,7 @@ Removes the report category specified by report_category_id.
             "messages" : ["This category (or its sub-category) containing report(s)."]
           }
         ]
+        "data" : null
       }
 
 
@@ -1426,7 +1554,7 @@ Returns all report categories together with the reports inside.
 
    .. code-block:: http
 
-      GET /api/report HTTP/1.1
+      GET /api/report/b5b3a5cc-9e55-424c-ae85-ba92ec3b934e HTTP/1.1
 
    .. container:: toggle
 
@@ -1436,96 +1564,116 @@ Returns all report categories together with the reports inside.
 
       .. code-block:: json
 
-         [
-           {
-             "reports": [],
-             "name": null,
-             "type": 0,
-             "parentId": null,
-             "tenantId": null,
-             "canDelete": false,
-             "editable": false,
-             "savable": false,
-             "subCategories": [
-               {
-                 "reports": [
-                   {
-                     "name": "Example Report Name",
-                     "type": 0,
-                     "previewRecord": 0,
-                     "advancedMode": false,
-                     "allowNulls": false,
-                     "isDistinct": false,
-                     "categoryId": null,
-                     "categoryName": null,
-                     "subCategoryId": null,
-                     "subCategoryName": null,
-                     "tenantId": "00000000-0000-0000-0000-000000000000",
-                     "tenantName": null,
-                     "description": null,
-                     "title": null,
-                     "lastViewed": null,
-                     "owner": null,
-                     "ownerId": null,
-                     "excludedRelationships": null,
-                     "numberOfView": 0,
-                     "renderingTime": 0,
-                     "createdById": null,
-                     "modifiedById": null,
-                     "snapToGrid": false,
-                     "usingFields": null,
-                     "hasDeletedObjects": false,
-                     "header": null,
-                     "footer": null,
-                     "titleDescription": null,
-                     "exportFormatSetting": null,
-                     "deletable": false,
-                     "editable": false,
-                     "movable": false,
-                     "copyable": false,
-                     "accessPriority": 0,
-                     "active": false,
-                     "id": "b166877f-bf1f-4adc-9dac-7575dd5e5183",
-                     "state": 0,
-                     "deleted": false,
-                     "inserted": true,
-                     "version": 0,
-                     "created": null,
-                     "createdBy": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
-                     "modified": null,
-                     "modifiedBy": null
-                   }
-                 ],
-                 "name": null,
-                 "type": 0,
-                 "parentId": null,
-                 "tenantId": null,
-                 "canDelete": false,
-                 "editable": false,
-                 "savable": false,
-                 "subCategories": [],
-                 "id": null,
-                 "state": 0,
-                 "deleted": false,
-                 "inserted": true,
-                 "version": null,
-                 "created": null,
-                 "createdBy": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
-                 "modified": null,
-                 "modifiedBy": null
-               }
-             ],
-             "id": null,
-             "state": 0,
-             "deleted": false,
-             "inserted": true,
-             "version": null,
-             "created": null,
-             "createdBy": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
-             "modified": null,
-             "modifiedBy": null
-           }
-         ]
+         [{
+            "name": "ACME",
+            "type": 1,
+            "parentId": null,
+            "tenantId": null,
+            "isGlobal": false,
+            "canDelete": false,
+            "editable": false,
+            "savable": false,
+            "subCategories": [{
+               "name": null,
+               "type": 1,
+               "parentId": "2b3f5a54-a719-41a9-a475-91e0353a4771",
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": [{
+                  "name": "Example",
+                  "reportDataSource": [],
+                  "type": 0,
+                  "previewRecord": 0,
+                  "advancedMode": false,
+                  "allowNulls": false,
+                  "isDistinct": false,
+                  "categoryId": "2b3f5a54-a719-41a9-a475-91e0353a4771",
+                  "categoryName": null,
+                  "subCategoryId": null,
+                  "subCategoryName": null,
+                  "tenantId": "00000000-0000-0000-0000-000000000000",
+                  "tenantName": null,
+                  "description": null,
+                  "title": null,
+                  "lastViewed": null,
+                  "owner": null,
+                  "ownerId": null,
+                  "excludedRelationships": null,
+                  "numberOfView": 0,
+                  "renderingTime": 0,
+                  "createdById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                  "modifiedById": null,
+                  "snapToGrid": false,
+                  "usingFields": null,
+                  "hasDeletedObjects": false,
+                  "header": null,
+                  "footer": null,
+                  "titleDescription": null,
+                  "sourceId": null,
+                  "checked": false,
+                  "copyDashboard": false,
+                  "exportFormatSetting": null,
+                  "deletable": false,
+                  "editable": false,
+                  "movable": false,
+                  "copyable": false,
+                  "accessPriority": 0,
+                  "active": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isGlobal": false,
+                  "isCheck": false,
+                  "id": "f4d5aa24-7ed3-49f4-8c4b-e274ced11191",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": 0,
+                  "created": null,
+                  "createdBy": "ACME Cooperation",
+                  "modified": null,
+                  "modifiedBy": null
+               }],
+               "dashboards": null,
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "isCheck": false,
+               "id": null,
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "ACME Cooperation",
+               "modified": null,
+               "modifiedBy": null
+            }],
+            "checked": false,
+            "reports": [],
+            "dashboards": null,
+            "numOfChilds": 0,
+            "numOfCheckedChilds": 0,
+            "indeterminate": false,
+            "fullPath": null,
+            "computeNameSettings": null,
+            "isCheck": false,
+            "id": "2b3f5a54-a719-41a9-a475-91e0353a4771",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": "ACME Cooperation",
+            "modified": null,
+            "modifiedBy": null
+         }]
 
 POST report/validateReportName
 ---------------------------------------
@@ -1655,19 +1803,23 @@ Searches for reports.
    Request payload::
 
       {
-          "criterias" : [{
-              "key" : "All",
-              "value" : "fil"
-            }
-          ],
-          "isUncategorized" : false,
-          "sortCriteria" : {
-            "key" : "ReportName",
-            "descending" : false
-          },
-          "tenantId" : null,
-          "type" : "0"
-     }
+         "criterias": [{
+            "key": "Category",
+            "value": "ACME"
+         }],
+         "isUncategorized": false,
+         "sortCriteria": {
+            "key": "ReportName",
+            "descending": false
+         },
+         "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+         "type": "0",
+         "skipItems": 0,
+         "pageSize": 100,
+         "parentIds": [],
+         "includeGlobalCategory": true,
+         "isGlobal": null
+      }
 
    .. container:: toggle
 
@@ -1678,119 +1830,114 @@ Searches for reports.
       .. code-block:: json
 
          [{
-            "reports" : [],
-            "name" : "0",
-            "type" : 0,
-            "parentId" : null,
-            "tenantId" : null,
-            "canDelete" : false,
-            "savable" : false,
-            "subCategories" : [{
-                "reports" : [{
-                    "name" : "filter",
-                    "type" : 0,
-                    "previewRecord" : 0,
-                    "advancedMode" : false,
-                    "allowNulls" : false,
-                    "isDistinct" : false,
-                    "categoryId" : "8da86160-ab16-4f4b-a439-729c8b82b1c6",
-                    "categoryName" : null,
-                    "subCategoryId" : "6dee7a46-cfab-477a-a952-be4471eab1a0",
-                    "subCategoryName" : null,
-                    "tenantId" : "00000000-0000-0000-0000-000000000000",
-                    "tenantName" : null,
-                    "description" : "",
-                    "title" : null,
-                    "lastViewed" : null,
-                    "owner" : null,
-                    "ownerId" : null,
-                    "headerContent" : null,
-                    "footerContent" : null,
-                    "excludedRelationships" : null,
-                    "numberOfView" : 0,
-                    "renderingTime" : 0,
-                    "createdById" : null,
-                    "modifiedById" : null,
-                    "excludedRelationshipIds" : [],
-                    "header" : null,
-                    "footer" : null,
-                    "titleDescriptionContent" : null,
-                    "titleDescription" : null,
-                    "id" : "df3c8552-1505-4905-9d1d-9574ac1b92de",
-                    "state" : 0,
-                    "inserted" : true,
-                    "version" : 2,
-                    "created" : "2016-09-16T08:07:48.1630000-07:00",
-                    "createdBy" : null,
-                    "modified" : "2016-09-16T08:08:36.2430000-07:00",
-                    "modifiedBy" : null
-                  }, {
-                    "name" : "filter1",
-                    "type" : 0,
-                    "previewRecord" : 0,
-                    "advancedMode" : false,
-                    "allowNulls" : false,
-                    "isDistinct" : false,
-                    "categoryId" : "8da86160-ab16-4f4b-a439-729c8b82b1c6",
-                    "categoryName" : null,
-                    "subCategoryId" : "6dee7a46-cfab-477a-a952-be4471eab1a0",
-                    "subCategoryName" : null,
-                    "tenantId" : "00000000-0000-0000-0000-000000000000",
-                    "tenantName" : null,
-                    "description" : "",
-                    "title" : null,
-                    "lastViewed" : null,
-                    "owner" : null,
-                    "ownerId" : null,
-                    "headerContent" : null,
-                    "footerContent" : null,
-                    "excludedRelationships" : null,
-                    "numberOfView" : 0,
-                    "renderingTime" : 0,
-                    "createdById" : null,
-                    "modifiedById" : null,
-                    "excludedRelationshipIds" : [],
-                    "header" : null,
-                    "footer" : null,
-                    "titleDescriptionContent" : null,
-                    "titleDescription" : null,
-                    "id" : "c7b52014-ca40-4aad-9a8c-07887743aec4",
-                    "state" : 0,
-                    "inserted" : true,
-                    "version" : 1,
-                    "created" : "2016-09-16T08:09:48.3830000-07:00",
-                    "createdBy" : null,
-                    "modified" : "2016-09-16T08:09:48.3830000-07:00",
-                    "modifiedBy" : null
-                  }
-                ],
-                "name" : "0",
-                "type" : 0,
-                "parentId" : null,
-                "tenantId" : null,
-                "canDelete" : false,
-                "savable" : false,
-                "subCategories" : [],
-                "status" : 2,
-                "id" : "6dee7a46-cfab-477a-a952-be4471eab1a0",
-                "state" : 0,
-                "inserted" : true,
-                "version" : null,
-                "created" : null,
-                "createdBy" : null,
-                "modified" : null,
-                "modifiedBy" : null
-              }
-            ],
-            "status" : 2,
-            "id" : "8da86160-ab16-4f4b-a439-729c8b82b1c6",
-            "state" : 0,
-            "inserted" : true,
-            "version" : null,
-            "created" : null,
-            "createdBy" : null,
-            "modified" : null,
-            "modifiedBy" : null
+            "name": "ACME",
+            "type": 0,
+            "parentId": null,
+            "tenantId": null,
+            "isGlobal": false,
+            "canDelete": false,
+            "editable": false,
+            "savable": false,
+            "subCategories": [{
+               "name": "Example",
+               "type": 0,
+               "parentId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+               "tenantId": null,
+               "isGlobal": false,
+               "canDelete": false,
+               "editable": false,
+               "savable": false,
+               "subCategories": [],
+               "checked": false,
+               "reports": [{
+                  "name": "ExampleReport",
+                  "reportDataSource": [],
+                  "type": 0,
+                  "previewRecord": 0,
+                  "advancedMode": false,
+                  "allowNulls": false,
+                  "isDistinct": false,
+                  "categoryId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                  "categoryName": null,
+                  "subCategoryId": "41a3dff9-d1da-48e5-b4fb-50775324bd3d",
+                  "subCategoryName": null,
+                  "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                  "tenantName": null,
+                  "description": "",
+                  "title": null,
+                  "lastViewed": "2017-09-28T07:50:02.533",
+                  "owner": "John Doe",
+                  "ownerId": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                  "excludedRelationships": null,
+                  "numberOfView": 3,
+                  "renderingTime": 646.66667,
+                  "createdById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                  "modifiedById": null,
+                  "snapToGrid": false,
+                  "usingFields": null,
+                  "hasDeletedObjects": false,
+                  "header": null,
+                  "footer": null,
+                  "titleDescription": null,
+                  "sourceId": null,
+                  "checked": false,
+                  "copyDashboard": false,
+                  "exportFormatSetting": null,
+                  "deletable": true,
+                  "editable": true,
+                  "movable": true,
+                  "copyable": true,
+                  "accessPriority": 1,
+                  "active": true,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isGlobal": false,
+                  "isCheck": false,
+                  "id": "5447a5c1-a0c8-4bf6-bd68-f09234ba5e84",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": 2,
+                  "created": "2017-09-27T10:20:46.277",
+                  "createdBy": "John Doe",
+                  "modified": "2017-09-28T07:49:39.25",
+                  "modifiedBy": "John Doe"
+               }],
+               "dashboards": null,
+               "numOfChilds": 0,
+               "numOfCheckedChilds": 0,
+               "indeterminate": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "isCheck": false,
+               "id": "41a3dff9-d1da-48e5-b4fb-50775324bd3d",
+               "state": 0,
+               "deleted": false,
+               "inserted": true,
+               "version": null,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": null
+            }],
+            "checked": false,
+            "reports": [],
+            "dashboards": null,
+            "numOfChilds": 0,
+            "numOfCheckedChilds": 0,
+            "indeterminate": false,
+            "fullPath": null,
+            "computeNameSettings": null,
+            "isCheck": false,
+            "id": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": "John Doe",
+            "modified": null,
+            "modifiedBy": null
          }]
 
 POST report/search2
@@ -1847,23 +1994,22 @@ Searches for reports, with total number of items.
    Payload::
 
       {
-         "criterias": [
-            {
-               "key": "All",
-               "value": "chart"
-            }
-         ],
+         "criterias": [{
+            "key": "Category",
+            "value": "ACME"
+         }],
          "isUncategorized": false,
          "sortCriteria": {
             "key": "ReportName",
             "descending": false
          },
-         "tenantId": null,
+         "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
          "type": "0",
          "skipItems": 0,
-         "pageSize": 63,
+         "pageSize": 100,
          "parentIds": [],
-         "includeGlobalCategory": true
+         "includeGlobalCategory": true,
+         "isGlobal": null
       }
 
    .. container:: toggle
@@ -1877,451 +2023,151 @@ Searches for reports, with total number of items.
          {
             "data": [
                {
-                  "name": "Local Categories",
-                  "type": 0,
-                  "parentId": null,
-                  "tenantId": null,
-                  "isGlobal": false,
-                  "canDelete": false,
-                  "editable": false,
-                  "savable": false,
-                  "subCategories": [
-                     {
-                        "name": "AAA",
-                        "type": 0,
-                        "parentId": null,
-                        "tenantId": null,
-                        "isGlobal": false,
-                        "canDelete": false,
-                        "editable": false,
-                        "savable": false,
-                        "subCategories": [
-                           {
-                              "name": null,
-                              "type": 0,
-                              "parentId": "88618780-df81-44c7-b137-c2556e63afc6",
-                              "tenantId": null,
-                              "isGlobal": false,
-                              "canDelete": false,
-                              "editable": false,
-                              "savable": false,
-                              "subCategories": [],
-                              "checked": false,
-                              "reports": [
+                     "name": "Local Categories",
+                     "type": 0,
+                     "parentId": null,
+                     "tenantId": null,
+                     "isGlobal": false,
+                     "canDelete": false,
+                     "editable": false,
+                     "savable": false,
+                     "subCategories": [
+                        {
+                           "name": "ACME",
+                           "type": 0,
+                           "parentId": null,
+                           "tenantId": null,
+                           "isGlobal": false,
+                           "canDelete": false,
+                           "editable": false,
+                           "savable": false,
+                           "subCategories": [
                                  {
-                                    "name": "Chart_copy",
-                                    "reportDataSource": [],
+                                    "name": "Example",
                                     "type": 0,
-                                    "previewRecord": 0,
-                                    "advancedMode": false,
-                                    "allowNulls": false,
-                                    "isDistinct": false,
-                                    "categoryId": "88618780-df81-44c7-b137-c2556e63afc6",
-                                    "categoryName": null,
-                                    "subCategoryId": null,
-                                    "subCategoryName": null,
-                                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                                    "tenantName": null,
-                                    "description": "",
-                                    "title": null,
-                                    "lastViewed": "2017-05-05T03:08:05.273",
-                                    "owner": "test 1",
-                                    "ownerId": "3e451735-ee3c-42d2-8fe7-1d36d2244d2d",
-                                    "excludedRelationships": null,
-                                    "numberOfView": 16,
-                                    "renderingTime": 603.625,
-                                    "createdById": "3e451735-ee3c-42d2-8fe7-1d36d2244d2d",
-                                    "modifiedById": null,
-                                    "snapToGrid": false,
-                                    "usingFields": "764ae5f1-7c8b-4ab9-8a3d-398acf9808e7,9d4ae367-b3e6-4aae-b617-d5a84c2bf46a",
-                                    "hasDeletedObjects": false,
-                                    "header": null,
-                                    "footer": null,
-                                    "titleDescription": null,
-                                    "sourceId": null,
+                                    "parentId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                                    "tenantId": null,
+                                    "isGlobal": false,
+                                    "canDelete": false,
+                                    "editable": false,
+                                    "savable": false,
+                                    "subCategories": [],
                                     "checked": false,
-                                    "copyDashboard": false,
-                                    "exportFormatSetting": null,
-                                    "deletable": true,
-                                    "editable": true,
-                                    "movable": true,
-                                    "copyable": true,
-                                    "accessPriority": 1,
-                                    "active": true,
+                                    "reports": [
+                                       {
+                                             "name": "ExampleReport",
+                                             "reportDataSource": [],
+                                             "type": 0,
+                                             "previewRecord": 0,
+                                             "advancedMode": false,
+                                             "allowNulls": false,
+                                             "isDistinct": false,
+                                             "categoryId": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                                             "categoryName": null,
+                                             "subCategoryId": "41a3dff9-d1da-48e5-b4fb-50775324bd3d",
+                                             "subCategoryName": null,
+                                             "tenantId": "b5b3a5cc-9e55-424c-ae85-ba92ec3b934e",
+                                             "tenantName": null,
+                                             "description": "",
+                                             "title": null,
+                                             "lastViewed": "2017-09-28T07:50:02.533",
+                                             "owner": "John Doe",
+                                             "ownerId": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                                             "excludedRelationships": null,
+                                             "numberOfView": 3,
+                                             "renderingTime": 646.66667,
+                                             "createdById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+                                             "modifiedById": null,
+                                             "snapToGrid": false,
+                                             "usingFields": null,
+                                             "hasDeletedObjects": false,
+                                             "header": null,
+                                             "footer": null,
+                                             "titleDescription": null,
+                                             "sourceId": null,
+                                             "checked": false,
+                                             "copyDashboard": false,
+                                             "exportFormatSetting": null,
+                                             "deletable": true,
+                                             "editable": true,
+                                             "movable": true,
+                                             "copyable": true,
+                                             "accessPriority": 1,
+                                             "active": true,
+                                             "fullPath": null,
+                                             "computeNameSettings": null,
+                                             "isGlobal": false,
+                                             "isCheck": false,
+                                             "id": "5447a5c1-a0c8-4bf6-bd68-f09234ba5e84",
+                                             "state": 0,
+                                             "deleted": false,
+                                             "inserted": true,
+                                             "version": 2,
+                                             "created": "2017-09-27T10:20:46.277",
+                                             "createdBy": "John Doe",
+                                             "modified": "2017-09-28T07:49:39.25",
+                                             "modifiedBy": "John Doe"
+                                       }
+                                    ],
+                                    "dashboards": [],
+                                    "numOfChilds": 1,
+                                    "numOfCheckedChilds": 0,
+                                    "indeterminate": false,
                                     "fullPath": null,
                                     "computeNameSettings": null,
-                                    "isGlobal": false,
-                                    "id": "5e23512e-7fd9-4211-bdf4-3d4ebe56f620",
+                                    "isCheck": false,
+                                    "id": "41a3dff9-d1da-48e5-b4fb-50775324bd3d",
                                     "state": 0,
                                     "deleted": false,
                                     "inserted": true,
-                                    "version": 1,
-                                    "created": "2017-03-23T06:22:25.697",
-                                    "createdBy": "test 1",
-                                    "modified": "2017-03-23T06:22:25.697",
-                                    "modifiedBy": "test 1"
-                                 }
-                              ],
-                              "dashboards": [],
-                              "numOfChilds": 1,
-                              "numOfCheckedChilds": 0,
-                              "indeterminate": false,
-                              "fullPath": null,
-                              "computeNameSettings": null,
-                              "id": null,
-                              "state": 0,
-                              "deleted": false,
-                              "inserted": true,
-                              "version": null,
-                              "created": null,
-                              "createdBy": "John Doe",
-                              "modified": null,
-                              "modifiedBy": null
-                           }
-                        ],
-                        "checked": false,
-                        "reports": [],
-                        "dashboards": [],
-                        "numOfChilds": 1,
-                        "numOfCheckedChilds": 0,
-                        "indeterminate": false,
-                        "fullPath": null,
-                        "computeNameSettings": null,
-                        "id": "88618780-df81-44c7-b137-c2556e63afc6",
-                        "state": 0,
-                        "deleted": false,
-                        "inserted": true,
-                        "version": null,
-                        "created": null,
-                        "createdBy": "John Doe",
-                        "modified": null,
-                        "modifiedBy": null
-                     },
-                     {
-                        "name": "Migration",
-                        "type": 0,
-                        "parentId": null,
-                        "tenantId": null,
-                        "isGlobal": false,
-                        "canDelete": false,
-                        "editable": false,
-                        "savable": false,
-                        "subCategories": [
-                           {
-                              "name": null,
-                              "type": 0,
-                              "parentId": "707ce889-710b-4964-89e2-f1d85959fe13",
-                              "tenantId": null,
-                              "isGlobal": false,
-                              "canDelete": false,
-                              "editable": false,
-                              "savable": false,
-                              "subCategories": [],
-                              "checked": false,
-                              "reports": [
-                                 {
-                                    "name": "Chart_copy",
-                                    "reportDataSource": [],
-                                    "type": 0,
-                                    "previewRecord": 0,
-                                    "advancedMode": false,
-                                    "allowNulls": false,
-                                    "isDistinct": false,
-                                    "categoryId": "707ce889-710b-4964-89e2-f1d85959fe13",
-                                    "categoryName": null,
-                                    "subCategoryId": null,
-                                    "subCategoryName": null,
-                                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                                    "tenantName": null,
-                                    "description": "",
-                                    "title": null,
-                                    "lastViewed": "2017-04-19T02:46:33.14",
-                                    "owner": "test 1",
-                                    "ownerId": "3e451735-ee3c-42d2-8fe7-1d36d2244d2d",
-                                    "excludedRelationships": null,
-                                    "numberOfView": 4,
-                                    "renderingTime": 643,
-                                    "createdById": "3e451735-ee3c-42d2-8fe7-1d36d2244d2d",
-                                    "modifiedById": null,
-                                    "snapToGrid": false,
-                                    "usingFields": "764ae5f1-7c8b-4ab9-8a3d-398acf9808e7,9d4ae367-b3e6-4aae-b617-d5a84c2bf46a",
-                                    "hasDeletedObjects": false,
-                                    "header": null,
-                                    "footer": null,
-                                    "titleDescription": null,
-                                    "sourceId": null,
-                                    "checked": false,
-                                    "copyDashboard": false,
-                                    "exportFormatSetting": null,
-                                    "deletable": true,
-                                    "editable": true,
-                                    "movable": true,
-                                    "copyable": true,
-                                    "accessPriority": 1,
-                                    "active": true,
-                                    "fullPath": null,
-                                    "computeNameSettings": null,
-                                    "isGlobal": false,
-                                    "id": "dda48c8e-9069-4137-8644-b30fa621eb65",
-                                    "state": 0,
-                                    "deleted": false,
-                                    "inserted": true,
-                                    "version": 1,
-                                    "created": "2017-03-23T06:22:25.697",
-                                    "createdBy": "test 1",
-                                    "modified": "2017-03-23T06:22:25.697",
-                                    "modifiedBy": "test 1"
-                                 }
-                              ],
-                              "dashboards": [],
-                              "numOfChilds": 1,
-                              "numOfCheckedChilds": 0,
-                              "indeterminate": false,
-                              "fullPath": null,
-                              "computeNameSettings": null,
-                              "id": null,
-                              "state": 0,
-                              "deleted": false,
-                              "inserted": true,
-                              "version": null,
-                              "created": null,
-                              "createdBy": "John Doe",
-                              "modified": null,
-                              "modifiedBy": null
-                           },
-                           {
-                              "name": "Migration",
-                              "type": 0,
-                              "parentId": "707ce889-710b-4964-89e2-f1d85959fe13",
-                              "tenantId": null,
-                              "isGlobal": false,
-                              "canDelete": false,
-                              "editable": false,
-                              "savable": false,
-                              "subCategories": [],
-                              "checked": false,
-                              "reports": [
-                                 {
-                                    "name": "Chart",
-                                    "reportDataSource": [],
-                                    "type": 0,
-                                    "previewRecord": 0,
-                                    "advancedMode": false,
-                                    "allowNulls": false,
-                                    "isDistinct": false,
-                                    "categoryId": "707ce889-710b-4964-89e2-f1d85959fe13",
-                                    "categoryName": null,
-                                    "subCategoryId": "14df5f75-5036-4508-8893-7db29d7693c9",
-                                    "subCategoryName": null,
-                                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                                    "tenantName": null,
-                                    "description": "",
-                                    "title": null,
-                                    "lastViewed": "2017-04-21T06:21:41.78",
-                                    "owner": "duc duc",
-                                    "ownerId": "0b5f7896-cad5-442d-b3c4-0167e7e72ec9",
-                                    "excludedRelationships": null,
-                                    "numberOfView": 5,
-                                    "renderingTime": 540.6,
-                                    "createdById": "0b5f7896-cad5-442d-b3c4-0167e7e72ec9",
-                                    "modifiedById": null,
-                                    "snapToGrid": false,
-                                    "usingFields": "764ae5f1-7c8b-4ab9-8a3d-398acf9808e7,9d4ae367-b3e6-4aae-b617-d5a84c2bf46a",
-                                    "hasDeletedObjects": false,
-                                    "header": null,
-                                    "footer": null,
-                                    "titleDescription": null,
-                                    "sourceId": null,
-                                    "checked": false,
-                                    "copyDashboard": false,
-                                    "exportFormatSetting": null,
-                                    "deletable": true,
-                                    "editable": true,
-                                    "movable": true,
-                                    "copyable": true,
-                                    "accessPriority": 1,
-                                    "active": true,
-                                    "fullPath": null,
-                                    "computeNameSettings": null,
-                                    "isGlobal": false,
-                                    "id": "d69311fc-2cd4-4211-96b5-9032d436e5a3",
-                                    "state": 0,
-                                    "deleted": false,
-                                    "inserted": true,
-                                    "version": 1,
-                                    "created": "2017-03-23T06:22:25.697",
+                                    "version": null,
+                                    "created": null,
                                     "createdBy": "John Doe",
-                                    "modified": "2017-03-23T06:22:25.697",
-                                    "modifiedBy": "John Doe"
-                                 }
-                              ],
-                              "dashboards": [],
-                              "numOfChilds": 1,
-                              "numOfCheckedChilds": 0,
-                              "indeterminate": false,
-                              "fullPath": null,
-                              "computeNameSettings": null,
-                              "id": "14df5f75-5036-4508-8893-7db29d7693c9",
-                              "state": 0,
-                              "deleted": false,
-                              "inserted": true,
-                              "version": null,
-                              "created": null,
-                              "createdBy": "John Doe",
-                              "modified": null,
-                              "modifiedBy": null
-                           }
-                        ],
-                        "checked": false,
-                        "reports": [],
-                        "dashboards": [],
-                        "numOfChilds": 2,
-                        "numOfCheckedChilds": 0,
-                        "indeterminate": false,
-                        "fullPath": null,
-                        "computeNameSettings": null,
-                        "id": "707ce889-710b-4964-89e2-f1d85959fe13",
-                        "state": 0,
-                        "deleted": false,
-                        "inserted": true,
-                        "version": null,
-                        "created": null,
-                        "createdBy": "John Doe",
-                        "modified": null,
-                        "modifiedBy": null
-                     },
-                     {
-                        "name": null,
-                        "type": 0,
-                        "parentId": null,
-                        "tenantId": null,
-                        "isGlobal": false,
-                        "canDelete": false,
-                        "editable": false,
-                        "savable": false,
-                        "subCategories": [
-                           {
-                              "name": null,
-                              "type": 0,
-                              "parentId": "00000000-0000-0000-0000-000000000000",
-                              "tenantId": null,
-                              "isGlobal": false,
-                              "canDelete": false,
-                              "editable": false,
-                              "savable": false,
-                              "subCategories": [],
-                              "checked": false,
-                              "reports": [
-                                 {
-                                    "name": "test chart",
-                                    "reportDataSource": [],
-                                    "type": 0,
-                                    "previewRecord": 0,
-                                    "advancedMode": false,
-                                    "allowNulls": false,
-                                    "isDistinct": false,
-                                    "categoryId": null,
-                                    "categoryName": null,
-                                    "subCategoryId": null,
-                                    "subCategoryName": null,
-                                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                                    "tenantName": null,
-                                    "description": "",
-                                    "title": null,
-                                    "lastViewed": "2017-05-04T10:08:14.85",
-                                    "owner": "System Admin",
-                                    "ownerId": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
-                                    "excludedRelationships": null,
-                                    "numberOfView": 5,
-                                    "renderingTime": 582,
-                                    "createdById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
-                                    "modifiedById": null,
-                                    "snapToGrid": false,
-                                    "usingFields": null,
-                                    "hasDeletedObjects": false,
-                                    "header": null,
-                                    "footer": null,
-                                    "titleDescription": null,
-                                    "sourceId": null,
-                                    "checked": false,
-                                    "copyDashboard": false,
-                                    "exportFormatSetting": null,
-                                    "deletable": true,
-                                    "editable": true,
-                                    "movable": true,
-                                    "copyable": true,
-                                    "accessPriority": 1,
-                                    "active": true,
-                                    "fullPath": null,
-                                    "computeNameSettings": null,
-                                    "isGlobal": false,
-                                    "id": "d661cf7f-d3b1-4cf3-af1d-02edae924f1c",
-                                    "state": 0,
-                                    "deleted": false,
-                                    "inserted": true,
-                                    "version": 1,
-                                    "created": "2017-04-19T02:47:25.12",
-                                    "createdBy": "System Admin",
-                                    "modified": "2017-04-19T02:47:25.12",
-                                    "modifiedBy": "System Admin"
-                                 }
-                              ],
-                              "dashboards": [],
-                              "numOfChilds": 1,
-                              "numOfCheckedChilds": 0,
-                              "indeterminate": false,
-                              "fullPath": null,
-                              "computeNameSettings": null,
-                              "id": null,
-                              "state": 0,
-                              "deleted": false,
-                              "inserted": true,
-                              "version": null,
-                              "created": null,
-                              "createdBy": "John Doe",
-                              "modified": null,
-                              "modifiedBy": null
-                           }
-                        ],
-                        "checked": false,
-                        "reports": [],
-                        "dashboards": [],
-                        "numOfChilds": 1,
-                        "numOfCheckedChilds": 0,
-                        "indeterminate": false,
-                        "fullPath": null,
-                        "computeNameSettings": null,
-                        "id": null,
-                        "state": 0,
-                        "deleted": false,
-                        "inserted": true,
-                        "version": null,
-                        "created": null,
-                        "createdBy": "John Doe",
-                        "modified": null,
-                        "modifiedBy": null
-                     }
-                  ],
-                  "checked": false,
-                  "reports": [],
-                  "dashboards": [],
-                  "numOfChilds": 3,
-                  "numOfCheckedChilds": 0,
-                  "indeterminate": false,
-                  "fullPath": null,
-                  "computeNameSettings": null,
-                  "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
-                  "state": 0,
-                  "deleted": false,
-                  "inserted": true,
-                  "version": null,
-                  "created": null,
-                  "createdBy": "John Doe",
-                  "modified": null,
-                  "modifiedBy": null
+                                    "modified": null,
+                                    "modifiedBy": null
+                                 },
+                           ],
+                           "checked": false,
+                           "reports": [],
+                           "dashboards": [],
+                           "numOfChilds": 5,
+                           "numOfCheckedChilds": 0,
+                           "indeterminate": false,
+                           "fullPath": null,
+                           "computeNameSettings": null,
+                           "isCheck": false,
+                           "id": "5ca51cd0-1f63-44ca-9711-ba6c988a520a",
+                           "state": 0,
+                           "deleted": false,
+                           "inserted": true,
+                           "version": null,
+                           "created": null,
+                           "createdBy": "John Doe",
+                           "modified": null,
+                           "modifiedBy": null
+                        }
+                     ],
+                     "checked": false,
+                     "reports": [],
+                     "dashboards": [],
+                     "numOfChilds": 1,
+                     "numOfCheckedChilds": 0,
+                     "indeterminate": false,
+                     "fullPath": null,
+                     "computeNameSettings": null,
+                     "isCheck": false,
+                     "id": "09f8c4ab-0fe8-4e03-82d1-7949e3738f87",
+                     "state": 0,
+                     "deleted": false,
+                     "inserted": true,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
                }
             ],
-            "totalItems": 9,
+            "totalItems": 45,
             "numOfChilds": 1,
             "numOfCheckedChilds": 0,
             "indeterminate": false,
@@ -4772,8 +4618,540 @@ Updates the report data model.
          Sample payload:
 
       .. code-block:: json
-          
 
+         {
+            "reportKey": {
+               "key": null,
+               "modified": null,
+               "tenantId": null
+            },
+            "section": 0,
+            "saveAs": false,
+            "ignoreCheckChange": true,
+            "report": {
+               "name": "Example Report Name",
+               "type": 1,
+               "previewRecord": 10,
+               "advancedMode": true,
+               "allowNulls": false,
+               "isDistinct": false,
+               "categoryId": null,
+               "category": {
+                  "id": null,
+                  "name": "",
+                  "type": 1,
+                  "tenantId": null
+               },
+               "subCategory": {
+                  "id": null,
+                  "name": "",
+                  "type": 1,
+                  "tenantId": null
+               },
+               "subCategoryId": null,
+               "reportDataSource": [{
+                  "aliasId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a_CustOrdersOrders",
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "querySourceName": "CustOrdersOrders",
+                  "selected": true,
+                  "categoryId": "058a12ec-a785-4c50-8f9a-c7d59edcf1be",
+                  "primaryFields": []
+               }],
+               "reportRelationship": [],
+               "reportFilter": {
+                  "logic": "",
+                  "visible": false,
+                  "filterFields": [{
+                     "connectionName": "ACMETest",
+                     "querySourceCategoryName": "dbo",
+                     "sourceFieldName": "@CustomerID",
+                     "sourceFieldVisible": true,
+                     "sourceFieldFilterable": true,
+                     "sourceDataObjectName": "CustOrdersOrders",
+                     "dataType": "Text",
+                     "filterId": "00000000-0000-0000-0000-000000000000",
+                     "querySourceFieldId": "b55d895f-458a-428c-a62f-0f9858208dc8",
+                     "querySourceType": "Stored Procedure",
+                     "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                     "relationshipId": null,
+                     "alias": "@CustomerID",
+                     "position": 1,
+                     "visible": true,
+                     "required": false,
+                     "cascading": false,
+                     "operatorId": "737307d1-1e5f-407f-889f-1b3c9a66dd6f",
+                     "operatorName": null,
+                     "operatorSetting": null,
+                     "value": "[NULL]",
+                     "sortType": "ASC",
+                     "fontFamily": "Roboto",
+                     "fontSize": 14,
+                     "textColor": "#000",
+                     "backgroundColor": "#fff",
+                     "fontBold": false,
+                     "fontItalic": false,
+                     "fontUnderline": false,
+                     "id": null,
+                     "state": 1,
+                     "modified": null,
+                     "dateTimeNow": "",
+                     "isParameter": true,
+                     "sourceDataObjectFullName": "ACMETest.dbo.CustOrdersOrders",
+                     "selected": false,
+                     "dataFormatId": null,
+                     "reportPartTitle": null,
+                     "reportFieldAlias": null,
+                     "uniqueId": "107",
+                     "isInheritableFilter": false
+                  }],
+                  "id": null,
+                  "reportId": null
+               },
+               "reportPart": [],
+               "header": null,
+               "footer": null,
+               "titleDescription": null,
+               "version": 0,
+               "schedules": [],
+               "ownerId": "",
+               "accesses": [],
+               "exportFormatSetting": null,
+               "createdById": null,
+               "dynamicQuerySourceFields": [],
+               "snapToGrid": false,
+               "excludedRelationships": null,
+               "isGlobal": false
+            },
+            "expandedLevel": 0
+         }
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample Response:
+
+      .. code-block:: json
+
+         {
+            "reportKey": {
+               "key": "cb680f67-e363-4adc-8035-8e61d698fd66",
+               "tenantId": null
+            },
+            "report": {
+               "inaccessible": false,
+               "category": {
+                  "name": "",
+                  "type": 1,
+                  "parentId": null,
+                  "tenantId": null,
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": null,
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": null,
+                  "modifiedBy": null
+               },
+               "subCategory": {
+                  "name": "",
+                  "type": 1,
+                  "parentId": null,
+                  "tenantId": null,
+                  "isGlobal": false,
+                  "canDelete": false,
+                  "editable": false,
+                  "savable": false,
+                  "subCategories": [],
+                  "checked": false,
+                  "reports": [],
+                  "dashboards": null,
+                  "numOfChilds": 0,
+                  "numOfCheckedChilds": 0,
+                  "indeterminate": false,
+                  "fullPath": null,
+                  "computeNameSettings": null,
+                  "isCheck": false,
+                  "id": null,
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": null,
+                  "modifiedBy": null
+               },
+               "reportRelationship": [],
+               "reportPart": [],
+               "reportFilter": {
+                  "filterFields": [{
+                     "connectionName": "ACMETest",
+                     "querySourceCategoryName": "dbo",
+                     "sourceFieldName": "@CustomerID",
+                     "sourceFieldVisible": true,
+                     "sourceFieldFilterable": true,
+                     "sourceDataObjectName": "CustOrdersOrders",
+                     "sourceDataObjectFullName": "ACMETest.dbo.CustOrdersOrders",
+                     "dataType": "Text",
+                     "isParameter": true,
+                     "isCalculated": false,
+                     "calculatedTree": null,
+                     "compareFieldCalculatedTree": null,
+                     "compareValueCalculatedTree": null,
+                     "compareField": null,
+                     "selected": false,
+                     "dataFormat": null,
+                     "reportId": null,
+                     "useMappedFieldAlias": false,
+                     "uniqueId": "107",
+                     "comparisionValue": null,
+                     "inTimePeriodType": null,
+                     "valueInTimePeriod": null,
+                     "hasModifiedCalculatedTree": false,
+                     "isHiddenFilter": false,
+                     "isInheritableFilter": false,
+                     "operatorName": null,
+                     "type": 0,
+                     "isRunningField": false,
+                     "isDrillDown": false,
+                     "filterId": "a78b7d13-acfb-406f-b3bb-63a35c2db5c6",
+                     "reportFieldAlias": null,
+                     "reportPartTitle": null,
+                     "querySourceFieldId": "b55d895f-458a-428c-a62f-0f9858208dc8",
+                     "querySourceType": "Stored Procedure",
+                     "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                     "relationshipId": null,
+                     "alias": "@CustomerID",
+                     "position": 1,
+                     "visible": true,
+                     "required": false,
+                     "cascading": false,
+                     "operatorId": "737307d1-1e5f-407f-889f-1b3c9a66dd6f",
+                     "operatorSetting": null,
+                     "value": "[NULL]",
+                     "dataFormatId": null,
+                     "sortType": "ASC",
+                     "fontFamily": "Roboto",
+                     "fontSize": 14,
+                     "textColor": "#000",
+                     "backgroundColor": "#fff",
+                     "fontBold": false,
+                     "fontItalic": false,
+                     "fontUnderline": false,
+                     "querySourceUniqueName": null,
+                     "querySourceFieldName": null,
+                     "comparisonFieldUniqueName": null,
+                     "isNegative": false,
+                     "id": "a6dd4b7d-1d61-4bd0-b073-e6d3e85d3c1e",
+                     "state": 1,
+                     "deleted": false,
+                     "inserted": false,
+                     "version": null,
+                     "created": null,
+                     "createdBy": "John Doe",
+                     "modified": null,
+                     "modifiedBy": null
+                  }],
+                  "baseFilterLogic": null,
+                  "logic": "",
+                  "visible": false,
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "id": "a78b7d13-acfb-406f-b3bb-63a35c2db5c6",
+                  "state": 0,
+                  "deleted": false,
+                  "inserted": true,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": null,
+                  "modifiedBy": null
+               },
+               "calculatedFields": [],
+               "accesses": [],
+               "schedules": [],
+               "reportParams": null,
+               "dynamicQuerySourceFields": [{
+                  "name": "OrderID",
+                  "alias": "",
+                  "dataType": "int",
+                  "izendaDataType": "Numeric",
+                  "allowDistinct": true,
+                  "visible": true,
+                  "filterable": true,
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "parentId": null,
+                  "expressionFields": [],
+                  "filteredValue": "",
+                  "type": 0,
+                  "groupPosition": 1,
+                  "position": 0,
+                  "extendedProperties": null,
+                  "physicalChange": 0,
+                  "approval": 0,
+                  "existed": false,
+                  "matchedTenant": false,
+                  "functionName": null,
+                  "expression": null,
+                  "isRunningField": false,
+                  "fullName": null,
+                  "calculatedTree": null,
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "originalName": null,
+                  "originalId": "00000000-0000-0000-0000-000000000000",
+                  "isParameter": false,
+                  "isCalculated": false,
+                  "hasAggregatedFunction": false,
+                  "querySource": null,
+                  "querySourceName": null,
+                  "categoryName": null,
+                  "inaccessible": false,
+                  "originalAlias": null,
+                  "fullPath": null,
+                  "isCheck": false,
+                  "id": "45fff2c2-ccb8-4935-937b-e25f7c2ba2d4",
+                  "state": 1,
+                  "deleted": false,
+                  "inserted": false,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": "0001-01-01T00:00:00",
+                  "modifiedBy": null
+               },
+               {
+                  "name": "OrderDate",
+                  "alias": "",
+                  "dataType": "datetime",
+                  "izendaDataType": "Datetime",
+                  "allowDistinct": true,
+                  "visible": true,
+                  "filterable": true,
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "parentId": null,
+                  "expressionFields": [],
+                  "filteredValue": "",
+                  "type": 0,
+                  "groupPosition": 1,
+                  "position": 1,
+                  "extendedProperties": null,
+                  "physicalChange": 0,
+                  "approval": 0,
+                  "existed": false,
+                  "matchedTenant": false,
+                  "functionName": null,
+                  "expression": null,
+                  "isRunningField": false,
+                  "fullName": null,
+                  "calculatedTree": null,
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "originalName": null,
+                  "originalId": "00000000-0000-0000-0000-000000000000",
+                  "isParameter": false,
+                  "isCalculated": false,
+                  "hasAggregatedFunction": false,
+                  "querySource": null,
+                  "querySourceName": null,
+                  "categoryName": null,
+                  "inaccessible": false,
+                  "originalAlias": null,
+                  "fullPath": null,
+                  "isCheck": false,
+                  "id": "458d97da-f01b-4dd7-ab0a-1adce478eac9",
+                  "state": 1,
+                  "deleted": false,
+                  "inserted": false,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": "0001-01-01T00:00:00",
+                  "modifiedBy": null
+               },
+               {
+                  "name": "RequiredDate",
+                  "alias": "",
+                  "dataType": "datetime",
+                  "izendaDataType": "Datetime",
+                  "allowDistinct": true,
+                  "visible": true,
+                  "filterable": true,
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "parentId": null,
+                  "expressionFields": [],
+                  "filteredValue": "",
+                  "type": 0,
+                  "groupPosition": 1,
+                  "position": 2,
+                  "extendedProperties": null,
+                  "physicalChange": 0,
+                  "approval": 0,
+                  "existed": false,
+                  "matchedTenant": false,
+                  "functionName": null,
+                  "expression": null,
+                  "isRunningField": false,
+                  "fullName": null,
+                  "calculatedTree": null,
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "originalName": null,
+                  "originalId": "00000000-0000-0000-0000-000000000000",
+                  "isParameter": false,
+                  "isCalculated": false,
+                  "hasAggregatedFunction": false,
+                  "querySource": null,
+                  "querySourceName": null,
+                  "categoryName": null,
+                  "inaccessible": false,
+                  "originalAlias": null,
+                  "fullPath": null,
+                  "isCheck": false,
+                  "id": "42b46c10-0d11-45e3-a137-3f5a2b4bbcd7",
+                  "state": 1,
+                  "deleted": false,
+                  "inserted": false,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": "0001-01-01T00:00:00",
+                  "modifiedBy": null
+               },
+               {
+                  "name": "ShippedDate",
+                  "alias": "",
+                  "dataType": "datetime",
+                  "izendaDataType": "Datetime",
+                  "allowDistinct": true,
+                  "visible": true,
+                  "filterable": true,
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "parentId": null,
+                  "expressionFields": [],
+                  "filteredValue": "",
+                  "type": 0,
+                  "groupPosition": 1,
+                  "position": 3,
+                  "extendedProperties": null,
+                  "physicalChange": 0,
+                  "approval": 0,
+                  "existed": false,
+                  "matchedTenant": false,
+                  "functionName": null,
+                  "expression": null,
+                  "isRunningField": false,
+                  "fullName": null,
+                  "calculatedTree": null,
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "originalName": null,
+                  "originalId": "00000000-0000-0000-0000-000000000000",
+                  "isParameter": false,
+                  "isCalculated": false,
+                  "hasAggregatedFunction": false,
+                  "querySource": null,
+                  "querySourceName": null,
+                  "categoryName": null,
+                  "inaccessible": false,
+                  "originalAlias": null,
+                  "fullPath": null,
+                  "isCheck": false,
+                  "id": "9bc77976-9d15-43d6-a738-e74753ceb91b",
+                  "state": 1,
+                  "deleted": false,
+                  "inserted": false,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": "0001-01-01T00:00:00",
+                  "modifiedBy": null
+               }],
+               "name": "Example Report Name",
+               "reportDataSource": [{
+                  "reportId": "cb680f67-e363-4adc-8035-8e61d698fd66",
+                  "querySourceId": "322c3528-a582-4e0c-a5b7-eb7c39e8186a",
+                  "querySourceUniqueName": null,
+                  "querySourceCategoryId": null,
+                  "connectionId": null,
+                  "selected": true,
+                  "id": "1c2df382-de1d-48a2-9e54-0c5815963244",
+                  "state": 1,
+                  "deleted": false,
+                  "inserted": false,
+                  "version": null,
+                  "created": null,
+                  "createdBy": "John Doe",
+                  "modified": null,
+                  "modifiedBy": null
+               }],
+               "type": 1,
+               "previewRecord": 10,
+               "advancedMode": true,
+               "allowNulls": false,
+               "isDistinct": false,
+               "categoryId": null,
+               "categoryName": null,
+               "subCategoryId": null,
+               "subCategoryName": null,
+               "tenantId": null,
+               "tenantName": null,
+               "description": null,
+               "title": null,
+               "lastViewed": null,
+               "owner": "John Doe",
+               "ownerId": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+               "excludedRelationships": null,
+               "numberOfView": 0,
+               "renderingTime": 0,
+               "createdById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+               "modifiedById": "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe",
+               "snapToGrid": false,
+               "usingFields": null,
+               "hasDeletedObjects": false,
+               "header": null,
+               "footer": null,
+               "titleDescription": null,
+               "sourceId": null,
+               "checked": false,
+               "copyDashboard": false,
+               "exportFormatSetting": null,
+               "deletable": false,
+               "editable": false,
+               "movable": false,
+               "copyable": false,
+               "accessPriority": 0,
+               "active": false,
+               "fullPath": null,
+               "computeNameSettings": null,
+               "isGlobal": false,
+               "isCheck": false,
+               "id": "cb680f67-e363-4adc-8035-8e61d698fd66",
+               "state": 1,
+               "deleted": false,
+               "inserted": false,
+               "version": 0,
+               "created": null,
+               "createdBy": "John Doe",
+               "modified": null,
+               "modifiedBy": "John Doe"
+            },
+            "success": true,
+            "messages": null,
+            "data": null
+         }
 
 POST report/loadAccesses
 ---------------------------------------
@@ -5616,42 +5994,6 @@ Returns access priority for report/dashboard.
 
       1
 
-.. _POST_report/timePeriod:
-
-POST report/timePeriod
-------------------------------------------------
-
-Saves a customed InTimePeriod.
-
-**Request**
-
-   A :doc:`models/TimePeriod` object
-
-**Response**
-
-   true if the save is successful
-
-**Samples**
-
-   To be updated
-
-DELETE report/timePeriod/{time_period_id}
-------------------------------------------------
-
-Deletes the customed InTimePeriod specified by time_period_id.
-
-**Request**
-
-   No payload
-
-**Response**
-
-   true if the deletion is successful
-
-**Samples**
-
-   To be updated
-
 GET report/reportPart/crossfiltering/{report_part_id}
 ------------------------------------------------------------------
 
@@ -5724,6 +6066,14 @@ Validates that logged in user can access one and only one report part from the s
 
 **Samples**
 
-   To be updated
+   .. code-block:: http
 
+      GET /api/report/validateEmbeddedReport/b5b3a5cc-9e55-424c-ae85-ba92ec3b934e?reportId=b8822cba-53f1-4f83-b6a2-1f45557fe62e&reportName=092917-chart&reportPartName=Chart HTTP/1.1
+
+   Response::
+
+    {
+        "reportId": "b8822cba-53f1-4f83-b6a2-1f45557fe62e",
+        "reportPartId": "faa882ed-5c20-4faa-861c-03adb8a23edd"
+    }
 

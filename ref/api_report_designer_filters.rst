@@ -32,7 +32,7 @@ List of APIs
      - Validates a filter syntax.
    * - `POST report/loadFilter`_
      - Returns the report's filter fields, with data source and data source field names replaced by correct alias defined in Data Model.
-   * - POST report/filter/loadFields
+   * - `POST report/filter/loadFields`_
      - Obsolete
    * - `GET report/filter/timePeriods`_
      - Returns pre-defined time periods (last week, next year, etc).
@@ -870,6 +870,103 @@ Returns the report's filter fields, with data source and data source field names
         "createdBy" : null,
         "modified" : null,
         "modifiedBy" : null
+      }
+
+POST report/filter/loadFields
+-----------------------------------------
+
+
+**Request**
+
+    Payload: a :doc:`models/ReportFilterParameter` object.
+
+**Response**
+
+    An array of :doc:`models/ReportFilterField` object
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/filter/loadFields HTTP/1.1
+
+   Sample Request Payload::
+
+      {
+         "reportKey":{"key":"5447a5c1-a0c8-4bf6-bd68-f09234ba5e84"},
+         "filterId" : "021c76a2-b108-4dd3-962c-4d5d2d1b22fe",
+         "fieldId" : "4f43a428-6e23-42c9-bb51-ab19f7966943"
+      }
+
+   Sample Response::
+
+      {
+         "connectionName": null,
+         "querySourceCategoryName": null,
+         "sourceFieldName": "ShipperID",
+         "sourceFieldVisible": false,
+         "sourceFieldFilterable": false,
+         "sourceDataObjectName": "Shippers",
+         "sourceDataObjectFullName": "SQL-Northwind.dbo.Shippers",
+         "dataType": null,
+         "isParameter": false,
+         "isCalculated": false,
+         "calculatedTree": null,
+         "compareFieldCalculatedTree": null,
+         "compareValueCalculatedTree": null,
+         "compareField": null,
+         "selected": false,
+         "dataFormat": null,
+         "reportId": null,
+         "useMappedFieldAlias": false,
+         "uniqueId": null,
+         "comparisionValue": null,
+         "inTimePeriodType": null,
+         "valueInTimePeriod": null,
+         "hasModifiedCalculatedTree": false,
+         "isHiddenFilter": false,
+         "isInheritableFilter": false,
+         "operatorName": null,
+         "type": 0,
+         "isRunningField": false,
+         "isDrillDown": false,
+         "filterId": "021c76a2-b108-4dd3-962c-4d5d2d1b22fe",
+         "reportFieldAlias": null,
+         "reportPartTitle": null,
+         "querySourceFieldId": "d5a8a521-6832-4973-8b2c-3360dc52814c",
+         "querySourceType": "Table",
+         "querySourceId": null,
+         "relationshipId": null,
+         "alias": "ShipperID",
+         "position": 1,
+         "visible": true,
+         "required": false,
+         "cascading": true,
+         "operatorId": "737307d1-1e5f-407f-889f-1b3c9a66dd6f",
+         "operatorSetting": null,
+         "value": "",
+         "dataFormatId": null,
+         "sortType": "ASC",
+         "fontFamily": "Roboto",
+         "fontSize": 14,
+         "textColor": "#000",
+         "backgroundColor": "#fff",
+         "fontBold": false,
+         "fontItalic": false,
+         "fontUnderline": false,
+         "querySourceUniqueName": "[con;#0].[cat;#0].[Shippers]",
+         "querySourceFieldName": "ShipperID",
+         "comparisonFieldUniqueName": "",
+         "isNegative": false,
+         "id": "4f43a428-6e23-42c9-bb51-ab19f7966943",
+         "state": 0,
+         "deleted": false,
+         "inserted": true,
+         "version": 1,
+         "created": "2017-09-28T07:49:39.2630000+07:00",
+         "createdBy": "System5 Admin5",
+         "modified": "2017-09-28T07:49:39.2630000+07:00",
+         "modifiedBy": "System5 Admin5"
       }
 
 
