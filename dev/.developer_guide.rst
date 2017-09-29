@@ -4,12 +4,67 @@ Developer Guide
 
 The Developer Guide is intended for users with code-level access within your Business Intelligence tool. It provides resources to help build and maintain both integrated and stand alone deployments of Izenda.
 
+Interacting with the Izenda API
+===============================
+
+You can interact with our API in both integrated and standalone instances of Izenda. 
+
 .. toctree::
    :maxdepth: 2
 
    .integration_api_documentation
    .basic_api_client_code_samples
    .intermediate_api_client_code_samples
-   .adding_user
-   .building_report
+
+
+Embedding Izenda
+================
+
+We have created several starter kits to demonstrate how to embed Izenda into web applications. Every kit displays many of the same concepts (e.g. embedding the Izenda suite as a single page application) but each may showcase additional features more extensively (e.g. hidden filters and rendering individual reports.). All publically available kits can be found on our `GitHub Repository <https://github.com/Izenda7Series>`_ .
+
+.. toctree::
+   :maxdepth: 3
+   
+   .embedding_izenda
+
+Customizing Your Izenda Instance
+===============================
+
+Izenda supports an array of customizations ranging from style modifications to data format additions and hidden filters.
+
+Interfacing with Izenda
+-----------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   /dev/.system_customization 
+
+
+Styling Izenda
+--------------
+
+.. toctree::
+   :maxdepth: 2
+   
    code_bi_portal_custom_css
+   install/supplementary_guides/white-labeling-izenda
+   
+
+Configuring Logging
+--------------------
+
+.. toctree::
+   :maxdepth: 2   
+   
+   dev/code_logging_information_to_a_database
+   
+   
+Redistributing the Izenda Documentation
+=======================================
+
+This documentation can be downloaded from our GitHub reposistory and redistributed for your customers.
+
+* `Download a Live Copy <https://github.com/Izenda7Series/docs-html>`_
+* `Download a Development Copy <https://github.com/Izenda7Series/docs>`_
+* `White Labeling the Documentation <https://github.com/Izenda7Series/docs/wiki>`_

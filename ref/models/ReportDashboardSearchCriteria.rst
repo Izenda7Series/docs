@@ -22,6 +22,11 @@ ReportDashboardSearchCriteria
       -
       -  A :doc:`SortOrder` object
       -
+   *  -  **copyGlobal** |br|
+         boolean
+      -
+      -  Searches copy global report or not
+      -
    *  -  **type** |br|
          integer
       -

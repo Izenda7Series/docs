@@ -9,3 +9,4 @@ Troubleshooting
    troubleshooting/http
    troubleshooting/logging
    troubleshooting/general
+   troubleshooting/serialization

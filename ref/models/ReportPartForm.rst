@@ -33,6 +33,11 @@ ReportPartForm
       -
       -  Data for Columns box |br|
          A :doc:`ReportPartContainer` object containing "columns" in **name** and the list of selected data source fields (:doc:`ReportPartElement` objects) in **elements**
+   *  -  **separators** |br|
+         object
+      -
+      -  Data for Separators box |br|
+         A :doc:`ReportPartContainer` object containing "separators" in **name** and the list of selected data source fields (:doc:`ReportPartElement` objects) in **elements**
    *  -  **reportPartFormRepeater** |br|
          object
       -

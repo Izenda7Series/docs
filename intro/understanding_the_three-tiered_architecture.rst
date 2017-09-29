@@ -6,17 +6,19 @@ Overview
 --------
 
 Izenda is split into three levels: the Front End (UI), the Back End
-(API),and the User Store (database layer). The three levels can be
-configured to support standalone models of Izenda as well as seamless,
-fully integrated versions.
+(API),and the User Store (database layer). These three componenets can be
+configured to support a fully standalone instance of Izenda as well as seamless,
+fully-integrated instances.
+
+For more informaton about embedding Izenda, please refer to our :doc:`Developer Guide </dev/.developer_guide>`.
 
 *  Izenda offers a number of Integration Options.
 
    - 0 : All Stand Alone
 
-   - 1 : Back End Stand Alone Front End Integrated
+   - 1 : Back End Stand Alone, Front End Integrated
 
-   - 2 : Back End Integrated Front End Stand Alone
+   - 2 : Back End Integrated, Front End Stand Alone
 
    - 3 : All Integrated |br|
 
@@ -33,8 +35,8 @@ fully integrated versions.
 
 *  Once Izenda is deployed, the SystemSettings table must be updated with the correct deployment value. For more about the SystemSetting table, click :doc:`here </ref/spec_izendasystemsetting_table>`.
 
-Standalone Deployment
----------------------
+Deployment Mode 0: Standalone Deployment
+-----------------------------------------
 
 -  The Standalone Deployment style features a standalone front end and
    back end. The goal for this deployment is to quickly disseminate the
@@ -47,11 +49,18 @@ Standalone Deployment
 
    A diagram of Izenda's standalone architecture.
 
--  **BI Platform Implementation**
+BI Platform Implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  *Requires the `API <http://downloads.izenda.com/latest/API.zip/>`_, `StandaloneUI <http://downloads.izenda.com/latest/StandaloneUI.zip>`_, and an empty database*
-
-   -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
+-  Requirements 
+   
+   - `API <http://downloads.izenda.com/latest/API.zip/>`_
+   
+   - `StandaloneUI <http://downloads.izenda.com/latest/StandaloneUI.zip>`_
+   
+   - An empty database
+   
+-  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
    .. figure::  /_static/images/StandaloneArchDiagram2.png
 
@@ -59,8 +68,46 @@ Standalone Deployment
 
 .. _Fully_Integrated_Deployment:
 
-Fully Integrated Deployment
----------------------------
+
+Deployment Mode 1: Back End Standalone, Front End Integrated
+------------------------------------------------------------
+
+*  The Back End Standalone Deployment syle features a seamless front end with a remote
+   back end. This deployment is useful when you can devote a lightweight
+   server to your integrated front end and a "meatier" server for all
+   API calls which would include requesting queries from your reporting
+   database(s).
+
+MVC 5 Implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Requirements:
+   - API
+   - Embedded UI
+   - Empty database
+
+- MVC Starter Kit Back End Standalone found `here <https://github.com/Izenda7Series/Mvc5StarterKit/>`_
+
+   .. figure::  /_static/images/MVC1ArchDiagram.png
+
+      A diagram of implementation
+
+Angular 2 Implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Requirements:
+   - API
+   - Embedded UI
+   - Empty database
+   - Angular 2 Starter Kit found `here <https://github.com/Izenda7Series/Angular2Starterkit/>`_
+
+   .. figure::  /_static/images/Angular1ArchDiagram2.png
+
+      A diagram of implementation
+    
+    
+Deployment Mode 3: Fully Integrated
+------------------------------------
 
 *  The Fully Integrated Deployment style features an integrated front
    end and back end. The goal for this deployment is to create a
@@ -78,40 +125,18 @@ Fully Integrated Deployment
 
       A diagram of Izenda's fully integrated architecture
 
-*  **MVC Implementation**
-
-   - *Requires the API, EmbeddedUI, MVC5StarterKit, and an empty database.*
-
-   - For setup and support, please refer to the :doc:`/install/doc_mvc_setup_guide` and the :doc:`/dev/.developer_guide_integrated_scenarios`.
+MVC Implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Requirements:
+   - API
+   - Embedded UI
+   - Empty database
+- MVC Starter Kit found `here <https://github.com/Izenda7Series/Mvc5StarterKit/>`_
 
    .. figure::  /_static/images/MVC3ArchDiagram.png
 
       A diagram of implementation
 
-Mixed Deployment: Standalone API, Embedded UI
----------------------------------------------
-
-*  The Mixed Deployment syle features a seamless front end with a remote
-   back end. This deployment is useful when you can devote a lightweight
-   server to your integrated front end and a "meatier" server for all
-   API calls which would include requesting queries from your reporting
-   database(s).
-
-*  **MVC Implementation**
-
-   - *Requires the API, a custom MVC5StarterKit build, and an empty database.*
-
-   - For setup and support, please refer to the :doc:`/install/doc_mvc_setup_guide` and the :doc:`/dev/.developer_guide_integrated_scenarios`.
-
-   .. figure::  /_static/images/MVC1ArchDiagram.png
-
-      A diagram of implementation
-
--  **Angular 2 Implementation**
-
-   .. figure::  /_static/images/Angular1ArchDiagram2.png
-
-      A diagram of implementation
 
 Switching Between Deployment Styles
 -----------------------------------

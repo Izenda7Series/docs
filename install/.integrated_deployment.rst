@@ -1,3 +1,5 @@
+.. note::  The contents of this page has been migrated to the '/dev/.developer_guide'_ . Please refer to the Developer Guide for further updates.
+
 ===========================================
 Getting Started: Integrated Deployment
 ===========================================
@@ -7,4 +9,3 @@ Getting Started: Integrated Deployment
 
    doc_mvc_setup_guide
    doc_html_starter_kit
-   .developer_guide_integrated_scenarios

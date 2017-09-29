@@ -16,7 +16,6 @@ QuerySourceCategoryPagedRequest
          string
       -
       -  The id of the :doc:`Connection`
-      -
 
 Inherited fields:
 

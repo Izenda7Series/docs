@@ -51,6 +51,8 @@ List of APIs
    * - `POST report/loadAllFilterFieldsData`_
      - Returns all data values for all filter fields in a report. |br|
        Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeouts loading large data.
+   * - `GET report/validateFilter/{report_id}`_
+     - Validates that all required filters in specified report have filter value.
 
 .. _GET_report/filter/operators:
 
@@ -5726,3 +5728,34 @@ Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeou
            "data" : ["France", "Germany", "BrazilRT", "Belgium", "Brazil", "Switzerland", "Venezuela", "Austria", "Mexico", "USA", "Sweden", "Finland", "Italy", "Spain", "UK", "Ireland", "Portugal", "Canada", "Denmark"]
         }
       ]
+
+.. _Validate_Filter:
+
+GET report/validateFilter/{report_id}
+--------------------------------------
+
+Validates that all required filters in specified report have filter value.
+
+**Request**
+
+    No payload
+
+**Response**
+
+     - true if all required filters have filter value
+     - false if not
+
+**Sample**
+   .. code-block:: http
+
+      GET report/validateFilter/737c3aa4-f9df-46a0-acc9-312dc2e7f085 HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+         
+         true

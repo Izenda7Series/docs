@@ -34,10 +34,75 @@ FIXES
 -  Defect  18230  Chart with Drill down with date format other than year shows no results when user drills down to next level on chart.
 -  Defect  18083  Foreign Data Object and Field are not enabled when copying Key join with operators
 
-	
-	
-v.2.4.0 September 1, 2017
+v.2.4.4 September 25, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+ENHANCEMENTS
+^^^^^^^^^^^^^
+-  New APIs created 
+	-  POST /api/report/findBySourceIds 
+	-  POST /api/report/findReportPartsBySourceIds 
+
+FIXES
+^^^^^
+-  Defect  18312  When Report is moved from one category to another in the report list, the role permissions do not appear to be properly updated on the role permissions, even though the user can see the report.
+-  Defect  18275  Global report/dashboard which is shared to specific role can't be accessed by this newly role in existing tenant or new tenant
+-  Defect  18237  Null values should show blank in pivot/drilldown but showing as 0 when convert null to empty string is enabled
+-  Defect  18093  System shows dirty form message but no response after that when user config Custom URL on field with option Open Link in Current Window
+-  Defect  17745  Report Part of Dashboard is cotinues loading indefinitely when user opens an existing dashboard in some Angular enviroments.
+-  Defect  17724  Grand Total configuration is removed when user sets both sub total & grand total then change to HTML tag or Saves report on form report part
+
+
+v.2.4.3 September 18, 2017
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18368  Stored Procedure Lookups are Failing when Key and Value are different data types
+-  Defect  18346  New Chrome release Version 61.0.3163.79 causes issues in rendering charts, maps and gauges.
+-  Defect  18332  Relationships order is changed when user goes back to data source from report viewer when self join is created. 
+-  Defect  18319  Grid does not export, print or show in emailed items when some fields are hidden a grid
+-  Defect  18309  Latitude & longitude do not work on any map report parts.
+-  Defect  18287  Existing Users Can Be Modified to have User IDs that are already in use
+-  Defect  18268  When adding a date field to the x axis of any gauge and using M/d/yyyy format the year of the date is displayed incorrectly.
+-  Defect  18267  Using Calculated Field for subreport field mapping Breaks and does not show proper subreport values
+-  Defect  18256  Javascript declarations were being deleted upon using the visual tab.
+-  Defect  18209  Scatter chart labels are shown incorrectly, value label is shown as label and label for y axis
+-  Defect  18074  Subtotals of side total on Pivot grids is incorrect 
+-  Defect  18073  Side Total in Pivot Are not calculating properly
+-  Defect  18023  System shows blank value on filter value for parameter of stored procedure on Schedules/Subscriptions after saving
+-  Defect  17991  APIs - License - User can get Izenda "License Key and Token" by sending request to "api/License/currenttoken"
+-  Defect  17744  User is able to add duplicate database mappings and save. System should not allow duplicate mappings.
+-  Defect  17554  SubReport link from printed PDF and embedded email shows blank page when clicked by user.
+
+v.2.4.2 September 11, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18289  The subscription doesn't trigger the last scheduled run if the system was offline and restarts later than that moment
+-  Defect  18229  When using embedded mode the URL for Custom URL and Custom JS on field values are encoded twice and cause navigation issues to the links.
+-  Defect  18174  Export to Excel fails when field mapping to subreport is added to pivot
+-  Defect  18127  TIMESTAMP data type with fractional seconds precision was not recognized properly 
+-  Defect  18123  Adding a new field removes Embedded JavaScript from first field (On Field Properties Panel). Clickable link still available on first field.
+-  Defect  18055  System shows incorrect value for Sub Total if date field has format, when user attempts to format the subtotal the data shows no results.
+-  Defect  18054  Duplicated Data Object is not automatically swapped at tenant level/ tenant user
+-  Defect  17988  APIs - report - User can delete archived version by sending request to "api/report/deleteAllArchiveVersions"
+
+
+v.2.4.1 September 5, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18263  Calculated Field with Aggregate fails to show format tab to format the newly created field
+-  Defect  18207  In Oracle and PostgreSQL timestamp datatypes are not visible in the data model.
+-  Defect  18175  When sending a report which contains a Calculated Field as PDF in Email the PDF is blank
+-  Defect  18160  Custom Function does not work in nested function
+-  Defect  18147  In time period filter for week is picking up Sunday of next week with anything in 00:00:00 time - should cut off at Saturday 12:59:59:999
+
+v.2.4.0 September 1, 2017
+~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
 ^^^^^^^^^
@@ -53,12 +118,45 @@ FEATURES
 - Moved the pagination control from the right side of the report part to the left to allow ease of use when large grids are displayed.
 - Added JavaScript function to allow the Report Filter block to be Open or Closed by default in Report Viewer and Report Designer:
 	- To Implement this setting please see below:
-		For Standalone use the izenda_config.js file for integrated scenarios like the MVC kit use the Scripts/izenda.integration.js file
+		For Standalone use the izenda_config.js file 
+		
 		.. code-block:: javascript
-		UIPreferences: { 
-		ReportFilterSectionExpanded: false 
-		} 
-- Expanded character limit for caluclated fields. The charachter limit is 
+		
+		    // to collapse by default, the value should be 1
+			UIPreferences: { 
+				ReportFilterSectionExpanded: !0
+			}	 
+			
+		For integrated scenarios like the MVC kit, use the Scripts/izenda.integrate.js (or izenda.integrate.ts for the Angular kit)
+
+		.. code-block:: javascript
+		   :emphasize-lines: 15-18
+		   
+		    var configJson = {
+				"WebApiUrl": hostApi,
+				"BaseUrl": "/izenda",
+				"RootPath": "/Scripts/izenda",
+				"CssFile": "izenda-ui.css",
+				"Routes": {
+					"Settings": "settings",
+					"New": "new",
+					"Dashboard": "dashboard",
+					"Report": "report",
+					"ReportViewer": "reportviewer",
+					"ReportViewerPopup": "reportviewerpopup",
+					"Viewer": "viewer"
+				},
+				// to collapse by default, the value should be 1
+				"UIPreferences": {
+					"ReportFilterSectionExpanded": !1
+				},
+				"OnReceiveUnauthorizedResponse": redirectToLoginPage,
+				"Timeout": 3600
+			};
+			
+- Expanded the character limit (previously 500) for calculated fields. The field size has been increased to the maximum size text field supported by your configuration database type.
+- Added lazy-loading to the dashboard filters to improve performance.
+- Modified SASS files to support additional compilers.
 
 FIXES
 ^^^^^
@@ -81,7 +179,7 @@ FIXES
 -  Defect  18228  Configured Save process on Role update to work with CommandTimeOut Setting in Izenda System Settings Table to allow for extended Timeout values
 
 v2.3.5 August 28, 2017
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
 ^^^^^
@@ -1345,7 +1443,7 @@ FIXES
    granted access to.
 
 
-   Known Issues
+Known Issues
 ~~~~~~~~~~~~
 
 .. list-table::
