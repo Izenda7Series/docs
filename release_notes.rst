@@ -14,24 +14,24 @@ v.2.5.0 September 29, 2017
 FEATURES
 ^^^^^^^^^	
 - Added new filter operator "Equals (Manual Entry No Auto-Complete)". This operator does not execute any queries to the database and allows user to input any values into the text entry.
-- Altered the way relationships display when more than one relationship for the same data sources are set up in the data model. These types of multiple joins will now be displayed as key joins in the UI for users with Advanced Sata Source access.
-- Added ability to use aggreated and nonaggregated fields in filters without changing grouping in report designer. When using aggreated and nonaggregated filters in the same report, the filter logic will be removed as only AND logic is supported.
-- Performance Impovement of Data Source and Relationship Loading in the Report Designer 
+- Altered the way relationships display when more than one relationship for the same data sources are set up in the data model. These types of multiple joins will now be displayed as key joins in the UI for users with Advanced Data Source access.
+- Added ability to use aggregated and non-aggregated fields in filters without changing grouping in report designer. When using aggregated and non-aggregated filters in the same report, the filter logic will be removed as only AND logic is supported.
+- Performance Improvement of Data Source and Relationship Loading in the Report Designer 
 - Schema Tab removed from Data Model
 - Added Performance enhancements to Gauge and Map Report Parts
-- Remvoed redundant API calls when switching tabs in the Report Designer   
+- Removed redundant API calls when switching tabs in the Report Designer   
 
 FIXES
 ^^^^^
 -  Defect  18441  All reports created from one dynamic stored procedure error when selecting the same fields in any additional reports.
 -  Defect  18440  Tenant Name Dropdown doesn't show after changing Setting level to Tenant
--  Defect  18431  In Report Part Form Calaculated Field is not found in report viewer and quick edit mode
+-  Defect  18431  In Report Part Form Calculated Field is not found in report viewer and quick edit mode
 -  Defect  18430  Setting Level is always enable in report designer
 -  Defect  18422  Expression and name change on global report at system level do not reflect on Tenant global report
 -  Defect  18390  Cannot load Oracle Stored Procedure which has nvarchar2 datatype
 -  Defect  18314  Last grid column is not accessible in embedded kits for dashboard. When user makes the tile smaller and tries to make it full width again they cannot.
 -  Defect  18269  Day of Week is off by one day when using this date format.
--  Defect  18230  Chart with Drill down with date format other than year shows no results when user drillsdown to next level on chart.
+-  Defect  18230  Chart with Drill down with date format other than year shows no results when user drills down to next level on chart.
 -  Defect  18083  Foreign Data Object and Field are not enabled when copying Key join with operators
 
 	
