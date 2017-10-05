@@ -29,9 +29,6 @@ Glossary
    cross filtering
       The option to filter data of two or more report parts together. Drilling down a report part will also drill down other report parts in the same report/dashboard that are selected for cross filtering. 
 
-   custom view
-      A user-defined view, which allows user to limit :term:`data source fields <data source field>`, combine fields from multiple :term:`data sources <data source>` or aggregate data into the result view.
-
    dashboard part
       A dashboard area that holds a :term:`report part`.
 
