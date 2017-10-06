@@ -158,6 +158,7 @@ QuerySource
       -
       -  Whether this query source is a real query source and has a custom query source which has the same name
       -
+
 .. container:: toggle
 
    .. container:: header
