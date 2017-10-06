@@ -423,7 +423,7 @@ Returns an array of the :term:`query source categories <query source category>` 
         }
       ]
 
-POST dataModel/basicQuerySourceCategoriesInfo/
+POST dataModel/basicQuerySourceCategoriesInfo
 --------------------------------------------------------------
 
 Returns an array of the :term:`query source categories <query source category>` with paging.

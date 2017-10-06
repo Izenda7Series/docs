@@ -1,4 +1,4 @@
-
+`
 
 ============================
 Export APIs
@@ -40,8 +40,6 @@ POST export/{format:exportformat}
 Exports the dashboard, report or report part specified in request parameters.
 
 **Request**
-
-    **ContentType** = "application/x-www-form-urlencoded"
 
     **Keys**:
 
@@ -125,7 +123,7 @@ Exports the dashboard, report or report part specified in request parameters.
 
       POST /api/export/pdf HTTP/1.1
 
-   Request form:
+   Request form (application/x-www-form-urlencoded):
 
    .. code-block:: text
 
@@ -137,6 +135,19 @@ Exports the dashboard, report or report part specified in request parameters.
       fileSessionKey:e09f9d45-b721-4012-b8e7-c31c58d52af3294
       access_token:123Abc..=
       current_tenant:
+
+   Request form (application/json):
+
+   .. code-block:: json
+
+      {
+         "reportId":"e09f9d45-b721-4012-b8e7-c31c58d52af3",
+         "filters":
+           [
+            {"key": "EF8414A4-AAC0-46BA-B29B-AC7D2775EBE3", "value": "Argentina", "operatorId": "737307D1-1E5F-407F-889F-1B3C9A66DD6F"},
+            {"key": "204142B3-0BCF-4B3D-A834-D5E531CFDD2F", "value": 1, "operatorId": "737307D1-1E5F-407F-889F-1B3C9A66DD6F"}
+      ]
+      }
 
    Response::
 
@@ -193,8 +204,6 @@ Exports the performance statistics trend to csv.
 
 **Request**
 
-    **ContentType** = "application/x-www-form-urlencoded"
-
     **Keys**:
 
     .. list-table::
@@ -225,12 +234,21 @@ Exports the performance statistics trend to csv.
 
       POST /api/export/performanceStatisticsTrend HTTP/1.1
 
-   Request form:
+   Request form (application/x-www-form-urlencoded):
 
    .. code-block:: text
 
       access_token:123Abc..=
       current_tenant:
+
+   Request form (application/json):
+   
+   .. code-block:: text
+   
+      {
+         "access_token" : "123Abc...",
+         "current_tenant" : ""	
+      }
 
    Response::
 

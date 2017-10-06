@@ -28,7 +28,7 @@ We have created several starter kits to demonstrate how to embed Izenda into web
    .embedding_izenda
 
 Customizing Your Izenda Instance
-===============================
+=================================
 
 Izenda supports an array of customizations ranging from style modifications to data format additions and hidden filters.
 

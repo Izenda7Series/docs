@@ -143,7 +143,7 @@ QuerySource
       -
       -  Whether this query source belongs to a copied report
       -
-   *  -  **viewDefinition** |br|
+   *  -  **customDefinition** |br|
          string
       -
       -  Definition of the view in case this is a custom query source
