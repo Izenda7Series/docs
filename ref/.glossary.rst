@@ -32,7 +32,6 @@ Glossary
    custom view
       A user-defined view, which allows user to limit :term:`data source fields <data source field>`, combine fields from multiple :term:`data sources <data source>` or aggregate data into the result view.
 
-
    dashboard part
       A dashboard area that holds a :term:`report part`.
 
