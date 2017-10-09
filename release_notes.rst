@@ -8,6 +8,27 @@ Release Notes
 	- Major Release - Larger Features, Major release 1.x.x
 
 
+v.2.5.1 October 9, 2017
+~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18471  Invisible filter still displays in Export/Subscribe/Schedule filter area.
+-  Defect  18464  User can not drag Filter Fields to change their position in Filter section without error.
+-  Defect  18454  PostgreSQL Custom Views will fail when using  :: for converting data types
+-  Defect  18445  System shows error msg "No operator type or operator is defined for the filter" when creating a report from 2 Dynamic stored procedures
+-  Defect  18386  Printing dashboad is not properly spacing tiles and results in items missing on page.
+-  Defect  18383  Report part hangs after adding a Calculated Field into container then user clicks on Add a field link (the +) next to the field container.
+-  Defect  18360  The print preview page is blank when User prints a form Report and the form is not printed on printer.
+-  Defect  18333  Aggregated Calculated Field fails to render in Map
+-  Defect  18304  Subreport Popup Option only allows you to navigate into two levels of  popup subreports
+-  Defect  18270  Sorting does not change when using Day of Week format in chart when moving from A-Z and Z-A
+-  Defect  18215  Required filter warning shows Position and # and should only show # of filter in viewer.
+-  Defect  18040  Dashboard save popup overflows in responsive mode
+-  Defect  18039  Name, title and description of dashboard tile part are overlapped in Presentation mode
+-  Defect  17947  PDF scaling is incorrect, the page is not fully utilized.
+-  Defect  17614  User name in users profile should not be editable in any embedded modes as it is used to keep application in sync and should not be editable.
+
 v.2.5.0 September 29, 2017
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
