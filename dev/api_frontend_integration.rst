@@ -218,14 +218,36 @@ Render Izenda Report Viewer page only inside hosting web
 
 **Parameters**
 
-    element |br|
-    report_id
+        element : a DOM element |br|
+        a json object contains fields below:
+
+        .. list-table::
+           :class: apitable
+           :widths: 35 40 25
+           :header-rows: 1
+
+           * - Field
+             - Description
+             - Note
+           * - **report_id** |br|
+               String (GUID)
+             - The report Id
+             -
+           * - **filter** |br|
+               A filter object
+             - 
+             -
+           * - **integrationStyle** |br|
+                
+             - hideToolbar : hide Tool bar|br|
+               hideFilter : hide Filter
+             -
 
 **Samples**
 
     .. code-block:: javascript
 
-       IzendaSynergy.renderReportViewerPage(document.getElementById('izenda-root'), "C2946606-7159-4FB3-82B7-E7D4ED3162A0");
+       IzendaSynergy.renderReportViewerPage(document.getElementById('izenda-root'), "C2946606-7159-4FB3-82B7-E7D4ED3162A0",null,{ "hideToolbar" : true});
 
     .. figure:: /_static/images/Izenda_Report_Viewer.png
 
@@ -239,15 +261,51 @@ Render specific :term:`Report Part` inside hosting web
 
 **Parameters**
 
-        element |br|
-        report_part_id
+        element : a DOM element |br|
+        an object contains fields below:
+
+        .. list-table::
+           :class: apitable
+           :widths: 35 40 25
+           :header-rows: 1
+
+           * - Field
+             - Description
+             - Note
+           * - **id** |br|
+               String (GUID)
+             - The report part Id
+             - Required
+           * - **filter** |br|
+               An array of Object with **key** and **value** 
+             - Filters on sub report
+             - Optional
+           * - **crosssfilters** |br|
+               An array of Object with **key** and **value** 
+             - Filters on report
+             - Optional
+           * - **overridingFilterValue** |br|
+                
+             - Override all or specified default fillter values by using **pvalue**
+             - Optional
+           * - **crosssfilters** |br|
+               An array of Object with **key** and **value**
+             - Override default fillter values
+             - Optional
+           * - **onPublishDrillInfo** |br|
+               A function
+             - This function which will be invoked when drilldown
+             - Optional
 
 **Samples**
 
     .. code-block:: javascript
 
        IzendaSynergy.renderReportPart(document.getElementById('izenda-part1'), {
-          "id": "804B35C8-44A4-4535-A484-F27E8ABA410D"
+          "id": "804B35C8-44A4-4535-A484-F27E8ABA410D",
+          onPublishDrillInfo: function (drillInfo) {
+                console.log("drillInfo", drillInfo);
+            }
        });
 
     .. figure:: /_static/images/Render_Specific_report_part.png
