@@ -210,7 +210,7 @@ Render Izenda Report Designer Page (New/Edit Report) inside hosting web
 
        Izenda Report Designer only
 
-renderReportViewerPage(element,report_id)
+renderReportViewerPage(element,report_id, filter,integrationStyle)
 ----------------------------------------------------------------------------------------------
 
 Render Izenda Report Viewer page only inside hosting web
@@ -218,42 +218,38 @@ Render Izenda Report Viewer page only inside hosting web
 
 **Parameters**
 
-        element : a DOM element |br|
-        a json object contains fields below:
-
         .. list-table::
            :class: apitable
-           :widths: 35 40 25
+           :widths: 25 75
            :header-rows: 1
+
 
            * - Field
              - Description
-             - Note
+           * - **element** |br|
+               A DOM element to render in
+             - Element to render in
            * - **report_id** |br|
                String (GUID)
              - The report Id
-             -
            * - **filter** |br|
                A filter object
-             - 
-             -
+             - The values for the filters, in this format ``{ p1: a_value, p2: another_value, .. }``
            * - **integrationStyle** |br|
                 
-             - hideToolbar : hide Tool bar|br|
-               hideFilter : hide Filter
-             -
+             - The options for toolbar and filter section, in this format ``{ "hideToolbar": true/false, "hideFilter": true/false }``
 
 **Samples**
 
     .. code-block:: javascript
 
-       IzendaSynergy.renderReportViewerPage(document.getElementById('izenda-root'), "C2946606-7159-4FB3-82B7-E7D4ED3162A0",null,{ "hideToolbar" : true});
+       IzendaSynergy.renderReportViewerPage(document.getElementById('izenda-root'), "C2946606-7159-4FB3-82B7-E7D4ED3162A0",null,{ "hideFilter" : true});
 
     .. figure:: /_static/images/Izenda_Report_Viewer.png
 
        Izenda Report Viewer Only
 
-renderReportPart(element,{"id":report_part_id})
+renderReportPart(element,params)
 ----------------------------------------------------------------------------------------------
 
 Render specific :term:`Report Part` inside hosting web
@@ -262,7 +258,7 @@ Render specific :term:`Report Part` inside hosting web
 **Parameters**
 
         element : a DOM element |br|
-        an object contains fields below:
+        params : an object contains fields below:
 
         .. list-table::
            :class: apitable
@@ -384,13 +380,13 @@ Render Izenda Dashboard Viewer page
    .. list-table::
       :widths: 20 80
 
-      * - element
+      * - **element**
         - The element to render in
-      * - dashboard_id
+      * - **dashboard_id**
         - The id of the dashboard
-      * - filter
+      * - **filter**
         - The values for the filters, in this format ``{ p1: a_value, p2: another_value, .. }``
-      * - integrationStyle
+      * - **integrationStyle**
         - The options for toolbar and common filter section, in this format ``{ hideDashboardToolbar: true/false, hideCommonFilter: true/false }``
 
 **Samples**
