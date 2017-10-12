@@ -278,15 +278,11 @@ Render specific :term:`Report Part` inside hosting web
              - Optional
            * - **crosssfilters** |br|
                An array of Object with **key** and **value** 
-             - Filters on report
+             - Cross filtering's filter on report
              - Optional
            * - **overridingFilterValue** |br|
                 
              - Override all or specified default fillter values by using **pvalue**
-             - Optional
-           * - **crosssfilters** |br|
-               An array of Object with **key** and **value**
-             - Override default fillter values
              - Optional
            * - **onPublishDrillInfo** |br|
                A function
