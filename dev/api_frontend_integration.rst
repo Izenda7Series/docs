@@ -306,7 +306,7 @@ Render specific :term:`Report Part` inside hosting web
             }
           ],
           "overridingFilterValue": {
-             p1 : 10,
+             p1value : 10,
            },
           "crosssfilters": [
             {
