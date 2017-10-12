@@ -299,6 +299,21 @@ Render specific :term:`Report Part` inside hosting web
 
        IzendaSynergy.renderReportPart(document.getElementById('izenda-part1'), {
           "id": "804B35C8-44A4-4535-A484-F27E8ABA410D",
+          "filters": [
+            {
+               "key": "[northwind].[dbo].[Order].[ShipCountry]",
+               "value": "Australia"
+            }
+          ],
+          "overridingFilterValue": {
+             p1 : 10,
+           },
+          "crosssfilters": [
+            {
+               key: "[northwind].[dbo].[Order].[ProductID]",
+               value: 23
+            }
+          ],
           onPublishDrillInfo: function (drillInfo) {
                 console.log("drillInfo", drillInfo);
             }
