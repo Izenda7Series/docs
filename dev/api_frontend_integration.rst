@@ -1,8 +1,14 @@
+.. _Front-end-Integration:
+
 ==========================
 Front-end Integration APIs
 ==========================
 
-This list documents the JavaScript APIs used for Front-end Integration.
+
+
+This list documents the JavaScript APIs used for Front-end Integration using the Izenda EmbeddedUI resources
+
+:Note: These endpoints are for integrated Scenarios only (Deployment Modes 1 and 3)
 
 List of APIs
 ------------
@@ -17,6 +23,7 @@ List of APIs
      -
    * - .. container:: lpad2
    
+
           `config(configJson)`_
      - Configure Izenda
    * - .. container:: lpad2
@@ -65,8 +72,7 @@ List of APIs
 config(configJson)
 ----------------------------------------------------------------------------------------------
 
-Configure Izenda
-
+Initial configuration Izenda's front end. This will run client side to ensure all resources are mapped correctly before interacting with the Izenda API.
 
 **Parameters**
 
@@ -100,6 +106,24 @@ Configure Izenda
    |br| The optional ``NeedToEncodeUrl`` parameter (defaults to ``true`` if not specified). |br|
    Set it to ``false`` if host framework expects unencoded urls (such as Angular 2).
 
+   **configJson Properties**
+* **WebApiUrl:** The location of your Izenda back end or load balancing service.
+
+*	**Base URL:** The base URL for your Izenda routes.
+
+*	**RootPath:** The relative path of your Izenda EmbeddedUI Resources
+
+*	**Routes:** A collection of routes available for white-labeling in your application. The next section discussed the routes used in the Angular 2 kit and provides an example of overwriting them. The subsequent sections outline key locations you can find these routes in use in the application. For guidelines on modifying the Izenda routes, please refer to :ref:`WL`
+
+:Note: If route values are not explicitly set, the routes will be set to Izenda’s default values.
+
+* **Timeout:** Maximum number of milliseconds the front end waits for a response from Izenda API.
+
+*	**NeedToEncodeUrl:** Encodes the URL through Izenda mechanisms. By default, this value is set to “true.” For Angular 2 applications, URL encoding will be handled by Angular. Set this value to false.
+  
+   
+   
+   
 **Samples**
 
     .. code-block:: javascript
