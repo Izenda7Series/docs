@@ -48,6 +48,10 @@ The Search box at the top allows user to search for specific tenants.
 Add Tenant
 ----------
 
+.. note::
+
+   When in integrated mode (DeploymnetMode <> 0) adding and removing tenants from the UI is not available. This is to ensure the host  applicaton and Izenda stay in sync.
+   
 #. .. _Tenant_Setup_Add_button:
 
    .. figure:: /_static/images/Tenant_Setup_Add_button.png
