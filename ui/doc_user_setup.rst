@@ -6,6 +6,10 @@ User Setup
 
 The **User Setup** page allows user to manage users.
 
+.. note::
+
+   When in integrated mode (DeploymnetMode <> 0) adding and removing Users from the UI is not available. This is to ensure the host  applicaton and Izenda stay in sync.
+
 List and View Users
 -------------------
  
