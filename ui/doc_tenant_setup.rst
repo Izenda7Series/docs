@@ -12,7 +12,8 @@ The **Tenant Setup** page allows user to
 
 .. note::
 
-   When in integrated mode (DeploymnetMode <> 0) adding and removing tenants from the UI is not available. This is to ensure the host application and Izenda stay in sync. API's must be used for these functions in integrated environments. For more information on the API's please reivew :doc:`here </ref/api_tenant.html#post-tenant-intergration-savetenant>`.
+   When in integrated mode (DeploymentMode <> 0) adding and removing tenants from the UI is not available. This is to ensure the host application and Izenda stay in sync. API's must be used for these functions in integrated environments. For more information on the API's please review the documentation 
+   `here <https://www.izenda.com/docs/ref/api_tenant.html?highlight=post%20tenant%20intergration%20savetenant#post-tenant-intergration-savetenant>`_.
 
 List and View Tenants
 ---------------------
