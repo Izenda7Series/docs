@@ -8,6 +8,26 @@ Release Notes
 	- Major Release - Larger Features, Major release 1.x.x
 
 
+v.2.5.3 October 23, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18558  When input parameters are removed from a stored procedure, they are not removed from the Izenda data model
+-  Defect  18539  In Time Period Filter Drop down returns no results when on back of dashboard tile of report part.
+-  Defect  18537  Role setup failed to load 25k users in a single role
+-  Defect  18523  User Can Be Created With Multiple Instances of the Same Role via the API
+-  Defect  18510  When using text values grouped on y axis of bubble chart null values are shown which do not exist in the data
+-  Defect  18503  Using a calculated field (data type date) shows application error
+-  Defect  18399  Browser Print Dialogue Exponentially Slows as report becomes more complex
+-  Defect  18381  Scatter chart does not show all metric of 'Value labels'
+-  Defect  18271  User is unable to navigate to page 2 of user popup on schedule user popup, subscription, and access modules
+-  Defect  18204  In Edge Browser the HTML of form is shown in visual tab
+-  Defect  18018  API security vulnerability resolved
+-  Defect  17977  Calculated Field Name is not updated on the popup after the second time the user modifies CF name in Field Name under DataSource tab
+-  Defect  17699  Using MS Edge, System loads continuously when user opens SubTotal/Grand Total pop up in repeater on a form report part
+
+
 v.2.5.2 October 16, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
