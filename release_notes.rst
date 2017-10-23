@@ -1565,9 +1565,6 @@ Known Issues
      - 18400
      - Combination Charts are Keeping Separator Properties from Previous Chart Type when changed from chart type that supports separators.
    * - Defect
-     - 18399
-     - Browser Print Dialogue Exponentially Slows as report becomes more complex
-   * - Defect
      - 18398
      - Percentage Range for Chart color formatting is not shown with Drilldown
    * - Defect
@@ -1582,9 +1579,6 @@ Known Issues
    * - Defect
      - 18384
      - Aggregated Field does NOT show user-defined function in dropdown list
-   * - Defect
-     - 18381
-     - Scatter chart does not show all metric of 'Value labels'
    * - Defect
      - 18378
      - The join type should not be changed when user creates multiple joins for the same 2 data objects but different join fields
@@ -1742,9 +1736,6 @@ Known Issues
      - 18217
      - No record is found when searching relationships of report designer when using  "Uncategorized" in datasource
    * - Defect
-     - 18204
-     - In Edge Browser the HTML of form is shown in visual tab
-   * - Defect
      - 18176
      - Hamburger for category shows in report/dashboard view mode for mobile screens
    * - Defect
@@ -1895,9 +1886,6 @@ Known Issues
      - 18025
      - XY-Plane Settings: Axis's text background color settings does not work
    * - Defect
-     - 18018
-     - APIs - connection - User can access some function of module "connection" via API
-   * - Defect
      - 18013
      - Time and Timestamp data types are not returned from PostgreSql functions when created a stored procedure.
    * - Defect
@@ -1930,9 +1918,6 @@ Known Issues
    * - Defect
      - 17978
      - The light bulb icon is overlapped with the expression when CF length is too long
-   * - Defect
-     - 17977
-     - Calculated Field Name is not updated on the popup after the second time the user modifies CF name in Field Name under DataSource tab
    * - Defect
      - 17975
      - System shows no NULL data when user create report with 1 tables & 1 Views and Filter with NULL value
@@ -2149,9 +2134,6 @@ Known Issues
    * - Defect
      - 17707
      - BREAKING CHANGE - API User/Integration/saveUser should return the newly generated user ID with success response
-   * - Defect
-     - 17699
-     - Using MS Edge, System loads continuously when user opens SubTotal/Grand Total pop up in repeater on a form report part
    * - Defect
      - 17698
      - When user sets cascading to true on any stored procedure input param, but does not override this in IAdHoc Extension, subsequent filter values are not displayed when configured in the data model. Cascading should not be set on stored procedure input params unless the IAdHoc Extension is used.
