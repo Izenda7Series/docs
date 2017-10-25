@@ -175,18 +175,20 @@ The most common testing scenario places the front-end and the back-end on two se
    #. In Security tab, click Edit to open Permissions dialog box.
    #. Click Add then enter ``IUSR`` then click OK (for IIS 7 and above).
 
-          For older IIS versions, use ``NT AUTHORITY\\NETWORKSERVICE``.
+        -  For older IIS versions, use ``NT AUTHORITY\\NETWORKSERVICE``.
+        -  Available users may vary between operating systems and IIS versions. Typically, permissions given to one of these users will suffice, such as the Network Service account as long as the AppPool for the site is running under that Identity.
+
 
    #. Back in Permissions dialog box, tick the Modify check-box for
       IUSR.
-   #. Click OK to close all dialogs. |br|
+   #. Click OK to close all dialogs.
    #. Set similar permissions for the other package.
-   #. Update the Back-end API url in Front-end package: |br|
-      Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
-      ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
-      
- This concludes the steps necessary to install Izenda using two separate websites. 
- Please refer to the following guides below: 
+   #. Update the Back-end API url in Front-end package:
+
+      - Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port: ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
+
+ This concludes the steps necessary to install Izenda using two separate websites.
+ Please refer to the following guides below:
  - Troubleshooting & Verifying the Installation
  - Common Izenda Stand-alone Installation Issues
  - Editing the Configuration Files
@@ -322,11 +324,11 @@ Within the API Folder of your Deployment
          </handlers>
 
  This concludes the steps necessary to install Izenda using virtual directories/applications.
- Please refer to the following guides below: 
+ Please refer to the following guides below:
  - Troubleshooting & Verifying the Installation
  - Common Izenda Stand-alone Installation Issues
  - Editing the Configuration Files
- 
+
 
 Troubleshooting & Verifying the Installation
 -------------------------------------------------------
@@ -336,7 +338,7 @@ Troubleshooting & Verifying the Installation
    If your API is installed correctly, you should see the graphic below:
 
    .. figure:: /_static/images/SuccessfulAPI.png
-   
+
       Successful Connection to API displays a stylized 404 error
 
 *  Navigate to the API folder, you should see a 'logs' folder with with at least one log file. If you do not see the folder and/or files, verify that the application pool and/or web site user have write permissions to the API folder.
@@ -413,7 +415,7 @@ Common Izenda Stand-alone Installation Issues
 
 *  Mixing Two Separate Application Installation Steps with Virtual Directory Installation Steps
 
-   There are two different ways to install Izenda Stand-alone, as two separate applications with distinct ports or domains, or as one application with a virtual directory. 
+   There are two different ways to install Izenda Stand-alone, as two separate applications with distinct ports or domains, or as one application with a virtual directory.
 
    Concepts from these two separate installation options cannot be mixed together without creating issues. Make sure to follow just one guide or the other:
 
@@ -459,7 +461,7 @@ Common Izenda Stand-alone Installation Issues
 
          IIS basic settings |br|
 
-      You can then use that name in setting your folder permissions as you see below. |br| 
+      You can then use that name in setting your folder permissions as you see below. |br|
       ``IIS AppPool\YouApplicationPoolName``
 
       .. figure:: /_static/images/install_IIS_AppPool_name.png
@@ -505,7 +507,7 @@ Common Izenda Stand-alone Installation Issues
 
    -  Make sure you’ve given your Connection String user proper permissions.
 
-      Double check that the connection string user has permissions to the databases and schemas you want to connect to. You’ll need to give read/write permissions to the user for the Izenda Configuration Database. Izenda cannot get around your RDBMS security, as you might expect. 
+      Double check that the connection string user has permissions to the databases and schemas you want to connect to. You’ll need to give read/write permissions to the user for the Izenda Configuration Database. Izenda cannot get around your RDBMS security, as you might expect.
 
       |br|
 
@@ -523,7 +525,7 @@ Common Izenda Stand-alone Installation Issues
 
    -  Izenda Configuration Database Connection String
 
-      The Izenda Configuration Database Connection String will be set in the Settings page under the System DB & License tab. 
+      The Izenda Configuration Database Connection String will be set in the Settings page under the System DB & License tab.
 
       Be very careful when setting and/or changing this connection string!
 
@@ -535,9 +537,9 @@ Common Izenda Stand-alone Installation Issues
 
    -  Reporting Data Source Connection Strings
 
-      Reporting Data Source Connection Strings will be set in the Settings page under the Data Setup/Connection String tab. 
+      Reporting Data Source Connection Strings will be set in the Settings page under the Data Setup/Connection String tab.
 
-      After connecting Izenda will query the database to establish the available data source listing, so that you can choose specific objects to move into the visible data sources. 
+      After connecting Izenda will query the database to establish the available data source listing, so that you can choose specific objects to move into the visible data sources.
 
       These selected objects can then be further modeled upon, aliased, secured, and exposed to end-users within report designers.
 
@@ -550,7 +552,7 @@ Common Izenda Stand-alone Installation Issues
 *  In build 1.23.0, an exception may occur after creating an APP and API websites. If you receive  an error akin to the following:
 
    .. code-block:: text
-   
+
       Exception type: ConfigurationErrorsException
       Exception message: Could not load file or assembly 'Oracle.ManagedDataAccessDTC.DLL' or one of its dependencies. The specified module could not be found.
 
