@@ -1516,6 +1516,9 @@ Known Issues
    :header-rows: 1
    :widths: 10 15 75
 
+   * - Type
+     - Item No
+     - Description
    * - Defect
      - 18672
      - Dashboard filters set from the "delivery" tab are ignored.
@@ -1555,6 +1558,9 @@ Known Issues
    * - Defect
      - 18644
      - Invisible field of Form report is still displayed in Report Viewer after being created by sending "POST report" request with visible = "false" in <field-prop> tag of htmlContent
+   * - Defect
+     - 18674
+     - Forms copied using the copy console would lose fields
    * - Defect
      - 18643
      - Form report can be still saved to DB when sending "POST report" request containing at least one field has function = "empty" while others has function
