@@ -7,7 +7,7 @@ Grand Total and Sub Total
 Grand Total
 =============
 
-In report tables, the Grand Total for a field will provide either the sum (average, maximum, minimun) of all values or count (count distinct) values within that field across the entire table.
+In report tables, the Grand Total for a field will provide either the sum (average, maximum, minimun) of all values or count (count distinct) values within that field across the entire data source.
 
 For example, in a report for Northwind database's Orders table, the Grand Total for Freight field will tell the sum of all Freight costs until now.
 
@@ -37,19 +37,19 @@ List of Grand Total Functions
    * - Expression
      - User can combine the expression to collect data by using functions, operators and field names.
    * - Average
-     - Return the avarage of all values within the field that set grand total across the entire table.
+     - Return the avarage of all values within the field that set grand total across the entire data source.
    * - Count
-     - Return the quantity of all values within the field that set grand total across the entire table.
+     - Return the quantity of all values within the field that set grand total across the entire data source.
    * - Count Distinct
-     - Return the count unique number of all values within the field that set grand total across the entire table.
+     - Return the count unique number of all values within the field that set grand total across the entire data source.
    * - Maximun
-     - Return the maximun value of the field that set grand total across the entire table.
+     - Return the maximun value of the field that set grand total across the entire data source.
    * - Minimun
-     - Return the minimum value of the field that set grand total across the entire table.
+     - Return the minimum value of the field that set grand total across the entire data source.
    * - Sum
-     - Return the sum of all values within the field that set grand total across the entire table.
+     - Return the sum of all values within the field that set grand total across the entire data source.
    * - Count Distinct
-     - Return the sum unique number of all values within the field that set grand total across the entire table.
+     - Return the sum unique number of all values within the field that set grand total across the entire data source.
 
 
 
@@ -85,11 +85,6 @@ List of Sub Total Functions
      - Description
    * - Expression
      - User can combine the expression to collect data for each group by using functions, operators and field names.
-   * - Default
-
-       .. versionadded:: 2.6.0
-
-     - Return the value after applying selected agregated function on original values.
    * - Average
      - Return the avarage of all values within the field that set Sub Total across the entire group.
    * - Count
@@ -104,17 +99,3 @@ List of Sub Total Functions
      - Return the sum of all values within the field that set Sub Total across the entire group.
    * - Sum Distinct
      - Return the sum unique number of all values within the field that set Sub Total across the entire group.
-
-Different between Default Sub Total and Normal Sub Total
----------------------------------------------------------
-
-* If user sets Default Sub Total for a agregated field then the sub total value will be calculated by the original data from Data Source (the data before applied agregated function).
-
-* Otherwise, if user choose any normal function (such as average, count, maximum, minimum or user-defined function) for a agregated field then sub total value will be calculated by the values after applied agregated function.
-
-   .. figure:: /_static/images/Sub_Total_Default_Normal.png
-      :align: center
-      :width: 904px
-      :height: 670px
-
-      Compare Count Sub Total and Default Sub Total for Count(OrderID) field.

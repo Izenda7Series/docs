@@ -810,8 +810,6 @@ In this section, user can:
 
    Grand Total and Sub Total is not necessarily the sum calculation. Other functions include minimum, maximum, average, count and user-defined expression.
 
-   New in version 2.6.0 : Add new option for SubTotal function: **Default Sub Total**
-
    For more detail about Grand Total and Sub Total please read :doc:`doc_grand_total_sub_total`.
 
 |br|
