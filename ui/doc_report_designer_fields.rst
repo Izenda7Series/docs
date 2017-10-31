@@ -712,6 +712,20 @@ In this section, user can:
        The list of available dispaly formats depends on the data type of
        the field.
 
+       .. note::
+
+          .. versionadded:: 2.6.0
+         
+          \- % of Subtotal |br|
+          \- % of Subtotal (with rounding) |br|
+          \- % of Grandtotal |br|
+          \- % of Grandtotal (with rounding) |br|
+          \- % of Sidetotal |br|
+          \- % of Sidetotal (with rounding) |br|
+          \- % of Group |br|
+          \- % of Group (with rounding) |br|
+
+
 -  Choose a font face and font size.
 
 -  Choose text effects bold, italic and underlined.
@@ -797,9 +811,9 @@ In this section, user can:
 
    Grand Total and Sub Total is not necessarily the sum calculation. Other functions include minimum, maximum, average, count and user-defined expression.
 
-   .. versionadded :: 2.6.0 : Add new option for Sub Total: **Default Sub Total**
+   New in version 2.6.0 : Add new option for SubTotal function: **Default Sub Total**
 
-   For more detail about Grand Total and Sub Total please visit 
+   For more detail about Grand Total and Sub Total please read :doc:`doc_grand_total_sub_total`.
 
 |br|
 
