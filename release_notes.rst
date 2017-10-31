@@ -8,6 +8,47 @@ Release Notes
 	- Major Release - Larger Features, Major release 1.x.x
 
 
+v.2.6.0 October 31, 2017
+~~~~~~~~~~~~~~~~~~~~~
+FEATURES
+^^^^^^^^
+-  Added Field formats for % of Grand Total and % of Subtotal. This feature will allow you to set a field to show it's % of either the sum(default) or the actual sub/grand total set in the field. Pivots also offer a % of Sidetotal. In addition, when creating a sub or grand total you can set the values to show the subtotal’s % of the grand total. Please see the  `Configure field properties in Data Formatting <https://www.izenda.com/docs/ui/doc_report_designer_fields.html#configure-field-properties-in-data-formatting-section/>`_ section guide for more information on how to use this new feature.
+
+
+FIXES
+^^^^^
+-  Defect  18635  Could not save report when adding new filter using add filter button, user receives error message stating no operator type is defined
+-  Defect  18626  Global forms type report parts are missing report columns at the tenant level 
+-  Defect  18625  Global form report has relationship that contains an alias, it does not show data on Tenant level
+-  Defect  18624  Error message appears when adding aggregated field into Filters then changing format of this field
+-  Defect  18590  Page freezes when pressing Save on Functions page of Data Sources
+-  Defect  18587  System user selects Tenant, the content panel does not load the selected item
+-  Defect  18577  User cannot save Template Report Type on Oracle configuration database
+-  Defect  18574  When creating subreport on x axis value date and setting the interval  on the x axis as 1 the system shows error
+-  Defect  18570  Nextscheduledrundate and lastscuccessful run are incorrectly altered when schedule instance is edited.
+-  Defect  18569  Sort is backward on values in chart, A-Z should be 1-x and Z-A should be x-1
+-  Defect  18546  Success status is returned as TRUE when sending "POST report/validate" with EMPTY accesses-role-name
+-  Defect  18531  Error message is not displayed When the Custom URL and Embedded JavaScript select the same link/icons.
+-  Defect  18472  When validating Template name the response message returned is "Report name is required." ,response message should be "Template name is required."
+-  Defect  18453  MaxValue(inches) for exportFormatSetting-marginSettings of Custom Margin-Landscape Orientation is not enforced properly by the system
+-  Defect  18452  The API "GET report/isReportValid/(report_id)" response returned incorrectly when sending invalid report id
+-  Defect  18444  System shows error msg when user clicks on Update Result after creating a report from 1 Dynamic stored procedure and 1 normal data source
+-  Defect  18428  Error messages is not displayed when input Filter logic contains the word "between". System missing checking invalid expression operator check.
+-  Defect  18421  Existing calculated field on Data model, report designer is not reflected the update from column alias
+-  Defect  18397  Remove call to API /api/report/detectSchemaChange for static stored procedure when user moves to Field tab of report designer
+-  Defect  18363  System adds new duplicated category when save a report into existed category name
+-  Defect  18357  User can add duplicated Calculated Field Name by sending "POST dataModel" API request multiple times
+-  Defect  18330  No filter dropdown shows under Filter Value Selection in Schedule/Subscribe popup if filter operator = Equivalence/Blank
+-  Defect  18315  Stacked area chart appearance is incorrect when using large data volumes.
+-  Defect  18308  List of DataSources grouped by DataSourceCaregory are still returned in JSON Response when sending "POST report/loadDataSourceCategory" api request with Non-Existing reportKey
+-  Defect  18295  User can save a Custom View with empty name
+-  Defect  18292  New Report contains invalid field based on DataType in Report Container (Columns,Separators,Rows,Values) and can be saved successfully to DB by sending "POST report" request
+-  Defect  18080  User can save duplicated Report Category by sending "POST Report" request multiple times with non-existing categoryID
+-  Defect  17934  Data Model change notifications would not disappear upon saving.
+-  Defect  17788  Default URL type of Custom URL is not present once this setting is removed and re-added.
+-  Defect  17755  Using Post request to add database mapping, type value is not properly verified and user can post invalid data
+
+
 v.2.5.3 October 23, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
