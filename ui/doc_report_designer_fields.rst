@@ -795,7 +795,11 @@ In this section, user can:
 
    To have the sum for all Freight costs to each country without having to create additional reports, Grouping and Sub Total can be used. Grouping will group data for each ShipCountry together, while Sub Total for Freight field will give the sum of all Freight costs in each country/group. Screenshot to be updated.
 
-   Grand Total and Sub Total is not necessarily the sum calculation. Other functions include minimum, maximum, average and count.
+   Grand Total and Sub Total is not necessarily the sum calculation. Other functions include minimum, maximum, average, count and user-defined expression.
+
+   .. versionadded :: 2.6.0 : Add new option for Sub Total: **Default Sub Total**
+
+   For more detail about Grand Total and Sub Total please visit 
 
 |br|
 
