@@ -46,6 +46,10 @@ List of Grand Total Functions
      - Return the maximun value of the field that set grand total across the entire table.
    * - Minimun
      - Return the minimum value of the field that set grand total across the entire table.
+   * - Sum
+     - Return the sum of all values within the field that set grand total across the entire table.
+   * - Count Distinct
+     - Return the sum unique number of all values within the field that set grand total across the entire table.
 
 
 
@@ -96,6 +100,10 @@ List of Sub Total Functions
      - Return the maximun value of the field that set Sub Total across the entire group.
    * - Minimun
      - Return the minimum value of the field that set  Sub Total across the entire group.
+   * - Sum
+     - Return the sum of all values within the field that set Sub Total across the entire group.
+   * - Sum Distinct
+     - Return the sum unique number of all values within the field that set Sub Total across the entire group.
 
 Different between Default Sub Total and Normal Sub Total
 ---------------------------------------------------------

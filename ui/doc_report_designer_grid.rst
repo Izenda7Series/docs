@@ -295,7 +295,7 @@ define this sample report:
 
    In a Pivot Grid report, Side Total values will provide the sum of all values for each field in Values box across each row.
 
-   To set up Side Total for a Pivot Grid report, check on the “Add Side Total” checkbox under Columns section in Report Part Properties Panel.
+   To set up Side Total for a Pivot Grid report, check on the “Add Side Total” checkbox under Columns section in Configuration Section in report part backside.
 
    .. figure:: /_static/images/NW_Side_Total_Example.png
       :align: center

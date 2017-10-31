@@ -709,12 +709,12 @@ In this section, user can:
 
 -  Choose a display format for the field.
 
-       The list of available dispaly formats depends on the data type of
+       The list of available formats depends on the data type of
        the field.
 
        .. note::
 
-          .. versionadded:: 2.6.0
+          .. versionadded:: 2.6.0 Add new formats for Numeric and Money Data Types.
          
           \- % of Subtotal |br|
           \- % of Subtotal (with rounding) |br|
@@ -722,9 +722,8 @@ In this section, user can:
           \- % of Grandtotal (with rounding) |br|
           \- % of Sidetotal |br|
           \- % of Sidetotal (with rounding) |br|
-          \- % of Group |br|
-          \- % of Group (with rounding) |br|
-
+          
+          When a sub/grand total is not yet defined, it should default to the sum.
 
 -  Choose a font face and font size.
 
@@ -847,6 +846,14 @@ To set up both Grand Total and Sub Total for Freight costs in Northwind database
     #. Select Sum in Grand Total Function drop-down.
     #. The data type Money is automatically suggested in Data Type
        drop-down.
+    #. Select a format in Format drop-down.
+       
+       .. versionadded:: 2.6.0 Add new formats:
+
+          \- % of Subtotal |br|
+          \- % of Subtotal (with rounding) |br|
+          \- % of Grandtotal |br|
+          \- % of Grandtotal (with rounding)
     #. Click OK to close the pop-up.
 
        .. _Report_Designer_Freight_Grand_Total_Sum:
@@ -863,6 +870,16 @@ To set up both Grand Total and Sub Total for Freight costs in Northwind database
     #. Select Sum in Subtotal Function drop-down.
     #. The data type Money is automatically suggested in Data Type
        drop-down.
+    #. Select a format in Format drop-down.
+       
+       .. versionadded:: 2.6.0 Add new formats:
+
+          \- % of Subtotal |br|
+          \- % of Subtotal (with rounding) |br|
+          \- % of Grandtotal |br|
+          \- % of Grandtotal (with rounding)
+
+    #. Click OK to close the pop-up.
     #. Click OK to close the pop-up.
 
        .. _Report_Designer_Freight_Sub_Total_Sum:
