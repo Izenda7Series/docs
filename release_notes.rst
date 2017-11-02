@@ -12,7 +12,7 @@ v.2.6.2 November 2, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 FIXES
 ^^^^^
--  Defect  18692  System Fails to add new connection string when using MySQL and Oracle Izenda configuraiton databases (or not the last field in the table). ***This issue only impacts customers using MySQL and Oracle Izenda configuration databases.***
+-  Defect  18692  System Fails to add new connection string when using MySQL and Oracle Izenda configuraiton databases. ***This issue only impacts customers using MySQL and Oracle Izenda configuration databases.***
 
 v.2.6.1 November 1, 2017
 ~~~~~~~~~~~~~~~~~~~~~
