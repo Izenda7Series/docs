@@ -40,6 +40,9 @@ Summary
        \- Create a new report OR open an existing report |br|
        \- In Data Source tab, choose a data source |br|
        \- OR switch from the others to Data Source tab
+   * - `POST report/loadRelatedQuerySources`_
+     - Returns list of related query source categories.
+     - 
    * - `POST report/loadJoinQuerySourceByRelationship`_
      - Get join query source by relationship
 
@@ -69,6 +72,11 @@ Summary
    * - `GET report/fieldProperties/{query_source_field_id}`_
      - Returns the properties of query source field specified by query_source_field_id.
      - 
+   * - `POST report/loadDataSourceFields`_
+     - Returns the list fields of selected query source.
+       
+       .. versionadded:: 2.6.3
+     - To be updated
    * - `POST report/calculatedField`_
      - Saves a calculated field after validating name duplication (does not validate the expression).
      - Report Designer > Fields > Add Calculated Field > OK
@@ -84,6 +92,16 @@ Summary
    * - `POST report/deleteReportCalculatedField`_
      - Removes a calculated field from report.
      - Report Designer > Fields > Delete icon on a calculated field
+   * - `POST report/loadDynamicDataSourceCategory`_
+     - Returns list of dynamic report data source category.
+
+       .. versionadded:: 2.6.3
+     - To be updated
+   * - `POST report/loadPartialDataSourceCategory`_
+     - Returns list of report data source category with paging.
+
+       .. versionadded:: 2.6.3
+     - In Report Designer when switching from the others to Data Source tab.
 
 GET report/dataSourceCategory/(tenant_id)
 ------------------------------------------------
@@ -363,6 +381,58 @@ Returns details for a list of query sources and a list of related query sources.
          "skipItems": 0,
          "isLastPage": false
       }
+
+POST report/loadRelatedQuerySources
+-----------------------------------------
+
+Returns list of related query source categories.
+
+
+**Request**
+
+    Payload: a :doc:`models/ReportSelectedPagedRequest` object
+
+**Response**
+
+    The following object:
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **data** |br|
+             an array of :doc:`ReportDataSourceCategory`
+          -  The list of report data source category
+          -
+       *  -  **totalItems** |br|
+             integer
+          -  The number of all items
+          -
+       *  -  **numOfChilds** |br|
+             integer
+          -  The number of children
+          -
+       *  -  **numOfCheckedChilds** |br|
+             integer
+          -  The number of selected children
+          -
+       *  -  **indeterminate** |br|
+             boolean
+          -  * true if 0 < numOfCheckedChilds < numOfChilds
+             * false if not
+          -
+       *  -  **isLastPage** |br|
+             boolean
+          -  Whether this is the last page
+          -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/loadRelatedQuerySources HTTP/1.1
 
 POST report/loadJoinQuerySourceByRelationship
 ----------------------------------------------
@@ -1085,6 +1155,25 @@ Returns the properties of query source field specified by query_source_field_id.
          }]
       }
 
+POST report/loadDataSourceFields
+-------------------------------------
+
+Returns the list fields of selected query source.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDataSourceParameter` object
+
+**Response**
+
+    An array containing exactly one :doc:`models/QuerySourceField` object
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/loadDataSourceFields HTTP/1.1
+
 POST report/calculatedField
 ------------------------------------------------
 
@@ -1398,3 +1487,77 @@ Removes a calculated field from report.
             "messages": ["There is an error while process request. Please contact administrator."]
          }]
       }
+
+POST report/loadDynamicDataSourceCategory
+-------------------------------------------
+
+Returns list of dynamic report data source category.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDataSourceParameter` object
+
+**Response**
+
+    An array of :doc:`models/ReportDataSourceCategory` objects
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/loadDynamicDataSourceCategory HTTP/1.1
+
+   Sample Request Payload::
+
+
+POST report/loadPartialDataSourceCategory
+---------------------------------------------
+
+Returns list of report data source category with paging.
+
+**Request**
+
+    Payload: a :doc:`models/ReportDataSourceParameter` object
+
+**Response**
+
+    The following object:
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **data** |br|
+             an array of :doc:`ReportDataSourceCategory`
+          -  The list of report data source category
+          -
+       *  -  **totalItems** |br|
+             integer
+          -  The number of all items
+          -
+       *  -  **numOfChilds** |br|
+             integer
+          -  The number of children
+          -
+       *  -  **numOfCheckedChilds** |br|
+             integer
+          -  The number of selected children
+          -
+       *  -  **indeterminate** |br|
+             boolean
+          -  * true if 0 < numOfCheckedChilds < numOfChilds
+             * false if not
+          -
+       *  -  **isLastPage** |br|
+             boolean
+          -  Whether this is the last page
+          -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/report/loadPartialDataSourceCategory HTTP/1.1
+
