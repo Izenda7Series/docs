@@ -248,7 +248,6 @@ Configure Sharing Access
 
    *  - **Access Right**
    *  - Full Access
-   *  - Quick Edit
    *  - Save As
    *  - Locked
    *  - View Only
