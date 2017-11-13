@@ -236,7 +236,7 @@ Configure Sharing Access
    *  - **Modify the report in Report Designer**
       - ✔
       - ✖
-      - ✖
+      - ✔
       - ✖
       - ✖
       - ✖
