@@ -8,6 +8,28 @@ Release Notes
 	- Major Release - Larger Features, Major release 1.x.x
 
 
+v.2.6.5 November 13, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect   17260  Running function does not re-calculate after cross filtering
+-  Defect   17224  When editing a report (grid) created from version 2.6.2 the sort option is not properly displayed
+-  Defect   17210  In the Angular2 Integration example kit there is an error after navigating to the Settings page.
+-  Defect   17198  Number of Records Set on Report Part not respected on Print/Export
+-  Defect   17184  Forms would not display when Popup was chosen as the style for a subreport.
+-  Defect   17082  When changing text color using Percentage Range, the value of the field is changed to a percentage
+-  Defect   17046  Format of field effects format of SubTotal and user cannot override using subtotal format
+-  Defect   17031  Drill In/Out Doesn't Always Work Until you update results on map report part
+-  Defect   17026  In Form repeater the whole row of a table is moved to the top if repeated
+-  Defect   16985  Running type function on fields shows incorrectly in Pivot grid report part
+-  Defect   16959  Formatting Chart Value as % of Group with or without rounding, the y axis is showing the actual values with a % appended.
+-  Defect   16945  Sort order is incorrect on pivot when using dates and some formats in column
+-  Defect   16936  Report Review displays with no record if selecting "Decimal Number" for Filter
+-  Defect   16925  Calculated Field in chart shows incorrect values and placement of points on chart. 
+-  Defect   16498  Circular references to subreports will crash application, when setting Report B as subreport of Report A and then setting Report A as subreport of Report B, the system does not respond.
+-  Defect   16275  Cannot render multiple Izenda components in only one Angular 2 component, relate to routing mechanism in Izenda.
+
 v.2.6.4 November 9, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
