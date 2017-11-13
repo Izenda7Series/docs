@@ -223,12 +223,6 @@ Configure Sharing Access
       - ✔
       - ✖
       - ✖
-   *  - **Modify the report in Quick Edit mode**
-      - ✔
-      - ✔
-      - ✖
-      - ✖
-      - ✖
    *  - **Save changes in the dashboard**
       - ✔
       - ✖
