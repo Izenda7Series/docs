@@ -207,20 +207,17 @@ Configure Sharing Access
 
    *  - Interact with shared report
       - Full Access
-      - Quick Edit
       - Save As
       - Locked
       - View Only
       - No Access
-   *  - **View the report with filter interaction**
-      - ✔
+   *  - **View the dashboard with filter interaction**
       - ✔
       - ✔
       - ✖
       - ✔
       - ✖
-   *  - **View the report with NO filter interaction**
-      - ✖
+   *  - **View the dashboard with NO filter interaction**
       - ✖
       - ✖
       - ✔
@@ -229,26 +226,16 @@ Configure Sharing Access
    *  - **Modify the report in Quick Edit mode**
       - ✔
       - ✔
-      - ✔
       - ✖
       - ✖
       - ✖
-   *  - **Modify the report in Report Designer**
-      - ✔
-      - ✖
-      - ✔
-      - ✖
-      - ✖
-      - ✖
-   *  - **Save changes in the report**
+   *  - **Save changes in the dashboard**
       - ✔
       - ✖
       - ✖
       - ✖
       - ✖
-      - ✖
-   *  - **Save As changes in the report**
-      - ✔
+   *  - **Save As changes in the dashboard**
       - ✔
       - ✔
       - ✖
