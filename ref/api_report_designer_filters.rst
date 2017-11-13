@@ -53,7 +53,14 @@ List of APIs
        Deprecated, please use `POST report/loadPartialFilterFieldData`_ to avoid timeouts loading large data.
    * - `GET report/validateFilter/{report_id}`_
      - Validates that all required filters in specified report have filter value.
+   * - `POST report/validateFilterFieldsType`_
+     - Validate if report contains both aggregated and non-aggregated filter fields.
 
+       .. versionadded :: 2.6.3
+   * - `GET report/validateFilterFieldsType/{reportId}`_
+     - Validate if report contains both aggregated and non-aggregated filter fields.
+
+       .. versionadded :: 2.6.3
 .. _GET_report/filter/operators:
 
 GET report/filter/operators
@@ -5759,3 +5766,41 @@ Validates that all required filters in specified report have filter value.
       .. code-block:: json
          
          true
+
+POST report/validateFilterFieldsType
+-------------------------------------
+
+Validate if report contains both aggregated and non-aggregated filter fields.
+
+**Request**
+
+    A :doc:`models/ReportFilterSetting`
+
+**Response**
+
+     - true if report contains both aggregated and non-aggregated filter fields
+     - false if not
+
+**Sample**
+   .. code-block:: http
+
+      POST report/validateFilterFieldsType HTTP/1.1
+
+GET report/validateFilterFieldsType
+-------------------------------------
+
+Validate if report contains both aggregated and non-aggregated filter fields.
+
+**Request**
+
+    No payload
+
+**Response**
+
+     - true if report contains both aggregated and non-aggregated filter fields
+     - false if not
+
+**Sample**
+   .. code-block:: http
+
+      GET report/validateFilterFieldsType/ HTTP/1.1
