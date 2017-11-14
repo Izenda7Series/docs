@@ -12,11 +12,12 @@ Minimum Hardware Requirements
 
 *  Processor: 4 Core CPU (3.6Ghz)
 *  RAM: 16 GB
-*  Free Hard Disk Space: 100 MB
+*  Izenda Application Hard Disk Space: ~100 MB	|br|
+   + Additional Hard Disk Space for your Database(s)
 
 .. note::
 
-    This is the minimum recommended for both the Database and the API servers. Your actual needs may vary based on the size of your database(s) and the number of concurrent users.
+    Above are the minimum recommended for both the Database and the API servers. Actual needs may vary based on the size of your database(s) and the number of concurrent users.
 
 Software Requirements
 ------------------------------
