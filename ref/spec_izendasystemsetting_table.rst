@@ -13,7 +13,9 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - Description
      - Default Value
    * - **WebAPIUrl**
-     - The url for Izenda Back-end
+     - .. container::
+       * The url for Izenda Back-end
+       * Required for emails and subscriptions
      - Blank - use setting from web server
    * - **FiscalYear**
      - The start of fiscal year, in mm/dd format
@@ -22,7 +24,7 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - The number of days before trial license expires to notify user
      - 4
    * - **DeploymentMode**
-     - .. container:: 
+     - .. container::
 
           Integration modes |br| |br|
 
@@ -35,16 +37,18 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - Deprecated 1.25.0 release
      - Blank
    * - **AuthValidateAccessTokenUrl**
-     - Access token validation path (prefixed by AuthenticationBaseAddress)
-     - api/validateAccessToken
+     - The API will use this route to validate that the token sent to the API is valid
+     - http://example.com/api/validateAccessToken
    * - **AuthGetAccessTokenUrl**
-     - Access token retrieval path (prefixed by AuthenticationBaseAddress)
-     - api/getAccessToken
+     - .. container::
+       * Configured so that exports can generate chart images when a user is not currently logged in 
+       * Used most often for scheduling of report delivery during off hours
+     - http://example.com/api/getAccessToken
    * - **LicenseExpiredWarningPeriod**
      - The number of days before trial license expires to notify user
      - 14
    * - **CommonFilterSetting**
-     - .. container:: 
+     - .. container::
 
           How to decide if two fields are the "same" to become common filters |br| |br|
 
@@ -53,7 +57,7 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
        * 2 = QuerySourceFieldAlias - same alias
      - 0
    * - **TracingType**
-     - .. container:: 
+     - .. container::
 
           Which information to log, using bitmask check: |br| |br|
 
@@ -61,20 +65,22 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
        * xx1 = LogRequestInfo
        * x1x = LogProcessTime
        * 1xx = LogPerformanceInfo
-     - .. container:: 
+     - .. container::
 
           3 (011): |br| |br|
 
        * LogRequestInfo
        * LogProcessTime
    * - **LicenseWebAPIUrl**
-     - The license checker url
+     - URL for Izenda licensing server
      - Site-specific
    * - **ExportConversionDelay**
      - Delay time in seconds to wait for asynchronous items to be completely loaded or for a web page redirect to finish before exporting
      - 5
    * - **WebUrl**
-     - The Front-end url, used for Exporting
+     - .. container::
+       * The Front-end url, used for exporting
+       * Used by EvoPDF for emails and subscriptions to render the report elements
      - Site-specific
    * - **SubscriptionJobInterval**
      - Check subscriptions every x minutes
@@ -92,7 +98,7 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - The default print page size
      - A4
    * - **SystemMode**
-     - .. container:: 
+     - .. container::
 
           Tenant mode |br| |br|
 
@@ -109,7 +115,7 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - Refresh token every x minutes
      - 60
    * - **ReportAdvancedMode**
-     - .. container:: 
+     - .. container::
 
           Report mode |br| |br|
 
@@ -120,7 +126,7 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - License key for third-party EvoPDF
      - Site-specific
    * - **HasCreatePermission** |br| **OnReportingDatabase**
-     - .. container:: 
+     - .. container::
 
           Do accounts in connection strings have permission to create tables? |br| |br|
 
@@ -152,10 +158,10 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
      - The URL link which is used when users click the Help Sysetm "?" icon on the Izenda header bar
      - http://www.izenda.com
    * - **InsertBatchSize**
-     - Limits large insert statements to smaller batches for the Izenda database  
+     - Limits large insert statements to smaller batches for the Izenda database
      - 10000
    * - **ProvisionStaticDataStatus**
-     - .. container:: 
+     - .. container::
 
           Status of provisioning map data |br| |br|
 
