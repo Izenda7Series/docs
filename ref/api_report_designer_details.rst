@@ -3361,8 +3361,8 @@ Verifies that all report filter fields are without changes.
       *  -  **hasChanged** |br|
             boolean
          -  R
-         -  * true if there is no change
-            * false if there is any change
+         -  * true if there is any change
+            * false if there is no change
          -
       *  -  **filterFields** |br|
             array of objects
