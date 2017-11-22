@@ -10,6 +10,56 @@ The **Advanced Settings** page allows user to
 * manage the list of data source categories
 * update system settings in related groups
 
+Update settings in Performance group
+------------------------------------
+
+#. In browser, log in to Izenda as a user with Advanced Settings
+   permission.
+#. Click Settings, then Data Setup then Advanced Settings in the left
+   menu.
+#. Select the Setting Level: either System or a specific tenant.
+#. Click on Others tab.
+#. The settings are list as below:
+
+   .. figure:: /_static/images/Advanced_Settings_Performance.png
+      :align: center
+      :width: 1653px
+
+      Setting values provied in Others group
+
+#. Hover on information icon following the value name to see the brief guide of that value
+
+   .. figure:: /_static/images/Advanced_Settings_Performance_Hover_Brief_Guide.png
+      :align: center
+      :width: 1001px
+
+      Brief guide of a configuration option.
+
+#. Update the values.
+#. Click Save button at the top to save the whole settings.
+
+  .. list-table::
+      :widths: 35 65
+      :header-rows: 1
+
+      *  -  Section
+         -  Purpose
+      *  -  Query Timeout
+         -  To limit the duration of all queries in any page.
+      *  -  Use No Lock
+         -  To not use NOLOCK (dirty read) statement when querying data.
+      *  -  Data Source Limit
+         -  To limit the number of data sources in a single reprot.
+      *  -  Field Limit
+         -  To limit the number of filed in a reprot part.
+      *  -  Query Limit
+         -  To limit the number of values return from the query in Report Designer, Report Viewer, Dashboard and Export.
+      *  -  Pivot Column Limit
+         -  Limit the number of columns in a pivot report part.
+      *  -  Filter Limit
+         -  Limit the number of items displayed in Filter Value dropdown
+
+
 Update Categories Settings
 ---------------------------
 
@@ -235,7 +285,6 @@ Please see the maping below for more detail.
 
   .. list-table::
       :header-rows: 1
-
 
       *  -  Date & Time group
          -  Date group
