@@ -53,8 +53,7 @@ Preview pane:
       .. _NW_Orders_Chart_Border_Settings:
 
       .. figure:: /_static/images/NW_Orders_Chart_Border_Settings.png
-         :align: center
-         :width: 900px
+         :width: 650px
 
          Report Designer - Chart Border Settings |br|
 
