@@ -3247,7 +3247,7 @@ Returns a list of all reports filtered by tenant_id if provided.
                       "description": "",
                       "title": null,
                       "lastViewed": "2017-09-11T04:43:31.5100000+07:00",
-                      "owner": "Pikachu Pikachu",
+                      "owner": "John Doe",
                       "ownerId": "376545c8-6bfa-4025-9d25-374f3a61be78",
                       "headerContent": null,
                       "footerContent": null,
