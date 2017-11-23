@@ -15,6 +15,8 @@ options.
    information provided on this page while we continue to refine it for
    your use.
 
+
+
 Overview
 --------
 
@@ -29,6 +31,8 @@ looks like what is displayed below:
    Report Part Menu has both Configuration and Preview sections
 
 Preview section can be shown or hidden by tick or untick on **Show Preview section in Configuration Mode** check box in Setting > Data Setup > Advanced Settings > Other tab, see :ref:`Advanced_Settings_Others` for more details.
+
+.. _Hide_Preview_Section:
 
 .. figure:: /_static/images/ReportPartMenu_NoReview.png
    :align: center
