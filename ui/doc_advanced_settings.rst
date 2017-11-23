@@ -43,25 +43,33 @@ In Advanced Settings page, click on Performance tab in Middle Panel to view the 
       Setting values provied in Performance tab
 
   .. list-table::
-      :widths: 35 65
+      :widths: 25 50 25
       :header-rows: 1
 
       *  -  Section
          -  Purpose
+         -  Default Value
       *  -  Query Timeout
          -  To limit the duration of all queries in any page.
+         -  3600
       *  -  Use No Lock
          -  To not use NOLOCK (dirty read) statement when querying data.
+         -  True
       *  -  Data Source Limit
          -  To limit the number of data sources in a single report.
+         -  1000
       *  -  Field Limit
-         -  To limit the number of field in a report part.
+         -  To limit the number of fields in a report part.
+         -  1000
       *  -  Query Limit
-         -  To limit the number of values return from the query in Report Designer, Report Viewer, Dashboard and Export.
+         -  To limit the number of values returned from the query in Report Designer, Report Viewer, Dashboard and Export.
+         -  100000
       *  -  Pivot Column Limit
          -  Limit the number of columns in a pivot report part.
+         -  100000
       *  -  Filter Limit
          -  Limit the number of items displayed in Filter Value dropdown
+         -  1000
 
 .. note::
 
@@ -69,7 +77,7 @@ In Advanced Settings page, click on Performance tab in Middle Panel to view the 
 
 Update Security Settings
 --------------------------
-In Advanced Settings page, click on Security tab in Middle Panel to view the items. The Security items are list as below:
+In Advanced Settings page, click on Security tab in Middle Panel to view the items. The Security items are listed as below:
 
    .. figure:: /_static/images/Advanced_Settings_Sercurity.png
       :align: center
@@ -80,7 +88,7 @@ In Advanced Settings page, click on Security tab in Middle Panel to view the ite
 Update settings in Tenant group
 ***********************************
 
-   * Tick on **Show Tenant Field** checkbox will show the Tenant field in following areas:
+   * Tick on **Show Tenant Field** checkbox will show the tenant field(s) in following areas:
 
       \- Report Designer > Data Source tab > Middle Panel or Relationship |br|
       \- Report Designer > Field tab > Middle Panel |br|
@@ -89,20 +97,12 @@ Update settings in Tenant group
       \- Report Viewer > Quick Edit mode > Field Selection and Filter Selection |br|
       \- Field Selection popup
 
-   * Input the name of Tenant Field in **Tenant Field** textbox then all the reports and dashboards will automatically restrict data retrieval to only that of the current tenant. The Tenant Field must be enclosed in brackets [fieldname] and multiple fields should be separated by a semi-colon.
+   * For security in multi-tenant systems, set up **Tenant Field** then all reports and dashboards will automatically restrict data retrieval to only that of the current tenant. To enable this feature:
 
-   .. note::
-
-      For security in multi-tenant systems, it is a best practice to have an automatic filter condition to always restrict data retrieval to only that of the current tenant. To enable this feature:
-
-         #. Untick Show Tenant Field check-box.
-         #. Enter the name of tenant id fields into the Tenant Field box. 
-         #. Click Save button at the top.
-         #. Then:
-
-            -  These tenant id fields will be hidden from Report Designer.
-            -  The reports will automatically have a filter condition to restrict
-               data retrieval to only that of the current tenant.
+      \- Input the name of tenant id field into the Tenant Field box |br|
+      \- The Tenant Field must be enclosed in brackets: [fieldname] |br|
+      \- Press **Enter** to add tenant field  |br|
+      \- You can use multiple tenant fields 
 
    .. _Update_settings_in_Security_Additive_Fields_group:
 
@@ -205,7 +205,7 @@ Rename data source categories
 Update Others Settings
 -----------------------
 
-In Advanced Settings page, click on Others tab in Middle Panel to view the items. The Others items are list as below:
+In Advanced Settings page, click on Others tab in Middle Panel to view the items. The Others items are listed as below:
 
    .. figure:: /_static/images/Advanced_Settings_Others.png
       :align: center
@@ -255,9 +255,14 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
 
                   If report “ABC” is saved to disk path at 10/22/2016, 23:59:00 then the report will be saved with name = ABC_10222016_235900
       *  -  Determine common filter for the same field based on
-         -  To determine how the filters considered whether different or the same in the dasboard so they will be common filter or not.
+         -  To determine how the filters considered whether different or the same in the dasboard so they will be common filter and shown in dashboard filter section or not. There are three available options:
+
+               * Same field of the same data object from the same database schema (Default)
+               * Same field name regardless of database schema or connection string
+               * Same alias name regardless of database schema or connection string
+            Please see :ref:`Dashboard_Filters` for more details about common filter in dashboard.
       *  -  Allow Multiple Sorts on Grid Header
-         -  By selecting this section, user can sort on multiple columns when clicking on Grid header in Vertical/Horizontal report. Otherwise, user can only sort by one column at a time.
+         -  By selecting this checkbox, user can sort on multiple columns when clicking on Grid header in Vertical/Horizontal report. Otherwise, user can only sort by one column at a time.
       *  -  Show Preview section in Configuration Mode
          -  By selecting this checkbox, both Configuration and Preview sections display in the report part’s backside and setting popups. Otherwise, system only shows Configuration section.
 
