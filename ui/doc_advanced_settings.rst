@@ -202,6 +202,8 @@ Rename data source categories
    #. Continue to change more category names
    #. Click Save button at the top to save the whole list.
 
+.. _Advanced_Settings_Others:
+
 Update Others Settings
 -----------------------
 

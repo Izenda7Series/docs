@@ -23,8 +23,18 @@ can be accessed by hovering over the report part near the top. The menu
 looks like what is displayed below:
 
 .. figure:: /_static/images/ReportPartMenu1.png
+   :align: center
+   :width: 1030px
 
-   Report Part Menu
+   Report Part Menu has both Configuration and Preview sections
+
+Preview section can be shown or hidden by tick or untick on **Show Preview section in Configuration Mode** check box in Setting > Data Setup > Advanced Settings > Other tab, see :ref:`Advanced_Settings_Others` for more details.
+
+.. figure:: /_static/images/ReportPartMenu_NoReview.png
+   :align: center
+   :width: 1030px
+
+   Report Part Menu has only Configuration section
 
 The report part menu can also be accessed by right clicking on the
 report part to bring up the same offered options.
