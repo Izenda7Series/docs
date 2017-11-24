@@ -261,7 +261,7 @@ Preview pane:
 
 .. note:: 
 
-   If the **Show Preview section in Configuration Mode** checkbox (In Others tab in Advanced Settings) is ticked then The Preview section will not be displayed for following pop-ups: 
+   If the **Show Preview section in Configuration Mode** checkbox (In Others tab in Advanced Settings) is unticked then The Preview section will not be displayed for following pop-ups: 
 
       \- Chart Border Settings |br|
       \- Chart Background Color Settings |br|

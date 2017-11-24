@@ -57,7 +57,7 @@ General Form properties can be configured in Form section:
 
    .. note::
 
-      The Preview section will not be shown if the **Show Preview section in Configuration Mode** checkbox is ticked in Others tab in Advanced Settings.
+      The Preview section will not be shown (as image below) if the **Show Preview section in Configuration Mode** checkbox is unticked in Others tab in Advanced Settings.
 
          .. figure:: /_static/images/Form_Border_Settings_No_Review.png
             :width: 458px

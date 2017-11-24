@@ -56,7 +56,7 @@ Preview pane:
 
    .. note::
 
-      The Preview section will not be shown if the **Show Preview section in Configuration Mode** checkbox is ticked in Others tab in Advanced Settings.
+      The Preview section will not be shown if the **Show Preview section in Configuration Mode** checkbox is unticked in Others tab in Advanced Settings.
 
          .. figure:: /_static/images/Gauge_Border_Settings_No_Preview.png
             :width: 458px
