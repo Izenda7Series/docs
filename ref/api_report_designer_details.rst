@@ -1347,6 +1347,20 @@ Saves a report.
          "data": null
       }
 
+.. note::
+
+   In the Izenda UI, for a Form report part payload, the column elements properties in the **reportPart > reportPartContent > columns > elements > properties** has higher precedence than the properties in **htmlcontent** (field-prop). Thus, system will display the field(s) in Izenda UI follow the column elements properties.
+
+   For example: In the image below, the visible property of ShipCountry field is different between the column elements properties and the htmlcontent. Thus, in the Izenda UI, this field will keep the value :code:`"fieldItemVisible": false` and not be displayed in report part.
+
+   .. figure:: /_static/images/API/POST_report_properties_not_match.png
+      :align: center
+      :width: 594px
+
+      The properties in the column elements properties and htmlcontent do not match |br|
+   
+      
+
 .. _POST_report/draft:
 
 POST report/draft
