@@ -223,12 +223,12 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
          -  True
       *  -  Timezone for Data Offset 
          -  To set default value for the Timezone Data Offset in Settings > User Setup page. And this setting will effect to displayed data value of Datetime/Time fields in the report part. |br|
-            **For example:** |br|
+            For example: |br|
             In database the data value is 11:00. If user sets “+5” in the textbox of this section then the data value will be shown as 16:00 in the report part.
          -  0
       *  -  Timezone for Timestamp Offset
          -  To set default value for the Timezone Data Offset in Settings > User Setup page. And this setting will effect to all Datetime/Time field in system. |br|
-            **For example:** |br|
+            For example: |br|
             The created date of report is 11:00. If user sets “+5” in the textbox of this section then the created date will be shown as 16:00 in the system.
          -  0
       *  -  Convert Null to Empty String
