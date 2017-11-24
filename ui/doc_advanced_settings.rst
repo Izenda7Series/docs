@@ -43,7 +43,7 @@ In Advanced Settings page, click on Performance tab in Middle Panel to view the 
       Setting values provied in Performance tab
 
   .. list-table::
-      :widths: 25 50 25
+      :widths: 20 65 15
       :header-rows: 1
 
       *  -  Section
@@ -88,14 +88,7 @@ In Advanced Settings page, click on Security tab in Middle Panel to view the ite
 Update settings in Tenant group
 ***********************************
 
-   * Tick on **Show Tenant Field** checkbox will show the tenant field(s) in following areas:
-
-      \- Report Designer > Data Source tab > Middle Panel or Relationship |br|
-      \- Report Designer > Field tab > Middle Panel |br|
-      \- Report Designer > Filter section > filter dropdown |br|
-      \- Report Viewer > Filter section |br|
-      \- Report Viewer > Quick Edit mode > Field Selection and Filter Selection |br|
-      \- Field Selection popup
+   *  Tick on Show Tenant Field checkbox will show the field(s) which is(are) sepcififed in Tenant Field in report/dashboard. Otherwise, those fields will be hidden.
 
    * For security in multi-tenant systems, set up **Tenant Field** then all reports and dashboards will automatically restrict data retrieval to only that of the current tenant. To enable this feature:
 
@@ -216,36 +209,39 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
       Setting values provied in Others group
 
   .. list-table::
-      :widths: 30 70
+      :widths: 20 65 15
       :header-rows: 1
 
       *  -  Section
          -  Purpose
+         -  Default Value
       *  -  Sort Colum Name 
-         -  To alphabetically sort the lists of column or field names
+         -  Tick on this checkbox to alphabetically the lists of column or field names. Otherwise, those lists will not be sort.
+         -  True
       *  -  Trim Time In Joins 
-         -  To trim the time portion form the Date Time field in a join statement in Report Designer - Relationship page
+         -  Tick on this checkbox to trim the time portion form the Date Time field in each join statement in Report Designer - Relationship page. Otherwise, system will use Date Time field in each sort statement
+         -  True
       *  -  Timezone for Data Offset 
          -  To set default value for the Timezone Data Offset in Settings > User Setup page. And this setting will effect to displayed data value of Datetime/Time fields in the report part. |br|
-
-               **For example:**
-                  
-                  In database the data value is 11:00. If user sets “+5” in the textbox of this section then the data value will be shown as 16:00 in the report part.
+            **For example:** |br|
+            In database the data value is 11:00. If user sets “+5” in the textbox of this section then the data value will be shown as 16:00 in the report part.
+         -  0
       *  -  Timezone for Timestamp Offset
          -  To set default value for the Timezone Data Offset in Settings > User Setup page. And this setting will effect to all Datetime/Time field in system. |br|
-
-               **For example:** |br|
-                  
-                  The created date of report is 11:00. If user sets “+5” in the textbox of this section then the created date will be shown as 16:00 in the system.
+            **For example:** |br|
+            The created date of report is 11:00. If user sets “+5” in the textbox of this section then the created date will be shown as 16:00 in the system.
+         -  0
       *  -  Convert Null to Empty String
-         -  To convert all null values to blank (empty) in reports or dashboards, select the checkbox of this section in the value column.
+         -  Tick on this checkbox to convert all null values to blank (empty) in reports or dashboards. Otherwise, null values keep the orginal values.
+         -  False
       *  -  Show Schema Name
-         -  To show schema name together with the the data source name in any place
+         -  Tick on this checkbox to show schema name together with the the data source name in any place. Otherwise, the schema name will be hidden
+         -  False
       *  -  Show Introduction Text
-         -  To show the Introduction Text in the following section:
-
-               * Report Designer > Data Source tab > Content Panel > under Report Name
-               * Report List > Content Panel > under each report name
+         -  To show the Introduction Text in the following section: |br|
+            \- Report Designer > Data Source tab > Content Panel > under Report Name |br|
+            \- Report List > Content Panel > under each report name
+         -  False
       *  -  Send to Disk Path
          -  To define the path to save files for all Scheduled/Subcribed instances with **Send to Disk** delivery method, input path in the textbox of that section.
 
@@ -253,20 +249,22 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
 
                * When the report is saved into this location, system will save report name together data time so that saving the new version of this report will not overwrite this report. The format when saved: <report name>_<mmddyyyy>_<hhmmss>
 
-               * For example:
-
-                  If report “ABC” is saved to disk path at 10/22/2016, 23:59:00 then the report will be saved with name = ABC_10222016_235900
+               * **For example:** |br|
+                 If report “ABC” is saved to disk path at 10/22/2016, 23:59:00 then the report will be saved with name = ABC_10222016_235900
+         -  Null
       *  -  Determine common filter for the same field based on
-         -  To determine how the filters considered whether different or the same in the dasboard so they will be common filter and shown in dashboard filter section or not. There are three available options:
-
-               * Same field of the same data object from the same database schema (Default)
-               * Same field name regardless of database schema or connection string
-               * Same alias name regardless of database schema or connection string
+         -  To determine how the filters considered whether different or the same in the dasboard so they will be common filter and shown in dashboard filter section or not. There are three available options: |br|
+            \- Same field of the same data object from the same database schema |br|
+            \- Same field name regardless of database schema or connection string |br|
+            \- Same alias name regardless of database schema or connection string |br|
             Please see :ref:`Dashboard_Filters` for more details about common filter in dashboard.
+         -  Same field of the same data object from the same database schema
       *  -  Allow Multiple Sorts on Grid Header
          -  By selecting this checkbox, user can sort on multiple columns when clicking on Grid header in Vertical/Horizontal report. Otherwise, user can only sort by one column at a time.
+         -  True
       *  -  Show Preview section in Configuration Mode
          -  By selecting this checkbox, both Configuration and Preview sections display in the report part’s backside and setting popups. Otherwise, system only shows Configuration section.
+         -  True
 
 Cancel the changes
 -------------------
