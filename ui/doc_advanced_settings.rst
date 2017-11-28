@@ -253,17 +253,22 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
                  If report “ABC” is saved to disk path at 10/22/2016, 23:59:00 then the report will be saved with name = ABC_10222016_235900
          -  Null
       *  -  Determine common filter for the same field based on
-         -  To determine how the filters considered whether different or the same in the dasboard so they will be common filter and shown in dashboard filter section or not. There are three available options: |br|
+         -  To determine how the filters considered whether different or the same in the dashboard so they will be common filter and shown in dashboard filter section or not. There are three available options: |br|
             \- Same field of the same data object from the same database schema |br|
             \- Same field name regardless of database schema or connection string |br|
             \- Same alias name regardless of database schema or connection string |br|
+
+            .. note:: 
+
+               Stored Procedure stored procedures input parameters are only considered common when they are from the same stored procedure.
+            
             Please see :ref:`Dashboard_Filters` for more details about common filter in dashboard.
          -  Same field of the same data object from the same database schema
       *  -  Allow Multiple Sorts on Grid Header
          -  By selecting this checkbox, user can sort on multiple columns when clicking on Grid header in Vertical/Horizontal report. Otherwise, user can only sort by one column at a time.
          -  True
       *  -  Show Preview section in Configuration Mode
-         -  By selecting this checkbox, both Configuration and Preview sections display in the report part’s backside and setting popups. Otherwise, system only shows Configuration section.
+         -  By selecting this checkbox, both Configuration and Preview sections display in the report part’s backside and setting popups. Otherwise, system only shows Configuration section. This is useful when working with very large datasets as the database is not called until the report part is flipped to the front side.
          -  True
 
 Cancel the changes
