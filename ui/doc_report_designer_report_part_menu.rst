@@ -40,6 +40,11 @@ Preview section can be shown or hidden by tick or untick on **Show Preview secti
 
    Report Part Menu has only Configuration section
 
+
+.. note::
+
+   Collapsing the preview mode will suspend database calls until the user expands it or flips the tile
+
 The report part menu can also be accessed by right clicking on the
 report part to bring up the same offered options.
 
