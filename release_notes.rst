@@ -29,10 +29,10 @@ FIXES
 -  Defect  18614  The "No record found" message is shown after User updates calculated field filter value with Equal Tree operator
 -  Defect  18551  User cannot delete calculated field from report designer once the report is saved even if it is not used in a report part
 -  Defect  18544  Setting - System Configuration - Scheduling - Search fails with 500 Internal Server Error
--  Defect  18335  Stored procedure Input paramaeter is not properly respected as tenant field, no value is passed to the input parameter when visible or tenant field is hidden.
+-  Defect  18335  Stored procedure Input parameter is not properly respected as tenant field, no value is passed to the input parameter when visible or tenant field is hidden.
 -  Defect  18259  System is unable to load report part of report that has name includes "/" as embedded subreport
 -  Defect  18218  Error is received when using "Function" other than Group  for fields in "Labels (X-axis)" of gauge
--  Defect  18026  User is unable to Unable to delete an invalid report part in dashboard after adding
+-  Defect  18026  User is unable to delete an invalid report part in dashboard after adding
 -  Defect  17313  Cell Color is set but icon is not checked to show value is set in report designer
 -  Defect  16885  Postgres SQL issue with saving Connection String when input parameters exceed field length.
 
