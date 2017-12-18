@@ -7,7 +7,7 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
-v.2.6.10 December 12, 2017
+v2.6.10 December 18, 2017
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
