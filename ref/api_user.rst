@@ -1239,6 +1239,17 @@ Saves a user.
 
     A :doc:`models/UserDetail` object
 
+    .. note::
+
+       The mandatory fields required to post are listed as below:
+
+         - userName
+         - tenantId
+         - Ids of the roles
+         - lastName
+         - firstName
+
+
 **Response**
 
      An :doc:`models/OperationResult` object with **success** field true and **data** field containing a :doc:`models/User` object
@@ -1252,7 +1263,7 @@ Saves a user.
    Request payload::
 
       {
-         "id": "4fb95725-1e32-4f09-99f1-aa994de5de82",
+         "id": null,
          "systemAdmin": false,
          "userName": "nina@retcl.com",
          "tenantId": "1bd615d4-d3c4-4820-80bb-f34348b85f98",
@@ -1260,7 +1271,7 @@ Saves a user.
          "roles": [{
             "id": "d41378bd-0b22-4085-b90f-f9ccaa85e9e6"
          }],
-         "state": 0,
+         "state": 1,
          "inserted": true,
          "version": 1,
          "created": "2017-12-20T06:42:44.337",
@@ -2294,6 +2305,16 @@ Adds or updates external user.
 **Request**
 
     A :doc:`models/UserDetail` object
+   
+    .. note::
+
+       The mandatory fields required to post are listed as below:
+
+         - userName
+         - tenantDisplayID
+         - Name of the roles (when adding or updating the external user, system will only save the external roles that their names are existing and ignore the others)
+         - lastName
+         - firstName
 
 **Response**
 
