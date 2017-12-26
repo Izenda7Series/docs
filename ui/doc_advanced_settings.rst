@@ -88,7 +88,7 @@ In Advanced Settings page, click on Security tab in Middle Panel to view the ite
 Update settings in Tenant group
 ***********************************
 
-   *  Tick on Show Tenant Field checkbox will show the field(s) which is(are) sepcififed in Tenant Field in report/dashboard. Otherwise, those fields will be hidden.
+   *  Tick on Show Tenant Field checkbox will show the field(s) which is(are) sepcififed in Tenant Field in report/dashboard. Otherwise, those fields will be hidden.
 
    * For security in multi-tenant systems, set up **Tenant Field** then all reports and dashboards will automatically restrict data retrieval to only that of the current tenant. To enable this feature:
 
@@ -216,8 +216,8 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
          -  Purpose
          -  Default Value
       *  -  Sort Colum Name 
-         -  Tick on this checkbox to alphabetically the lists of column or field names. Otherwise, those lists will not be sort.
-         -  True
+         -  When unselected fields in field tab of report designer, join dropdown and input paramters in filters sort alphabecitally. When selected, these fields sort based on position in the databse.
+         -  0
       *  -  Trim Time In Joins 
          -  Tick on this checkbox to trim the time portion form the Date Time field in each join statement in Report Designer - Relationship page. Otherwise, system will use Date Time field in each sort statement
          -  True
