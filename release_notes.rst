@@ -12,9 +12,9 @@ v.2.6.11 December 26, 2017
 
 FIXES
 ^^^^^
--  Defect  18897  When in Schedule or Subscripe "null" value does not display in filter drop down list when setting p1Value=null
+-  Defect  18897  When in Schedule or Subscribe "null" value does not display in filter drop down list when setting p1Value=null
 -  Defect  18896  In Sparkline chart page freezes when clicking on Border and Background color gear icon
--  Defect  18891  When using Cross filtering, an error message displays after drilling down to chart/gauge containg aggregated fields
+-  Defect  18891  When using Cross filtering, an error message displays after drilling down to chart/gauge containing aggregated fields
 -  Defect  18874  Added User's Token to User Context in Izenda.BI.Framework.Models.Contexts.UserContext.Current.CurrentUser as CurrentAccessToken
 -  Defect  18873  Disable automatic initialization of Izenda's Bootstrap.js components by default to prevent conflicts with outside Bootstrap components in integrated modes.
 -  Defect  18843  In Dashboard save Global category is available in Save As popup of tenant level
