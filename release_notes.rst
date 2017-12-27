@@ -7,6 +7,101 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v.2.6.11 December 26, 2017
+~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18897  When in Schedule or Subscribe "null" value does not display in filter drop down list when setting p1Value=null
+-  Defect  18896  In Sparkline chart page freezes when clicking on Border and Background color gear icon
+-  Defect  18891  When using Cross filtering, an error message displays after drilling down to chart/gauge containing aggregated fields
+-  Defect  18874  Added User's Token to User Context in Izenda.BI.Framework.Models.Contexts.UserContext.Current.CurrentUser as CurrentAccessToken
+-  Defect  18873  Disable automatic initialization of Izenda's Bootstrap.js components by default to prevent conflicts with outside Bootstrap components in integrated modes.
+-  Defect  18843  In Dashboard save Global category is available in Save As popup of tenant level
+-  Defect  18834  Tool tips for Font and Background Color are not altered when set in a new language file
+-  Defect  18803  When exporting form report part to excel file is empty when user reformat HTML on form
+-  Defect  18721  When using Oracle Izenda Configuration Database System shows error msg when user assigns a deleted data source from Visible to Available then saves
+-  Defect  18710  User can apply multiple sorts in grid report although option "Allow Multiple Sorts on Grid Header" is not checked in Advanced Settings
+-  Defect  18581  Some Provinces not working/missing (Quebec) in Canada
+-  Defect  18481  Cannot save drilldown grid using time data type in groups 
+-  Defect  18392  In report viewer page freezes if entering invalid value and triggering the filter list twice
+-  Defect  18329  No value is shown in Report Designer when using a Data Model CF that is created without clicking on Preview button
+-  Defect  18137  Count function on field level settings is incorrect when user turns on convert null to blank.
+
+v2.6.10 December 18, 2017
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+
+-  Defect  18868  Dashboard shared with locked access rights should not allow user to click the background grid to add a tile.
+-  Defect  18855  Setting DateFirst to ensure Sunday is the first day of the week may cause calculation of client database stored proc or function return wrong result, altered the query generation to use a different method
+-  Defect  18854  Alternative Text Settings do not work on 'False' of bit data type
+-  Defect  18821  Exporting PDF for FORM shrinks at horizontal dimension when add long text strings in the Form.
+-  Defect  18709  Return values are empty for all Oracle Functions
+-  Defect  18702  When posting a Form report containing a not-existing embedded drillDown-subReport-reportPartUsed ID, the system does not validate the ID and it is saved to DB correctly.
+-  Defect  18695  When Form report is posed via API and contains not-existing drillDown-subReport-selectedReport ID it is still saved to DB correctly and displayed in Report List.
+-  Defect  18665  When form report part contains not-existing embedded reportPartName it is still saved to DB successfully and displayed in Report List when sending "POST report"
+-  Defect  18660  Form report containing not-existing embedded report ID is still saved to DB successfully and displayed in Report List when sending "POST report"
+-  Defect  18647  Alternative text Settings are not applied for Percentage Range in the report_Grid_Chart
+-  Defect  18646  Form report containing non-existing fieldId in <field-prop key="fieldId"> tag of htmlContent is still saved to DB successfully and displayed in Report List when sending "POST report"
+-  Defect  18642  Report displays data corresponding with the input htmlContent-field-name instead of fieldId when opening the Form report created by sending "POST report" request on MVC GUI
+-  Defect  18621  Filter Values (pvalues) does not work when user opens the link of schedule/subscribe in email
+-  Defect  18614  The "No record found" message is shown after User updates calculated field filter value with Equal Tree operator
+-  Defect  18551  User cannot delete calculated field from report designer once the report is saved even if it is not used in a report part
+-  Defect  18544  Setting - System Configuration - Scheduling - Search fails with 500 Internal Server Error
+-  Defect  18335  Stored procedure Input parameter is not properly respected as tenant field, no value is passed to the input parameter when visible or tenant field is hidden.
+-  Defect  18259  System is unable to load report part of report that has name includes "/" as embedded subreport
+-  Defect  18218  Error is received when using "Function" other than Group  for fields in "Labels (X-axis)" of gauge
+-  Defect  18026  User is unable to delete an invalid report part in dashboard after adding
+-  Defect  17313  Cell Color is set but icon is not checked to show value is set in report designer
+-  Defect  16885  Postgres SQL issue with saving Connection String when input parameters exceed field length.
+
+
+
+v.2.6.9 December 12, 2017
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18851  Custom Data formats no longer work when used on multiple fields in the same report part
+-  Defect  18837  Deadlock item resolved when using PostgreSQL as reporting database
+-  Defect  18820  User who has "Full Report and Dashboard Access" can create New report although these permissions are not set in Tenant Setup
+-  Defect  18775  Some settings on report part properties are changed when changing properties setting for a field of a map report part type
+-  Defect  18774  Global dashboards would be visible within the tenant for system administrators if no database mapping was configured. 
+-  Defect  18715  Added default sort to first x axis field in chart when adding multiple x axis fields to avoid sorting issue when drilling down on charts
+-  Defect  18711  Grid columns are not sorted correctly if changing aggregated functions of the column with multiple sorts
+-  Defect  18684  Alternative Text setting is not applied for Datetime field on Gauge Report
+-  Defect  18671  Chart fails to redraw when adding a running field at 1st metric then another field at 2nd metric
+-  Defect  18616  When using a calculated field containing a case statement and another calculated field with a case statement that refers to the first calculated field the system shows an error.
+-  Defect  18615  In Scheduler Button for delete multi items (Trash icon) does not work
+-  Defect  18109  Allow Customers to resolve the URL of exporting/scheduling and emailing. See example `IWebUrlResolver <https://www.izenda.com/docs/dev/ref_iadhocextension.html#iweburlresolver>`_ 
+-  Defect  17729  Date format MM/dd/yyyy HH:mm:ss tt in Izenda exports to excel and shows tt instead of AM/PM format.
+-  Defect  17556  Excel would lose certain DateTime formatting on un-grouped fields.
+-  Defect  17417  The calculated field status is not refreshed in some cases.
+	
+	
+v.2.6.8 December 5, 2017
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  18831  Application shows unknown error when editing a global report if it is currently opened in both system and tenant level.
+-  Defect  18813  When setting alternative text on a calculated field in a chart, the alternative text is not displayed properly in the chart's breadcrumb 
+-  Defect  18808  Range Only option for charts displays error can't draw chart.
+-  Defect  18764  Deadlock noted in Dashboard when editing dashboard
+-  Defect  18746  Can't draw city as bubble on Map report part if the report is saved at point option which is not City (This change requires alteratins to the Izenda Map table or data, please see instructions here `Import Map Data <https://www.izenda.com/docs/ui/doc_system_db_and_license.html?highlight=license#import-map-data>`_  for this process)
+-  Defect  18718  When attempting to print large record sets from the report viewer the print option fails. Moving print option server side for HTML creation to reduce the volume of data processed in the browser.
+-  Defect  18714  User should be able to sort the fields in Values container for Funnel chart 
+-  Defect  18686  Unable to draw maps using postal codes for Canada (This change requires alteratins to the Izenda Map table or data, please see instructions here `Import Map Data <https://www.izenda.com/docs/ui/doc_system_db_and_license.html?highlight=license#import-map-data>`_ for this process)
+-  Defect  18584  When user drills into a State/Province shows bubble metric for cities in surrounding state/province for Canada Map
+-  Defect  18583  For Map report parts user cannot use metrics for state/province without having a country field (This change requires alteratins to the Izenda Map table or data, please see instructions here `Import Map Data <https://www.izenda.com/docs/ui/doc_system_db_and_license.html?highlight=license#import-map-data>`_ for this process)
+-  Defect  18480  Mapping Field is not updated automatically when user update Field Name Alias on Field Properties for master/sub report
+-  Defect  18478  On filter operator Manual Entry No Auto-Complete, no tool tip displays when hovering on the invalid input 
+-  Defect  18274  Map report part is not shown when "Layout" of "Legend settings" is set "Vertical"
+-  Defect  18120  Users receive repeated emails in Schedule function for some emails, this is sporadic functionality. This is due to the need to set up a database job store for schedules when runnning in distributed enviroments. Please see `Scheduler Configuration <https://www.izenda.com/docs/install/troubleshooting/scheduling.html#duplicate-scheduled-items-are-being-sent>`_  for set up instructions.
+-  Defect  18042  System shows error msg when user creates nested CF with aggregated function
+	
 v.2.6.7 November 27, 2017
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -1676,14 +1771,8 @@ Known Issues
      - 18670
      - System does not show error message when user creates stored procedure which has schema that contains duplicate Fields
    * - Defect
-     - 18665
-     - When form report part contains not-existing embedded reportPartName it is still saved to DB successfully and displayed in Report List when sending "POST report"
-   * - Defect
      - 18663
      - Sort function is not properly applied to Date time field when using Month format 
-   * - Defect
-     - 18660
-     - Form report containing not-existing embedded report ID is still saved to DB successfully and displayed in Report List when sending "POST report"
    * - Defect
      - 18651
      - Font sizes set in forms were not respected when exported.
@@ -1697,12 +1786,6 @@ Known Issues
      - 18648
      - Error displayed displays when using case statement in calculated field in a chart report part
    * - Defect
-     - 18647
-     - Alternative text Settings are not applied for Percentage Range in the report_Grid_Chart
-   * - Defect
-     - 18646
-     - Form report containing non-existing fieldId in <field-prop key="fieldId"> tag of htmlContent is still saved to DB successfully and displayed in Report List when sending "POST report"
-   * - Defect
      - 18645
      - Sub-report link is not shown in Chart x-axis when using date field type
    * - Defect
@@ -1714,9 +1797,6 @@ Known Issues
    * - Defect
      - 18643
      - Form report can be still saved to DB when sending "POST report" request containing at least one field has function = "empty" while others has function
-   * - Defect
-     - 18642
-     - Report displays data corresponding with the input htmlContent-field-name instead of fieldId when opening the Form report created by sending "POST report" request on MVC GUI
    * - Defect
      - 18641
      - FunctionId in htmlContent is displayed incorrectly when loading Form report which is created by sending "POST report" request
@@ -1736,20 +1816,8 @@ Known Issues
      - 18623
      - System does not show error msg when user delete CF which was used in Form
    * - Defect
-     - 18621
-     - Filter Values (pvalues) does not work when user opens the link of schedule/subscribe in email
-   * - Defect
      - 18619
      - System calculated incorrect Start Date for schedule/subscription when user select 1 item in Yearly
-   * - Defect
-     - 18616
-     - When using a calculated field containing a case statement and another calculated field with a case statement that refers to the first calculated field the system shows an error.
-   * - Defect
-     - 18615
-     - In Scheduler Button for delete multi items (Trash icon) does not work
-   * - Defect
-     - 18614
-     - The "No record found" message is shown after User updates calculated field filter value with Equal Tree operator
    * - Defect
      - 18600
      -  List of filter values shows incorrectly for "Time" field type
@@ -1772,14 +1840,8 @@ Known Issues
      - 18582
      - When Disable is Null in IzendaQuerySource it causes reports to show as invalid and should not be.
    * - Defect
-     - 18581
-     - Some Provinces not working/missing (Quebec) in Canada
-   * - Defect
      - 18579
      - Full Report and Dashboard users cannot have Access Default Sharing Rights.
-   * - Defect
-     - 18576
-     - In Heatmap report part clicking on the link on X axis will pass the value of Y axis when both X and Y have subreport/customURL/Javascript link configured
    * - Defect
      - 18575
      - Fields of dynamic stored procedure remain when changing from stored procedure data source to a table or view in the report designer
@@ -1811,14 +1873,8 @@ Known Issues
      - 18553
      - API report/detectReportChange did not return error message when fields were changed in logical/physical
    * - Defect
-     - 18551
-     - User cannot delete calculated field from report designer once the report is saved even if it is not used in a report part
-   * - Defect
      - 18545
      - The unexpected text is displayed in Visual tab of form and cannot Save Form report when user inputs special characters (&,~,$, etc) data to Alternative Text Setting
-   * - Defect
-     - 18544
-     - Setting - System Configuration - Scheduling - Search fails with 500 Internal Server Error
    * - Defect
      - 18542
      - Report part fails to render and error is shown when user adds Number of Records for the report part to be "2147483648", tool tip should show error over max value
@@ -1841,9 +1897,6 @@ Known Issues
      - 18527
      - Error 400/Bad Request when setting SubTotal for calculated field that has () characters
    * - Defect
-     - 18522
-     - Using CTE in custom view fails with error message when saving custom view.
-   * - Defect
      - 18521
      - Report Content Overlaps Header/Footer in Export Preview
    * - Defect
@@ -1862,20 +1915,8 @@ Known Issues
      - 18511
      - Copy Console will duplicate Report name in same category
    * - Defect
-     - 18504
-     - When specifying filter logic and not utilizing all filter values present in the filter panel a warning should be displayed on save to show that the unspecified filters will be ignored.
-   * - Defect
      - 18502
      - Report part is NOT updated after modifying the relationships and pressing "Save" in Data Source tab then navigating to Field tabs
-   * - Defect
-     - 18501
-     - Data Refresh Interval only works once time after setting it
-   * - Defect
-     - 18500
-     - "Remove Header for Export" does not work when exporting report
-   * - Defect
-     - 18499
-     - Day of Week format does not work when the field is not grouped
    * - Defect
      - 18495
      - In schedule/subscription pop up cascaded filter value list is not updated when changing value of the 1st filter from the 2nd change
@@ -1890,16 +1931,7 @@ Known Issues
      - In Subtotal/ Grand total system is unable to convert text to numeric
    * - Defect
      - 18482
-     - User should not be allowed to enter negative value into field with on field properties
-   * - Defect
-     - 18481
-     - Cannot save drilldown grid using time data type in groups 
-   * - Defect
-     - 18480
-     - Mapping Field is not updated automatically when user update Field Name Alias on Field Properties for master/sub report
-   * - Defect
-     - 18478
-     - On filter operator Manual Entry No Auto-Complete, no tool tip displays when hovering on the invalid input 
+     - User should not be allowed to enter negative value into field with on field properties 
    * - Defect
      - 18477
      - When using MS Edge browser redundant horizontal scrollbar appears on dropdown lists
@@ -1979,9 +2011,6 @@ Known Issues
      - 18396
      - Error message appears when user adds field with user-defined function and RUNNING field into grid
    * - Defect
-     - 18392
-     - In report viewer page freezes if entering invalid value and triggering the filter list twice
-   * - Defect
      - 18391
      - When user changes report part type fields which are not allowed for use in this report part type must be removed.
    * - Defect
@@ -2027,12 +2056,6 @@ Known Issues
      - 18341
      - No Changes Found shows when Modifying an Existing Report Title & Description When First Opening Report Designer
    * - Defect
-     - 18335
-     - Stored procedure Input paramaeter is not properly respected as tenant field, no value is passed to the input parameter when visible or tenant field is hidden.
-   * - Defect
-     - 18329
-     - No value is shown in Report Designer when using a Data Model CF that is created without clicking on Preview button
-   * - Defect
      - 18320
      - Error message should be clear when syntax is error is present in Calcualted Field - currently showing general error message
    * - Defect
@@ -2075,20 +2098,11 @@ Known Issues
      - 18276
      - When exporting map report part some properties in "Report part Properties" are not shown in pdf file
    * - Defect
-     - 18274
-     - Map report part is not shown when "Layout" of "Legend settings" is set "Vertical"
-   * - Defect
      - 18272
      - In report part map the "Border" still shows on "Preview" section even though the user unchecked it
    * - Defect
      - 18264
      - When creating new calculated field in data model and adding alias prior to saving the calculated field is missing. User must save the calculated field prior to adding the alias.
-   * - Defect
-     - 18262
-     - Change query structure for saving role details to improve performance.
-   * - Defect
-     - 18259
-     - System is unable to load report part of report that has name includes "/" as embedded subreport
    * - Defect
      - 18258
      - Embedded Subreport in Form is broken in destination when coyping with Copy Console
@@ -2122,9 +2136,6 @@ Known Issues
    * - Defect
      - 18219
      - "No record found" and drilldown breadcrumb text overlap in gauge report part when there are no records in the gauge
-   * - Defect
-     - 18218
-     - Error is received when using "Function" other than Group  for fields in "Labels (X-axis)" of gauge
    * - Defect
      - 18217
      - No record is found when searching relationships of report designer when using  "Uncategorized" in datasource
@@ -2168,9 +2179,6 @@ Known Issues
      - 18138
      - Workspace can be saved with duplicate name when clicking on Save button of Save popup many times
    * - Defect
-     - 18137
-     - Count function on field level settings is incorrect when user turns on convert null to blank. 
-   * - Defect
      - 18136
      - Cursor always comes back the left most of Search Report textbox after entering some text in Copy Management UI
    * - Defect
@@ -2185,9 +2193,6 @@ Known Issues
    * - Defect
      - 18122
      - [Integration] Angular Kit shows circle loading forever when hitting refresh a report viewer page
-   * - Defect
-     - 18120
-     - Users receive repeated emails in Schedule function for some emails, this is sporadic functionality 
    * - Defect
      - 18118
      - In Tenant Setup Standalone only List of existing System Roles are displayed on the Access/Schedule section on new Tenant Permission
@@ -2246,9 +2251,6 @@ Known Issues
      - 18052
      - System level remains if pasting a tenant level dashboard url  into browser while being at system level
    * - Defect
-     - 18042
-     - System shows error msg when user creates nested CF with aggregated function
-   * - Defect
      - 18041
      - Sort control on report list disappears in responsive mode until screen is refreshed
    * - Defect
@@ -2263,9 +2265,6 @@ Known Issues
    * - Defect
      - 18031
      - One of report parts disappears if embedding 2 same type report parts on form report
-   * - Defect
-     - 18026
-     - User is unable to Unable to delete an invalid report part in dashboard after adding
    * - Defect
      - 18025
      - XY-Plane Settings: Axis's text background color settings does not work
@@ -2317,9 +2316,6 @@ Known Issues
    * - Defect
      - 17969
      - Scheduled and Subscribed reports can be sent without required filter values 
-   * - Defect
-     - 17967
-     - When changing the filter field from the Filter Property panel to a different field an error is displayed when user tries to navigate back to the data source tab
    * - Defect
      - 17966
      - Incorrect Confirmation message popup displays when User change filter Name from property panel and no other changes are made
@@ -2480,9 +2476,6 @@ Known Issues
      - 17731
      - Opening Global Subreports in the same window would remove Save functions on the underlying Subreport
    * - Defect
-     - 17729
-     - Date format MM/dd/yyyy HH:mm:ss tt in Izenda exports to excel and shows tt instead of AM/PM format.
-   * - Defect
      - 17725
      - Time only fields are not exported with proper formats in excel.
    * - Defect
@@ -2597,9 +2590,6 @@ Known Issues
      - 17564
      - No record found message displayed when checking 'Page Break After Report Part' in Exporting page without saving the report
    * - Defect
-     - 17556
-     - Excel would lose certain DateTime formatting on un-grouped fields.
-   * - Defect
      - 17540
      - Grouping is not working properly for Separators when date is used and format is changed
    * - Defect
@@ -2669,9 +2659,6 @@ Known Issues
      - 17423
      - Using save As on an archived version of report to create a new active copy, the new report included report part of active version
    * - Defect
-     - 17417
-     - The calculated field status is not refreshed in some cases.
-   * - Defect
      - 17410
      - When setting up a new instance, create new Report/Dashboard options are missing after adding License
    * - Defect
@@ -2701,9 +2688,6 @@ Known Issues
    * - Defect
      - 17338
      - Color icon is checked when Color setting is Null value
-   * - Defect
-     - 17313
-     - Cell Color is set but icon is not checked to show value is set in report designer
    * - Defect
      - 17312
      - The Custom URL and Embeded Javascript options should not be shown shown on Bubble Metric Field in Map. 
@@ -2866,9 +2850,6 @@ Known Issues
    * - Defect
      - 16886
      - Update 1 new CF, system shows the current calculated field  in the list of select Field Names pop up and should not
-   * - Defect
-     - 16885
-     - Postgres SQL issue with saving Connection String when input parameters exceed field length.
    * - Defect
      - 16880
      - System is not properly updating from custom field formats to standard one when changed
