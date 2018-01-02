@@ -18,7 +18,7 @@ FIXES
 -  Defect  18872  System hangs when setting SubTotal for 3 fields in Horizontal grid
 -  Defect  18754  Cross Filtering is not working when drilling into map type report part
 -  Defect  18288  When a report is created from 2 data sources joined and user removes one data source from the model the report is broken and cannot be fixed.
--  Defect  18165  Cannot render multiple Izenda components in only one Angular 2 component, related to routing mechanism in Izenda.
+-  Defect  18165  Resolved routing issues when embedding in single page applications.
 -  Defect  17437  Required filters set to not visible in the report designer cause report to fail copy process.
 -  Defect  17338  Color icon is set and indicates values are present when user adds setting with no values on Cell Color Settings
 -  Defect  17079  User is able to access to New Dashboard although has no dashboard permission on Tenant setup
