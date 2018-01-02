@@ -1944,9 +1944,6 @@ Known Issues
      - 18755
      - System shows error msg when user creates filter using a Text Field with filter operator, Equivalence - Equals (Tree) = Blank
    * - Defect
-     - 18754
-     - Cross Filtering is not working when drilling into map type report part
-   * - Defect
      - 18708
      - renderReportViewPage was not respecting filters set in code. 
    * - Defect
@@ -2228,9 +2225,6 @@ Known Issues
    * - Defect
      - 18293
      - Searching value remains and the search box is blank while going back to datasource from other pages
-   * - Defect
-     - 18288
-     - When a report is created from 2 data sources joined and user removes one data source from the model the report is broken and cannot be fixed.
    * - Defect
      - 18285
      - Data source lazy loading fails to load after resizing the browser window
@@ -2759,9 +2753,6 @@ Known Issues
    * - Defect
      - 17452
      - Multiple spaces appears when user clicks on Sort function on Form which has style and repeater
-   * - Defect
-     - 17437
-     - Required filters set to not visible in the report designer cause report to fail copy process.
    * - Defect
      - 17434
      - System can not detect the schema of calculated field if there are 2 Data sources used in the report which have the same calculated field name when used in a form report part
