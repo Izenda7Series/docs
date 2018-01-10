@@ -1708,6 +1708,12 @@ Returns a list of connections for destination drop-down
 
    Request payload::
 
+      To be updated
+
+   Sample response::
+
+      To be updated
+
 POST copyManagement/workspace/validate
 --------------------------------------------------------------
 
