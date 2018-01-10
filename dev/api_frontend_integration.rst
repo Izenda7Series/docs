@@ -232,7 +232,7 @@ Render Izenda Report Viewer page only inside hosting web
            * - **report_id** |br|
                String (GUID)
              - The report Id
-           * - **filter** |br|
+           * - **overridingFilterValue** |br|
                A filter object
              - The values for the filters, in this format ``{ p1: a_value, p2: another_value, .. }``
            * - **integrationStyle** |br|
