@@ -26,6 +26,7 @@ FIXES
 -  Defect  17915  In Form Grand Total/SubTotal Change Function in Sub Total pop up, is not properly changed when user updates, the user must update is again
 -  Defect  17721  When copying a report part type map, fields are not properly copied to new report part in report designer
 -  Defect  17627  Front Side of Form is blank when user adds Join Alias in Relationship of report containing form report part
+-  Defect  18970	Additional parameters are appended to the value specified in the appAuthUrl setting for the copy console tool.
 
 	
 v.2.6.14 January 15, 2018
