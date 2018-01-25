@@ -15,18 +15,29 @@ FIXES
 ^^^^^
 
 -  Defect  18991  Unable to set Subtotal using expression option as it shows permissions error
+-  Defect  18973  Violation of PRIMARY KEY constraint 'PK_IzendaTemporaryData' due to concurrency
+-  Defect  18970  Additional parameters are appended to the value specified in the appAuthUrl setting for the copy console tool.
 -  Defect  18948  Ensure when user clicks reconnect, there are no duplicated data sources in the data model
 -  Defect  18940  Report Part Context Menu Does Not Appear when using Internet Explorer
 -  Defect  18939  When base URL is set to / the user is allowed access to some components they should not be allowed to enter.
 -  Defect  18900  Tenant user can access the System DB & License page in some integrated modes.
 -  Defect  18888  Data fails to load when turning to front side of report part tile in full screen mode for the first time	
--  Defect  18830  System calculated incorrect data when user creates nested calculated fields: Example Calculated Field 1 = 2 fields and Calculated Field 2 = Calculated Field 1 * 2, the data returned is incorrect
+-  Defect  18876  Unnecessary scroll bar in dashboard tile with small grid.
+-  Defect  18830  System calculated incorrect data when user creates nested calculated fields: Example Calculated Field 1 = 2 fields and Calculated Field 2 = Calculated Field 1 * 2, the data returned is incorrect.
 -  Defect  18815  When user removes the first field of chart's x-axis, they are unable tot configure some report part properties.
--  Defect  18145  Resolved security issue on API.
+-  Defect  18780  Subtotal shows wrong value in Pivot Grid when all fields in Columns container are datetime data type
+-  Defect  18645  Sub-report link is not shown in Chart x-axis when using date field type
+-  Defect  18565  System shows incorrect data for DateTime Field with Group by Year when it is added 2 times in report container
+-  Defect  18245  Report part is blank when copying a report part again after deleting it
+-  Defect  18145  Resolved security issue on API
+-  Defect  18129  Destination dashboard is empty when copying dashboard without overwrite on second copy
+-  Defect  18089  Syntax error in SCSS file Izenda.Common.scss
+-  Defect  17999  User is returned to specific report category after close from Quick Edit, when they never selected a category from the report list. 
+-  Defect  17984  Data source categories sort incorrectly if all data sources are categorized
 -  Defect  17915  In Form Grand Total/SubTotal Change Function in Sub Total pop up, is not properly changed when user updates, the user must update is again
--  Defect  17721  When copying a report part type map, fields are not properly copied to new report part in report designer
+-  Defect  17721  When copying a report part type map, fields are not properly copied to new report part in report designer.
 -  Defect  17627  Front Side of Form is blank when user adds Join Alias in Relationship of report containing form report part
--  Defect  18970  Additional parameters are appended to the value specified in the appAuthUrl setting for the copy console tool.
+
 
 	
 v.2.6.14 January 15, 2018
