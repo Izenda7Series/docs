@@ -26,7 +26,7 @@ FIXES
 -  Defect  18438  Resolved security issue on API
 -  Defect  18298  Report is Missing Save button on the report opened from sub report link
 -  Defect  18118  In Tenant Setup Standalone only List of existing System Roles are displayed on the Access/Schedule section on new Tenant Permission
--  Defect  17884  Added additional methods to the integrated C# API see documentation here `Back-end Integration APIs <https://www.izenda.com/docs/dev/api_backend_integration.html?highlight=addorupdaterole#back-end-integration-apis>`_
+-  Defect  17884  Added additional methods to the Role and Tenant for integrated C# API see documentation here `Back-end Integration APIs <https://www.izenda.com/docs/dev/api_backend_integration.html?highlight=addorupdaterole#back-end-integration-apis>`_
 -  Defect  17796  System should not prevent changing a user's role from [non System Admin] to [System Admin]	
 -  Defect  17754  dataModel/databaseMapping accepts bad data for fromserver value
 -  Defect  17707  Introduced a new API for adding new users in integrated mode. POST /api/external/user. This endpoint will return the ID of the newly created user. See documentation here `external/user <https://www.izenda.com/docs/ref/api_user.html#user-apis>`_
