@@ -38,11 +38,11 @@ List of APIs
    * - .. container:: lpad2
    
           `public static RoleDetail AddRole(RoleDetail role)`_
-     - Hosting app can add a role in Izenda
+     - Hosting app can add a role in Izenda (v2.6.16 or greater)
    * - .. container:: lpad2
    
           `public static bool HasRole(RoleDetail role)`_
-     - Hosting app can check if the specified role exists.
+     - Hosting app can check if the specified role exists. (v2.6.16 or greater)
      
    * - **TenantIntegrationConfig** in Izenda.BI.Logic.CustomConfiguration
      -
@@ -53,11 +53,11 @@ List of APIs
    * - .. container:: lpad2
    
           `public static Tenants AddTenant(Tenants tenant)`_
-     - Hosting app can add tenant in Izenda
+     - Hosting app can add tenant in Izenda (v2.6.16 or greater)
    * - .. container:: lpad2
    
           `public static bool HasTenant(Tenants tenant)`_
-     - Hosting app can check if the specified Tenant exists
+     - Hosting app can check if the specified Tenant exists (v2.6.16 or greater)
      
 public static Func<ValidateTokenArgs, ValidateTokenResult> ValidateToken
 ----------------------------------------------------------------------------------------------
