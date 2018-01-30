@@ -113,7 +113,7 @@ Summary
      - Settings menu > User Setup > delete a system admin
    * - `POST external/user`_
      - Add or update external user.
-     
+
        .. versionadded:: 2.6.16
 
      - To be updated
@@ -2576,7 +2576,7 @@ Add or update external user
 
    .. code-block:: http
 
-      POST external/user HTTP/1.1
+      POST /api/external/user HTTP/1.1
 
    Request Payload::
 
