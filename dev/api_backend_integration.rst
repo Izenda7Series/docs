@@ -33,13 +33,20 @@ List of APIs
    
           `public static RoleDetail AddOrUpdateRole(RoleDetail role)`_
      - Hosting app can add/update role in Izenda
+   * - .. container:: lpad2
+   
+          `public static bool HasRole(RoleDetail role)`_
+     - Checking the existing status of role
    * - **TenantIntegrationConfig** in Izenda.BI.Logic.CustomConfiguration
      -
    * - .. container:: lpad2
    
           `public static Tenants AddOrUpdateTenant(Tenants tenant)`_
      - Hosting app can add/update tenant in Izenda
-
+   * - .. container:: lpad2
+   
+          `public static bool HasTenant(Tenants tenant)`_
+     - Checking the existing status of tenant
 
 
 public static Func<ValidateTokenArgs, ValidateTokenResult> ValidateToken
@@ -227,3 +234,145 @@ DLL References
 
 -  Izenda.BI.Logic.dll for the methods
 -  Izenda.BI.Framework.dll for the object models
+
+public static Func<GenerateAccessTokenArgs, string> GetAccessToken
+----------------------------------------------------------------------------------------------
+
+Izenda requests hosting app to generate token based on
+userName/tenantId.
+
+**Declaration**
+
+    ``public static Func<GenerateAccessTokenArgs, string> GetAccessToken``
+
+**Parameters**
+
+    :doc:`/ref/models/ValidateTokenArgs`
+
+**Return Value**
+
+    string
+
+**Samples**
+
+.. code-block:: csharp
+
+   using Izenda.BI.Logic.CustomConfiguration;
+   using Izenda.BI.Framework.Models.UserManagement;
+   using System.Web;
+   
+   // ..
+   
+   const string KEY = "SECRET";
+   
+   UserIntegrationConfig.GetAccessToken = (GenerateAccessTokenArgs args) => {
+      return KEY + HttpContext.Current.User.Identity.Name;
+   };
+
+public static User AddOrUpdateUser(UserDetail user)
+----------------------------------------------------------------------------------------------
+
+Hosting app can add/update user in Izenda.
+
+**Declaration**
+
+    ``public static User AddOrUpdateUser(UserDetail user)``
+
+**Parameters**
+
+    :doc:`/ref/models/UserDetail`
+
+**Return Value**
+
+    :doc:`/ref/models/User`
+
+**Samples**
+
+   .. code-block:: csharp
+
+      using Izenda.BI.Logic.CustomConfiguration;
+      using Izenda.BI.Framework.Models.DBStructure;
+      
+      // ..
+      
+      var izendaUser = new UserDetail()
+      {
+         UserName = "admin",
+         EmailAddress = "admin@acme.com",
+         FirstName = "John",
+         LastName = "Doe",
+         TenantDisplayId = string.Empty,
+         Deleted = false,
+         Active = true,
+         SystemAdmin = true,
+         Roles = new List<Role>()
+      };
+      
+      UserIntegrationConfig.AddOrUpdateUser(izendaUser);
+
+public static bool HasRole(RoleDetail role)
+----------------------------------------------------------------------------------------------
+
+Hosting app can check the existing status of role
+
+**Declaration**
+
+    ``public static bool HasRole(RoleDetail role)``
+
+**Parameters**
+
+    :doc:`/ref/models/RoleDetail`
+
+**Return Value**
+
+    * true if role exists
+    * false of role not exist
+
+**Samples**
+
+    .. code-block:: csharp
+
+      using Izenda.BI.Logic.CustomConfiguration;
+      using Izenda.BI.Framework.Models.DBStructure;
+
+      // ..
+
+      var roleDetail = new RoleDetail()
+      {
+         TenantUniqueName = "ACME",
+         Name = "Administrator"
+      };
+
+      bool result = RoleIntegrationConfig.HasRole(roleDetail);
+
+public static bool HasTenant(Tenants tenant)
+----------------------------------------------------------------------------------------------
+
+Hosting app can check the existing status of tenant
+
+**Declaration**
+
+    ``public static bool HasTenant(Tenant role)``
+
+**Parameters**
+
+    :doc:`/ref/models/Tenants`
+
+**Return Value**
+
+    * true if tenant exists
+    * false of tenant not exist
+
+**Samples**
+
+    .. code-block:: csharp
+
+      using Izenda.BI.Logic.CustomConfiguration;
+      using Izenda.BI.Framework.Models.DBStructure;
+
+      // ..
+
+      var izendaTenant = new Izenda.BI.Framework.Models.Tenants();
+      izendaTenant.TenantID = "ACME";
+
+      bool result = TenantIntegrationConfig.HasTenant(izendaTenant);
