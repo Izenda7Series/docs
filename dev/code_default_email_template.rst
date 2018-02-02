@@ -4,9 +4,8 @@ Modifying Default Email Template
 
 This article contains how to change the default footer in emails for Schedules and Subscriptions. The default templates can be found under API/EmailTemplates. Before modifying the templates, please take note of the below:
 
-    .. figure:: _static/images/Settings_Schedule_Scope.png
-        :align: right
-        :width: 706px
+.. figure:: /_static/images/Settings_Schedule_Scope.png
+
 
         The "External User" permission as found under Role Setup -> Permissions
 
