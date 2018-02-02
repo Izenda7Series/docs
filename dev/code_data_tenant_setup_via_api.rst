@@ -9,11 +9,7 @@ Adding a Connection String to the System Level
 To add any connection string for reporting data, we will utilize the  `POST /api/connection <https://www.izenda.com/docs/ref/api_connection.html#post-connection>`__   endpoint.
 The below sample request body adds a connection string to the system level:
 This will emulate the same behavior as if you went to the Settings > Data Setup > Connection String page and input a connection string manually. Setting ‘selected’ to true will move the data sources from the Available Data Sources to the Visible Data Sources Column
-.. container:: toggle
-
-   .. container:: header
-
-      **Sample**:
+			 .. code-block:: json
 
 				{
 				   "id":null,
@@ -72,9 +68,6 @@ Updating an existing connection string is a two-part process. First, you need to
 
 The below sample request body adds a connection string to the system level:
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 					  "connectionId" : "E1DDD0AA-3074-41B2-AE5B-9E2262EB71B6",                      <-- This is the GUID found as under the Id column in the IzendaConnection table
@@ -86,9 +79,6 @@ The below sample request body adds a connection string to the system level:
 The response body will contain the information you need in order to push an update to an existing connection. You can then re-use the POST /api/connection endpoint and update which data sources are selected, or which connection strings are set to visible/non-visible.
 The below sample request body shows the update to the existing connection string.
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 					{
 					   "id":null,
@@ -148,9 +138,6 @@ When making these updates, please note that not every field is necessary to make
 The request body for this endpoint is comprised of an array of QuerySource objects and each of those contains an array of QuerySourceField objects. Essentially this translate to a list of data sources and the columns within each one.
 The below sample request body is a simplified version that updates one table without altering it’s underlying fields:
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "tenantId":null,
@@ -178,9 +165,6 @@ You can input values into the ‘alias’ values to alias these data source to u
 
 The below sample is a more detailed request body updates the data model (note: not every field is necessary):
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "tenantId":null,
@@ -277,9 +261,6 @@ Adding Calculated Fields to the Data Model
 To add a calculated field to the data model you can utilize the *POST api/fusion/validateDataModelExpression* endpoint. In this you’ll be able to provide the expression you wish to add to a data source.
 The below sample request body shows the initial request:
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "querySourceId":"91f9da8d-7c2b-4b5d-ae93-a77084295cf9",                      <-- This is the GUID for the data source where you're adding the calculation
@@ -292,9 +273,6 @@ The below sample request body shows the initial request:
 If the above is successful, you may then use the POST api/fusion/calculatedFieldValue endpoint to push an updated version of the calculated field that contains the data type.
 The below sample request body shows the updated request:
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "querySourceId":"91f9da8d-7c2b-4b5d-ae93-a77084295cf9",                      <-- This is the GUID for the data source where you're adding the calculation
@@ -307,9 +285,6 @@ The below sample request body shows the updated request:
 Once you have done the above, you will need to save the data model to commit the addition of the calculated field. You will use the same *POST api/dataModel* from before, but this time include your calculated field as a QuerySourceField value in the array.
 The below sample request body is just the QuerySourceField value for the calculated field without the rest of the request body. You will need to add this to the prior request body under the appropriate datasource.
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 						 "querySourceFields":[
@@ -336,9 +311,6 @@ To add a new tenant into your environment you will utilize the `POST api/tenant 
 
 The below sample request body shows the basic information for tenant creation. Note that this example does not contain values for the ‘permission’ and ‘permissionAccessModel’ arrays.
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "isDirty":true,
@@ -369,9 +341,7 @@ Adding a Connection String to a Tenant
 To add a connection string to a newly created tenant you will reuse the *POST api/connection* endpoint.
 The only difference between adding a connection string for a tenant and adding it at the system level is the ‘tenantId’ value in the JSON. Any time this value is set to null it references the system level. To push any request to a tenant, set the ‘tenantId’ value equal to the GUID for that tenant. This value can be found in the IzendaTenant table.
 The below sample request body shows adding the same connection string we provided at the system level, but this time adjusted to be added to the tenant we just created.
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
+
 			 .. code-block:: json
 				{
 				   "id":null,
@@ -427,9 +397,6 @@ Creating/Updating the Tenant’s Data Model
 To update and alter the data model at a tenant level, it will follow the same process as the logic as the System level. The only difference, much like adding a connection string at the tenant level, is providing the tenantId value in the request body.
 The Tenant’s GUID value on line 2 will update the data model in the tenant that corresponds with this GUID, which will be the First Tenant that we have previously created
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "isDirty":true,
@@ -465,9 +432,6 @@ Both endpoints will expect a `RoleDetail object  <https://www.izenda.com/docs/re
 
 The below sample request body creates a simple role in a standalone environment:
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "isDirty":true,
@@ -495,9 +459,6 @@ To set specific data sources for a role, you can do this as part of the initial 
 The below sample request body creates a simple role in a standalone environment but grants access to the Orders table and every field within it. The contents of these are limited to just the GUIDs for each data source and the columns with in and you do not need to provide additional information.
 During this process, you can control the data access a role has on a per-field basis, and you do not have to grant them access to an entire data source. In this example, we are only granting the ‘Second Role’ access to four fields from the Orders table.
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				{
 				   "isDirty":true,
@@ -561,10 +522,6 @@ Permission Objects
 
 *Tenant Permissions*
 
-
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				"permission":{
 					 "isClickedSection":false,
@@ -1019,9 +976,6 @@ Permission Objects
 
 *System Role Permissions*
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 				  "isClickedSection":false,
 				  "propsCloned":{
@@ -1476,9 +1430,6 @@ Permission Objects
 
 *Tenant Role Permissions*
 
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 			 
 				"permission":{
@@ -1938,10 +1889,6 @@ Permission Objects
 This section of the tenant creation request body provides information on all of the access rights that can be set within the tenant on the its roles and dashboards. Detailed breakdowns of these values can be found here:
 https://www.izenda.com/docs/ui/doc_report_designer_access.html
 
-
-.. container:: toggle 
-	.. container:: header 
-		   **Sample**: 
 			 .. code-block:: json
 
 					{
