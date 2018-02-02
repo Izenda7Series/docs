@@ -56,7 +56,7 @@ This tool allows you to specify your Current Version, Target Version, and Databa
 
       .. figure:: /_static/images/schema_migration_assistant.png
          :align: right
-
+ 
 System Backup
 -------------
 
