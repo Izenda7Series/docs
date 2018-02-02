@@ -26,7 +26,7 @@ Change the Default Footer in Emails
 
 #. In Windows explorer, navigate to API/EmailTemplates/en-US/Report/Schedule/Inside. Modify the "Link.xml" file to include the desired text (e.g. Add "Have a nice day" to the end of the email body).
 #. In Windows explorer, navigate to API/EmailTemplates/en-US/Report/Schedule/Outside. Modify the "Link.xml" file to include the desired text.
-#. In Windows explorer, navigate to API/EmailTemplates/en-US/Report/Subscription. Modify the "Link.xml" file to include the desired text.
+#. In Windows explorer, navigate to API/EmailTemplates/en-US/Report/Subscription. Modify the "Link.xml" file to include the desired text. 
 
     - Sample template for "Link.xml":
 
