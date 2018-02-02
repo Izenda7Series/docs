@@ -536,26 +536,28 @@ During this process, you can control the data access a role has on a per-field b
 
 
 Glossary and Reference
---------------------------------
+-----------------------
 *ServerTypeID* : The serverTypeId value refers to the underlying database type that you are attempting to connect to. This will refer to one of five possible values: 
-	*MSSQL* : “572bd576-8c92-4901-ab2a-b16e38144813” 
-	*MySQL* : “3d4916d1-5a41-4b94-874f-5bedacb89656” 
-	*Oracle* : “f2638ed5-70e5-47da-a052-4da0c1888fcf” 
-	*PGSQL* : “93942448-c715-4f98-85e2-9292ed7ca4bc” 
-	*AzureSQL* : “d968e96f-91dc-414d-9fd8-aef2926c9a18”
+	* *MSSQL* : “572bd576-8c92-4901-ab2a-b16e38144813” 
+	* *MySQL* : “3d4916d1-5a41-4b94-874f-5bedacb89656” 
+	* *Oracle* : “f2638ed5-70e5-47da-a052-4da0c1888fcf” 
+	* *PGSQL* : “93942448-c715-4f98-85e2-9292ed7ca4bc” 
+	* *AzureSQL* : “d968e96f-91dc-414d-9fd8-aef2926c9a18”
 
 *PhysicalChange* : The physicalChange value in our API requests/responses can contain one of five possible values. These values pertain to the physical states of the values/objects being passed.
-	-1: Not Set
-	0: None
-	1: Added
-	2: Modified
-	3: Deleted
+	* -1: Not Set
+	* 0: None
+	* 1: Added
+	* 2: Modified
+	* 3: Deleted
 
 *Approval*
-	0: No Pending Changes
-	1: Pending Changes to the Object (added field/removed field/etc.)
+	* 0: No Pending Changes
+	* 1: Pending Changes to the Object (added field/removed field/etc.)
 
-*Permission Objects:*
+Permission Objects
+-------------------
+
 *Tenant Permissions*
 
 
