@@ -10,12 +10,6 @@ To add any connection string for reporting data, we will utilize the  `POST /api
 The below sample request body adds a connection string to the system level:
 This will emulate the same behavior as if you went to the Settings > Data Setup > Connection String page and input a connection string manually. Setting ‘selected’ to true will move the data sources from the Available Data Sources to the Visible Data Sources Column
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Sample**:
-
    .. code-block:: json
 				{
 				   "id":null,
