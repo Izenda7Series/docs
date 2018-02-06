@@ -189,7 +189,7 @@ Name your project “WebFormsStarterKit” then click OK. This is important! It 
 
 In the New ASP.NET Project dialog, click Web Forms and click Change Authentication then chose Individual User Accounts, click OK buttons to close dialogs.
 
-.. figure:: /_static/images/webforms_new_project_template.png
+.. figure:: /_static/images/webforms_new_project.png
    :width: 590px
 
    Web Forms Template
