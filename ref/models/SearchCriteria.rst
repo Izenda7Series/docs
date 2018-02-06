@@ -24,6 +24,7 @@ SearchCriteria
 
          -  0 = Equal
          -  1 = Like
+         -  2 = Not Equal
       -
    *  -  **value** |br|
          string
