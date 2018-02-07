@@ -61,12 +61,18 @@ Add a Sharing
    below).
 #. Click Save button at the top to save the list.
 
-**List of "Share With" Options**
+.. list-table:: List of "Share With" Options
+   :class: apitable
+   :header-rows: 1
 
--  Specific User: All roles of User
--  Specific Role: This Role
--  Everyone: All roles of tenant/system
-
+   *  - **Share With Value**
+      - Specific User
+      - Specific Role
+      - Everyone
+   *  - **Interaction**
+      - All roles of User
+      - This Role
+      - All roles of tenant/system
 
 
 .. list-table:: List of Access Rights
@@ -122,6 +128,20 @@ Add a Sharing
       - ✖
       - ✖
       - ✖
+      
+      
+      
+.. list-table:: The Effect of Access Rights on Category Availability
+   :class: apitable
+   :header-rows: 1
+
+   *  - Access Right
+      - Full Access
+      - Quick Edit
+      - Save As
+      - Locked
+      - View Only
+      - No Access
    *  - **Visible Category**
       - ✔
       - ✔
