@@ -10,6 +10,7 @@ The **Report Designer/Access** page allows user to
 -  view list of sharings
 -  add and remove sharings
 
+
 View List of Sharings
 =====================
 
@@ -59,6 +60,14 @@ Add a Sharing
 #. Select an Access Right (See details in List of Access Rights table
    below).
 #. Click Save button at the top to save the list.
+
+**List of "Share With" Options**
+
+-  Specific User: All roles of User
+-  Specific Role: This Role
+-  Everyone: All roles of tenant/system
+
+
 
 .. list-table:: List of Access Rights
    :class: apitable
@@ -113,6 +122,20 @@ Add a Sharing
       - ✖
       - ✖
       - ✖
+   *  - **Visible Category**
+      - ✔
+      - ✔
+      - ✔
+      - ✔
+      - ✔
+      - ✖
+   *  - **Categories allowed for saving reports**
+      - ✔
+      - ✖
+      - ✖
+      - ✖
+      - ✖
+      - ✖  
 
 .. list-table:: Access Rights Precendence (Higher Right covers lower ones)
    :header-rows: 1
