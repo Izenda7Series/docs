@@ -149,7 +149,7 @@ OtherSetting
       -  
       -  Option for hide report header and footer
       -
-   *  -  **HideReportHeaderAndFooterDefaultValue** |br|
+   *  -  **hideReportHeaderAndFooterDefaultValue** |br|
          boolean
       -  Y
       -  The default value for Hide Report Header and Footer
