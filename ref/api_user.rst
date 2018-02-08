@@ -355,6 +355,15 @@ Returns an array of users for Report Access or Schedule, with paging.
 
     A :doc:`models/UserPagedRequest` object
 
+    .. note::
+       
+       The keys for :doc:`models/SearchCriteria` that this API support: |br|
+       - UserName |br|
+       - EmailAddress |br|
+       - Role |br|
+       - FullName |br|
+       - All
+
 **Response**
 
     A :doc:`models/PagedResult` object with **result** field containing an array of :doc:`models/UserDetail` objects
