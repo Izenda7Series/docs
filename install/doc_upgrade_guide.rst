@@ -41,13 +41,11 @@ Locating Specific Schema Migration Scripts
    *  .. _Upgrade_Izenda_App_folder:
 
       .. figure:: /_static/images/Izenda_App_folder2.png
-         :align: right
-         :width: 482px
 
          Front-end package
 
-      Locating the Schema Migration Scripts. |br|
-
+      Locating the Schema Migration Scripts.
+      
 
 The Schema Migration Assistant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
