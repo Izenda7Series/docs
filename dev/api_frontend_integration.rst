@@ -62,7 +62,10 @@ List of APIs
    
           `renderDashboardViewerPage(element, dashboard_id, filter, integrationStyle)`_
      - Render Izenda Dashboard Viewer page
-
+   * - .. container:: lpad2
+   
+          `unmountComponent(element)`_
+     - Remove reference of an Izenda Component from a specified HTML Element.
 
 
 config(configJson)
@@ -437,7 +440,16 @@ Render Izenda Dashboard Viewer page
             hideCommonFilter: false
          });
 
+unmountComponent(element)
+----------------------------------------------------------------------------------------------
+Remove reference of an Izenda Component from a specified HTML Element.
+   .. code-block:: javascript
 
+      IzendaSynergy.unmountComponent(
+         document.getElementById('izenda-root'))
+
+.. note::
+      If you are re-using an element to render another component, you will also need to remove any Izenda Routing found within the URL. See :ref:`dev_front_end_considerations` for a sample of unmounting a component and removing the anchor from a URL.
 
 **Tags**
 
