@@ -651,7 +651,7 @@ LoadCustomDataFormat
 
    * You can create custom formats for various datatypes by overriding the LoadCustomDataFormat in your DefaultAdHocExtension implementation.
 
-   * JsFormatString is new in v2.6.19.
+   * From v2.6.19, :doc:`../ref/models/DataFormat` object has 1 new field: JsFormatString
 
      - JsFormatString is used for optimizing chart axes lables
 
