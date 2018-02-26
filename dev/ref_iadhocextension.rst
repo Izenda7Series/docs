@@ -653,7 +653,7 @@ LoadCustomDataFormat
 
    * From v2.6.19, :doc:`../ref/models/DataFormat` object has 1 new field: JsFormatString
 
-     - JsFormatString is used for optimizing chart axes lables
+     - JsFormatString is used for optimizing chart axises lables
 
      - If DataFormat contains both FormatFunc and JsFormatString, the JsFormatString will be more precede.
 
