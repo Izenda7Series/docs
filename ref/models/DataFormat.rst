@@ -62,6 +62,13 @@ DataFormat
       -
       -  The id of customed data format (using the name value by default)
       -
+   *  -  **jsFormatString** |br|
+         string
+      -
+      -  The format string support to optimize chart labels
+      
+         .. versionadded:: 2.6.19
+      -
 
 Inherited:
 
