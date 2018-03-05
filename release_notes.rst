@@ -14,7 +14,7 @@ FIXES
 ^^^^^
 
 -  Defect  19335  Hidden filters on data model fields which are set to not visible return no data in reports.
--  Defect  19334  New option for JavaScript Format Function added to Front End API to control chart axis. Please see more details `here <https://www.izenda.com/docs/dev/api_frontend_integration.html#list-of-apis>`_ on creating the function and `here <https://www.izenda.com/docs/dev/ref_iadhocextension.html?highlight=iadhocextension#loadcustomdataformat>`_  on using the function. 
+-  Defect  19334  New option for JavaScript Format Function added to Front End API to control chart formats. Please see more details `here <https://www.izenda.com/docs/dev/api_frontend_integration.html#list-of-apis>`_ on creating the function and `here <https://www.izenda.com/docs/dev/ref_iadhocextension.html?highlight=iadhocextension#loadcustomdataformat>`_  on using the function. 
 -  Defect  19315  UserContext.RequestId should be set to subscriptionId when running schedules/subscriptions
 -  Defect  19254  API - /api/dataModel/loadRelationships always returns false for isLastPage parameter
 -  Defect  19199  When logged in as system administrator, user is unable to print dashboard at tenant level.
