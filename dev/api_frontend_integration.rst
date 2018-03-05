@@ -472,7 +472,7 @@ Register a JsFormatString with format function
    .. code-block:: javascript
 
       IzendaSynergy.addJSFormat("1k", function (value)
-         { return "$ " + Highcharts.numberFormat(value/1000, -1, "0" , ",") + " k"; }
+         { return "$ " + value/1000 + " k"; }
       );
 
 
