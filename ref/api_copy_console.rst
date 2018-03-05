@@ -134,6 +134,18 @@ Returns a list of all using fields in source
     An array of strings containing the using fields.
 **Samples**
 
+   Request payload::
+
+      {
+         "reportIds": [
+            "897d01a6-ed6e-46c2-a7c1-d68e1dab5fb9",
+            "34c92a53-fe74-4fb3-b62e-d1ca3204236d"
+         ],
+         "dashboardIds":[
+            "9d2f1d51-0e3d-44db-bfc7-da94a7581bfe"
+         ]
+      }
+
    Sample response::
 
       [
