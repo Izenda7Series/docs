@@ -62,6 +62,10 @@ List of APIs
    
           `renderDashboardViewerPage(element, dashboard_id, filter, integrationStyle)`_
      - Render Izenda Dashboard Viewer page
+   * - .. container:: lpad2
+   
+          `addJsFormat(formatName, formatFunction)`_
+     - Register a JsFormatString with format function
 
 
 
@@ -437,6 +441,31 @@ Render Izenda Dashboard Viewer page
             hideCommonFilter: false
          });
 
+.. _addJsFormat:
+
+addJsFormat(formatName, formatFunction)
+---------------------------------------------
+
+Register a JsFormatString with format function
+
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **name**
+        - The JsFormatString name that used in :doc:`../ref/models/DataFormat`
+      * - **formatFunction**
+        - The js format function
+
+**Samples**
+
+   .. code-block:: javascript
+
+      IzendaSynergy.addJSFormat("1k", function (value)
+         { return "$ " + Highcharts.numberFormat(value/1000, -1, "0" , ",") + " k"; }
+      );
 
 
 **Tags**
