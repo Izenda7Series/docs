@@ -5,7 +5,7 @@ InputWorkspace
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 5 45 25
+   :widths: 25 5 65 5
 
    *  -  Field
       -  NULL
@@ -71,13 +71,6 @@ InputWorkspace
       -
       -  The line number for source tenant tag
       -
-   *  -  **usingFields** |br|
-         array of strings
-      -
-      -  An array of using fields |br|
-
-         .. versionadded:: 2.6.20
-      -  
 
 .. container:: toggle
 
