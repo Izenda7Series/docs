@@ -65,7 +65,9 @@ List of APIs
    * - .. container:: lpad2
    
           `addJsFormat(formatName, formatFunction)`_
-     - Register a JsFormatString with format function
+     - Register a JsFormatString with format function |br|
+
+       .. versionadded:: 2.6.20
 
 
 
@@ -447,6 +449,12 @@ addJsFormat(formatName, formatFunction)
 ---------------------------------------------
 
 Register a JsFormatString with format function
+
+.. versionadded:: 2.6.20
+
+.. note::
+
+   If clients use format supporting libraries (that are out of Izenda scope), they must ensure that libraries are importd in dashboard, report viewer, report part, report designer pages.
 
 
 **Parameters**
