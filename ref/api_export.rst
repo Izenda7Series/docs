@@ -41,6 +41,17 @@ Exports the dashboard, report or report part specified in request parameters.
 
 **Request**
 
+    **Parametters**:
+
+      - Word
+      - Excel
+      - PDF
+      - CSV
+      - XML
+      - JSON 
+      - Query Excution
+      - Definition (New in version 2.7.0)
+
     **Keys**:
 
     .. list-table::
