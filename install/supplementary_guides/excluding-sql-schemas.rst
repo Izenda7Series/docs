@@ -48,7 +48,7 @@ List of Supported Keys
 Restarting the web sites
 ###############################
 
-After updating the Web.config configuration file, restart the API and front-end sites.
+After updating the Web.config file, restart the API and front-end sites.
 
 
 Verifying the changes
