@@ -13,7 +13,7 @@ v2.6.21 March 12, 2018
 FIXES
 ^^^^^
 
--  Defect  19345  Setting needed to define excluded schemas for supported databases.
+-  Defect  19345  Setting needed to define excluded schemas for supported databases. Please see notes & warnings on using this setting   `here <https://www.izenda.com/docs/install/supplementary_guides/excluding-sql-schemas.html>`_ 
 -  Defect  19311  Issue when using special characters in * Days Old filter operators
 -  Defect  19293  Emailing Global Reports fails when sending attachments or embedded html
 -  Defect  19262  Join Alias behavior changes when changing join field in report designer
