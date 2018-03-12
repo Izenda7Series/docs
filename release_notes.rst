@@ -17,7 +17,7 @@ FIXES
 -  Defect  19311  Issue when using special characters in * Days Old filter operators
 -  Defect  19293  Emailing Global Reports fails when sending attachments or embedded html
 -  Defect  19262  Join Alias behavior changes when changing join field in report designer
--  Defect  19055  Currency issue noted with IzendaTemporaryData table where 2 different users editing the same report are showing errors in the log file. **A new field is being added to this table and all current data will be removed, please ensure that no users are on the system when making this update to ensure they do not lose any current changes.** 
+-  Defect  19055  Currency issue noted with IzendaTemporaryData table where 2 different users editing the same report are showing errors in the log file. **This release includes schema changes to the IzendaTemporaryData table. As with every upgrade, please ensure that there are no active users in the system.** 
 -  Defect  18997  When making a column of pivot grid not visible, the pivot recalculates losing the grouping of the hidden column.
 -  Defect  18877  When using Oracle database receiving error transaction not yet disposed when connecting to large schemas.
 -  Defect  18875  Copy process should not verify items in physical data base, only model. Please note new API created for this change, detals can be found `here <https://www.izenda.com/docs/ref/api_copy_console.html?highlight=copy%20console#copy-console-apis>`_
