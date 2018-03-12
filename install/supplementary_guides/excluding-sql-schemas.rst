@@ -7,6 +7,10 @@ Introduction
 ------------------------------------------
 Izenda v2.6.21 and higher allows application administrators to explicitly exclude any specified schemas from the available data sources. This option is applied globally and will affect the system and tenant users.
 
+.. warning::
+
+	Please ensure that any schemas you intend to exclude are not in use. If the excluded schemas are in use, any reports or dashboards using those schemas will be broken and cannot be recovered. We recommend backing up your Izenda configuration database before making this change.
+	
 
 Configuration
 ----------------------------------------------------
