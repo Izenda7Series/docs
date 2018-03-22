@@ -174,7 +174,7 @@ To complete this walkthrough, you will need the following:
 The Izenda API service is built on .NET framework 4.0. You can build your integrated application on .NET Framework 4.0 or higher to be compatible with the Izenda API. This document will guide you step by step on integrating Izenda into your application. Please note this guide was developed using the versions of each component specified above. For more details on supported components please see other sections in the :doc:`Izenda documentation </index>`.
 
 Create Your webforms Starter Kit Application
-===========================================
+============================================
 
 Open Visual Studio IDE then select menu New > New Project
 
@@ -610,24 +610,26 @@ To customize the authentication logic, we must modify some existing classes in t
      - Modify
      - Custom sign in logic.
    * - App_Start\\WebApiConfig.cs
+     - WebApiConfig
      - Add
-	 - Required to handle a specifc callback to the GenerateToken route
+     - Required to handle a specific callback to the GenerateToken route
    * - Account\\Login.aspx
      - [N/A]
      - Modify
      - Include the tenant in the page.
    * - Account\\Login.aspx.cs
      - Login
-	 - Modify
-	 - Update login logic to use the customizations.
+     - Modify
+     - Update login logic to use the customizations.
    * - ApiControllers\\UserController.cs
      - UserController
-	 - Add
-	 - Required for handling the GenerateToken route.
+     - Add
+     - Required for handling the GenerateToken route.
    * - Global.asax.cs
+     - Global
      - Modify
-	 - Implement the route mapping from the WebAPIConfig
-	 
+     - Implement the route mapping from the WebAPIConfig
+
 IzendaConfig
 -------------------------------------------
 
@@ -839,11 +841,12 @@ Change the container class to "izenda-container" in the body-content div
 Add the following css to the Site.css file
 
 .. code-block:: css
+
    .izenda-container {
       width: 100%;
       height: 100vh;
       min-height: 100vh;
-      }
+   }
 	  
 Implement Izenda Configuration Initialization
 ----------------------------------------------
