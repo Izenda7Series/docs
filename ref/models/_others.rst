@@ -38,3 +38,4 @@ Others
    TimePeriod
    ValidateExpiration
    ValueTreeNode
+   RoleVirtualNode
