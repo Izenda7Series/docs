@@ -15,22 +15,33 @@ Requirements
 * Izenda API resources and Embedded UI Resources
 * IIS
 * SSMS
-* Python 
+* Python
+
   * Pip : Pip is a package manager for Python. It will be useful when installing our Python packages below.
+
     * https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation 
+
   * Bottle : For this demonstration, our Authorization application will be written in Bottle, a Python micro framework for rapidly developing simple APIs https://bottlepy.org/docs/dev/tutorial.html#installation
+  
   * Cherrypy: Is a multi-threaded minimalist Python Web Framework. We will be using cherrypy’s server rather than Bottle’s default server because of its multi-threaded capabilities. 
+    
     * To install the version used in this tutorial, run the following in your windows terminal: pip install "cherrypy>=3.0.8,<9.0.0"
+    
     * http://cherrypy.org/
+  
   * pyca/cryptography : We will use this encryption library to encrypt our tokens and validate exports (RSA)
+    
     * http://docs.python-guide.org/en/latest/scenarios/crypto/
+    
     * https://cryptography.io/en/latest/
+
 * Postman: debug and test our Authorization App endpoints
+    
     * https://www.getpostman.com/
 
 Initial Set Up
 ===============
-#. On your Server, create a directory named “IzendaSimpleAuthorization.” Here, create three directories: IzendaAPI, Server, and Client.
+#. On your Server, create a directory named **IzendaSimpleAuthorization**. Here, create three directories: *IzendaAPI*, *Server*, and *Client*.
 
 ***************************
 Creating an Izenda API
@@ -39,7 +50,7 @@ Creating an Izenda API
 
 [Image 1]
 
-1.	Copy the Izenda API into the IzendaSimpleAuthorization /IzendaAPI directory.
+1.	Copy the Izenda API into the IzendaSimpleAuthorization **/IzendaAPI** directory.
 2.	For this tutorial, we will be deploying the Izenda API to IIS using port 8085 (http://localhost:8085)
 3.	Deploy the Izenda API to IIS. Review the steps found at https://www.izenda.com/docs/install/doc_installation_guide.html  . Since we will be creating an integrated front end application, you will not need to follow the steps for setting up the standalone Front End.
 
@@ -55,9 +66,9 @@ Connecting with an Encrypted Connection String
 
 #.	Create a new database in SSMS named “IzendaConfigurationDB” 
 #.	In Postman, create a POST request for the endpoint /api/databaseSetup/DatabaseInfo  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
-#.	If the API is successful, you will receive {"success":true,"messages":null,"data":null}
+#.	If the API is successful, you will receive *{"success":true,"messages":null,"data":null}*
   *	If the Izenda tables do not exist within the specified database, they will be created.
-  *	A file named izendadb.config will be created in the root directory of your API. To confirm that the connection string is encrypted, open the izendadb.config in your preferred text editor.
+  *	A file named *izendadb.config* will be created in the root directory of your API. To confirm that the connection string is encrypted, open the izendadb.config in your preferred text editor.
 #.	If desired, you can replace the encrypted connection string with a plain text connection string for debugging.
 
 Connecting With a Plain Text Connection String
