@@ -163,7 +163,9 @@ The following code will be used to set up our bottle application to easily defin
 Python Code: Creating Generate Token Route
 -------------------------------------------
 This route will generate a token when requested. The end goal for this application will be to accept an Employee ID and return an encrypted token to our front end application. At this phase, however it will simply return the value of a variable named EmployeeID (22). 
-**NOTE: At this phase, our goal is to demonstrate simple authorization. Please adhere to your own company standards regarding token encryption and authentication.**
+
+.. note::
+ At this phase, our goal is to demonstrate simple authorization. Please adhere to your own company standards regarding token encryption and authentication.
 
 .. code-block:: python
 
