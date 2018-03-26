@@ -48,7 +48,8 @@ Creating an Izenda API
 ***************************
 **GOAL:  Create a standalone API on IIS to interact with in deployment mode 1.**
 
-[Image 1]
+
+.. figure::  /_static/images/dev/howto_dep1/1.PNG
 
 1.	Copy the Izenda API into the IzendaSimpleAuthorization **/IzendaAPI** directory. The result should have **/IzendaAPI/API/** as a new directory.
 2.	For this tutorial, we will be deploying the Izenda API to IIS using port 8085 (http://localhost:8085)
@@ -59,7 +60,7 @@ Connecting the Izenda API to the Izenda Database
 ******************************************************
 **GOAL: Connect the Izenda back end to the Izenda database using an izendadb.config file. Remember, database contains all reports, dashboards, Izenda users, tenants, and roles.**
 
-[Image 2]
+.. figure::  /_static/images/dev/howto_dep1/2.PNG
 
 Connecting with an Encrypted Connection String
 ===============================================
@@ -124,7 +125,7 @@ Creating a simple Authorization Application
 
 **GOAL: Create an authorization application that uses an impersonated security model. In an impersonated security model, authentication is ignored to demonstrate the authorization process.**
 
-[Image 3]
+.. figure::  /_static/images/dev/howto_dep1/3.PNG
 
 Python Code: Initial Setup
 ============================
@@ -203,7 +204,7 @@ Linking the Izenda API to Our Application
 
 ** GOAL: Provide a logical link from the Izenda API to our Application **
 
-[Image 4]
+.. figure::  /_static/images/dev/howto_dep1/4.PNG
 
 Now that we have a route to generate tokens for the front end and a route to validate tokens for the Izenda API, we need to provide a logic link to our Application. Since the Izenda API will always have access to the Izenda Configuration database, we will store a URL to our authentication route in the AuthValidateAccessTokenUrl entry in the IzendaSystemSetting table.
 #. Recall, our authorization application is running at localhost:8080
@@ -215,7 +216,7 @@ Creating a simple front-end
 
 ** GOAL: Create a simple front end application (HTML and JavaScript) that will render Izenda as a single page application. **
 
-[Image 5]
+.. figure::  /_static/images/dev/howto_dep1/5.PNG
 
 1.	In your file browser, navigate to your **IzendaSimpleAuthorization/Client** directory and create a folder named *scripts*. This will contain all of our JavaScript for our front end application.
 2.	Within the **IzendaSimpleAuthorization/Client/scripts** directory, create a folder named *izenda.* This will hold our front end resources.
@@ -416,7 +417,7 @@ Adding Simple Authentication
 
 **GOAL: Provide a method to log in to the host application. This will allow us to remove the hard-coded employee_id in our Izenda Integrate file**
 
-[Image 6]
+.. figure::  /_static/images/dev/howto_dep1/6.PNG
 
 Python Code: Create A Post Route to Log into Host Application
 ===============================================================
@@ -602,7 +603,7 @@ Establishing a Route to Get an Access Token
 --------------------------------------------
 In our current application model, this will be handled in Python where our authentication and authorization routes exist. 
 
-[Image]
+.. figure::  /_static/images/dev/howto_dep1/7.PNG
 
 
 Python Code: Creating A Route to Get an Izenda Token
@@ -620,7 +621,7 @@ Python Code: Creating A Route to Get an Izenda Token
 SQL Script: Setting AuthGetAccessTokenURL and RSAPublicKey in Database
 ------------------------------------------------------------------------
 
-[Image]
+.. figure::  /_static/images/dev/howto_dep1/8.PNG
 
 1.	In SSMS, run the following query:
 .. code-block:: text
@@ -640,7 +641,7 @@ Establishing a Route to Render Our Export
 ------------------------------------------
 Since our Izenda front end is separate from our authentication application, this setup will be handled in IIS where the Front End Resources are located.
 
-[Image]
+.. figure::  /_static/images/dev/howto_dep1/9.PNG
 
 JavaScript Code:
 ~~~~~~~~~~~~~~~~~
@@ -680,7 +681,7 @@ JavaScript Code:
 
 .. note::
 
- Depending on your implementation, this logic could be handled by more robust means. For instance, if our report export renderer route were handled by Python Bottle, you could simply retrieve query string values like token = request.query.token
+ Depending on your implementation, this logic could be handled by more robust means. For instance, if our report export renderer route were handled by Python Bottle, you could simply retrieve query string values like *token = request.query.token*
 
 HTML Code: Creating a Page to Render our Exports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -688,6 +689,7 @@ In this Izenda deployment, exportrender.html will contain the necessary format a
 
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *exportrender.html*. This file will contain the necessary format and logic to render our export.
 2.	Open *exportrender.html* in a text editor and add the following:
+
 .. code-block:: html
   
      <!DOCTYPE html>
@@ -900,7 +902,7 @@ Extension
 Summary Route Locations and Database Changes
 *********************************************
 
-[Image]
+.. figure::  /_static/images/dev/howto_dep1/summary.PNG
 
 * Izenda API
   * Izenda API is hosted on IIS using port 8085 (http://localhost:8085)
