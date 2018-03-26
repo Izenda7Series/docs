@@ -417,3 +417,41 @@ The following function will be used to find an employee ID given a specified use
         return  user.get("EmployeeID")
       return None	
 
+Create a route for log in
+--------------------------
+This route requires a user name and password specified by the user. If a login is successful, an employee ID will be returned. If a login is unsuccessful, we will raise an exception and return a 400 status code. Expected request body: { "u_name": "",   "passw": "" }
+
+  .. code-block:: python
+  
+     #Route to authenticate with the host application. This is not a required standard for Izenda but completes the authentication/authorization workflow	
+     @app.route('/login',  method=['POST', 'OPTIONS'])
+     def login():
+
+      data = request.json
+      if data is not None:
+       uName = data.get('u_name')
+       passw = data.get('passw')
+
+       myEmployeeID = validateLogin(uName, passw)
+       if myEmployeeID is None:
+        raise HTTPResponse(output='Invalid Credentials', status=400)
+       else:
+        return {"employee_id" : myEmployeeID}
+      return "Requires u_name and passw"	
+
+Testing Our Code
+-----------------
+1.	Open Windows PowerShell into the IzendaSimpleAuthorization/Server directory.
+2.	Run the following command python app.py
+3.	In Postman, create a *POST* request for our “login” route e.g. *http://localhost:8080/login* 
+   * Request Body: *{ "u_name": "Bob",  "passw": "test123"}*
+   * Expected Response: *{"employee_id": "22"}*
+
+Extension: Encryption
+----------------------
+
+Remember, we are passing the employee ID to the front end to grant access to Izenda. In production scenarios, we recommend encrypting your own authentication token similar to the steps taken when encrypting our Izenda access token. With our current setup, you would need to encrypt the employee ID in our login route and decrypt the employee ID our token generation route.
+In addition to encrypting your Employee ID / authentication token, it would be good practice to store encrypted versions of your users’ passwords within your user store.
+
+
+
