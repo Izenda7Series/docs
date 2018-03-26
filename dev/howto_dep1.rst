@@ -454,4 +454,463 @@ Remember, we are passing the employee ID to the front end to grant access to Ize
 In addition to encrypting your Employee ID / authentication token, it would be good practice to store encrypted versions of your users’ passwords within your user store.
 
 
+JavaScript Code: Create Login Logic
+-------------------------------------
 
+1.	In your Windows Explorer, navigate to IzendaSimpleAuthorization/Client/scripts/ and create a new file named login.js . This file will contain the necessary logic to log in to our Python Authentication application.
+2.	Open login.js in a text editor and add the following code. This code will provide a function that calls our login route in our authorization application. If the login is successful, we can retrieve the employee ID from the response. Given our authorization logic, if a 400 error is returned, the login was invalid.
+
+  .. code-block:: javascript
+  
+     $(document).ready(function(){
+      var authURL = "http://localhost:8080";
+
+      //login to api
+
+      function validateInput(username, password){
+       return JSON.stringify({"u_name": username, "passw": password});
+      }
+
+      function redirectToPlatform(employeeID, location){
+       document.cookie = "employee_id=" + employeeID;
+       window.location.replace(location);
+      }
+
+      function login(authorizationURL, jsonData){
+         $.ajax({
+        type: 'POST',
+        url: authorizationURL + "/login",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: jsonData,
+        success: function(data) {
+          if(data.employee_id != null){
+           redirectToPlatform(data.employee_id, "/");
+          }
+        },
+        error: function(){
+         alert("Invalid Credentials.");
+        }
+       })
+      }
+
+         $("#login").click(function(){
+       var jsonData = validateInput($('#username').val(), $('#password').val());
+       login(authURL, jsonData);
+      });
+
+     });
+     
+3.	The code above creates a mechanism to log in to our authentication application hosted on port 8080. If a login is successful, a cookie will be added named “employee_id” and the user will be redirected to index.html. Recall, index.html contains our Izenda platform. We will need to modify our Izenda Integrate file to account for the dynamically set Employee ID.
+
+JavaScript Code: Modifying Izenda integrate
+---------------------------------------------
+
+As with our previous set up, the Employee ID will be passed to our token generation route but, instead of hard-coding the value “22” for our user, we will retrieve it from our cookie. Since there is a possibility that a user lands on an Izenda page with an invalid employee ID (e.g. the cookie expires) we will design a mechanism to catch unauthorized requests.
+Retrieving employee ID from cookie
+After logging in to our host application, we stored our Employee ID in a cookie. We will need to create a method to obtain this value from the cookie and use it to generate the Izenda token.
+1.	In our Izenda Integrate file, create a new function to retrieve cookie values:
+
+  .. code-block:: javascript
+      function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for(var i = 0; i <ca.length; i++) {
+              var c = ca[i];
+              c = ca[i].replace(/\s/g, ‘’);
+              if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+              }
+          }
+          return "";
+      }
+      
+2.	Modify the DoRender function to retrieve the employee_id cookie.
+
+  .. code-block:: javascript
+      var DoRender = function (successFunc) {
+       myEmployeeID = getCookie('employee_id');
+          $.ajax({
+              type: "GET",
+              url: "http://localhost:8080/generatetoken?employee_id=" + myEmployeeID,
+             contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: successFunc,
+              error: errorFunc
+          });
+      };
+      
+Redirecting to Login
+---------------------
+
+In our authorization application, we raised an except if an Employee ID could not be verified and, in turn, a token is not generated. This exception raises a 400 error which will trigger the generic error function used in the DoRender function of Izenda Integrate. 
+1.	In Izenda Integrate, create a new function named redirectToLoginPage.
+
+  .. code-block:: javascript
+     function redirectToLoginPage(){
+      window.location.replace("/login.html");
+     }
+2.	Modify the generic function of the to read as the following. If an invalid token is generated, the user will be redirected to our login page.
+
+  .. code-block:: javascript
+     function errorFunc() {
+         alert('Token was not generated correctly. Please login.');
+         redirectToLoginPage();
+     }
+
+*****************************************************
+Implementing A Route for Schedules and Subscriptions
+*****************************************************
+**GOAL: Create a way to export reports from Izenda**
+
+For Izenda to properly export, two routes will need to be established in your application to ensure proper exporting functionality.
+* **AuthGetAccessTokenURL:** This will be a route in our authentication application (Python) that will generate a valid token given an RSA-Encrypted Message. 
+ * This route differs from our Token Generation method as it does not require authentication with the host application.
+ * The message itself will be encrypted by the Izenda API using the RSAPublicKey found in the Izenda Configuration Database. 
+ * Our authentication application will have a corresponding RSA Private Key to decrypt the message and create the Izenda token.
+* **Report Rendering Route:** After the Izenda API obtains a valid access token from the AuthGetAccessTokenURL, it will attempt to access this route to render the report on the server. 
+ * Since this process occurs on the server, schedules and exports can run successfully without a user being active on the front end.
+ * Izenda has a definite structure for this route, WebURL + "/viewer/reportpart/". Depending on your front-end implementation and framework of choice, you could handle this in a view or by using a URL Rewrite Rule.
+
+Establishing Routes (No RSA Security)
+======================================
+In this phase of the project, we will simply create an Izenda token for the IzendaAdmin account and wrap it in a structure that the Izenda Exporting logic requires.
+
+.. note::
+ Using the IzendaAdmin in this manner credentials provides ALL users the visibility of data that the IzendaAdmin user has. This method is dangerous in a production scenario as a user may see data one way in the application and another way in an export. After completing this section, we encourage you to continue with the “Adding RSA Encryption” section.
+
+
+Establishing a Route to Get an Access Token
+--------------------------------------------
+In our current application model, this will be handled in Python where our authentication and authorization routes exist. 
+
+[Image]
+
+
+Python Code: Creating A Route to Get an Izenda Token
+-----------------------------------------------------
+1.	Return to our app.py file found in the IzendaSimpleAuthorization/Server directory.
+2.	Add the following route to our application:
+  .. code-block:: python
+     #Route to validate an encrypted token. This will return a JSON containing an encrypted token.
+     @app.route('/gettoken',  method=['GET', 'OPTIONS'])
+     def gettoken():	
+      myToken = { "Token" : encrypt( getUserInfo("IzendaAdmin", "")) } #Izenda requires that our token is wrapped in a JSON Object. The token will be encrypted in the same manner as our generatetoken route.
+      return myToken
+
+
+SQL Script: Setting AuthGetAccessTokenURL and RSAPublicKey in Database
+------------------------------------------------------------------------
+
+[Image]
+
+1.	In SSMS, run the following query:
+ .. code-block:: sql
+ 
+    UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/gettoken’ WHERE Name = 'AuthGetAccessTokenUrl';
+
+2.	Even though we are not actively using RSA Encryption, we will need to designate a place holder in our database to ensure that the Izenda API can run successfully. In SSMS, run the following query:  
+
+ .. code-block:: sql
+     UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’; 
+     
+We will return to this setting later when we’ve implemented RSA Encrypted into our application.
+
+
+Establishing a Route to Render Our Export
+------------------------------------------
+Since our Izenda front end is separate from our authentication application, this setup will be handled in IIS where the Front End Resources are located.
+
+[Image]
+
+JavaScript Code:
+~~~~~~~~~~~~~~~~~
+
+1.	Return to our *Izenda_integrate.js* file found in the **IzendaSimpleAuthorization/Client/scripts** directory.
+2.	The following function will be used to render an Izenda export. Unlike the render function used in our index.html page, this function does not have a success function because it does not use “DoRender.”
+
+  .. code-block:: javascript
+  
+     var izendaInitReportPartExportViewer = function (reportPartId, token) {
+         var currentUserContext = {
+             token: token
+         };
+         IzendaSynergy.setCurrentUserContext(currentUserContext);
+         IzendaSynergy.renderReportPart(document.getElementById('izenda-root'), {
+             id: reportPartId,
+             useQueryParam: true,
+             useHash: false
+         });
+     };
+
+3.	The next step falls into the realm of the “Chicken or The Egg” Principle. We will create a function that will return a dictionary of key/values found in a query string. We will utilize this in our next two sections to retrieve the Access Token and Report ID from our export renderer route to push in to izendaInitReportPartExportViewer defined above. 
+
+  .. code-block:: javascript
+  
+     var getUrlVars = function() {
+         var vars = [], hash;
+         var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+         for(var i = 0; i < hashes.length; i++)
+         {
+             hash = hashes[i].split('=');
+             vars.push(hash[0]);
+             vars[hash[0]] = hash[1];
+         }
+         return vars;
+     };
+
+.. note::
+
+ Depending on your implementation, this logic could be handled by more robust means. For instance, if our report export renderer route were handled by Python Bottle, you could simply retrieve query string values like token = request.query.token
+
+HTML Code: Creating a Page to Render our Exports
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this Izenda deployment, exportrender.html will contain the necessary format and logic to render our Izenda exports, a process will be handled on the server side. Similar to our index.html development, you will need to be mindful of the Izenda resources and ensure that they are loaded in the correct order. In your own implementation, you may opt to bundle these resources with your own application’s resources.
+
+1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *exportrender.html*. This file will contain the necessary format and logic to render our export.
+2.	Open *exportrender.html* in a text editor and add the following:
+  .. code-block:: html
+  
+     <!DOCTYPE html>
+     <html>
+     <!--Resources required within the head of any page rendering an Izenda container-->
+     <head>
+         <title>HTML Embedded Izenda Example</title>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+         <link href="/scripts/izenda/izenda-ui.css?db1ebd9b10aa86f1fd76" rel="stylesheet">
+         <!-- <link href="/scripts/izenda-ui-custom.css" rel="stylesheet" type="text/css" /> -->
+         <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+                 integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                 crossorigin="anonymous"></script>
+         <style>
+             .container {
+                 width: 100%;
+                 height: 100vh;
+                 min-height: 100vh;
+             }
+         </style>
+     </head>
+
+     <!--Resources required within the body of any page rendering an Izenda container-->
+     <body>
+         <!--Izenda container <div> tag-->
+         <div class="container" id="izenda-root"></div>
+         <!--On page scripts-->
+         <script type="text/javascript" src="/scripts/izenda/izenda_common.js?db1ebd9b10aa86f1fd76"></script>
+         <script type="text/javascript" src="/scripts/izenda/izenda_locales.js?db1ebd9b10aa86f1fd76"></script>
+         <script type="text/javascript" src="/scripts/izenda/izenda_vendors.js?db1ebd9b10aa86f1fd76"></script>
+         <script type="text/javascript" src="/scripts/izenda/izenda_ui.js?db1ebd9b10aa86f1fd76"></script>
+         <script src="/scripts/izenda_integrate.js" type="text/javascript"></script>
+         <!--Izenda Configraution function and render function-->
+         <script type="text/javascript">
+             $(window).load(function () {
+                 DoIzendaConfig();
+                var queryStringVars = getUrlVars();	   
+          myToken = decodeURIComponent(queryStringVars['token'].toString()); //Izenda encodes tokens by default. To ensure that our token can be decrypted in the back end, we will decode it.
+         izendaInitReportPartExportViewer(queryStringVars['id'], myToken);
+             });
+         </script>
+     </body>
+     </html>
+
+SQL Script: Configuring the WebURL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The Web URL will determine the location of the front end resources of your application. In our setup, this will be located at localhost:8086 .
+1.	In SSMS, run the following query:  
+.. code-block:: sql
+
+ UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8086/’ WHERE Name =  ‘WebUrl’;
+ 
+Configuring A URL Rewrite Rule
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By design, the Izenda will attempt to render an export using the *URL WebURL  + viewer/reportpart* . The WebURL will be retrieved from the Izenda Configuration Database and the route */viewer/reportpart/* should exist in the application.
+The requested route may look similar to the following: *http://localhost:8086/viewer/reportpart/532ad716-ffe8-4acf-95e2-e981aa50cf4d?hideTitle=true&print=true&width=1080&height=360&masterReportId=171438a9-f6b3-440a-9532-24b6a774c1e9&inheritFilter=false&masterReportPartId=00000000-0000-0000-0000-000000000000&containerName=*
+
+For this implementation, we will create a URL Rewrite Rule that will interpret the URL provided by the Izenda API and replace it with a format that our front end application can handle (i.e. redirecting to exportrender.html created above). If your front end is encapsulated within a robust framework such as .NET, you would be able to handle this logic in your Route.Config file.
+
+1.	URLRewrite is a prerequisite for installing Izenda. To complete the following section, ensure that URLRewrite is installed on IIS.
+2.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and find the file named web.config. Open the *web.config* in a text editor. If this file does not exist, create it.
+3.	In the “rules” section of the “rewrite” XML object, add the following rule:
+   .. code-block:: text
+
+     <rule name="IzendaExport" stopProcessing="true">
+      <match url="viewer/reportpart/(.*)" />
+      <action type="Redirect" url="http://localhost:8086/exportrender.html?id={R:1}" logRewrittenUrl="true" />
+     </rule>
+
+Testing Exports
+~~~~~~~~~~~~~~~~
+
+1.	Ensure that you have reset IIS, cleared your browser cache, and restarted our Authentication Application.
+2.	Log in to the application and create a report containing a Chart.
+3.	Save the Report and navigate to the Report Viewer. 
+4.	In the report viewer, select Export > PDF.
+
+
+*********************
+Adding RSA Encryption
+*********************
+
+To ensure that only secure requests can be sent/interpreted by our exporting endpoint, Izenda sends an RSA encrypted message to our Get Token route. Our application will need to decode this message, decrypt it, and interpret the contents of the result. This result will contain an object similar to our User Info object. We’ll use the data within it to create a valid encrypted token. If your host application requires additional values, you may need to add them here as well.
+
+Python Code: Creating an RSA Encryption Class
+----------------------------------------------
+
+The following RSA implementation uses the RSA module of the pyca/cryptography library. Recall, we used a module in this library earlier to encrypt our Izenda tokens.
+
+1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Server/** and create a new file named *rsa_encryption.py*. This file will contain the logic to load a private key from a file and decrypt messages sent from the Izenda API.
+2.	Open *rsa_encryption.py* in a text editor and add the following:
+
+   .. code-block:: python
+   
+      from cryptography.hazmat.backends import default_backend #private key creation
+      from cryptography.hazmat.primitives.asymmetric import rsa #private key creation
+      from cryptography.hazmat.primitives import hashes
+      from cryptography.hazmat.primitives.asymmetric import padding
+      from cryptography.hazmat.primitives import serialization 
+      import base64
+
+      class RSAEncryption:
+       #loads a private key in pem format from a file
+       def loadPrivateKey(self, my_key_file, my_password):
+        key_file = open(my_key_file, "rb")
+        private_key = serialization.load_pem_private_key(
+        key_file.read(),
+        password=my_password,
+        backend=default_backend()
+        )
+        return private_key
+
+       #decodes cipher text to base 64 format.  The PKCS1v15 padding is the RSA padding of choice by Izenda
+       def decrypt(self, private_key, ciphertext):	
+        plaintext = private_key.decrypt(
+         base64.b64decode(ciphertext),
+         padding.PKCS1v15()
+        )
+        return plaintext	
+
+      if __name__ == '__main__':
+        '''The following should result in {UserName: "IzendaAdmin", TenantUniqueName: ""}
+        '''
+        encryptor = RSAEncryption()
+        private = encryptor.loadPrivateKey("C:/ IzendaSimpleAuthorization/Server/ rsa_private.pem", None)  #Ensure that this points to the location of your rsa_private.pem file
+        ciphertext = 'weysQayCQSHUZyasEiYcD6YsLUbdp3nnVpP5onxGeGZQrUHTVZNE/U/ek/e9lgafGlHKD7zQdLJekZXUpoBYT2r48cirM0WCH2xHgK7O8oVZ6/1Q87o5P0GGjpWWDCHWudxAXizk2OI5tBdD1QQDWnJzF0wCUhcMU23sQDmDxDc='
+        plaintext = encryptor.decrypt(private, ciphertext)
+        print "plaintext : " + plaintext
+
+Creating A file to store a Private Key
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Server/** and create a new file named *rsa_private.pem* . This file will contain the private key that can be used to decrypt the message in our sample in the main method of *rsa_encryption.py*
+2.	Open rsa_private.pem in a text editor and add the following:
+   .. code-block:: text
+
+      -----BEGIN RSA PRIVATE KEY-----
+      MIICXAIBAAKBgQDJjvvpsZNSWbntQbVHTgrohnsxknt0y46u6ZZcMA8GEYYMpo3e
+      472gQNNYguIYRg6isa3+yjUOQpM0dMxA1K2JjZSNR5qYT+Joe3nZjz7idtvKItiP
+      H2uS0REu0dZ5JqG5ZKJH0AP647P47BEQK4Mf4ji3a7l9f9je2L+h0+8fvwIDAQAB
+      AoGAHaSkQvnlT1K35/9mcE63hvwkSSWgd4xqdyoOfY9p3jwciWbDbbjzzgpKqvVQ
+      2D4Rb/cOvm6xv9+ls6zLz2sX/GR7Rk+LaaU17AcOlnJH7KwPu5x0JdrufeWqMoyN
+      foctdnHWTOaXD9QoDJkyuADep4+SKkPt3CXJ3yxghs7S/SkCQQDyfMLc4qpChpos
+      fjHM10qjIReGYaB9DemVuTDdjcpuVrUmhLZK5DYsHi86eFyVJEJHbe5nFbeFBNcw
+      AcyLkhtZAkEA1MpYyLjhigDsjD2vClU9wxC4sEIfVIWqSkE2BBzUXUWKvDrYPURA
+      Phorj7KDO3bZ7vEkdlO+3vq6pDHGzE5o1wJAUy79YezX325xYSYBS3XngsKNYWoI
+      Nh4ZrWUUIEzNzsAr8ITCTDqxYr0QEozLpdYEbqCFkhNfG2CnuS5EzvRWMQJBAJMI
+      DjkDprQY11o/9QcKx1ZV44fG6KcahQQx8wT8drDMMITHlEshMdK3eoocKxmXkhbM
+      gQlR7H1eekCiNF9PfpkCQF/Ax5burt/eboCfU0beP7A2DNzCbq8aULobqQ7qjkI6
+      jL6Kz4DBzZUrUZ9ZiP9SzCLMUDRwGIItqcRfuXiVfok=
+      -----END RSA PRIVATE KEY-----
+
+Testing Decryption
+~~~~~~~~~~~~~~~~~~~
+
+1.	Open A PowerShell window at **IzendaSimpleAuthorization/Server/**
+2.	Run *python rsa_encryption.py*
+3.	This will run the main method of rsa_encryption which will load an RSA Private Key and decrypt the encoded message hardcoded in the file. Please note, this message was encrypted using the following Public Key and was created for testing purposes. 
+ .. code-block:: text
+   <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
+
+Python Code: Modifying our Get Token Route
+---------------------------------------------
+1.	Return to our **IzendaSimpleAuthorization/Server/app.py** file in a text editor.
+2.	At the top of the file, we will need to import our newly created rsa_encryption module:
+from rsa_encryption import RSAEncryption
+3.	Modify our Get Token Route.
+
+ .. code-block:: python
+ 
+    #Route to validate an encrypted token. This will return a JSON containing an encrypted token.
+    @app.route('/gettoken',  method=['GET', 'OPTIONS'])
+    def gettoken():	
+     message = request.query.message #Get Message from Query String. This will contain the info required to build an Izenda token. If your application has additional information to add to the token, you would need to add it here.
+
+     #Set Up RSA Encryption for Exports.
+     rsa_encryptor = RSAEncryption()
+     rsa_private_key = rsa_encryptor.loadPrivateKey("C:/source/PythonTest/Python Dev/Server/rsa_private.pem", None) 
+
+     plaintext = rsa_encryptor.decrypt(rsa_private_key, message) #This is the plain text decryption of the RSA encrypted message from the Izenda API
+     decryptedIzendaObject =  eval(plaintext) #this converts the plain text to a dictionary
+     myUserInfo = getUserInfo(decryptedIzendaObject.get("UserName"), decryptedIzendaObject.get("TenantUniqueName"))
+     myToken = { "Token" : encrypt(myUserInfo) } #Izenda requires that our token is wrapped in a JSON Object. The token will be encrypted in the same manner as our generatetoken route.
+     return myToken
+
+Creating Unique RSA Keys
+-------------------------
+Izenda’s RSATool can be used to create a unique private key and public key pair for your application (see https://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip). With our current setup, the Private Key will need to be saved in PEM format in the rsa_private.pem file but this can be changed to fit your RSA Implementation. 
+
+The public key will always be stored in XML format in the Izenda System Setting Table. The following query can be used to update the public key value. Remember, you will need to restart your Izenda API for this change to take effect. 
+
+ .. code-block:: sql
+ 
+    UPDATE IzendaSystemSetting SET Value = 'YOUR XML RSA PUBLIC KEY HERE' WHERE Name = 'AuthRSAPublicKey';
+
+**********
+Extension
+**********
+
+* Migrating Your User Store to a database: In a production environment, we recommend storing your users in a database. Here, be sure to encrypt your users’ passwords
+
+* Encryption: In our current sample, users are authorized in the host application by using a simple employee ID number.  In a production scenario, be sure to encrypt this value. Depending on how tightly you wish to integrate Izenda, you may be able to store this information in the same authorization token and simply provide this token after a user logs in. This process could eliminate the generate token route we use in our Izenda Integrate file because the user would already have their token.
+
+* Serving HTML Pages and Authenticating from one application: This sample separated the authentication application from the front end development. Depending on your framework, you may opt to merge the two layers together to reduce latency.
+
+*********************************************
+Summary Route Locations and Database Changes
+*********************************************
+
+[Image]
+
+* Izenda API
+  * Izenda API is hosted on IIS using port 8085 (http://localhost:8085)
+* Client (HTML Front End Application)
+  * Our simple front end application is hosted on IIS using port 8086 (http://localhost:8086).
+    * index.html : Renders Izenda as a single page application.
+    *	login.html : Provides a place to log in to our host application.
+    *	exportrender.html : A page that will be used to render Izenda exports on the server.
+    *	Scripts
+  * login.js : logs a user in to the host application.
+  * izenda_integrate.js: holds the core logic for rendering Izenda. A front end implementation similar to this is recommended.
+  *	izenda : this folder contains all of the Izenda Embedded UI elements.
+* Server (Authorization Application)
+  * Our Authorization Application (app.py) is hosted on Python’s development server using port 8080 (http://localhost:8080)
+    * Required Application Routes for Izenda
+      *	/validatetoken: Corresponds to AuthValidateAccessTokenURL. Validates a token sent from the Izenda API. This method will return a user info object (Izenda Username and a Unique Tenant name) for the Izenda API.
+      *	/gettoken : Corresponds to AuthGetAccessTokenURL. Get token decrypts an RSA Message sent from the Izenda API and creates a valid token based off of the contents in the decrypted message. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name.
+     *	Beneficial Application Routes
+       *	/generatetoken: Generates a token to be used in the validation process. In this sample, it requires verification that the user is logged in to host application. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name. 
+       *	/login : Allows user to log in to host application.
+   * rsa_encryption.py : Holds methods to load an RSA private key from a file and decrypt messages that are encrypted by the Izenda API. Used in our gettoken route.
+   *	rsa_private.pem: Holds our RSA private key for export decryption. At this time, this file is not password protected.
+
+*	Izenda Database: System Setting Table Values
+  *	Validation
+    *	AuthValidateAccessTokenURL: http://localhost:8080/validatetoken
+  *	Exporting
+    *	AuthGetAccessTokenURL: http://localhost:8080/gettoken
+    *	RSAPublicKey: <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
+    *	WebURL: http://localhost:8086/
+
+*	Application Login: Username: Bob, Password: test123
