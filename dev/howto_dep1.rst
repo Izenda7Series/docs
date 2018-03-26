@@ -50,7 +50,7 @@ Creating an Izenda API
 
 [Image 1]
 
-1.	Copy the Izenda API into the IzendaSimpleAuthorization **/IzendaAPI** directory.
+1.	Copy the Izenda API into the IzendaSimpleAuthorization **/IzendaAPI** directory. The result should have **/IzendaAPI/API/** as a new directory.
 2.	For this tutorial, we will be deploying the Izenda API to IIS using port 8085 (http://localhost:8085)
 3.	Deploy the Izenda API to IIS. Review the steps found at https://www.izenda.com/docs/install/doc_installation_guide.html  . Since we will be creating an integrated front end application, you will not need to follow the steps for setting up the standalone Front End.
 
@@ -64,11 +64,11 @@ Connecting the Izenda API to the Izenda Database
 Connecting with an Encrypted Connection String
 ===============================================
 
-#.	Create a new database in SSMS named “IzendaConfigurationDB” 
-#.	In Postman, create a POST request for the endpoint /api/databaseSetup/DatabaseInfo  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
+#.	Create a new database in SSMS named *IzendaConfigurationDB* 
+#.	In Postman, create a POST request for the endpoint */api/databaseSetup/DatabaseInfo*  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
 #.	If the API is successful, you will receive *{"success":true,"messages":null,"data":null}*
   *	If the Izenda tables do not exist within the specified database, they will be created.
-  *	A file named *izendadb.config* will be created in the root directory of your API. To confirm that the connection string is encrypted, open the izendadb.config in your preferred text editor.
+  *	A file named *izendadb.config* will be created in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**). To confirm that the connection string is encrypted, open the *izendadb.config* in your preferred text editor.
 #.	If desired, you can replace the encrypted connection string with a plain text connection string for debugging.
 
 Connecting With a Plain Text Connection String
@@ -78,15 +78,15 @@ Connecting With a Plain Text Connection String
    This option is best for development and testing. Once your environment is production-ready, we recommend converting to an encrypted connection string. This can be accomplished by following the steps below or by entering your connection string on the System DB & License page within the platform.
 
 If you have an *empty* configuration database, you can follow the steps for “Connecting with an encrypted Connection String” to populate Izenda’s default tables and values.
-#.	Download a copy of sample izendadb.config file. This can be found within our MVC5 Sample Kit but can be used for any Izenda API (see https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config)
-#.	Modify the izendadb.config file with a valid connection string to this new database.
+#.	Download a copy of sample *izendadb.config* file. This can be found within our MVC5 Sample Kit but can be used for any Izenda API (see https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config). Place the izendadb.config into  in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**).
+#.	Modify the *izendadb.config* file with a valid connection string to this new database.
   *	SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
   *	If your connection string contains a backslash, you will need to escape it e.g. server=MY-PC\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;  server=MY-PC\\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
 
 Verifying the Connection
 ============================
 
-#.	To verify that your connection string is properly set up, create a GET request for the following endpoint: systemSetting/systemMode e.g. http://localhost:8085/api/systemSetting/systemMode . This will also confirm the current deployment mode of your Izenda instance.
+#.	To verify that your connection string is properly set up, create a GET request for the following endpoint: systemSetting/systemMode e.g. *http://localhost:8085/api/systemSetting/systemMode* . This will also confirm the current deployment mode of your Izenda instance.
 
 Modifying the Deployment Mode
 ===============================
@@ -102,6 +102,7 @@ Authentication and Authorization
 
 Overview
 ==========
+
 Authentication
 ----------------
 
@@ -110,11 +111,11 @@ Authentication will occur in the host application. Once the user is authenticate
 Authorization
 ---------------
 
-* Generating the token: Generating the token will be necessary from the front end to allow a user to access Izenda. 
+* **Generating the token:** Generating the token will be necessary from the front end to allow a user to access Izenda. 
   * In its unencrypted form, the token should contain the Izenda User name and unique Izenda tenant name or a value that your Validation route can interpret to obtain this data.
   * There isn’t a set formula to generate the token— if desired, your Izenda User Info can be wrapped within your own application’s token, stored within a cookie, or even uniquely generated every time a new Izenda page loads. 
   * Once a token is retrieved, the Izenda User Context will be set in the front end using the token. When the front end attempts to render a page, the Izenda API will be notified to validate the token.
-* Validating the token: Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthValidateAccessTokenUrl. The AuthValidateAccessTokenUrl defines a route within your host application for the API to verify the token is, in fact, valid.
+* **Validating the token:** Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthValidateAccessTokenUrl. The AuthValidateAccessTokenUrl defines a route within your host application for the API to verify the token is, in fact, valid.
   * Your token validation function for your application will be an inverse of your token generation function. The goal is to decrypt the token, interpret the data, and return a valid User Info Object to Izenda.
   
 *********************************************
@@ -128,7 +129,7 @@ Creating a simple Authorization Application
 Python Code: Initial Setup
 ============================
 
-#.	In your IzendaSimpleAuthorization/Server directory, create a new file named app.py .
+#.	In your **IzendaSimpleAuthorization/Server** directory, create a new file named *app.py* .
 
 The following code will be used to set up our bottle application to easily define response header options (GET, POST, OPTION). Please note, the Access-Control-Allow-Origin setting ‘*’ should not be used in production. Additionally, when the code runs, it will run on port 8080 in development mode. Code written in subsequent steps will be written in place of the comment "Our Development In Future Steps Will Be Here"
 
@@ -190,7 +191,7 @@ This route will retrieve the access_token from a query string sent in a GET requ
 
 Testing Our Code
 ----------------
-#. Open Windows PowerShell into the IzendaSimpleAuthorization/Server directory.
+#. Open Windows PowerShell into the **IzendaSimpleAuthorization/Server** directory.
 #. Run the following command python app.py
 #. In Postman, create a GET request for our “generate token” route e.g. localhost:8080/generatetoken
   *	Expected Response: 22
@@ -216,15 +217,15 @@ Creating a simple front-end
 
 [Image 5]
 
-1.	In your file browser, navigate to your ** IzendaSimpleAuthorization/Client ** directory and create a folder named “scripts.” This will contain all of our JavaScript for our front end application.
-2.	Within the ** IzendaSimpleAuthorization/Client/scripts ** directory, create a folder named “izenda.” This will hold our front end resources.
+1.	In your file browser, navigate to your **IzendaSimpleAuthorization/Client** directory and create a folder named *scripts*. This will contain all of our JavaScript for our front end application.
+2.	Within the **IzendaSimpleAuthorization/Client/scripts** directory, create a folder named *izenda.* This will hold our front end resources.
 
 
 Adding the Izenda Resources
 ----------------------------
 
-1.	Download the Embedded UI resources from our Downloads page. Ensure that the version matches the version of your Izenda API.
-2.	Copy the contents of Izenda Embedded UI into the IzendaSimpleAuthorization \Client\scripts\izenda directory.
+1.	Download the *Embedded UI* resources from our Downloads page. Ensure that the version matches the version of your Izenda API.
+2.	Copy the contents of Izenda *Embedded UI* into the **IzendaSimpleAuthorization\Client\scripts\izenda** directory.
 
 Creating izenda_integrate.js
 -----------------------------
@@ -232,7 +233,7 @@ Many of our sample kits contain a file named “izenda integrate” that contain
 
 Downloading Izenda Integrate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1.	Download a copy of izendaintegrate.js from https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js . Save this file as “izenda_integrate.js” into your “scripts” directory. 
+1.	Download a copy of izendaintegrate.js from https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js . Save this file as *izenda_integrate.js* into your **scripts** directory. 
 2.	Open file in your preferred text editor.
 3.	For this tutorial, we will be using the functions DoIzendaConfig, DoRender, and izendaInit
 
@@ -274,10 +275,10 @@ In this Izenda deployment, index.html will contain the necessary format and logi
     *	izenda/izenda_ui.js 
     *	izenda_integrate.js (remember, this is the JavaScript code you will write and maintain for your development)
 
-#.	In your Windows Explorer, navigate to IzendaSimpleAuthorization/Client/ and create a new file named index.html .
+#.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *index.html*.
 #.	Open index.html in a text editor and add the following:
 
-  .. code-block:: html
+.. code-block:: html
   
     <!DOCTYPE html>
     <html>
@@ -328,15 +329,15 @@ Python Code: Adding a Simple User Store
 ========================================
 **GOAL: Remove hard-coded values in our token generation and validation routes.**
 
-#.	In IzendaSimpleAuthorization/Server/app.py, Create an array named “UserStore” this will contain Dictionaries that will represent users within your application. In a production scenario, we recommend creating a structure for your application’s users and to store this information in a secure location (e.g. a database). The following sample has sample information for a user named “Bob.”
+#.	In *IzendaSimpleAuthorization/Server/app.py*, Create an array named “UserStore” this will contain Dictionaries that will represent users within your application. In a production scenario, we recommend creating a structure for your application’s users and to store this information in a secure location (e.g. a database). The following sample has sample information for a user named “Bob.”
 
-  .. code-block:: python
+.. code-block:: python
      
      UserStore = [{"EmployeeID":"22","UName":"Bob","Passw": "test123","IzendaName":"IzendaAdmin","IzendaTenant":""}] #Array of User Objects.
 
 #.	Remove global object “EmployeeID.” In the next step, we will “query” our UserStore to find the appropriate information for a given Employee ID.
 #.	Create two helper functions— getUserInfo and findUser. “getUserInfo” will return a UserInfo object (a dictionary) that properly formats the Izenda user name and Izenda tenant name for Izenda. “findUser” will return a UserInfo object for a given employee ID.
-  .. code-block:: python
+.. code-block:: python
   
      def getUserInfo(izendaUserName, izendaTenant): #Returns a  "User Info" dictionary for Izenda
        return {"UserName" : izendaUserName, "TenantUniqueName": izendaTenant}
@@ -357,18 +358,21 @@ NOTE: At this phase, our goal is to demonstrate authorization with token encrypt
 
 1.	Ensure that pyca/cryptography is installed in your environment (to install, run pip cryptography in a new Powershell window)
 2.	At the top of your application include the following:
-  .. code-block:: python
+
+.. code-block:: python
      
      from cryptography.fernet import Fernet #Used for Token Encryption
 
 3.	For this demonstration, we will use Fernet encryption. Add a global object into your application
-  .. code-block:: python
+
+.. code-block:: python
      
      #Set Up Encryption
      key = Fernet.generate_key()
      encryptor = Fernet(key)
 4.	Create two helper functions—encrypt and decrypt. These functions will use the Fernet library’s encryption methods and format the data to work well with generate and validate token routes.
-  .. code-block:: python
+
+.. code-block:: python
   
      def encrypt(userInfo): #converts userInfo object to string and encrypts it
       token = encryptor.encrypt(str(userInfo))
@@ -422,7 +426,7 @@ Create a helper function to find an employee ID
 
 The following function will be used to find an employee ID given a specified username and password.
 
-  .. code-block:: python
+.. code-block:: python
   
      def validateLogin(uName, passw): 
       for user in UserStore:
@@ -432,9 +436,9 @@ The following function will be used to find an employee ID given a specified use
 
 Create a route for log in
 --------------------------
-This route requires a user name and password specified by the user. If a login is successful, an employee ID will be returned. If a login is unsuccessful, we will raise an exception and return a 400 status code. Expected request body: { "u_name": "",   "passw": "" }
+This route requires a user name and password specified by the user. If a login is successful, an employee ID will be returned. If a login is unsuccessful, we will raise an exception and return a 400 status code. Expected request body: *{ "u_name": "",   "passw": "" }*
 
-  .. code-block:: python
+.. code-block:: python
   
      #Route to authenticate with the host application. This is not a required standard for Izenda but completes the authentication/authorization workflow	
      @app.route('/login',  method=['POST', 'OPTIONS'])
@@ -470,10 +474,10 @@ In addition to encrypting your Employee ID / authentication token, it would be g
 JavaScript Code: Create Login Logic
 -------------------------------------
 
-1.	In your Windows Explorer, navigate to IzendaSimpleAuthorization/Client/scripts/ and create a new file named login.js . This file will contain the necessary logic to log in to our Python Authentication application.
+1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/scripts/** and create a new file named *login.js*. This file will contain the necessary logic to log in to our Python Authentication application.
 2.	Open login.js in a text editor and add the following code. This code will provide a function that calls our login route in our authorization application. If the login is successful, we can retrieve the employee ID from the response. Given our authorization logic, if a 400 error is returned, the login was invalid.
 
-  .. code-block:: javascript
+.. code-block:: javascript
   
      $(document).ready(function(){
       var authURL = "http://localhost:8080";
@@ -524,7 +528,7 @@ Retrieving employee ID from cookie
 After logging in to our host application, we stored our Employee ID in a cookie. We will need to create a method to obtain this value from the cookie and use it to generate the Izenda token.
 1.	In our Izenda Integrate file, create a new function to retrieve cookie values:
 
-  .. code-block:: javascript
+.. code-block:: javascript
       function getCookie(cname) {
           var name = cname + "=";
           var decodedCookie = decodeURIComponent(document.cookie);
@@ -541,7 +545,7 @@ After logging in to our host application, we stored our Employee ID in a cookie.
       
 2.	Modify the DoRender function to retrieve the employee_id cookie.
 
-  .. code-block:: javascript
+.. code-block:: javascript
       var DoRender = function (successFunc) {
        myEmployeeID = getCookie('employee_id');
           $.ajax({
@@ -560,13 +564,13 @@ Redirecting to Login
 In our authorization application, we raised an except if an Employee ID could not be verified and, in turn, a token is not generated. This exception raises a 400 error which will trigger the generic error function used in the DoRender function of Izenda Integrate. 
 1.	In Izenda Integrate, create a new function named redirectToLoginPage.
 
-  .. code-block:: javascript
+.. code-block:: javascript
      function redirectToLoginPage(){
       window.location.replace("/login.html");
      }
 2.	Modify the generic function of the to read as the following. If an invalid token is generated, the user will be redirected to our login page.
 
-  .. code-block:: javascript
+.. code-block:: javascript
      function errorFunc() {
          alert('Token was not generated correctly. Please login.');
          redirectToLoginPage();
@@ -603,9 +607,9 @@ In our current application model, this will be handled in Python where our authe
 
 Python Code: Creating A Route to Get an Izenda Token
 -----------------------------------------------------
-1.	Return to our app.py file found in the IzendaSimpleAuthorization/Server directory.
+1.	Return to our *app.py* file found in the **IzendaSimpleAuthorization/Server** directory.
 2.	Add the following route to our application:
-  .. code-block:: python
+.. code-block:: python
      #Route to validate an encrypted token. This will return a JSON containing an encrypted token.
      @app.route('/gettoken',  method=['GET', 'OPTIONS'])
      def gettoken():	
@@ -619,14 +623,15 @@ SQL Script: Setting AuthGetAccessTokenURL and RSAPublicKey in Database
 [Image]
 
 1.	In SSMS, run the following query:
- .. code-block:: text
+.. code-block:: text
  
     UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/gettoken’ WHERE Name = 'AuthGetAccessTokenUrl';
 
 2.	Even though we are not actively using RSA Encryption, we will need to designate a place holder in our database to ensure that the Izenda API can run successfully. In SSMS, run the following query:  
 
- .. code-block:: text
-     UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’; 
+.. code-block:: text
+
+    UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’; 
      
 We will return to this setting later when we’ve implemented RSA Encrypted into our application.
 
@@ -643,7 +648,7 @@ JavaScript Code:
 1.	Return to our *Izenda_integrate.js* file found in the **IzendaSimpleAuthorization/Client/scripts** directory.
 2.	The following function will be used to render an Izenda export. Unlike the render function used in our index.html page, this function does not have a success function because it does not use “DoRender.”
 
-  .. code-block:: javascript
+.. code-block:: javascript
   
      var izendaInitReportPartExportViewer = function (reportPartId, token) {
          var currentUserContext = {
@@ -659,7 +664,7 @@ JavaScript Code:
 
 3.	The next step falls into the realm of the “Chicken or The Egg” Principle. We will create a function that will return a dictionary of key/values found in a query string. We will utilize this in our next two sections to retrieve the Access Token and Report ID from our export renderer route to push in to izendaInitReportPartExportViewer defined above. 
 
-  .. code-block:: javascript
+.. code-block:: javascript
   
      var getUrlVars = function() {
          var vars = [], hash;
@@ -683,7 +688,7 @@ In this Izenda deployment, exportrender.html will contain the necessary format a
 
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *exportrender.html*. This file will contain the necessary format and logic to render our export.
 2.	Open *exportrender.html* in a text editor and add the following:
-  .. code-block:: html
+.. code-block:: html
   
      <!DOCTYPE html>
      <html>
@@ -748,7 +753,7 @@ For this implementation, we will create a URL Rewrite Rule that will interpret t
 1.	URLRewrite is a prerequisite for installing Izenda. To complete the following section, ensure that URLRewrite is installed on IIS.
 2.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and find the file named web.config. Open the *web.config* in a text editor. If this file does not exist, create it.
 3.	In the “rules” section of the “rewrite” XML object, add the following rule:
-   .. code-block:: text
+.. code-block:: text
 
      <rule name="IzendaExport" stopProcessing="true">
       <match url="viewer/reportpart/(.*)" />
@@ -779,7 +784,7 @@ The following RSA implementation uses the RSA module of the pyca/cryptography li
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Server/** and create a new file named *rsa_encryption.py*. This file will contain the logic to load a private key from a file and decrypt messages sent from the Izenda API.
 2.	Open *rsa_encryption.py* in a text editor and add the following:
 
-   .. code-block:: python
+.. code-block:: python
    
       from cryptography.hazmat.backends import default_backend #private key creation
       from cryptography.hazmat.primitives.asymmetric import rsa #private key creation
@@ -820,7 +825,7 @@ Creating A file to store a Private Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Server/** and create a new file named *rsa_private.pem* . This file will contain the private key that can be used to decrypt the message in our sample in the main method of *rsa_encryption.py*
 2.	Open rsa_private.pem in a text editor and add the following:
-   .. code-block:: text
+.. code-block:: text
 
       -----BEGIN RSA PRIVATE KEY-----
       MIICXAIBAAKBgQDJjvvpsZNSWbntQbVHTgrohnsxknt0y46u6ZZcMA8GEYYMpo3e
@@ -844,7 +849,7 @@ Testing Decryption
 1.	Open A PowerShell window at **IzendaSimpleAuthorization/Server/**
 2.	Run *python rsa_encryption.py*
 3.	This will run the main method of rsa_encryption which will load an RSA Private Key and decrypt the encoded message hardcoded in the file. Please note, this message was encrypted using the following Public Key and was created for testing purposes. 
- .. code-block:: text
+.. code-block:: text
    <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
 
 Python Code: Modifying our Get Token Route
@@ -854,7 +859,7 @@ Python Code: Modifying our Get Token Route
 from rsa_encryption import RSAEncryption
 3.	Modify our Get Token Route.
 
- .. code-block:: python
+.. code-block:: python
  
     #Route to validate an encrypted token. This will return a JSON containing an encrypted token.
     @app.route('/gettoken',  method=['GET', 'OPTIONS'])
@@ -877,7 +882,7 @@ Izenda’s RSATool can be used to create a unique private key and public key pai
 
 The public key will always be stored in XML format in the Izenda System Setting Table. The following query can be used to update the public key value. Remember, you will need to restart your Izenda API for this change to take effect. 
 
- .. code-block:: text
+.. code-block:: text
  
     UPDATE IzendaSystemSetting SET Value = 'YOUR XML RSA PUBLIC KEY HERE' WHERE Name = 'AuthRSAPublicKey';
 
