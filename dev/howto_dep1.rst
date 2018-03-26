@@ -6,7 +6,9 @@ Goal
 =====
 In this guide, we will be embedding Izenda into an HTML application. Authentication will be handled through a simple in-memory user store that, upon logging in, a user will be given their employee ID and will be redirected to a page with Izenda embedded. 
 An Authorization application will be created in Python’s Bottle micro-framework to model the routes and resources you will need to implement in your application. Using an application-specific value, Employee ID, the application will generate an authorization token that can be used to access the Izenda platform. If a user attempts to access Izenda components without a valid employee ID, they will be redirected to the login page. 
-NOTE: This guide is intended to demonstrate the key concepts of embedding Izenda and constructing the key routes within your application to authorize the use of Izenda. Please adhere to your company’s security standards regarding authentication and encryption of data.
+
+.. note::
+ This guide is intended to demonstrate the key concepts of embedding Izenda and constructing the key routes within your application to authorize the use of Izenda. Please adhere to your company’s security standards regarding authentication and encryption of data.
 
 Requirements
 ============
@@ -303,3 +305,115 @@ In this Izenda deployment, index.html will contain the necessary format and logi
         </script>
     </body>
     </html>
+
+*********************************************
+Extending the Authorization Application
+*********************************************
+
+
+Python Code: Adding a Simple User Store
+========================================
+**GOAL: Remove hard-coded values in our token generation and validation routes.**
+
+#.	In IzendaSimpleAuthorization/Server/app.py, Create an array named “UserStore” this will contain Dictionaries that will represent users within your application. In a production scenario, we recommend creating a structure for your application’s users and to store this information in a secure location (e.g. a database). The following sample has sample information for a user named “Bob.”
+
+  .. code-block:: python
+     
+     UserStore = [{"EmployeeID":"22","UName":"Bob","Passw": "test123","IzendaName":"IzendaAdmin","IzendaTenant":""}] #Array of User Objects.
+
+#.	Remove global object “EmployeeID.” In the next step, we will “query” our UserStore to find the appropriate information for a given Employee ID.
+#.	Create two helper functions— getUserInfo and findUser. “getUserInfo” will return a UserInfo object (a dictionary) that properly formats the Izenda user name and Izenda tenant name for Izenda. “findUser” will return a UserInfo object for a given employee ID.
+  .. code-block:: python
+  
+     def getUserInfo(izendaUserName, izendaTenant): #Returns a  "User Info" dictionary for Izenda
+       return {"UserName" : izendaUserName, "TenantUniqueName": izendaTenant}
+
+     def findUser(employeeID): #generates the user info required to authenticate with Izenda based off of an employee ID
+      for user in UserStore:
+       if user.get("EmployeeID") == employeeID:
+        return  getUserInfo(user.get("IzendaName"), user.get("IzendaTenant"))
+      return None	
+
+Python Code: Adding Encryption
+=================================
+
+**GOAL: Create a more expressive token (includes user name and tenant name) in order to remove hard-coded values in our token validation route. Apply encryption.**
+
+At this phase, an end user will send an “employee_id” in a query string to our token generation route. Given an employee_id, we will create an encrypted token that contains the Izenda User Name and Izenda Tenant Name (a “User Info” object).
+NOTE: At this phase, our goal is to demonstrate authorization with token encryption. Please adhere to your own company standards regarding authentication.
+
+1.	Ensure that pyca/cryptography is installed in your environment (to install, run pip cryptography in a new Powershell window)
+2.	At the top of your application include the following:
+  .. code-block:: python
+     
+     from cryptography.fernet import Fernet #Used for Token Encryption
+
+3.	For this demonstration, we will use Fernet encryption. Add a global object into your application
+  .. code-block:: python
+     
+     #Set Up Encryption
+     key = Fernet.generate_key()
+     encryptor = Fernet(key)
+4.	Create two helper functions—encrypt and decrypt. These functions will use the Fernet library’s encryption methods and format the data to work well with generate and validate token routes.
+  .. code-block:: python
+  
+     def encrypt(userInfo): #converts userInfo object to string and encrypts it
+      token = encryptor.encrypt(str(userInfo))
+      return token
+
+     def decrypt(token): #decrypts tokens and converts result to a dictionary
+      userInfo = eval(encryptor.decrypt(str(token)))
+      return userInfo
+
+5.	Modify our token generation route to include token encryption. Now that we can encrypt our data, our Access Token will contain the username and tenant name rather than passing in a hard-coded “Employee ID” value. The Employee ID value will, instead, be retrieved from our query string. If a particular Employee ID cannot be found, we will raise an exception and return a 400 status code.
+  .. code-block:: python
+     #Route to Generate Encrypted Token based off of an employeeID. The employee ID will be provided by the host application
+     @app.route('/generatetoken', method=['GET', 'OPTIONS'])
+     def generatetoken():
+      employeeID = request.query.employee_id #Get Employee ID from Query String
+      myUserInfo = findUser(employeeID) 
+      if myUserInfo is None: #If the user wasn't found
+       raise HTTPResponse(output='Invalid Credentials', status=400)
+      else:
+       return {"token": encrypt(myUserInfo)}
+6.	Modify our token validation route to include token decryption. Now that we can decrypt messages, we no longer need to compare the “Employee ID” value in this method.
+  
+  .. code-block:: python
+  
+     @app.route('/validatetoken',  method=['GET', 'OPTIONS'])
+     def validatetoken():
+      token = request.query.access_token
+      return decrypt(token)
+
+JavaScript Code: Updating the Front End Application
+======================================================
+At this point, we have created a way to encrypt a user info object in our token generation route and a way to decrypt the token in our token validation route. This removed our hard-coded user info object in our validation and our hard-coded employee ID in our token generation route. In step 5 of the previous section, we created a mechanism to retrieve the Employee ID from a query string so we will now need to provide a value in our DoRender function of our Izenda Integrate JS file.
+
+1.	Open izenda_integrate.js and locate the url within DoRender.
+2.	Modify entry:   *url : “http://localhost:8080/generatetoken?employee_id=22”*
+3.	Save result and restart your application pool on IIS.
+
+*********************************************
+Adding Simple Authentication
+*********************************************
+
+**GOAL: Provide a method to log in to the host application. This will allow us to remove the hard-coded employee_id in our Izenda Integrate file**
+
+[Image 6]
+
+Python Code: Create A Post Route to Log into Host Application
+===============================================================
+
+For this demonstration, when a user logs in to the host application, they will receive their Employee ID to access Izenda. 
+Create a helper function to find an employee ID
+
+The following function will be used to find an employee ID given a specified username and password.
+
+  .. code-block:: python
+  
+     def validateLogin(uName, passw): 
+      for user in UserStore:
+       if user.get("UName") == uName and user.get("Passw") == passw:
+        return  user.get("EmployeeID")
+      return None	
+
