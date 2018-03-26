@@ -606,13 +606,13 @@ SQL Script: Setting AuthGetAccessTokenURL and RSAPublicKey in Database
 [Image]
 
 1.	In SSMS, run the following query:
- .. code-block:: sql
+ .. code-block:: text
  
     UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/gettoken’ WHERE Name = 'AuthGetAccessTokenUrl';
 
 2.	Even though we are not actively using RSA Encryption, we will need to designate a place holder in our database to ensure that the Izenda API can run successfully. In SSMS, run the following query:  
 
- .. code-block:: sql
+ .. code-block:: text
      UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’; 
      
 We will return to this setting later when we’ve implemented RSA Encrypted into our application.
@@ -720,7 +720,7 @@ SQL Script: Configuring the WebURL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Web URL will determine the location of the front end resources of your application. In our setup, this will be located at localhost:8086 .
 1.	In SSMS, run the following query:  
-.. code-block:: sql
+.. code-block:: text
 
  UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8086/’ WHERE Name =  ‘WebUrl’;
  
@@ -742,6 +742,7 @@ For this implementation, we will create a URL Rewrite Rule that will interpret t
       <action type="Redirect" url="http://localhost:8086/exportrender.html?id={R:1}" logRewrittenUrl="true" />
      </rule>
 
+
 Testing Exports
 ~~~~~~~~~~~~~~~~
 
@@ -751,9 +752,9 @@ Testing Exports
 4.	In the report viewer, select Export > PDF.
 
 
-*********************
+
 Adding RSA Encryption
-*********************
+======================
 
 To ensure that only secure requests can be sent/interpreted by our exporting endpoint, Izenda sends an RSA encrypted message to our Get Token route. Our application will need to decode this message, decrypt it, and interpret the contents of the result. This result will contain an object similar to our User Info object. We’ll use the data within it to create a valid encrypted token. If your host application requires additional values, you may need to add them here as well.
 
@@ -863,7 +864,7 @@ Izenda’s RSATool can be used to create a unique private key and public key pai
 
 The public key will always be stored in XML format in the Izenda System Setting Table. The following query can be used to update the public key value. Remember, you will need to restart your Izenda API for this change to take effect. 
 
- .. code-block:: sql
+ .. code-block:: text
  
     UPDATE IzendaSystemSetting SET Value = 'YOUR XML RSA PUBLIC KEY HERE' WHERE Name = 'AuthRSAPublicKey';
 
