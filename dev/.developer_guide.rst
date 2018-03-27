@@ -21,7 +21,7 @@ You can interact with our API in both integrated and standalone instances of Ize
 External API
 ===============================
 
-The Izenda external API is creating specifically for customer use.
+The Izenda external API was created to provide a clear distinction between the API used by the application and those created specifically for customer use.
 
 .. toctree::
    :maxdepth: 2   
