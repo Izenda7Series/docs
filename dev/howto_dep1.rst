@@ -612,7 +612,9 @@ Python Code: Creating A Route to Get an Izenda Token
 -----------------------------------------------------
 1.	Return to our *app.py* file found in the **IzendaSimpleAuthorization/Server** directory.
 2.	Add the following route to our application:
+
 .. code-block:: python
+
      #Route to validate an encrypted token. This will return a JSON containing an encrypted token.
      @app.route('/gettoken',  method=['GET', 'OPTIONS'])
      def gettoken():	
