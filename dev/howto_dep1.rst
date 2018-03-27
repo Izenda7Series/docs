@@ -923,7 +923,7 @@ The following Python code utilizes the concepts demonstrated in the C# *authAppR
 .. code-block:: python
 
  @app.route('/ccauth',  method=['POST', 'OPTIONS'])	
- def CopyConsoleAuthentication():
+ def ccauth():
   #Retrieve username and Password from Copy Console request
   username  = request.forms.get('username')
   password = request.forms.get('Password')
