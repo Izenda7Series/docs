@@ -194,7 +194,7 @@ This route will retrieve the access_token from a query string sent in a GET requ
 Testing Our Code
 ----------------
 #. Open Windows PowerShell into the **IzendaSimpleAuthorization/Server** directory.
-#. Run the following command python app.py
+#. Run the following command: *python app.py*
 #. In Postman, create a GET request for our “generate token” route e.g. localhost:8080/generatetoken
   *	Expected Response: 22
 #. In Postman, create a GET request for our “validate token” route e.g. localhost:8080/validatetoken?access_token=22
@@ -894,6 +894,73 @@ The public key will always be stored in XML format in the Izenda System Setting 
  
     UPDATE IzendaSystemSetting SET Value = 'YOUR XML RSA PUBLIC KEY HERE' WHERE Name = 'AuthRSAPublicKey';
 
+**************************************
+Implementing A Route For Copy Console
+**************************************
+
+The Izenda Copy Console is an application that allows you to copy reports from one environment to another. A full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
+
+.. figure::  /_static/images/dev/howto_dep1/9B.PNG
+
+
+* **Copy Console Application** : A Black Box application to copy reports from one environment to another.
+* **SampleConfig.xml** : A configuration file that will allow you to specify the source and destinations for your copy process. In integrated scenarios, you will specify an *authAppRoute* to authenticate against your application.
+* **/ccauth** : A route in our Python application that the Copy Console will use as our Source's *authAppRoute*
+
+Creating The Copy Console Route
+------------------------------------
+
+In order to use the Copy Console with an integrated instance of Izenda, you will need to provide an "authAppRoute" route that (1) Authenticates the user against your application and (2) Creates a valid access token the API can use to authorize against your application. At its core, this will be a combination of the logic used in our **/login** route and our **/generatetoken** route but the token will need to be wrapped in a specific JSON Structure to work with the Copy Console.
+
+The following Python code utilizes the concepts demonstrated in the C# *authAppRoute* sample code provided at https://www.izenda.com/docs/ui/doc_copy_console.html#configuring-the-appauthurl-endpoint . This utilizes the authentication and authorization methods we created in previous sections to create the expected JSON for the copy console. An updated JSON can be found with the original C# Code Sample.
+
+1. In *IzendaSimpleAuthorization/Server/app.py*, create the following **/ccauth** route.
+
+.. code-block:: python
+
+ @app.route('/ccauth',  method=['POST', 'OPTIONS'])	
+ def CopyConsoleAuthentication():
+  #Retrieve username and Password from Copy Console request
+  username  = request.forms.get('username')
+  password = request.forms.get('Password')
+
+  #Authenticate against our application. Recall the result of the validation should be an employeeID
+  employeeID = validateLogin(username, password)
+  #Get a user info object given our employee ID
+  userInfo = findUser(employeeID)
+  #Generate a token for our application 
+  token = "" 
+  if userInfo is not None:
+   token = encrypt(userInfo)
+  #Wrap token in the expected response body from the Copy Console	
+  accessToken = { "cultureName" : "en-US", "tenant" : "", "isExpired" : "false", "notifyDuringDay" : "", "dateFormat" : "DD/MM/YYYY", "token" : token }
+
+  response={}
+  headers = {'Content-type': 'application/json'}
+  response['status'] ="Success"
+  response['data']= accessToken
+  result = json.dumps(response,headers)
+  raise HTTPResponse(result,status=200,headers=headers)
+
+Configuring Your SampleConfig.xml
+----------------------------------
+
+The copy console uses an XML file for all configuration settings including credentials for source and destination, Report IDs to copy, and database mappings from the Source to Destination. A sample config can be found on our downloads page.
+
+1. Download a copy of the SampleConfig.xml from https://downloads.izenda.com/Utilities/SampleConfig.xml .
+2. Open the SampleConfig.xml in your text editor. The following XML will allow the Copy Console to authenticate with our sample user's credentials:
+
+.. code-block:: text
+
+   <credentials userName="Bob" password="test123" apiUrl="http://localhost:8085/api/" appAuthUrl="http://localhost:8080/ccauth"/>
+
+Testing The Copy Console Route
+-------------------------------
+
+Our copy console route can be tested using Postman but would best be tested directly with the Izenda Copy Console. In order to use to Copy Console, we will need to specify a Source as well as a Destination in your SampleConfig.xml. The Copy Console is Deployment Mode agnostic which will allow you to copy reports from a standalone instance of Izenda to an embedded instance of Izenda or vice versa. When specifying the credentials for a standalone instance of Izenda, an appAuthUrl is not required.
+
+Recall, a full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
+
 **********
 Extension
 **********
@@ -908,7 +975,7 @@ Extension
 Summary Route Locations and Database Changes
 *********************************************
 
-.. figure::  /_static/images/dev/howto_dep1/summary.PNG
+.. figure::  /_static/images/dev/howto_dep1/summaryB.PNG
 
 * Izenda API
   * Izenda API is hosted on IIS using port 8085 (http://localhost:8085)
