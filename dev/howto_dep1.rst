@@ -230,7 +230,7 @@ Adding the Izenda Resources
 ----------------------------
 
 1.	Download the *Embedded UI* resources from our Downloads page. Ensure that the version matches the version of your Izenda API.
-2.	Copy the contents of Izenda *Embedded UI* into the **IzendaSimpleAuthorization\Client\scripts\izenda** directory.
+2.	Copy the contents of Izenda *Embedded UI* into the **IzendaSimpleAuthorization/Client/scripts/izenda** directory.
 
 Creating izenda_integrate.js
 -----------------------------
