@@ -65,12 +65,12 @@ Connecting the Izenda API to the Izenda Database
 Connecting with an Encrypted Connection String
 ===============================================
 
-#.	Create a new database in SSMS named *IzendaConfigurationDB* 
-#.	In Postman, create a POST request for the endpoint */api/databaseSetup/DatabaseInfo*  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
-#.	If the API is successful, you will receive *{"success":true,"messages":null,"data":null}*
+1.	Create a new database in SSMS named *IzendaConfigurationDB* 
+2.	In Postman, create a POST request for the endpoint */api/databaseSetup/DatabaseInfo*  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
+3.	If the API is successful, you will receive *{"success":true,"messages":null,"data":null}*
   *	If the Izenda tables do not exist within the specified database, they will be created.
   *	A file named *izendadb.config* will be created in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**). To confirm that the connection string is encrypted, open the *izendadb.config* in your preferred text editor.
-#.	If desired, you can replace the encrypted connection string with a plain text connection string for debugging.
+4.	If desired, you can replace the encrypted connection string with a plain text connection string for debugging.
 
 Connecting With a Plain Text Connection String
 ===============================================
@@ -79,10 +79,11 @@ Connecting With a Plain Text Connection String
    This option is best for development and testing. Once your environment is production-ready, we recommend converting to an encrypted connection string. This can be accomplished by following the steps below or by entering your connection string on the System DB & License page within the platform.
 
 If you have an *empty* configuration database, you can follow the steps for “Connecting with an encrypted Connection String” to populate Izenda’s default tables and values.
-#.	Download a copy of sample *izendadb.config* file. This can be found within our MVC5 Sample Kit but can be used for any Izenda API (see https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config). Place the izendadb.config into  in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**).
-#.	Modify the *izendadb.config* file with a valid connection string to this new database.
+1.	Download a copy of sample *izendadb.config* file. This can be found within our MVC5 Sample Kit but can be used for any Izenda API (see https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config). Place the izendadb.config into  in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**).
+
+2.	Modify the *izendadb.config* file with a valid connection string to this new database.
   *	SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
-  *	If your connection string contains a backslash, you will need to escape it e.g. server=MY-PC\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;  server=MY-PC\\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
+  *	If your connection string contains a backslash, you will need to escape it .e.g. server=MY-PC\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123; ==> server=MY-PC\\SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
 
 Verifying the Connection
 ============================
