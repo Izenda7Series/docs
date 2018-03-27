@@ -894,7 +894,7 @@ Extension
 
 * Encryption: In our current sample, users are authorized in the host application by using a simple employee ID number.  In a production scenario, be sure to encrypt this value. Depending on how tightly you wish to integrate Izenda, you may be able to store this information in the same authorization token and simply provide this token after a user logs in. This process could eliminate the generate token route we use in our Izenda Integrate file because the user would already have their token.
 
-* Serving HTML Pages and Authenticating from one application: This sample separated the authentication application from the front end development. Depending on your framework, you may opt to merge the two layers together to reduce latency.
+* Serving HTML Pages and Authenticating/Authorizing from one application: This sample separated the authentication/authorization application from the front end development. Depending on your framework, you may opt to merge the two layers together to reduce potential latency.
 
 *********************************************
 Summary Route Locations and Database Changes
