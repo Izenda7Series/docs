@@ -961,7 +961,7 @@ The copy console uses an XML file for all configuration settings including crede
 Testing The Copy Console Route
 =================================
 
-Our copy console route can be tested using Postman but would best be tested directly with the Izenda Copy Console. In order to use to Copy Console, we will need to specify a Source as well as a Destination in your SampleConfig.xml. The Copy Console is Deployment Mode agnostic which will allow you to copy reports from a standalone instance of Izenda to an embedded instance of Izenda or vice versa. When specifying the credentials for a standalone instance of Izenda, an appAuthUrl is not required.
+Our copy console route can be tested using Postman but would best be tested directly with the Izenda Copy Console. In order to use to Copy Console, we will need to specify a Source as well as a Destination in your SampleConfig.xml. The Copy Console is Deployment Mode agnostic which will allows us to copy reports from a standalone instance of Izenda to an embedded instance of Izenda or vice versa. When specifying the credentials for a standalone instance of Izenda, an appAuthUrl is not required.
 
 Recall, a full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
 
