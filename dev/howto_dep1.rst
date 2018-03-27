@@ -121,7 +121,7 @@ Authorization
   * Your token validation function for your application will be an inverse of your token generation function. The goal is to decrypt the token, interpret the data, and return a valid User Info Object to Izenda.
   
 *********************************************
-Creating a simple Authorization Application
+Creating a Simple Authorization Application
 *********************************************
 
 **GOAL: Create an authorization application that uses an impersonated security model. In an impersonated security model, authentication is ignored to demonstrate the authorization process.**
@@ -204,7 +204,7 @@ Testing Our Code
 Linking the Izenda API to Our Application
 ===========================================
 
-** GOAL: Provide a logical link from the Izenda API to our Application **
+**GOAL: Provide a logical link from the Izenda API to our Application**
 
 .. figure::  /_static/images/dev/howto_dep1/4.PNG
 
@@ -216,10 +216,10 @@ Now that we have a route to generate tokens for the front end and a route to val
 
 #. After setting the AuthValidateAccessTokenUrl in the database, you will need to refresh your Izenda API App Pool for the change to take effect.
 
-Creating a simple front-end
+Creating a Simple Front-End
 =============================
 
-** GOAL: Create a simple front end application (HTML and JavaScript) that will render Izenda as a single page application. **
+**GOAL: Create a simple front end application (HTML and JavaScript) that will render Izenda as a single page application.**
 
 .. figure::  /_static/images/dev/howto_dep1/5.PNG
 
