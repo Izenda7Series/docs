@@ -262,8 +262,16 @@ JavaScript Code: Connecting Our Front End to the Izenda API
 #.	Locate the “WebApiUrl” in DoIzendaConfig. This will contain a URL to our Izenda API. Recall, our Izenda API is located on port 8085 (http://localhost:8085).
 #.	Modify entry:   *"WebApiUrl": “http://localhost:8085/api/”*
 
-JS Code: Connecting Our Front End to Our Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+JavaScript Code: Referencing Our Front End Resources for Izenda Forms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Izenda Forms editor uses a virtual DOM to allow users to build HTML-centric report parts. In order to utilize the "Visual" tab of Forms, you will need to ensure that your config references the Izenda UI resource location correctly.
+
+#.	Locate the “RootPath” in DoIzendaConfig. This will contain the relative path to our Izenda Front End resources. Recall, our Izenda Front End resources are located within */scripts/izenda* .
+#.	Modify entry:   *"WebApiUrl": “/scripts/izenda”*
+
+JavaScript Code: Connecting Our Front End to Our Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.	Locate the “url” in DoRender. This will contain a URL to our Authorization Application. Recall, our Authorization Application is located on port 8080 (http://localhost:8080).
 #.	Modify entry:   *url : “http://localhost:8080/generatetoken”*
