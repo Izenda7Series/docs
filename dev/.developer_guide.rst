@@ -17,6 +17,17 @@ You can interact with our API in both integrated and standalone instances of Ize
    .intermediate_api_client_code_samples
 
 
+
+External API
+===============================
+
+The Izenda external API is creating specifically for customer use.
+
+.. toctree::
+   :maxdepth: 2   
+   
+   /ref/api_external
+	 
 Embedding Izenda
 ================
 
