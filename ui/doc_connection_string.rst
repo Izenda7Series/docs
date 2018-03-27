@@ -48,9 +48,9 @@ visible in reports.
 
 #. .. _Connection_Select_Database_Server_Type:
 
-   .. figure:: /_static/images/Connection_Select_Database_Server_Type.jpg
+   .. figure:: /_static/images/Connection_Select_Database_Server_Type.JPG
       :align: right
-      :width: 310px
+      :width: 408px
 
       Select Database Server Type
 

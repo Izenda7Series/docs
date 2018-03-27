@@ -13,6 +13,9 @@ The **Data Model/Tables**, **Data Model/Views** and **Data Model/Stored Procedur
 -  assign filter values for stored procedure parameters
 -  mark stored procedures as dynamic
 
+**Note:** |br|
+   Izenda do not support Stored Procedure for AWS Redshift database.
+
 List tables, views or stored procedures
 ---------------------------------------
 
