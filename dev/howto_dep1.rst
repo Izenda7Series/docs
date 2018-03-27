@@ -136,6 +136,7 @@ The following code will be used to set up our bottle application to easily defin
 
 
 .. code-block:: python
+
   from bottle import Bottle, request, response, run, HTTPResponse 
   app = Bottle()
   @app.hook('after_request')
