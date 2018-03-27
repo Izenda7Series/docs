@@ -330,14 +330,16 @@ Python Code: Adding a Simple User Store
 ========================================
 **GOAL: Remove hard-coded values in our token generation and validation routes.**
 
-#.	In *IzendaSimpleAuthorization/Server/app.py*, Create an array named “UserStore” this will contain Dictionaries that will represent users within your application. In a production scenario, we recommend creating a structure for your application’s users and to store this information in a secure location (e.g. a database). The following sample has sample information for a user named “Bob.”
+1.	In *IzendaSimpleAuthorization/Server/app.py*, Create an array named “UserStore” this will contain Dictionaries that will represent users within your application. In a production scenario, we recommend creating a structure for your application’s users and to store this information in a secure location (e.g. a database). The following sample has sample information for a user named “Bob.”
 
 .. code-block:: python
      
      UserStore = [{"EmployeeID":"22","UName":"Bob","Passw": "test123","IzendaName":"IzendaAdmin","IzendaTenant":""}] #Array of User Objects.
 
-#.	Remove global object “EmployeeID.” In the next step, we will “query” our UserStore to find the appropriate information for a given Employee ID.
-#.	Create two helper functions— getUserInfo and findUser. “getUserInfo” will return a UserInfo object (a dictionary) that properly formats the Izenda user name and Izenda tenant name for Izenda. “findUser” will return a UserInfo object for a given employee ID.
+2.	Remove global object “EmployeeID.” In the next step, we will “query” our UserStore to find the appropriate information for a given Employee ID.
+
+3.	Create two helper functions— getUserInfo and findUser. “getUserInfo” will return a UserInfo object (a dictionary) that properly formats the Izenda user name and Izenda tenant name for Izenda. “findUser” will return a UserInfo object for a given employee ID.
+
 .. code-block:: python
   
      def getUserInfo(izendaUserName, izendaTenant): #Returns a  "User Info" dictionary for Izenda
