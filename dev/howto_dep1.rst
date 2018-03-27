@@ -94,7 +94,7 @@ Modifying the Deployment Mode
 
 The API Deployment Mode can be set in the Izenda System Setting table of your configuration database. For more information on deployment modes, please refer to https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html 
 
-#.	In SSMS, run the following query:  UPDATE IzendaSystemSetting SET Value = 1 WHERE Name = 'DeploymentMode';
+#.	In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = 1 WHERE Name = 'DeploymentMode';*
 #.	After setting the deployment mode in the database, you will need to refresh your Izenda API App Pool for the change to take effect.
 
 ************************************
@@ -208,7 +208,7 @@ Linking the Izenda API to Our Application
 
 Now that we have a route to generate tokens for the front end and a route to validate tokens for the Izenda API, we need to provide a logic link to our Application. Since the Izenda API will always have access to the Izenda Configuration database, we will store a URL to our authentication route in the AuthValidateAccessTokenUrl entry in the IzendaSystemSetting table.
 #. Recall, our authorization application is running at localhost:8080
-#. In SSMS, run the following query:  UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/validatetoken’ WHERE Name = ‘AuthValidateAccessTokenUrl’;
+#. In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/validatetoken’ WHERE Name = ‘AuthValidateAccessTokenUrl’;*
 #. After setting the AuthValidateAccessTokenUrl in the database, you will need to refresh your Izenda API App Pool for the change to take effect.
 
 Creating a simple front-end
@@ -627,16 +627,9 @@ SQL Script: Setting AuthGetAccessTokenURL and RSAPublicKey in Database
 
 .. figure::  /_static/images/dev/howto_dep1/8.PNG
 
-1.	In SSMS, run the following query:
-.. code-block:: text
- 
-    UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/gettoken’ WHERE Name = 'AuthGetAccessTokenUrl';
+1.	In SSMS, run the following query: *UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/gettoken’ WHERE Name = 'AuthGetAccessTokenUrl';*
 
-2.	Even though we are not actively using RSA Encryption, we will need to designate a place holder in our database to ensure that the Izenda API can run successfully. In SSMS, run the following query:  
-
-.. code-block:: text
-
-    UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’; 
+2.	Even though we are not actively using RSA Encryption, we will need to designate a place holder in our database to ensure that the Izenda API can run successfully. In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = ‘<RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>’ WHERE Name = 'AuthRSAPublicKey’;* 
      
 We will return to this setting later when we’ve implemented RSA Encrypted into our application.
 
@@ -743,10 +736,7 @@ In this Izenda deployment, exportrender.html will contain the necessary format a
 SQL Script: Configuring the WebURL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Web URL will determine the location of the front end resources of your application. In our setup, this will be located at localhost:8086 .
-1.	In SSMS, run the following query:  
-.. code-block:: text
-
- UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8086/’ WHERE Name =  ‘WebUrl’;
+1.	In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8086/’ WHERE Name =  ‘WebUrl’;*
  
 Configuring A URL Rewrite Rule
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
