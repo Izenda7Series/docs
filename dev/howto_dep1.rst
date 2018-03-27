@@ -900,7 +900,7 @@ Implementing A Route For Copy Console
 
 The Izenda Copy Console is an application that allows you to copy reports from one environment to another. A full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
 
-.. figure::  /_static/images/dev/howto_dep1/9B.PNG
+.. figure::  /_static/images/dev/howto_dep1/9b.PNG
 
 
 * **Copy Console Application** : A Black Box application to copy reports from one environment to another.
@@ -908,7 +908,7 @@ The Izenda Copy Console is an application that allows you to copy reports from o
 * **/ccauth** : A route in our Python application that the Copy Console will use as our Source's *authAppRoute*
 
 Creating The Copy Console Route
-------------------------------------
+=================================
 
 In order to use the Copy Console with an integrated instance of Izenda, you will need to provide an "authAppRoute" route that (1) Authenticates the user against your application and (2) Creates a valid access token the API can use to authorize against your application. At its core, this will be a combination of the logic used in our **/login** route and our **/generatetoken** route but the token will need to be wrapped in a specific JSON Structure to work with the Copy Console.
 
@@ -942,8 +942,8 @@ The following Python code utilizes the concepts demonstrated in the C# *authAppR
   result = json.dumps(response,headers)
   raise HTTPResponse(result,status=200,headers=headers)
 
-Configuring Your SampleConfig.xml
-----------------------------------
+Configuring The SampleConfig.xml
+=================================
 
 The copy console uses an XML file for all configuration settings including credentials for source and destination, Report IDs to copy, and database mappings from the Source to Destination. A sample config can be found on our downloads page.
 
@@ -955,14 +955,14 @@ The copy console uses an XML file for all configuration settings including crede
    <credentials userName="Bob" password="test123" apiUrl="http://localhost:8085/api/" appAuthUrl="http://localhost:8080/ccauth"/>
 
 Testing The Copy Console Route
--------------------------------
+=================================
 
 Our copy console route can be tested using Postman but would best be tested directly with the Izenda Copy Console. In order to use to Copy Console, we will need to specify a Source as well as a Destination in your SampleConfig.xml. The Copy Console is Deployment Mode agnostic which will allow you to copy reports from a standalone instance of Izenda to an embedded instance of Izenda or vice versa. When specifying the credentials for a standalone instance of Izenda, an appAuthUrl is not required.
 
 Recall, a full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
 
 **********
-Extension
+Extensions
 **********
 
 * Migrating Your User Store to a database: In a production environment, we recommend storing your users in a database. Here, be sure to encrypt your users’ passwords
