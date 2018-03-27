@@ -207,8 +207,11 @@ Linking the Izenda API to Our Application
 .. figure::  /_static/images/dev/howto_dep1/4.PNG
 
 Now that we have a route to generate tokens for the front end and a route to validate tokens for the Izenda API, we need to provide a logic link to our Application. Since the Izenda API will always have access to the Izenda Configuration database, we will store a URL to our authentication route in the AuthValidateAccessTokenUrl entry in the IzendaSystemSetting table.
+
 #. Recall, our authorization application is running at localhost:8080
+
 #. In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = ‘http://localhost:8080/validatetoken’ WHERE Name = ‘AuthValidateAccessTokenUrl’;*
+
 #. After setting the AuthValidateAccessTokenUrl in the database, you will need to refresh your Izenda API App Pool for the change to take effect.
 
 Creating a simple front-end
