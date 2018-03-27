@@ -833,6 +833,7 @@ Creating A file to store a Private Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Server/** and create a new file named *rsa_private.pem* . This file will contain the private key that can be used to decrypt the message in our sample in the main method of *rsa_encryption.py*
 2.	Open rsa_private.pem in a text editor and add the following:
+
 .. code-block:: text
 
       -----BEGIN RSA PRIVATE KEY-----
@@ -857,7 +858,9 @@ Testing Decryption
 1.	Open A PowerShell window at **IzendaSimpleAuthorization/Server/**
 2.	Run *python rsa_encryption.py*
 3.	This will run the main method of rsa_encryption which will load an RSA Private Key and decrypt the encoded message hardcoded in the file. Please note, this message was encrypted using the following Public Key and was created for testing purposes. 
+
 .. code-block:: text
+
    <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
 
 Python Code: Modifying our Get Token Route
