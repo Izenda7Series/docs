@@ -232,13 +232,13 @@ Adding the Izenda Resources
 1.	Download the *Embedded UI* resources from our Downloads page. Ensure that the version matches the version of your Izenda API.
 2.	Copy the contents of Izenda *Embedded UI* into the **IzendaSimpleAuthorization/Client/scripts/izenda** directory.
 
-Creating izenda_integrate.js
+Creating izendaintegrate.js
 -----------------------------
-Many of our sample kits contain a file named “izenda integrate” that contains working examples of the numerous rendering options available to render Izenda within your application. For this tutorial, we will be using a preexisting izenda_integrate.js file. Additional render function documentation can be found at https://www.izenda.com/docs/dev/api_frontend_integration.html.
+Many of our sample kits contain a file named “izenda integrate” that contains working examples of the numerous rendering options available to render Izenda within your application. For this tutorial, we will be using a preexisting izendaintegrate.js file. Additional render function documentation can be found at https://www.izenda.com/docs/dev/api_frontend_integration.html.
 
 Downloading Izenda Integrate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1.	Download a copy of izendaintegrate.js from https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js . Save this file as *izenda_integrate.js* into your **scripts** directory. 
+1.	Download a copy of izendaintegrate.js from https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js . Save this file as *izendaintegrate.js* into your **scripts** directory. 
 2.	Open file in your preferred text editor.
 3.	For this tutorial, we will be using the functions DoIzendaConfig, DoRender, and izendaInit
 
@@ -286,7 +286,7 @@ In this Izenda deployment, index.html will contain the necessary format and logi
     * izenda/izenda_locales.js
     *	izenda/izenda_vendors.js
     *	izenda/izenda_ui.js 
-    *	izenda_integrate.js (remember, this is the JavaScript code you will write and maintain for your development)
+    *	izendaintegrate.js (remember, this is the JavaScript code you will write and maintain for your development)
 
 #.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *index.html*.
 #.	Open index.html in a text editor and add the following:
@@ -322,7 +322,7 @@ In this Izenda deployment, index.html will contain the necessary format and logi
         <script type="text/javascript" src="/scripts/izenda/izenda_locales.js?db1ebd9b10aa86f1fd76"></script>
         <script type="text/javascript" src="/scripts/izenda/izenda_vendors.js?db1ebd9b10aa86f1fd76"></script>
         <script type="text/javascript" src="/scripts/izenda/izenda_ui.js?db1ebd9b10aa86f1fd76"></script>
-        <script src="/scripts/izenda_integrate.js" type="text/javascript"></script>
+        <script src="/scripts/izendaintegrate.js" type="text/javascript"></script>
         <!--Izenda Configraution function and render function-->
         <script type="text/javascript">
            $(window).load(function () {
@@ -421,7 +421,7 @@ JavaScript Code: Updating the Front End Application
 ======================================================
 At this point, we have created a way to encrypt a user info object in our token generation route and a way to decrypt the token in our token validation route. This removed our hard-coded user info object in our validation and our hard-coded employee ID in our token generation route. In step 5 of the previous section, we created a mechanism to retrieve the Employee ID from a query string so we will now need to provide a value in our DoRender function of our Izenda Integrate JS file.
 
-1.	Open izenda_integrate.js and locate the url within DoRender.
+1.	Open izendaintegrate.js and locate the url within DoRender.
 2.	Modify entry:   *url : “http://localhost:8080/generatetoken?employee_id=22”*
 3.	Save result and restart your application pool on IIS.
 
@@ -655,7 +655,7 @@ Since our Izenda front end is separate from our authentication application, this
 JavaScript Code:
 ~~~~~~~~~~~~~~~~~
 
-1.	Return to our *Izenda_integrate.js* file found in the **IzendaSimpleAuthorization/Client/scripts** directory.
+1.	Return to our *izendaintegrate.js* file found in the **IzendaSimpleAuthorization/Client/scripts** directory.
 2.	The following function will be used to render an Izenda export. Unlike the render function used in our index.html page, this function does not have a success function because it does not use “DoRender.”
 
 .. code-block:: javascript
@@ -732,7 +732,7 @@ In this Izenda deployment, exportrender.html will contain the necessary format a
          <script type="text/javascript" src="/scripts/izenda/izenda_locales.js?db1ebd9b10aa86f1fd76"></script>
          <script type="text/javascript" src="/scripts/izenda/izenda_vendors.js?db1ebd9b10aa86f1fd76"></script>
          <script type="text/javascript" src="/scripts/izenda/izenda_ui.js?db1ebd9b10aa86f1fd76"></script>
-         <script src="/scripts/izenda_integrate.js" type="text/javascript"></script>
+         <script src="/scripts/izendaintegrate.js" type="text/javascript"></script>
          <!--Izenda Configraution function and render function-->
          <script type="text/javascript">
              $(window).load(function () {
@@ -986,7 +986,7 @@ Summary Route Locations and Database Changes
     *	exportrender.html : A page that will be used to render Izenda exports on the server.
     *	Scripts
   * login.js : logs a user in to the host application.
-  * izenda_integrate.js: holds the core logic for rendering Izenda. A front end implementation similar to this is recommended.
+  * izendaintegrate.js: holds the core logic for rendering Izenda. A front end implementation similar to this is recommended.
   *	izenda : this folder contains all of the Izenda Embedded UI elements.
 * **Server (Authorization Application)**
   * Our Authorization Application (app.py) is hosted on Python’s development server using port 8080 (http://localhost:8080)
