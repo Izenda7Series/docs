@@ -905,7 +905,7 @@ The Izenda Copy Console is an application that allows you to copy reports from o
 
 * **Copy Console Application** : A Black Box application to copy reports from one environment to another.
 * **SampleConfig.xml** : A configuration file that will allow you to specify the source and destinations for your copy process. In integrated scenarios, you will specify an *authAppRoute* to authenticate against your application.
-* **/ccauth** : A route in our Python application that the Copy Console will use as our Source's *authAppRoute*
+* **/ccauth** : A route in our Python application that the Copy Console will use as our *authAppRoute* for either our Source or Destination instance of Izenda
 
 Creating The Copy Console Route
 =================================
@@ -977,9 +977,9 @@ Summary Route Locations and Database Changes
 
 .. figure::  /_static/images/dev/howto_dep1/summaryB.PNG
 
-* Izenda API
+* **Izenda API**
   * Izenda API is hosted on IIS using port 8085 (http://localhost:8085)
-* Client (HTML Front End Application)
+* **Client (HTML Front End Application)**
   * Our simple front end application is hosted on IIS using port 8086 (http://localhost:8086).
     * index.html : Renders Izenda as a single page application.
     *	login.html : Provides a place to log in to our host application.
@@ -988,23 +988,24 @@ Summary Route Locations and Database Changes
   * login.js : logs a user in to the host application.
   * izenda_integrate.js: holds the core logic for rendering Izenda. A front end implementation similar to this is recommended.
   *	izenda : this folder contains all of the Izenda Embedded UI elements.
-* Server (Authorization Application)
+* **Server (Authorization Application)**
   * Our Authorization Application (app.py) is hosted on Python’s development server using port 8080 (http://localhost:8080)
-    * Required Application Routes for Izenda
+    * *Required Application Routes for Izenda*
       *	/validatetoken: Corresponds to AuthValidateAccessTokenURL. Validates a token sent from the Izenda API. This method will return a user info object (Izenda Username and a Unique Tenant name) for the Izenda API.
       *	/gettoken : Corresponds to AuthGetAccessTokenURL. Get token decrypts an RSA Message sent from the Izenda API and creates a valid token based off of the contents in the decrypted message. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name.
-     *	Beneficial Application Routes
+     *	*Beneficial Application Routes*
        *	/generatetoken: Generates a token to be used in the validation process. In this sample, it requires verification that the user is logged in to host application. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name. 
        *	/login : Allows user to log in to host application.
+       * /ccauth : A route in our Python application that the Copy Console will use as our *authAppRoute* for either our Source or Destination instance of Izenda
    * rsa_encryption.py : Holds methods to load an RSA private key from a file and decrypt messages that are encrypted by the Izenda API. Used in our gettoken route.
    *	rsa_private.pem: Holds our RSA private key for export decryption. At this time, this file is not password protected.
 
-*	Izenda Database: System Setting Table Values
-  *	Validation
+*	**Izenda Database** : System Setting Table Values
+  *	*Validation*
     *	AuthValidateAccessTokenURL: http://localhost:8080/validatetoken
-  *	Exporting
+  *	*Exporting*
     *	AuthGetAccessTokenURL: http://localhost:8080/gettoken
     *	RSAPublicKey: <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
     *	WebURL: http://localhost:8086/
 
-*	Application Login: Username: Bob, Password: test123
+*	**Application Login:** Username: Bob, Password: test123
