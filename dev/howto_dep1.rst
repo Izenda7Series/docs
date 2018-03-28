@@ -444,7 +444,7 @@ Prepare Application For Pre-Flight Requests
 ---------------------------------------------
 In the initial setup, we enabled CORS for our Authorization Application Endpoints because our Front-End is hosted separately from our authorization application. This included setting our 'Access-Control-Allow-Origin' header to accept requests from any source ('*'). In order to utilize our employee_id cookie, we will need to limit our application to only accept requests from our Front-End.
 
-1. In *app.py* Locate the *enable_cors()* function.
+1. In *app.py*, locate the *enable_cors()* function.
 2. Modify the value for *response.headers['Access-Control-Allow-Origin']* . The result should point to our Front End Application (http://localhost:8086)
 
 .. code-block:: python
@@ -1013,34 +1013,62 @@ Summary Route Locations and Database Changes
 .. figure::  /_static/images/dev/howto_dep1/summaryB.PNG
 
 * **Izenda API**
+
   * Izenda API is hosted on IIS using port 8085 (http://localhost:8085)
+  
 * **Client (HTML Front End Application)**
+
   * Our simple front end application is hosted on IIS using port 8086 (http://localhost:8086).
+  
     * index.html : Renders Izenda as a single page application.
+    
     *	login.html : Provides a place to log in to our host application.
+    
     *	exportrender.html : A page that will be used to render Izenda exports on the server.
+    
     *	Scripts
+    
   * login.js : logs a user in to the host application.
+  
   * izendaintegrate.js: holds the core logic for rendering Izenda. A front end implementation similar to this is recommended.
+  
   *	izenda : this folder contains all of the Izenda Embedded UI elements.
+  
 * **Server (Authorization Application)**
+
   * Our Authorization Application (app.py) is hosted on Python’s development server using port 8080 (http://localhost:8080)
+  
     * *Required Application Routes for Izenda*
+    
       *	/validatetoken: Corresponds to AuthValidateAccessTokenURL. Validates a token sent from the Izenda API. This method will return a user info object (Izenda Username and a Unique Tenant name) for the Izenda API.
+      
       *	/gettoken : Corresponds to AuthGetAccessTokenURL. Get token decrypts an RSA Message sent from the Izenda API and creates a valid token based off of the contents in the decrypted message. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name.
+      
      *	*Beneficial Application Routes*
-       *	/generatetoken: Generates a token to be used in the validation process. In this sample, it requires verification that the user is logged in to host application. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name. 
+     
+       *	/generatetoken: Generates a token to be used in the validation process. In this sample, it requires verification that the user is logged in to host application. Unencrypted, the token generated should contain an Izenda Username and a Unique Tenant name.
+       
        *	/login : Allows user to log in to host application.
+       
        * /ccauth : A route in our Python application that the Copy Console will use as our *authAppRoute* for either our Source or Destination instance of Izenda
+       
    * rsa_encryption.py : Holds methods to load an RSA private key from a file and decrypt messages that are encrypted by the Izenda API. Used in our gettoken route.
+   
    *	rsa_private.pem: Holds our RSA private key for export decryption. At this time, this file is not password protected.
+   
 
 *	**Izenda Database** : System Setting Table Values
+
   *	*Validation*
+  
     *	AuthValidateAccessTokenURL: http://localhost:8080/validatetoken
+    
   *	*Exporting*
+  
     *	AuthGetAccessTokenURL: http://localhost:8080/gettoken
+    
     *	RSAPublicKey: <RSAKeyValue><Modulus>yY776bGTUlm57UG1R04K6IZ7MZJ7dMuOrumWXDAPBhGGDKaN3uO9oEDTWILiGEYOorGt/so1DkKTNHTMQNStiY2UjUeamE/iaHt52Y8+4nbbyiLYjx9rktERLtHWeSahuWSiR9AD+uOz+OwRECuDH+I4t2u5fX/Y3ti/odPvH78=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>
+    
     *	WebURL: http://localhost:8086/
 
 *	**Application Login:** Username: Bob, Password: test123
