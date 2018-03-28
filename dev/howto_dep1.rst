@@ -8,6 +8,7 @@ In this guide, we will be embedding Izenda into an HTML application. Authenticat
 An Authorization application will be created in Python’s Bottle micro-framework to model the routes and resources you will need to implement in your application. Using an application-specific value, Employee ID, the application will generate an authorization token that can be used to access the Izenda platform. If a user attempts to access Izenda components without a valid employee ID, they will be redirected to the login page. 
 
 .. note::
+
  This guide is intended to demonstrate the key concepts of embedding Izenda and constructing the key routes within your application to authorize the use of Izenda. Please adhere to your company’s security standards regarding authentication and encryption of data.
 
 Requirements
@@ -72,6 +73,7 @@ Connecting with an Encrypted Connection String
 
 
 .. note::
+
 	In this guide, whenever sending JSONs to an RESTful service, ensure that the Content-Type is set to *application/json.* this setting should be seen within your request headers.
 
 
@@ -402,15 +404,17 @@ NOTE: At this phase, our goal is to demonstrate authorization with token encrypt
       userInfo = eval(encryptor.decrypt(str(token)))
       return userInfo
 
-5.	Modify our token generation route to include token encryption. Now that we can encrypt our data, our Access Token will contain the username and tenant name rather than passing in a hard-coded “Employee ID” value. The Employee ID value will, instead, be retrieved from our query string. If a particular Employee ID cannot be found, we will raise an exception and return a 400 status code.
+5.	Modify our token generation route to include token encryption. Now that we can encrypt our data, our Access Token will contain the username and tenant name rather than passing in a hard-coded “Employee ID” value. The Employee ID value will, instead, be retrieved from our query string. If a particular Employee ID cannot be found, we will raise an exception and return a 403 status code.
+
   .. code-block:: python
+  
      #Route to Generate Encrypted Token based off of an employeeID. The employee ID will be provided by the host application
      @app.route('/generatetoken', method=['GET', 'OPTIONS'])
      def generatetoken():
       employeeID = request.query.employee_id #Get Employee ID from Query String
       myUserInfo = findUser(employeeID) 
       if myUserInfo is None: #If the user wasn't found
-       raise HTTPResponse(output='Invalid Credentials', status=400)
+       raise HTTPResponse(output='Invalid Credentials', status=403)
       else:
        return {"token": encrypt(myUserInfo)}
        
@@ -493,7 +497,7 @@ If a login is unsuccessful, we will raise an exception and return a 400 status c
 
        myEmployeeID = validateLogin(uName, passw)
        if myEmployeeID is None:
-        raise HTTPResponse(output='Invalid Credentials', status=422)
+        raise HTTPResponse(output='Invalid Credentials', status=403)
        else:
        	response.set_cookie("employee_id", myEmployeeID, domain='localhost', path='/')
 	return {"employee_id" : myEmployeeID, "uName": uName} 
@@ -524,10 +528,10 @@ Since we are storing our Employee ID in a cookie, we no longer need to retrieve 
    def generatetoken():
    	if request.method == 'OPTIONS':  #Gracefully handle 'OPTIONS' Request for preflight requests
 		return {}
-	employeeID = request.cookies.employee_id #Get Employee ID from Cookkie
+	employeeID = request.cookies.employee_id #Get Employee ID from Cookie
 	myUserInfo = findUser(employeeID)
 	if myUserInfo is None: #If the user wasn't found
-		raise HTTPResponse(output='Invalid Credentials', status=422)
+		raise HTTPResponse(output='Invalid Credentials', status=403)
 	else:
 		return {"token": encrypt(myUserInfo)}
 
@@ -804,6 +808,7 @@ For this implementation, we will create a URL Rewrite Rule that will interpret t
 1.	URLRewrite is a prerequisite for installing Izenda. To complete the following section, ensure that URLRewrite is installed on IIS.
 2.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and find the file named web.config. Open the *web.config* in a text editor. If this file does not exist, create it.
 3.	In the “rules” section of the “rewrite” XML object, add the following rule:
+
 .. code-block:: text
 
      <rule name="IzendaExport" stopProcessing="true">
