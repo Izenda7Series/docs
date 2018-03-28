@@ -469,7 +469,8 @@ This route requires a user name and password specified by the user. If a login i
        if myEmployeeID is None:
         raise HTTPResponse(output='Invalid Credentials', status=400)
        else:
-        return {"employee_id" : myEmployeeID}
+       	response.set_cookie("employee_id", myEmployeeID, httponly=True)
+			     return {"employee_id" : myEmployeeID, "uName": uName} 
       return "Requires uName and passw"	
 
 Testing Our Code
@@ -478,7 +479,7 @@ Testing Our Code
 2.	Run the following command python app.py
 3.	In Postman, create a *POST* request for our “login” route e.g. *http://localhost:8080/login* 
    * Request Body: *{ "uName": "Bob",  "passw": "test123"}*
-   * Expected Response: *{"employee_id": "22"}*
+   * Expected Response: *{"employee_id": "22", "uName": "Bob"}*
 
 Extension: Encryption
 ----------------------
@@ -486,9 +487,24 @@ Extension: Encryption
 Remember, we are passing the employee ID to the front end to grant access to Izenda. In production scenarios, we recommend encrypting your own authentication token similar to the steps taken when encrypting our Izenda access token. With our current setup, you would need to encrypt the employee ID in our login route and decrypt the employee ID our token generation route.
 In addition to encrypting your Employee ID / authentication token, it would be good practice to store encrypted versions of your users’ passwords within your user store.
 
+Modifying our Generate Token Route
+-----------------------------------
+
+Since we are storing our Employee ID in a cookie, we no longer need to retrieve it from the front end via a query string because the cookie will be sent with all requests from the browser. We will need to modify our Generate Token route to retrieve this value from the cookie rather than the query string.
+
+.. code-block:: python
+   @app.route('/generatetoken', method=['GET', 'OPTIONS'])
+   def generatetoken():
+    employeeID = request.cookies.employee_id #Get Employee ID from Cookkie
+    myUserInfo = findUser(employeeID) 
+    if myUserInfo is None: #If the user wasn't found
+     raise HTTPResponse(output='Invalid Credentials', status=400)
+    else:
+     return {"token": encrypt(myUserInfo)}
+
 
 JavaScript Code: Create Login Logic
--------------------------------------
+=====================================
 
 1.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/scripts/** and create a new file named *login.js*. This file will contain the necessary logic to log in to our Python Authentication application.
 2.	Open login.js in a text editor and add the following code. This code will provide a function that calls our login route in our authorization application. If the login is successful, we can retrieve the employee ID from the response. Given our authorization logic, if a 400 error is returned, the login was invalid.
@@ -505,7 +521,6 @@ JavaScript Code: Create Login Logic
       }
 
       function redirectToPlatform(employeeID, location){
-       document.cookie = "employee_id=" + employeeID;
        window.location.replace(location);
       }
 
@@ -540,33 +555,20 @@ JavaScript Code: Modifying Izenda integrate
 ---------------------------------------------
 
 As with our previous set up, the Employee ID will be passed to our token generation route but, instead of hard-coding the value “22” for our user, we will retrieve it from our cookie. Since there is a possibility that a user lands on an Izenda page with an invalid employee ID (e.g. the cookie expires) we will design a mechanism to catch unauthorized requests.
-Retrieving employee ID from cookie
-After logging in to our host application, we stored our Employee ID in a cookie. We will need to create a method to obtain this value from the cookie and use it to generate the Izenda token.
-1.	In our Izenda Integrate file, create a new function to retrieve cookie values:
 
-.. code-block:: javascript
-      function getCookie(cname) {
-          var name = cname + "=";
-          var decodedCookie = decodeURIComponent(document.cookie);
-          var ca = decodedCookie.split(';');
-          for(var i = 0; i <ca.length; i++) {
-              var c = ca[i];
-              c = ca[i].replace(/\s/g, ‘’);
-              if (c.indexOf(name) == 0) {
-                  return c.substring(name.length, c.length);
-              }
-          }
-          return "";
-      }
+Retrieving employee ID from cookie
+-----------------------------------
+
+After logging in to our host application, we stored our Employee ID in a cookie.
+
       
-2.	Modify the DoRender function to retrieve the employee_id cookie.
+1.	Since our "employee_id" is stored within the cookie, we no longer need to pass it in the query string. Modify the DoRender function and remove the hard-coded employee ID.
 
 .. code-block:: javascript
       var DoRender = function (successFunc) {
-       myEmployeeID = getCookie('employee_id');
           $.ajax({
               type: "GET",
-              url: "http://localhost:8080/generatetoken?employee_id=" + myEmployeeID,
+              url: "http://localhost:8080/generatetoken",
              contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: successFunc,
