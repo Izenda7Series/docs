@@ -27,12 +27,13 @@ Requirements
     
   
   * `pyca/cryptography <https://cryptography.io/en/latest/>`_  : We will use this encryption library to encrypt our tokens and validate exports (RSA)
-    * To install the version used in this tutorial, run the following in your windows command prompt or PowerShell window: *pip install cryptography*
-    * `Detailed Installation Guide <http://docs.python-guide.org/en/latest/scenarios/crypto/>`
-
-* Postman: debug and test our Authorization App endpoints
+   
+   * To install the version used in this tutorial, run the following in your windows command prompt or PowerShell window: *pip install cryptography*
     
-    * https://www.getpostman.com/
+   * `Detailed Installation Guide <http://docs.python-guide.org/en/latest/scenarios/crypto/>`_
+
+* `Postman <https://www.getpostman.com/>`_: debug and test our Authorization App endpoints
+    
 
 Initial Set Up
 ===============
@@ -48,7 +49,7 @@ Creating an Izenda API
 
 1.	Copy the Izenda API into the IzendaSimpleAuthorization **/IzendaAPI** directory. The result should have **/IzendaAPI/API/** as a new directory.
 2.	For this tutorial, we will be deploying the Izenda API to IIS using port 8085 (http://localhost:8085)
-3.	Deploy the Izenda API to IIS. Review the steps found at https://www.izenda.com/docs/install/doc_installation_guide.html  . Since we will be creating an integrated front end application, you will not need to follow the steps for setting up the standalone Front End.
+3.	Deploy the Izenda API to IIS. Review the steps found `here. <https://www.izenda.com/docs/install/doc_installation_guide.html>`_ Since we will be creating an integrated front end application, you will not need to follow the steps for setting up the standalone Front End.
 
 ******************************************************
 Connecting the Izenda API to the Izenda Database
@@ -61,7 +62,7 @@ Connecting with an Encrypted Connection String
 ===============================================
 
 1.	Create a new database in SSMS named *IzendaConfigurationDB* 
-2.	In Postman, create a POST request for the endpoint */api/databaseSetup/DatabaseInfo*  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information see https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo .
+2.	In Postman, create a POST request for the endpoint */api/databaseSetup/DatabaseInfo*  e.g. http://localhost:8085/api/databaseSetup/DatabaseInfo  . For more information regarding the espected request body, please refer to the article `here. <https://www.izenda.com/docs/ref/api_systemdb_and_license.html?highlight=databasesetup%20databaseinfo#post-databasesetup-databaseinfo>`_ 
 3.	If the API is successful, you will receive *{"success":true,"messages":null,"data":null}*
   *	If the Izenda tables do not exist within the specified database, they will be created.
   *	A file named *izendadb.config* will be created in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**). To confirm that the connection string is encrypted, open the *izendadb.config* in your preferred text editor.
@@ -74,7 +75,7 @@ Connecting With a Plain Text Connection String
    This option is best for development and testing. Once your environment is production-ready, we recommend converting to an encrypted connection string. This can be accomplished by following the steps below or by entering your connection string on the System DB & License page within the platform.
 
 If you have an *empty* configuration database, you can follow the steps for “Connecting with an encrypted Connection String” to populate Izenda’s default tables and values.
-1.	Download a copy of sample *izendadb.config* file. This can be found within our MVC5 Sample Kit but can be used for any Izenda API (see https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config). Place the izendadb.config into  in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**).
+1.	Download a copy of sample `izendadb.config file. <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/izendadb.config>`_ Place the izendadb.config into in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**).
 
 2.	Modify the *izendadb.config* file with a valid connection string to this new database.
   *	SQLEXPRESS;database=IzendaConfigurationDB;User Id=Demo2;Password=demo123;
@@ -88,7 +89,8 @@ Verifying the Connection
 Modifying the Deployment Mode
 ===============================
 
-The API Deployment Mode can be set in the Izenda System Setting table of your configuration database. For more information on deployment modes, please refer to https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html 
+The API Deployment Mode can be set in the Izenda System Setting table of your configuration database. For more information on deployment modes, please refer to the article `Understanding The Three Tiered Architecture. <https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html>`_
+
 
 #.	In SSMS, run the following query:  *UPDATE IzendaSystemSetting SET Value = 1 WHERE Name = 'DeploymentMode';*
 #.	After setting the deployment mode in the database, you will need to refresh your Izenda API App Pool for the change to take effect.
@@ -234,7 +236,7 @@ Many of our sample kits contain a file named “izenda integrate” that contain
 
 Downloading Izenda Integrate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1.	Download a copy of izendaintegrate.js from https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js . Save this file as *izendaintegrate.js* into your **scripts** directory. 
+1.	Download a copy of izenda.integrate.js from our `MVC5 Back End Standalone Kit. <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_ Save this file as *izendaintegrate.js* into your **scripts** directory. If you maintain the original naming convention, ensure to update any references to the file used throughout the guide.
 2.	Open file in your preferred text editor.
 3.	For this tutorial, we will be using the functions DoIzendaConfig, DoRender, and izendaInit
 
@@ -280,9 +282,9 @@ In this Izenda deployment, index.html will contain the necessary format and logi
     * izenda/izenda-ui.css
     * izenda/izenda_common.js
     * izenda/izenda_locales.js
-    *	izenda/izenda_vendors.js
-    *	izenda/izenda_ui.js 
-    *	izendaintegrate.js (remember, this is the JavaScript code you will write and maintain for your development)
+    * izenda/izenda_vendors.js
+    * izenda/izenda_ui.js 
+    * izendaintegrate.js (remember, this is the JavaScript code you will write and maintain for your development)
 
 #.	In your Windows Explorer, navigate to **IzendaSimpleAuthorization/Client/** and create a new file named *index.html*.
 #.	Open index.html in a text editor and add the following:
@@ -916,7 +918,7 @@ from rsa_encryption import RSAEncryption
 
 Creating Unique RSA Keys
 -------------------------
-Izenda’s RSATool can be used to create a unique private key and public key pair for your application (see https://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip). With our current setup, the Private Key will need to be saved in PEM format in the rsa_private.pem file but this can be changed to fit your RSA Implementation. 
+`Izenda’s RSATool <https://downloads.izenda.com/Utilities/Izenda.Synergy.RSATool.zip>`_ can be used to create a unique private key and public key pair for your application With our current setup, the Private Key will need to be saved in PEM format in the rsa_private.pem file but this can be changed to fit your RSA Implementation. 
 
 The public key will always be stored in XML format in the Izenda System Setting Table. The following query can be used to update the public key value. Remember, you will need to restart your Izenda API for this change to take effect. 
 
@@ -928,7 +930,7 @@ The public key will always be stored in XML format in the Izenda System Setting 
 Implementing A Route For Copy Console
 **************************************
 
-The Izenda Copy Console is an application that allows you to copy reports from one environment to another. A full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
+The Izenda Copy Console is an application that allows you to copy reports from one environment to another. A full explanation of the Copy Console and its usage can be found `here. <https://www.izenda.com/docs/ui/doc_copy_console.html>`_
 
 .. figure::  /_static/images/dev/howto_dep1/9b.PNG
 
@@ -942,7 +944,8 @@ Creating The Copy Console Route
 
 In order to use the Copy Console with an integrated instance of Izenda, you will need to provide an "authAppRoute" route that (1) Authenticates the user against your application and (2) Creates a valid access token the API can use to authorize against your application. At its core, this will be a combination of the logic used in our **/login** route and our **/generatetoken** route but the token will need to be wrapped in a specific JSON Structure to work with the Copy Console.
 
-The following Python code utilizes the concepts demonstrated in the C# *authAppRoute* sample code provided at https://www.izenda.com/docs/ui/doc_copy_console.html#configuring-the-appauthurl-endpoint . This utilizes the authentication and authorization methods we created in previous sections to create the expected JSON for the copy console. An updated JSON can be found with the original C# Code Sample.
+The following Python code utilizes the concepts demonstrated in the C# *authAppRoute* sample code provided 
+`here. <https://www.izenda.com/docs/ui/doc_copy_console.html#configuring-the-appauthurl-endpoint>`_ This utilizes the authentication and authorization helper functions we created in previous sections to create the expected JSON for the copy console. An updated JSON can be found with the original C# Code Sample.
 
 1. In *IzendaSimpleAuthorization/Server/app.py*, create the following **/ccauth** route.
 
@@ -977,7 +980,7 @@ Configuring The SampleConfig.xml
 
 The copy console uses an XML file for all configuration settings including credentials for source and destination, Report IDs to copy, and database mappings from the Source to Destination. A sample config can be found on our downloads page.
 
-1. Download a copy of the SampleConfig.xml from https://downloads.izenda.com/Utilities/SampleConfig.xml .
+1. Download a copy of the `SampleConfig.xml. <https://downloads.izenda.com/Utilities/SampleConfig.xml>`_
 2. Open the SampleConfig.xml in your text editor. The following XML will allow the Copy Console to authenticate with our sample user's credentials:
 
 .. code-block:: text
@@ -989,7 +992,8 @@ Testing The Copy Console Route
 
 Our copy console route can be tested using Postman but would best be tested directly with the Izenda Copy Console. In order to use to Copy Console, we will need to specify a Source as well as a Destination in your SampleConfig.xml. The Copy Console is Deployment Mode agnostic which will allows us to copy reports from a standalone instance of Izenda to an embedded instance of Izenda or vice versa. When specifying the credentials for a standalone instance of Izenda, an appAuthUrl is not required.
 
-Recall, a full explanation of the Copy Console and its usage can be found at https://www.izenda.com/docs/ui/doc_copy_console.html . 
+Recall, a full explanation of the Copy Console and its usage can be found `here. <https://www.izenda.com/docs/ui/doc_copy_console.html>`_
+
 
 **********
 Extensions
@@ -999,7 +1003,7 @@ Extensions
 
 * Encryption: In our current sample, users are authorized in the host application by using a simple employee ID number.  In a production scenario, be sure to encrypt this value. Depending on how tightly you wish to integrate Izenda, you may be able to store this information in the same authorization token and simply provide this token after a user logs in. This process could eliminate the generate token route we use in our Izenda Integrate file because the user would already have their token.
 
-* Serving HTML Pages and Authenticating/Authorizing from one application: This sample separated the authentication/authorization application from the front end development. Depending on your framework, you may opt to merge the two layers together to reduce potential latency.
+* Serving HTML Pages and Authenticating/Authorizing from one application: This sample separated the authentication/authorization application from the front end development. Depending on your framework, you may opt to merge the two layers together to reduce potential latency and CORS overhead for your login and token generation.
 
 *********************************************
 Summary Route Locations and Database Changes
