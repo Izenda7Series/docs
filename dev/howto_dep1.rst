@@ -373,7 +373,7 @@ At this phase, an end user will send an “employee_id” in a query string to o
 NOTE: At this phase, our goal is to demonstrate authorization with token encryption. Please adhere to your own company standards regarding authentication.
 
 1.	Ensure that pyca/cryptography is installed in your environment (to install, run pip cryptography in a new Powershell window)
-2.	At the top of your application include the following:
+2.	At the top of *app.py*, include the following:
 
 .. code-block:: python
      
@@ -409,6 +409,7 @@ NOTE: At this phase, our goal is to demonstrate authorization with token encrypt
        raise HTTPResponse(output='Invalid Credentials', status=400)
       else:
        return {"token": encrypt(myUserInfo)}
+       
 6.	Modify our token validation route to include token decryption. Now that we can decrypt messages, we no longer need to compare the “Employee ID” value in this method.
   
   .. code-block:: python
@@ -437,10 +438,22 @@ Adding Simple Authentication
 Python Code: Create A Post Route to Log into Host Application
 ===============================================================
 
-For this demonstration, when a user logs in to the host application, they will receive their Employee ID to access Izenda. 
-Create a helper function to find an employee ID
+For this demonstration, when a user logs in to the host application, they will receive their Employee ID to access Izenda. The Employee ID will be sent in a cookie to the Front-End application and this cookie will be used to generate the Izenda Access Token.
 
-The following function will be used to find an employee ID given a specified username and password.
+Prepare Application For Pre-Flight Requests
+---------------------------------------------
+In the initial setup, we enabled CORS for our Authorization Application Endpoints because our Front-End is hosted separately from our authorization application. This included setting our 'Access-Control-Allow-Origin' header to accept requests from any source ('*'). In order to utilize our employee_id cookie, we will need to limit our application to only accept requests from our Front-End.
+
+1. In *app.py* Locate the *enable_cors()* function.
+2. Modify the value for *response.headers['Access-Control-Allow-Origin']* . The result should point to our Front End Application (http://localhost:8086)
+
+.. code-block:: python
+
+	response.headers['Access-Control-Allow-Origin'] = 'http://localhost:8086'
+
+Create a helper function to find an employee ID
+-------------------------------------------------
+The following function will be used to find an Employee ID given a specified username and password.
 
 .. code-block:: python
   
@@ -452,7 +465,9 @@ The following function will be used to find an employee ID given a specified use
 
 Create a route for log in
 --------------------------
-This route requires a user name and password specified by the user. If a login is successful, an employee ID will be returned. If a login is unsuccessful, we will raise an exception and return a 400 status code. Expected request body: *{ "uName": "",   "passw": "" }*
+This route requires a username and password specified by the user. If a login is successful, a cookie "employee_id" will be set and the Employee ID and Username will be returned in the response body. The Employee ID in the response body allows for you to extend the authentication logic should a browser not support cookies. The Username is a value you may opt to add to your application.
+
+If a login is unsuccessful, we will raise an exception and return a 400 status code. Expected request body: *{ "uName": "",   "passw": "" }*
 
 .. code-block:: python
   
@@ -467,10 +482,10 @@ This route requires a user name and password specified by the user. If a login i
 
        myEmployeeID = validateLogin(uName, passw)
        if myEmployeeID is None:
-        raise HTTPResponse(output='Invalid Credentials', status=400)
+        raise HTTPResponse(output='Invalid Credentials', status=422)
        else:
-       	response.set_cookie("employee_id", myEmployeeID, httponly=True)
-			     return {"employee_id" : myEmployeeID, "uName": uName} 
+       	response.set_cookie("employee_id", myEmployeeID, domain='localhost', path='/')
+	return {"employee_id" : myEmployeeID, "uName": uName} 
       return "Requires uName and passw"	
 
 Testing Our Code
@@ -490,17 +505,20 @@ In addition to encrypting your Employee ID / authentication token, it would be g
 Modifying our Generate Token Route
 -----------------------------------
 
-Since we are storing our Employee ID in a cookie, we no longer need to retrieve it from the front end via a query string because the cookie will be sent with all requests from the browser. We will need to modify our Generate Token route to retrieve this value from the cookie rather than the query string.
+Since we are storing our Employee ID in a cookie, we no longer need to retrieve it from the front end via a query string because the cookie will be sent with all requests from the browser. We will need to modify our Generate Token route to retrieve this value from the cookie rather than the query string. Since the pre-flight "Options" request is more prevalent, you should gracefully handle the request type. For this demonstration, we will simply return an empty response body.
 
 .. code-block:: python
+
    @app.route('/generatetoken', method=['GET', 'OPTIONS'])
    def generatetoken():
-    employeeID = request.cookies.employee_id #Get Employee ID from Cookkie
-    myUserInfo = findUser(employeeID) 
-    if myUserInfo is None: #If the user wasn't found
-     raise HTTPResponse(output='Invalid Credentials', status=400)
-    else:
-     return {"token": encrypt(myUserInfo)}
+   	if request.method == 'OPTIONS':  #Gracefully handle 'OPTIONS' Request for preflight requests
+		return {}
+	employeeID = request.cookies.employee_id #Get Employee ID from Cookkie
+	myUserInfo = findUser(employeeID)
+	if myUserInfo is None: #If the user wasn't found
+		raise HTTPResponse(output='Invalid Credentials', status=422)
+	else:
+		return {"token": encrypt(myUserInfo)}
 
 
 JavaScript Code: Create Login Logic
@@ -531,6 +549,8 @@ JavaScript Code: Create Login Logic
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: jsonData,
+	xhrFields: { withCredentials: true },
+	crossDomain : true, 
         success: function(data) {
           if(data.employee_id != null){
            redirectToPlatform(data.employee_id, "/");
@@ -552,7 +572,7 @@ JavaScript Code: Create Login Logic
 3.	The code above creates a mechanism to log in to our authentication application hosted on port 8080. If a login is successful, a cookie will be added named “employee_id” and the user will be redirected to index.html. Recall, index.html contains our Izenda platform. We will need to modify our Izenda Integrate file to account for the dynamically set Employee ID.
 
 JavaScript Code: Modifying Izenda integrate
----------------------------------------------
+============================================
 
 As with our previous set up, the Employee ID will be passed to our token generation route but, instead of hard-coding the value “22” for our user, we will retrieve it from our cookie. Since there is a possibility that a user lands on an Izenda page with an invalid employee ID (e.g. the cookie expires) we will design a mechanism to catch unauthorized requests.
 
@@ -562,17 +582,21 @@ Retrieving employee ID from cookie
 After logging in to our host application, we stored our Employee ID in a cookie.
 
       
-1.	Since our "employee_id" is stored within the cookie, we no longer need to pass it in the query string. Modify the DoRender function and remove the hard-coded employee ID.
+1.	Since our "employee_id" is stored within the cookie, we no longer need to pass it in the query string. Modify the DoRender function and remove the hard-coded employee ID. In addition, we will need to add a setting for xhrFields and crossDomain to allow the employee_id cookie to be sent with the request.
 
 .. code-block:: javascript
+
       var DoRender = function (successFunc) {
           $.ajax({
-              type: "GET",
-              url: "http://localhost:8080/generatetoken",
+             type: "GET",
+             url: "http://localhost:8080/generatetoken", //remove employee_id query string
              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              success: successFunc,
-              error: errorFunc
+	     
+             dataType: "json",
+             success: successFunc,
+             error: errorFunc,
+	     xhrFields: { withCredentials: true },
+	     crossDomain : true   //allows us to pass the employee_id cookie with request
           });
       };
       
@@ -583,12 +607,14 @@ In our authorization application, we raised an except if an Employee ID could no
 1.	In Izenda Integrate, create a new function named redirectToLoginPage.
 
 .. code-block:: javascript
+
      function redirectToLoginPage(){
       window.location.replace("/login.html");
      }
 2.	Modify the generic function of the to read as the following. If an invalid token is generated, the user will be redirected to our login page.
 
 .. code-block:: javascript
+
      function errorFunc() {
          alert('Token was not generated correctly. Please login.');
          redirectToLoginPage();
@@ -613,6 +639,7 @@ Establishing Routes (No RSA Security)
 In this phase of the project, we will simply create an Izenda token for the IzendaAdmin account and wrap it in a structure that the Izenda Exporting logic requires.
 
 .. note::
+
  Using the IzendaAdmin in this manner credentials provides ALL users the visibility of data that the IzendaAdmin user has. This method is dangerous in a production scenario as a user may see data one way in the application and another way in an export. After completing this section, we encourage you to continue with the “Adding RSA Encryption” section.
 
 
