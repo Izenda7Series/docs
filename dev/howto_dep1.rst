@@ -448,12 +448,19 @@ Prepare Application For Pre-Flight Requests
 ---------------------------------------------
 In the initial setup, we enabled CORS for our Authorization Application Endpoints because our Front-End is hosted separately from our authorization application. This included setting our 'Access-Control-Allow-Origin' header to accept requests from any source ('*'). In order to utilize our employee_id cookie, we will need to limit our application to only accept requests from our Front-End.
 
-1. In *app.py*, locate the *enable_cors()* function.
+1. In *app.py*, locate the *enable_cors()* function. This function was part of the "Initial Setup" Section above.
 2. Modify the value for *response.headers['Access-Control-Allow-Origin']* . The result should point to our Front End Application (http://localhost:8086)
+3. Add an additional header to allow for Access-Control-Allow-Credentials.
 
 .. code-block:: python
 
-	response.headers['Access-Control-Allow-Origin'] = 'http://localhost:8086'
+	@app.hook('after_request')
+	def enable_cors():
+
+		response.headers['Access-Control-Allow-Origin'] = 'http://localhost:8086' #Modify Value from '*'
+		response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+		response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+		response.headers['Access-Control-Allow-Credentials'] = 'true' # Add to allow for cookies to be sent cross-domain
 
 Create a helper function to find an employee ID
 -------------------------------------------------
