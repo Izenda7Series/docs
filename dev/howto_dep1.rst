@@ -20,6 +20,8 @@ Requirements
   * `Pip <https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation>`_ : Pip is a package manager for Python. It will be useful when installing our Python packages below.
 
   * `Bottle <https://bottlepy.org/docs/dev/tutorial.html#installation>`_ : For this demonstration, our Authorization application will be written in Bottle, a Python micro framework for rapidly developing simple APIs 
+  	
+    * To install the version used in this tutorial, run the following in your windows command prompt or PowerShell window: *pip install bottle*
   
   * `Cherrypy <http://cherrypy.org/>`_ : Is a multi-threaded minimalist Python Web Framework. We will be using cherrypy’s server rather than Bottle’s default server because of its multi-threaded capabilities. 
     
@@ -67,6 +69,11 @@ Connecting with an Encrypted Connection String
   *	If the Izenda tables do not exist within the specified database, they will be created.
   *	A file named *izendadb.config* will be created in the root directory of your API (**IzendaSimpleAuthorization/IzendaAPI/API/**). To confirm that the connection string is encrypted, open the *izendadb.config* in your preferred text editor.
 4.	If desired, you can replace the encrypted connection string with a plain text connection string for debugging.
+
+
+.. note::
+	In this guide, whenever sending JSONs to an RESTful service, ensure that the Content-Type is set to *application/json.* this setting should be seen within your request headers.
+
 
 Connecting With a Plain Text Connection String
 ===============================================
