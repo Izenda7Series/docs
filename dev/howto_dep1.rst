@@ -17,23 +17,18 @@ Requirements
 * SSMS
 * Python
 
-  * Pip : Pip is a package manager for Python. It will be useful when installing our Python packages below.
+  * `Pip <https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation>`_ : Pip is a package manager for Python. It will be useful when installing our Python packages below.
 
-    * https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation 
-
-  * Bottle : For this demonstration, our Authorization application will be written in Bottle, a Python micro framework for rapidly developing simple APIs https://bottlepy.org/docs/dev/tutorial.html#installation
+  * `Bottle <https://bottlepy.org/docs/dev/tutorial.html#installation>`_ : For this demonstration, our Authorization application will be written in Bottle, a Python micro framework for rapidly developing simple APIs 
   
-  * Cherrypy: Is a multi-threaded minimalist Python Web Framework. We will be using cherrypy’s server rather than Bottle’s default server because of its multi-threaded capabilities. 
+  * `Cherrypy <http://cherrypy.org/>`_ : Is a multi-threaded minimalist Python Web Framework. We will be using cherrypy’s server rather than Bottle’s default server because of its multi-threaded capabilities. 
     
-    * To install the version used in this tutorial, run the following in your windows terminal: pip install "cherrypy>=3.0.8,<9.0.0"
+    * To install the version used in this tutorial, run the following in your windows command prompt or PowerShell window: *pip install "cherrypy>=3.0.8,<9.0.0"*
     
-    * http://cherrypy.org/
   
-  * pyca/cryptography : We will use this encryption library to encrypt our tokens and validate exports (RSA)
-    
-    * http://docs.python-guide.org/en/latest/scenarios/crypto/
-    
-    * https://cryptography.io/en/latest/
+  * `pyca/cryptography <https://cryptography.io/en/latest/>`_  : We will use this encryption library to encrypt our tokens and validate exports (RSA)
+    * To install the version used in this tutorial, run the following in your windows command prompt or PowerShell window: *pip install cryptography*
+    * `Detailed Installation Guide <http://docs.python-guide.org/en/latest/scenarios/crypto/>`
 
 * Postman: debug and test our Authorization App endpoints
     
