@@ -582,7 +582,9 @@ Retrieving employee ID from cookie
 After logging in to our host application, we stored our Employee ID in a cookie.
 
       
-1.	Since our "employee_id" is stored within the cookie, we no longer need to pass it in the query string. Modify the DoRender function and remove the hard-coded employee ID. In addition, we will need to add a setting for xhrFields and crossDomain to allow the employee_id cookie to be sent with the request.
+1. Open *izendaintegrate.js* and locate our *DoRender* function.
+
+2. Since our "employee_id" is stored within the cookie, we no longer need to pass it in the query string. Modify the DoRender function and remove the hard-coded employee ID. In addition, we will need to add a setting for xhrFields and crossDomain to allow the employee_id cookie to be sent with the request.
 
 .. code-block:: javascript
 
