@@ -14,7 +14,7 @@ The **Data Model/Tables**, **Data Model/Views** and **Data Model/Stored Procedur
 -  mark stored procedures as dynamic
 
 **Note:** |br|
-   Izenda do not support Stored Procedure for AWS Redshift database.
+   Stored Procedures are not supported in AWS Redshift databases.
 
 List tables, views or stored procedures
 ---------------------------------------
