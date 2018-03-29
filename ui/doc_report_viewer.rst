@@ -35,6 +35,7 @@ View Report
 
 #. The buttons at the top allow user to:
 
+   -  Show and Hide Header & Footer in any report which contains these options
    -  Add Subscriptions (See in :ref:`Report
       List <Add_Report_Subscriptions_for_Current_User>`)
    -  Print
