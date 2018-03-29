@@ -48,7 +48,7 @@ visible in reports.
 
 #. .. _Connection_Select_Database_Server_Type:
 
-   .. figure:: /_static/images/Connection_Select_Database_Server_Type.JPG
+   .. figure:: /_static/images/Connection_Select_Database_Server_Type.jpg
       :align: right
       :width: 408px
 
