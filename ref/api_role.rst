@@ -44,7 +44,7 @@ List of APIs
    * - `POST role/intergration/saveRole`_
      - Adds or updates an external role.
    * - `POST role/accessLimits`_
-     - Lazy load access ilmit data for each role.
+     - Lazy load access limit data for each role.
    * - `POST role/scheduleLimits`_
      - Lazy load schedule limit data for each role.
 .. _GET_role/all/(tenant_id):
