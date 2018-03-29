@@ -57,9 +57,7 @@ View Report
 
    Report Viewer Edit Options
 
-.. note::
 
-   For a report with filters, optionally click the Freeze button to keep the Filters section fixed while scrolling the report body.
 
 Quick Edit Report
 -----------------
