@@ -16,6 +16,7 @@ The **Report Viewer** page allows user to
    -  email report as a link or embedded HTML
    -  copy and move reports between categories
    -  view report history
+   -  show and hide report header and footer
 
 View Report
 -----------
