@@ -41,7 +41,8 @@ Exports the dashboard, report or report part specified in request parameters.
 
 **Request**
 
-    **Keys**:
+This API accepts 2 types of data: |br|
+   - The **application/x-www-form-urlencoded** type with the following keys:
 
     .. list-table::
        :header-rows: 1
@@ -78,7 +79,7 @@ Exports the dashboard, report or report part specified in request parameters.
        *  -  **filters** |br|
              array of objects
           -  Y
-          -  An array of :doc:`models/FilterItem` objects
+          -  An array of :doc:`models/ReportFilterField` objects
           -
        *  -  **fileSessionKey** |br|
              string
@@ -111,7 +112,7 @@ Exports the dashboard, report or report part specified in request parameters.
           -  The id of the current tenant if available
           -
 
-
+   - The **application/json** type with the request payload is an :doc:`models/ExportRequest` object.
 
 **Response**
 
