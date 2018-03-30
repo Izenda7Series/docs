@@ -23,6 +23,9 @@ FEATURES
 -  Enhanced horizontal scrolling in wide grids. The horizontal scroll option is always visible. To make this change, the Freeze button has been removed from the Report options for the filter panel. In the Report Designer and Viewer the Report name and filter panel are now always displayed.  
 -  Performance improvement to Role set up screen, Access Limits & Scheduling Limits are now a single tree control selection. The new APIs associated can be found `here <https://www.izenda.com/docs/ref/api_role.html>`_. 
 
+.. note::
+
+	This version introduces the 'Prefer' header in the API/Web.config. This header is used with the new external API. Please ensure your Web.config file is updated to include this in Access-Control-Allow-Headers.
 
 v2.6.24 March 29, 2018
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
