@@ -14,35 +14,52 @@ and dashboards from one Izenda Configuration database to another. If you need to
 Understanding the Security of the Copy Console
 ============================================================
 
+Copy Console Authentication Overview
+--------------------------------------
+
+The Copy Console application must be able to log in to Izenda in order to create a valid access token.
+
+* For standalone environments, you will simply need to provide the Izenda API URL along with valid credentials for your source and destinations. The Copy Console will use the standalone authentication endpoints to create a valid access token for the copy process.
+
+
+   .. figure:: /_static/images/ui/copy_console/Slide1.PNG
+
+
+* For integrated environments, the Copy Console must be able to login to *host application* and, therefore, it will need to utilize your security standards for authenticating users outside of a Web Browser. 
+
+
+Data Transfered Via Copy Console
+----------------------------------
+
 The following guidelines provide an overview of what the copy console can copy from one environment to another. In the subsequent documentation, dashboards, reports, and templates will be collectively referred to as *Report Objects.*
 
-  *  Reporting Data: No
+  *  **Reporting Data**: No
   
-  *  Report Structure (report layout, charts, printing defaults): Yes
+  *  **Report Structure (report layout, charts, printing defaults)**: Yes
   
-  *  Dashboard Structure: Yes
+  *  **Dashboard Structure**: Yes
   
-  *  Access Rights:
+  *  **Access Rights**:
   
-    *  User Level: No
+    *  **User Level**: No
     
-    *  Role Level: Yes, with role mapping in XML
+    *  **Role Level**: Yes, with role mapping in XML
     
-    *  Everyone: Yes
+    *  **Everyone**: Yes
     
-  *  Schedules/Subscriptions: No
+  *  **Schedules/Subscriptions**: No
   
-  *  Filter Values: No
+  *  **Filter Values**: No
   
     *  Filter Values will not be copied from source to destination because the stored data may pose a security concern. In the destination, the filter values will need to be reapplied. If a report contains a non-visible required filter and is copied, an error message will be displayed when you navigate to the report. You will simply need to open the report in the designer, specify a value, and save the report.
     
-  *  Calculated Fields: Yes/No.
+  *  **Calculated Fields**: Yes/No.
   
     *  If the calculated field is created in the report, it will be copied. If the calculated field is created within the data model level, it will not be copied.
     
-  *  Tenants, Roles, Users, Permissions: No
+  *  **Tenants, Roles, Users, Permissions**: No
   
-  * Report Object GUIDs: No
+  * **Report Object GUIDs**: No
 
 Report Object Workflow
 ----------------------
@@ -62,22 +79,33 @@ In the following examples, we assume that each reports are found in the same cat
 	
 * **Goal:** Copy reports A, B, C, D from Source to Destination
 
+   .. figure:: /_static/images/ui/copy_console/Slide2.PNG
+
 * **Goal:** Report A has been copied from Source to Destination. Modify report A in Source and recopy. *Overwrite if exists = yes* 
+
+   .. figure:: /_static/images/ui/copy_console/Slide3.PNG
 
 * **Goal:** Report A has been copied from Source to Destination. Modify report A in Source and recopy. *Overwrite if exists = no*
 
-* **Goal:** Report A name exists in destination. Create report A in Source and Copy. *Overwrite if exists = no*
+   .. figure:: /_static/images/ui/copy_console/Slide4.PNG
 
 * **Goal:** Report A name exists in destination. Create report A in Source and Copy. *Overwrite if exists = no*
+
+   .. figure:: /_static/images/ui/copy_console/Slide5.PNG
+
+* **Goal:** Report A name exists in destination. Create report A in Source and Copy. *Overwrite if exists = no*
+
+   .. figure:: /_static/images/ui/copy_console/Slide6.PNG
 
 * **Goal:** The destination database is a restored copy of the source database. Reports have been modified in source. 
 Copy modified reports A, B, C, D from source to destination. *Overwrite if exists = no*
 
+   .. figure:: /_static/images/ui/copy_console/Slide7.PNG
+
 * **Goal:** The destination database is a restored copy of the source database. Reports have been modified in source. 
 Copy modified reports A, B, C, D from source to destination. *Overwrite if exists = yes*
 
-
-
+   .. figure:: /_static/images/ui/copy_console/Slide8.PNG
 
 Understanding The Copy Console XML
 ====================================
@@ -88,9 +116,7 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 
 	* For standalone environments, you will simply need to provide the Izenda API URL along with valid credentials for your source and destinations. 
 	
-	* In integrated modes, the Copy Console must be able to login to *host application* and, therefore, it will need to utilize your security standards for authenticating users outside of a Web Browser. The authentication endpoint will be specified in the *appAuthUrl* of the Authentication object. 
-	
-	*A sample C# implementation can be found in the *Using the Copy Console for Integrated Modes* section below.
+	* In integrated modes, the authentication endpoint will be specified in the *appAuthUrl* of the Authentication object. A sample C# implementation can be found in the *Using the Copy Console for Integrated Modes* section below.
 
 * **Specifying a Tenant**:Tenants are specified directly in your CopyConfig.xml by name. If the name of a tenant is left blank, it is assumed that you are copying to the System "tenant"
 
