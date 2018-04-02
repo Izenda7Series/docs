@@ -91,7 +91,7 @@ In the following examples, we assume that each reports are found in the same cat
 
 * **Goal:** Report A name exists in destination. Create report A in Source and Copy. *Overwrite if exists = no*
 
-   .. figure:: /_static/images/ui/copy_console/Slide5.PNG
+   .. figure:: /_static/images/ui/copy_console/Slide6.PNG
 
 * **Goal:** Report A name exists in destination. Create report A in Source and Copy. *Overwrite if exists = no*
 
