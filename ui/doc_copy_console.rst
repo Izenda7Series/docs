@@ -22,10 +22,12 @@ The Copy Console application must be able to log in to Izenda in order to create
 * For standalone environments, you will simply need to provide the Izenda API URL along with valid credentials for your source and destinations. The Copy Console will use the standalone authentication endpoints to create a valid access token for the copy process.
 
 
-   .. figure:: /_static/images/ui/copy_console/Slide1.PNG
+   .. figure:: /_static/images/ui/copy_console/SlideA.PNG
 
 
 * For integrated environments, the Copy Console must be able to login to *host application* and, therefore, it will need to utilize your security standards for authenticating users outside of a Web Browser. 
+
+   .. figure:: /_static/images/ui/copy_console/SlideB.PNG
 
 
 Data Transfered Via Copy Console
