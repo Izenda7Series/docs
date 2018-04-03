@@ -150,7 +150,7 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 	
 	* Report Object IDs can be found within the URL when navigating to it in your web browser.
 	
-	   .. figure:: /_static/images/ui/copy_console/Slide11.PNG
+	   .. figure:: /_static/images/ui/copy_console/Slide11b.PNG
 	   
 	   	<report id="10663c5b-882e-4739-bb66-9fc9d7a8210a"/>
 	
