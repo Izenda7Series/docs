@@ -120,21 +120,14 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 	
 	* In integrated modes, the authentication endpoint will be specified in the *appAuthUrl* of the Authentication object. A sample C# implementation can be found in the *Using the Copy Console for Integrated Modes* section below.
 
-* **Specifying a Tenant**:Tenants are specified directly in your CopyConfig.xml by name. If the name of a tenant is left blank, it is assumed that you are copying to the System "tenant"
+* **Specifying a Tenant**:Tenants are specified directly in your CopyConfig.xml by their ID found within the UI. If the Tenant ID value is left blank, it is assumed that you are copying to the System "tenant"
 
-* **Specifying Database Mappings**: In order to copy reports from one environment to another, a datasource must exist within the Destination that maps. Database mapping can be accomplished by specifying the source and destination's database names.
+   .. figure:: /_static/images/ui/copy_console/Slide12.PNG
 
-* **Specifying Reports, Templates and Dashboards**: These elements will be found in their respective XML tags within your CopyConfig.xml. 
+      <tenant id="My Tenant ID" overwriteIfAlreadyExist="yes"> 
 
-	* To reference a particular Report Object in your XML, you will specify its ID with its corresponding object type (*e.g. for reports, <report id="4FA0D1D6-C4B5-435E-99D3-8B059724BE7C"/>*). 
-	
-	* Report Object IDs can be found within the URL when navigating to it in your web browser.
-	
-		* Report/template IDs can be found within the IzendaReport table of your Izenda Configuration Database.
-		
-		* Dashboard IDs can be found within the IzendaDashboard table of your Izenda Configuration Database.
-		
-* **overwriteIfExists Flag**: When a report is copied from one environment to another, a Source ID is cataloged in the destination.
+* **Specifying the overwriteIfExists Flag**: When a report is copied from one environment to another, a Source ID is cataloged in the destination. This control can be set at the tenant level within your configuraton file.
+	*<tenant id="My Tenant ID" overwriteIfAlreadyExist="yes">*
 	
 	* If flag is true: If the Source ID in the database matches the Source ID of the prospective copy and the report names match, the existing version of the report is overwritten.
 	
@@ -142,6 +135,29 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 	
 	* At this time, there is not a setting to "make a copy" but not overwrite if the SourceIDs match and the names match (e.g. If "Report" exists,  "Report(1)" is created).
 
+
+* **Specifying Database Mappings**: In order to copy reports from one environment to another, a datasource must exist within the Destination that maps. Database mapping can be accomplished by specifying the source and destination's database names.
+	* When specifying your database mapping, you will need to obtain the database name and schema for both the source and destination. Both values can be found directly in the platform. 
+	* Database Objects used within your report must exist in both the source and destination. Database objects are not "mappable." For instance, if a report is built with the "Orders" table in the Source, it cannot be mapped to an "Orders" view in the destination.
+	
+   .. figure:: /_static/images/ui/copy_console/Slide10.PNG
+
+      <databaseMapping sourceDatabaseName="Northwind" sourceSchema="dbo" destinationDatabaseName="NW" destinationSchema="dbo"/> 
+
+* **Specifying Reports, Templates and Dashboards**: These elements will be found in their respective XML tags within your CopyConfig.xml. 
+
+	* To reference a particular Report Object in your XML, you will specify its ID with its corresponding object type
+	
+	* Report Object IDs can be found within the URL when navigating to it in your web browser.
+	
+	   .. figure:: /_static/images/ui/copy_console/Slide11.PNG
+	   
+	   	<report id="10663c5b-882e-4739-bb66-9fc9d7a8210a"/>
+	
+	* Report/template IDs can also be found within the IzendaReport table of your Izenda Configuration Database.
+	
+	* Dashboard IDs can also be found within the IzendaDashboard table of your Izenda Configuration Database.
+	
 
 Usage
 ============
