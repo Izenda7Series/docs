@@ -122,14 +122,6 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 
 * **Specifying a Tenant**:Tenants are specified directly in your CopyConfig.xml by name. If the name of a tenant is left blank, it is assumed that you are copying to the System "tenant"
 
-* **overwriteIfExists Flag**: When a report is copied from one environment to another, a Source ID is cataloged in the destination.
-	
-	* If flag is true: If the Source ID in the database matches the Source ID of the prospective copy and the report names match, the existing version of the report is overwritten.
-	
-	* If flag is false: If the Source ID in the database matches the Source ID of the prospective copy and the report names match, the existing version of the report is not overwritten.
-	
-	* At this time, there is not a setting to "make a copy" but not overwrite if the SourceIDs match and the names match (e.g. If "Report" exists,  "Report(1)" is created).
-
 * **Specifying Database Mappings**: In order to copy reports from one environment to another, a datasource must exist within the Destination that maps. Database mapping can be accomplished by specifying the source and destination's database names.
 
 * **Specifying Reports, Templates and Dashboards**: These elements will be found in their respective XML tags within your CopyConfig.xml. 
@@ -141,6 +133,15 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 		* Report/template IDs can be found within the IzendaReport table of your Izenda Configuration Database.
 		
 		* Dashboard IDs can be found within the IzendaDashboard table of your Izenda Configuration Database.
+		
+* **overwriteIfExists Flag**: When a report is copied from one environment to another, a Source ID is cataloged in the destination.
+	
+	* If flag is true: If the Source ID in the database matches the Source ID of the prospective copy and the report names match, the existing version of the report is overwritten.
+	
+	* If flag is false: If the Source ID in the database matches the Source ID of the prospective copy and the report names match, the existing version of the report is not overwritten.
+	
+	* At this time, there is not a setting to "make a copy" but not overwrite if the SourceIDs match and the names match (e.g. If "Report" exists,  "Report(1)" is created).
+
 
 Usage
 ============
