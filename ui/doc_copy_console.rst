@@ -5,7 +5,7 @@ Izenda Copy Console
 ====================
 
 Introduction
-============
+=============
 
 The Izenda Copy Console Tool will allow you to copy templates, reports
 and dashboards from one Izenda Configuration database to another. If you need to copy reports within the same configuration database (eg. copying a report from one tenant to another) you can use the Copy Management Tool.
