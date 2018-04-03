@@ -138,7 +138,7 @@ Options for the Copy Console are specified in an XML and provided to the Copy Co
 
 * **Specifying Database Mappings**: In order to copy reports from one environment to another, a datasource must exist within the Destination that maps. Database mapping can be accomplished by specifying the source and destination's database names.
 	* When specifying your database mapping, you will need to obtain the database name and schema for both the source and destination. Both values can be found directly in the platform. 
-	* Database Objects used within your report must exist in both the source and destination. Database objects are not "mappable." For instance, if a report is built with the "Orders" table in the Source, it cannot be mapped to an "Orders" view in the destination.
+	* Database Objects used within your report must exist in both the source and destination. Database objects are not "mappable." For instance, if a report is built with the "Orders" table in the Source, it cannot be mapped to an "Orders" view in the Destination. Similarly, if a report is build with the "Orders" table in the Source, it cannot be mapped to a "MyOrdersTable" in the Destination.
 	
    .. figure:: /_static/images/ui/copy_console/Slide10.PNG
 
