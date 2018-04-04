@@ -22,6 +22,8 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
 
    - 3 : All Integrated |br|
 
+*  After deploying Izenda, ensure that the IzendaSystemSettings table in your Izenda Configuration Database contains the correct deployment mode value. For more about the SystemSetting table, click `here </ref/spec_izendasystemsetting_table>`_.
+
 *  The table below groups our current kits available according to
    their deployment method. These kits are provided for demonstration purposes and should not be used as production-ready solutions.
 
@@ -69,9 +71,6 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
             :target: https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#angular-2-implementation
       -  
       -  
-      
-
-*  Once Izenda is deployed, the SystemSettings table must be updated with the correct deployment value. For more about the SystemSetting table, click :doc:`here </ref/spec_izendasystemsetting_table>`.
 
 Deployment Mode 0: Standalone Deployment
 -----------------------------------------
