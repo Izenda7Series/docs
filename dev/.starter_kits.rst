@@ -12,8 +12,8 @@ Deployment Mode 0 refers to a fully standalone version of Izenda. For more infor
 
 Deployment Mode 1
 -----------------
-Deployment Mode 1 refers to a fully integrated front end and a standalone back end.
-MVC.
+Deployment Mode 1 refers to a fully integrated front end and a standalone back end. 
+
 
 * `MVC 5 Starter Kit Back End Standalone <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone>`_
 * `Angular 2 Starter Kit <https://github.com/Izenda7Series/Angular2Starterkit>`_
