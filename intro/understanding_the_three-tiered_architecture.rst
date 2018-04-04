@@ -31,29 +31,40 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
 
    .. figure:: /_static/images/Overview4.png
 
-      Overview
+      Overview 
       
 .. list-table::
    :header-rows: 1
-
-   *  -  0
-      -  1
-      -  2
-      -  
-   *  -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide1.PNG
-      -  
-      -  
-      -  
-   *  -  
-      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide2.PNG
-      -  
-      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide4.PNG    
-   *  -  
+   :widths: 100 100 100 100 100
+   
+   *  - Framework
+      -  Deployment Mode 0
+      -  Deployment Mode 1
+      -  Deployment Mode 2
+      -  Deployment Mode 3
+   *  - Standalone Application
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide1.PNG
+            :scale: 20 %
       -  
       -  
-      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide5.PNG
-   *  -  
-      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide3.PNG
+      -  
+   *  - MVC
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide2.PNG
+            :scale: 20 %
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide4.PNG    
+            :scale: 20 %
+   *  - Web Forms
+      -  
+      -  
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide5.PNG
+            :scale: 20 %
+   *  - Angular 2
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide3.PNG
+            :scale: 20 %
       -  
       -  
       
