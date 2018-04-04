@@ -62,7 +62,7 @@ BI Platform Implementation
    
 -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
-   .. figure::  /_static/images/StandaloneArchDiagram2.png
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide1.PNG
 
       A diagram of implementation
 
@@ -88,7 +88,7 @@ MVC 5 Implementation
 
 - MVC Starter Kit Back End Standalone found `here <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/>`_
 
-   .. figure::  /_static/images/MVC1ArchDiagram.png
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide2.PNG
 
       A diagram of implementation
 
@@ -101,9 +101,10 @@ Angular 2 Implementation
    - Empty database
    - Angular 2 Starter Kit found `here <https://github.com/Izenda7Series/Angular2Starterkit/>`_
 
-   .. figure::  /_static/images/Angular1ArchDiagram2.png
 
-      A diagram of implementation
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide3.PNG
+   
+   A diagram of implementation
     
     
 Deployment Mode 3: Fully Integrated
@@ -133,9 +134,9 @@ MVC Implementation
    - Empty database
 - MVC Starter Kit found `here <https://github.com/Izenda7Series/Mvc5StarterKit/>`_
 
-   .. figure::  /_static/images/MVC3ArchDiagram.png
-
-      A diagram of implementation
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide4.PNG
+   
+   A diagram of implementation
 
 Webforms Implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,6 +145,11 @@ Webforms Implementation
   - Embedded UI
   - Empty Database
 - Webforms Starter Kit found `here <https://github.com/Izenda7Series/WebFormsStarterkit>`_ 
+
+
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide5.PNG
+   
+   A diagram of implementation
 
 Switching Between Deployment Styles
 -----------------------------------
