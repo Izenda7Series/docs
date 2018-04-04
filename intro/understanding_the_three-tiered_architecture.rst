@@ -23,7 +23,7 @@ For more informaton about embedding Izenda, please refer to our :doc:`Developer 
    - 3 : All Integrated |br|
 
 *  The diagram below groups our current kits available according to
-   their deployment method.
+   their deployment method. These kits are provided for demonstration purposes and should not be used as production-ready solutions.
 
    .. note::
 
@@ -86,7 +86,7 @@ MVC 5 Implementation
    - Embedded UI
    - Empty database
 
-- MVC Starter Kit Back End Standalone found `here <https://github.com/Izenda7Series/Mvc5StarterKit/>`_
+- MVC Starter Kit Back End Standalone found `here <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/>`_
 
    .. figure::  /_static/images/MVC1ArchDiagram.png
 
@@ -137,6 +137,13 @@ MVC Implementation
 
       A diagram of implementation
 
+Webforms Implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Requirements:
+  - API
+  - Embedded UI
+  - Empty Database
+- Webforms Starter Kit found `here <https://github.com/Izenda7Series/WebFormsStarterkit>`_ 
 
 Switching Between Deployment Styles
 -----------------------------------
