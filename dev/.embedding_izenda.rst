@@ -9,7 +9,7 @@ Before diving into integration, we recommend to install a local instance of our 
 
 Installing an integrated instance of Izenda
 ````````````````````````````````````````````
-Each starter kit is designed with a specific system architecture in mind and can be distinguished by their deployment mode. The deployment mode refers to how your security model interacts with the Izenda API. For more information on Izenda’s available deployment modes, please refer to our ‘understanding_the_three-tiered_architecture’_ guide. Please note, these kits are for demonstration purposes and should not be used as a fully-integrated solution “as-is.” You can use the kit for reference or a baseline but please ensure that the security and customization necessary meet the standards of your company.
+Each starter kit is designed with a specific system architecture in mind and can be distinguished by their deployment mode. The deployment mode refers to how your security model interacts with the Izenda API. For more information on Izenda’s available deployment modes, please refer to our `understanding_the_three-tiered_architecture`_ guide. Please note, these kits are for demonstration purposes and should not be used as a fully-integrated solution “as-is.” You can use the kit for reference or a baseline but please ensure that the security and customization necessary meet the standards of your company.
 
 .. toctree::
    :maxdepth: 2
