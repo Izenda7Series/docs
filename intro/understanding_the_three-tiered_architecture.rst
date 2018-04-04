@@ -32,6 +32,31 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
    .. figure:: /_static/images/Overview4.png
 
       Overview
+      
+.. list-table::
+   :header-rows: 1
+
+   *  -  0
+      -  1
+      -  2
+      -  
+   *  -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide1.PNG
+      -  
+      -  
+      -  
+   *  -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide2.PNG
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide4.PNG    
+   *  -  
+      -  
+      -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide5.PNG
+   *  -  
+      -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnail/Slide3.PNG
+      -  
+      -  
+      
 
 *  Once Izenda is deployed, the SystemSettings table must be updated with the correct deployment value. For more about the SystemSetting table, click :doc:`here </ref/spec_izendasystemsetting_table>`.
 
@@ -62,7 +87,7 @@ BI Platform Implementation
    
 -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
-.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/SlideB.PNG
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide1B.PNG
 
       A diagram of implementation
 
