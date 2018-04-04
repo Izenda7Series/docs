@@ -62,7 +62,7 @@ BI Platform Implementation
    
 -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
-.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide1.PNG
+.. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/SlideB.PNG
 
       A diagram of implementation
 
