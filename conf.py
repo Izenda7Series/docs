@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Izenda BI'
-copyright = u'2017, Izenda'
+copyright = u'2018, Izenda'
 author = u'Izenda'
 
 # The version info for the project you're documenting, acts as replacement for
