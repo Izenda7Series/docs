@@ -14,9 +14,127 @@ Deployment Mode 1
 -----------------
 Deployment Mode 1 refers to a fully integrated front end and a standalone back end. 
 
+MVC 5 Starter Kit Back End Standalone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`Kit Download <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone>`_
 
-* `MVC 5 Starter Kit Back End Standalone <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone>`_
-* `Angular 2 Starter Kit <https://github.com/Izenda7Series/Angular2Starterkit>`_
+
+Kit Overview
+``````````````````````
+* OWIN Authentication with .Net Identities
+* Kit runs in Visual Studio from localhost:14809 as reflected in the sample values provided in the tables below.
+
+Authorization Components For Standard Authentication
+````````````````````````````````````````````````````
+
+**Back-End Components**
+ 
+.. list-table::
+   :header-rows: 1
+   :widths: 100 100 100 100 100 100
+   
+   *  - Component
+      - IzendaSystemSettingTable Name
+      - IzendaSystemSettingTable Value
+      - Expectation from API
+      - Location in Kit
+      - Usage
+   *  - Deployment Mode Setting
+      - DeploymentMode
+      - 1
+      - Retrieved from Database Upon Initialization.
+      - N/A
+      - Determines Security Model emplyed by API.
+   *  - Token Validation
+      - AuthValidateAccessTokenUrl
+      - http://localhost:14809/api/account/validateIzendaAuthToken
+      - Retrieved from Database Upon Initialization. 
+      - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_
+      
+      
+      - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
+
+**Front-End Components**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 100 100 100 
+   
+   *  - Component
+      - Location in Kit
+      - Usage
+   *  - Embedded UI Resources
+      - `Mvc5StarterKit/Scripts <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Scripts/izenda>`_
+      - Izenda UI Resources used to render the front end application.
+   *  - izenda.integrate.js
+      - `Mvc5StarterKit/Scripts/izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_
+      - Implementation of several Izenda front-end integration API Endpoints.
+   *  - Izenda Configuration JSON
+      - `Mvc5StarterKit/Scripts/izenda.integrate.js configJson <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js#L3>`_
+      - JSON required by Front End to specify the location of Izenda resources including the Back End API and Front End resources' relative path.
+   *  - Pages Rendering Izenda
+      - `Mvc5StarterKit/Views/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Views>`_
+      - Views that utilize the render functions created in izenda.integrate.js   
+   *  - Token Generation
+      - `Mvc5StarterKit/ApiControllers/UserController.cs GenerateToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/UserController.cs#L11>`_
+      - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
+      
+Authorization Components For Exports, Schedules, and Subscriptions
+```````````````````````````````````````````````````````````````````
+
+**Back-End Components**
+ 
+.. list-table::
+   :header-rows: 1
+   :widths: 100 100 100 100 100 100
+   
+   *  - Component
+      - IzendaSystemSettingTable Name
+      - IzendaSystemSettingTable Value
+      - Expectation from API
+      - Location in Kit
+      - Usage
+   *  - Deployment Mode Setting
+      - DeploymentMode
+      - 1
+      - Retrieved from Database Upon Initialization.
+      - N/A
+      - Determines Security Model emplyed by API.
+   *  - Token Validation
+      - AuthValidateAccessTokenUrl
+      - http://localhost:14809/api/account/validateIzendaAuthToken
+      - Retrieved from Database Upon Initialization. 
+      - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_
+      
+      
+      - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
+
+**Front-End Components**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 100 100 100 
+   
+   *  - Component
+      - Location in Kit
+      - Usage
+   *  - izenda.integrate.js
+      - `Mvc5StarterKit/Scripts/izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_
+      - Implementation of several Izenda front-end integration API Endpoints.
+   *  - Page To Render Charts For Exports
+      - `Mvc5StarterKit/Views/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Views>`_
+      - Views that utilize the render functions created in izenda.integrate.js   
+   *  - Token Generation
+      - `Mvc5StarterKit/ApiControllers/UserController.cs GetToken Route <>`_
+      - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
+
+
+
+Angular 2 Starter Kit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`Kit Download  <https://github.com/Izenda7Series/Angular2Starterkit>`_
+
+
 
 Deployment Mode 3
 ------------------
