@@ -78,7 +78,7 @@ Authorization Components For Standard Authentication
    *  - Token Generation
       - `Mvc5StarterKit/ApiControllers/UserController.cs GenerateToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/UserController.cs#L11>`_
       - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
-      
+
 Authorization Components For Exports, Schedules, and Subscriptions
 ```````````````````````````````````````````````````````````````````
 
@@ -139,6 +139,9 @@ Authorization Components For Exports, Schedules, and Subscriptions
         
       - View-Controller Pair that utilizes a render function to stage report parts for exports.
 
+Izenda Boundary: Useful Models and Sample Encryption Mechanisms
+````````````````````````````````````````````````````````````````
+**To Be updated**
 
 
 Angular 2 Starter Kit
