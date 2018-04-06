@@ -50,8 +50,6 @@ Authorization Components For Standard Authentication
       - http://localhost:14809/api/account/validateIzendaAuthToken
       - Retrieved from Database Upon Initialization. 
       - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_
-      
-      
       - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
 
 **Front-End Components**
@@ -100,7 +98,7 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - Retrieved from Database Upon Initialization. 
       - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_     
       - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
-      * - Token Retrieval
+   *  - Token Retrieval
       - AuthGetAccessTokenUrl
       - http://localhost:14809/api/account/getIzendaAuthToken
       - Retrieved from Database Upon Initialization. 
@@ -112,11 +110,11 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - Retrieved from Database Upon Initialization.
       - N/A
       - Key used by Izenda API to send encrypted messages to Host Application. Message contains the components for a UserInfo object.
-    *  - Private RSA Key
+   *  - Private RSA Key
       - AuthRSAPublicKey
-      - **To Be Updated Web.Config**
       - N/A
-      - Sepcific to your environment. Paired to Public Key in Database.
+      - N/A
+      - **To Be Updated Web.Config** Sepcific to your environment. Paired to Public Key in Database.
       - Key used in Host Application to decrypt messages sent by Izenda API. Message contains the components for a UserInfo object.
 
 **Front-End Components**
