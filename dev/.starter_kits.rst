@@ -94,20 +94,30 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - Expectation from API
       - Location in Kit
       - Usage
-   *  - Deployment Mode Setting
-      - DeploymentMode
-      - 1
-      - Retrieved from Database Upon Initialization.
-      - N/A
-      - Determines Security Model emplyed by API.
    *  - Token Validation
       - AuthValidateAccessTokenUrl
       - http://localhost:14809/api/account/validateIzendaAuthToken
       - Retrieved from Database Upon Initialization. 
-      - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_
-      
-      
+      - `Mvc5StarterKit/ApiControllers/AccountController.cs ValidateIzendaAuthToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L51>`_     
       - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
+      * - Token Retrieval
+      - AuthGetAccessTokenUrl
+      - http://localhost:14809/api/account/getIzendaAuthToken
+      - Retrieved from Database Upon Initialization. 
+      - **To Be Updated**    
+      - Accessed Server Side. Route In Host Application to Get Access token for server-side interactions. Route decrypts RSA-encrypted messages from Izenda API and returns a token that can be decrypted using Host Application's Token Validation route.   
+   *  - Public RSA Key
+      - AuthRSAPublicKey
+      - Sepcific to your environment. Paired to Public Key in Kit.
+      - Retrieved from Database Upon Initialization.
+      - N/A
+      - Key used by Izenda API to send encrypted messages to Host Application. Message contains the components for a UserInfo object.
+    *  - Private RSA Key
+      - AuthRSAPublicKey
+      - **To Be Updated Web.Config**
+      - N/A
+      - Sepcific to your environment. Paired to Public Key in Database.
+      - Key used in Host Application to decrypt messages sent by Izenda API. Message contains the components for a UserInfo object.
 
 **Front-End Components**
 
@@ -118,15 +128,16 @@ Authorization Components For Exports, Schedules, and Subscriptions
    *  - Component
       - Location in Kit
       - Usage
-   *  - izenda.integrate.js
-      - `Mvc5StarterKit/Scripts/izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_
-      - Implementation of several Izenda front-end integration API Endpoints.
+   *  - Front End Integration Endpoint For Exports
+      - `Mvc5StarterKit/Scripts/izenda.integrate.js izendaInitReportPartExportViewer <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js#L279>`_
+      - Function used to export Izenda report parts.
    *  - Page To Render Charts For Exports
-      - `Mvc5StarterKit/Views/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Views>`_
-      - Views that utilize the render functions created in izenda.integrate.js   
-   *  - Token Generation
-      - `Mvc5StarterKit/ApiControllers/UserController.cs GetToken Route <>`_
-      - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
+      - 
+        * `Mvc5StarterKit/Views/Home/ReportPart.cshtml <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Views/Home/ReportPart.cshtml>`_
+        * `Mvc5StarterKit/Controllers/ReportController.cs <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Controllers/ReportController.cs>`_
+        
+        
+      - View-Controller Pair that utilizes a render function to stage report parts for exports.
 
 
 
