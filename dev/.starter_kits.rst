@@ -22,7 +22,7 @@ MVC 5 Starter Kit Back End Standalone
 Kit Overview
 ``````````````````````
 * OWIN Authentication with .Net Identities
-* Kit runs in Visual Studio from localhost:14809 as reflected in the sample values provided in the tables below.
+* Kit runs in Visual Studio from http://localhost:14809 as reflected in the sample values provided in the tables below.
 
 Authorization Components For Standard Authentication
 ````````````````````````````````````````````````````
@@ -100,9 +100,9 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - Accessed Server Side. Route In Host Application to Validate tokens. Returns a valid User Info object.
    *  - Token Retrieval
       - AuthGetAccessTokenUrl
-      - http://localhost:14809/api/account/getIzendaAuthToken
+      - http://localhost:14809/api/account/getIzendaAccessToken
       - Retrieved from Database Upon Initialization. 
-      - **To Be Updated**    
+      - `Mvc5StarterKit/ApiControllers/AccountController.cs GetIzendaAccessToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/AccountController.cs#L59>`_
       - Accessed Server Side. Route In Host Application to Get Access token for server-side interactions. Route decrypts RSA-encrypted messages from Izenda API and returns a token that can be decrypted using Host Application's Token Validation route.   
    *  - Public RSA Key
       - AuthRSAPublicKey
@@ -114,7 +114,7 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - AuthRSAPublicKey
       - N/A
       - N/A
-      - **To Be Updated Web.Config** Sepcific to your environment. Paired to Public Key in Database.
+      - Located in `Mvc5StarterKit/Web.Config . <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Web.config#L21>`_ Sepcific to your environment. Paired to Public Key in Database.
       - Key used in Host Application to decrypt messages sent by Izenda API. Message contains the components for a UserInfo object.
 
 **Front-End Components**
