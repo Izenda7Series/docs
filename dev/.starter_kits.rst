@@ -143,14 +143,13 @@ Authorization Components For Exports, Schedules, and Subscriptions
 
 Models Directory
 `````````````````
-Directory used to specify the models used throughout the application.
+The Models Directory is used to specify the models used throughout the application.
 
 * **UserInfo.cs** : Implementation of User Info object that contains the "UserName" and the "TenantUniqueName" for an Izenda user profile. Used throughout the classes found in IzendaBoundary.
 
 IzendaBoundary Directory
 ````````````````````````
 The IzendaBoundary directory of this kit contains useful models, sample encryption/decryption mechanisms, and sample Izenda API interactions.
-https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/IzendaBoundary/
 
 * **IzendaTokenAuthorization.cs** : Class used in token encryption/decryption.
 
