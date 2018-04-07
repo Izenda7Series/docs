@@ -38,7 +38,7 @@ Authorization Components For Standard Authentication
       - IzendaSystemSettingTable Value
       - Expectation from API
       - Location in Kit
-      - Usage
+      - Description
    *  - Deployment Mode Setting
       - DeploymentMode
       - 1
@@ -60,13 +60,13 @@ Authorization Components For Standard Authentication
    
    *  - Component
       - Location in Kit
-      - Usage
+      - Description
    *  - Embedded UI Resources
       - `Mvc5StarterKit/Scripts <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Scripts/izenda>`_
       - Izenda UI Resources used to render the front end application.
    *  - izenda.integrate.js
       - `Mvc5StarterKit/Scripts/izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_
-      - Implementation of several Izenda front-end integration API Endpoints.
+      - Implementation of several Izenda front-end integration API Endpoints. AJAX call to GenerateToken route.
    *  - Izenda Configuration JSON
       - `Mvc5StarterKit/Scripts/izenda.integrate.js configJson <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js#L3>`_
       - JSON required by Front End to specify the location of Izenda resources including the Back End API and Front End resources' relative path.
@@ -74,7 +74,7 @@ Authorization Components For Standard Authentication
       - `Mvc5StarterKit/Views/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Views>`_
       - Views that utilize the render functions created in izenda.integrate.js   
    *  - Token Generation
-      - `Mvc5StarterKit/ApiControllers/UserController.cs GenerateToken Route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/UserController.cs#L11>`_
+      - `Mvc5StarterKit/ApiControllers/UserController.cs GenerateToken route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/UserController.cs#L11>`_
       - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
 
 Authorization Components For Exports, Schedules, and Subscriptions
@@ -91,7 +91,13 @@ Authorization Components For Exports, Schedules, and Subscriptions
       - IzendaSystemSettingTable Value
       - Expectation from API
       - Location in Kit
-      - Usage
+      - Description
+   *  - Front End URL
+      - WebURL
+      - http://localhost:14809/
+      - Retrieved from Database Upon Initialization. 
+      - N/A     
+      - Front End URL used as a base URL when generating email links and navigating to our page to render exports.  
    *  - Token Validation
       - AuthValidateAccessTokenUrl
       - http://localhost:14809/api/account/validateIzendaAuthToken
@@ -125,23 +131,48 @@ Authorization Components For Exports, Schedules, and Subscriptions
    
    *  - Component
       - Location in Kit
-      - Usage
+      - Description
    *  - Front End Integration Endpoint For Exports
       - `Mvc5StarterKit/Scripts/izenda.integrate.js izendaInitReportPartExportViewer <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js#L279>`_
       - Function used to export Izenda report parts.
-   *  - Page To Render Charts For Exports
+   *  - Page To Render Charts For Exports. 
       - 
         * `Mvc5StarterKit/Views/Home/ReportPart.cshtml <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Views/Home/ReportPart.cshtml>`_
-        * `Mvc5StarterKit/Controllers/ReportController.cs <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Controllers/ReportController.cs>`_
-        
-        
-      - View-Controller Pair that utilizes a render function to stage report parts for exports.
+        * `Mvc5StarterKit/Controllers/ReportController.cs <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Controllers/ReportController.cs>`_     
+      - View-Controller Pair that utilizes a render function to stage report parts for exports. Implements the route "/viewer/reportpart/" Izenda requests during the export process.
 
-Izenda Boundary: Useful Models and Sample Encryption Mechanisms
-````````````````````````````````````````````````````````````````
-**To Be updated**
+Models Directory
+`````````````````
+Directory used to specify the models used throughout the application.
 
+* **UserInfo.cs** : Implementation of User Info object that contains the "UserName" and the "TenantUniqueName" for an Izenda user profile. Used throughout the classes found in IzendaBoundary.
 
+IzendaBoundary Directory
+````````````````````````
+The IzendaBoundary directory of this kit contains useful models, sample encryption/decryption mechanisms, and sample Izenda API interactions.
+https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/IzendaBoundary/
+
+* **IzendaTokenAuthorization.cs** : Class used in token encryption/decryption.
+
+   .. list-table::
+      :header-rows: 1
+      :widths: 100 100
+
+      *  - Component
+         - Description
+      *  - GetToken
+         - Returns an encrypted token given an UserInfo object. Used in ValidateIzendaAuthToken route.
+      *  - GetUserInfo
+         - Returns a UserInfo object given an encrypted token. Used in GenerateToken route and GetIzendaAuthToken route.
+      *  - DecryptIzendaAuthenticationMessage
+         - Returns a UserInfo object given an RSA Message. Decrypts messages using RSA Public Key from Web.Config. Used in GetIzendaAuthToken route.
+
+* **StringCipher.cs** : Class defining low-level encryption/decryption mechanisms.
+
+* **IzendaUtilities.cs** : Class containing sample implementations of Tenant, Role, and User creation via the API.
+
+* **Models** : Directory Containing the models used throughout IzendaBoundary
+ 
 Angular 2 Starter Kit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `Kit Download  <https://github.com/Izenda7Series/Angular2Starterkit>`_
