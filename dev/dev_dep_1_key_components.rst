@@ -72,6 +72,46 @@ Getting The Token
   * The message itself will be encrypted by the Izenda API using the RSAPublicKey found in the Izenda Configuration Database. In its unencrypted form, the message contains the information for a UserInfo object.
   
   * The host application will have a corresponding RSA Private Key to decrypt the message. Once the message is decrypted,  the host application will need to create an token that can be decrypted with your Token Validation route above.
+  
+RSA Encryption Specifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Rendering Exports
---------------------
+Keys can be created using Izenda's RSA Key Generator Utility.
+
+* RSA Key Specifications:
+ * Padding: PKCS1v15
+ * Key Size: 1024
+
+
+* AuthRSAPublicKey value in the IzendaSystemSettings table of the Izenda database holds the public RSA public key in XML format (the keysize must be less than 1024 because max-length for this field in database is 256) .
+
+* RSAPrivateKey value can be placed anywhere that the RSA-decryption algorithm can access. This value is your private key and should be in PEM format. In our sample MVC Back End standalone kit, this can be accessed from the Web.config file of the kit.
+
+* Messages sent to your endpoint will be base 64 encoded and may need to be decoded before decryption.
+
+
+Rendering Exports and Sending Links
+------------------------------------
+
+The host applicaiton will need to refer to the Izenda resources to adhere to any customizations made to the front-end.
+
+WebURL
+------
+The WebURL will be the "Base URL" for email links and the route used for exports. 
+
+* The WebURL will point to the application that holds your Embedded UI resources.
+  
+  * In the MVC Kit Back End Standalone, the EmbeddedUI resources are found within the MVC Kit hosted on 14809. In turn, the WebURL would be http://localhost:14809/ . 
+  
+  * In our Angular Kit, there are 3 separate applications in play-- the Izenda API hosted on IIS, a .Net Authorization Application running in Visual Studio (this implements the Generate, Validate, and Get token routes and is hosted on port 14809), and an Angular 2 application running in Node (port 3000). In this scenario, the WebURL will point to http://localhost:3000 .
+  
+Report Rendering Route
+-----------------------
+After the Izenda API obtains a valid access token from the AuthGetAccessTokenURL, it will attempt to access this route to render the report on the server.
+
+* Since this process occurs on the server, schedules and exports can run successfully without a user being active on the front end.
+
+*Izenda has a definite structure for this route, WebURL + "/viewer/reportpart/". This corresponds to the "Page to render exports" in the image above.
+
+
+
