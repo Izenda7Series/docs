@@ -2,13 +2,16 @@
 Installation Guide
 ==========================
 
-The following outlines the steps to install Izenda's Stand Alone Portal.
+.. contents:: Table of Contents
+      :depth: 2
+
+|br|
 
 Standalone Installation Options
 --------------------------------
 There are two main options when deploying a "vanilla" instnace of our standalone environment.
--  Installing Izenda's front end and back end as two separate sites
--  Installing Izenda's front end and back end as virtual directories/applications under a host site
+      -  Installing Izenda's front end and back end as two separate sites
+      -  Installing Izenda's front end and back end as virtual directories/applications under a host site
 
 The architectural goal, pre-installation preparations, and web server setup are the same for both deployment options.
 
@@ -345,7 +348,7 @@ Troubleshooting & Verifying the Installation
 
 
 
-Common Izenda Stand-alone Installation Issues
+Common Izenda Standalone Installation Issues
 -------------------------------------------------------
 
 .. container:: toggle
