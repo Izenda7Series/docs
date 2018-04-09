@@ -30,7 +30,7 @@ FIXES
 -  Defect  19027  System shows error message when user changes Chart Type when the existing chart has XY-Plane settings set
 -  Defect  18517  Report Parts when used in integrated environments should each have their own separate progress bar
 -  Defect  17488  Text 'Can create new reports?' displays in Dashboards section
--  Defect  19465  Added new setting in Web.config file of API to allow stripping of potentially dangerous characters from the schema loader.
+-  Defect  19465  Added new setting in Web.config file of API to allow stripping of potentially dangerous characters from the schema loader. Multiple characters should be added without separator or space as <add key="izenda.mssql.trimcharacters" value="*&^%" />
 
 .. code-block:: xml
 
