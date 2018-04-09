@@ -18,7 +18,6 @@ FIXES
 -  Defect  19641  Error message displays when user adds a Datetime field into Combination Chart x-axis
 -  Defect  19504  Schedule fails to validate with "Field Comparison" filter and calculated field
 -  Defect  19478  Cell and Text color options are missing calendar picker for date type fields.
--  Defect  19465  Resolved security issue in the API
 -  Defect  19405  System loads all report histories of a report into memory, then picks one by version to remove history. This function is memory intensive.
 -  Defect  19380  In Data Model Database read Relationships do not check for duplicate relationships.
 -  Defect  19368  After deleting a schema and readding it, system should readd the deleted schema rather than create a new one
@@ -31,7 +30,22 @@ FIXES
 -  Defect  19027  System shows error message when user changes Chart Type when the existing chart has XY-Plane settings set
 -  Defect  18517  Report Parts when used in integrated environments should each have their own separate progress bar
 -  Defect  17488  Text 'Can create new reports?' displays in Dashboards section
+-  Defect  19465  Added new setting in Web.config file of API to allow stripping of potentially dangerous characters from the schema loader.
 
+.. code-block:: xml
+
+	  <appSettings> 
+	  <!-- 
+	  	Any characters specfied in the value fields below will be removed from any queries executed when 
+		adding or reconnecting to a database.
+	  -->
+	    <add key="izenda.mssql.trimcharacters" value="" />
+	    <add key="izenda.mysql.trimcharacters" value="" />
+	    <add key="izenda.oracle.trimcharacters" value="" />
+	    <add key="izenda.postgre.trimcharacters" value="" />
+	    <add key="izenda.redshift.trimcharacters" value="" />
+	  </appSettings>
+	  
 
 v2.7.0 March 30, 2018
 ~~~~~~~~~~~~~~~~~~~~~~
