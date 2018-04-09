@@ -13,7 +13,6 @@ v2.7.1 April 9, 2018
 
 FIXES
 ^^^^^
--  Defect  19950  Parameter of Stored Procedure Not shown in Filter panel after selected
 -  Defect  19858  P1 value passed to renderDashboardViewerPage function is not updating the results.
 -  Defect  19754  Stored procedure parameter still remains in filter section of report after the stored procedure is unchecked from selected data sources
 -  Defect  19641  Error message displays when user adds a Datetime field into Combination Chart x-axis
