@@ -27,7 +27,7 @@ FIXES
 -  Defect  19304  Stored procedure parameter still remains on filter section after the stored procedure is unchecked for use in report designer.
 -  Defect  19278  Heat Maps would only show a label on the first value on the x-axis when using date type fields
 -  Defect  19263  In Forms, subtotals are not always calculated when field is non visible. Subtotal formats are not maintained when field is non visible.
--  Defect  19259  System shows error message when user uses Non-Aggregated filter in Hidden Filter and Agggregated Field in Filter
+-  Defect  19259  System shows error message when user uses Non-Aggregated filter in Hidden Filter and Aggregated Field in Filter
 -  Defect  19206  User in a role with view-only permission for dashboards gets logged out when trying to open a dashboard.
 -  Defect  19027  System shows error message when user changes Chart Type when the existing chart has XY-Plane settings set
 -  Defect  18517  Report Parts when used in integrated environments should each have their own separate progress bar
