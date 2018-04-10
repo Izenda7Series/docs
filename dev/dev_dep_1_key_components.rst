@@ -26,9 +26,6 @@ Client-Side Interactions
 Rendering the Front End Application
 ------------------------------------
 
-Page To Render Platform
-~~~~~~~~~~~~~~~~~~~~~~~~
-
 Embedded UI
 ~~~~~~~~~~~~
 
