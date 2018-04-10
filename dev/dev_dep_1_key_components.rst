@@ -7,6 +7,19 @@ The following diagram illustrates the minimum components necessary for an applic
 	.. figure:: /_static/images/dev/dev_dep_1_key_components/Deployment1_Workflow.png  
 
 
+Izenda API-Izenda Configuration Database Interactions
+=======================================================
+
+The Izenda API interacts with the Izenda Configuration database through the connection string stored in the file izendadb.config. 
+
+* The izendadb.config file will exist within the root directory of your API and can be created by using the API Endpoint `databaseSetup/databaseInfo . <https://www.izenda.com/docs/ref/api_systemdb_and_license.html#post-databasesetup-databaseinfo>`_
+	
+	* If the connection is established via the API, the connection string in izendadb.config will be encrypted.
+	
+	* If the database specified in the connection string is does not contain the Izenda Configuration tables, the tables will automatically be created.
+	
+	* To change the Izenda Configuraton Database connection string, the izendadb.config file must be deleted or a valid access_token must be supplied to subsequent requests to the API Endpoint.
+
 Client-Side Interactions
 ============================
 
