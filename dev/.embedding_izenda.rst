@@ -26,6 +26,10 @@ Front-End Development: Embedding into a Pre-Existing Application
 `````````````````````````````````````````````````````````````````
 * `HTML Kit: Embedding and Whitelabeling into an Angular Application  <https://www.youtube.com/watch?v=PepbyUDAIV4>`_ : This video demonstrates the concepts of embedding Izenda's front end into an application by using our sample HTML Kit. Please note that this kit and guide do not showcase the Izenda's authentication and authorization security model.
 
+.. toctree::
+   :maxdepth: 2
+
+   /dev/integration_overviews.rst
 
 Full-stack Development: Starting from Scratch
 ```````````````````````````````````````````````
@@ -35,8 +39,4 @@ The following walkthroughs describe how to build an application that will work w
    :maxdepth: 2
 
    /dev/.walkthroughs
-
-
-
-
  
