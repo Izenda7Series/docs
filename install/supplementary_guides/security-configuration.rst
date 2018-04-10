@@ -5,7 +5,7 @@ Security Configuration
 
 Introduction
 ------------------------------------------
-Izenda v2.7.1 and higher allows application administrators to directly trim out the charaters (that specified for each database server type) when loading schemas. This option is applied globally and will affect the system and tenant users.
+Izenda v2.7.1 and higher allows application administrators to directly trim out the specified charaters per database server type when loading schemas. This option is applied globally and will affect the system and tenant users.
 
 
 Configuration
