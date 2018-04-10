@@ -4,8 +4,7 @@ Deployment Mode 1: Key Components for Integration
 
 The following diagram illustrates the minimum components necessary for an application in deployment mode 1.
 
-[Image]
-
+	.. figure:: /_static/images/dev/dev_dep_1_key_components/Deployment1_Workflow.png  
 
 
 Client-Side Interactions
