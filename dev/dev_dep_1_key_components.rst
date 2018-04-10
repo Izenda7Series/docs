@@ -8,12 +8,70 @@ The following diagram illustrates the minimum components necessary for an applic
 
 
 
-Standard Security Handshake
+Client-Side Interactions
 ============================
 
+Rendering the Front End Application
+------------------------------------
+
+Page To Render Platform
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Embedded UI
+~~~~~~~~~~~~
+
+The Embedded UI refer to the Izenda Front End resources used to render the front end application. 
+
+izenda.integrate.js
+~~~~~~~~~~~~~~~~~~~~
+
+Many of our sample applications contain an "Izenda Integrate" file that implements several of our Front-End integration API endpoints. A full list of integration endpoints can be found `here. <https://www.izenda.com/docs/dev/api_frontend_integration.html>`_
+
+The following steps can be used to render an Izenda Component in your application.
+
+1. **Configuring Izenda** : Use the endpoint `IzendaSynergy.config(configJson) <https://www.izenda.com/docs/dev/api_frontend_integration.html#config-configjson>`_ to configure Izenda with your application's presets. The following are the most frequent customizations to the configuration JSON for this Endpoint.
+
+   * *WebApiUrl* : The URL of your Izenda API (*e.g. http://localhost:8085/api/"*)
+   
+   * *RootPath* : The relative location of your Izenda Resources in your application (*e.g. /scripts/izenda*). This path is required for Form report parts.
+   
+   * *CssFile* : The name of your CSS file (*e.g. "izenda-ui.css"*)
+
+2. **Setting the User Context** : Whenever rendering an Izenda component, you must first set the User Context with a token from you application. The User Context will be set using `setCurrentUserContext({“token”:access_token}). <https://www.izenda.com/docs/dev/api_frontend_integration.html#setcurrentusercontext-token-access-token>`_ The User Context allows the front end to call the Izenda API *on behalf of* the user in your application.
+
+ * The token stored in the User Context will be stored as the object *token* . Whenever it is sent to the API, it will be sent as the header *access_token*
+
+ * In Deployment Mode 1, Izenda Integrate often contains a mechanism to retrieve a token from the host application (e.g. via an AJAX call). This process is described in greater detail in *Standard Security Handshake* section below.
+
+3. **Rendering a Component** : Once the User Context is set, you can call any of Izenda's render functions. To Render the full platform, use the endpoint `render(element) <https://www.izenda.com/docs/dev/api_frontend_integration.html#render-element>`_ .
+
+
+Page To Render Platform
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A page will exist in your application to render Izenda Components. This page will need to include references to the EmbeddedUI resources and must have an HTML Element to render the component within.
+
+* **Referencing the EmbeddedUI Resources** : the EmbeddedUI resources can be bundled with the host application's resources or referenced directly on the page. The following order ensures that resources are loaded correctly to be referenced in "izenda.integrate.js" or a comparable front-end implementation in the host application.
+
+    * izenda_common.js
+    
+    * izenda_locales.js
+    
+    * izenda_vendors.js
+    
+    * izenda_ui.js
+    
+    * izenda.integrate.js
+
+* **Calling a function in izenda.integrate.js** : After the resources are loaded, the page can call a function in izenda.integrate.js to render an Izenda component.
+
+
+
+Standard Security Handshake
+----------------------------
 Generating the token
 ---------------------
-Generating the token will be necessary from the front end to allow a user to access Izenda.
+Generating the token will be necessary from the front end to allow a user to access Izenda. This corresponds with the "/generatetoken" route in the image above.
 
 * In its unencrypted form, the token should contain the information found within an Izenda UserInfo object, the Izenda User name ("UserName") and unique Izenda tenant ("TenantUniqueName") name.
 
@@ -28,22 +86,22 @@ For the majority of Izenda API endpoints, a header "access_token" is required.
 
   * When the front end calls the API, the access_token is retrieved from the current Izenda User Context applied.
 
-  * If the API is called outside of the platform (e.g. a custom role creation page in your application), the Izenda user context cannot be accessed and the access_token can be specified by the host application's requirements.
+  * If the API is called outside of the platform (e.g. a custom role creation page in your application), the Izenda User Context cannot be accessed and the access_token can be specified by the host application's requirements.
 
 
 Validating the token
 --------------------
 
-When the Izenda API recieves a request, it will take the access_token sent with the request and ask the host application to interpret it to ensure that it refers to a valid user. 
+When the Izenda API recieves a request, it will take the access_token sent with the request and ask the host application to interpret it to ensure that it refers to a valid user.  This corresponds with the "/validatetoken" route in the image above.
 
-* Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthValidateAccessTokenUrl. The AuthValidateAccessTokenUrl defines a route within the host application that will validate an access_token.
+* Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthValidateAccessTokenUrl. This will be the fully qualified URL pointing to your token validation route.
 
 * Your token validation function for your application will be an inverse of your token generation function. The goal is to decrypt the token, interpret the data, and return a valid User Info Object to Izenda.
 
-Exports
-=========
+Server-Side Interactions
+=========================
 
-Server-Side Security Handshake
+Export Security Handshake
 -------------------------------
 When reports are exported, scheduled instances are established, or emails are sent, the exported result is rendered on the server and sent to the desired recipient.
 Since these interactions occur on the server side, the "authentication" mechanism will differ from the Standard Security Handshake.
@@ -52,20 +110,15 @@ Since these interactions occur on the server side, the "authentication" mechanis
 
 * Since the export process is handled server-side, the access_token must originate from the server-side and, therefore, cannot be passed from a client's user context.
 
-  * Problem: Although the Izenda API has the information to create a User Info object (the UserName and TenantUniqueName are stored in the Izenda Configuration database), it doesn't have the ability to create access_tokens that can be validated with the host application.
+  * **Problem** : Although the Izenda API has the information to create a User Info object (the UserName and TenantUniqueName are stored in the Izenda Configuration database), it doesn't have the ability to create access_tokens that can be validated with the host application.
 
-  * Solution: The Izenda API will send the information it does have to the host application so that the host application can return a valid access_token. To ensure security, the information sent to the host application will be encrypted using a standard mechanism, RSA.
-
-Validating the token
-~~~~~~~~~~~~~~~~~~~~
-
-Token validation will still be handled by the AuthValidateAccessTokenUrl route within the host application.
-
+  * **Solution** : The Izenda API will send the information it does have to the host application so that the host application can return a valid access_token. To ensure security, the information sent to the host application will be encrypted using a standard mechanism, RSA.
 
 Getting The Token
 ~~~~~~~~~~~~~~~~~~
+The host application will decrypt RSA-Encrypted messages and return a valid token. This corresponds with the "/validatetoken" route in the image above.
 
-* Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthGetAccessTokenURL. This will be a route in your that will generate a valid token given an RSA-Encrypted Message.
+* Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthGetAccessTokenURL. This will be the fully qualified URL pointing to your route to decrypt RSA-Encrypted messages.
   
   * This route differs from our Token Generation method as it does not require authentication with the host application.
   
@@ -73,6 +126,12 @@ Getting The Token
   
   * The host application will have a corresponding RSA Private Key to decrypt the message. Once the message is decrypted,  the host application will need to create an token that can be decrypted with your Token Validation route above.
   
+Validating the token
+~~~~~~~~~~~~~~~~~~~~
+
+Token validation will still be handled by the route referenced in the AuthValidateAccessTokenUrl of your Izenda Configuration Database.
+
+
 RSA Encryption Specifications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -96,7 +155,7 @@ Rendering Exports and Sending Links
 The host applicaiton will need to refer to the Izenda resources to adhere to any customizations made to the front-end.
 
 WebURL
-------
+~~~~~~~
 The WebURL will be the "Base URL" for email links and the route used for exports. 
 
 * The WebURL will point to the application that holds your Embedded UI resources.
@@ -105,13 +164,26 @@ The WebURL will be the "Base URL" for email links and the route used for exports
   
   * In our Angular Kit, there are 3 separate applications in play-- the Izenda API hosted on IIS, a .Net Authorization Application running in Visual Studio (this implements the Generate, Validate, and Get token routes and is hosted on port 14809), and an Angular 2 application running in Node (port 3000). In this scenario, the WebURL will point to http://localhost:3000 .
   
-Report Rendering Route
------------------------
+Page To Render Exports
+~~~~~~~~~~~~~~~~~~~~~~~
 After the Izenda API obtains a valid access token from the AuthGetAccessTokenURL, it will attempt to access this route to render the report on the server.
 
-* Since this process occurs on the server, schedules and exports can run successfully without a user being active on the front end.
+* Since this process occurs on the server, schedules and exports can run successfully without a user being active on the front end. This page will be used to render any chart visualizations.
 
-*Izenda has a definite structure for this route, WebURL + "/viewer/reportpart/". This corresponds to the "Page to render exports" in the image above.
+* Izenda has a definite structure for this route, WebURL + "/viewer/reportpart/". This corresponds to the "Page to render exports" in the image above.
 
+* Similar to the Page to Render the platform, this page will need to reference the EmbeddedUI and an HTML Element to render Izenda Components.
+  
+  * The token will be sent to this page in a query string as *token* . The host application will set the user context using this value.
+  
+  * The Report Part ID will be sent to this page in a query string as *id* . The host application will use the Front End Integration Endpoint `renderReportPart(element,params) <https://www.izenda.com/docs/dev/api_frontend_integration.html#renderreportpart-element-params>`_ to render the a chart report part for export.
+  
+  * The Izenda API will call this page multiple times to render all chart report parts in the selected report.
+  
+Copying Reports from One Environment To Another
+-----------------------------------------------
 
+Reports can be copied from one Izenda instance to another via the Izenda Copy Console. To use the Copy Console in integrated modes, a route must exist in your application that allows for a user to authenticate with your application and immediately returns an access_token to be used with Izenda API interactions. In the diagram above, this route corresponds to the "/copyconsoleauth
+" route.
 
+A detailed description of the Copy Console and its requirements can be found at `here <https://www.izenda.com/docs/ui/doc_copy_console.html>`_
