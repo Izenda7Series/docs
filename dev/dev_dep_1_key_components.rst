@@ -31,7 +31,7 @@ Structures in Host Application
 
 		* *TenantUniqueName* : This value corresponds to a TenantID field in the IzendaTenant table of the Izenda Configuration Database.
 
-		* Whenever your application returns this information to the Izenda API, it will be interpretted as a JSON similar to {UserName : "IzendaAdmin", TenantUniqueName: ""}
+	* Whenever your application returns this information to the Izenda API, it will be interpretted as a JSON similar to {UserName : "IzendaAdmin", TenantUniqueName: ""}
 	
 	* Additional data can be added to the User Info object but it will not be interpretted by Izenda during the security handshake. The additional data could be used in custom logic such as IAdHocExtension implementations (e.g. hidden filters).
 
