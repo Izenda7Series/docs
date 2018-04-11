@@ -62,7 +62,7 @@ Authorization Components For Standard Authentication
       - Location in Kit
       - Description
    *  - Embedded UI Resources
-      - `Mvc5StarterKit/Scripts <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Scripts/izenda>`_
+      - `Mvc5StarterKit/Scripts/izenda/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Scripts/izenda>`_
       - Izenda UI Resources used to render the front end application.
    *  - izenda.integrate.js
       - `Mvc5StarterKit/Scripts/izenda.integrate.js <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Scripts/izenda.integrate.js>`_
@@ -72,7 +72,7 @@ Authorization Components For Standard Authentication
       - JSON required by Front End to specify the location of Izenda resources including the Back End API and Front End resources' relative path.
    *  - Pages Rendering Izenda
       - `Mvc5StarterKit/Views/ <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/tree/master/Mvc5StarterKit/Views>`_
-      - Views that utilize the render functions created in izenda.integrate.js   
+      - Root directory of *.cshtml pages that utilize the render functions created in izenda.integrate.js    
    *  - Token Generation
       - `Mvc5StarterKit/ApiControllers/UserController.cs GenerateToken route <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/ApiControllers/UserController.cs#L11>`_
       - Accessed Client Side. Route In Host Application to Generate tokens. Returns an encrypted access_token that contains the information for a User Info object.
@@ -160,9 +160,9 @@ The IzendaBoundary directory of this kit contains useful models, sample encrypti
       *  - Component
          - Description
       *  - GetToken
-         - Returns an encrypted token given an UserInfo object. Used in ValidateIzendaAuthToken route.
+         - Returns an encrypted token given an UserInfo object. Used in GenerateToken route and GetIzendaAuthToken route.
       *  - GetUserInfo
-         - Returns a UserInfo object given an encrypted token. Used in GenerateToken route and GetIzendaAuthToken route.
+         - Returns a UserInfo object given an encrypted token. Used in ValidateIzendaAuthToken route.
       *  - DecryptIzendaAuthenticationMessage
          - Returns a UserInfo object given an RSA Message. Decrypts messages using RSA Public Key from Web.Config. Used in GetIzendaAuthToken route.
 
@@ -170,7 +170,7 @@ The IzendaBoundary directory of this kit contains useful models, sample encrypti
 
 * **IzendaUtilities.cs** : Class containing sample implementations of Tenant, Role, and User creation via the API.
 
-* **Models** : Directory Containing the models used throughout IzendaBoundary
+* **Models** : Directory Containing the models used throughout IzendaBoundary. This includes the `UserInfo <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/blob/master/Mvc5StarterKit/Models/UserInfo.cs>`_ sample model designed for the kit.
  
 Angular 2 Starter Kit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
