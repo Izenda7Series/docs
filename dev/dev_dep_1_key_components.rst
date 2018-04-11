@@ -20,6 +20,27 @@ The Izenda API interacts with the Izenda Configuration database through the conn
 	
 	* To change the Izenda Configuraton Database connection string, the izendadb.config file must be deleted or a valid access_token must be supplied to subsequent requests to the API Endpoint.
 
+
+Structures in Host Application
+===============================
+* **UserInfo Object** : A user info object refers to an object that contains the necessary information to clearly identify an user within Izenda.
+
+	* An Izenda user can only exist in a single tenant but Izenda can be configured to allow the same username to exist in multiple tenants. As a result, the User's name "UserName" and the Tenant ID "TenantUniqueName" pair is used as an identifier for a User.
+
+		* *UserName* : This value corresponds to a UserName value found within the IzendaUser table of the Izenda Configuration Database.
+
+		* *TenantUniqueName* : This value corresponds to a TenantID field in the IzendaTenant table of the Izenda Configuration Database.
+
+		* Whenever your application returns this information to the Izenda API, it will be interpretted as a JSON similar to {UserName : "IzendaAdmin", TenantUniqueName: ""}
+	
+	* Additional data can be added to the User Info object but it will not be interpretted by Izenda during the security handshake. The additional data could be used in custom logic such as IAdHocExtension implementations (e.g. hidden filters).
+
+* **Token** : A token refers to an encrypted string that the host appication will provide authorization into Izenda. In its unencrypted form, the token will contain the information found in a UserInfo Object.
+
+* **Message (RSA Message)** : A Message refers to an encrypted message sent to the host application. This message is encrypted by the Izenda API and will be decrypted by the host application.
+
+	* In its unencrypted form, a message contains the Izenda-centric information of a User Info object, the UserName and the TenantUniqueName.
+
 Client-Side Interactions
 ============================
 
@@ -78,18 +99,19 @@ A page will exist in your application to render Izenda Components. This page wil
 
 Standard Security Handshake
 ----------------------------
+
 Generating the token
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 Generating the token will be necessary from the front end to allow a user to access Izenda. This corresponds with the "/generatetoken" route in the image above.
 
-* In its unencrypted form, the token should contain the information found within an Izenda UserInfo object, the Izenda User name ("UserName") and unique Izenda tenant ("TenantUniqueName") name.
+* In its unencrypted form, the token should contain the information found within a "UserInfo" object.
 
 * There is not a set formula to generate the token— if desired, your Izenda User Info can be wrapped within your own application’s token, stored within a cookie, or even uniquely generated every time a new Izenda page loads. In our sample kits, this is handled by a restful API call to the host application in a file called "izenda.integrate.js"
 
 * Before rendering Izenda, you will need to retrieve a token from your application. Once a token is retrieved, you will need to set the Izenda User Context on the client side to use the token. This will be done using the Front End Integration Endpoint *setCurrentUserContext* .
 
 Calling the Izenda API
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 For the majority of Izenda API endpoints, a header "access_token" is required.
 
@@ -99,8 +121,7 @@ For the majority of Izenda API endpoints, a header "access_token" is required.
 
 
 Validating the token
---------------------
-
+~~~~~~~~~~~~~~~~~~~~~~
 When the Izenda API recieves a request, it will take the access_token sent with the request and ask the host application to interpret it to ensure that it refers to a valid user.  This corresponds with the "/validatetoken" route in the image above.
 
 * Within the IzendaSystemSetting table of your configuration database, there is an entry for AuthValidateAccessTokenUrl. This will be the fully qualified URL pointing to your token validation route.
@@ -131,9 +152,16 @@ The host application will decrypt RSA-Encrypted messages and return a valid toke
   
   * This route differs from our Token Generation method as it does not require authentication with the host application.
   
-  * The message itself will be encrypted by the Izenda API using the RSAPublicKey found in the Izenda Configuration Database. In its unencrypted form, the message contains the information for a UserInfo object.
+  * The message itself will be encrypted by the Izenda API using the RSAPublicKey found in the Izenda Configuration Database. In its unencrypted form, a message contains the Izenda-centric information of a User Info object, the UserName and the TenantUniqueName.
   
-  * The host application will have a corresponding RSA Private Key to decrypt the message. Once the message is decrypted,  the host application will need to create an token that can be decrypted with your Token Validation route above.
+  
+  * The host application will have a corresponding RSA Private Key to decrypt the message. Once the message is decrypted, the host application will create a User Info object using the information from the decrypted message.
+  
+	* If additional data is usually stored in the host application's User Info object structure, logic will need to exist to retrieve the necessary information.
+	
+* Once a User Info object is created, the object can be encrypted as a token. This token must be decryptable by our Token Validation route "/validatetoken"
+  
+
   
 Validating the token
 ~~~~~~~~~~~~~~~~~~~~
