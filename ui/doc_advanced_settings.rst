@@ -270,6 +270,9 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
       *  -  Show Preview section in Configuration Mode
          -  By selecting this checkbox, both Configuration and Preview sections display in the report part’s backside and setting popups. Otherwise, system only shows Configuration section. This is useful when working with very large datasets as the database is not called until the report part is flipped to the front side.
          -  True
+      *  -  Hide report header and footer by default
+         -  By selecting this checkbox, report header and footer sections are hidden in both Report Viewer and Report Designer - Design. Otherwise, these sections are displayed by default (if any).
+         -  False
 
 Cancel the changes
 -------------------
