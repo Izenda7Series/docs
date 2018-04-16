@@ -7,7 +7,7 @@ Import Report or Dashboard Definition
 
    Import Report or Dashboard Definition is available from release v2.8.0.
 
-The Import Page allow to:
+The Import Page allows system admin to:
 
 * Import reports and dashboards from definition files
 * Configure report name and location for new report
@@ -105,7 +105,7 @@ Overwrite Confirmation pop-up
 
 The Overwrite Confirmation pop-up displays all existing reports and dashboards with their Cataegory. System admin can specify reports or dashboards to overwrite by ticking on the checkboxes then click **OK** button.
 
-.. figure:: /_static/images/ui/import_definition/DataSetup_Import_InProgressPopup.PNG
+.. figure:: /_static/images/ui/import_definition/DataSetup_Import_OverwriteConfirmation.PNG
    :align: center
 
    Import Reports/Dashboards - Overwrite Confirmation popup
@@ -125,7 +125,7 @@ Import Progress pop-up
 * The Import progress pop-up shows the status of all importing transactions.
 * Click on **Cancel the Import** button will abort the progress except the successfully imported reports and dashboards.
 
-.. figure:: /_static/images/ui/import_definition/DataSetup_Import_OverwriteConfirmation.PNG
+.. figure:: /_static/images/ui/import_definition/DataSetup_Import_InProgressPopup.PNG
    :align: center
 
    Import Progress pop-up

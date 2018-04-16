@@ -98,11 +98,11 @@ Exporting and Scheduling
       .. tip::
 
          \- The Definition format is available from release v2.8.0. |br|
-         \- Reports and Dashboards can be export as Definition formats (.birt for report ans .bidb for dashboard) to storage or import to the system. Please read :doc:`Import Report or Dashboard Definition </ui/doc_import_report_dashboard_definition>` for more details.
+         \- Reports and Dashboards can be export as Definition formats (.birt for report and .bidb for dashboard) to storage or import to the system. Please read :doc:`Import Report or Dashboard Definition </ui/doc_import_report_dashboard_definition>` for more details.
 
 -  Reports/Dashboards can be scheduled
 
-   -  Reports and dashboards can be exported through the Email body as a:
+   -  Reports and dashboards can be exported through the Email body as a
       link, embedded, attached as an export, or saved to a file location
       as an export.
    -  For more, see :doc:`How to Schedule </ui/doc_configuration_scheduling>`.
