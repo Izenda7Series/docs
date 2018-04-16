@@ -14,12 +14,12 @@ FIXES
 ^^^^^^
 
 -  Defect  20177  User dropdown menu is hidden behind new overlay in report designer when overlay is still present.
--  Defect  20132  Query error is shown when aggregating calculated field when using self join on one table
--  Defect  19452  Resolved security issue on API
--  Defect  19303  Scheduling Limits functionality does not match the functionality of Access Limits
+-  Defect  20132  Query error is shown when aggregating calculated field when using self join on one table.
+-  Defect  19452  Resolved security issue on API.
+-  Defect  19303  Scheduling Limits functionality does not match the functionality of Access Limits.
 -  Defect  19079  When adding new users to an existing role, access and scheduling rights may not be set properly.
 -  Defect  18996  User is shown the wrong message when viewing a dashboard tile they do not have permission to see. User should see "You do not have permission to view this report.  Please contact your System Administrator for assistance."
--  Defect  18982  Records not returned in report if stored procedure parameters are using filter lookups and filter option is set to NULL
+-  Defect  18982  Records not returned in report if stored procedure parameters are using filter lookups and filter option is set to NULL.
 
 v2.7.1 April 9, 2018
 ~~~~~~~~~~~~~~~~~~~~~~
