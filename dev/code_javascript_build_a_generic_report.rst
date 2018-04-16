@@ -14,7 +14,8 @@ Build a Generic Report
    #. Extract the ``report`` field from the :doc:`/ref/models/ReportSavingResult` object. This is a :doc:`/ref/models/ReportDefinition` object which has been assigned a report id.
    #. Populate the report parts:
 
-      *  :doc:`code_javascript_build_a_simple_grid`
+      *  :doc:`code_javascript_build_a_
+      simple_grid`
       *  :doc:`code_javascript_build_a_simple_chart`
       *  :doc:`code_javascript_build_a_simple_gauge`
       *  :doc:`code_javascript_build_a_simple_map`
