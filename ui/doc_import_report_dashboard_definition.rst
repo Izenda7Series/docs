@@ -30,7 +30,10 @@ Browse file page
 
 .. note::
 
-   The required formats are **.birt** (report file) or **.bidb** (dashboard file)
+   Izenda import report/dashboard definition only allows the following formats: |br|
+
+      \- .birt: the report definition file format |br|
+      \- .bidb: the dashboard definition file format
 
 
 Import Page
