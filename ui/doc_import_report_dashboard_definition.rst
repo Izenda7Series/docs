@@ -125,7 +125,7 @@ Import Progress pop-up
 * The Import progress pop-up shows the status of all importing transactions.
 * Click on **Cancel the Import** button will abort the progress except the successfully imported reports and dashboards.
 
-.. figure:: /_static/images/ui/import_definition/DataSetup_Import_InProgressPopup.PNG
+.. figure:: /_static/images/ui/import_definition/DataSetup_Import_OverwriteConfirmation.PNG
    :align: center
 
    Import Progress pop-up
