@@ -9,11 +9,11 @@ Import Report or Dashboard Definition
 
 The Import Page allows system admin to:
 
-* Import reports and dashboards from definition files
-* Configure report name and location for new report
+* Import reports and dashboards from definition files to system or specific tenant
+* Import reports/dashboards to either Global Category or Local Category
+* Configure reports/dashboards names and locations for new reports/dashboards
 * Define Database Mapping rules and validate data model consistency
 * Define whether import source report settings: source report access right, the filter values
-* Validate data model consistency
 
 
 Browse file page
@@ -21,7 +21,8 @@ Browse file page
 
 #. In browser, log in to Izenda as System Administrator.
 #. Select Settings, then Data Setup, then Import in the left menu.
-#. In browser files page, drag and drops files or click on Browse files button and select files to upload.
+#. Select the Setting Level: either System or a specific tenant to define where the import reports/dashboards belong to.
+#. In browse files page, drag and drops files or click on Browse Files button and select files to upload.
 
 .. figure:: /_static/images/ui/import_definition/DataSetup_Import_BrowserFile.PNG
    :align: center
@@ -30,11 +31,14 @@ Browse file page
 
 .. note::
 
-   Izenda import report/dashboard definition only allows the following formats: |br|
+   * Izenda import report/dashboard definition only allows the following formats: |br|
 
       \- .birt: the report definition file format |br|
       \- .bidb: the dashboard definition file format
 
+   * The version of exported files must be not newer than the current Import system.
+
+   * The system will store uploaded files in folder **IzendaImport** in the app's directory by default. System admin can change file storage by configuring the **ImportFileSystemPath** field in :doc:`IzendaSystemSetting table </ref/spec_izendasystemsetting_table>`.
 
 Import Page
 --------------------------------
@@ -46,17 +50,17 @@ After browsing files, application will switch to **Import Page**.
 
    Import page
 
-#. Tick the **Import the source access** check-box to keep access right in destination. Please notice that any sharing with User and not existing Role Name will not be imported.
+#. Tick the **Import the source access** check-box to keep access right in destination. Please notice that any sharing with User and not existing Role Name will not be imported. The existing sharings in destination will not be altered in case re-import without slecting this option.
 
-#. Tick the **Import the filter values** check-box to import filter values. The existing filter values will not be altered in case re-import.
+#. Tick the **Import the filter values** check-box to import filter values. The existing filter values in destination will not be altered in case re-import without slecting this option.
 
-#. Type the new name for each report and dashboard. If not the current name will be kept as default.
+#. Type the new name for each report and dashboard.
 
-#. Input the category for each report and dashboard.
+#. Input the category and subcategory for each report and dashboard.
 
-#. Choose the destination database name and schema in Database Mapping section. To do mapping easily, click on |information| icon to view :ref:`Report/Dashboard Information pop-up <Import_Definition_Information>`.
+#. Choose the destination database name and schema in Database Mapping section. To do mapping easily, click on |informationIcon| icon to view :ref:`Report/Dashboard Information pop-up <Import_Definition_Information>`.
 
-   .. |information| image:: /_static/images/ui/import_definition/DataSetup_Import_InfoIcon.PNG
+   .. |informationIcon| image:: /_static/images/ui/import_definition/DataSetup_Import_InfoIcon.PNG
 
 #. Click **Import** button to execute the importing progress.
    - If there is any report or dashboard duplication, the :ref:`Overwrite Confirmation pop-up <Import_Definition_Overwrite>` will display. |br|
@@ -64,8 +68,19 @@ After browsing files, application will switch to **Import Page**.
 
 .. note::
 
-   * A dashboard that belongs Global Category cannot contain any local report.
-   * All reports inside dashboard will be override when re-import dashboard.
+   * A dashboard that belongs to Global Category cannot contain any local report.
+
+   * All reports inside dashboard will be always overwritten when overwriting dashboard.
+
+   * Click on |deleteIcon| icon at the end of row to delete a definition file that have just uploaded by mistake.
+
+     .. |deleteIcon| image:: /_static/images/ui/import_definition/DataSetup_Import_DeleteIcon.PNG
+
+   * The subreport link is only maintained in the following cases: |br|
+
+      \- The report and subreport(s) are imported in the same batch |br|
+      \- Re-import one of the reports and both the report and sub-report(s) already exist in destination
+
 
 .. _Import_Definition_Information:
 
@@ -103,7 +118,7 @@ The Information pop-up will list out the following information:
 Overwrite Confirmation pop-up
 ------------------------------
 
-The Overwrite Confirmation pop-up displays all existing reports and dashboards with their Cataegory. System admin can specify reports or dashboards to overwrite by ticking on the checkboxes then click **OK** button.
+The Overwrite Confirmation pop-up displays all existing reports and dashboards with their Category/Subcategory. System admin can specify reports or dashboards to overwrite by ticking on the checkboxes then click **OK** button.
 
 .. figure:: /_static/images/ui/import_definition/DataSetup_Import_OverwriteConfirmation.PNG
    :align: center
@@ -123,7 +138,7 @@ Import Progress pop-up
 -----------------------
 
 * The Import progress pop-up shows the status of all importing transactions.
-* Click on **Cancel the Import** button will abort the progress except the successfully imported reports and dashboards.
+* Click on **Cancel the Import** button will abort the progress except the completed imported reports and dashboards.
 
 .. figure:: /_static/images/ui/import_definition/DataSetup_Import_InProgressPopup.PNG
    :align: center
