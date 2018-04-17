@@ -164,3 +164,14 @@ Some configurable system settings are stored in IzendaSystemSetting table. These
        * 2 = ProvisionSuccess
        * 3 = ProvisionError
      - Should be 2
+   * - **ImportFileSystemPath**
+     - .. container:: 
+
+          The directory to store uploaded file when importing reports/dashboards definition. |br|
+          Izenda supports 3 types of directory: |br| |br|
+
+       * Absolute path. *Example: D:\FolderName*
+       * Relative path. *Example: FolderName*
+       * UNC path. *Example: \\127.0.0.1\SharedFolder*
+
+     - IzendaImport
