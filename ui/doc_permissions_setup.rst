@@ -115,30 +115,51 @@ A permissions object is comprised of several areas
                 * This setting will auto-expand the right-hand properties panel in the designer tab
         * Report Part Types 
             * Chart
+                * This permission will allow a user to build Chart type report parts in the report designer
             * Form
+                * This permission will allow a user to build Form type report parts in the report designer
             * Gauge
+                * This permission will allow a user to build Gauge type report parts in the report designer
             * Maps
+                * This permission will allow a user to build Map type report parts in the report designer
         * Report Categories/Subcategories
             * Can Create New Category?
+                * This permission will determine if a user is able to type in a new category during the save/copy/move actions on a report
         * Filter Properties
             * Filter Logic 
+                * This permission will determine if a user is able to create their own filter logic in the filter panel of the report designer
             * Cross Filtering
+                * This permission will determine if a user is able to set cross filtering behavior in their report
         * Field Properties
             * Custom URL
+                * This permission will determine if the Custom URL option is visible in the field properties panel of the report designer
             * Embedded Javascript
+                * This permission will determine if the Embedded Javascript option is visible in the field properties panel of the report designer
             * Subreport
+                * This permission will determine if the Subreport option is visible in the field properties panel of the report designer
         *Actions
             * Schedule
+                * This permission will allow a user to create scheduled instances in the Schedule tab of of the report designer
             * Register to Alerts
+                * This permission will allow a user to create alerted instances against a report
             * Subscribe
+                * This permission will allow a user to create subscribed instances against reports they have access to
             * Configure Access Rights
+                * This permission will allow a user to share the report by creating Access Rights in the Access tab of the report designer
             * Email
+                * This permission will allow a user to email the contents of a report that they have access to 
             * Print
-            * Exporting
+                * This permission will allow a user to print the contents of a report that they have access to
+            * Export
+                * This permission will allow a user to export the contents of a report to any file types they have access to
             * View Report History
+                * This permission will allow a user to see the version history of a report on their report list
             * Unarchive Report Version
+                * This permission will allow a user to unarchive older version of reports into their own report objects
             * Delete
-            * Overwrite Existing Report
+                * This permission will allow a user to delete existing reports that they have sufficient access to
+            * Overwrite Existing Report 
+                * This permission will allow a user to overwrite existing reports that they have been given sufficient access to
 
 
     .. container:: toggle
@@ -148,17 +169,29 @@ A permissions object is comprised of several areas
                 **Dashboards**:
 
         * Can create new dashboard?
+            * This permission allows a tenant/role to create new dashboards
+
         * Dashboard Categories/Subcategories
-            * Can create new category?
+            * Can create new category?                
+                * This permission will determine if a user is able to type in a new category during the save/copy/move actions on a dashboard
+
         *Actions    
             * Schedule
+                * This permission will allow a user to create scheduled instances in the Schedule tab of of the dashboard designer
             * Subscribe
+                * This permission will allow a user to create subscribed instances against dashboards they have access to
             * Configure Access Rights
+                * This permission will allow a user to share the dashboard by creating Access Rights in the Access tab of the dashboard designer
             * Email
+                * This permission will allow a user to email the contents of a dashboard that they have access to 
             * Print
+                * This permission will allow a user to print the contents of a dashboard that they have access to
             * Export
+                * This permission will allow a user to export the contents of a dashboard to any file types they have access to
             * Delete
+                * This permission will allow a user to delete existing dashboards that they have sufficient access to 
             * Overwrite Existing Report
+                * This permission will allow a user to overwrite existing dashboards that they have been given sufficient access to
 
     .. container:: toggle
 
@@ -168,8 +201,11 @@ A permissions object is comprised of several areas
 
         * Access Limits
             * Roles/Users allowed to share with
+                * This dialogue will determine the list of roles and their users that a user can grant report level access to
         * Access Defaults
-            *
+            * This dialogue will allow you to create default access rights that will get set on every report/dashboard members of this role create
+            * NOTE: These are only default values applied. If that same user has Configure Access Rights set, they can remove these Defaults
+                * These default values are also limited by what roles and users are set in the Access Limits portion above
 
 
     .. container:: toggle
@@ -180,9 +216,12 @@ A permissions object is comprised of several areas
 
         * Scheduling Limits
             * Roles/Users allowed to share with
+                * This dialogue will determine the list of roles and their users that can be added as valid recipients when e-mailing or scheduling a report/dashboard
         * Scheduling Scope
             * System Users
+                * This permission will limit the valid recipients of an e-mail/schedule to only users in the system set in the above Scheduling Limits section
             * External Users
+                * This permission will allow a user to manually enter an e-mail address as a valid recipient even if it does not match a user account in the system
 
 
     .. container:: toggle
@@ -193,8 +232,15 @@ A permissions object is comprised of several areas
 
         * Delivery Method
             * Link
+                * This permission will allow a user to send a link to a report in the e-mail body
+                * NOTE: This is a link to the viewer of the report, which means the recipient will have to be authorized by the system in order to access it.
             * Embedded HTML
+                * This permission will allow a user to send the report contents embedded within the e-mail body
+                * NOTE: The report content is generated from the account of the user sending the e-mail, not the user receiving the content
             * Attachment
+                * This permission will allow a user to send the report contents in a file attached to the e-mail
+                * NOTE: The report content is generated from the account of the user sending the e-mail, not the user receiving the content
+
         * Attachment Type 
             * Word
             * Excel
@@ -227,6 +273,7 @@ A permissions object is comprised of several areas
                 **System-wide**:
 
         * Can see system messages?
+            * This permission will determine if a tenant/role can see system wide messages that are otherwise only at the system level
 
 
 
