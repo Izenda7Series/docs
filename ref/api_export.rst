@@ -50,7 +50,7 @@ Exports the dashboard, report or report part specified in request parameters.
       - XML
       - JSON 
       - Query Excution
-      - Definition (New in version 2.7.0)
+      - Definition (New in version 2.8.0)
 
     **Keys**:
 

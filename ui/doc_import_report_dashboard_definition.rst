@@ -19,7 +19,7 @@ The Import Page allows system admin to:
 * Define whether import source report settings: source report access right, the filter values
 
 
-Browse file page
+Browse File
 ----------------------
 
 #. In browser, log in to Izenda as System Administrator.
@@ -30,7 +30,7 @@ Browse file page
 .. figure:: /_static/images/ui/import_definition/DataSetup_Import_BrowserFile.PNG
    :align: center
 
-   Browse file page
+   Browse File
 
 .. note::
 
@@ -43,7 +43,7 @@ Browse file page
 
    * The system will store uploaded files in folder **IzendaImport** in the app's directory by default. System admin can change the file storage by configuring the **ImportFileSystemPath** field in the :doc:`IzendaSystemSetting table </ref/spec_izendasystemsetting_table>`.
 
-Import Page
+Import
 --------------------------------
 
 After browsing files, application will switch to **Import Page**.
