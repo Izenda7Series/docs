@@ -25,7 +25,7 @@ Browse File
 #. In browser, log in to Izenda as System Administrator.
 #. Select Settings, then Data Setup, then Import in the left menu.
 #. Select the Setting Level: either system or a specific tenant to define where the imported reports/dashboards belong to.
-#. In Browse Files page, drag and drops files or click on Browse Files button and select files to upload.
+#. In Browse Files page, drag and drop files or click on Browse Files button and select files to upload.
 
 .. figure:: /_static/images/ui/import_definition/DataSetup_Import_BrowserFile.PNG
    :align: center
@@ -53,7 +53,7 @@ After browsing files, application will switch to **Import Page**.
 
    Import page
 
-#. Tick the **Import the source access rights** check-box to keep access rights in destination. Please notice that any sharing with User and not existing Role Name will not be imported. All existing sharing in destination will not be altered in case re-import without selecting this option.
+#. Tick the **Import the source access rights** check-box to import access rights to destination. Please notice that any sharing with User and not existing Role Name will not be imported. All existing sharing in destination will not be altered in case re-import without selecting this option.
 
 #. Tick the **Import the filter values** check-box to import filter values. The existing filter values in destination will not be altered in case re-import without selecting this option.
 
