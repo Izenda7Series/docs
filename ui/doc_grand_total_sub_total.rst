@@ -95,3 +95,13 @@ List of Sub Total Functions
      - Return the sum of all values within the field that set Sub Total across the entire group.
    * - Sum Distinct
      - Return the sum unique number of all values within the field that set Sub Total across the entire group.
+
+.. note::
+
+   From v2.6.23, for the Vertical and Horizontal grid, any field that appears in Sub Total expression will be applied the following rules:
+
+      - If a field appears in Sub Total expression and has neither aggregated function nor sort order, it will be populated the ascending sort order in the Field Properties Panel. User can change sort direction but cannot disable sorting on this field.
+
+      - If a field appears in Sub Total expression and has a sort order but not aggregated function, it will be kept as it is.
+
+      - If a field appears in Sub Total expression and has an aggregated function, it is always applied ascending sort before aggregated function. Thus, user can only specify the sort order for aggregation result and no way to sort the origin data.
