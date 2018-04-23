@@ -13,7 +13,7 @@ v2.7.5 April 23, 2018
 FIXES
 ^^^^^
 
--  Defect  20200  When report used in dashboard is edited and new filter is added, this filter is shown in dashboard as common filter, but the pvalues are not accepted as until the dashboard is re-saved the filter is not available in the dashboard definition. 
+-  Defect  20200  When a new filter is added to a report that is used in a dashboard, this filter is shown in the dashboard as common filter but pvalues are not accepted until the dashboard is re-saved.
 -  Defect  20194  Scheduled alert does not send email when using "In Time Period" filter
 -  Defect  20174  Filters should be added to Preview of calculated fields to ensure proper query performance and results.
 -  Defect  19953  Column headers unaligned on pivot grids
