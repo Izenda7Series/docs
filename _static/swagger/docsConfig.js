@@ -1,1 +1,1 @@
-var docsBasePath = location.protocol + '//' + location.host + "/_static/swagger/_specs/";
+var docsBasePath = "https://downloads.izenda.com/.specs/";
