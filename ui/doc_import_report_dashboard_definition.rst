@@ -39,7 +39,7 @@ Browse File
       \- .birt: the report definition file format |br|
       \- .bidb: the dashboard definition file format
 
-   * The version of definition files must be not newer than the current Import system.
+   * The version of definition files must be the same or older than the current Import system.
 
    * The system will store uploaded files in folder **IzendaImport** in the app's directory by default. System admin can change the file storage by configuring the **ImportFileSystemPath** field in the :doc:`IzendaSystemSetting table </ref/spec_izendasystemsetting_table>`.
 
