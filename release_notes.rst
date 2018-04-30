@@ -22,7 +22,7 @@ FEATURES
 	-  Dashboard definitions contain all report definitions which are part of the dashboard
 	-  The files can be imported into the same system or another Izenda instance at any tenant level (system or tenant). This requires the import system to have the same schema based on a database mapping provided at import.
 	-  Imports can be completed by system administrator level users via the UI in Settings>Data Setup area. There are two new tabs for Importing the definition files and viewing the Import History.
-	-  Import and export can also be accomplished via the API. Please see API export options `here <https://www.izenda.com/docs/ref/api_export.html?highlight=export#export-apis>`_  for API information for import  NEED LINK TO SWAGGER DOCS HERE
+	-  Import and export can also be accomplished via the API. Please see API export options `here <https://www.izenda.com/docs/ref/api_export.html?highlight=export#export-apis>`_  for API information for import `here <https://izenda.com/docs/swagger/import-export.html>`_  
 	-  Please see the full documentation for setup and usage of this new feature  `here <https://www.izenda.com/docs/ui/doc_import_report_dashboard_definition.html>`_
 - Export Dashboard 
 	- Dashboards can now be directly exported from the Dashboard menu to all supported export types
