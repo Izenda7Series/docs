@@ -18,16 +18,17 @@ structures placed in
 Separate Database Architecture
 ------------------------------
 
+Each tenant data is
+stored in a separate database with identical structure. |br|
+
 .. _TicketDesk_-_Separate_Database_Architecture:
 
 .. figure:: /_static/images/TicketDesk_-_Separate_Database_Architecture.png
-   :align: right
    :width: 143px
 
    Sample Separate Database Architecture
 
-Each tenant data is
-stored in a separate database with identical structure. |br|
+
 
 #. Add connections to each tenant database at that tenant level.
 
@@ -136,6 +137,10 @@ identified by different values in a "TenantID" field in every table.
        (This setting basically adds a filter condition "TenantID" = <value of the tenant id of the current logged-in user> to
        every query sources used in report)
 
+   .. note::
+
+      Please note that the field must be wrapped in brackets when set. For example: TenantID should be set as [TenantID]
+
    .. _Tenant_Field_advanced_setting:
 
    .. figure:: /_static/images/Tenant_Field_advanced_setting.png
@@ -143,8 +148,3 @@ identified by different values in a "TenantID" field in every table.
 
       Tenant Field Advanced Setting
 
-Reference
----------
-
--  `Multi-Tenant
-   Architectures <https://msdn.microsoft.com/en-us/library/aa479086.aspx>`__

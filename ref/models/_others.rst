@@ -14,6 +14,7 @@ Others
    DataFormating
    EmailSetting
    Entity
+   ExportRequest
    ExportFormatSetting
    ExportMarginTypeSetting
    Item
@@ -38,3 +39,4 @@ Others
    TimePeriod
    ValidateExpiration
    ValueTreeNode
+   RoleVirtualNode

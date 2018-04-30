@@ -11,8 +11,11 @@ Upgrade Preparations
 --------------------
       
   * Determine Your Current Version: There are several ways to check your Izenda version. After the upgrade process is complete, be sure that each of your Izenda components are the same version.
+  
     * In the Izenda platform, navigate to the "Settings" panel. The "License Information" section will contain the current Izenda version.
+    
     * In your Izenda Configuration Database, query for the 'Version' field in the IzendaDBVersion Table. This will let you identify your database version.
+    
     * In Windows Explorer, navigate to your API's bin directory (in stand alone versions of the API, this will be located at /API/bin/). Locate a dll prefixed with "Izenda." Right click > properties > details. This will provide you with the current API version of Izenda.
   
 -  Permissions and Tools
@@ -41,17 +44,16 @@ Locating Specific Schema Migration Scripts
    *  .. _Upgrade_Izenda_App_folder:
 
       .. figure:: /_static/images/Izenda_App_folder2.png
-         :align: right
-         :width: 482px
 
          Front-end package
 
-      Locating the Schema Migration Scripts. |br|
-
+      Locating the Schema Migration Scripts.
+      
 
 The Schema Migration Assistant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you are upgrading your environment to two or more versions newer than your current version, it is recommended that you utilize the ` Schema Migration Assistant <https://tools.izenda.com/>`__ to compile and download all necessary scripts for your upgrade.
+If you are upgrading your environment to two or more versions newer than your current version, it is recommended that you utilize the `Schema Migration Assistant
+<https://tools.izenda.com/>`_  to compile and download all necessary scripts for your upgrade.
 This tool allows you to specify your Current Version, Target Version, and Database Type. If the "Download as sql script" is checked, your compiled script will automatically be downloaded. If this option is unchecked, your compiled script will be displayed in your browser.
 
       .. figure:: /_static/images/schema_migration_assistant.png

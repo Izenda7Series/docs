@@ -21,3 +21,7 @@ Build the documentation and automatically build them on any change:
 
       make livehtml
       open http://127.0.0.1:8000/
+
+## Google Analytics
+
+The Izenda documentation utilizes Google Analytics. You can configure or remove Google Analytics by editing the [page.html](_templates/page.html) file.

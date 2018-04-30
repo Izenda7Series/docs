@@ -1,6 +1,6 @@
-=====================
-BI Portal Custom CSS
-=====================
+=================================
+Customizing the Application's CSS
+==================================
 
 .. note::
 
@@ -327,11 +327,11 @@ Common CSS Customizations
 	    padding: 5px !important;
     }
   
-  .. figure::   /_static/images/custom_css/DefaultReportGridPadding.png
+  .. figure::   /_static/images/custom_css/DefaultReportGridPadding.PNG
   
      Default grid padding
   
-  .. figure:: /_static/images/custom_css/CustomReportGridPadding.png
+  .. figure:: /_static/images/custom_css/CustomReportGridPadding.PNG
 
     After customizing the grid's padding
 
@@ -352,11 +352,11 @@ Common CSS Customizations
       width: 8.33333% !important;
     }
 
-  .. figure:: /_static/images/custom_css/DefaultReportListWidths.png
+  .. figure:: /_static/images/custom_css/DefaultReportListWidths.PNG
   
      Default report list widths
   
-  .. figure:: /_static/images/custom_css/CustomReportListWidths.png
+  .. figure:: /_static/images/custom_css/CustomReportListWidths.PNG
     
      After customizing the report list widths
 
@@ -374,3 +374,32 @@ Common CSS Customizations
   .. figure::   /_static/images/custom_css/VisibleFilterDescription.png
   
      Filter with visible (default) description
+		 
+		 
+		 
+Customizing the Report Designer Tooltips & Overlay
+------------------------------------------------------
+Izenda version v2.7.0 and greater feature new tooltips and overlays to provide guidance to the user for creating reports. 
+
+
+  .. figure::   /_static/images/270_RD_overlay.png
+	
+	
+These items can be customized using the CSS samples below:
+
+
+  .. code-block:: css
+
+		/* Customize the tooltip */
+		.tooltip .tooltip-inner.info {
+			background-color: #8e8e8f;
+			color: #fff;
+			font-size: 13px;
+			max-width: 250px;
+			padding: 10px;
+		}
+
+		/* Customize the overlay */
+		.izenda .izenda-ReportDesigner .izenda-ReportDesigner-Overlay {
+			background-color: rgba(255,105,180,0.75)
+		}   

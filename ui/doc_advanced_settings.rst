@@ -206,7 +206,7 @@ In Advanced Settings page, click on Others tab in Middle Panel to view the items
       :align: center
       :width: 1649px
 
-      Setting values provied in Others group
+      Setting values provided in Others group
 
   .. list-table::
       :widths: 20 65 15

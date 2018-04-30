@@ -106,6 +106,21 @@ Returns an array of visible query sources, paged and sorted, filtered by type an
 
     Payload: a :doc:`models/QuerySourcePagedRequest` object
 
+    .. note::
+       
+       The keys for :doc:`models/SearchCriteria` that this API support: |br|
+       - All |br|
+       - Category |br|
+       - DatabaseName |br|
+       - DataSourceName |br|
+       - DataSourceAlias |br|
+       - ColumnName |br|
+       - DataType |br|
+       - ColumnAlias |br|
+       - SchemaName |br|
+       - DataObject |br|
+       - DataObjectType
+
 **Response**
 
     A :doc:`models/PagedResult` object, with **result** field containing an array of :doc:`models/QuerySource` objects
@@ -192,6 +207,22 @@ Will load from remote connection if they are not yet populated in system.
 **Request**
 
     Payload: a :doc:`models/QuerySourceFieldPagedRequest` object
+
+    .. note::
+       
+       The keys for :doc:`models/SearchCriteria` that this API support: |br|
+       - All |br|
+       - Category |br|
+       - DatabaseName |br|
+       - DataSourceName |br|
+       - DataSourceAlias |br|
+       - ColumnName |br|
+       - DataType |br|
+       - ColumnAlias |br|
+       - SchemaName |br|
+       - DataObject |br|
+       - DataObjectType
+
 
 **Response**
 
@@ -336,6 +367,12 @@ Returns an array of connections infor with paging.
 **Request**
 
    Payload: a :doc:`models/PagedRequest` object.
+
+   .. note::
+       
+       The keys for :doc:`models/SearchCriteria` that this API support: |br|
+       - Id |br|
+       - Name
 
 **Response**
 
@@ -500,6 +537,12 @@ Returns an array of the :term:`query source categories <query source category>` 
 **Request**
 
     Payload: a :doc:`models/QuerySourceCategoryPagedRequest` object.
+
+    .. note::
+       
+       The keys for :doc:`models/SearchCriteria` that this API support: |br|
+       - Id |br|
+       - Name
 
 **Response**
 
@@ -974,6 +1017,12 @@ Returns the schema of stored procedures after using user-supplied parameters to 
 **Request**
 
     Payload: a :doc:`models/ReloadQuerySourceRequest` object
+
+    .. note::
+       
+       The keys for :doc:`models/SortOrder` that this API support: |br|
+       - ColumnName |br|
+       - ColumnAlias |br|
 
 **Response**
 
@@ -2081,6 +2130,8 @@ Returns a paged array of database servers and database names.
 
     A :doc:`models/DatabaseMappingPagedRequest` object
 
+    **Notes:** Key for :doc:`models/SearchCriteria` support to search: "databaseName"
+
 **Response**
 
     A :doc:`models/PagedResult` object, with **result** field containing an array of the following object:
@@ -2169,6 +2220,8 @@ Returns a paged array of connection names or schema names in the specified datab
    A :doc:`models/PagedResult` object, with **result** field containing an array of strings.
 
    If :doc:`models/DatabaseMappingPagedRequest`.``type`` is ``2`` (Database), return connection names, else return schema names.
+
+   **Notes:** Key for :doc:`models/SearchCriteria` support to search: "objectName"
 
 **Samples**
 
