@@ -29,6 +29,7 @@
         background: #fafafa;
       }
     </style>
+	<script src="../_static/swagger/docsConfig.js"></script>
   </head>
 
   <body>
@@ -41,7 +42,7 @@
 
       // Build a system
       const ui = SwaggerUIBundle({
-        url: "http://localhost:8200/Import_Export_External_APIs.yaml",
+		url: docsBasePath + "Import_Export_External_APIs.yaml",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
