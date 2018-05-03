@@ -1,5 +1,5 @@
 ==========================
-Setting up Permissions
+Permissions Setup
 ==========================
 
 .. contents:: Table of Contents
@@ -10,12 +10,19 @@ Setting up Permissions
 What are Permissions? 
 --------------------------------
 Permissions are how you grant functionality to users in your instance of Izenda. These include several areas like:
+
     - Controlling what types of report parts they can create
     - Setting who they can share their reports with
     - Determining if they can access and manipulate their tenant's data model
 
 In a multi-tenant instance you can set permission at both the tenant and role level. In this scenario, the tenant will act like a ceiling for a role's permissions.
 
+    - If a tenant object does not have access to a particular permission, then no roles within that tenant can have access to that permission
+    - Tenant permissions will generally be inherited down into the role permissions when you are creating new roles within that tenant
+
+----------------------------------------------------------------
+
+.. Permissions_Overview:
 
 Permissions Overview
 --------------------------------
@@ -30,8 +37,7 @@ A permissions object is comprised of several areas
         * Scheduled Instances
             * This permission determines if a tenant/role has access to a master search dialogue to audit all scheduled/subscribed instances
                 * The search dialogue is located in the Settings > System Configuration > Scheduling tab
-            * ADD A PICTURE OF THE DIALOGUE
-
+                
 
     .. container:: toggle
 
@@ -279,6 +285,256 @@ A permissions object is comprised of several areas
 
 ----------------------------------------------------------------
 
-
-Additional Reference
+Difference Between Tenant Permissions and Role Permissions
 --------------------------------
+
+Permissions can be set in two place: at the tenant level and at the role level. While a majority of the permission objects are the same, there are some difference between them.
+
+
+    * Tenant Level Differences
+        - Tenant Access Checkboxes
+            * This column of checkboxes along the right-hand side of the permissions tab determines if these permission are visible during the Role Setup process
+                * If Tenant Access is not set, then you will not see that permission during role setup, but the role will still inherit what is set behind the scenes
+                * If Tenant Access is set, then you will see that permission during role seutp and can choose to remove that permission from that particular role
+            * If this checkbox is set AND the corresponding permission is set, then you will be able to disable or enable this option on a per-role basis during role setup.
+
+    * Role Level Differences
+        - Full Report and Dashboard Access
+            * This permission will make this role a reporting power user. They will be able to access every report and dahsboard regardless of this role's data access or Access Rights that are set on a report 
+        - Report Category Accessibility
+            * This dialogue will determine the visiblity/access this role has to the corresponding report category
+            * It is dividied into three containers:
+                * Available Categories
+                    * This container will show all report categories that exist in the tenant
+                * Visible Categories 
+                    * This container will show any report categories that users in this role can see reports within
+                * Categories Allowed for Saving Reports 
+                    * This container will show any report categories that users in this role can save reports within
+            * NOTE: This dialogue is changed automatically by the Access Rights that get set on certain reports
+        - Dashboard Category Accessibility
+            * This dialogue will determine the visiblity/access this role has to the corresponding report category
+            * It is dividied into three containers:
+                * Available Categories
+                    * This container will show all dashboard categories that exist in the tenant
+                * Visible Categories 
+                    * This container will show any report dashboard that users in this role can see reports within
+                * Categories Allowed for Saving Reports 
+                    * This container will show any report dashboard that users in this role can save reports within
+            * NOTE: This dialogue is changed automatically by the Access Rights that get set on certain reports
+
+
+----------------------------------------------------------------
+
+Difference Between System Level Roles and Tenant Level Roles
+--------------------------------
+
+Roles can exist at both the system level and the tenant level. While a majority of both roles are the same, roles at the system level have a unique Tenant Setup category of their permissions object. 
+
+    * Tenant Setup  
+        * Actions
+            * Create
+                * This permission grants access for the role to create new tenants
+            * Edit
+                * This permission grants access for the role to edit existing tenants
+            * Delete
+                * This permission grants access for the role to delete existing tenants
+        * Permissions
+            * This permission will determine if this role has access to the Tenant Setup tab of the Settings page
+
+
+----------------------------------------------------------------
+
+
+Permission Settings that Impact UI Elements
+--------------------------------
+
+Some of the permissions, when not granted to a tenant/role, will cause some of Izenda's UI elements to not render on certain pages. Below are a list of the elements, by page, that can be configured by certain permissions
+
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Report List**:
+
+        .. figure::  /_static/images/Permissions_Report_List_Elements.png
+            :align: center
+            :width: 1100px
+
+        #. Report Tab +
+            * This is controlled by the Report > Can Create New Report? permission
+        #. Print Button
+            * This is controlled by the Report > Actions > Print permission
+        #. Export Dropdown
+            * This is controlled by the Report > Actions > Export permission
+                * Note that the dropdown options are controlled in the Exporting section of permissions
+        #. Email Button
+            * This is controlled by the Report > Actions > Email permission
+        #. Subscribe Button
+            * This is controlled by the Report > Actions > Subscribe permission
+        #. Version Dialogue
+            * This is controlled by the Report > Actions > View Report History permission
+
+
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Report Viewer**:
+
+        .. figure::  /_static/images/Permissions_Report_Viewer_Elements.png
+            :align: center
+            :width: 1100px
+
+        #. Subscribe Button
+            * This is controlled by the Report > Actions > Subscribe permission
+        #. Print Button
+            * This is controlled by the Report > Actions > Print permission
+        #. Email Button
+            * This is controlled by the Report > Actions > Email permission
+                * Note that the email dialogue is controlled in the Emailing section of permissions
+        #. Export Button
+            * This is controlled by the Report > Actions > Export permission
+                * Note that the dropdown options are controlled in the Exporting section of permissions
+        #. Edit Dropdown > View History Dialogue
+            * This is controlled by the Report > Actions > View Report History permission
+
+
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Report Designer**: 
+
+        .. figure::  /_static/images/Permissions_Report_Designer_Elements.png
+            :align: center
+            :width: 1100px
+
+        #. Report Part Selection
+            * The list of report parts a user can build is controlled by the Report > Report Part Types permissions
+        #. Filter Logic
+            * This is controlled by the Reports > Filter Properties > Filter Logic permission
+        #. Cross Filtering
+            * This is controlled by the Reports > Filter Properties > Cross Filtering permission
+        #. Custom URL
+            * This is controlled by the Reports > Field Properties > Custom URL permission
+        #. Embedded Javascript
+            * This is controlled by the Reports > Field Properties > Embedded Javascript permission            
+        #. Subreports
+            * This is controlled by the Reports > Field Properties > Subreport permission
+        #. Scheduling Tab
+            * This is controlled by the Report > Actions > Schedule permission
+        #. Access Tab
+            * This is controlled by the Report > Actions > Configure Access Rights permission
+    
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Dashboard List**: 
+                
+        .. figure::  /_static/images/Permissions_Dashboard_List_Elements.png
+            :align: center
+            :width: 1100px
+
+        #. Dashboard Tab +
+            * This is controlled by the Report > Can Create New Dashboard? permission
+        #. Print Button
+            * This is controlled by the Report > Actions > Print permission
+        #. Export Button
+            * This is controlled by the Report > Actions > Export permission
+        #. Email Button
+            * This is controlled by the Report > Actions > Email permission
+        #. Subscribe Button
+            * This is controlled by the Report > Actions > Subscribe permission
+
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Dashboard Viewer/Designer**: 
+
+        .. figure::  /_static/images/Permissions_Dashboard_ViewDesign_Elements.png
+            :align: center
+            :width: 1100px
+
+        #. Access Button
+            * This is controlled by the Report > Actions > Configure Access Rights permission
+        #. Schedule Button
+            This is controlled by the Report > Actions > Schedule permission
+        #. Print Button
+            * This is controlled by the Report > Actions > Print permission
+        #. Export Button
+            * This is controlled by the Report > Actions > Export permission
+                * Note that the dropdown options are controlled in the Exporting section of permissions
+        #. Email button
+            * This is controlled by the Report > Actions > Email permission
+                * Note that the email dialogue is controlled in the Emailing section of permissions
+
+    .. container:: toggle
+
+        .. container:: header 
+
+                **Settings Page**: 
+                
+        .. container:: toggle
+
+            .. container:: header 
+
+                    **Data Setup**: 
+
+            .. figure::  /_static/images/Permissions_Settings_DataSetup_Elements.png
+                :align: center
+                :width: 1100px
+
+            #. Data Model Tab
+                * This is controlled by the Data Setup > Data Model permission
+            #. Advanced Settings Tab
+                2a. Category Tab
+                    * This is controlled by the Data Setup > Advanced Settings > Category permission
+                2b. Others Tab
+                    * This is controlled by the Data Setup > Advanced Settings > Others permissions
+
+        .. container:: toggle
+
+            .. container:: header 
+
+                    **Role Setup**:
+
+            .. figure::  /_static/images/Permissions_Settings_RoleSetup_Elements.png
+                :align: center
+                :width: 1100px
+
+            #. Data Model Access Tab
+                * This is controlled by the Role Setup > Data Model Access permission
+            #. Permissions Tab
+                * This is controlled by the Role Setup > Permissions permission
+                2a. Grant Full Report and Dashboard Access Permission 
+                    * This is controlled by the Role Setup > Grant Role with Full Report and Dashboard Access permission
+
+        .. container:: toggle
+
+            .. container:: header 
+
+                    **User Setup**:
+
+            .. figure::  /_static/images/Permissions_Settings_UserSetup_Elements.png
+                :align: center
+                :width: 1100px
+
+            #. Configure Password Button
+                * This is controlled by the User Setup > Actions > Configure Password Options permission
+            #. User Role Association Dialogue
+                * This is controlled by the User Setup > User Role Association Permission
+
+        .. container:: toggle
+
+            .. container:: header 
+
+                    **System Configuration**: 
+                    
+            .. figure::  /_static/images/Permissions_Settings_SystemConfiguration_Elements.png
+                :align: center
+                :width: 1100px
+
+            #. Scheduling Tab
+                * This is configured by the System Configuration > Scheduled Instances permission
