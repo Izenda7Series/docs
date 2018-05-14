@@ -17,8 +17,8 @@ FIXES
 -  Defect  20453  Custom JavaScript referencing field name returns [object Undefined]
 -  Defect  20233  Special characters in field name throws error in report designer
 -  Defect  20195  Endpoint to Create/Modify tenants in integrated modes does not allow for updates to permission and data setup
--  Defect  20115  Reports list is empty after deleting schema at Tenant level with mapping type is database
--  Defect  19891  Dashboard fails to load the global embedded subreport in Tenant level
+-  Defect  20115  Report list is empty after deleting schema at the Tenant level when mapping type is database
+-  Defect  19891  Dashboard fails to load the global embedded subreport at the Tenant level
 -  Defect  16576  Grand Total columns are out of alignment with the field columns when user changes field width
 
 
