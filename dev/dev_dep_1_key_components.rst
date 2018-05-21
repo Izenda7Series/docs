@@ -1,6 +1,14 @@
 ==================================================
 Deployment Mode 1: Key Components for Integration
 ==================================================
+Deployment Mode 1 is considered a loose integration where the Izenda API resources exist *outside* the host application. 
+
+	* The Host Application can use any Web language/framework
+	
+	* Authorization logic is handled RESTfully. Host application must provide RESTful endpoints for token validation and server-side token generation.
+	
+	* The Izenda "Front End" can be served from the same application that maintains authentication and authorization but may also exist as a separate application.
+
 
 The following diagram illustrates the minimum components necessary for an application in deployment mode 1.
 
