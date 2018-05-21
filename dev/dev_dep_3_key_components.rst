@@ -14,8 +14,7 @@ Deployment Mode 3 is considered a tight integration where the Izenda API resourc
 	Deployment Mode 3 may result in versioning conflicts if your application utlizes resources that are also used within the Izenda API. If your application contains resources that may conflict, the recommended deployment mode is Deployment Mode 1. A full list of Izenda dependencies can be found `here. <https://www.izenda.com/docs/acknowledgements.html>`_
 
 
-..note::
-	A full `tutorial. <https://www.izenda.com/docs/dev/howto_mvc5kit.html>`_ is available for creating an application that uses Deployment Mode 3.
+A full `tutorial. <https://www.izenda.com/docs/dev/howto_mvc5kit.html>`_ is available for creating an application that uses Deployment Mode 3.
 	
 	
 The following diagram illustrates the minimum components necessary for an application in deployment mode 3.
