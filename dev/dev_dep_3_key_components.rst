@@ -19,7 +19,7 @@ A full `tutorial. <https://www.izenda.com/docs/dev/howto_mvc5kit.html>`_ is avai
 	
 The following diagram illustrates the minimum components necessary for an application in deployment mode 3.
 
-[Image]
+.. figure:: /_static/images/dev/dev_dep_3_key_components/Deployment3_Workflow.png  
 	
 Configuring The Host Application for Izenda's API Resources
 =======================================================
