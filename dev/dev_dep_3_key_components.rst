@@ -13,8 +13,10 @@ Deployment Mode 3 is considered a tight integration where the Izenda API resourc
 .. DANGER::
 	Deployment Mode 3 may result in versioning conflicts if your application utlizes resources that are also used within the Izenda API. If your application contains resources that may conflict, the recommended deployment mode is Deployment Mode 1. A full list of Izenda dependencies can be found `here. <https://www.izenda.com/docs/acknowledgements.html>`_
 
-..NOTE::
+
+..note::
 	A full `tutorial. <https://www.izenda.com/docs/dev/howto_mvc5kit.html>`_ is available for creating an application that uses Deployment Mode 3.
+	
 	
 The following diagram illustrates the minimum components necessary for an application in deployment mode 3.
 
@@ -37,7 +39,7 @@ The Web Config contains all of the configuration information for your applicatio
 	* This may include global values you wish to keep in once place such as credentials for back-end API interactions, the routing prefix your application will ignore in the RouteConfig, and the Izenda API URL that will be used on the client side to make requests to the Izenda API.
 
 
-A detailed guide for creating  the Web.Config can be found here `here. <https://www.izenda.com/docs/dev/howto_mvc5kit.html#izenda-api-service-hosting-config >`_ 
+A detailed guide for creating  the Web.Config can be found `here. <https://www.izenda.com/docs/dev/howto_mvc5kit.html#izenda-api-service-hosting-config>`_ 
 
 .. note::
 	After downloading a new version of the Izenda API, you will need to ensure that any updates in the new API resource's Web.Config are reflected in the host application's Web.Config
