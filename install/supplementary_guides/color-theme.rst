@@ -14,7 +14,7 @@ Configuration
 * A color theme file is a JSON file that contains the following properties: |br|
 
    \- **name**: The name of the theme |br|
-   \- **colors**: An array of HEX color code
+   \- **colors**: An array of HEX color codes
 
 
    **Example:** The mariner.JSON is a color theme file with the content:
