@@ -732,8 +732,10 @@ Returns the global category and local category.
          }
       ]
 
+.. _GET_systemSetting/themes:
+
 GET systemSetting/themes
----------------------------
+------------------------------
 
 .. versionadded:: 2.9.0
 
