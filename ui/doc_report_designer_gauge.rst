@@ -12,7 +12,7 @@ Define a Linear Gauge
 
 .. _Gauge_Properties:
 
-.. figure:: /_static/images/Gauge_Properties.png
+.. figure:: /_static/images/Gauge_Properties.PNG
    :align: right
    :width: 251px
 
@@ -67,6 +67,20 @@ Preview pane:
 
 -  Customize the relative distance between the tick marks (in Intervals
    box for Linear Gauge only).
+-  .. _Gauge_Border_Settings:
+
+   .. figure:: /_static/images/Gauge_Border_Settings.png
+      :align: right
+      :width: 458px
+
+      Report Designer - Color Theme Selection
+
+   Configure color theme settings:
+
+   #. In Gauge group, click the gear icon (⚙) after the Color Theme option to open Color Theme Selection pop-up.
+   #. Choose a color theme.
+   #. Click OK to close the Color Theme Selection pop-up. |br|
+
 -  Select to use Separator. (See `Define
    Separator`_)
 -  It looks better to invert the Linear Gauge (to horizontal direction).

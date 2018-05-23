@@ -59,8 +59,7 @@ Preview pane:
 
 
 
--  Set the
-   background color.
+-  Set the background color.
 
    #. In Chart group, click the gear icon (⚙) to open Chart Background
       Color Settings pop-up.
@@ -115,6 +114,20 @@ Preview pane:
          :width: 680px
 
          Chart - Grid Lines Settings |br|
+
+
+-  Configure color theme. This option is available from version 2.9.0.
+
+   #. In Chart group, click the gear icon (⚙) next to the Color Theme option to open Color Theme Selection pop-up.
+   #. Select a color theme and click OK to the pop-up.
+
+      .. _Color_Theme_Selection:
+
+      .. figure:: /_static/images/Color_Theme_Selection.PNG
+         :width: 680px
+
+         Chart - Color Theme Selection |br|
+
 
 -  Configure the text direction for
    the labels.
