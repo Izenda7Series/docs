@@ -128,6 +128,20 @@ Preview pane:
 
          Chart - Color Theme Selection |br|
 
+-  Configure multiple color. This option is available from version 2.9.0.
+
+   #. In Chart group, select Multi-Color checkbox.
+   #. Then the chart will recieve one color per point.
+
+   **Notes:**
+
+   \- Multi-Color option is only available for single metric chart. |br|
+   \- Heat Map and Sparkline chart type do not support Multi-Color. |br|
+
+   .. figure:: /_static/images/Multi-Color-CountOrder-Country.PNG
+
+      Chart - Multiple Color Column Chart |br|
+
 
 -  Configure the text direction for
    the labels.

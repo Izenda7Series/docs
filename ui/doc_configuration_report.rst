@@ -63,14 +63,20 @@ Customize the names for "Global Categories" and "Local Categories"
 
 Set Default Color Theme for Chart, Gauge, and Map
 ---------------------------------------------------
+   .. figure:: /_static/images/Customize_Color_Pallete_Selection_Popup.PNG
+      :width: 604px
+      :align: right
 
-#. In browser, log in to Izenda as a user with System Configuration
-   permission.
-#. Click Settings, then System Configuration then Report in the left
-   menu.
-#. Select the Setting Level: either System or a specific tenant.
-#. In Default Color Theme for Chart, Gauge, and Map section, click geer icon
-#. In Default Color Theme Selection popup, choose any theme then click OK to save the setting.
+   #. In browser, log in to Izenda as a user with System Configuration
+      permission.
+   #. Click Settings, then System Configuration then Report in the left
+      menu.
+   #. Select the Setting Level: either System or a specific tenant.
+   #. In Default Color Theme for Chart, Gauge, and Map section, click geer icon
+   #. Choose any theme then click OK to close Default Color Theme Selection popup. |br|
 
-.. figure:: /_static/images/Customize_Color_Pallete_Selection_Popup.PNG
-   :width: 792px
+
+.. note::
+
+   The default color theme setting at Tenant level take precedence over the setting at System level.
+

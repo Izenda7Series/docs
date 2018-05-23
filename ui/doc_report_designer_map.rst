@@ -60,17 +60,18 @@ Preview pane:
    #. Select the border thickness (in pixels).
    #. Click OK to close the Border Settings pop-up. |br|
 
--  Configure border settings:
-
-   #. In Map group, click the gear icon (⚙) next to the Color Theme option to open Color Theme Selection pop-up.
-   #. Select a color theme and click OK to the pop-up.
-
-      .. _Color_Theme_Selection:
+-  .. _Color_Theme_Selection:
 
       .. figure:: /_static/images/Color_Theme_Selection.PNG
-         :width: 680px
+         :width: 604px
+         :align: right
 
          Map - Color Theme Selection |br|
+         
+   Configure color theme settings:
+
+   #. In Map group, click the gear icon (⚙) next to the Color Theme option to open Color Theme Selection pop-up.
+   #. Select a color theme and click OK to the pop-up. |br|
 
 -  .. _Report_Map_Background_Color_Settings:
 
