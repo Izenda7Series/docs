@@ -47,6 +47,10 @@ List of APIs
      - Lazy load access limit data for each role.
    * - `POST role/scheduleLimits`_
      - Lazy load schedule limit data for each role.
+   * - `POST role/loadPartialDataModelAccess`_
+
+      .. versionadded:: 2.9.0
+     - Load data model access partially.
 .. _GET_role/all/(tenant_id):
 
 GET role/all/(tenant_id)
@@ -2162,3 +2166,302 @@ Lazy load schedule limit data for each role.
          "id":"00000000-0000-0000-0000-000000000000",
          "parentId":null
       }
+
+POST role/loadPartialDataModelAccess
+--------------------------------------
+
+.. versionadded:: 2.9.0
+
+Load data model access partially.
+
+**Request**
+
+    A :doc:`models/DataModelAccessPagedRequest` objects
+
+**Response**
+
+   The following object:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **data** |br|
+            array of objects
+         -  An array of :doc:`models/DataSourceItem` objects
+         -
+      *  -  **totalItems** |br|
+            string
+         -  The number of all items
+         -
+      *  -  **numOfChilds** |br|
+            integer
+         -  The number of children
+         -
+      *  -  **numOfCheckedChilds** |br|
+            integer
+         -  The number of selected children
+         -
+      *  -  **indeterminate** |br|
+            boolean
+         -  *  true if 0 < numOfCheckedChilds < numOfChilds
+            *  false if not
+         -
+      *  -  **isLastPage** |br|
+            boolean
+         -  Whether this is the last page
+         -
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/role/loadPartialDataModelAccess HTTP/1.1
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Request Payload:
+
+      .. code-block:: json
+
+         {  
+            "tenantId":null,
+            "roleId":"8fab386f-9c86-4d2b-8b54-871f6fbb553c",
+            "skipItems":0,
+            "pageSize":100,
+            "parentIds":[  
+
+            ],
+            "criteria":[  
+               {  
+                  "key":"DataSourceName",
+                  "value":""
+               },
+               {  
+                  "key":"ShowCheckedQuerySource",
+                  "value":false
+               }
+            ],
+            "visibleQuerySourcesTree":[  
+               {  
+                  "id":"45ae7e31-45b7-41c7-be8d-a7af581233cf",
+                  "name":"[MSSQL] northwind",
+                  "checked":false,
+                  "interacted":false,
+                  "indeterminate":true,
+                  "numOfCheckedChilds":1,
+                  "uncheckedSSO":false,
+                  "childNodes":[  
+                     {  
+                        "id":"9fb6956d-6a0f-4efd-b1b9-14d7791d2a37",
+                        "name":"dbo",
+                        "checked":false,
+                        "interacted":false,
+                        "indeterminate":true,
+                        "numOfCheckedChilds":0,
+                        "uncheckedSSO":false,
+                        "childNodes":[  
+                           {  
+                              "id":"d258df08-cade-42c7-8461-41fdfc963fd8",
+                              "name":"Table",
+                              "checked":false,
+                              "interacted":false,
+                              "indeterminate":true,
+                              "numOfCheckedChilds":48,
+                              "uncheckedSSO":false,
+                              "childNodes":[  
+                                 {  
+                                    "id":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                    "name":"Categories",
+                                    "checked":false,
+                                    "interacted":false,
+                                    "indeterminate":false,
+                                    "numOfCheckedChilds":0,
+                                    "uncheckedSSO":false,
+                                    "childNodes":[  
+                                       {  
+                                          "id":"3da82486-6de5-4125-9404-7cce7fbf1d6d",
+                                          "name":"CategoryID",
+                                          "checked":false,
+                                          "interacted":true,
+                                          "indeterminate":false,
+                                          "numOfCheckedChilds":0,
+                                          "uncheckedSSO":false,
+                                          "childNodes":[  
+
+                                          ]
+                                       }
+                                    ]
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+
+
+   .. container:: toggle
+
+      .. container:: header
+
+         Sample response:
+
+      .. code-block:: json
+      
+         {  
+            "data":[  
+               {  
+                  "id":"45ae7e31-45b7-41c7-be8d-a7af581233cf",
+                  "name":"[MSSQL] northwind",
+                  "childNodes":[  
+                     {  
+                        "id":"9fb6956d-6a0f-4efd-b1b9-14d7791d2a37",
+                        "name":"dbo",
+                        "childNodes":[  
+                           {  
+                              "id":"d258df08-cade-42c7-8461-41fdfc963fd8",
+                              "name":"Table",
+                              "childNodes":[  
+                                 {  
+                                    "id":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                    "name":"Categories",
+                                    "childNodes":[  
+                                       {  
+                                          "id":"3da82486-6de5-4125-9404-7cce7fbf1d6d",
+                                          "name":"CategoryID",
+                                          "childNodes":[  
+
+                                          ],
+                                          "parentId":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                          "checked":false,
+                                          "isLeafItem":true,
+                                          "expand":true,
+                                          "isCheck":false,
+                                          "indeterminate":false,
+                                          "interacted":false,
+                                          "fullPath":null,
+                                          "numOfChilds":0,
+                                          "numOfCheckedChilds":0,
+                                          "isLastPage":false
+                                       },
+                                       {  
+                                          "id":"662a510c-372b-4f61-8de7-bba44b23d223",
+                                          "name":"CategoryName",
+                                          "childNodes":[  
+
+                                          ],
+                                          "parentId":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                          "checked":false,
+                                          "isLeafItem":true,
+                                          "expand":true,
+                                          "isCheck":false,
+                                          "indeterminate":false,
+                                          "interacted":false,
+                                          "fullPath":null,
+                                          "numOfChilds":0,
+                                          "numOfCheckedChilds":0,
+                                          "isLastPage":false
+                                       },
+                                       {  
+                                          "id":"b09980c1-cf42-4117-b53d-70bc1e9d42e7",
+                                          "name":"Description",
+                                          "childNodes":[  
+
+                                          ],
+                                          "parentId":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                          "checked":false,
+                                          "isLeafItem":true,
+                                          "expand":true,
+                                          "isCheck":false,
+                                          "indeterminate":false,
+                                          "interacted":false,
+                                          "fullPath":null,
+                                          "numOfChilds":0,
+                                          "numOfCheckedChilds":0,
+                                          "isLastPage":false
+                                       },
+                                       {  
+                                          "id":"dfc9d123-3c94-47a1-a2fa-e0464bd0f0ae",
+                                          "name":"Picture",
+                                          "childNodes":[  
+
+                                          ],
+                                          "parentId":"9947c7ad-47be-4953-826a-6c5ceaa5593d",
+                                          "checked":false,
+                                          "isLeafItem":true,
+                                          "expand":true,
+                                          "isCheck":false,
+                                          "indeterminate":false,
+                                          "interacted":false,
+                                          "fullPath":null,
+                                          "numOfChilds":0,
+                                          "numOfCheckedChilds":0,
+                                          "isLastPage":true
+                                       }
+                                    ],
+                                    "parentId":"d258df08-cade-42c7-8461-41fdfc963fd8",
+                                    "checked":false,
+                                    "isLeafItem":false,
+                                    "expand":true,
+                                    "isCheck":false,
+                                    "indeterminate":false,
+                                    "interacted":false,
+                                    "fullPath":null,
+                                    "numOfChilds":4,
+                                    "numOfCheckedChilds":0,
+                                    "isLastPage":true
+                                 }
+                              ],
+                              "parentId":"9fb6956d-6a0f-4efd-b1b9-14d7791d2a37",
+                              "checked":false,
+                              "isLeafItem":false,
+                              "expand":true,
+                              "isCheck":false,
+                              "indeterminate":false,
+                              "interacted":false,
+                              "fullPath":null,
+                              "numOfChilds":52,
+                              "numOfCheckedChilds":0,
+                              "isLastPage":false
+                           }
+                        ],
+                        "parentId":"45ae7e31-45b7-41c7-be8d-a7af581233cf",
+                        "checked":false,
+                        "isLeafItem":false,
+                        "expand":true,
+                        "isCheck":false,
+                        "indeterminate":false,
+                        "interacted":false,
+                        "fullPath":null,
+                        "numOfChilds":4,
+                        "numOfCheckedChilds":0,
+                        "isLastPage":false
+                     }
+                  ],
+                  "parentId":"00000000-0000-0000-0000-000000000000",
+                  "checked":false,
+                  "isLeafItem":false,
+                  "expand":true,
+                  "isCheck":false,
+                  "indeterminate":false,
+                  "interacted":false,
+                  "fullPath":null,
+                  "numOfChilds":3,
+                  "numOfCheckedChilds":0,
+                  "isLastPage":false
+               }
+            ],
+            "totalItems":941,
+            "numOfChilds":1,
+            "numOfCheckedChilds":0,
+            "indeterminate":false,
+            "interacted":false,
+            "isLastPage":false
+         }
