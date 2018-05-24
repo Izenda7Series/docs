@@ -67,9 +67,9 @@ Preview pane:
 
 -  Customize the relative distance between the tick marks (in Intervals
    box for Linear Gauge only).
--  .. _Gauge_Border_Settings:
+-  .. _Gauge_Color_Theme_Selection:
 
-   .. figure:: /_static/images/Gauge_Border_Settings.png
+   .. figure:: /_static/images/Color_Theme_Selection.PNG
       :align: right
       :width: 458px
 
@@ -79,7 +79,11 @@ Preview pane:
 
    #. In Gauge group, click the gear icon (⚙) after the Color Theme option to open Color Theme Selection pop-up.
    #. Choose a color theme.
-   #. Click OK to close the Color Theme Selection pop-up. |br|
+   #. Click OK to close the Color Theme Selection pop-up.
+
+   **Notes:**
+
+   When System Admin change the :ref:`Default Color Setting <Set_Default_Color_Theme>`, all report parts using the default color theme will update properly. |br|
 
 -  Select to use Separator. (See `Define
    Separator`_)

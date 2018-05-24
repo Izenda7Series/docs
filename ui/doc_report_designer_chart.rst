@@ -121,6 +121,10 @@ Preview pane:
    #. In Chart group, click the gear icon (⚙) next to the Color Theme option to open Color Theme Selection pop-up.
    #. Select a color theme and click OK to the pop-up.
 
+      **Notes:**
+
+      When System Admin change the :ref:`Default Color Setting <Set_Default_Color_Theme>`, all report parts using the default color theme will update properly. |br|
+
       .. _Color_Theme_Selection:
 
       .. figure:: /_static/images/Color_Theme_Selection.PNG
@@ -128,15 +132,15 @@ Preview pane:
 
          Chart - Color Theme Selection |br|
 
--  Configure multiple color. This option is available from version 2.9.0.
+-  Configure multiple colors. This option is available from version 2.9.0.
 
    #. In Chart group, select Multi-Color checkbox.
-   #. Then the chart will recieve one color per point.
+   #. Then the chart will receive one color per point.
 
-   **Notes:**
+      **Notes:**
 
-   \- Multi-Color option is only available for single metric chart. |br|
-   \- Heat Map and Sparkline chart type do not support Multi-Color. |br|
+      \- Multi-Color option is only available for single metric charts. |br|
+      \- Heat Map and Sparkline chart type do not support Multi-Color. |br|
 
    .. figure:: /_static/images/Multi-Color-CountOrder-Country.PNG
 
