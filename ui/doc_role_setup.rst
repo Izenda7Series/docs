@@ -62,10 +62,12 @@ Add Role
 
       Data Model Access
 
-   In Data Model Access tab, tick items Data Sources to select data sources that the role can access.
+   In Data Model Access tab, tick items in Data Sources to select data sources that the role can access.
 
        It is possible to select only some fields of a table. In this case, users of the role will only see selected
-       fields in the table. |br|
+       fields in the table.
+       
+       Tick **Show selected items only** checkbox to manage the list easily. This option is available from version 2.9.0. |br|
 
 #. In Permissions tab, configure permissions for this role similarly to :ref:`Tenant Permissions <Edit_Tenant_Permissions>`.
 
