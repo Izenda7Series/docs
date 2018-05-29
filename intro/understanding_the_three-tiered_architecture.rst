@@ -154,7 +154,7 @@ Angular 2 Implementation
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide3.PNG
       :align: center
    
-   A diagram of implementation
+      A diagram of implementation
     
     
 Deployment Mode 3: Fully Integrated
@@ -187,7 +187,7 @@ MVC 5 Implementation
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide4.PNG
       :align: center
    
-   A diagram of implementation
+      A diagram of implementation
 
 Webforms Implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -201,7 +201,7 @@ Webforms Implementation
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide5.PNG
       :align: center
    
-   A diagram of implementation
+      A diagram of implementation
 
 Switching Between Deployment Styles
 -----------------------------------
