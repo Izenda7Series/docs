@@ -16,7 +16,7 @@ FIXES
 
 -  Defect  20634  Fields used in join when set to not visible/filterable cause join error for simple mode users
 -  Defect  20592  Out of memory exception received on JSON response
--  Defect  20580  When scheduling a report, the recipients list make take a long time to load with a large number of users in the system.
+-  Defect  20580  When scheduling a report, the recipients list takes a long time to load with a large number of users in the system.
 -  Defect  20579  IzendaCity table not mapping to all MSSQL datatypes
 -  Defect  20475  Some data types of Oracle stored procedures are not showing in the stored procedure schema when loaded into the data model.
 -  Defect  20247  Starting Point on the y axis has no effect on the chart, this should set the absolute starting point
