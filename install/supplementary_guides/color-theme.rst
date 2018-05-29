@@ -5,7 +5,7 @@ Color theme for Chart, Gauge, and Map
 
 Introduction
 ------------------------------------------
-* Izenda v2.9.0 and higher provides a pre-defined list of color themes, application administrator can also customize the available list. 
+* Izenda v2.9.0 and higher provides a pre-defined list of color themes, new customized themes can be added by Application Administrators. 
 
 * The color theme list is available for the following purposes:
 
@@ -20,6 +20,9 @@ Configuration
 .. _Color_Theme_File:
 
 * A color theme file is a JSON file that contains an array of HEX color codes |br|
+* A color theme name is the file name for each JSON file |br|
+* As general best practice we recommend limiting special characters used in the file names to spaces, underscores and dashes |br|
+* It is recommended that each theme contain 12 color codes, files can contain less or more and charts will utilize the codes available. Themes with less will show X where the empty codes should be displayed, with more, the extra color codes will not be shown.  |br|
 
    **Example:** The *mariner.JSON* is a color theme file with the content:
 
@@ -31,5 +34,5 @@ Configuration
 
 .. note::
 
-   * The new and update file only load and apply when administrators restart the server.
-   * One file must contain one and only one color theme.
+   * Any changes made or new themes added, will only display in the application after the API site has been restarted.
+   * Only one theme per file is supported.

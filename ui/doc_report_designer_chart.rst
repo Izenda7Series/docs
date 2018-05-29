@@ -123,7 +123,7 @@ Preview pane:
 
       **Notes:**
 
-      When System Admin change the :ref:`Default Color Setting <Set_Default_Color_Theme>`, all report parts using the default color theme will update properly. |br|
+      When the System Admin changes the :ref:`Default Color Setting <Set_Default_Color_Theme>`, all report parts using the default color theme will change to use the new default theme. |br|
 
       .. _Color_Theme_Selection:
 
@@ -139,8 +139,8 @@ Preview pane:
 
       **Notes:**
 
-      \- Multi-Color option is only available for single metric charts. |br|
-      \- Heat Map and Sparkline chart type do not support Multi-Color. |br|
+      \- Multi-Color option is only available for single metric charts. When using multiple metrics each metric is a different color.|br|
+      \- Bubble, Scatter, Heat Map and Sparkline chart types do not support Multi-Color option. |br|
 
    .. figure:: /_static/images/Multi-Color-CountOrder-Country.PNG
 

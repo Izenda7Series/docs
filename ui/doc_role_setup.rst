@@ -28,7 +28,7 @@ List and View Roles
 .. figure:: /_static/images/Role_Setup_List_and_Details.png
    :width: 787px
 
-   Role Setup List and Details
+   Role Setup List and Details (in versions prior to v2.9.0 the available and selected data sources are represented in 2 trees)
 
 
 

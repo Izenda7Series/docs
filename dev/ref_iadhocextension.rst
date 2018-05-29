@@ -49,7 +49,7 @@ IAdHocExtension
      - Allow overriding the DefaultWebUrlResolver and customizing the way the application generates the Front End URL.
    * - Color themes
      - `GetThemes`_
-     - Get defined color themes for Chart, Gauge, and Map.
+     - Get defined color themes for Chart, Gauge, and Map. (v2.9.0 or higher)
 
 
 The companion wrapper class **DefaultAdHocExtension** in  Izenda.BI.Framework.CustomConfiguration should be used as the base class for customization.
