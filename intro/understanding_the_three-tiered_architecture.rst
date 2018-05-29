@@ -47,7 +47,7 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
       
 .. list-table::
    :header-rows: 1
-   :widths: 100 100 100 100 100
+   :widths: 150 150 150 150 150
    
    *  - Framework
       -  Deployment Mode 0
@@ -56,7 +56,8 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
       -  Deployment Mode 3
    *  - Standalone Application
       -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide1.PNG
-            :scale: 20 %
+            :scale: 30 %
+            :align: center
             :target: https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#bi-platform-implementation
       -  
       -  
@@ -64,23 +65,27 @@ For more informaton about embedding Izenda, please refer to our `Developer Guide
    *  - MVC
       -  
       -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide2.PNG
-            :scale: 20 %
+            :scale: 30 %
+            :align: center
             :target: https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#mvc-5-besa-implementation
       -  
       -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide4.PNG    
-            :scale: 20 %
+            :scale: 30 %
+            :align: center
             :target: https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#mvc-5-implementation
    *  - Web Forms
       -  
       -  
       -  
       -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide5.PNG
-            :scale: 20 %
+            :scale: 30 %
+            :align: center
             :target:  https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#webforms-implementation
    *  - Angular 2
       -  
       -  .. figure:: /_static/images/intro/understanding_the_three-tiered_architecture/thumbnails/Slide3.PNG
-            :scale: 20 %
+            :scale: 30 %
+            :align: center
             :target: https://www.izenda.com/docs/intro/understanding_the_three-tiered_architecture.html#angular-2-implementation
       -  
       -  
@@ -113,6 +118,7 @@ BI Platform Implementation
 -  For installation steps, see the :doc:`/install/doc_installation_guide` and :doc:`/install/doc_upgrade_guide` for stand alone deployments.
 
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide1B.PNG
+      :align: center
 
       A diagram of implementation
 
@@ -139,6 +145,7 @@ MVC 5 BESA Implementation
 - MVC Starter Kit Back End Standalone found `here <https://github.com/Izenda7Series/Mvc5StarterKit_BE_Standalone/>`_
 
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide2.PNG
+      :align: center
 
       A diagram of implementation
 
@@ -153,6 +160,7 @@ Angular 2 Implementation
 
 
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide3.PNG
+      :align: center
    
    A diagram of implementation
     
@@ -185,6 +193,7 @@ MVC 5 Implementation
 - MVC Starter Kit found `here <https://github.com/Izenda7Series/Mvc5StarterKit/>`_
 
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide4.PNG
+      :align: center
    
    A diagram of implementation
 
@@ -198,6 +207,7 @@ Webforms Implementation
 
 
 .. figure::  /_static/images/intro/understanding_the_three-tiered_architecture/Slide5.PNG
+      :align: center
    
    A diagram of implementation
 
