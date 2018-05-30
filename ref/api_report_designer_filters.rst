@@ -984,7 +984,7 @@ GET report/filter/timePeriods
 
 Returns pre-defined time periods (last week, next year, etc).
 
-This API also returns custom time periods if available (see :ref:`POST_report/timePeriod` and IAdHocExtension's :ref:`CustomTimePeriod`).
+This API also returns custom time periods if available (see IAdHocExtension's :ref:`CustomTimePeriod`).
 
 **Request**
 
