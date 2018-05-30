@@ -3,6 +3,9 @@
 ========================================
 Import Report or Dashboard Definition
 ========================================
+
+.. _Import_Definitions:
+
 .. note::
 
    Import Report or Dashboard Definition is available from release v2.8.0.

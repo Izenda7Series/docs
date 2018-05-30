@@ -2198,6 +2198,7 @@ Lazy load schedule limit data for each role.
 
 POST role/loadPartialDataModelAccess
 --------------------------------------
+.. _loadpartialdatamodelaccess:
 
 .. versionadded:: 2.9.0
 

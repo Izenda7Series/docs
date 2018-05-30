@@ -105,39 +105,39 @@ Global Reports and Default Themes
      - B 
      - No Theme 
      - No Theme
-     - Theme A is set as system default and B is set as Tenant default but Global report creator chose No Theme to override defaults	 
+     - Theme A is set as system default and B is set as Tenant default but Global report creator **chose No Theme to override defaults**	 
    * - A 
      - B 
      - A 
      - B 
-     - Theme A is set as system default and B is as Tenant default and Global report creator left default so tenant user will see thier default
+     - Theme A is set as system default and B is as Tenant default and Global report creator **left default theme** so tenant user will see thier default
    * - A 
      - B 
      - B 
      - B 
-     - Theme A is set as system default and B is set as Tenant default but Global report creator chose theme B to override defaults 
+     - Theme A is set as system default and B is set as Tenant default but Global report creator **chose theme B to override defaults** 
    * - No Theme
      - B
      - No Theme
      - B
-     - No Theme is set as system default and B is set as Tenant default and Global report creator left report as default so tenant will see their default
+     - No Theme is set as system default and B is set as Tenant default and Global report creator **left No Theme default in report** as default so tenant will see their default
    * - No Theme
      - B
      - A
      - A
-     - No Theme is set as system default and B is set as Tenant default and Global report creator chose theme A to override defaults
+     - No Theme is set as system default and B is set as Tenant default and Global report creator **chose theme A to override defaults**
    * - A
      - No Theme
      - No Theme
      - No Theme
-     - Theme A is set as system default and No Theme is set as Tenant default but Global report creator chose No Theme to override defaults
+     - Theme A is set as system default and No Theme is set as Tenant default but Global report creator **chose No Theme to override defaults**
    * - A
      - No Theme
      - A
      - A
-     - Theme A is set as system default and No Theme is set as Tenant default and Global report creator left report as default so tenant will see System Default
+     - Theme A is set as system default and No Theme is set as Tenant default and Global report creator **left report as default so tenant will see System Default**
    * - A
      - No Theme
      - B
      - B
-     - Theme A is set as system default and No Theme is set as Tenant default but Global report creator chose Theme B to override defaults
+     - Theme A is set as system default and No Theme is set as Tenant default but Global report creator **chose Theme B to override defaults**

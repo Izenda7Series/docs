@@ -134,6 +134,8 @@ Preview pane:
 
 -  Configure multiple colors. This option is available from version 2.9.0.
 
+      .. _MultiColor:
+
    #. In Chart group, select Multi-Color checkbox.
    #. Then the chart will receive one color per point.
 

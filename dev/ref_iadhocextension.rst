@@ -4,6 +4,8 @@ IAdHocExtension
 
 **IAdHocExtension** interface in Izenda.BI.Framework.CustomConfiguration defines the extension APIs that allows customization code to hook in the report life cycle.
 
+.. _IAdHocExtension:
+
 .. list-table::
    :widths: 30 20 50
    :header-rows: 1

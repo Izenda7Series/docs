@@ -9,6 +9,8 @@ The **Advanced Settings** page allows user to
 * manage the list of data source categories
 * update system settings in related groups
 
+.. _Advanced_Settings:
+
 Summary
 ------------
 
