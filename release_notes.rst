@@ -7,6 +7,20 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+
+v2.9.1 June 4, 2018
+~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+
+-  Defect  20644  Load-balanced API sends schedule at start time and then four hours later
+-  Defect  20622  Print permission required to render charts in email PDF attachment regardless of export permission
+-  Defect  20454  Foreign Data Objects and Fields being obscured in the Data Model when multiple relationships reference a defined Join Alias
+-  Defect  20387  US map drills down to World map instead of state map
+-  Defect  20265  Reports with required filter on stored procedure parameter are executing report query before values are added
+-  Defect  20237  RUNNING type calculated fields error when used in a report part
+
 v2.9.0 May 31, 2018
 ~~~~~~~~~~~~~~~~~~~~~
 
