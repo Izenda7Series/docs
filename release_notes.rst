@@ -17,7 +17,7 @@ FIXES
 -  Defect  20836  Casing issue in method causing role data model access page to fail in loading.
 -  Defect  20833  Lazy loading on Report and Dashboard list fail in some systems.
 -  Defect  20814  In Role set up page system failed to load the next items after expanding the table again when "Show selected items only" is enable.
--  Defect  20806  Console error and cannot open Configuration Mode of report part when editing filter in dashboard
+-  Defect  20806  Console error received and cannot open Configuration Mode of Dashboard Tile when editing filter in dashboard
 -  Defect  20796  Expand drop down on parameter filter value lookup for stored procedure filter values.
 -  Defect  20786  FilteredValue field of IzendaQuerySourceField is referenced when nothing is set
 -  Defect  20754  Fields in joins defined in the model and not available to user should show as ..... but field name is present in some drop down lists
