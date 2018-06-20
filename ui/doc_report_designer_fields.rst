@@ -731,6 +731,8 @@ In this section, user can:
 
 -  Choose text alignment left, center, right or justify and top, middle or bottom. Vertical alignment is available from version 2.10.0.
 
+- Turn on or off word wrap option. (This option available from v2.10.0).
+
 -  Choose data sorting order unsorted, ascending or descending by
    repeatedly clicking the icon.
 

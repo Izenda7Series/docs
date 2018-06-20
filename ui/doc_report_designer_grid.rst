@@ -106,7 +106,7 @@ pane:
 
       Report Designer - Columns Setting
 
-   Set the column width in pixels |br|
+   Set the column width in pixels and turn on/off column word wrap |br|
 
 -  .. _Report_Designer_Headers_Setting:
 
