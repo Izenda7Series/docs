@@ -123,7 +123,7 @@ pane:
 
 -  Choose header text color and cell color.
 
--  Choose header text alignment left, center, right or justify.
+-  Choose header text alignment left, center, right or justify and top, middle or bottom. Vertical alignment is available from version 2.10.0.
 
 -  Turn on or off word wrap option.
 
