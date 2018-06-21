@@ -162,3 +162,31 @@ Preview pane:
          Report Designer - Chart Border Settings without Preview section |br|
 
    Please see :ref:`Advanced_Settings_Others` for more details.
+
+Others
+------------
+
+.. _Report_Map_Grid_View:
+
+-  Grid view popup option. This option is available from version 2.10.0.
+
+   Click |gridViewIcon| icon to see the grid view of the map data associated with the current metric.
+
+   .. figure:: /_static/images/Map_Grid_View_Popup.png
+      :align: right
+      :width: 653px
+
+      Grid View Popup Showing Count(OrderID) of cities in WA |br|
+      
+   .. |gridViewIcon| image:: /_static/images/icons/Grid_View_Icon.png
+
+|br|
+-  Metric dropdown.
+
+      .. figure:: /_static/images/Map_Metric_Dropdown.png
+         :align: right
+         :width: 308px
+
+         Map Metric dropdown |br|
+
+|br|
