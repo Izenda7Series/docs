@@ -303,7 +303,7 @@ Preview pane:
       \- Legend Settings |br|
       \- Thresholds Settings
 
-      .. figure:: /_static/images/NW_Orders_Chart_Border_Settings_No_Preview.png
+      .. figure:: /_static/images/NW_Orders_Chart_Border_Settings_No_Preview.PNG
          :align: center
          :width: 464px
 
@@ -837,3 +837,31 @@ To be updated: screenshot of sparkline chart embedded inside a grid.
 
 .. |Report Chart Pie Bottom X Before.png| image::  /_static/images/Report_Chart_Pie_Bottom_X_Before.png
 .. |Report Chart Pie Bottom X After.png| image::  /_static/images/Report_Chart_Pie_Bottom_X_After.png
+
+Others
+------------
+
+.. _Report_Chart_Grid_View:
+
+-  Grid view popup option. This option is available from version 2.10.0.
+
+   Click |gridViewIcon| icon to see the grid view of the chart data associated with the current drilldown level and metric.
+
+   .. figure:: /_static/images/Chart_Grid_View_Popup.png
+      :align: right
+      :width: 653px
+
+      Grid View Popup Showing Total Freight grouped by ShipCity in USA |br|
+      
+   .. |gridViewIcon| image:: /_static/images/icons/Grid_View_Icon.png
+
+|br|
+-  Metric dropdown.
+
+      .. figure:: /_static/images/Chart_Metric_Dropdown.png
+         :align: right
+         :width: 308px
+
+         Chart Metric dropdown |br|
+
+|br|
