@@ -106,7 +106,7 @@ pane:
 
       Report Designer - Columns Setting
 
-   Set the column width in pixels and turn on/off column word wrap |br|
+   Set the column width in pixels and turn on/off column word wrap (column word wrap is available from version 2.10.0). |br|
 
 -  .. _Report_Designer_Headers_Setting:
 
@@ -126,6 +126,13 @@ pane:
 -  Choose header text alignment left, center, right or justify and top, middle or bottom. Vertical alignment is available from version 2.10.0.
 
 -  Turn on or off word wrap option.
+
+-  Choose Freeze Headers (available from version 2.10.0).
+
+   **Notes:** 
+      -  The Freeze Header setting will apply for the report part in report designer, report viewer and dashboard.
+
+      -  If a sub-report has Freeze Header setting, the setting will apply for Link or Pop-up type but NOT for Embedded type.
 
 -  Optionally hides the header in export.
 
