@@ -341,7 +341,7 @@ Create Izenda DB
 
 On your SQL Server create an empty database named IzendaMvc. This database stores Izenda data (report definitions, dashboards, etc.) and the configuration necessary to run Izenda.
 
-Download `IzendaMvc.sql <https://raw.githubusercontent.com/Izenda7Series/Mvc5StarterKit/master/SQLScript/MSSQL/IzendaMvc.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
+Download `IzendaMvc.sql <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/SQLScript/MSSQL/Mvc5StarterKit.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
 
 Updating the Izenda DB
 -------------------------------------------
