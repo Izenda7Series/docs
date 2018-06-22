@@ -55,7 +55,7 @@ Using the render functions
 
 Once the EmbeddedUI front-end resources are in place, and we’ve configured the configuration, authentication, and render functions. The last thing to do is use these bundled JavaScript functions within our application’s front-end to render specific Izenda containers/pages.
 
-This is done in the `Embedded Front-end <Embedding Front-end Izenda (Izenda UI)>`_ section of the guide below.
+This is done in the `Embedded Front-end <https://www.izenda.com/docs/dev/howto_mvc5kit.html#embedding-front-end-izenda-izenda-ui>`_ section of the guide below.
 
 Security Handshake
 ===========================================
