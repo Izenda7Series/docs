@@ -52,7 +52,7 @@ Acknowledgements
 -  proj4: v.2.3.15   https://github.com/OSGeo/proj.4 License: https://github.com/OSGeo/proj.4/blob/master/COPYING
 -  query-string: v.4.3.1  https://github.com/sindresorhus/query-string  License: https://github.com/sindresorhus/query-string#license
 -  raf: v.3.2.0  https://www.npmjs.com/package/raf License: https://www.npmjs.com/package/raf
--  raphael: v.2.2.0 http://dmitrybaranovskiy.github.io/raphael/ License: http://dmitrybaranovskiy.github.io/license.html
+-  raphael: v.2.2.0 http://dmitrybaranovskiy.github.io/raphael/ License: https://github.com/DmitryBaranovskiy/raphael/blob/master/license.txt
 -  react-dnd: v.2.1.4 https://github.com/react-dnd/react-dnd License: http://react-dnd.github.io/react-dnd/
 -  react-dnd-html5-backend: v.2.1.2 https://github.com/react-dnd/react-dnd-html5-backend  License: https://github.com/react-dnd/react-dnd-html5-backend/blob/master/LICENSE
 -  react-draggable: v.2.2.1  https://github.com/mzabriskie/react-draggable License: https://github.com/mzabriskie/react-draggable/blob/master/LICENSE
