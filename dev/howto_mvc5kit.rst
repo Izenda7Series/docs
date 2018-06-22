@@ -350,7 +350,7 @@ The IzendaMvc.sql script will generate a configuration database for Izenda 1.24.
 
 If you use an EmbeddedUI and API for a later version of Izenda you will need to run update scripts against your IzendaMvc database.
 
-Upgrade scripts can be compiled and downloaded using the `schema migration assistant tool <https://tools.izenda.com/>`_ . Here, you will specify your current version (1.24.4) and your target version for upgrade.
+Upgrade scripts can be compiled and downloaded using the `Schema Migration Assistant <https://tools.izenda.com/>`_ . Here, you will specify your current version (1.24.4) and your target version for upgrade and download the resulting SQL script.
 
 Create Authentication DB
 -------------------------------------------
