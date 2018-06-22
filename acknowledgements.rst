@@ -41,7 +41,7 @@ Acknowledgements
 -  highcharts: v.4.2.7 http://shop.highsoft.com/highcharts/highcharts-single-developer-support.html  License: The software is available under a commercial or non-commercial license http://shop.highsoft.com/highcharts.html
 -  hoist-non-react-statics: v.1.2.0 https://github.com/mridgway/hoist-non-react-statics License:https://github.com/mridgway/hoist-non-react-statics/blob/master/LICENSE.md
 -  jquery: v.2.2.4 https://github.com/jquery License: https://jquery.org/license/
--  js-cookie: v.2.1.3 https://github.com/js-cookie/js-cookie License: https://github.com/js-cookie/js-cookie/blob/master/MIT-LICENSE.txt
+-  js-cookie: v.2.1.3 https://github.com/js-cookie/js-cookie License: https://github.com/js-cookie/js-cookie/blob/master/LICENSE
 -  lodash: v.4.12.0  https://github.com/lodash/lodash License: https://github.com/lodash/lodash/blob/master/LICENSE
 -  mobx: v.2.4.2 https://github.com/mobxjs/mobx License: https://github.com/mobxjs/mobx/blob/master/LICENSE
 -  mobx-react: v.3.5.4 https://github.com/mobxjs/mobx-react License: https://github.com/mobxjs/mobx-react/blob/master/LICENSE
