@@ -21,7 +21,7 @@ FIXES
 -  Defect  20809  Performance improvement in the save report process
 -  Defect  20775  Resolved inconsistency error for /api/user/all/ : ""UserName"", ""EmailAddress"", ""Role"", ""All"" Search Criteria return list of all users instead of filtered results.
 -  Defect  20768  Map performance improvements
--  Defect  20441  Data Offset field of the user profile does not allow decimal values.
+-  Defect  20441  Data Offset fields do not allow decimal values.
 -  Defect  20193  Added caching for the license status endpoint to improve client-side performance.
 -  Defect  19932  Grid Grand Total Table Not Summarizing Upon Printing or Exporting
 
