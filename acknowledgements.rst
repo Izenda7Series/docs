@@ -12,7 +12,7 @@ Acknowledgements
 -  HtmlAgilityPack v.1.4.9.5 http://htmlagilitypack.codeplex.com/ License:http://htmlagilitypack.codeplex.com/license
 -  HtmlTags v.3.0.0.1866  http://htmltags.fubu-project.org/ Licesne: https://raw.githubusercontent.com/HtmlTags/htmltags/master/license.txt
 -  log4net  v.2.0.5 http://logging.apache.org/log4net/ License: http://logging.apache.org/log4net/license.html
--  Microsoft.AspNet.WebApi.Client v.5.2.3 https://www.asp.net/web-api License: https://www.microsoft.com/web/webpi/eula/mvc_4_eula_enu.htm
+-  Microsoft.AspNet.WebApi.Client v.5.2.3 https://www.asp.net/web-api License: https://www.microsoft.com/web/webpi/eula/net_library_eula_ENU.htm
 -  Microsoft.Net.Http v.2.2.29 http://go.microsoft.com/fwlink/?LinkID=280055 License: https://www.microsoft.com/net/dotnet_library_license.htm
 -  Microsoft.Web.Infrastructure v.1.0.0 https://www.asp.net/ License: https://www.microsoft.com/web/webpi/eula/aspnetmvc3update-eula.htm
 -  Moq v.4.2.1510.2205 http://www.moqthis.com/ License: http://www.opensource.org/licenses/bsd-license.php
