@@ -5299,14 +5299,14 @@ Data Dictionary
      - numeric(10,20)
      - 
      - 
-     - For the versions before 2.9.5, the data type was *int*
+     - For versions 2.9.4 and prior, the data type was *int*
    * - .. container:: lpad2
 
           **TimestampOffset**
      - numeric(10,20)
      - 
      - 
-     -  For the versions before 2.9.5, the data type was *int*
+     -  For versions 2.9.4 and prior, the data type was *int*
    * - .. container:: lpad2
 
           **InitPassword**
