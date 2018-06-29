@@ -708,6 +708,7 @@ In this section, user can:
 
 
 -  Choose a display format for the field.
+.. _Report_Designer_Field_Format:
 
        The list of available formats depends on the data type of
        the field.

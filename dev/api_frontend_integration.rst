@@ -138,6 +138,7 @@ Configure Izenda
        IzendaSynergy.config(configJson);
 
 .. versionadded:: 2.10.0
+.. _Set_WebApiUrl:
 
    |br| For version 2.10.0 and later, Izenda provides option to configure dynamic WebApiUrl. |br|
    **Samples**

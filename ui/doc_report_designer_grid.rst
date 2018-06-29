@@ -129,6 +129,8 @@ pane:
 
 -  Choose Freeze Headers (available from version 2.10.0).
 
+-  .. _Freeze_Headers1:
+
    **Notes:** 
       -  The Freeze Header setting will apply for the report part in report designer, report viewer and dashboard.
 
