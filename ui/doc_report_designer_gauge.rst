@@ -12,7 +12,7 @@ Define a Linear Gauge
 
 .. _Gauge_Properties:
 
-.. figure:: /_static/images/Gauge_Properties.PNG
+.. figure:: /_static/images/Gauge_Properties.png
    :align: right
    :width: 251px
 
@@ -177,6 +177,7 @@ An example solid gauge with separator and threshold:
 
 Sample Simple Gauge. |br|
 
+
 Others
 ------------
 
@@ -204,3 +205,4 @@ Others
          Gauge Metric dropdown |br|
 
 |br|
+

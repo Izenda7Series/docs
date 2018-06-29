@@ -155,13 +155,15 @@ Preview pane:
       \- Legend Settings |br|
       \- Zoom Settings
 
-      .. figure:: /_static/images/Report_Map_Border_Settings_No_PreView.PNG
+
+      .. figure:: /_static/images/Report_Map_Border_Settings_No_Preview.PNG
          :align: center
          :width: 464px
 
          Report Designer - Chart Border Settings without Preview section |br|
 
    Please see :ref:`Advanced_Settings_Others` for more details.
+
 
 Others
 ------------
@@ -190,3 +192,4 @@ Others
          Map Metric dropdown |br|
 
 |br|
+

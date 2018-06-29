@@ -839,6 +839,7 @@ To be updated: screenshot of sparkline chart embedded inside a grid.
 .. |Report Chart Pie Bottom X Before.png| image::  /_static/images/Report_Chart_Pie_Bottom_X_Before.png
 .. |Report Chart Pie Bottom X After.png| image::  /_static/images/Report_Chart_Pie_Bottom_X_After.png
 
+
 Others
 ------------
 
@@ -866,3 +867,4 @@ Others
          Chart Metric dropdown |br|
 
 |br|
+
