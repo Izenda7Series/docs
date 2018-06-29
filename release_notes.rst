@@ -13,7 +13,8 @@ v2.10.0 June 29, 2018
 FEATURES
 ^^^^^^^^^
 
--  Freeze Headers for Grid report part types 
+-  Freeze Headers for Grid report part types
+
 	- Vertical and Drilldown grids support Vertical header freeze
 	- Horizontal grids support Horizontal header freeze
 	- Pivot grids support Vertical or Horizontal header freeze
@@ -21,25 +22,31 @@ FEATURES
 	-  :ref:`Set Freeze Headers <Freeze_Headers1>`
 
 -  Word wrap on field data in grid report part types
+
 	- User can select to word wrap individual fields at the field level or all fields at the report part level using the report part properties menu
+	
 	-  :ref:`Set Field Format <Report_Designer_Field_Format>`
 	
 -  Vertical Alignment for data in grid report part types
+
 	- This new option is available on the grid report part property panel for all fields or at the field level on the field property panel
 	- This can be set for both headers and grid data
 	-  :ref:`Set Field Format <Report_Designer_Field_Format>`
 	-  :ref:`Set Grid Format <Report_Designer_Columns_Width_Setting>`
 		
 -  Bubble and Scatter charts now support the mulit-color option
+
 	-  :ref:`Map Grid View <MultiColor>`
 
 -  Pop up grid view for chart, gauge and map
+
 	- This new option will show on all charts, gauges and maps allowing the user to open a popup window to see a grid view of the data from the visualization
 	-  :ref:`Chart Grid View <Report_Chart_Grid_View>`	
 	-  :ref:`Gauge Grid View <Report_Gauge_Grid_View>`
 	-  :ref:`Map Grid View <Report_Map_Grid_View>`
 
 -  New JavaScript API to resolve the WebApiUrl from custom logic
+
 	-  :ref:`Set WebApiUrl <Set_WebApiUrl>`
 
 FIXES
