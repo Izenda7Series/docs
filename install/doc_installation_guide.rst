@@ -259,13 +259,16 @@ Within the UI Folder of your Deployment
       .. code-block:: html
 
           <link rel="shortcut icon" href="/<your Url here>/favicon.png">
-          <link href="/<your Url here>/izenda-app.css?
-             4676ff4fe0cdf3cd2bab" rel="stylesheet"></head>
+          <link href="/<your Url here>/izenda-ui.css?9bc16615aa13ae40249f" rel="stylesheet">
+          </head>
 
           <body>
              <div class="container" id="izenda-root"></div>
-             <script type="text/javascript" src="/<your Url here>/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
-             <script type="text/javascript" src="/<your Url here>/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_common.js?9bc16615aa13ae40249f"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_config.js?9bc16615aa13ae40249f"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_locales.js?9bc16615aa13ae40249f"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_vendors.js?9bc16615aa13ae40249f"></script>
+             <script type="text/javascript" src="/<your Url here>/izenda_ui.js?9bc16615aa13ae40249f"></script>
           </body>
 
    -  Example change:
@@ -273,13 +276,16 @@ Within the UI Folder of your Deployment
       .. code-block:: html
 
          <link rel="shortcut icon" href="/IzendaFront/favicon.png">
-         <link href="/IzendaFront/izenda-app.css?
-         4676ff4fe0cdf3cd2bab" rel="stylesheet"></head>
+         <link href="/IzendaFront/izenda-ui.css?9bc16615aa13ae40249f" rel="stylesheet">
+         </head>
 
          <body>
             <div class="container" id="izenda-root"></div>
-            <script type="text/javascript" src="/IzendaFront/izenda-vendors.js?4676ff4fe0cdf3cd2bab"></script>
-            <script type="text/javascript" src="/IzendaFront/izenda_app.js?4676ff4fe0cdf3cd2bab"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_common.js?9bc16615aa13ae40249f"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_config.js?9bc16615aa13ae40249f"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_locales.js?9bc16615aa13ae40249f"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_vendors.js?9bc16615aa13ae40249f"></script>
+            <script type="text/javascript" src="/IzendaFront/izenda_ui.js?9bc16615aa13ae40249f"></script>
          </body>
 
 #. Update the web.config file in the UI folder
