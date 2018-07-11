@@ -2,7 +2,7 @@
 Modifying User Access Token
 ===========================
 
-This article contains information on how to create custom properties and logic using the user's access token. Custom properties can be useful for adding conditions to determine whether a user's token is valid or for implementing hidden filters. Below is a geeral guide of how to perform these tasks. Note that this guide is not applicable to deployment mode 0.
+This article contains information on how to create custom properties and logic using the user's access token. Custom properties can be useful for adding conditions to determine whether a user's token is valid or for implementing hidden filters. Below is a general guide of how to perform these tasks. Note that this guide is not applicable to deployment mode 0.
 
 
 Adding a custom property to the User Info
@@ -46,10 +46,10 @@ After modifying the UserInfo object definition in your integrated environment, t
          return Json(new { token = token }, JsonRequestBehavior.AllowGet);
       }
 
-In the above example, we are obtaining the value from the ClaimsIdentity used inside the application. Such a claim can be set when the user logs in or after selecting a specific option. Then any time the user accesses Izenda, the FavoriteGroup propety in the UserInfo will be set and integrated into the access token. The FavoriteGroup property can then be used in the ValidateIzendaAuthToken route to perform custom logic.
+In the above example, we are obtaining the value from the ClaimsIdentity used inside the application. Such a claim can be set when the user logs in or after selecting a specific option. Then any time the user accesses Izenda, the FavoriteGroup property in the UserInfo will be set and integrated into the access token. The FavoriteGroup property can then be used in the ValidateIzendaAuthToken route to perform custom logic.
 
 
-Adding decryption logic to IAdHocEtension
+Adding decryption logic to IAdHocExtension
 -----------------------------------------
 If you are running a deployment mode 1 or 2 solution, you will need to add the same decryption logic used to decrypt the access token within the application to the IAdHocExtension solution. In this example, we will use the IzendaBoundary resources from the MVC5 starter kit. If you are running a deployment mode 3 solution, the IzendaBoundary resources and IAdHocExtension class will exist in the same solution and will thus be available in all contexts.
 
@@ -59,7 +59,7 @@ If you are running a deployment mode 1 or 2 solution, you will need to add the s
    *  Add a reference to System.Configuration
 
 
-Retriving the access token properties from the hidden filter method
+Retrieving the access token properties from the hidden filter method
 -------------------------------------------------------------------
 You can now retrieve the access_token from the UserContext and decrypt it to view the custom property.
 
