@@ -19,7 +19,7 @@ FIXES
 -  Defect  20930  Using a pivot grid with a side total and a date filter throws an error when querying data.
 -  Defect  21065  Subtotals display when a field is non-visible in drill-down grids.
 -  Defect  21090  Drill-down grid with subtotal and null value shows extra null when expanded.
--  Defect  19370  Alert message about unsaved changes appears when user has already saved a new report.
+-  Defect  19370  Alert message about unsaved changes appears when user has already saved a new report
 
 
 
