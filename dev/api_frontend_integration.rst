@@ -122,7 +122,24 @@ List of APIs
      - Create a color palette editor schema in Properties editor panel. It appears as a label and color palette input control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
 
        .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `registerFieldContainer`_
+     - Register field container with its factory function in order to create a custom field container in Report Designer's report part configuration. |br|
 
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createStaticLabelFieldContainerSchema`_
+     - Create a static label only without input box. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createConditionalFieldContainerSchema`_
+     - Create a conditional label and a input box of fields which allows to add/remove or drag/drop a field into. |br|
+
+       .. versionadded:: 2.11.0
 
 config(configJson)
 ----------------------------------------------------------------------------------------------
@@ -999,6 +1016,112 @@ Create a color palette editor schema in Properties editor panel. It appears as a
             hiddenByState: true
          }
       }
+
+registerFieldContainer
+-----------------------------------------------------
+Register field container with its factory function in order to create a custom field container in Report Designer's report part configuration. Most of the time, using createFieldContainerSchema function to create labeled box of fields fits in the same way with current Values, Labels... field containers.|br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **type**
+        - Field container type, i.e. chart_label, grid_rows...
+      * - **factory**
+        - Function to create field container
+
+**Sample**
+
+   Create an custom metric fields container using *CustomMetricReactComponent*
+
+   .. code-block:: javascript
+
+      // Note that it requires to create a React component to render the custom metric GUI
+      registerFieldContainer('custom_metric', function(type, containerProps) {
+         return {
+            key: type,
+            component: CustomMetricReactComponent,
+            props: containerProps
+         };
+      });
+
+   Returns *void*
+
+createStaticLabelFieldContainerSchema
+-------------------------------------------------------
+
+Create a static label only without input box. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **type**
+        - Field container type, i.e. chart_label, grid_rows...
+      * - **label**
+        - The label text value or a function return a text
+
+**Sample**
+
+   .. code-block:: javascript
+
+      createStaticLabelSchema('LabelPoint', function() {
+      return localizer.getText('LABEL_POINT_OPTIONS');
+      })
+
+createConditionalFieldContainerSchema
+-------------------------------------------------------------
+
+Create a conditional label and a input box of fields which allows to add/remove or drag/drop a field into. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **predicateFn**
+        - A predicate to determine whether render the container or not. It receives report part detail object as a parameter.
+      * - **containerKey**
+        - The key of the container
+      * - **label**
+        - The label text value or a function return a text
+      * - **dataKey**
+        - Data key to access container information of report part content's property
+      * - **height**
+        - Pixel height of container. Leave it null or undefined to use default height
+      * - **maximumField**
+        - Maximum number of fields in the container. Leave it null or undefined to unlimit the number of fields
+      * - **isHorizontal**
+        - Is horizontal alignment between label and input box. Default value is false. |br|
+          (It is optional with the default value is false)
+
+**Sample**
+
+   Create an example container with dataKey is exampleContainer, having default height and 1 field maximum
+
+   .. code-block:: javascript
+
+      createConditionalContainerSchema(
+         function(reportPartDetail) {
+            return true;
+         },
+         'exampleContainer',
+         function() {
+            return localizer.getText('ExampleContainer');
+         },
+         'exampleContainer',
+         null,
+         1,
+         true
+      );
 
 **Tags**
 
