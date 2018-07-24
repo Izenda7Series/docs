@@ -68,7 +68,60 @@ List of APIs
      - Register a JsFormatString with format function |br|
 
        .. versionadded:: 2.6.20
+   * - .. container:: lpad2
+   
+          `getComponent(name)`_
+     - Get the class by name |br|
 
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `registerVisualizationEngine(name, vizEngineClazz)`_
+     - Register a visualization engine with a name |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `registerPropertyEditor(type, factory)`_
+     - Register property editor with its factory function to create a custom property editor inside Report Designer's property panel. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createDropDownPropertySchema`_
+     - Create a dropdown editor schema in Properties editor panel. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createPopupSettingPropertySchema`_
+     - Create a popup editor schema in Properties editor panel. It appears as a label and a gear button which opens the popup dialog. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createCheckBoxPropertySchema`_
+     - Create a checkbox editor schema in Properties editor panel. It appears as a label and a checkbox. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createSelectPropertySchema`_
+     - Create a select editor schema in Properties editor panel. It appears as a label and select control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createNumberPropertySchema`_
+     - Create a number editor schema in Properties editor panel. It appears as a label and number input control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `createColorPaletteSettingPropertySchema`_
+     - Create a color palette editor schema in Properties editor panel. It appears as a label and color palette input control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+       .. versionadded:: 2.11.0
 
 
 config(configJson)
@@ -513,20 +566,440 @@ This function is used in the LoadCustomDataFormat (see more `here <https://www.i
 **Sample Standalone (index.html)**
 
    .. code-block:: html
-	 
-			<script type="text/javascript" src="/izenda_ui.js?c76cbb3f0591ba2de5a0"></script>
-			<script>
+
+      <script type="text/javascript" src="/izenda_ui.js?c76cbb3f0591ba2de5a0"></script>
+      <script>
+
+         // Ensure this script is placed after Izenda UI library (izenda_ui.js as above)
+         (function() {
+         
+            // Please note: the format label is case sensitive.
+            IzendaSynergy.addJsFormat("1k", function (value) {
+            return "$ " + value/1000 + " K"
+               });
+         })();
+      </script>
       
-				// Ensure this script is placed after Izenda UI library (izenda_ui.js as above)
-				(function() {
-				
-					// Please note: the format label is case sensitive.
-					IzendaSynergy.addJsFormat("1k", function (value) {
-					return "$ " + value/1000 + " K"
-						});
-				})();
-			</script>
-      
+getComponent(name)
+----------------------------------
+
+Get the class by name. Following is the list of supported classes that can be retrieved via this API:
+
+.. versionadded:: 2.11.0
+
+.. list-table::
+   :widths: 45 55
+   :header-rows: 1
+
+   * - Class Name
+     - Description
+   * - VizEngine
+     - The base class of Izenda visualization engine
+   * - HighchartVizEngine
+     - The visualization engine class of Highchart
+   * - HighmapVizEngine
+     - The visualization engine class of Highmap
+   * - ChartOptionsBuilder
+     - The base class of chart options builder. Extending ChartOptionsBuilder is to build a custom options builder for custom visualization engine.
+   * - HighchartOptionsBuilder
+     - The base class of Highchart chart options builder
+   * - HighmapOptionsBuilder
+     - The base class of Highmap map options builder
+   * - ReportPartContent
+     - The base class of report part content model
+   * - ReportPartChartContent
+     - The report part chart content model class
+   * - ReportPartGaugeContent
+     - The report part gauge content model class
+   * - ReportPartMapContent
+     - The report part map content model class
+   * - AreaChartOptionsBuilder
+     - The Area chart options builder class
+   * - BarChartOptionsBuilder
+     - The Bar chart options builder class
+   * - BubbleChartOptionsBuilder
+     - The Bubble chart options builder class
+   * - ChartHasThresholdOptionBuilder
+     - The base class of chart options builder that supports threshold settings
+   * - ColumnChartOptionsBuilder
+     - The Column chart options builder class
+   * - CombinationChartOptionsBuilder
+     - The Combination chart options builder class
+   * - DefaultChartOptionsBuilder
+     - The default chart options builder. All chart options builders inherit from this class. It consists of the common logic to handle a chart options
+   * - DonutChartOptionsBuilder
+     - The Donut chart options builder class
+   * - FunnelChartOptionsBuilder
+     - The Funnel chart options builder class
+   * - HeatmapChartOptionsBuilder
+     - The Heatmap chart options builder class
+   * - LineChartOptionsBuilder
+     - The Line chart options builder class
+   * - PieChartOptionsBuilder
+     - The Pie chart options builder class
+   * - The Pie chart options builder class
+     - The Scatter chart options builder class
+   * - SparklineChartOptionsBuilder
+     - The Sparkline chart options builder class
+   * - TreemapChartOptionsBuilder
+     - The Treemap chart options builder class
+   * - WaterfallChartOptionsBuilder
+     - The Waterfall chart options builder class
+   * - LinearGaugeOptionsBuilder
+     - The Linear gauge options builder class
+   * - SimpleGaugeOptionsBuilder
+     - The Simple gauge options builder class
+   * - SolidGaugeOptionsBuilder
+     - The Solid gauge options builder class
+   * - ChartSettingsContainer
+     - The ChartSettingsContainer React component. This component is used for building a custom popup content settings with supported configuration and preview panels.
+   * - FieldContainer
+     - The minimal field container React component. This component is used for building a custom field container with supported common behaviours (add/remove/drag/drop) of fields.
+
+**Parameters**
+
+   * **name**: Name of class
+
+**Samples**
+
+   Get *VizEngine* class
+
+   .. code-block:: javascript
+
+      getComponent('VizEngine');
+
+
+registerVisualizationEngine(name, vizEngineClazz)
+-----------------------------------------------------------
+
+Register a visualization engine with a name
+
+.. versionadded:: 2.11.0
+
+**VISUALIZATION_NAMES**
+
+   Get the built-in visualization name constants
+
+      *  `Highchart`: Name of Highchart visualization engine
+      *  `Highmap`: Name of Highmap visualization engine
+
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **name**
+        - The name of visualization engine
+      * - **vizEngineClazz**
+        - The class or constructor function of visualization engine. This class must inherit from VizEngine class.
+
+**Sample**
+
+   .. code-block:: javascript
+
+      class D3 extends VizEngine {
+      draw(chartContainer, chartType, options, onCompleted) {
+         //Implement the drawing logic into chartContainer here.
+         }
+      }
+
+      registerVisualizationEngine('D3', D3);
+
+registerPropertyEditor(type, factory)
+-----------------------------------------------
+
+Register property editor with its factory function to create a custom property editor inside Report Designer's property panel.
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **type**
+        - Editor type key
+      * - **factory**
+        - Function to create editor component
+
+**Sample**
+   Register a text input property editor
+
+   .. code-block:: javascript
+
+      registerPropertyEditor('text', function(type, props) {
+      return {
+         component: Input,
+         props: {
+            className: 'form-control',
+            onChange: props.onChange
+         }
+      };
+      });
+
+createDropDownPropertySchema
+-----------------------------------------------------
+
+Create a dropdown editor schema in Properties editor panel. This function is used as the factory property value of propertySchema of report part/style configuration.
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip of dropdown editor
+      * - **props.value**
+        - The value of selected item of dropdown editor
+      * - **props.props**
+        - The component properties
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   An example of how using the function to create a dropdown list field schema in report part property schema
+
+   .. code-block:: javascript
+
+      {
+         factory: createDropDownSchema,
+         title: 'Example Dropdown',
+         value: 'getChartType',
+         props: {
+            defaultValue: 'value1',
+            options: ['value1', 'value2']
+         }
+      }
+
+createPopupSettingPropertySchema
+---------------------------------------
+
+Create a popup editor schema in Properties editor panel. It appears as a label and a gear button which opens the popup dialog. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip of editor
+      * - **props.value**
+        - The value of selected item of editor
+      * - **props.props**
+        - The component computational properties
+      * - **props.staticProps**
+        - The component's static properties
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   .. code-block:: javascript
+
+      {
+         factory: createPopupSettingSchema,
+         title: 'Border',
+         value: 'getBorder',
+         props: {
+            reportPartType: REPORT_PART_TYPE.Chart,
+            title: 'Border Settings',
+            // The Border settings dialog uses chart properties to render the preview
+            allChartProps: 'getAllChartProps',
+            // Getter function or property to determine whether the setting exists
+            hadSetting: 'hadSettingBorder',
+            // Function to reset the setting value
+            fnResetDefaultValue: 'fnResetBorderDefaultValue',
+            // Getter function to retrieve value
+            loadValue: 'getBorder'
+         },
+         staticProps: {
+            popupTitle: 'Border Settings',
+            popupContent: ChartBorderSettings
+         }
+      }
+
+createCheckBoxPropertySchema
+-------------------------------------
+
+Create a checkbox editor schema in Properties editor panel. It appears as a label and a checkbox. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip of editor
+      * - **props.value**
+        - The value of selected item of editor
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   .. code-block:: javascript
+
+      izSeparator: {
+         factory: createCheckBoxSchema,
+         title: 'Use Separator',
+         // 'getValueByKey' is a default getter function of Chart that allows to get the value of a property of chart properties by its field name, ie. izSeparator
+         value: 'getValueByKey'
+      }
+
+createSelectPropertySchema
+------------------------------------
+
+Create a select editor schema in Properties editor panel. It appears as a label and select control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip of editor
+      * - **props.value**
+        - The value of selected item of editor
+      * - **props.props**
+        - The component computational properties
+      * - **props.staticProps**
+        - The component's static properties
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   Create a selection list of state with default blank option is All
+
+   .. code-block:: javascript
+
+      {
+         factory: createSelectSchema,
+         title: 'State',
+         value: 'getValueByKey',
+         props: {
+            options: 'getStateByCountry'
+         },
+         staticProps: {
+            blankOption: true,
+            blankOptionText: 'All'
+         }
+      }
+
+createNumberPropertySchema
+--------------------------------------------------
+Create a number editor schema in Properties editor panel. It appears as a label and number input control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip editor
+      * - **props.value**
+        - The value of selected item editor
+      * - **props.props**
+        - The component properties
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   .. code-block:: javascript
+
+      {
+         factory: createNumberSchema,
+         title: 'Item Per Row',
+         value: 'getValueByKey',
+         props: {
+            min: 1,
+            max: 20,
+            isDecimal: false
+         }
+      }
+
+createColorPaletteSettingPropertySchema
+-----------------------------------------------------
+
+Create a color palette editor schema in Properties editor panel. It appears as a label and color palette input control. This function is used as the factory property value of propertySchema of report part/style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   **props**: An object with the following properties.
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **props.title**
+        - The title of label
+      * - **props.info**
+        - The information tooltip editor
+      * - **props.value**
+        - The value of selected item editor
+      * - **props.props**
+        - The component properties
+      * - **props.isHidden**
+        - Hide the editor or not. |br| 
+          (It is optional with the default value is *false*)
+
+**Sample**
+
+   .. code-block:: javascript
+
+      {
+         factory: createColorPaletteSettingSchema,
+         title: 'Color Theme',
+         value: 'getColorTheme',
+         props: {
+            selectionPopupTitle:'Select Color Theme',
+            defaultColorThemeLabel:'No Theme',
+            displaySettingStatus: true,
+            needMaskDefault: false,
+            defaultColorPalette: null,
+            hiddenByState: true
+         }
+      }
+
 **Tags**
 
 Embed, Embedding, Fully Embeddable. 
