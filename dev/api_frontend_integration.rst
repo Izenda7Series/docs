@@ -140,6 +140,24 @@ List of APIs
      - Create a conditional label and a input box of fields which allows to add/remove or drag/drop a field into. |br|
 
        .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `setReportPartConfiguration`_
+     - Set configuration of a report part type. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `getReportPartConfiguration`_
+     - Get configuration of a report part type. |br|
+
+       .. versionadded:: 2.11.0
+   * - .. container:: lpad2
+   
+          `extendReportPartStyleConfiguration`_
+     - Extends report part with a new style configuration. |br|
+
+       .. versionadded:: 2.11.0
 
 config(configJson)
 ----------------------------------------------------------------------------------------------
@@ -755,6 +773,8 @@ Register property editor with its factory function to create a custom property e
       };
       });
 
+   Returns *void*
+
 createDropDownPropertySchema
 -----------------------------------------------------
 
@@ -1100,7 +1120,7 @@ Create a conditional label and a input box of fields which allows to add/remove 
       * - **maximumField**
         - Maximum number of fields in the container. Leave it null or undefined to unlimit the number of fields
       * - **isHorizontal**
-        - Is horizontal alignment between label and input box. Default value is false. |br|
+        - Whether horizontal alignment between label and input box or not |br|
           (It is optional with the default value is false)
 
 **Sample**
@@ -1122,6 +1142,216 @@ Create a conditional label and a input box of fields which allows to add/remove 
          1,
          true
       );
+
+setReportPartConfiguration
+----------------------------------------------
+
+Set configuration of a report part type.  It is typically using for customizing the existing report part type (i.e. Chart, Gauge or Map). Instead of setting a new configuration, it recommends getting the current configuration via :doc: `getReportPartConfiguration`, change appropreate property, then set it back using this function. By changing this configuration, it would impact to all report part styles of the particular report part type. For example, adding a new field container schema to the Chart configuration will result the new field container appears in all chart type configuration designer.|br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **reportPartType**
+        - Report part type
+      * - **configuration**
+        - A report part type configuration object with the following properties:
+
+            *  **configuration.visualEngine** |br|
+               The name of default visualization engine. It will be used as default visualization engine if the report part style configuration doesn't specify explicitly
+            *  **configuration.optionsBuilder** |br|
+               The options builder class or constructor function to build visualization options
+            *  **configuration.model** |br|
+               The report part content model class or constructor function. This class/constructor is used to construct ReportPartContent object
+            *  **configuration.fieldContainerSchema** |br|
+               An array of field container schema
+            *  **configuration.propertyWidgets** |br|
+               An array of custom React components to create property editor.It would be useful in case of using a custom React component directly in the propertySchema property, instead of using registerPropertyEditor to register a custom property editor by type.
+            *  **configuration.propertySchema** |br|
+               The object contains defined schema of property editor of report part in designer
+            *  **configuration.propertyMappingProps** |br|
+               The function to create the mapping properties object
+            *  **configuration.propertyMappingSource** |br|
+               The function to create the mapping source object
+            *  **configuration.propertyValueChange** |br|
+               The function to create value change handler
+            *  **configuration.optionsMapping** |br|
+               Mapping to visualization options. This settings is optional as you can write code in options builder to populate visualization object
+
+**Sample**
+
+   .. code-block:: javascript
+
+      setReportPartConfiguration(REPORT_PART_TYPES.Chart, {
+      visualEngine: 'Highchart',
+      // The builder class to build chart visualization options
+      optionsBuilder: CustomHighchartOptionBuilder,
+      // Report part content model class
+      model: CustomReportPartChartContent,
+      // Default field container schema
+      fieldContainerSchema: null,
+      // Array of custom React component to create property editor.
+      // It would be useful in case of using a custom React component directly in the propertySchema property, instead of
+      // using registerPropertyEditor to register a custom property editor by type.
+      propertyWidgets: [],
+      // The object contains defined schema of property editor of report part in designer
+      propertySchema: {
+         schemaKey: 'Example',
+         groups: {
+            example_group_name: {
+            title: 'Example Group',
+            fields: {
+               example_field_name: {
+                  factory: createDropDownSchema,
+                  title: 'Title of example_field_name',
+                  value: '<any property name or getter function of propertyMappingProps, propertyMappingSource object>',
+                  props: {
+                  defaultValue: 'value1',
+                  options: ['value1', 'value2']
+                  }
+               }
+            }
+            }
+         }
+      },
+      // The function to create the mapping properties
+      propertyMappingProps: function(reportPartDetails, fieldStore) {
+         return {
+            otherProperty: 'Value1'
+         };
+      },
+      // The function to create the mapping source
+      propertyMappingSource: function(reportPartDetails, fieldStore) {
+         return {
+            example_field_name: 'Value1'
+         };
+      },
+      // The function to create an value changed handler
+      propertyValueChange: function(reportPartDetails, fieldStore) {
+         return function(schemaData, changedKey, changedKeyPath, changedValue, changedOthersInfo, derivedChange) {
+            // It must return a Promise with chartProperties object.
+            return Promise.resolve({ needToUpdate: false, chartProperties: reportPartProperties });
+         };
+      },
+      // Mapping to visualization options.
+      // This settings is optional as you can write code in options builder to populate visualization object
+      optionsMapping: null
+      });
+
+getReportPartConfiguration
+----------------------------------------------
+
+Get configuration of a report part type.|br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   *   **reportPartType**: Report part type
+
+**Sample**
+
+   Gets the report part configuration object of Chart
+
+   .. code-block:: javascript
+
+      getReportPartConfiguration(REPORT_PART_TYPES.Chart);
+
+   Returns [Object][14]
+
+extendReportPartStyleConfiguration
+------------------------------------------
+
+Extends report part with a new style configuration. |br|
+
+.. versionadded:: 2.11.0
+
+**Parameters**
+
+   .. list-table::
+      :widths: 20 80
+
+      * - **reportPartType**
+        - Report part type
+      * - **reportPartStyle**
+        - The new report part style
+      * - **baseStyle**
+        - A chart type that new chart derives on
+      * - **configuration**
+        - The new chart type configuration with the following properties
+
+            *  **configuration.visualEngine** |br|
+               The name of visualization engine.x |br| 
+               This settings is optional.The default visualization engine which is defined in report part configuration.
+            *  **configuration.visualType** |br|
+               Visual type to identify which visualization type to be rendered. For example, it would be "type" property of Highchart options.
+            *  **configuration.visualLabel** |br|
+               The label text of this report part style showing in the chart type dropdown of report designer.
+            *  **configuration.optionsBuilder** |br|
+               The options builder class or constructor function to build visualization options.
+            *  **configuration.fieldContainerSchema** |br|
+               An array of field container schema. |br| 
+               *This settings is optional.*
+            *  **configuration.propertyWidgets** |br|
+               An array of custom React components to create property editor. |br|
+               It would be useful in case of using a custom React component directly in the propertySchema property, instead of using `registerPropertyEditor(type, factory)`_ to register a custom property editor by type.
+            *  **configuration.propertySchema** |br|
+               The object contains defined schema of property editor of report part in designer
+            *  **configuration.propertyMappingProps** |br|
+               The function to create the mapping properties object
+            *  **configuration.propertyMappingSource** |br|
+               The function to create the mapping source object
+            *  **configuration.propertyValueChange** |br|
+               The function to create value change handler
+            *  **configuration.optionsMapping** |br|
+               Mapping to visualization options. |br| 
+               This settings is optional.
+**Sample**
+
+   Extend Chart with an additional 3D Column chart type
+
+   .. code-block:: javascript
+
+      extendReportPartStyleConfiguration(REPORT_PART_TYPES.Chart, '3DColumn', CHART_STYLES.Column, {
+      visualType: 'column',
+      visualLabel: '3D Column',
+      propertySchema: {
+         groups: {
+            chart: {
+            fields: {
+               '3d': {
+                  factory: createCheckBoxSchema,
+                  title: 'Enable 3D',
+                  value: 'getValueByKey',
+                  props: {
+                  title: 'Enable 3D'
+                  }
+               }
+            }
+            }
+         }
+      },
+      propertyValueChange: (reportPartDetails, fieldStore) => (
+         chartProperties,
+         schemaData,
+         changedKey,
+         changedKeyPath,
+         changedValue,
+         changedOthersInfo
+      ) => {
+         const threeDOptions = schemaData.chart['3d'];
+         chartProperties.optionByType['3d'] = threeDOptions ? threeDOptions.value : false;
+      },
+      optionsBuilder: ThreeDColumnChartOptionsBuilder,
+      optionsMapping: {
+         optionsByType: {
+            '3d': { propKey: 'chart.options3d.enabled', defaultValue: true }
+         }
+      }
+      });
 
 **Tags**
 
