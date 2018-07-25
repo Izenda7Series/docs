@@ -219,7 +219,7 @@ Preview pane:
    #. Specify the Field that the threshold belongs to.
    #. Input Label for the threshold. The text format for the static threshold’s label can be customized by clicking the gear icon (⚙)
    #. Input a value for static threshold or add a field then choose a function for 
-   #. For Static threshold, input a number in Value textbox. For Dynamic threshold click "Add a field" then choose a field and a function to draw threshold line.
+   #. For Static threshold, input a number in Value textbox. For Dynamic threshold click "Add a field" then choose a field with its function and specify the format to draw threshold line.
    #. Configure Dashstyle, Color and Thickness.
    #. Remember to tick the Visible textbox.
    #. Click OK to close the Thersholds Settings pop-up.
@@ -227,7 +227,7 @@ Preview pane:
    .. _NW_Orders_Chart_Data_Thresholds_Settings:
 
    .. figure:: /_static/images/NW_Orders_Chart_Data_Thresholds_Settings.png
-      :width: 680px
+      :width: 845px
 
       Chart - Data Thresholds |br|
 
