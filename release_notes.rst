@@ -7,6 +7,7 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+
 v2.11.0 July 31, 2018
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -25,6 +26,20 @@ FEATURES
 -  Relationship / Join enhancement 
 	- Enhanced the way relationships display when more than one relationship for the same data sources are set up in the data model. These types of multiple joins will now be displayed as key joins in the UI for users with Advanced Data Source access.
 	
+
+v2.10.5 July 30, 2018
+~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+-  Defect  21180  Removed cast on datetime fields when no offset is used for system or user
+-  Defect  21011  Filter Value Displays "No Results Found" While Loading Data
+-  Defect  20839  Deleted relationships cause copy management validation to fail
+-  Defect  19967  Having a period in database name causes errors when using forms
+-  Defect  19502  In Single Tenant Mode Copy Management should not be shown in settings
+-  Defect  18423  Subreport link in grid on datetime field to chart is failing with system error
+
+
 v2.10.4 July 23, 2018
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3340,9 +3355,6 @@ Known Issues
      -  18412
      - Border settings are not kept on "Configuration" section of report part grid.
    * - Defect
-     -  18423
-     - Subreport link in grid on datetime field to chart is failing with system error
-   * - Defect
      -  18426
      - Number of rows is not updated after cross filtering in report part on pagination control
    * - Defect
@@ -3760,9 +3772,6 @@ Known Issues
      -  19480
      - Header and Footer formatting not reflected in excel exports
    * - Defect
-     -  19502
-     - In Single Tenant Mode Copy Management should not be shown in settings.
-   * - Defect
      -  19505
      - MySQL configuration database fails to save very large physical database schema.
    * - Defect
@@ -3822,9 +3831,6 @@ Known Issues
    * - Defect
      -  19964
      - When using filer field comparison with two tables which have the same name, both sets of fields are listed in the same dropdown
-   * - Defect
-     -  19967
-     - Having a period in database name causes errors when using forms
    * - Defect
      -  20159
      - Columns do not sort when choosing recipient from list for emailing
