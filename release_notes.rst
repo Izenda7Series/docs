@@ -7,6 +7,24 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.11.0 July 31, 2018
+~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+
+-  Custom Visualization Framework  
+	- New JavaScript APIs allow for the extension and customization of Izenda's current visualizations and the ability to use other charting and map libraries as well.
+	- :ref:`Front-end Integration APIs <Frontend_Integration_API>`
+	- Code examples can be found `here <https://github.com/Izenda7Series/IzendaCustomVisualizations>`_ on our GitHub repository
+
+-  Dynamic threshold options for charts 
+	- Threshold lines can now be set using a field to show a dynamic line for chart thresholds
+	- More information on the new threshold option can be found :ref:`here <NW_Orders_Chart_Data_Thresholds_Settings>`
+	
+-  Joining enhancement 
+	- Enhanced the way relationships display when more than one relationship for the same data sources are set up in the data model. These types of multiple joins will now be displayed as key joins in the UI for users with Advanced Data Source access.
+	
 v2.10.4 July 23, 2018
 ~~~~~~~~~~~~~~~~~~~~~~
 
