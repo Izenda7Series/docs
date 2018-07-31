@@ -22,7 +22,7 @@ FEATURES
 	- Threshold lines can now be set using a field to show a dynamic line for chart thresholds
 	- More information on the new threshold option can be found :ref:`here <NW_Orders_Chart_Data_Thresholds_Settings>`
 	
--  Joining enhancement 
+-  Relationship / Join enhancement 
 	- Enhanced the way relationships display when more than one relationship for the same data sources are set up in the data model. These types of multiple joins will now be displayed as key joins in the UI for users with Advanced Data Source access.
 	
 v2.10.4 July 23, 2018
