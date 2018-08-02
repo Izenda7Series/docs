@@ -711,7 +711,7 @@ Creates or updates a tenant.
                "tenantAccess": 1
              }
            },
-           "version": 0
+           "version": 2
          }
 
 POST tenant/active/{tenant_id}
