@@ -113,7 +113,7 @@ Much of the code used in the register page's logic is supported by contents of t
 Back-end Integration through the API
 -------------------------------------------
 
-Currently there is no webforms kit that implements Izenda through REST API calls. For an example that uses the REST API, you can review the `MVC5 back-end standalone <https://www.izenda.com/docs/dev/howto_mvc5kit.html#back-end-integration-through-the-api>`__ documentation and example kit to learn about that approach.
+Currently there is no webforms kit that implements Izenda through REST API calls. For an example that uses the REST API, you can review the `MVC5 back-end standalone <https://www.izenda.com/docs/dev/dev_dep_1_key_components.html>`__ documentation and example kit to learn about that approach.
 
 Other Integration Concepts
 ===========================================
@@ -149,7 +149,7 @@ Hidden Filters in Izenda are the mechanism by which you can dynamically append t
 
 See: :ref:`SetHiddenFilters`.
 
-MVC5 Integration
+Webforms Integration
 ===========================================
 
 This tutorial will teach you the basics of embedding Izenda into an ASP.NET webforms application using Visual Studio 2015.
@@ -194,7 +194,7 @@ In the New ASP.NET Project dialog, click Web Forms and click Change Authenticati
 
    Web Forms Template
 
-The default template of a webforms application will be created. You will use this template to implement Izenda fullly integrated into the application.
+The default template of a webforms application will be created. You will use this template to implement Izenda fully integrated into the application.
 
 Copying Izenda Resources and References
 ===========================================
@@ -245,6 +245,8 @@ Add Izenda DLLs reference and other dependencies
    .. code-block:: console
 
       Install-Package Microsoft.AspNet.WebApi.Client
+      Install-Package Microsoft.AspNet.WebApi.Core
+      Install-Package Microsoft.AspNet.WebApi.WebHost
 
 Adding post build events to copy the resources
 ------------------------------------------------
@@ -325,11 +327,11 @@ Download `IzendaWebForms.sql <https://raw.githubusercontent.com/Izenda7Series/We
 Updating the Izenda DB
 -------------------------------------------
 
-The IzendaWebForms.sql script will generate a configuration database for Izenda 2.4.4.
+The IzendaWebForms.sql script will generate a configuration database for Izenda 2.6.20.
 
 If you use an EmbeddedUI and API for a later version of Izenda you will need to run update scripts against your IzendaWebForms database. You can find a tool to generate the required scripts `here <https://tools.izenda.com/>`__.
 
-For example, if you deploy version 2.6.16 of the EmbeddedUI and API, you would select v2.4.4 as your current version and v2.6.16 as your target version and (for the purposes of this tutorial) [MSSQL] SQLServer as your database type. You can choose to download the script as a SQL file or (if the check box is unchecked) view the file directly in your browser window.
+For example, if you deploy version 2.11.1 of the EmbeddedUI and API, you would select v2.6.20 as your current version and v2.11.1 as your target version and (for the purposes of this tutorial) [MSSQL] SQLServer as your database type. You can choose to download the script as a SQL file or (if the check box is unchecked) view the file directly in your browser window.
 
 Create Authentication DB
 -------------------------------------------

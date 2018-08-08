@@ -1,4 +1,4 @@
-<%@ Page Title="Izenda" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Izenda.aspx.cs" Inherits="WebFormsStarterKit.Izenda" %>
+<%@ Page Title="Izenda" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Izenda.aspx.cs" Inherits="WebFormsStarterKit.IzendaRoot" %>
 
 <asp:Content ID="IzendaContent" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
