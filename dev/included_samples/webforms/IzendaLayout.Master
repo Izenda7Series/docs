@@ -1,0 +1,137 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="IzendaLayout.Master.cs" Inherits="WebFormsStarterKit.IzendaLayout" %>
+
+<%@ Import Namespace="WebFormsStarterKit.Managers" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%: Page.Title %> - Izenda Integrated BI Platform</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <%--Apply css based on the users tenant--%>
+    <link href="~/Scripts/izenda/izenda-ui.css" rel="stylesheet">
+
+    <%--Add Custom CSS based on the tenantId and path set in izendaCssPath above--%>
+    <%
+        var teantCss = IzendaSkinHelper.GetCurrentTenantCssPath();
+        if (!string.IsNullOrWhiteSpace(teantCss))
+        {
+    %>
+    <link href=<%=teantCss%> rel="stylesheet">
+    <%
+        }
+    %>
+</head>
+<body>
+    <%: Scripts.Render("~/bundles/modernizr") %>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%: Scripts.Render("~/bundles/bootstrap") %>
+    <%: Scripts.Render("~/bundles/izenda") %>
+    <div>
+        <form runat="server">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" runat="server" href="~/">Web Forms StarterKit</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/">Home</a></li>
+                            <li><a runat="server" href="~/ReadMe">ReadMe</a></li>
+
+                            <%-- Izenda --%>
+                            <li><a runat="server" href="~/APISample">API</a></li>
+                            <% if (Context.User.Identity.IsAuthenticated)
+                                {
+                            %>
+                            <li><a runat="server" href="~/Izenda">Izenda</a></li>
+                            <li><a runat="server" href="~/Settings">Settings</a></li>
+
+                            <%-- Reports --%>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+                                <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" href="~/Report/ReportDesigner">New Report</a></li>
+                                    <li><a runat="server" href="~/Report/Reports">Report List</a></li>
+                                    <%--Add to report Viewer to Demo, hardcode Report ID to link user to a specific report - please update the report id with one created in your enviroment--%>
+                                    <li><a runat="server" href="~/report/view/[your_report_id]">Report Viewer</a></li>
+                                    <li><a runat="server" href="~/Report/ReportParts">Report Parts</a></li>
+                                    <li><a runat="server" href="~/Report/AdvancedReportParts">Advanced Report Parts</a></li>
+                                </ul>
+                            </li>
+
+                            <%--Dashboards--%>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dashboards
+                            <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" href="~/Dashboard/DashboardDesigner">New Dashboard</a></li>
+                                    <li><a runat="server" href="~/Dashboard/Dashboards">Dashboards</a></li>
+                                    <%--Add to dashboard Viewer to Demo, hardcode Dashboard ID to link user to a specific dashboard - please update the dashboard id with one created in your enviroment--%>
+                                    <li><a runat="server" href="~/dashboard/view/[your_dashboard_id]">Dashboard Viewer</a></li>
+                                </ul>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                    <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </li>
+                                </ul>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="container-fluid body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Izenda Integrated BI Platform - <%= IzendaSkinHelper.GetCurrentProductVersion() %></p>
+            </footer>
+        </div>
+    </div>
+
+    <%-- Izenda --%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //loadCurrentTenantStyles();
+            DoIzendaConfig();
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="dropdown"]').dropdown();
+            $("#reportPartLoader").hide();
+            $("#reportPartLoaderText").hide();
+        });
+    </script>
+</body>
+</html>
