@@ -7,6 +7,31 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.11.2 August 13, 2018
+~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+
+-  Defect  18938  Relative positioning of grids is not respected when the user changes the number of records or adds filters, causing unnecessary gaps between grids in the report 
+-  Defect  21242  Subreport returns 'No Results' with "Convert NULL to Empty String" and NULL as Field Mapped value
+-  Defect  21327  Izenda UI fails to render second time on Aurelia js framework
+-  Defect  21340  Sort Column Name setting is inverted/reversed
+-  Defect  21406  Custom Report Part Framework: registerVisualizationEngine, cannot register new frameworks
+-  Defect  19061  Report actions disabled at the tenant level may still be visible under Role Setup in some scenarios
+
+v2.11.1 August 6, 2018
+~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+
+-  Defect  21326  When using RUNNING functions, conditional statements are not supported (IF, CASE, etc), when using division if the RUNNING field is 0 error will be shown to user. System should handle divide by 0 and return 0.
+-  Defect  21322  Stored procedure parameter defaults to filter position 1 after saving
+-  Defect  21253  Threshold Popup Settings keeps expanding to the right at certain zoom levels
+-  Defect  21222  When creating grid with separator and changing sort on grid columns, some times a null row appears and the subtotals are then incorrect.
+-  Defect  21221  UI becomes unresponsive when editing some form report parts
+-  Defect  18532  Settings of SubTotal is lost in form report part after setting it the first time
 
 v2.11.0 July 31, 2018
 ~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +42,7 @@ FEATURES
 -  Custom Visualization Framework  
 	- New JavaScript APIs allow for the extension and customization of Izenda's current visualizations and the ability to use other charting and map libraries as well.
 	- :ref:`Front-end Integration APIs <Frontend_Integration_API>`
-	- Code examples can be found `here <https://github.com/Izenda7Series/IzendaCustomVisualizations>`_ on our GitHub repository
+	- Code examples can be found on our `GitHub repository <https://github.com/Izenda7Series/IzendaCustomVisualizations>`_ 
 
 -  Dynamic threshold options for charts 
 	- Threshold lines can now be set using a field to show a dynamic line for chart thresholds
@@ -3603,9 +3628,7 @@ Known Issues
    * - Defect
      -  18916
      - When using Oracle reporting database no record found when drill down in a Chart has Char data type in X-axis column
-   * - Defect
-     -  18938
-     - Relative positioning of grids is not respected when user changes number of records or adds filter causing unnecessary gaps between grids in the report
+between grids in the report
    * - Defect
      -  18944
      - Users without User Role Association could assign roles to other users via the Role Setup pages.
