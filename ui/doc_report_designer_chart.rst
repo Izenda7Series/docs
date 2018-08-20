@@ -312,6 +312,18 @@ Preview pane:
    #. Choose to view all data or enter a number to view that specific
       number of latest records only. |br|
 
+-  .. _Report_Designer_Single_Yaxis:
+
+   .. figure:: /_static/images/Report_Chart_Single_Yaxis.png
+      :align: right
+      :width: 588px
+
+      Combination Chart - Single Y-axis
+
+   Choose Single Y-axis to show all metric in one Y-axis. This option is only available for combination charts that contain at least two metrics. New in version 2.12.0.
+
+|br|
+
 .. note:: 
 
    If the **Show Preview section in Configuration Mode** checkbox (In Others tab in Advanced Settings) is unticked then The Preview section will not be displayed for following pop-ups: 
@@ -321,7 +333,8 @@ Preview pane:
       \- XY-Plane Settings |br|
       \- Grid Lines Settings |br|
       \- Legend Settings |br|
-      \- Thresholds Settings
+      \- Thresholds Settings |br|
+      \- Regression Line Settings
 
       .. figure:: /_static/images/NW_Orders_Chart_Border_Settings_No_Preview.PNG
          :align: center
