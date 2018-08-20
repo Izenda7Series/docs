@@ -584,6 +584,7 @@ together in a same report part.
 
       Relationship between ServiceTime and Sales |br|
 
+
 +----------+-------------------+-------------+
 | **Id**   | **ServiceTime**   | **Sales**   |
 +----------+-------------------+-------------+
@@ -596,7 +597,16 @@ together in a same report part.
 | 4        | 10                | 1504        |
 +----------+-------------------+-------------+
 
-|
+
+-  Area type is available in Combination chart from version 2.12.0.
+
+   .. _ServiceTimeSales_Combination_Chart_with_Area:
+
+   .. figure:: /_static/images/ServiceTimeSales_Combination_Chart_with_Area.png
+      :width: 470px
+
+      Combination chart combining Area, Column, and Line types |br|
+
 
 Tree Map Chart
 --------------
