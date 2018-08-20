@@ -231,6 +231,27 @@ Preview pane:
 
       Chart - Data Thresholds |br|
 
+-  Add regression line (applicable to the chart types (Line, Column, Bar, Area, Combination, Scatter, and Bubble only). New in 2.12.0.
+
+   #. In Data group, click the gear icon (⚙) to open Regression Line Settings pop-up.
+   #. Select a field to apply the regression line.
+   #. Specify whether display this regression line in the chart plot area or not.
+   #. Specify whether hide this regression line in the chart legend or not.
+   #. Input the name for the regression line. If the name is not defined, the equation will display as the regression line's name.
+   #. Select one of the types from Linear, Polynomial, Logarithmic, or Exponential in Regression Type dropdown.
+   #. Input the decimal places for the regression line.
+   #. Choose the Order number if the regression line is Polynomial.
+   #. Configure the color, dashstyle, and thickness.
+   #. Input the extrapolate number if the regression type is Linear or Polynomial.
+   #. Click OK to close the Regression Line Settings pop-up.
+
+   .. _NW_Orders_Chart_Data_RegressionLine_Settings:
+
+   .. figure:: /_static/images/Report_Chart_Regression_Line_Setting.png
+      :width: 805px
+
+      Chart - Data Regression Line |br|
+
 -  .. _NW_Orders_Chart_Zoom:
 
    .. figure:: /_static/images/NW_Orders_Chart_Zoom.png
