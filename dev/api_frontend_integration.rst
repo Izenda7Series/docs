@@ -1047,7 +1047,7 @@ Create a color palette editor schema in Properties editor panel. It appears as a
 
 registerFieldContainer
 -----------------------------------------------------
-Register field container with its factory function in order to create a custom field container in Report Designer's report part configuration. Most of the time, using createFieldContainerSchema function to create labeled box of fields fits in the same way with current Values, Labels... field containers.|br|
+Register field container with its factory function in order to create a custom field container in Report Designer's report part configuration. Most of the time, using `createFieldContainerSchema`_ function to create labeled box of fields fits in the same way with current Values, Labels... field containers.|br|
 
 .. versionadded:: 2.11.0
 
