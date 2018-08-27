@@ -13,12 +13,12 @@ v2.11.4 August 27, 2018
 FIXES
 ^^^^^
 
--  Defect  21518  Cannot add a field into field container of new custom chart
+-  Defect  21518  Cannot add a field into the field container of new custom chart.
 -  Defect  21487  Filters built from calculated fields would not render in the report designer. 
--  Defect  21440  Drilldown grid containing a non-visible field fails to Print or Export
+-  Defect  21440  Drilldown grid containing a non-visible field fails to Print or Export.
 -  Defect  21401  Applying subtotals to calculated fields would throw an invalid query exception.
--  Defect  21318  Chart's using the Linear setting for the XY-Plane would not display properly if the x-axis was built from a time field.
--  Defect  18865  Cell Color setting for Bubble or Shading in Map report part, validation for values works incorrectly because it treats values as characters
+-  Defect  21318  Charts using the Linear setting for the XY-Plane would not display properly if the x-axis was built from a time field.
+-  Defect  18865  Cell Color setting for Bubble or Shading in Map report part, validation for values works incorrectly because it treats values as characters.
 
 
 v2.11.3 August 13, 2018
