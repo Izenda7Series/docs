@@ -237,7 +237,7 @@ Preview pane:
    #. Select a field to apply the regression line.
    #. Specify whether display this regression line in the chart plot area or not.
    #. Specify whether hide this regression line in the chart legend or not.
-   #. Input the name for the regression line. If the name is not defined, the equation will display as the regression line's name.
+   #. Input the name for the regression line. If the name is not defined, the equation will display as the regression line's name. This name is only shown in the tool tip and the legend, it is not displayed in the chart on the line.
    #. Select one of the types from Linear, Polynomial, Logarithmic, or Exponential in Regression Type dropdown.
    #. Input the decimal places for the regression line.
    #. Choose the Order number if the regression line is Polynomial.
