@@ -231,12 +231,14 @@ Preview pane:
 
       Chart - Data Thresholds |br|
 
--  Add regression line (applicable to the chart types Line, Column, Bar, Area, Combination, Scatter, and Bubble only). New in 2.12.0.
+	  .. _Chart_Regression_Line:
 
+-  Add regression line (applicable to the chart types Line, Column, Bar, Area, Combination, Scatter, and Bubble only). New in 2.12.0.
+   
    #. In Data group, click the gear icon (⚙) to open Regression Line Settings pop-up.
    #. Select a field to apply the regression line.
-   #. Specify whether display this regression line in the chart plot area or not.
-   #. Specify whether hide this regression line in the chart legend or not.
+   #. Specify whether to display this regression line in the chart plot area or not.
+   #. Specify whether to hide this regression line in the chart legend or not.
    #. Input the name for the regression line. If the name is not defined, the equation will display as the regression line's name. This name is only shown in the tool tip and the legend, it is not displayed in the chart on the line.
    #. Select one of the types from Linear, Polynomial, Logarithmic, or Exponential in Regression Type dropdown.
    #. Input the decimal places for the regression line.
@@ -250,25 +252,25 @@ Preview pane:
    .. figure:: /_static/images/Report_Chart_Regression_Line_Setting.png
       :width: 805px
 
-      Chart - Data Regression Line - Polynomial |br|
+      Chart - Data Regression Line - Polynomial Equation: y= -0.16x^2 + 2.47x + 1.62 |br|
 
 
    .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Linear.png
       :width: 805px
 
-      Chart - Data Regression Line - Linear |br|
+      Chart - Data Regression Line - Linear Equation: y= 3340.96x + 86408.82 |br|
 
 
    .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Logarithmic.png
       :width: 805px
 
-      Chart - Data Regression Line - Logarithmic |br|
+      Chart - Data Regression Line - Logarithmic Equation: y= 74220.22 + 20290.18 ln(x) |br|
       
 
    .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Exponential.png
       :width: 805px
 
-      Chart - Data Regression Line - Exponential |br|
+      Chart - Data Regression Line - Exponential Equation: y= 149592.51e^(-0.03x) |br|
 
 -  .. _NW_Orders_Chart_Zoom:
 
@@ -581,7 +583,7 @@ Combination Chart
 -----------------
 
 A combination chart allows combining multiple charts of different types
-together in a same report part.
+together in the same report part.
 
 -  Comparison between Sales with and without Discount
 

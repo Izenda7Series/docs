@@ -383,10 +383,10 @@ For example:
 
    .. figure:: /_static/images/Report_Form/Form_Subtotal_Inside_Repeater_Designer.png
 
-      Form - Subtotal inside repeaters - Configuration|br|
+      Form - Subtotal inside repeaters - Configuration |br|
 
    .. figure:: /_static/images/Report_Form/Form_Subtotal_Inside_Repeater_View.png
       
-      Form - Subtotal inside repeaters - Preview|br|
+      Form - Subtotal inside repeaters - Preview |br|
 
-**Notes:** The subtotal inside repeater does not support for parallel repeater.
+**Notes:** Subtotals are not supported for parallel repeaters, only nested repeater structures.

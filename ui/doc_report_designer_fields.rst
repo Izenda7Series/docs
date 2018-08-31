@@ -211,6 +211,7 @@ In this section, user can:
        "Atlanta") should be hidden at runtime.
 
 -  Select the filter to be required or not.
+       .. _Report_Designer_Required_Filter:
 
       A required filter will force end-user to enter filter values in
       order to run it.
@@ -222,7 +223,7 @@ In this section, user can:
 
       .. note::
       
-         For a stored procedure's parameter, if the Required checkbox is not selected and the filter value is empty, the stored procedure will be executed with 'null' value. This is a new behavior from version 2.12.0.
+         For a stored procedure's parameter, if the Required checkbox is not selected and the filter value is empty, the stored procedure will be executed with 'null' value. If your stored procedures do not return all results when null is passed, leaving this value as null will always return no results. This is a new behavior from version 2.12.0.
 
 -  Select the filter to be cascading or not.
 
