@@ -231,7 +231,7 @@ Preview pane:
 
       Chart - Data Thresholds |br|
 
--  Add regression line (applicable to the chart types (Line, Column, Bar, Area, Combination, Scatter, and Bubble only). New in 2.12.0.
+-  Add regression line (applicable to the chart types Line, Column, Bar, Area, Combination, Scatter, and Bubble only). New in 2.12.0.
 
    #. In Data group, click the gear icon (⚙) to open Regression Line Settings pop-up.
    #. Select a field to apply the regression line.
