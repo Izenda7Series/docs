@@ -2997,9 +2997,6 @@ Known Issues
      - 20625
      - Boolean datatype fields incorrectly allow selection of SUM, AVG, MIN, MAX, etc aggregate functions 
    * - Defect
-     - 20621
-     - Resolved security issue on API
-   * - Defect
      - 20611
      - Days Old function returns incorrect number of days when using Redshift reporting database. 
    * - Defect
