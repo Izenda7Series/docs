@@ -338,8 +338,9 @@ Preview pane:
 
       Combination Chart - Single Y-axis
 
-   Choose Single Y-axis to show all metric in one Y-axis. This option is only available for combination charts that contain at least two metrics. New in version 2.12.0. |br|
-   When Single Y-axis is selected, the All axis will be applied the same format with the first metric's axis. Also, the metrics are showing in the stacking with the order of the last metric is on the top.
+   Choose Single Y-axis to show all metrics in one Y-axis. This option is only available for combination charts that contain at least two metrics. New in version 2.12.0. |br|
+   When Single Y-axis is selected, the All axis will be applied and the same format with the first metric's axis. |br|
+   The metrics in the combination chart are stacked in the order they are added in the configuration, the first metric added is the on the bottom and the last metric added is on the top. In the example image above, the area chart metric is on top and is the last metric in the chart set up. |br|
 
 |br|
 
