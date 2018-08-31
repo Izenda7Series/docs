@@ -250,7 +250,25 @@ Preview pane:
    .. figure:: /_static/images/Report_Chart_Regression_Line_Setting.png
       :width: 805px
 
-      Chart - Data Regression Line |br|
+      Chart - Data Regression Line - Polynomial |br|
+
+
+   .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Linear.png
+      :width: 805px
+
+      Chart - Data Regression Line - Linear |br|
+
+
+   .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Logarithmic.png
+      :width: 805px
+
+      Chart - Data Regression Line - Logarithmic |br|
+      
+
+   .. figure:: /_static/images/Report_Chart_Regression_Line_Setting_Exponential.png
+      :width: 805px
+
+      Chart - Data Regression Line - Exponential |br|
 
 -  .. _NW_Orders_Chart_Zoom:
 
