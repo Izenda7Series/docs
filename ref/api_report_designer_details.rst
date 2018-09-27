@@ -5338,6 +5338,27 @@ GET report/reportPart/{report_part_id}/(report_id)?page=value
 
 Returns the report part definition specified by report_part_id from draft (using report_id) or from database (without report_id).
 
+**Parameters**
+
+   .. list-table::
+      :class: apitable
+      :widths: 25 75
+      :header-rows: 1
+
+
+      *  -  Field
+         -  Description
+      *  -  **report_part_id** |br|
+            string(GUID)
+         -  Id of the report part
+      *  -  **report_id** |br|
+            string(GUID)
+         -  Id of the report
+      *  -  **page** |br|
+            *Optional* |br|
+            string(GUID)
+         -  Id of the web page.
+
 **Request**
 
       No payload
