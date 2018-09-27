@@ -5333,8 +5333,8 @@ Returns a list of all scheduled deliveries.
          "total" : 0
       }
 
-GET report/reportPart/{report_part_id}/(report_id)
----------------------------------------------------
+GET report/reportPart/{report_part_id}/(report_id)?page=value
+-------------------------------------------------------------------------
 
 Returns the report part definition specified by report_part_id from draft (using report_id) or from database (without report_id).
 
