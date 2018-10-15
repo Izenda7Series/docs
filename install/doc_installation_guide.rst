@@ -633,9 +633,9 @@ Additional Reference
 
             #. Set ``cloudEnable="true"`` to use the Azure option, then enter the server IP, port and password.
 
-      -  Optionally change the default quartz thread count settings by two ways as below. These options are available from version 2.13.1.
+      -  Optionally change the default quartz thread count settings. This option is available from version 2.13.1.
 
-            * In ``<configSections>`` element, add quartz configure section. For example:
+            #. In ``<configSections>`` element, add quartz configure section to create the quartz configuration. For example:
 
                   .. code-block:: mxml
 
@@ -643,7 +643,7 @@ Additional Reference
                               <section name="quartz" type="System.Configuration.NameValueSectionHandler, System, Version=1.0.5000.0,Culture=neutral, PublicKeyToken=b77a5c561934e089" />
                         </configSections>
 
-            * OR in ``<configuration>`` element, add <quartz> element with a thread count setting. For example:
+            #. In ``<configuration>`` element, specify the maximum thread count by an integer. For example:
 
                   .. code-block:: mxml
 
