@@ -7,6 +7,7 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+
 v2.13.3 October 22, 2018
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,7 +22,7 @@ v2.13.2 October 15, 2018
 
 FIXES
 ^^^^^
-	
+
 	-  Defect  21657  Optimized bubble chart query performance
 	-  Defect  21764  Cross database relationships were not being copied using copy management.
 	-  Defect  21851  Query for getting connection details in MySQL took too long to complete.
