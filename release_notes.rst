@@ -13,7 +13,7 @@ v2.13.3 October 22, 2018
 FIXES
 ^^^^^
 	
-  -  Defect  18944  Users without User Role Association could assign roles to other users via the Role Setup pages.
+	-  Defect  18944  Users without User Role Association could assign roles to other users via the Role Setup pages.
 	-  Defect  21772  Reports utilizing Custom Views with calculated fields would break if the database name used in the view changes.
 	-  Defect  22029  Improved reliability in exports.
 
