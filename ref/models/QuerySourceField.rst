@@ -215,7 +215,11 @@ QuerySourceField
       -  *  true if 0 < numOfCheckedChilds < numOfChilds
          *  false if not
       -
-
+   *  -  **hasFilterLookup** |br|
+         boolean
+      -
+      -  Whether this field has filter lookup setting or not
+      -
 
 Inherited fields:
 

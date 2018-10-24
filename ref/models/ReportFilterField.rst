@@ -135,6 +135,11 @@ ReportFilterField
       -
       -  The name of the operator
       -
+   *  -  **hasFilterLookup** |br|
+         boolean
+      -
+      -  Whether this field has filter lookup setting or not
+      -
 
 Inherited fields:
 
