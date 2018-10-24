@@ -137,6 +137,8 @@ ReportFilterField
       -
    *  -  **hasFilterLookup** |br|
          boolean
+
+         .. versionadded:: 2.14.0
       -
       -  Whether this field has filter lookup setting or not
       -
