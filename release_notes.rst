@@ -7,6 +7,19 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.13.4 October 29, 2018
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+	
+-  Defect  17942  Unnecessary spacing for subreports in Forms that don't return data.
+-  Defect  21488  Forms were not consistently loading subreport contennt when updating filter values.
+-  Defect  21939  Forms with embedded subreports would export slowly and with a blank visualization.
+-  Defect  21940  Drilldown performance was slow accross chart types.
+-  Defect  22029  Improved reliability in exports.
+
+
 v2.13.3 October 22, 2018
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
