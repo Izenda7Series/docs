@@ -7,12 +7,23 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
-v2.14.0 November 5, 2018
+v2.14.1 November 5, 2018
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FIXES
+^^^^^
+	
+-  Defect  18990  Copyright was not updating automatically. 
+-  Defect  21773  Report parts in print and exports overlap in some cases.
+-  Defect  21899  Image data type fields that contain null fail when exporting to Excel or Word.
+-  Defect  22098  Heat Map Hover Label Displaying NULL instead of x-axis value.
+
+
+v2.14.0 November 1, 2018
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
 ^^^^^^^^^	
-
 
 -  Lookups for Fields in Tables and Views
 	- You can now set lookups against any field in your tables and views similar to stored procedure input parameters.
