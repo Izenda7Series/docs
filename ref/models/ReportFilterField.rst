@@ -141,9 +141,10 @@ ReportFilterField
          .. versionadded:: 2.15.0
       -
       -  Determine the type of lookup setting: |br|
-            \- 0: No filter lookup
-            \- 1: Filter lookup key-value
-            \- 2: User defined user lookup
+      
+            \- 0: No filter lookup |br|
+            \- 1: Filter lookup key-value |br|
+            \- 2: User defined user lookup |br|
       -
    *  -  **useLookup** |br|
          boolean
