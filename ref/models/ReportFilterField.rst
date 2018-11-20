@@ -135,10 +135,27 @@ ReportFilterField
       -
       -  The name of the operator
       -
+   *  -  **filterLookupType** |br|
+         int
+
+         .. versionadded:: 2.15.0
+      -
+      -  Determine the type of lookup setting: |br|
+            \- 0: No filter lookup
+            \- 1: Filter lookup key-value
+            \- 2: User defined user lookup
+      -
+   *  -  **useLookup** |br|
+         boolean
+
+         .. versionadded:: 2.15.0
+      -
+      -  Whether use lookup key-value setting or not
+      -
    *  -  **hasFilterLookup** |br|
          boolean
 
-         .. versionadded:: 2.14.0
+         Obsolete from version 2.15.0
       -
       -  Whether this field has filter lookup setting or not
       -
