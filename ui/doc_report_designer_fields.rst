@@ -154,13 +154,14 @@ are in Atlanta city:
    .. _Report_Designer_Filter_Click_to_Select:
 
    .. figure:: /_static/images/Report_Designer_Filter_Click_to_Select.png
-      :width: 324px
+      :width: 150px
 
       Report Designer - Click to Select Filter
 
 #. The properties are listed in Filter Properties box in 3 sections (:numref:`Report_Designer_Filter_Properties`):
 
    -  Source
+   -  Filter Operator
    -  Filter Settings
    -  Filter Formatting |br|
 
