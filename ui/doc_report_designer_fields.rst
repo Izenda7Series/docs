@@ -165,14 +165,14 @@ are in Atlanta city:
    -  Filter Settings
    -  Filter Formatting |br|
 
-#. Select Equivalence in Filter Operator drop-down in Filter Settings
-   section.
+#. Select Equivalence in Filter Operator section.
 #. Select Equals (Manual Entry) in the next drop-down.
 #. Type in "Atlanta".
 
 .. note::
 
-   Any field marked as not filterable in Data Model cannot be used in a filter. It can neither be dragged into the Filter box, nor appear in a filter drop-down.
+   * Any field marked as not filterable in Data Model cannot be used in a filter. It can neither be dragged into the Filter box, nor appear in a filter drop-down.
+   * The Use Lookup checkbox only display for table/view fields having valid filter lookup key-value setting in Data Model.
 
 .. note::
 
