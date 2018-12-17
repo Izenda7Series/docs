@@ -437,6 +437,8 @@ Render specific :term:`Report Part` inside hosting web
              - Optional, required for exports
            * - **previewRecords** |br|
                Integer
+
+               .. versionadded:: 2.15.1
              - The number of preview records
              - Optional (The default value is the value saved in the report definition)
              
