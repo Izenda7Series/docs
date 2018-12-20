@@ -98,6 +98,10 @@ List of APIs
      - Deletes a custom query source.
    * - `GET dataModel/querySource/{query_source_id}`_
      - Returns the query source specified by query_source_id.
+   * - `POST dataModel/validateRelationships`_
+
+       .. versionadded:: 2.16.0
+     - Validate the newly added or modified relationship(s).
 
 .. _POST_dataModel/loadQuerySources:
 
@@ -1796,7 +1800,7 @@ Returns an array of invalid/modified relationships of visible data sources, page
 
    .. code-block:: http
 
-      POST /api/dataModel/loadRelationships HTTP/1.1
+      POST /api/dataModel/loadInvalidRelationships HTTP/1.1
 
    Request payload::
 
@@ -2807,4 +2811,83 @@ Returns the query source specified by query_source_id.
          "indeterminate": false,
          "numOfChilds": 0,
          "numOfCheckedChilds": 0
+      }
+
+POST dataModel/validateRelationships
+-----------------------------------------------------
+
+Validate the newly added or modified relationship(s).
+
+**Request**
+
+    An array of  :doc:`models/Relationship` object.
+
+**Response**
+
+   An object with the following properties:
+
+   .. list-table::
+      :header-rows: 1
+      :widths: 25 5 40 30
+
+      *  -  Field
+         -  NULL
+         -  Description
+         -  Note
+      *  -  **success** |br|
+            boolean
+         -  
+         -  **true** if there is no invalid relationship (duplicate relationship, duplicate positionId, inconsistent datatype) |br|
+            **false** if there is at least one invalid relationship
+         -  
+      *  -  **hasPositionId** |br|
+            boolean
+         -  N
+         -  Indicate whether there is any relationship has positionId
+         -  
+
+**Samples**
+
+   .. code-block:: http
+
+      POST api/dataModel/validateRelationships HTTP/1.1
+
+   Request Payload::
+
+      {
+         "relationships": [
+            {
+               "id": null,
+               "joinConnectionId": "a202de0e-649d-4c7b-b282-ccdae94585e6",
+               "foreignConnectionId": "a202de0e-649d-4c7b-b282-ccdae94585e6",
+               "joinQuerySourceId": "5fba843d-9c64-4079-b727-c110bce2ee3f",
+               "foreignQuerySourceId": "21c34241-c070-47c4-9cc4-86c9893daa5a",
+               "joinFieldId": "f3fd1ac9-254e-4527-a66c-304e05f369bc",
+               "foreignFieldId": "9d927e1a-1abe-4656-b2a6-bd662c49efe3",
+               "alias": "",
+               "systemRelationship": false,
+               "joinType": "Inner",
+               "position": "61"
+            },
+            {
+               "id": null,
+               "joinConnectionId": "a202de0e-649d-4c7b-b282-ccdae94585e6",
+               "foreignConnectionId": "a202de0e-649d-4c7b-b282-ccdae94585e6",
+               "joinQuerySourceId": "de6cc7be-98bb-4222-94ff-14f1ec6c5042",
+               "foreignQuerySourceId": "5fba843d-9c64-4079-b727-c110bce2ee3f",
+               "joinFieldId": "3f2e55c6-7796-4daf-b8d2-0b95e7ecdcf7",
+               "foreignFieldId": "f3fd1ac9-254e-4527-a66c-304e05f369bc",
+               "alias": "",
+               "systemRelationship": false,
+               "joinType": "Inner",
+               "position": "60"
+            }
+         ]
+      }
+
+   Sample Response::
+
+      {
+         "success" : true,
+         "hasPositionId" : false
       }
