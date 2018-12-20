@@ -148,6 +148,15 @@ Relationship
       -
       -  Whether the relationship has been modified or not
       -
+   *  -  **positionId** |br|
+         int
+
+         .. versionadded:: 2.16.0
+      -
+      -  The order of relationships when executing the query
+      -
+      
+
 
 Inherited fields:
 
