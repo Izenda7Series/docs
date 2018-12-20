@@ -82,6 +82,8 @@ Add relationship
        Source Field in that order for the dropdown boxes to populate
        conveniently.
 
+       User should input the positionID to define the priority of each relationship when querying data. (This option is available from version 2.16.0).
+
 #. Continue to add more relationships.
 #. Click the Save button at the top.
 
