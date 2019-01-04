@@ -35,7 +35,7 @@ FEATURES
 -  "Use Lookup" Checkbox Added for Filters
     - If you have lookups set on a field (utilizing the v2.14 lookup functionality) there will be a "Use Lookup" option on those filter fields.
     - This option is a checkbox that determines if you want to leverage the lookup for the filter dropdown or have filter use the historic functionality.
-    - This option will be visible in the Ftiler Properties Panel only if a lookup is set on that particular field in the data model.
+    - This option will be visible in the Filter Properties Panel only if a lookup is set on that particular field in the data model.
 
 FIXES
 ^^^^^
