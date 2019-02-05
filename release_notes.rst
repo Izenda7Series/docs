@@ -30,7 +30,7 @@ FIXES
 -  Defect  21762  Report Category and Name change are not reflected in the dashboard report part link.   
 -  Defect  21916  Alternative Text Not Applying to Subtotal NULL Value in Drill Down Grid.   
 -  Defect  21917  Alternative Text Not Updating Chart Drill Down Labels for NULL Values.   
--  Defect  21995  Subtotal Creates Additional Boarder Cell in Pivot Grids.   
+-  Defect  21995  Subtotal Creates Additional Border Cell in Pivot Grids.   
 -  Defect  22167  Boolean Filter pValue Not Dynamically Updating.   
 -  Defect  22209  Global subreports were not correctly filtered by field mappings.   
 -  Defect  22277  Simple Gauge with Separator Not Exporting Values.   
