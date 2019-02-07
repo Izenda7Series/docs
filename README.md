@@ -1,4 +1,4 @@
-## Installing Sphinx
+## Installing Sphinx 
 
 Follow the steps [here](http://www.sphinx-doc.org/en/1.4.8/install.html) (Be sure to install python 2.7, not 3)
 
