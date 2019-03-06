@@ -7,6 +7,56 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
+v2.18.0March 6, 2019
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^	
+
+-  Elasticsearch Driver
+    - Elasticsearch can now be used as a reporting database 
+    - This driver is built to support Elasticsearch v2.2+
+
+- Updated 3rd Party Libraries
+    - Upgraded Jquery to v3.3.1
+    - Upgraded Lodash to v4.17.5
+    - Upgraded Moment to v2.19.3
+    - Upgraded Quartz to v2.6.2
+
+.. warning::
+
+   If you are leveraging the Quartz ADOJobStore database you will need to run an upgrade script on your Quartz database that can be found `here <https://github.com/quartznet/quartznet/blob/2.x/database/schema_25_to_26_upgrade.sql>`_.
+
+
+FIXES
+^^^^^
+-  Defect  18966  Relationships Grid should expand to take up entire panel in Settings> Data Setup> Data Model > Relationship.   
+-  Defect  19196  CASE statement help text had incorrect text in the Expression Builder.   
+-  Defect  21458  Updating the PageSetting  value in the IzendaSystemSetting table (for formats like A4, A3, etc.) would not update the system to export in the newly selected format.   
+-  Defect  21639  Map Color Value Range would not sorting in the chart legend.   
+-  Defect  22204  Alternative Text values would incorrectly apply conditional formatting.   
+-  Defect  22218  Dashboard filterse would display incorrectly if a self-join was used for an underlying report.   
+-  Defect  22276  Stacked Percentage features on charts were not updating properly to the percentage format.   
+-  Defect  22289  Embedded subreports in forms are not rendered during secondary load if a field mapping is not present.   
+-  Defect  22292  No alert is thrown when trying to save a data model with duplicate column aliases.   
+-  Defect  22549  The 3D Column Chart visualization would not draw a chart preview.   
+-  Defect  22648  Database selection dropdowns would load indefinitely and inconsistently.   
+-  Defect  22652  Scheduled/Subscribed reports that used a different timezone than the API server would send incorrectly when using the Quartz Scheduler.   
+-  Defect  22666  Cache was not consistently cleared during the CopyManagement process.   
+-  Defect  22667  Splines were not being applied to area charts.   
+-  Defect  22709  Global reports do not show in tenant if reports listed before fail database mapping validation.   
+-  Defect  22715  Formatting changes were not applied to the subtotal label.   
+-  Defect  22729  End users could adjust their own UserID in their profile page.        
+-  Defect  22755  Chart drilldowns were not working in Internet Explorer.   
+-  Defect  22776  Subreports were not accurately filtered by field mappings.   
+-  Defect  22809  Alternative text did not handle null values.        
+-  Defect  22828  Top-left tile of the dashboard body could not be selected.   
+-  Defect  22829  Report parts could not be removed once added to a report's Cross Filtering setup.   
+-  Defect  22831  Axis labels would not match actual chart values.   
+-  Defect  22842  Heatmap default colors would not be applied correctly.        
+
+
+
 v2.17.1 February 19, 2018
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3742,9 +3792,6 @@ Known Issues
    * - Defect
      - 18971
      - UI freezes after clicking on report part type buttons (FORM,..) when the data source fields haven't finished loading
-   * - Defect
-     - 18966
-     - Relationships Grid should expand to take up entire panel in Settings>Data Set up> Data Model > Relationship
    * - Defect
      - 18962
      - System shows no data sources on Middle Panel and failed validation on Form when User who has Full Report & Dashboard Access right views a shared report
