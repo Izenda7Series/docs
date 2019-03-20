@@ -53,6 +53,8 @@ The setup of Izenda requires a download of the latest version of the stand-alone
 
    *  Windows Server with Internet Information Services (IIS) Web Server.
 
+-  `.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ (only need when deploy Izenda in .NET Core infrastructure).
+
 .. note::
 
    All of the information covered in this document can also be found in video from `here <https://www.izenda.com/7-series-installation-videos/#portal-install>`__
@@ -142,7 +144,7 @@ The most common testing scenario places the front-end and the back-end on two se
          (C:\\inetpub\\wwwroot\\Izenda\\App).
       #. Skip the Connect as... and Test Settings... buttons for now,
          since permissions have not been set for Izenda package folders.
-      #. The Port for Front-end is best kept at the default value of 80.
+      #. Keep the port as 80 by default or change to any available port.
       #. Optionally enter the website address into host name box, but
          you will have to bind that address with the correct ip in
          "C:\\WINDOWS\\System32\\drivers\\etc\\hosts" file.
@@ -161,7 +163,10 @@ The most common testing scenario places the front-end and the back-end on two se
 
          New Website |br|
 
-#. Install Izenda Back-end package similarly with a different port.
+#. Add new website for Back-end package:
+
+   *  .NET infrastructure: Similarly to Front-end site set-up but with different port
+   *  .NET Core infrastructure: Please prefer to the .NET Core Back-end Standalone set-up guide :ref:`Deploy_NET_Core_BE`
 
 #. .. _IIS_Folder_Permissions:
 
@@ -185,7 +190,9 @@ The most common testing scenario places the front-end and the back-end on two se
       IUSR.
    #. Click OK to close all dialogs. |br|
    #. Set similar permissions for the other package.
-   #. Update the Back-end API url in Front-end package: |br|
+
+#. Update the Back-end API url in Front-end package: 
+
       Edit the file ``App\izenda_config.js``, replace the default value "WebApiUrl" with the correct ip and port:
       ``"WebApiUrl": "http://127.0.0.1:8888/api/",``
       
@@ -194,6 +201,60 @@ The most common testing scenario places the front-end and the back-end on two se
  - Troubleshooting & Verifying the Installation
  - Common Izenda Stand-alone Installation Issues
  - Editing the Configuration Files
+
+.. _Deploy_NET_Core_BE:
+
+Deploy .NET Core Back-end standalone via IIS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Publish Izenda.Synergy.WebAPI**
+
+#. Extract Izenda Back-end package into a folder
+#. Build Izenda.Synergy solution (from Izenda Back-end package) via Visual Studio, then select project Izenda.Synergy.WebAPI
+#. On the Visual Studio’s top menu, select Build then Publish Izenda.Synergy.WebAPI
+
+   .. figure:: /_static/images/install/Publish_NET_Core_BE.png
+      :width: 552px
+
+      Publich .NET Core Back-end package |br|
+
+#. In the Publish pop-up, choose Configure… to adjust publish settings
+
+   #. In Connection tab, choose the target location, preferable at C:\www\IzendaStandAlone
+
+      .. figure:: /_static/images/install/Publish_NET_Core_BE_Connection.png
+         :width: 571px
+
+   #. In Settings tab
+
+      \- Choose netcoreapp2.2 for Target Framework |br|
+      \- Choose Framework-Dependent for Deployment Mode |br|
+      \- Choose Portable for Target Runtime |br|
+      \- Then Save the settings |br|
+
+      .. figure:: /_static/images/install/Publish_NET_Core_BE_Settings.png
+         :width: 571px
+   
+   #. Click Publish to start publishing progress
+
+**Deploy Izenda using Internet Information Services (IIS) Manager**
+
+#. Add new website for .NET Core Back-end package similarly to set-up Front-end site but with another site name (preferably IzendaStandAlone) and port (preferably 9898)
+
+   .. figure:: /_static/images/install/Publish_NET_Core_BE_Hots_Site.png
+      :width: 446px
+
+#. Configure the IzendaStandAlone pool
+
+   #. Click Application Pools in the left panel to open the Application Pool management tab
+   #. Choose IzendaStandAlone then Basic Settings to open Edit Application Pool pop-up
+   #. Change the .NET CLR version to No Managed Code
+   #. Click OK to save the setting
+
+      .. figure:: /_static/images/install/Publish_NET_Core_BE_Pool_Settings.png
+         :width: 546px
+
+
 
 
 ----------------------------------------------------------------
