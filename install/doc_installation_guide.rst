@@ -53,7 +53,7 @@ The setup of Izenda requires a download of the latest version of the stand-alone
 
    *  Windows Server with Internet Information Services (IIS) Web Server.
 
--  `.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ (only need when deploy Izenda in .NET Core infrastructure).
+-  `.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ (only need if deploy Izenda on .NET Core infrastructure).
 
 .. note::
 
@@ -220,7 +220,7 @@ Deploy .NET Core Back-end standalone via IIS
 
 #. In the Publish pop-up, choose Configure… to adjust publish settings
 
-   #. In Connection tab, choose the target location, preferable at C:\www\IzendaStandAlone
+   #. In Connection tab, choose the target location, preferable at C:\\www\\IzendaStandAlone
 
       .. figure:: /_static/images/install/Publish_NET_Core_BE_Connection.png
          :width: 571px
