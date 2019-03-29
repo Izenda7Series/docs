@@ -1,6 +1,6 @@
-===================
+=====================
 MVC Core Integration
-===================
+=====================
 
 .. contents:: Table of Contents
 
@@ -110,7 +110,7 @@ Open Project Properties page select Build Events then click Edit Post-build… b
     XCOPY /S /I /Y "$(ProjectDir)IzendaReferences\Resources" "$(TargetDir)bin\Resources\"
 
 
-.. figure:: /_static/images/install/mvc_post_build_events.PNG
+.. figure:: /_static/images/install/mvc_core_post_build_events.PNG
    :width: 806px
 
    Copy Resources on Post build event
@@ -174,7 +174,7 @@ Create Izenda DB
 
 On your SQL Server create an empty database named IzendaMvc. This database stores Izenda data (report definitions, dashboards, etc.) and the configuration necessary to run Izenda.
 
-Download `IzendaMvc.sql <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/SQLScript/MSSQL/Mvc5StarterKit.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
+Download `IzendaMvc.sql <https://github.com/Izenda7Series/MVCCoreStarterKit/blob/master/SQLScript/MSSQL/IzendaMVC.sql>`__ then execute on IzendaMvc database to generate the schema and default data.
 
 Updating the Izenda DB
 -------------------------------------------
@@ -190,7 +190,7 @@ Create Authentication DB
 
 On your SQL Server create an empty database named Mvc5StarterKit. This database is used for storing user authentication information. In your real integrated application, it can be replaced by your system database with your custom user credential information.
 
-Download `Mvc5StarterKit.sql <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/SQLScript/MSSQL/Mvc5StarterKit.sql>`__ and execute on Mvc5StarterKit database to create schema and default user authentication settings.
+Download `MvcCoreStarterKit.sql <https://github.com/Izenda7Series/MVCCoreStarterKit/blob/master/SQLScript/MSSQL/MVCCoreStarterKit.sql>`__ and execute on MvcCoreStarterKit database to create schema and default user authentication settings.
 
 Verifying Izenda DB and Authentication DB
 -------------------------------------------
@@ -216,28 +216,14 @@ Next you must ensure the UserName value of records in AspNetUsers table in Mvc5S
 Configuring the Izenda API Service
 ===========================================
 
-The full configuration file `Web.config <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Web.config>`__ of Izenda API Service is available on GitHub.
+The full configuration files  `web.config <https://github.com/Izenda7Series/MVCCoreStarterKit/blob/master/MVCCoreStarterKit/web.config>`__  and `appsettings.json <https://github.com/Izenda7Series/MVCCoreStarterKit/blob/master/MVCCoreStarterKit/appsettings.json>`__ of Izenda API Service are available on GitHub.
 
 `View Code Here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Web.config>`__
 
 Izenda API Service Hosting Config
 -------------------------------------------
 
-Izenda uses the Nancy Framework to host the REST API service. To configure Nancy, open the Mvc5StarterKit\\Web.config and add a new section named name="nancyFx" like below:
-
-.. literalinclude:: included_samples/mvc/Web.config
-   :language: xml
-   :lines: 6-21
-   :emphasize-lines: 0
-
-Then add the following email config after ``</nancyFx>`` close tag:
-
-.. literalinclude:: included_samples/mvc/Web.config
-   :language: xml
-   :lines: 17-29
-   :emphasize-lines: 0
-
-Add below Izenda setting key into <appSettings> node:
+Open the Mvc5StarterKit\\Web.config and add below Izenda setting key into <appSettings> node:
 
 .. literalinclude:: included_samples/mvc/Web.config
    :language: xml
@@ -269,34 +255,32 @@ Add below Izenda setting key into <appSettings> node:
 
 In <system.webServer> config node, add below config:
 
-.. literalinclude:: included_samples/mvc/Web.config
+.. literalinclude:: included_samples/mvc_core/web.config
    :language: xml
-   :lines: 95-114
+   :lines: 4-12
    :emphasize-lines: 0
-
-This config includes the http header attribute and api action verb for Izenda API. It is also used to config http handler for the API url convention which will be reserved by Izenda API Service. In config above all API urls with a prefix of api/ will be handled by Izenda, note that this handler API prefix must match value of ``izendaapiprefix`` config.
 
 Logging Config
 -------------------------------------------
 
 In <configSections> add a new section named name="log4net" to config logging for Izenda API.
 
-.. literalinclude:: included_samples/mvc/Web.config
+.. literalinclude:: included_samples/mvc_core/startup.cs
    :language: xml
-   :lines: 8-11
+   :lines: 33-35
    :emphasize-lines: 0
 
 Then add log4net node below:
 
-.. literalinclude:: included_samples/mvc/Web.config
+.. literalinclude:: included_samples/mvc_core/web.config
    :language: xml
-   :lines: 31-72
+   :lines: 15-56
    :emphasize-lines: 0
 
 Configuring Database Connection
 -------------------------------------------
 
-Open ~\\ Mvc5StarterKit\\izendadb.config then update the connection string to your IzendaMvc DB which was created in the steps above. For example with [MSSQL] SQLServer:
+Open ~\\ MvcCoreStarterKit\\izendadb.config then update the connection string to your IzendaMvc DB which was created in the steps above. For example with [MSSQL] SQLServer:
 
 .. code-block:: json
 
@@ -323,9 +307,9 @@ The ``ServerTypeName`` would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MY
 
 For starter kit authentication database open ~\\Mvc5StarterKit\\Web.config then modify the DefaultConnection value in connectionStrings node:
 
-.. literalinclude:: included_samples/mvc/Web.config
+.. literalinclude:: included_samples/mvc_core/web.config
    :language: xml
-   :lines: 74-76
+   :lines: 58-60
    :emphasize-lines: 0
 
 The first run of Izenda API Service
@@ -336,8 +320,8 @@ The first run of Izenda API Service
 
 If you encounter an error related to OracleDataAccesssDTC in Visual Studio navigate to Tools -> Options -> Projects and Solutions -> Web Projects -> Turn on Use the 64 bit version of IIS Express for web sites and projects.
 
-.. figure:: /_static/images/mvc_64bit_iis_express.png
-   :width: 560px
+.. figure:: /_static/images/install/mvc_core_64bit_iis_express.PNG
+   :width: 657px
 
    64-bit IIS Express
 
@@ -346,33 +330,32 @@ Run Starter Kit
 
 In Visual Studio you can press F5 to run your starter kit for the first time, the application page will look like the screenshot below:
 
-.. figure:: /_static/images/mvc_run_starter_kit.png
-   :width: 900px
+.. figure:: /_static/images/install/mvc_core_run_starter_kit.png
+   :width: 911px
 
    Starter kit screen
 
 There is nothing present from the Izenda UI at this time. At this step we are just checking whether Izenda API is able to start up completely or not. On your browser address add /api/ to the end of url (http://localhost:14809/api/) then press enter, you will see Izenda API is hosted completely:
 
-.. figure:: /_static/images/mvc_api_url_404.png
+.. figure:: /_static/images/install/mvc_core_landingpage.png
    :width: 900px
 
-   API screen
+   Landing Page
 
-In ~\\Mvc5StarterKit project folder you will see a logs folder with the log files mvc5kit-log.log (~\\Mvc5StarterKit\\logs).
+In ~\\MvcCoreStarterKit project folder you will see a logs folder with the log files mvccorekit-log.log (~\\MvcCoreStarterKit\\logs).
 
 Izenda API Hosting Troubleshooting
 -------------------------------------------
 
-If you do not see logs file and 404 page above check following:
+If you do not see logs file and landing page above check following:
 
-*  Nany hosting configuration in Web.config
-*  Ensure Nancy.dll and Nancy.Hosting.Aspnet.dll are referenced in the project.
-*  Check your routing configuration in RouteConfig.cs
+*  Nany hosting configuration in appsettings.json
+*  Check your routing configuration in startup.cs
 
 Adding Izenda Boundary
 ===========================================
 
-Get all files in `IzendaBoundary <https://github.com/Izenda7Series/Mvc5StarterKit/tree/master/Mvc5StarterKit/IzendaBoundary>`__ folder from GitHub repository then include into Mvc5StarterKit project. Build the project, if there are any errors regarding missing references, update the references as needed.
+Get all files in `IzendaBoundary <https://bitbucket.org/izenda-development/mvccorestarterkit/src/master/MVCCoreStarterKit/IzendaBoundary/>`__ folder from GitHub repository then include into MvcCoreStarterKit project. Build the project, if there are any errors regarding missing references, update the references as needed.
 
 The table below describes the functionality of each source code file:
 
@@ -416,14 +399,14 @@ In Mvc5StarterKit database we add a table named Tenants and add a column named T
 
    Users and Tenants
 
-In integrated mode, authentication is handled by the MVC 5 application, not Izenda. In this starter kit, the Izenda backend will get a token via the ``UserIntegrationConfig.GetAccessToken`` method. You must implement your own code logic to provide this token containing the authenticated user’s information. To ensure security, each request to the Izenda API service will call back to MVC application to validate the token it received from the originating request. You must provide this validation logic in your app inside the ``UserIntegrationConfig.ValidateToken`` method. The diagram below illustrates the token retrieval and validation process in fully integrated mode:
+In integrated mode, authentication is handled by the MVC Core application, not Izenda. In this starter kit, the Izenda backend will get a token via the ``UserIntegrationConfig.GetAccessToken`` method. You must implement your own code logic to provide this token containing the authenticated user’s information. To ensure security, each request to the Izenda API service will call back to MVC application to validate the token it received from the originating request. You must provide this validation logic in your app inside the ``UserIntegrationConfig.ValidateToken`` method. The diagram below illustrates the token retrieval and validation process in fully integrated mode:
 
 .. figure:: /_static/images/mvc_authentication_sequence_diagram.png
    :width: 500px
 
    Authentication Sequence Diagram
 
-To customize the authentication logic, we must modify some existing classes in the ASP.NET MVC 5 application template. The table below lists all the modified classes:
+To customize the authentication logic, we must modify some existing classes in the ASP.NET MVC Core application template. The table below lists all the modified classes:
 
 .. list-table::
    :widths: 30 20 5 45
@@ -437,166 +420,178 @@ To customize the authentication logic, we must modify some existing classes in t
      - IzendaConfig
      - New
      - The extension class provides Izenda token and token validation for the Izenda backend.
-   * - Models\\IdentityModels.cs
+   * - Areas\\Identity\\Model\\IzendaUser.cs
      - ApplicationUser
-     - Modify
+     - New
      - The entity class present user identity model. This model maps to AspNetUsers table.
-   * - Models\\IdentityModels.cs
+   * - Areas\\Identity\\Model\\Tenant.cs
      - Tenant
      - New
      - The entity model presents a tenant, maps to Tenants table.
-   * - Models\\IdentityModels.cs
+   * - Data\\ApplicationDbContext.cs
      - ApplicationDBContext
-     - Modify
+     - New
      - Entity Framework DB context.
-   * - App_Start\\IdentityConfig.cs
+   * - Areas\\Identity\\ApplicationUserManager.cs
      - ApplicationUserManager
-     - Modify
+     - New
      - Manage authentication user and login context.
-   * - App_Start\\IdentityConfig.cs
+   * - Areas\\Identity\\ApplicationSignInManager.cs
      - ApplicationSignInManager
-     - Modify
+     - New
      - Custom sign in logic.
-   * - Controllers\\AccountController.cs
-     - AccountController
-     - Modify
-     - Use custom login logic in Login action..
+   * - Areas\\Identity\\Pages\\Account\\Login.cshtml.cs
+     - LoginModel
+     - New
+     - Custom login logic
+   * - Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs
+     - LogoutModel
+     - New
+     - Custom logout logic
+   * - Areas\\Identity\\Pages\\Account\\Register.cshtml.cs
+     - RegisterModel
+     - New
+     - Custom register logic
+   * - Areas\\Identity\\ApplicationUserClaimsPrincipalFactory.cs
+     - ApplicationUserClaimsPrincipalFactory
+     - New
+     - Handle user identity
+
 
 IzendaConfig
 -------------------------------------------
 
 Create IzendaConfig.cs file within the top level of the project and implement subscription for ``UserIntegrationConfig.GetAccessToken`` action and ``UserIntegrationConfig.ValidateToken`` action.
 
-.. literalinclude:: included_samples/mvc/IzendaConfig.cs
-   :lines: 7-27
-   :emphasize-lines: 5,14
+.. literalinclude:: included_samples/mvc_core/IzendaConfig.cs
+   :lines: 8-31
+   :emphasize-lines: 6,15
 
 Action ``UserIntegrationConfig.GetAccessToken`` will convert user info to a token value.
 
 Action ``UserIntegrationConfig.ValidateToken`` convert access token to user info.
 
 
-Identity Models – Namespaces
--------------------------------------------
+IzendaUser and ApplicationUserClaimsPrincipalFactory
+---------------------------------------------------------
 
-#. Open Models\\IdentityModels.cs.
+#. Open Areas\\Identity\Model\\IzendaUser.cs
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc/IdentityModels.cs
-   :lines: 1-7
-   :emphasize-lines: 0
+    .. literalinclude:: included_samples/mvc_core/IzendaUser.cs
+        :lines: 1-2
+        :emphasize-lines: 0
 
-Identity Models – ApplicationUser class
--------------------------------------------
+#. Add Tenant_Id property like below:
 
-#. Open Models\\IdentityModels.cs.
-#. Add Tenant_Id property and custom claim identity like below:
+    .. literalinclude:: included_samples/mvc_core/IzendaUser.cs
+        :lines: 6-12
+        :emphasize-lines: 3-5
 
-.. literalinclude:: included_samples/mvc/IdentityModels.cs
-   :lines: 12-35
-   :emphasize-lines: 3-5,9-
+#. Open Areas\\Identity\ApplicationUserClaimsPrincipalFactory.cs
+#. Add the following namespaces so that it appears as below:
 
-The ApplicationUser class represents the user model and maps to AspNetUsers table. The Tenant_Id property is the foreign key reference to the tenant of the user. In the GenerateUserIdentityAsync method we add tenantId into user identity, this value will be used to establish “claims” based on the user’s tenant.
+        .. literalinclude:: included_samples/mvc_core/ApplicationUserClaimsPrincipalFactory.cs
+            :lines: 1-6
+            :emphasize-lines: 0
 
-Identity Models – Tenant
--------------------------------------------
+#. Add custom claim identity like below:
 
-#. Open Models\\IdentityModels.cs.
+        .. literalinclude:: included_samples/mvc_core/ApplicationUserClaimsPrincipalFactory.cs
+            :lines: 18-34
+            :emphasize-lines: 3-16
+
+The ApplicationUser class represents the user model and maps to AspNetUsers table. The Tenant_Id property is the foreign key reference to the tenant of the user. In the ``GenerateClaimsAsync`` method we add tenantId into user identity, this value will be used to establish “claims” based on the user’s tenant.
+
+Tenant
+----------
+
+#. Open Areas\\Identity\\Model\\Tenant.cs.
 #. Add a new Tenant class to represent a tenant object. This class is an entity model that maps to the Tenants table. The example below utilizes a very simple tenant model. You can customize this model to store more complex information.
 
-.. literalinclude:: included_samples/mvc/IdentityModels.cs
+.. literalinclude:: included_samples/mvc_core/Tenant.cs
    :linenos:
-   :lines: 37-41
+   :lines: 1-
    :emphasize-lines: 0
 
-Identity Models – ApplicationDBContext
--------------------------------------------
+ApplicationDBContext
+----------------------
 
 This is the Entity Framework DB context of the entire authentication database. Because we added a new Tenants table, we must update the DB context to set of Tenant into this class.
 
-.. literalinclude:: included_samples/mvc/IdentityModels.cs
-   :lines: 43-55
-   :emphasize-lines: 8
+.. literalinclude:: included_samples/mvc_core/ApplicationDbContext.cs
+   :lines: 7-25
+   :emphasize-lines: 0
 
-You may need to remove the duplicate ApplicationDBContext to prevent errors.
-
-Identity Config – Namespaces
+ApplicationUserManager
 -------------------------------------------
 
-#. Open App_Start\\IdentityConfig.cs.
+#. Open Areas\\Identity\\ApplicationUserManager.cs
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc/IdentityConfig.cs
-   :lines: 1-13
-   :emphasize-lines: 0
+    .. literalinclude:: included_samples/mvc_core/ApplicationUserManager.cs
+        :lines: 1-10
+        :emphasize-lines: 0
 
-Identity Config – ApplicationUserManager
+#. Add a new method ``FindTenantUserAsync``. This will be used to query and retrieve users by tenant, username, and password.
+
+    .. literalinclude:: included_samples/mvc_core/ApplicationUserManager.cs
+        :lines: 35-47
+        :emphasize-lines: 0
+
+ApplicationSignInManager
 -------------------------------------------
 
-#. Open App_Start\\IdentityConfig.cs.
-#. Add a new method FindTenantUserAsync. This will be used to query and retrieve users by tenant, username, and password.
-
-.. literalinclude:: included_samples/mvc/IdentityConfig.cs
-   :lines: 43-59
-   :emphasize-lines: 0
-
-Identity Configs – ApplicationSignInManager
--------------------------------------------
-
-#. Open App_Start\\IdentityConfig.cs. 
-#. Add a new method PasswordSigninAsync to customize sign in logic. This method utilizes the FindTenantUserAsync method added above to find a user with the specified username, password and tenant.
-
-.. literalinclude:: included_samples/mvc/IdentityConfig.cs
-   :lines: 110-128
-   :emphasize-lines: 8-
-
-AccountController – Namespace
--------------------------------------------
-
-#. Open Controllers\\mvc_AccountController.cs.
+#. Open Areas\\Identity\\ApplicationSignInManager.cs
 #. Add the following namespaces so that it appears as below:
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 1-11
-   :emphasize-lines: 0
+    .. literalinclude:: included_samples/mvc_core/ApplicationSignInManager.cs
+        :lines: 1-7
+        :emphasize-lines: 0
 
-AccountController
+#. Add a new method ``PasswordSigninAsync`` to customize sign in logic. This method utilizes the FindTenantUserAsync method added above to find a user with the specified username, password and tenant.
+
+    .. literalinclude:: included_samples/mvc_core/ApplicationSignInManager.cs
+        :lines: 23-34
+        :emphasize-lines: 0
+
+Account
 -------------------------------------------
 
-#. Open Controllers\\AccountController.cs.
+#. Open Areas\\Identity\\Pages\\Account\\Login.cshtml.cs
 #. In Login POST method, implement the ApplicationSignInMangager/PasswordSigninAsync method as shown below.
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 69-104
-   :emphasize-lines: 14-21
+.. literalinclude:: included_samples/mvc_core/Login.cshtml.cs
+   :lines: 73-96
+   :emphasize-lines: 9-19
 
 UserInfo
--------------------------------------------
+------------
 
 #. Create Models\\UserInfo.cs
 #. Add the following:
 
-.. literalinclude:: included_samples/mvc/UserInfo.cs
+.. literalinclude:: included_samples/mvc_core/UserInfo.cs
 
-AccountViewModels
+InputModel
 -------------------------------------------
 
-#. Open Models\\AccountViewModels.cs.
-#. Edit public class LoginViewModel so that it appears as below.
+#. Open Areas\\Identity\\Pages\\Account\\Login.cshtml.cs and Areas\\Identity\\Pages\\Account\\Register.cshtml.cs
+#. Add public class ``InputModel`` so that it appears as below.
 
-.. literalinclude:: included_samples/mvc/AccountViewModels.cs
-   :lines: 49-67
-   :emphasize-lines: 3-5
+.. literalinclude:: included_samples/mvc_core/Login.cshtml.cs
+   :lines: 38-54
+   :emphasize-lines: 0
 
 Update Login Page
 -------------------------------------------
 
 #. Open Views\\Account\\Login.cshtml.
-#. Replace the contents of this file with the following from the `GitHub MVC5StarterKit equivalent <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Views/Account/Login.cshtml>`__. This will add a Tenant section to the login page.
+#. Replace the contents of this file with the following from the `GitHub MVCCoreStarterKit equivalent <https://bitbucket.org/izenda-development/mvccorestarterkit/src/master/MVCCoreStarterKit/Areas/Identity/Pages/Account/Login.cshtml>`__. This will add a Tenant section to the login page.
 
-.. literalinclude:: included_samples/mvc/Login.cshtml
-   :lines: 14-30
-   :emphasize-lines: 4-10
+.. literalinclude:: included_samples/mvc_core/Login.cshtml
+   :lines: 12-50
+   :emphasize-lines: 5-9
 
 Run First Login
 ===========================================
@@ -620,22 +615,27 @@ Update Shared Layout
 Construct Izenda Menu Items
 -------------------------------------------
 
-Open ~\\Views\\Shared\\_Layout.cshtml then add menu items for Izenda pages:
+#. Open ~\\Views\\Shared\\_Header.cshtml then add menu items for Izenda pages:
 
-.. literalinclude:: included_samples/mvc/Layout.cshtml
-   :lines: 23-61
-   :emphasize-lines: 0
+    .. literalinclude:: included_samples/mvc_core/_Header.cshtml
+        :lines: 9-40
+        :emphasize-lines: 0
+
+#. Open ~\\Views\\Shared\\_Layout.cshtml then add the header for Izenda pages:
+
+    .. literalinclude:: included_samples/mvc_core/_Layout.cshtml
+        :lines: 17-36
+        :emphasize-lines: 12-18
 
 Note that the menu routing requires the creation of 2 new controllers: ReportController and DashboardController. These will be created in a later section.
 
 Implement Izenda Configuration Initialization
 ----------------------------------------------
 
-Add Javascript code below into the bottom of the _Layout.cshtml to initialize Izenda Config and sub menu dropdown display. The function DoIzendaConfig() is located in ~\\Scripts\\izenda.integrate.js. It initializes main config value needed to run Izenda’s integrated UI such as API Service Url, the path of the Izenda embedded JavaScript package, custom CSS styling, Izenda UI routing config, and the request timeout.
+Add Javascript code below into the bottom of the _Layout.cshtml to initialize Izenda Config and sub menu dropdown display. The function DoIzendaConfig() is located in ~\\wwwroot\\js\\izenda.integrate.js. It initializes main config value needed to run Izenda’s integrated UI such as API Service Url, the path of the Izenda embedded JavaScript package, custom CSS styling, Izenda UI routing config, and the request timeout.
 
-.. literalinclude:: included_samples/mvc/Layout.cshtml
-   :lines: 80-
-   :emphasize-lines: 1-9
+.. literalinclude:: included_samples/mvc_core/_Layout.cshtml
+   :lines: 55-63
 
 Embedding Front-end Izenda (Izenda UI)
 ===========================================
@@ -645,8 +645,8 @@ Embedding Izenda full page
 
 In the HomeController add a new action named Izenda and then create the view Izenda.cshtml for it.
 
-.. literalinclude:: included_samples/mvc/HomeController.cs
-   :lines: 30-40
+.. literalinclude:: included_samples/mvc_core/HomeController.cs
+   :lines: 40-43
    :emphasize-lines: 0
 
 This action is used to embedded the entire Izenda application into one view. The Izenda/* routes are subroutes inside of the fully embedded Izenda page.
@@ -714,9 +714,9 @@ Add the ReportPart action in HomeController:
    :lines: 57-62
    :emphasize-lines: 0
 
-This view is only used by Izenda backend, so it requires a minimal view containing only the report part content. Create a new simple layout named Izenda_Layout.cshtml. This layout does not contain UI for menu item, signed in user information.
+This view is only used by Izenda backend, so it requires a minimal view containing only the report part content. Create a new simple layout named ``_IzendaLayout.cshtml``. This layout does not contain UI for menu item, signed in user information.
 
-The Izenda_Layout.cshtml content:
+The ``_IzendaLayout.cshtml`` content:
 
 .. literalinclude:: included_samples/mvc/Izenda_Layout.cshtml
 
@@ -748,7 +748,7 @@ Note that this page also used by Izenda backend in function to export report htm
 Embedding Report Parts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This page demonstrates how to display multiple report parts on a page outside of the Report Viewer.  The function ``izendaInitReportPartDemo`` in ~\\Scripts\\izenda.integrate.js is implemented to handle this.
+This page demonstrates how to display multiple report parts on a page outside of the Report Viewer.  The function ``izendaInitReportPartDemo`` in ~\\wwwroot\\js\\izenda.integrate.js is implemented to handle this.
 
 .. literalinclude:: included_samples/mvc/izenda.integrate.js
    :lines: 96-121
@@ -846,30 +846,30 @@ Now feel free to explore Izenda integrated application.
 Implement Register New Account
 ===========================================
 
-Modify register new user layout in ASP.NET MVC 5
+Modify register new user layout in ASP.NET MVC Core
 
 .. figure:: /_static/images/mvc_new_account.png
    :width: 900px
 
    New account screen
 
-Add new Tenant property into class RegisterViewModel in ~\\Models\\AccountViewModels.c
+Add new class InputModel in ~\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs
 
-.. literalinclude:: included_samples/mvc/AccountViewModels.cs
-   :lines: 69-77
-   :emphasize-lines: 3,4
-
-Add new tenant input element into ~View\\Account\\Register.cshtml
-
-.. literalinclude:: included_samples/mvc/Register.cshtml
-   :lines: 14-25
+.. literalinclude:: included_samples/mvc_core/Register.cshtml.cs
+   :lines: 46-68
    :emphasize-lines: 0
 
-Create Managers folder and Add new TenantManager class to project (~\\Managers\\TenantManager.cs), this class is used to get Tenant and create new tenant info from your authentication DB.
+Add new tenant input element into ~\\Areas\\Identity\\Pages\\Account\\Register.cshtml
 
-.. literalinclude:: included_samples/mvc/TenantManager.cs
+.. literalinclude:: included_samples/mvc_core/Register.cshtml
+   :lines: 9-38
+   :emphasize-lines: 0
 
-Open AccountController.cs and modify Register http post action to handle new user registration logic.
+Create Services folder and Add new TenantManager class to project (~\\Services\\TenantManager.cs), this class is used to get Tenant and create new tenant info from your authentication DB.
+
+.. literalinclude:: included_samples/mvc_core/TenantManager.cs
+
+Open Areas\\Identity\\Pages\\Account\\Register.cshtml.cs and modify ``OnPostAsync`` action  to handle new user registration logic.
 
 When registering a new user the new user’s information is stored on both the authentication DB and the Izenda DB, following that we split the registration logic into the steps below:
 
@@ -882,29 +882,29 @@ All step are encapsulated in the Register action in AccountController.
 
 Register tenant:
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 166-174
+.. literalinclude:: included_samples/mvc_core/Register.cshtml.cs
+   :lines: 80
    :emphasize-lines: 0
 
 Save user and role information into authentication DB:
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 176-179
+.. literalinclude:: included_samples/mvc_core/Register.cshtml.cs
+   :lines: 83-85
    :emphasize-lines: 0
 
 Save user and role into IzendaDB:
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 180-225
+.. literalinclude:: included_samples/mvc_core/Register.cshtml.cs
+   :lines: 87-131
    :emphasize-lines: 0
 
 Login with newly created user:
 
-.. literalinclude:: included_samples/mvc/AccountController.cs
-   :lines: 227-230
+.. literalinclude:: included_samples/mvc_core/Register.cshtml.cs
+   :lines: 133-134
    :emphasize-lines: 0
 
-You can refer to completed implementation of Register in AccountController on Github `here <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Controllers/AccountController.cs>`__.
+You can refer to completed implementation of Register in Register.chtml.cs on Github `here <https://bitbucket.org/izenda-development/mvccorestarterkit/src/master/MVCCoreStarterKit/Areas/Identity/Pages/Account/Register.cshtml.cs>`__.
 
 Call Izenda API Service in C#
 ===========================================
