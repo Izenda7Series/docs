@@ -14,7 +14,7 @@ FEATURES
 ^^^^^^^^^	
 
 -  UI Re-skin 
-    -  The v3.0 release features a new themed application that is easier to whitelabel.
+    -  The v3.0.0 release features a new themed application that is easier to whitelabel.
 -  .NET Core Compliance
     -  Our libraries have been updated to support .NET Core
     -  Izenda can now be deployed in Linux environments
