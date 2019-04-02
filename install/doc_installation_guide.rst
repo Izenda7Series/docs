@@ -56,8 +56,6 @@ The setup of Izenda requires a download of the latest version of the stand-alone
 
    *  Windows Server with Internet Information Services (IIS) Web Server.
 
--  `.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ (only need if deploy Izenda on .NET Core infrastructure).
-
 .. note::
 
    All of the information covered in this document can also be found in video from `here <https://www.izenda.com/7-series-installation-videos/#portal-install>`__
@@ -210,6 +208,10 @@ The most common testing scenario places the front-end and the back-end on two se
 Deploy .NET Core Back-end standalone via IIS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+**Pre-installation preparations**
+
+`.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ 
+
 **Publish Izenda.Synergy.WebAPI**
 
 #. Extract Izenda Back-end package into a folder
@@ -256,7 +258,6 @@ Deploy .NET Core Back-end standalone via IIS
 
       .. figure:: /_static/images/install/Publish_NET_Core_BE_Pool_Settings.png
          :width: 546px
-
 
 
 

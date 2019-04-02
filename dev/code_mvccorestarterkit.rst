@@ -49,14 +49,14 @@ Unique Styling For Tenants
 Izenda User Creation
 ^^^^^^^^^^^^^^^^^^^^
 
--  •	~\ Areas\Identity\Pages\Account\Register.cshtml.cs
+-  •	~\\ Areas\\Identity\\Pages\\Account\\Register.cshtml.cs
 
    * Register, line 75
 
 Izenda User Authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  **~\Areas\Identity\Pages\Account\Login.cshtml**: line 73
+-  **~\\Areas\\Identity\\Pages\\Account\\Login.cshtml** User input form for login information
 -  **UserInfo.cs:** Contains the definition of the token required for Izenda. This includes 2 public strings UserName and TenantUniqueName. Upon successful authentication, a UserInfo object is created in the model.
 -  **UserController.cs:** The UserController only handles users logging
    into the MVC application. Once they log in, a token generated with
@@ -176,7 +176,7 @@ Depending on your deployment mode, you may want to invoke the Izenda API in diff
    * .Net API Calls
       * Home Controller
          * GetToken (line 536): Hard-coded for the default admin to allow user to set Izenda database connection string and license key
-   *  Account Controller
+   * Account Controller
       * OnPostAsync (line 75): Login to your.net application with tenant, email, password
       * Register
 

@@ -7,7 +7,7 @@ MVC Core Integration
 Introduction
 ====================
 
-This tutorial will teach you the basics of embedding Izenda into an ASP.NET MVC 5 web application using Visual Studio 2015.
+This tutorial will teach you the basics of embedding Izenda into an ASP.NET MVC Core web application using Visual Studio 2017.
 
 Download the `completed project <https://github.com/Izenda7Series/MVCCoreStarterKit>`__. This is important! You’ll need to use files and code samples from this codebase throughout the guide.
 
@@ -56,7 +56,7 @@ The default template of MVC Core is created, you will use this template to imple
 Copying Izenda Resources and References
 =========================================
 
-In Solution Explorer of Mvc5StarterKit project, add new folders below:
+In Solution Explorer of MvcCoreStarterKit project, add new folders below:
 
 *  IzendaBoundary
 *  IzendaReferences
@@ -65,14 +65,14 @@ In Solution Explorer of Mvc5StarterKit project, add new folders below:
 
 Copy Izenda Resource to starter kit project:
 
-*  Download and copy `izendadb.config <https://github.com/Izenda7Series/MvcCoreStarterKit/blob/master/MvcCoreStarterKit/izendadb.config>`__ file into ~\\Mvc5StarterKit
+*  Download and copy `izendadb.config <https://github.com/Izenda7Series/MvcCoreStarterKit/blob/master/MvcCoreStarterKit/izendadb.config>`__ file into ~\\MvcCoreStarterKit
 *  Download latest Izenda API package (API.zip) extract zip file and then:
 
    -  Copy all sub folders and files in ~\\API\\bin to ~ \\MvcCoreStarterKit\\IzendaReferences
    -  Copy 3 folders API\\Content, API\\EmailTemplates and API\\Export to ~ \\MvcCoreStarterKit\\IzendaResources
 
-*  Download latest Izenda Embedded UI package (EmbeddedUI.zip), extract zip file then copy all sub folders and files to ~\\Mvc5StarterKit\\Scripts\\izenda
-*  Download `izenda.integrate.js <https://github.com/Izenda7Series/MvcCoreStarterKit/blob/master/MvcCoreStarterKit/Scripts/izenda.integrate.js>`__, `izenda.utils.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.utils.js>`__ and `alertify.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/alertify.js>`__ then copy to ~\\Mvc5StarterKit\\wwwroot\js\
+*  Download latest Izenda Embedded UI package (EmbeddedUI.zip), extract zip file then copy all sub folders and files to ~\\MvcCoreStarterKit\\Scripts\\izenda
+*  Download `izenda.integrate.js <https://github.com/Izenda7Series/MvcCoreStarterKit/blob/master/MvcCoreStarterKit/Scripts/izenda.integrate.js>`__, `izenda.utils.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/izenda.utils.js>`__ and `alertify.js <https://github.com/Izenda7Series/Mvc5StarterKit/blob/master/Mvc5StarterKit/Scripts/alertify.js>`__ then copy to ~\\MvcCoreStarterKit\\wwwroot\js\
 
 Configuring the Project Build
 ===========================================
@@ -188,7 +188,7 @@ Upgrade scripts can be compiled and downloaded using the `Schema Migration Assis
 Create Authentication DB
 -------------------------------------------
 
-On your SQL Server create an empty database named Mvc5StarterKit. This database is used for storing user authentication information. In your real integrated application, it can be replaced by your system database with your custom user credential information.
+On your SQL Server create an empty database named MvcCoreStarterKit. This database is used for storing user authentication information. In your real integrated application, it can be replaced by your system database with your custom user credential information.
 
 Download `MvcCoreStarterKit.sql <https://github.com/Izenda7Series/MVCCoreStarterKit/blob/master/SQLScript/MSSQL/MVCCoreStarterKit.sql>`__ and execute on MvcCoreStarterKit database to create schema and default user authentication settings.
 
@@ -211,7 +211,7 @@ After creating the IzendaDB, select all rows in the IzendaSystemSetting table an
      - http://localhost:14809/
      - The setting value must be base address of your front-end web page url.
 
-Next you must ensure the UserName value of records in AspNetUsers table in Mvc5StarterKit DB must be matched with UserName value in IzendaUser table of IzendaMvc DB.
+Next you must ensure the UserName value of records in AspNetUsers table in MvcCoreStarterKit DB must be matched with UserName value in IzendaUser table of IzendaMvc DB.
 
 Configuring the Izenda API Service
 ===========================================
@@ -223,7 +223,7 @@ The full configuration files  `web.config <https://github.com/Izenda7Series/MVCC
 Izenda API Service Hosting Config
 -------------------------------------------
 
-Open the Mvc5StarterKit\\Web.config and add below Izenda setting key into <appSettings> node:
+Open the MvcCoreStarterKit\\Web.config and add below Izenda setting key into <appSettings> node:
 
 .. literalinclude:: included_samples/mvc/Web.config
    :language: xml
@@ -248,7 +248,7 @@ Open the Mvc5StarterKit\\Web.config and add below Izenda setting key into <appSe
      - Your Izenda API endpoint, used to call the Izenda API in your .NET code
    * - ``izusername``
      - IzendaAdmin@system.com
-     - Default system level account, in this kit it is used for authentication of specific functions like adding new users, updating the data model, etc. This value must match with the Username in Mvc5StarterKit.AspNetUsers table and IzendaMvc.IzendaUser table
+     - Default system level account, in this kit it is used for authentication of specific functions like adding new users, updating the data model, etc. This value must match with the Username in MvcCoreStarterKit.AspNetUsers table and IzendaMvc.IzendaUser table
    * - ``iztenantname``
      -
      - The tenant of system level account, have same purpose with ``izusername``
@@ -305,7 +305,7 @@ The ``ServerTypeName`` would be one of [MSSQL] SQL Server, [AZSQL] AzureSQL, [MY
    * - [MSSQL] SQLServer
      - 572bd576-8c92-4901-ab2a-b16e38144813
 
-For starter kit authentication database open ~\\Mvc5StarterKit\\Web.config then modify the DefaultConnection value in connectionStrings node:
+For starter kit authentication database open ~\\MvcCoreStarterKit\\Web.config then modify the DefaultConnection value in connectionStrings node:
 
 .. literalinclude:: included_samples/mvc_core/web.config
    :language: xml
@@ -392,7 +392,7 @@ Custom Authentication Logic
 
 In this starter kit, we use simple authentication with username, password and tenant info. Basically, authorization logic (role, permissions …etc.) will depend on implementation of Izenda backend.
 
-In Mvc5StarterKit database we add a table named Tenants and add a column named TenantID into AspNetUsers table, this new column is a foreign key reference to the Tenants table which demonstrates a one to many relationship between Tenant and User. Other tables are kept same as ASP.NET MVC 5 template, that helps us modify login logic at little as possible, but allows us to show a simple use case for multi-tenant support.
+In MvcCoreStarterKit database we add a table named Tenants and add a column named TenantID into AspNetUsers table, this new column is a foreign key reference to the Tenants table which demonstrates a one to many relationship between Tenant and User. Other tables are kept same as ASP.NET MVC 5 template, that helps us modify login logic at little as possible, but allows us to show a simple use case for multi-tenant support.
 
 .. figure:: /_static/images/mvc_AspNetUsers_Tenants.png
    :width: 419px
@@ -736,8 +736,8 @@ Create the ReportController and add a new action named ReportViewer:
 
 Create the view ReportViewer.cshtml:
 
-.. literalinclude:: included_samples/mvc/ReportViewer.cshtml
-   :emphasize-lines: 11
+.. literalinclude:: included_samples/mvc_core/ReportViewer.cshtml
+   :emphasize-lines: 10
 
 Note that this page also used by Izenda backend in function to export report html content when user wants to send a report via email (directly or over subscription scheduler). The Izenda backend uses the route ``report/view/{id}`` to get report content, then in RouteConfig.cs we have a custom route for this. You must ensure your report viewer page has the same controller and action with the custom route ``ReportViewer``.
 
@@ -762,8 +762,8 @@ In the ReportController create the action ReportParts:
 
 Create the ReportParts.cshtml view:
 
-.. literalinclude:: included_samples/mvc/ReportParts.cshtml
-   :emphasize-lines: 11
+.. literalinclude:: included_samples/mvc_core/ReportParts.cshtml
+   :emphasize-lines: 9
 
 Embedding the Dashboard
 -------------------------------------------
@@ -807,12 +807,12 @@ Display detail of dashboard, this page also is requested by Izenda backend for d
 
 Create the DashboardController and action DashboardViewer:
 
-.. literalinclude:: included_samples/mvc/DashboardController.cs
+.. literalinclude:: included_samples/mvc_core/DashboardController.cs
 
 Create the DashboardViewer.cshtml view:
 
-.. literalinclude:: included_samples/mvc/DashboardViewer.cshtml
-   :emphasize-lines: 11
+.. literalinclude:: included_samples/mvc_core/DashboardViewer.cshtml
+   :emphasize-lines: 10
 
 Run Your Izenda Integrated Application
 ===========================================
