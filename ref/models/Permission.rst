@@ -740,6 +740,31 @@ Permission
       -
    *  -  .. container:: lpad2
    
+            **displayDashboardTileHeader** |br|
+            object
+
+            .. versionadded:: 3.1.0
+      -
+      -  An object with the following fields |br|
+      
+         *Only support for Role permission*
+      -
+   *  -  .. container:: lpad4
+   
+            **value** |br|
+            boolean
+      -
+      -  Is permission for Can create new dashboard set
+      -
+   *  -  .. container:: lpad4
+   
+            **tenantAccess** |br|
+            integer
+      -
+      -  Permission for Tenant
+      -
+   *  -  .. container:: lpad2
+   
             **dashboardCategoriesSubcategories** |br|
             object
       -
