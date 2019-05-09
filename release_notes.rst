@@ -19,10 +19,10 @@ FEATURES
 -  MongoDB Available as a Reporting Datasource
 -  Key Joins Support Multiple Values
     -  = and <> operators now support multiple input values
--  Pie Charts Support Drilldown Aactions on the 'Other's slice
-    - If you are using the 'Bottom X%' funciton on pie charts, you can drill down on the 'Others' slice.
+-  Pie Charts Support Drilldown Actions on the 'Other's slice
+    - If you are using the 'Bottom X%' function on pie charts, you can drill down on the 'Others' slice.
     - When drilling down, a pop-up will let you select which underlying value you wish to drill down to.
--  New Datetime Picker
+-  New DateTime Picker
     - Implemented Blueprint.js to leverage a new DateTime picker for filters
     - Further enhancements for this will be released alongside v3.2.0
 -  Update Results Button Relocated
