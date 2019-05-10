@@ -26,13 +26,13 @@ FEATURES
     - While designing a Pie Chart, you normally have the ability to set a value for 'Bottom X% Grouped to Other'. When enabled, a slice on your pie chart will be labeled 'Others' and it is the combined value of items that fall within your setting. Previously, if a drill down was set up on your chart, you could not see any underlying data for that slice. Now, if drilldowns are set for your pie chart, you will see a pop-up when clicking on the Others slice. This will let you choose any value within the Others slice to drill down on so you can see the lower level of data for that particular value.  
     
 -  New Datetime Picker
-    - Our goal for the immediate future was to help modernize and streamline our filer interactions. In order to do this, we needed to switch out our underlying library for DateTime interaction and replace it. Now that we've done this, the calendar picker for all DateTime values throughout the application will change accordingly. Please note that while this change is in place now, some optimizations for filter space and presentation for these will be released in v3.2.0 now that the underlying libraries are in place. 
+    - Our goal for the immediate future was to help modernize and streamline our filter interactions. In order to do this, we needed to switch out our underlying library for DateTime interaction and replace it. Now that we've done this, the calendar picker for all DateTime values throughout the application will change accordingly. Please note that while this change is in place now, some optimizations for filter space and presentation for these will be released in v3.2.0 now that the underlying libraries are in place. 
 
 -  Update Results Button Relocated
     - To help streamline filter and report interactions, we've relocated the Update Results button to be within the filter container. This way, as your users are setting their filter values, the ability to immediate update the report to reflect that new data is located in the same vicinity so their attention stays with their workflow. 
 
 -  Filter Panel - Space Consolidation
-    - As a step towards responsive filter design, we've begun to consolidate the use of space within the filter panel. We've zbbreviated 'Show Filters Under Report Description' to save space and added a tooltip. Additionally we've changed the 'Add Filter' button to a '+' icon to make room for the Update Results button. 
+    - As a step towards responsive filter design, we've begun to consolidate the use of space within the filter panel. We've abbreviated 'Show Filters Under Report Description' to save space and added a tooltip. Additionally we've changed the 'Add Filter' button to a '+' icon to make room for the Update Results button. 
 
 -  Close Button in Viewer Methods
     - Previously, when use either the renderReportViewerPage or renderDashboardViewerPage endpoint, the 'Close' button will still be present. When selected, it would bring the user back to the report or dashboard list. In order to respect the workflow of those pages, the Close button will not be rendered when using either of those rener methods. 
