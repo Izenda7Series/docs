@@ -8,7 +8,7 @@ Release Notes
 	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
 	- Major Release - Larger Features, Major release 1.x.x
 
-v3.1.0 April 9, 2019
+v3.1.0 May 9, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
     For more information on our features and this release, please see :ref:`Release_Details`

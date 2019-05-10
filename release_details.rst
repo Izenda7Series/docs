@@ -9,7 +9,7 @@ Release Details
     - In addition, due to changes in our internal reference, please make the following changes to your references/implementation found `here <https://github.com/Izenda7Series/IAdHocExtensionSamples/commit/da47fd3780f3c07e00b0593f0dfbd268f400515a>`_.
     - A user in a load-balnced environment has reported inconsistencies with scheduling. We are investigating and will provide a fix, if necessary, as soon as possible. 
 
-v3.1.0 April 9, 2019
+v3.1.0 May 9, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
