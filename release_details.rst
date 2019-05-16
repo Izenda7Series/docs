@@ -33,7 +33,7 @@ FEATURES
 -  Key Joins Support Multiple Values
     - When creating key joins in the Data Sources page of the report designer, previously you were limited to only a singular value. This meant that for every unique value you wanted to join against, you would have to create an additional key join. Now you can hit enter once you've chosen or entered your value, and then continue to add them for the = and <> operators. 
    
--  Pie Charts Support Drilldown Actions on the 'Other's slice
+-  Pie Charts Support Drilldown Actions on the 'Others' slice
     - While designing a Pie Chart, you normally have the ability to set a value for 'Bottom X% Grouped to Other'. When enabled, a slice on your pie chart will be labeled 'Others' and it is the combined value of items that fall within your setting. Previously, if a drill down was set up on your chart, you could not see any underlying data for that slice. Now, if drilldowns are set for your pie chart, you will see a pop-up when clicking on the Others slice. This will let you choose any value within the Others slice to drill down on so you can see the lower level of data for that particular value.  
     
 -  New Datetime Picker
