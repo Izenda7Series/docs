@@ -743,22 +743,21 @@ Permission
             **displayDashboardTileHeader** |br|
             object
 
-            .. versionadded:: 3.1.0
+             .. versionadded:: 3.1.0
       -
       -  An object with the following fields |br|
-      
-         *Only support for Role permission*
+          *Only support for Role permission*
       -
    *  -  .. container:: lpad4
-   
+
             **value** |br|
             boolean
       -
-      -  Is permission for Can create new dashboard set
+      -  Is permission for displaying dashboard tile headers
       -
    *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
+
+             **tenantAccess** |br|
             integer
       -
       -  Permission for Tenant

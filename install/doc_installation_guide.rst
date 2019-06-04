@@ -205,60 +205,6 @@ The most common testing scenario places the front-end and the back-end on two se
 
 .. _Deploy_NET_Core_BE:
 
-Deploy .NET Core Back-end standalone via IIS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Pre-installation preparations**
-
-`.NET Core 2.2 Runtime & Hosting Bundle for Windows <https://dotnet.microsoft.com/download/thank-you/dotnet-runtime-2.2.2-windows-hosting-bundle-installer>`_ 
-
-**Publish Izenda.Synergy.WebAPI**
-
-#. Extract Izenda Back-end package into a folder
-#. Build Izenda.Synergy solution (from Izenda Back-end package) via Visual Studio, then select project Izenda.Synergy.WebAPI
-#. On the Visual Studio’s top menu, select Build then Publish Izenda.Synergy.WebAPI
-
-   .. figure:: /_static/images/install/Publish_NET_Core_BE.png
-      :width: 552px
-
-      Publich .NET Core Back-end package |br|
-
-#. In the Publish pop-up, choose Configure… to adjust publish settings
-
-   #. In Connection tab, choose the target location, preferable at C:\\www\\IzendaStandAlone
-
-      .. figure:: /_static/images/install/Publish_NET_Core_BE_Connection.png
-         :width: 571px
-
-   #. In Settings tab
-
-      \- Choose netcoreapp2.2 for Target Framework |br|
-      \- Choose Framework-Dependent for Deployment Mode |br|
-      \- Choose Portable for Target Runtime |br|
-      \- Then Save the settings |br|
-
-      .. figure:: /_static/images/install/Publish_NET_Core_BE_Settings.png
-         :width: 571px
-   
-   #. Click Publish to start publishing progress
-
-**Deploy Izenda using Internet Information Services (IIS) Manager**
-
-#. Add new website for .NET Core Back-end package similarly to set-up Front-end site but with another site name (preferably IzendaStandAlone) and port (preferably 9898)
-
-   .. figure:: /_static/images/install/Publish_NET_Core_BE_Hots_Site.png
-      :width: 446px
-
-#. Configure the IzendaStandAlone pool
-
-   #. Click Application Pools in the left panel to open the Application Pool management tab
-   #. Choose IzendaStandAlone then Basic Settings to open Edit Application Pool pop-up
-   #. Change the .NET CLR version to No Managed Code
-   #. Click OK to save the setting
-
-      .. figure:: /_static/images/install/Publish_NET_Core_BE_Pool_Settings.png
-         :width: 546px
-
 
 
 ----------------------------------------------------------------
@@ -680,7 +626,7 @@ Pre-install preparations
       .. code-block:: console
 
          sudo wget  -P /home/ubuntu/ https://downloads.izenda.com/latest/StandaloneUI.zip
-         sudo wget  -P /home/ubuntu/ https://downloads.izenda.com/latest/API_AspnetCore.zip
+         sudo wget  -P /home/ubuntu/ https://downloads.izenda.com/latest/API_AspNetCore.zip
 
 
    * Unzip the Izenda Font-end and Back-end packages
@@ -689,7 +635,7 @@ Pre-install preparations
 
          sudo apt-get install zip unzip // Download the zip tool
          sudo unzip 'StandaloneUI.zip' -d /var/www/izenda-ui // Unzip the Izenda Front-end package
-         sudo unzip 'Aspnetcore-API.zip' -d /var/www/izenda-api // Unzip the Izenda Back-end package
+         sudo unzip 'API_AspNetCore.zip' -d /var/www/izenda-api // Unzip the Izenda Back-end package
 
 #. Configure Apache reverse proxy
 
@@ -772,8 +718,8 @@ Create monitor service
    .. code-block:: console
 
       [program:dotnettest]
-      command=/usr/bin/dotnet /var/www/izenda-api/API_AspnetCore/Izenda.BI.API.AspNetCore.dll  --urls "http://*:5000"
-      directory=/var/www/izenda-api/API_AspnetCore
+      command=/usr/bin/dotnet /var/www/izenda-api/API_AspNetCore/Izenda.BI.API.AspNetCore.dll  --urls "http://*:5000"
+      directory=/var/www/izenda-api/API_AspNetCore
       autostart=true
       autorestart=true
       stderr_logfile=/var/log/izenda-api.err.log

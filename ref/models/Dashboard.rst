@@ -160,12 +160,11 @@ Dashboard
       -
    *  -  **displayDashboardTileHeader** |br|
          boolean
-
-         .. versionadded:: 3.1.0
+          .. versionadded:: 3.1.0
       -
       -  Whether display dashboard tile or not
       -
-
+      
 Inherited fields:
 
 .. include:: Entity.rst
