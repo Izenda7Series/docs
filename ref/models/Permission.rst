@@ -757,7 +757,7 @@ Permission
       -
    *  -  .. container:: lpad4
 
-             **tenantAccess** |br|
+            **tenantAccess** |br|
             integer
       -
       -  Permission for Tenant
