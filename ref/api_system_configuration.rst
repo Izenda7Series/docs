@@ -70,6 +70,11 @@ Summary
         .. versionadded:: 3.3.0
      - Save cache configurations
      - System Configuration > Cache
+   * - `POST systemSetting/clearCache`_
+
+        .. versionadded:: 3.3.0
+     - Clear out all cache
+     - 
 
 
 POST systemSetting/reportSetting
@@ -995,3 +1000,57 @@ Updates the cache configurations.
             ],
             "data": null
          }
+
+
+POST systemSetting/clearCache
+----------------------------------------
+
+.. versionadded:: 3.3.0
+
+Clear out all cache.
+
+**Request**
+
+   An object with the following structure:
+
+   .. list-table::
+      :header-rows: 1
+
+      *  -  Field
+         -  Description
+         -  Note
+      *  -  **clearCachetype** |br|
+            integer
+         -  Define which cache area should be cleared
+
+            +  0: Data cache
+            +  1: System cache
+            +  2: All cache
+         -
+
+
+**Response**
+
+    A :doc:`models/OperationResult` object.
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/systemSetting/clearCache HTTP/1.1
+
+
+
+   Sample request::
+
+      {
+         "ClearCacheType": 1
+      }
+
+   Sample response::
+
+      {
+         "success": true,
+         "messages": null,
+         "data": null
+      }
