@@ -4,6 +4,18 @@
 Release Details
 ==============
 
+v3.3.0 July 9, 2019
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+	- The System Cache portion of this behavior will be released in a future version of Izenda.
+
+The **System Configuration > Cache** page allows an administrator to manage users.
+
+- Data Caching is now Implemented
+    - A detailed description of caching setup and configuration can be found on our :ref:`Caching_Overview` page.
+    - We will be adding system-level caching (roles, validation, etc.) in a later release. 
+
 v3.2.0 June 4, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
