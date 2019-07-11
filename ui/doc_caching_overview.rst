@@ -43,6 +43,9 @@ The configuration options for your caches are location on the Settings > System 
 		- If the time limit is met, Izenda stops updating the caches and they will remain invalid until a user manually updates them or the next automated refresh occurs. 
 
 
+A set of additional options within the configuration files, please see our :ref:`Cache_Config` page. 
+
+
 Configuring the Disk Cache
 --------
 When utilizing the disk cache solution, Izenda will store it's information into two directories in the location you specify: SystemCache and DataCache.  These directories can be modified in our configuration files to support the following directory types:
@@ -82,7 +85,7 @@ To determine which caching solution you would like to use, simple comment out th
       "izenda.cache.system.cachestore": "ExternalStorageCacheStore"
 
 
-For more information based on your deployment modes, please check here: :ref:`Cache`
+
 
 Refreshing the Cache
 -----------------

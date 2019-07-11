@@ -12,9 +12,10 @@ v3.3.0 July 9, 2019
 
 The **System Configuration > Cache** page allows an administrator to manage users.
 
-- Data Caching is now Implemented
+- Data Caching Beta is now Implemented
     - A detailed description of caching setup and configuration can be found on our :ref:`Caching_Overview` page.
     - We will be adding system-level caching (roles, validation, etc.) in a later release. 
+    - No caching will be enabled by default, so you must set this up via the configuration page in the application.
 
 v3.2.0 June 4, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

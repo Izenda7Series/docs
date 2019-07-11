@@ -15,7 +15,7 @@ v3.3.0 July 9th, 2019
 
 FEATURES
 ^^^^^^^^^
-- Data Caching is now Implemented
+- Data Caching Beta is now Implemented
     - Caching can be leveraged through a Disk Cache of a Memory Cache.
     - Data for Reports and Dashboards will be cached after the initial load.
     - A new UI button, 'Refresh' will be present which will allow users to update the cache.
