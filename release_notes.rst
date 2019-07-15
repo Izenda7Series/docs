@@ -10,7 +10,7 @@ Release Notes
 
 For more information and details on our releases, please see our :ref:`Release_Details`.
 
-v3.3.0 July 9th, 2019
+v3.3.0 July 15th, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
