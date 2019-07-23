@@ -5,7 +5,7 @@ Release Details
 ==============
 
 
-v3.3.1 July 15, 2019
+v3.3.1 July 23, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
@@ -16,7 +16,7 @@ FEATURES
     - When sending an embedded or attached report, senders will be able to leverage the Time Zone setting for the schedule/subscription for InTimePeriod filters. 
 
 - Multiple Selection filters now support delimited lists.
-    - You can provided Comma and New Line delimited lists as valid inputs
+    - You can provide Comma and New Line delimited lists as valid inputs
     - Select 'None' in the delimiter selection dialogue if you want to leverage historical behavior.
 
 - Izenda can load on pages with pre-existing Highcarts references. 
