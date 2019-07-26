@@ -17,7 +17,7 @@ FEATURES
 ^^^^^^^^^
 - InTimePeriod filters reflect more accurate timezones
 - Multiple Selection filters now support delimited lists.
-- Izenda can load on pages with pre-existing Highcarts references. 
+- Izenda can load on pages with pre-existing Highcharts references. 
 
 FIXES
 ^^^^^
