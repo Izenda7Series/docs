@@ -7,7 +7,8 @@ Breaking Changes
 v3.0.0 April 2, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. warning::
-  If you currently have additional Azure resources configured for an EvoPDF exporting provider, this is no longer necessary. Syncfusion works in Azure environments without the need of a specific service. You will need to adjust your exporting configurations accordingly.
+  - If you currently have additional Azure resources configured for an EvoPDF exporting provider, this is no longer necessary. Syncfusion works in Azure environments without the need of a specific service. You will need to adjust your exporting configurations accordingly.
+  - If you currently use the IAdHocExtension classes you will need to rebuild these into a new assembly using our v3.x dlls.
 
 v2.18.1 March 19, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

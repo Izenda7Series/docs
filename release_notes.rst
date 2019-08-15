@@ -33,7 +33,7 @@ FIXES
 - Defect 22846 Dashboard viewer would display an additional, 13th tile when users would move a tile.
 - Defect 23189 Front-end warnings would be logged in the browser after updating the UI.
 - Defect 23206 Chart Static Threshold labels were partially visible if Filter Dialogue was collapsed. 
-- Defect 23243 Loading Schedules list in UI would return a 500 error when using SQL Servier 2008.
+- Defect 23243 Loading Schedules list in UI would return a 500 error when using SQL Server 2008.
 - Defect 23644 Setting level dropdown is partially visible in mobile layouts.
 - Defect 23817 Reports would fail when using both an aliased join and a composite key in the relationships.
 - Defect 23839 GUID was displayed in chart tooltip instead of the threshold name.
