@@ -92,6 +92,12 @@ Summary
    * - `GET systemSetting/dateFormat`_
      - Returns all supported date formats.
      -
+   * - `GET systemSetting/googleAPIKey/(tenantId)`_
+
+       .. versionadded:: 3.5.0
+     - Returns the Google Map API Key for specific tenant.
+     - 
+
 
 GET accessRight/reportDashboard/{type}
 --------------------------------------------------------------
@@ -1499,3 +1505,42 @@ Returns all supported date formats.
        "DD/MM/YYYY",
        "YYYY/MM/DD"
       ]
+
+
+GET systemSetting/googleAPIKey/(tenantId)
+-----------------------------------------------------------
+
+Returns the Google Map API Key for specific tenant (return System's key if `tenantID` is null.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An :doc:`models/GoogleAPISetting` object
+
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/systemSetting/systemIndicator HTTP/1.1
+
+   Sample response::
+
+      {
+      "useSystemConfiguration": false,
+      "googleAPIKey": "The google api key",
+      "useGEOCodingService": true,
+      "tenantId": null,
+      "id": "e7798b61-3192-42dc-b0cd-7f7726cbfa69",
+      "state": 0,
+      "deleted": false,
+      "inserted": true,
+      "version": 1,
+      "created": "2019-09-03T07:45:33.0134920+07:00",
+      "createdBy": "System Admin",
+      "modified": "2019-09-03T07:45:33.0134920+07:00",
+      "modifiedBy": "System Admin"
+      }

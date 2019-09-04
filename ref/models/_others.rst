@@ -43,3 +43,4 @@ Others
    ValidateExpiration
    ValueTreeNode
    RoleVirtualNode
+   GoogleAPISetting
