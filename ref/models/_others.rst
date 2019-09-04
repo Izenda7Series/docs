@@ -44,3 +44,4 @@ Others
    ValueTreeNode
    RoleVirtualNode
    GoogleAPISetting
+   VizState
