@@ -97,7 +97,11 @@ Summary
        .. versionadded:: 3.5.0
      - Returns the Google Map API Key for specific tenant.
      - 
+   * - `POST systemSetting/googleAPIKey`_
 
+       .. versionadded:: 3.5.0
+     - Save Google Map settings.
+     - 
 
 GET accessRight/reportDashboard/{type}
 --------------------------------------------------------------
@@ -1525,7 +1529,7 @@ Returns the Google Map API Key for specific tenant (return System's key if `tena
 
    .. code-block:: http
 
-      GET /api/systemSetting/systemIndicator HTTP/1.1
+      GET /api/systemSetting/googleAPIKey HTTP/1.1
 
    Sample response::
 
@@ -1543,4 +1547,66 @@ Returns the Google Map API Key for specific tenant (return System's key if `tena
       "createdBy": "System Admin",
       "modified": "2019-09-03T07:45:33.0134920+07:00",
       "modifiedBy": "System Admin"
+      }
+
+POST systemSetting/googleAPIKey
+----------------------------------------
+
+Save Google Map settings.
+
+**Request**
+
+    An :doc:`models/GoogleAPISetting` object
+
+**Response**
+
+    .. list-table::
+       :header-rows: 1
+
+       *  -  Field
+          -  Description
+          -  Note
+       *  -  **success** |br|
+             boolean
+          -  Should be true
+          -
+       *  -  **emailSetting** |br|
+             string
+          -  The saved :doc:`models/GoogleAPISetting` object
+          -
+
+
+**Samples**
+
+   .. code-block:: http
+
+      POST /api/systemSetting/googleAPIKey HTTP/1.1
+
+   Request payload::
+
+      {
+      "useSystemConfiguration": true,
+      "googleAPIKey": null,
+      "tenantId": "e2b50a50-8f5a-4e55-bbac-72e9e0334be9",
+      "id": "00000000-0000-0000-0000-000000000000"
+      }
+
+   Sample response::
+
+      {
+         "success": true,
+         "googleAPIKeySetting": {
+            "useSystemConfiguration": false,
+            "googleAPIKey": "123",
+            "tenantId": "e2b50a50-8f5a-4e55-bbac-72e9e0334be9",
+            "id": "f060e458-e3f6-462d-a199-838f407b9193",
+            "state": 0,
+            "deleted": false,
+            "inserted": true,
+            "version": null,
+            "created": null,
+            "createdBy": "System Admin",
+            "modified": "2019-08-08T14:31:13.704129",
+            "modifiedBy": "System Admin"
+         }
       }
