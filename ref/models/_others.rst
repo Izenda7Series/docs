@@ -45,3 +45,6 @@ Others
    RoleVirtualNode
    GoogleAPISetting
    VizState
+   StateCode
+   CountyCode
+   AddressCode
