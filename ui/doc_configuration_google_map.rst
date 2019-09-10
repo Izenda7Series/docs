@@ -32,4 +32,13 @@ sending options.
 .. note::
 
    * Please note that the Google Map API key as well as Geocoding service will be validated from Google side. 
+   * Turn ON the Google Address for a tenant that means users in tenant can user the Geocoding service to load the Google Map part as Address Point Option. To specify tenant user can create Google Map part with Address, please turn ON the Tenant Setup > Permission
+
+      .. _System_Configuration_GoogleMap_Configuration:
+
+      .. figure:: /_static/images/System_Configuration_GoogleMap_Tenant_Permission.png
+         :align: center
+         :width: 320px
+
+         Google Address permission
 
