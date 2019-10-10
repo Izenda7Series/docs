@@ -32,7 +32,7 @@ FEATURES
     - These items will let a user specify if the UserID value should be shown in the profile, or if the profile page as a whole is accessible. 
 - Logging Improvement for TenantID and ReportID values
     - Two new parameters are present in our logs for both of these items to separate them from the larger message content. 
-    - This will make it easier to search logs for tenant-specific or report-specific entires. 
+    - This will make it easier to search logs for tenant-specific or report-specific entires.
 - Excel Adapter Improvements and Release
     - The Excel adapter now handles updating and replacing sheets for connections more reliably. 
     - The UI updates for non-database connectors have been finished. 

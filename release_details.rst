@@ -12,12 +12,21 @@ FEATURES
 - New User Load API
     - We are introducing a new external user endpoint: GET api/external/user/loadUser
     - This endpoint is meant to return user information for a single user at a time, as opposed to a bulk load.
+    - For our documentation on this endpoint please see our :ref:`External_User` API page.
 - New Separator Option for Pivot Grids
     - We have introduced a new separator type, Logical, for pivot grids. 
     - This separator will block out data within the pivot without creating a new grid instance, keeping all of the data in-line.
     - If subtotals are enabled, these will be rendered in-line with the grid, creating total rows below each logical separator grouping.
 
 .. figure:: /_static/images/Logical_Separator_Example.jpg
+    :align: center
+    :width: 653px
+
+- Visibility Toggle for User ID and User Profile
+    - Two new options exist under System Configuration > Security Policies
+    - These items will let a user specify if the UserID value should be shown in the profile, or if the profile page as a whole is accessible. 
+
+.. figure:: /_static/images/New_Log_Parameters_Example.jpg
     :align: center
     :width: 653px
 
