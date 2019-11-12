@@ -4,6 +4,37 @@
 Release Details
 ==============
 
+v3.7.0 November 13th, 2019
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Salesforce Connector Preview 
+    - A connection string can be added to your Salesforce data for reporting.
+    - This requires three pieces of information: Email, Password, and Security Token 
+        - Ex. User=myUserName@test.com;Password=pa$sw0rd;Security Token=Al9q7nmDJW3ib0NBiLEnYz;Verbosity=3;
+- Continued Grid Enhancements 
+    - Blank rows can be added to pivot grid expanders for better visual spacing. 
+    - A new conditional formatting option exists for Horizontal and Vertical Grids 
+        - This allows for conditional formatting to impact entire columns or entire rows 
+        - This will be expanded to impact pivot and drilldown grids at a later date, as well as having a more comprehensive UI.
+    - Conditional formatting options were added to support bold, italics, and underline formatting for grids.
+    - Pivot grids can have all expander items collapsed/expanded by default
+
+.. figure:: /_static/images/Conditional_Formatting_Popup.jpg
+    :align: center
+    :width: 653px
+
+- Calculated Fields support New Line character
+- Expanded API response behavior for error handling 
+    - Added a new elemenent to the configJson element, ErrorHandler.
+    - You can specify a function that is assigned to this element that will can handle certain error responses from the API.
+    - This allows you to provide more detailed feedback or handle failed request made against the API.
+
+.. figure:: /_static/images/API_Response_Handler.jpg
+    :align: center
+    :width: 653px
+
 v3.6.0 October 10, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
