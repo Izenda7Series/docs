@@ -11,6 +11,24 @@ Release Notes
 
  For more information and details on our releases, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
+v3.7.1 November 26th, 2019
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- D3 Library Implemented
+    - The D3 charting library is now implemented into the platform by default.
+    - A new Tree Map visualization is now available for all Chart report parts. 
+- Configurable Front-end AJAX Settings 
+    - A new parameter is added to our configJson element that allows for AJAX requests to be customized 
+
+FIXES
+^^^^^ 
+- Defect 23789 Cascading filters were not applied for Equals Tree/Checkbox filters
+- Defect 25253 TreeMap would fail to render with duplicated label values
+- Defect 25259 Field Color settings were not properly applied with Percentage Ranges when enabling Multi-Level display. 
+- Defect 25499 Alternative Text settings were not properly applied with Percentage Ranges in Pie/Funnel/Donut/TreeMaps.
+
 v3.7.0 November 13th, 2019
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
