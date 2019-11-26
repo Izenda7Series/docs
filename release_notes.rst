@@ -60,6 +60,7 @@ FIXES
 - Defect 24281 Convert Null To Empty causes an error when the report contains a calculated field using user defined function.
 - Defect 24333 Dashboard buttons flicker momentarily when loading.
 - Defect 24473 Value labels on maps do not display when Show Map Labels and Show Value Labels are enabled when a shading metric is not configured.
+- Defect 24682 Reports could not be renamed or moved when using an Oracle configuration database. 
 - Defect 24711 Global maps would error when dynamic shading was set while multiple point options were present.
 - Defect 24750 PostgreSQL procedures would not display fields in the data model.  
 - Defect 24871 Filter values were rounding automatically in the value dropdown.
