@@ -15,1042 +15,513 @@ Permission and string value mapping
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 5 65 5
+   :widths: 30 40 30
 
    *  -  Permission
       -  String Value
       -  Note
-   *  -  **systemAdmin** |br|
-         boolean
+   *  -  **Full Report And Dashboard Access**
+      -  FullReportAndDashboardAccess
       -
-      -
-   *  -  **fullReportAndDashboardAccess** |br|
-         boolean
-      -
-      -
-   *  -  **systemConfiguration** |br|
-         object
+   *  -  **System Configuration**
       -
       -
    *  -  .. container:: lpad2
    
-            **scheduledInstances** |br|
-            object
-      -
+            **Scheduled Instances**
+      -  systemConfig.schedule
       - 
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
+   *  -  **Tenant Setup**
       -
       -
    *  -  .. container:: lpad2
    
-            **tenantAccess** |br|
-            integer
+            **Actions**
       -
       -
-   *  -  **dataSetup** |br|
-         object
+   *  -  .. container:: lpad4
+   
+            **Create**
+      -  tenantSetup.create
+      -
+   *  -  .. container:: lpad4
+   
+            **Edit**
+      -  tenantSetup.edit
+      -
+   *  -  .. container:: lpad4
+   
+            **Delete**
+      -  tenantSetup.delete
+      -
+   *  -  .. container:: lpad2
+   
+            **Permissions**
+      -  tenantSetup.permissions
+      -
+   *  -  **Data Setup**
       -
       -
    *  -  .. container:: lpad2
    
-            **dataModel** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **customView** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **create** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **edit** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **delete** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
+            **Data Connectors**
+      -  dataSetup.dataConnectors
       -
    *  -  .. container:: lpad2
    
-            **advancedSettings** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **category** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **others** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **userSetup** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **userRoleAssociation** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **actions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **create** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **edit** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **del** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **configureSecurityOptions** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **roleSetup** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **actions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **create** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **edit** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **del** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **dataModelAccess** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **permissions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **grantRoleWithFullReportAndDashboardAccess** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **reports** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **canCreateNewReport** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **dataSources** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **simpleDataSources** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **advancedDataSources** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **reportPartTypes** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **chart** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **form** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **gauge** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **map** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **reportCategoriesSubcategories** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **canCreateNewCategory** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **categoryAccessibility** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **categories** |br|
-            array of objects
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **filterProperties** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **filterLogic** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **CrossFiltering** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **fieldProperties** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **customURL** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **embeddedJavaScript** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **subreport** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **actions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **schedule** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **email** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **viewReportHistory** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **del** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **registerForAlerts** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **print** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **unarchiveReportVersions** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **overwriteExistingReport** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **subscribe** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **exporting** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **configureAccessRights** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **tenantSetup** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **actions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **create** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **edit** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **del** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **permissions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **dashboards** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **canCreateNewDashboard** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **displayDashboardTileHeader** |br|
-            object
-
-             .. versionadded:: 3.1.0
-      -
+            **Data Model**
+      -  dataSetup.dataModel
       -
    *  -  .. container:: lpad4
 
-            **value** |br|
-            boolean
+            **customView**
       -
       -
-   *  -  .. container:: lpad4
+   *  -  .. container:: lpad6
 
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **dashboardCategoriesSubcategories** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **canCreateNewCategory** |br|
-            object
-      -
+            **Create**
+      -  dataSetup.dataModel.customView.create
       -
    *  -  .. container:: lpad6
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **categoryAccessibility** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **categories** |br|
-            array of objects
-      -
-      -
-   *  -  .. container:: lpad6
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **actions** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **schedule** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **email** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **del** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **subscribe** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **print** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **overwriteExistingDashboard** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **configureAccessRights** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **access** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **accessLimits** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            array of objects
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **accessDefaults** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            array of objects
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **scheduling** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **schedulingLimits** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            array of objects
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **schedulingScope** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **systemUsers** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **externalUsers** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **emailing** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **deliveryMethod** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **link** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **embeddedHTML** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **attachment** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **attachmentType** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **word** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **excel** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **pdf** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **csv** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **xml** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **json** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **exporting** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **exportingFormat** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **word** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **excel** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **pdf** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **csv** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **xml** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **json** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **queryExecution** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  **systemWide** |br|
-         object
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **canSeeSystemMessages** |br|
-            object
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **value** |br|
-            boolean
-      -
-      -
-   *  -  .. container:: lpad4
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **tenantAccess** |br|
-            integer
-      -
-      -
-   *  -  .. container:: lpad2
-   
-            **accessLimitsTree** |br|
-            an array of objects
 
-            .. versionadded:: 2.9.0
+            **Edit**
+      -  dataSetup.dataModel.customView.edit
+      -
+   *  -  .. container:: lpad6
+
+            **Delete**
+      -  dataSetup.dataModel.customView.delete
+      -
+   *  -  .. container:: lpad2
+   
+            **Advanced Settings**
+      - 
+      -
+   *  -  .. container:: lpad4
+   
+            **Category**
+      -  dataSetup.advancedSettings.category
+      -
+   *  -  .. container:: lpad4
+   
+            **Others**
+      -  dataSetup.advancedSettings.others
+      -
+   *  -  **User Setup**
       -
       -
    *  -  .. container:: lpad2
    
-            **schedulingLimitsTree** |br|
-            an array of objects
-
-            .. versionadded:: 2.9.0
+            **User Role Association**
+      -  userSetup.userRoleAssociation
       -
+   *  -  .. container:: lpad2
+   
+            **Actions**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Create**
+      -  userSetup.create
+      -
+   *  -  .. container:: lpad4
+   
+            **Edit**
+      -  userSetup.edit
+      -
+   *  -  .. container:: lpad4
+   
+            **Delete**
+      -  userSetup.delete
+      -
+   *  -  .. container:: lpad4
+   
+            **Configure Password Option**
+      -  userSetup.configSercurity
+      -
+   *  -  **Role Setup**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Actions**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Create**
+      -  roleSetup.create
+      -
+   *  -  .. container:: lpad4
+   
+            **Edit**
+      -  roleSetup.edit
+      -
+   *  -  .. container:: lpad4
+   
+            **Delete**
+      -  roleSetup.delete
+      -
+   *  -  .. container:: lpad2
+   
+            **Data Model Access**
+      -  roleSetup.dataModelAccess
+      -
+   *  -  .. container:: lpad2
+   
+            **Permissions**
+      -  roleSetup.Permissions
+      -
+   *  -  .. container:: lpad2
+   
+            **Grant Role with Full Report and Dashboard Access**
+      -  roleSetup.grantRoleWithFullReportAndDashboardAccess
+      -
+   *  -  **Reports**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Can create new report?**
+      -  reports.create
+      -
+   *  -  .. container:: lpad2
+   
+            **Data Sources**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Simple Data Sourcess**
+      -  reports.dataSources.simple
       -  
+   *  -  .. container:: lpad4
+   
+            **Advanced Data Sourcess**
+      -  reports.dataSources.advanced
+      -
+   *  -  .. container:: lpad2
+   
+            **Report Part Types**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Chart**
+      -  reports.partTypes.chart
+      -  
+   *  -  .. container:: lpad4
+   
+            **Form**
+      -  reports.partTypes.form
+      -
+   *  -  .. container:: lpad4
+   
+            **Gauge**
+      -  reports.partTypes.gauge
+      -  
+   *  -  .. container:: lpad4
+   
+            **Map**
+      -  reports.partTypes.map
+      -
+   *  -  .. container:: lpad2
+   
+            **Report Categories/Subcategories**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Can create new category?**
+      -  reports.categories.create
+      -  
+   *  -  .. container:: lpad4
+   
+            **Category Accessibility**
+      -  reports.categoryAccess.visible.global[<Category Name 1>][<SubCate1>] |br|
+         reports.categoryAccess.visible.local[<Category Name 1>][<SubCate1>] |br|
+         reports.categoryAccess.savable.local[<Category Name 1>][<SubCate1>] |br|
+      -  If Category name contains special charater (``"\" , "[" , "]"``), it must be follow after a ``"\"`` character
+   *  -  .. container:: lpad4
+   
+            **Filter Properties**
+      -  
+      -  
+   *  -  .. container:: lpad6
+   
+            **Filter Logic**
+      -  reports.filter.logic
+      -  
+   *  -  .. container:: lpad6
+   
+            **Cross Filtering**
+      -  reports.filter.crossFiltering
+      -  
+   *  -  .. container:: lpad4
+   
+            **Field Properties**
+      -  
+      -  
+   *  -  .. container:: lpad6
+   
+            **Custom URL**
+      -  reports.field.customURL
+      -  
+   *  -  .. container:: lpad6
+   
+            **Embedded Javascript**
+      -  reports.field.embeddedJS
+      -  
+   *  -  .. container:: lpad6
+   
+            **Subreport**
+      -  reports.field.subReport
+      -  
+   *  -  .. container:: lpad4
+   
+            **Actions**
+      -  
+      -  
+   *  -  .. container:: lpad6
+   
+            **Schedule**
+      -  reports.schedule
+      -  
+   *  -  .. container:: lpad6
+   
+            **Email**
+      -  reports.email
+      -  
+   *  -  .. container:: lpad6
+   
+            **View Report History**
+      -  reports.viewHistory
+      -  
+   *  -  .. container:: lpad6
+   
+            **Delete**
+      -  reports.delete
+      -  
+   *  -  .. container:: lpad6
+   
+            **Register to alerts**
+      -  reports.alert
+      -  
+   *  -  .. container:: lpad6
+   
+            **Print**
+      -  reports.print
+      -  
+   *  -  .. container:: lpad6
+   
+            **Unarchive Report Versions**
+      -  reports.unarchiveReportVersion
+      -  
+   *  -  .. container:: lpad6
+   
+            **Overwrite Existing Report**
+      -  reports.overwrite
+      -  
+   *  -  .. container:: lpad6
+   
+            **Subscribe**
+      -  reports.subscribe
+      -  
+   *  -  .. container:: lpad6
+   
+            **Export**
+      -  reports.exporting
+      -  
+   *  -  .. container:: lpad6
+   
+            **Configure Access Rights**
+      -  reports.accessRights
+      -  
+   *  -  **Dashboard**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Can create new dashboard?**
+      -  dashboards.create
+      -
+   *  -  .. container:: lpad2
+   
+            **Display tile header in uneditable dashboard**
+      -  dashboards.displayTileHeader
+      -
+   *  -  .. container:: lpad2
+   
+            **Dashboard Categories/Subcategories**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Can create new category?**
+      -  dashboards.categories.create
+      -  
+   *  -  .. container:: lpad4
+   
+            **Category Accessibility**
+      -  dashboards.categoryAccess.visible.global[<Category Name 1>][<SubCate1>] |br|
+         dashboards.categoryAccess.visible.local[<Category Name 1>][<SubCate1>] |br|
+         dashboards.categoryAccess.savable.local[<Category Name 1>][<SubCate1>] |br|
+      -  If Category name contains special charater (``"\" , "[" , "]"``), it must be follow after a ``"\"`` character
+   *  -  .. container:: lpad4
+   
+            **Actions**
+      -  
+      -  
+   *  -  .. container:: lpad6
+   
+            **Schedule**
+      -  dashboards.schedule
+      -  
+   *  -  .. container:: lpad6
+   
+            **Email**
+      -  dashboards.email
+      -  
+   *  -  .. container:: lpad6
+   
+            **Delete**
+      -  dashboards.delete
+      -  
+   *  -  .. container:: lpad6
+   
+            **Subscribe**
+      -  dashboards.subscribe
+      -  
+   *  -  .. container:: lpad6
+   
+            **Print**
+      -  dashboards.print
+      -  
+   *  -  .. container:: lpad6
+   
+            **Overwrite Existing Dashboard**
+      -  dashboards.overwrite
+      -  
+   *  -  .. container:: lpad6
+   
+            **Configure Access Rights**
+      -  dashboards.accessRights
+      -  
+   *  -  .. container:: lpad6
+   
+            **Export**
+      -  dashboards.exporting
+      -  
+   *  -  **Access**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Access Limits**
+      -  accessLimits[<roleName>][<userName>]
+      -  If roleName/Username contains special charater (``"\" , "[" , "]"``), it must be follow after a ``"\"`` character
+   *  -  .. container:: lpad2
+   
+            **Access Defaults**
+      -  accessDefaults.everyone.report.<accessRight>
+         accessDefaults.<shareWith>.[<Rolename/userName>].report.<accessRight>
+         accessDefaults.everyone.dashboard.<accessRight>
+         accessDefaults.<shareWith>.[<Rolename/userName>].dashboard.<accessRight>
+      -  If roleName/Username contains special charater (``"\" , "[" , "]"``), it must be follow after a ``"\"`` character
+   *  -  **Scheduling**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Scheduling Limits**
+      -  schedulingLimits[<roleName>][<userName>]
+      -  If roleName/Username contains special charater (``"\" , "[" , "]"``), it must be follow after a ``"\"`` character
+   *  -  .. container:: lpad2
+   
+            **External Users**
+      -  
+      -  
+   *  -  .. container:: lpad4
+   
+            **System Users**
+      -  schedulingScope.systemUsers
+      -  
+   *  -  .. container:: lpad4
+   
+            **External Users**
+      -  schedulingScope.externalUsers
+      -  
+   *  -  **Emailing**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Delivery Method**
+      -
+      -
+   *  -  .. container:: lpad4
+   
+            **Link**
+      -  email.deliveryMethod.link
+      -  
+   *  -  .. container:: lpad4
+   
+            **Embedded HTML**
+      - email.deliveryMethod.embedded
+      -  
+   *  -  .. container:: lpad4
+   
+            **Attachment**
+      -  email.deliveryMethod.attachment
+      -  
+   *  -  .. container:: lpad2
+   
+            **Attachment Type**
+      -  
+      -  
+   *  -  .. container:: lpad4
+   
+            **Word**
+      -  email.attachmentType.word
+      -  
+   *  -  .. container:: lpad4
+   
+            **Excel**
+      -  email.attachmentType.excel
+      -  
+   *  -  .. container:: lpad4
+   
+            **PDF**
+      -  email.attachmentType.pdf
+      -  
+   *  -  .. container:: lpad4
+   
+            **CSV**
+      -  email.attachmentType.csv
+      -  
+   *  -  .. container:: lpad4
+   
+            **XML**
+      -  email.attachmentType.xml
+      -  
+   *  -  .. container:: lpad4
+   
+            **JSON**
+      -  email.attachmentType.json
+      -  
+   *  -  .. container:: lpad4
+   
+            **Definition**
+      -  email.attachmentType.definition
+      -  
+   *  -  **System-wide**
+      -
+      -
+   *  -  .. container:: lpad2
+   
+            **Can see system messages?**
+      -  canSeeSystemMessages
+      -
+
+
