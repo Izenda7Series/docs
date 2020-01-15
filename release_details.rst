@@ -4,7 +4,7 @@
 Release Details
 ==============
 
-v3.8.0 January 14th, 2020
+v3.8.0 January 15th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
