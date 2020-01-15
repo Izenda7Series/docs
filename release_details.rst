@@ -39,7 +39,7 @@ FEATURES
     - We have added POST api/external/role and PUT api/external/role/<Role GUID> to our API
     - These APIs allow for a new Permission format to be supplied for creating/updating roles in the platform.
     - This API allows for a new method of permission management where permissions are supplied as an array of values instead of a JSON object
-    - More information on these endpoints can be found here <insert link to swagger page>
+    - More information on these endpoints can be found on our :ref:`External_Role` page.
 
 - Drillown Grid supports Grouping on Value Fields
 
