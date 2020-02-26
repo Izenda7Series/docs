@@ -4,12 +4,20 @@ Release Notes
 ==============
 
 .. note::
-	- Weekly Release - Defect Fixes, Patch release x.x.1
-	- Monthly Release - Enhancements and Defect Fixes, Minor release x.1.x
-	- Major Release - Larger Features, Major release 1.x.x
+	- Preview Release - x.x.1 - Early access to new features in isolation
+	- Stable Release - x.1.x - Quarterly stable release with preview releases and hotfixes combined
+	- Major Release - 1.x.x - Larger Features, potential breaking changes
 
 
  For more information and details on our releases, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
+
+v3.8.2 February 27th, 2020 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Google API Key Allows HTTP Referrer Application Restriction
+
 
 v3.8.1 February 10th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
