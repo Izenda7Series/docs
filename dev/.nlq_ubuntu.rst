@@ -87,7 +87,7 @@ docker-compose.yml
             container_name: ml_app
             restart: always
             # build: .
-            image: izendaeng/ml_app:latest
+            image: izendainc/izenda-ml-app:1.0.0
             # image: ml_app
             depends_on:
             - db
@@ -111,7 +111,7 @@ docker-compose.yml
             - pgdata:/var/lib/postgresql/data
         nlp_solr:
             container_name: nlp_solr
-            image: izendaeng/nlp_solr:1.1
+            image: izendainc/nlp_solr:1.0.0
             # image: nlp_solr 
             # build : solr_docker
             command: bin/solr start -f
