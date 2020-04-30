@@ -24,7 +24,7 @@ Windows Docker Software Installation
 
 Izenda NLQ Installation
 --------------
-Pull and run the docker container from Izenda's docker hub `repository <https://hub.docker.com/u/izendainc>`_
+Pull and run the docker container from Izenda's docker hub `repository <https://hub.docker.com/r/izendainc/izenda-ml-app>`_
 
 #. Create docker-compose.yml file (Found at the bottom of the page) 
     .. figure:: /_static/images/nlq_gifs/nlq_createcompose.GIF
