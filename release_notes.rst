@@ -11,7 +11,7 @@ Release Notes
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
-v3.9.2 Preview Release -- May 13th, 2020 
+v3.9.2 Preview Release -- May 14th, 2020 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Added improvements for Form to Excel exporting
     - We have improved how forms with and without tables export to Excel
