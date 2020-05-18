@@ -20,8 +20,7 @@ FEATURES
     - This is an improvement to the existing Copy Management functionality
     - This allows an administratror to easy push values within a tenant out to other tennats.
 
-
-v3.9.2 Preview Release -- May 13th, 2020 
+v3.9.2 Preview Release -- May 14th, 2020 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Added improvements for Form to Excel exporting
     - We have improved how forms with and without tables export to Excel
