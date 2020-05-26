@@ -4,141 +4,107 @@
 Data Connectors
 ==========================
 
-The **Connection String** page allows user to
+The **Data Connectors** page allows user to
 
--  manage the list of connections
--  select individual items from these connections to be visible in Data
-   Model and Reports
+-  manage the list of connectors
+-  select individual items from these connectors to be visible in Data Model and Reports
 
 .. note:: 
 
    For the Reporting Databases: |br|
    \- The connection string user should have permissions to read schema; to select on all tables, views, store procedures and functions that will be used as data sources; to execute those store procedures and functions. |br|
-   \- The user should also have permissions to create temp tables |br|
+   \- The user should also have permissions to create temp tables. |br|
 
-Add connection and select visible data sources
+Add connector and select visible data sources
 ----------------------------------------------
 
-In this step user adds a connection and selects data sources to be
+In this step user adds a connector and selects data sources to be
 visible in reports.
 
 .. warning::
 
          Please use caution when adding stored procedures to the visible data source list. All stored procedures are executed when added to visible (input parameters are set to NULL) to obtain the resulting fields returned. Some stored procedures are created to do things like delete tables, add data to tables, etc. If these are added to the visible data sources, they will be executed in the database.
 
-#. .. _Menu_Connection_String:
+#. In browser, log in to Izenda as a user with Data Connectors permission.
+#. Click Settings, then Data Setup then Data Connectors in the left menu.
 
-   .. figure:: /_static/images/Menu_Connection_String.jpg
-      :align: right
-      :width: 195px
+   .. _Connector_Add_Connector:
 
-      Connection String Menu
+   .. figure:: /_static/images/connector/Connector_Add_Connector.png
+      :width: 500px
 
-   In browser, log in to Izenda as a user with Connection String permission.
-#. Click Settings, then Data Setup then Connection String in the left menu.
-#. Select the Setting Level: either System or a specific tenant. (:numref:`Menu_Connection_String`) |br|
-#. Click on Add Connection. (:numref:`Connection_Add_Connection`)
+      Add Connector
 
-   .. _Connection_Add_Connection:
+#. Select the Setting Level: either System or a specific tenant.
+#. Click on Add Connector in the middle panel.
 
-   .. figure:: /_static/images/Connection_Add_Connection.jpg
-      :width: 181px
+   .. _Connector_Server_Type:
 
-      Add Connection |br|
+   .. figure:: /_static/images/connector/Connector_Server_Type.png
+      :width: 700px
 
-#. .. _Connection_Select_Database_Server_Type:
+      Connector Data Server Type
 
-   .. figure:: /_static/images/Connection_Select_Database_Server_Type.jpg
-      :align: right
-      :width: 408px
+#. Select the data server type from the popup.
+#. The Database Connection popup appears for configuring the connector.
 
-      Select Database Server Type
+   .. _Connector_Builder:
 
-   Select the database server type from the drop-down box. (:numref:`Connection_Select_Database_Server_Type`) |br|
-#. .. _Connection_Connection_Builder:
+   .. figure:: /_static/images/connector/Connector_Builder.png
+      :width: 500px
 
-   .. figure:: /_static/images/Connection_Builder.jpg
-      :align: right
-      :width: 458px
+      Database Connection Builder |br|
 
-      Connection Builder tool
+   a. Fill in the **Server Name**, e.g. "yourdbserver.com".
+   b. Fill in the **Database** name, e.g. "Northwind".
+   c. Select the **Authentication** type from the drop-down box. 
+   d. Fill in the **Login** and **Password** if necessary.
+   e. Optional. Fill in the additional connection options specific to the selected data server.
 
-   Click the Connection Builder icon (⚡) to help build the connection string easily. (:numref:`Connection_Connection_Builder`) |br|
+   These steps can be bypassed when user already knows the connection string. In this case, it can be copied and pasted straight into the Connection String box.
+   For examples of connection strings, please see the `Connection String Examples <https://www.izenda.com/docs/ui/doc_connection_string.html#connection-string-examples>`_ section below.
+   To do this, switch to Connection String mode:
 
-      This step can be bypassed when user already knows the connection string. In this case, it can be copied and pasted straight into the Connection String box.
-      For examples of connection strings, please see the `Connection String Examples <https://www.izenda.com/docs/ui/doc_connection_string.html#connection-string-examples>`_ section below.
-#. Click the Test button to verify the connection string.
+   .. _Connector_Builder_Connection_String:
+
+   .. figure:: /_static/images/connector/Connector_Builder_Connection_String.png
+      :width: 500px
+
+      Database Connection Builder (Connection String) |br|
+
+#. Click OK button to verify the connection and go to the next step after all required fields are filled in.
 
    .. note::
 
       - Unless the Connection String has been verified successfully, user will not be able to move next.
 
-#. .. _Connection_Connection_String_Test:
+#. The connector name will be automatically populated from the database name. User can edit to give it a more suitable name.
 
-   .. figure:: /_static/images/Connection_Connection_String_Test.jpg
-      :align: right
-      :width: 619px
+   .. _Connector_Name:
 
-      Test the Connection and give it a name
+   .. figure:: /_static/images/connector/Connector_Name.png
+      :width: 700px
 
-   The connection name will be automatically populated from the database name. User can edit to give it a more suitable name. (:numref:`Connection_Connection_String_Test`) |br|
+      Connector Name
 
-#. .. _Connection_Connect:
+#. Expand the listed user schemas and object types to see the data sources. |br|
+   The data sources can be quickly filtered by typing a partial name in the Search box.
+#. Click on the data sources to move them between the two lists.
+   User can quickly move all data sources in a group (Table, View, Stored Procedure or Function) by clicking on that group name.
 
-   .. figure:: /_static/images/Connection_Connect.jpg
-      :align: right
-      :width: 624px
+   .. _Connector_Data_Sources:
 
-      Connect to the Connection
+   .. figure:: /_static/images/connector/Connector_Data_Sources.png
+      :width: 800px
 
-   Click the Connect button to show the list of available data sources. (:numref:`Connection_Connect`) |br|
+      Data Sources
 
-#. .. _Connection_Expand_Available_Data_Sources:
-
-   .. figure:: /_static/images/Connection_Expand_Available_Data_Sources.jpg
-      :align: right
-      :width: 322px
-
-      Expand to see the data sources
-
-   Expand the listed user schemas and object types to see the data sources. (:numref:`Connection_Expand_Available_Data_Sources`) |br|
-
-      .. _Connection_Available_Data_Sources_Filter:
-
-      .. figure:: /_static/images/Connection_Available_Data_Sources_Filter.jpg
-         :align: right
-         :width: 297px
-
-         Filter the data sources
-
-      The data sources can be quickly filtered by typing a partial name in the Search box. (:numref:`Connection_Available_Data_Sources_Filter`) |br|
-#. .. _Connection_Move_Data_Source_to_Visible_List:
-
-   .. figure:: /_static/images/Connection_Move_Data_Source_to_Visible_List.jpg
-      :align: right
-      :width: 611px
-
-      Move data sources between the two lists
-      
-
-   Click on the data sources to move them between the two lists. (:numref:`Connection_Move_Data_Source_to_Visible_List`) |br|
-
-   .. _Connection_Move_a_Group_of_Data_Sources:
-
-   .. figure:: /_static/images/Connection_Move_a_Group_of_Data_Sources.jpg
-      :align: right
-      :width: 614px
-
-      Move a group of data sources
-
-   User can quickly move all data sources in a group (Table, View, Stored Procedure or Function) by clicking on that group name. (:numref:`Connection_Move_a_Group_of_Data_Sources`) |br|
-
-#. Click Save button at the top to save the connection and the visible data sources.
+#. Click Save button at the top to save the connector and the visible data sources.
 
 .. _Connection_Permissions:
 
-Connection Permissions
-------------------------------
+Connector Permissions
+----------------------
 
 Izenda needs permissions to view the database schema and read from selected tables and views.
 
@@ -148,144 +114,78 @@ If using stored procedures as data source, Izenda needs execute permission on th
 
    The create table permission will be used to create temporary tables to store the output of stored procedures, for joining to other data sources. And the delete table permission will be used to clean up these temporary tables afterwards.
 
-Delete connection
+Delete connector
 -----------------
 
-#. .. _Connection_Delete:
+#. Click the delete icon (x) on the right of a connector to delete it.
+#. Click OK in the confirmation pop-up.
 
-   .. figure:: /_static/images/Connection_Delete.jpg
-      :align: right
-      :width: 185px
-
-      Delete Connection
-
-   Click the delete icon (x) on the right of a connection to delete it. (:numref:`Connection_Delete`) |br|
-#. .. _Connection_Delete_Confirmation:
-
-   .. figure:: /_static/images/Connection_Delete_Confirmation.jpg
-      :align: right
-      :width: 457px
-
-      Confirmation pop-up
-
-   Click OK in the confirmation pop-up. (:numref:`Connection_Delete_Confirmation`) |br|
-
-Make a connection hidden
+Make a conector hidden
 ------------------------
 
-All data sources from a connection can be hidden quickly by making that
-connection hidden.
+All data sources from a connector can be hidden quickly by making that connector hidden.
 
-#. .. _Connection_Make_Hidden_All:
+#. Click the visibility icon on the right of that connector.
 
-   .. figure:: /_static/images/Connection_Make_Hidden_All.jpg
-      :align: right
-      :width: 194px
+   .. _Connector_Visible_Invisible:
 
-      Hide a connection
+   .. figure:: /_static/images/connector/Connector_Visible_Invisible.png
+      :width: 450px
 
-   Click the visibility icon on the right of that connection. (:numref:`Connection_Make_Hidden_All`) |br|
-#. .. _Connection_Make_Hidden_All_Confirmation:
+      Connector Visible/Invisible
 
-   .. figure:: /_static/images/Connection_Make_Hidden_All_Confirmation.jpg
-      :align: right
-      :width: 455px
+#. Click OK in the confirmation pop-up.
 
-      Confirmation pop-up
+      All data sources from this connector is hidden from Data Model and Reports. The right pane is disabled and the connector's visibility icon is changed to a hidden one.
 
-   Click OK in the confirmation pop-up. (:numref:`Connection_Make_Hidden_All_Confirmation`) |br|
+      .. _Connector_Visible_Confirmation:
 
-      .. _Connection_Hidden:
+      .. figure:: /_static/images/connector/Connector_Visible_Confirmation.png
+         :width: 500px
 
-      .. figure:: /_static/images/Connection_Hidden.jpg
-         :align: right
-         :width: 194px
-
-         Hidden versus visible connections
-
-      All data sources from this connection is hidden from Data Model and Reports. The right pane is disabled and the connection's visibility icon is changed to a hidden one. (:numref:`Connection_Hidden`) |br|
-
-.. _Connection_Make_Visible_All_Confirmation:
-
-.. figure:: /_static/images/Connection_Make_Visible_All_Confirmation.jpg
-   :align: right
-   :width: 460px
-
-   Make a connection visible
+         Confirmation pop-up
 
 To restore the visibility of the data sources:
 
-#. Click the "hidden visibility" icon on the right of that connection.
-#. Click OK in the confirmation pop-up. (:numref:`Connection_Make_Visible_All_Confirmation`) |br|
+#. Click the "hidden visibility" icon on the right of that connector.
+#. Click OK in the confirmation pop-up.
 
-      The visibility of all data sources from this connection is restored back to the time before being hidden. The right pane is enabled and the connection's visibility icon is changed back to normal.
-
-      .. warning::
-
-         The description in the confirmation pop-up has not been updated.
+      The visibility of all data sources from this connector is restored back to the time before being hidden. The right pane is enabled and the connector's visibility icon is changed back to normal.
 
 .. _Refresh_the_list_of_available_data_sources:
 
 Refresh the list of available data sources
 ------------------------------------------
 
-When there is a remote change in a connection, it will not be
-automatically reflected in Izenda. The Reconnect button needs to be
-manually clicked on to detect that.
+When there is a remote change in a connector, it will not be automatically reflected in Izenda. The Reconnect button needs to be manually clicked on to detect that.
 
-#. Click on the connection.
+#. Click on the connector.
 #. Click the Reconnect button.
+#. The remote changes in the data sources will be marked as either New data source or Changed data source.
 
-   .. _Connection_Reconnect_button:
+      The Data Setup, Data Connectors and Data Model menu items will also be marked with Changed data source icon (!).
 
-   .. figure:: /_static/images/Connection_Reconnect_button.jpg
-      :width: 611px
+      .. _Connector_New_And_Changed_Data_Sources:
 
-      Reconnect the connection
+      .. figure:: /_static/images/connector/Connector_New_And_Changed_Data_Sources.png
+         :width: 800px
 
-#. The remote changes in the data sources will be marked as either New
-   data source or Changed data source.
+         New and changed Data Sources
 
-      The Data Setup, Connection String and Data Model menu items will also be marked with Changed data source icon (!). (:numref:`Connection_Changed_Data_Sources`)
+#. Go to :doc:`Data Model <doc_data_model_tables,_views_and_stored_procedures>` page to resolve the changes.
 
-      .. _Connection_Changed_Data_Sources:
-
-      .. figure:: /_static/images/Connection_Changed_2Data_Sources.PNG
-         :width: 862px
-
-         New and Changed data sources
-
-#. Go to :doc:`Data Model <doc_data_model_tables,_views_and_stored_procedures>` page to
-   resolve the changes.
-
-Filter the connection list
+Filter the connector list
 --------------------------
 
-.. _Connection_Filter_box:
-
-.. figure:: /_static/images/Connection_Filter_box.jpg
-   :align: right
-   :width: 183px
-
-   Filter the connection list
-
-The connection list can be quickly filtered by typing a partial connection name in the Search box. (:numref:`Connection_Filter_box`) |br|
+The connector list can be quickly filtered by typing a partial connector name in the Search box.
 
 Cancel the changes
 ------------------
 
 To cancel any changes without saving:
 
-.. _Connection_Cancel_Confirmation:
-
-.. figure::  /_static/images/Cancel_Confirmation.jpg
-   :align: right
-   :width: 465px
-
-   Cancel confirmation pop-up
-
 #. Click the Cancel button at the top.
-#. Click OK in the confirmation pop-up. (:numref:`Connection_Cancel_Confirmation`) |br|
+#. Click OK in the confirmation pop-up.
 
 Connection String Examples
 --------------------------
@@ -304,6 +204,7 @@ Connection String Examples
 - PostgreSQL:
       - Server=mydomainname;Port=5432;Database=testdatabase;User ID=user;Password=password
       - Server=mydomainname;Port=5432;Database=testdatabase;User ID=user;Password=password;SslMode=Require;Trust Server Certificate=true;
+
       .. note:: 
             - If using Izenda v3.0.0 or greater and a PostgreSQL connection string with "SslMode=Require", the "Trust Server Certificate=true;" parameter will also need to be added.
 

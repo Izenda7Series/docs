@@ -275,5 +275,5 @@ Here, user adds and configures a new REST connector.
 
 #. Click on the data sources to move them between the two lists.
    User can quickly move all data sources in a group (Table, View, Stored Procedure or Function) by clicking on that group name.
-#. Fill in the ""Connector Name**.
+#. Fill in the **Connector Name**.
 #. Click Save button at the top to save the connector and the visible data sources.
