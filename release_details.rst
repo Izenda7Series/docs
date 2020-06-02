@@ -4,7 +4,7 @@
 Release Details
 ==============
 
-v3.9.4 Preview Release -- June 1st, 2020
+v3.9.4 Preview Release -- June 2nd, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES

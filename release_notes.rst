@@ -11,7 +11,7 @@ Release Notes
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
-v3.9.4 Preview Release -- June 1st, 2020
+v3.9.4 Preview Release -- June 2nd, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
