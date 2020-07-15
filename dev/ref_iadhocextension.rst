@@ -55,6 +55,9 @@ IAdHocExtension
    * - HTTP requests to REST API service initiated by REST Connector
      - `OnPreRestApiRequest`_
      - Allows modify HTTP requests to REST API service initiated by REST Connector (v3.10.0 or higher).
+   * - SQL query
+     - `ModifyQuery`_
+     - Allows modify SQL queries (v3.10.0 or higher).
 
 The companion wrapper class **DefaultAdHocExtension** in  Izenda.BI.Framework.CustomConfiguration should be used as the base class for customization.
 
@@ -1050,6 +1053,50 @@ Sample code to add a query parameter based on the selected filter value:
             return request;
         }
     }
+
+ModifyQuery
+-----------
+
+``string ModifyQuery(string query, string database)``
+
+This method allows modify the SQL query on the fly before it is executed.
+
+.. warning::
+   Be really careful when modifying queries, as this can break system logic and lead to data corruption.
+
+Sample code to modify a SQL query by forcibly adding DISTINCT to a specific table (Orders):
+
+.. code-block:: csharp
+
+    [Export(typeof(IAdHocExtension))]
+    public class AdHocExtensionSample : DefaultAdHocExtension
+    {
+        public override string ModifyQuery(string query, string database)
+        {
+            if (database == SupportedDatabase.MSSQL)
+            {
+                var queryNodes = query.Split(new[] { ';' });
+
+                for (var i = 0; i < queryNodes.Length; ++i)
+                {
+                    var queryNode = queryNodes[i];
+
+                    var isQueryOrdersTable = queryNode.Contains("FROM [dbo].[Orders]");
+                    if (isQueryOrdersTable)
+                    {
+                        var searchedExpression = "SELECT";
+                        var firstSelectClauseIndex = queryNode.IndexOf(searchedExpression);
+                        queryNodes[i] = queryNode.Insert(firstSelectClauseIndex + searchedExpression.Length, " DISTINCT ");
+                    }
+                }
+
+                return String.Join(";\r\n", queryNodes);
+            }
+
+            return query;
+        }
+    }
+
 
 See Also
 --------
