@@ -20,9 +20,10 @@ FEATURES
     - A new method, ModifyQuery, has been added to the IAdHocExtension class
     - This can be used to modify SQL queries run by Izenda to improve performance or meet specific needs
     - Examples of this class can be found on our :ref:`IAdHocExtension_Reference` page
-- Configuration Database References Added to Web.config and appSettings.json files
-    -  Users can configure these values to allow Izenda to read the configuration database's connection without using the izendadb.config file
-
+- Configuration Database References Added to the API's appSettings
+    - Users can configure these values to allow Izenda to read the configuration database's connection without using the izendadb.config file
+    - For .NET Core instances, this value is set as izenda.config.connectionname with the database type being set as the value for izenda.config.providername
+    - For .NET instances, this value is set as izenda.config.connectionstring with the database type being set as the value for izenda.config.providername
 
 v3.9.5 Preview Release -- June 25th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

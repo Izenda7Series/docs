@@ -25,8 +25,9 @@ FEATURES
 - New IAdHocExtension Method Added for Query Optiomizations
     - A new method, ModifyQuery, has been added to the IAdHocExtension class
     - This can be used to modify SQL queries run by Izenda to improve performance or meet specific needs
-- Configuration Database References Added to Web.config and appSettings.json files
-    -  Users can configure these values to allow Izenda to read the configuration database's connection without using the izendadb.config file
+- Configuration Database References Added to the API's appSettings
+    - Users can configure these values to allow Izenda to read the configuration database's connection without using the izendadb.config file
+
 
 
 v3.10.0 Core Release -- July 16th, 2020
