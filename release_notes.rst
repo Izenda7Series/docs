@@ -22,7 +22,7 @@ FEATURES
 - New IAdHocExtension Method Added for REST API requests
     - A new method, OnPreRestApiRequest, has been added to the IAdHocExtension class
     - This can be used to modify the request parameters for the REST request before it is sent
-- New IAdHocExtension Method Added for Query Optiomizations
+- New IAdHocExtension Method Added for Query Optimizations
     - A new method, ModifyQuery, has been added to the IAdHocExtension class
     - This can be used to modify SQL queries run by Izenda to improve performance or meet specific needs
 - Configuration Database References Added to the API's appSettings
