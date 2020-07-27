@@ -4,7 +4,7 @@
 Release Details
 ==============
 
-v3.10.1 Preview Release -- July 24th, 2020
+v3.10.1 Preview Release -- July 27th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
