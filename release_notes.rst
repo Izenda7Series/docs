@@ -27,7 +27,7 @@ FEATURES
    - This new value does not have to be set. If not explicitly stated, it is assumed to be false.
    - Please see our - :ref:`Front-end Integration APIs <Frontend_Integration_API>` page for examples
 - Snowflake can now be selected as a reporting data source
-
+   - Example connection string: account=xxxx;user=xxxx;password=xxxx;db=xxxx;host=xxxx.east-us-2.azure.snowflakecomputing.com
 
 v3.10.2 Preview Release -- August 3rd, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
