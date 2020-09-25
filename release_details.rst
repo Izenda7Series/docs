@@ -4,6 +4,29 @@
 Release Details
 ==============
 
+v3.10.5 Preview Release -- September 25th, 2020
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Tenant Grouping
+    - Tenants have a new value, Tenant Group, that can be applied on the Tenant Setup page
+    - Multiple tenants can belong to the same group, but a tenant can only have one tenant group value
+    - Tenant Groups can be used to distribute Global Reports in a more streamlined fashion
+        - When setting Report Access values, tenants can now be chosen directly
+        - Instead of choosing every tenant, users can select a Tenant Group, which will apply this access value to all tenants in that group
+        - Tenant Group and Tenant settings will take priority over Everyone-based rules
+- Tenant Report Import Functionality
+    - Tenant users can now import report definitions into their instance of Izenda
+    - A new permission, Import, hosted under the Data Setup section of permissions enables this functionality
+        - This functionality can be restricted on a per-role basis
+- Required Filter Expansion
+    - A new value in our config.json will allow Izenda to automatically expand filter sections if required filters are present
+        - This value is RequiredFilterSectionExpanded
+        - This value can be set to true or false
+    - This is meant to be used in conjunction with the ReportFilterSectionExpanded value
+
+
 v3.10.4 Preview Release -- September 8th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -40,27 +63,6 @@ FEATURES
         - A new front-end Javascript API has been created for integrations that can be found on our :ref:`Front-end Integration APIs <Frontend_Integration_API>` page
             - An example can be found in our MVC5 Starterkit 
 
-v3.10.5 Preview Release -- September 24th, 2020
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-FEATURES
-^^^^^^^^^
-- Tenant Grouping
-    - Tenants have a new value, Tenant Group, that can be applied on the Tenant Setup page
-    - Multiple tenants can belong to the same group, but a tenant can only have one tenant group value
-    - Tenant Groups can be used to distribute Global Reports in a more streamlined fashion
-        - When setting Report Access values, tenants can now be chosen directly
-        - Instead of choosing every tenant, users can select a Tenant Group, which will apply this access value to all tenants in that group
-        - Tenant Group and Tenant settings will take priority over Everyone-based rules
-- Tenant Report Import Functionality
-    - Tenant users can now import report definitions into their instance of Izenda
-    - A new permission, Import, hosted under the Data Setup section of permissions enables this functionality
-        - This functionality can be restricted on a per-role basis
-- Required Filter Expansion
-    - A new value in our config.json will allow Izenda to automatically expand filter sections if required filters are present
-        - This value is RequiredFilterSectionExpanded
-        - This value can be set to true or false
-    - This is meant to be used in conjunction with the ReportFilterSectionExpanded value
 
 v3.10.3 Preview Release -- August 11th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
