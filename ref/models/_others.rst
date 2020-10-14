@@ -40,8 +40,10 @@ Others
    SortParam
    SystemCacheSetting
    SystemVariable
-   TenantField
    Tenants
+   TenantField
+   TenantGroup
+   TenantGroupHierarchicalData
    TimePeriod
    ValidateExpiration
    ValueTreeNode

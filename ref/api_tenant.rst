@@ -22,6 +22,10 @@ List of APIs
      - Returns the tenant specified by tenant_id.
    * - `GET tenant/activeTenants`_
      - Returns an array of active tenants.
+   * - `GET tenant/allTenantGroups`_
+
+       .. versionadded:: 3.11.0
+     - Returns an array of all tenant groups.
    * - `GET tenant/allTenants`_
      - Returns an array of all tenants.
    * - `GET tenant/availableCategory/{type}`_
@@ -33,6 +37,10 @@ List of APIs
      - Returns all active tenants with basic info.
    * - `GET tenant/namesOnly`_
      - Returns all active tenants with names only.
+   * - `GET tenant/tenantGroupsHierarchy`_
+
+       .. versionadded:: 3.11.0
+     - Returns an array of all tenant groups and tenants.
    * - `POST tenant`_
      - Saves a tenant.
    * - `POST tenant/accessLimits`_
@@ -86,6 +94,7 @@ Returns the tenant specified by tenant_id.
             "description": null,
             "active": true,
             "modules": "maUqbVKEX7hSyzaUp2nEAdVdmBVmue6S2e72m8XBl/OHx7ysEcRYz7YEjYqMhOnL0jpxXGB7saUIPgZ+58bWkH+ZBadLbo4SqixBr9Dtv+uIrVWFs1JJDdudOyn+nSr+sjPDAbD/BzjU3NGFV9mjBA==",
+            "tenantGroups": [],
             "tenantModules": [
                "Alerting",
                "Report Templates",
@@ -410,6 +419,42 @@ Returns an array of active tenants.
         "modifiedBy": null
       }]
 
+GET tenant/allTenantGroups
+--------------------------------------------------------------
+
+Returns an array of all tenant groups.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An array of :doc:`models/TenantGroup` objects
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/tenant/allTenantGroups HTTP/1.1
+
+   Sample response::
+
+      [
+         {
+            "created": "2020-10-09T13:42:46.0130000+05:00",
+            "createdBy": "System Admin",
+            "deleted": false,
+            "id": "70ef6c18-adbc-4567-a7b1-556216a8447e",
+            "inserted": true,
+            "modified": "2020-10-09T13:42:46.0130000+05:00",
+            "modifiedBy": "System Admin",
+            "name": "TenantGroup1",
+            "state": 0,
+            "version": 1
+         }
+      ]
+
 GET tenant/allTenants
 --------------------------------------------------------------
 
@@ -707,6 +752,42 @@ Returns only the current tenant with name only if logged in user is a tenant use
          }
       ]
 
+GET tenant/tenantGroupsHierarchy
+--------------------------------------------------------------
+
+Returns an array of all tenant groups and tenants.
+
+**Request**
+
+    No payload
+
+**Response**
+
+    An array of :doc:`models/TenantGroupHierarchicalData` objects
+
+**Samples**
+
+   .. code-block:: http
+
+      GET /api/tenant/tenantGroupsHierarchy HTTP/1.1
+
+   Sample response::
+
+      [
+         {
+            "tenantGroupId": "095e50a7-11cf-47cf-a8a0-06125cc3f30b",
+            "tenantGroupName": "TenantGroup1",
+            "tenantId": "723f9b74-2cd7-4eff-8813-00dc86feea16",
+            "tenantName": "Tenant1"
+         },
+         {
+            "tenantGroupId": "00000000-0000-0000-0000-000000000000",
+            "tenantGroupName": "",
+            "tenantId": "ac8137b2-8d8c-47ca-97a3-357c12c0751d",
+            "tenantName": "Tenant2"
+         }
+      ]
+
 .. _POST_tenant:
 
 POST tenant
@@ -751,6 +832,7 @@ Creates or updates a tenant.
       {
         "tenantID" : "doe",
         "name" : "DOE",
+        "tenantGroups": [],
         "tenantModules" : ["Report Template/ Component", "Scheduling"]
       }
 
@@ -767,6 +849,7 @@ Creates or updates a tenant.
            "name": "Stark Industries",
            "description": "Fictional Company",
            "active": true,
+           "tenantGroups": [],
            "tenantModules": ["Alerting", "Form", "Dashboard", "Report Templates", "Scheduling", "Exporting", "Report Designer", "Charting", "Maps"],
            "permission": {
              "fullReportAndDashboardAccess": false,
