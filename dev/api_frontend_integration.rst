@@ -169,7 +169,7 @@ List of APIs
    * - .. container:: lpad2
    
           `renderExportManagerPage(element)`_
-     - RRender Izenda Export Manager Page inside hosting web. |br|
+     - Render Izenda Export Manager Page inside hosting web. |br|
 
        .. versionadded:: 3.10.4
 
