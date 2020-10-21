@@ -16,7 +16,7 @@ v3.9.3 Preview Release -- May 18th, 2020
 
 FEATURES
 ^^^^^^^^^
-- Tenant Templates functionality is release
+- Tenant Templates functionality is released
     - This is an improvement to the existing Copy Management functionality
     - This allows an administratror to easy push values within a tenant out to other tennats.
 
