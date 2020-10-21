@@ -13,6 +13,10 @@ Others
    DataCacheSetting
    DataFormat
    DataFormating
+   DataSecurityAccessor
+   DataSecurityField
+   DataSecurityRule
+   DataSecurityRuleSet
    DataSourceItem
    EmailSetting
    Entity
