@@ -16,8 +16,6 @@ v3.10.5 Preview Release -- September 25th, 2020
 
 FEATURES
 ^^^^^^^^^
-<<<<<<< HEAD
-=======
 - Tenant Grouping
    - Tenants have a new value, Tenant Group, that can be applied on the Tenant Setup page
    - Multiple tenants can belong to the same group, but a tenant can only have one tenant group value
@@ -237,7 +235,6 @@ v3.9.3 Preview Release -- May 18th, 2020
 
 FEATURES
 ^^^^^^^^^
->>>>>>> c0f6f7b976971162014fa8bd67f3c4bc04f82ad7
 - Tenant Templates functionality is released
     - This is an improvement to the existing Copy Management functionality
     - This allows an administrator to easy push values within a tenant out to other tenants.
