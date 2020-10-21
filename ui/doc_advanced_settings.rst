@@ -1,4 +1,4 @@
-
+.. _Advanced_Settings:
 
 =================
 Advanced Settings
