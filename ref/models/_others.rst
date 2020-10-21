@@ -30,7 +30,10 @@ Others
    RelationshipOrder
    ReportDashboardSearchCriteria
    ReportSetting
+   RESTConnectorInfo
+   RESTEndpointInfo
    SaveConnectionStatus
+   ScheduleEntity
    SearchCriteria
    SecuritySetting
    SortOrder
