@@ -12,7 +12,7 @@ Release Notes
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
 
-v3.10.4 Preview Release -- September 8th, 2020
+v3.11.1 Preview Release -- October 28th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FEATURES
