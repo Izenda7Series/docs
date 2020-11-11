@@ -1,3 +1,5 @@
+.. _NLQ_User_Guide:
+
 ==========================
 Natural Language Query
 ==========================
@@ -52,7 +54,7 @@ The search follows a mandatory syntax with a set of rules to follow. The followi
 	  - [Column Name] of [Table Name] **by** [Column Name]
 	  - [Column Name] of [Table Name] **for** [Column Name] **like** [String value]
 	  - [Column Name] of [Table Name] **for** [Column Name] **is** [String value
-   *  - Example
+    * - Example
 	  - **Avg** freight of orders
 	  - **Sum** discount of order details ,
 	  - **Maximum** unit price of products for categoryid = 1
