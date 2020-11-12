@@ -92,7 +92,7 @@ docker-compose.yml
 		  - solrdata2:/usr/src/ml_services/app/xml
 	  nlp_solr:
 		container_name: nlp_solr
-		image: izendainc/nlp_solr:1.0.0
+		image: izendainc/nlp_solr:3.11.2
 		restart: always
 		command: bin/solr start -f
 		volumes:
