@@ -71,5 +71,10 @@ namespace Mvc5StarterKit.Controllers
             return View();
         }
 
+        public ActionResult ExportManager()
+        {
+            return View();
+        }
+
     }
 }
