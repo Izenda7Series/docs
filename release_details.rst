@@ -4,6 +4,39 @@
 Release Details
 ==============
 
+v3.11.2 Preview Release -- November 11th, 2020
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning::
+
+   Note that the Explore tab does not support changing tenancy, as mutli-tenancy is only at the configuration level 
+
+FEATURES
+^^^^^^^^^
+- PostgreSQL support for NLQ 
+   - NLQ services can now be configured against PostgreSQL data sources
+- NLQ Supports Multi-Tenancy
+   - NLQ services can be configured on a per-tenant basis 
+   - This configuration can be manipulated by the administrator on a tenant's behalf
+- NLQ Grid Enhancements 
+   - Column headers can now be used to apply formats and functions to each column
+   - This will allow users to sum, count, etc. directly on the grid 
+- For more information on NLQ please see our :ref:`NLQ_User_Guide`
+
+v3.11.0 Core Release -- October 23rd, 2020
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- PII Security Options
+    - A new dialogue can be found in the Data Setup > Advanced Settings > Security
+    - This dialogue will allow administrators to restrict how data is viewed internally and externally within the platform
+    - Administrators can determine which values should be replaced/obscured with symbols to trim out sensitive information
+        - These values can be configured to target specific tenants, roles, and users
+    - Information on configuring these rules can be found on the :ref:`Advanced_Settings` page
+
+
+
 v3.10.5 Preview Release -- September 25th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -116,6 +149,8 @@ FEATURES
     - Users can configure these values to allow Izenda to read the configuration database's connection without using the izendadb.config file
     - For .NET instances, this value is set as izenda.config.connectionname with the database type being set as the value for izenda.config.providername
     - For .NET Core instances, this value is set as izenda.config.connectionstring with the database type being set as the value for izenda.config.providername
+
+
 
 v3.9.5 Preview Release -- June 25th, 2020
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
