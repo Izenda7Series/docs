@@ -11,6 +11,5 @@ Guides to help you configure your system.
    doc_configuration_email
    doc_configuration_report
    doc_configuration_scheduling
-   doc_configuration_async
    doc_caching_overview
    doc_configuration_google_map
