@@ -27,9 +27,6 @@ FEATURES
     - When checked, all side total and subtotal columns will disappear
         - The overall side total will be present, but each column-specific side total will be removed 
 - Asynchronous Exporting Improvements (Please see our :ref:`Async_Configuration` page for setup information)
-    - Multi-tenancy Support
-        - On the Settings > System Configuration > Exporting tab, the exporting service can now be configured per-tenant
-        - Each tenant can either utilize the configuration of the system level, or a unique configuration can be created
     - Node-based Deployment Support
         - New values have been added to the application settings to help with deployment and scaling:
             - izenda.jobs.routineprovisioned

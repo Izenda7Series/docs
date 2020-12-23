@@ -19,8 +19,7 @@ FEATURES
 - Displaying Form CSS in Exports
 - Display Field Names Under Pie Charts
 - Remove extra Side/Sub Total columns in Pivot Grids
-- Asynchronous Exporting Improvements (Please see our :ref:`Async_Configuration` page for setup information)
-    - Multi-tenancy Support
+- Asynchronous Exporting Improvements 
     - Node-based Deployment Support
 - Show grid headers at the top of the report for exports 
 - Routine data deletion frequency can be configured
