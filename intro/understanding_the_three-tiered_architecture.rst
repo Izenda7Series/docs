@@ -109,9 +109,9 @@ BI Platform Implementation
 
 -  Requirements 
    
-   - `API <http://downloads.izenda.com/latest/API.zip/>`_
+   - `API:  from the Upgrade tab in the Izenda Customer Portal.`
    
-   - `StandaloneUI <http://downloads.izenda.com/latest/StandaloneUI.zip>`_
+   - `StandaloneUI:  from the Upgrade tab in the Izenda Customer Portal.`
    
    - An empty database
    
