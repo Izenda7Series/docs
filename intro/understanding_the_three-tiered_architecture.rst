@@ -109,7 +109,7 @@ BI Platform Implementation
 
 -  Requirements 
    
-   - `API:  from the Upgrade tab in the Izenda Customer Portal.`
+   - API:  from the Upgrade tab in the `Customer Portal<https://app.izenda.com/>`_.
    
    - `StandaloneUI:  from the Upgrade tab in the Izenda Customer Portal.`
    
