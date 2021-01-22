@@ -163,8 +163,8 @@ Usage
 ============
 
 #. Download a copy of the CopyConsoleTool.zip that corresponds to your version of Izenda from the Upgrade tab in the Izenda Customer Portal.
-#. Download SampleConfig.xml from the
-   izenda utilities:  from the Upgrade tab in the `Customer Portal<https://app.izenda.com/>`_.
+#. Download SampleConfig.xml from
+   https://izenda.com/utilities/SampleConfig.xml
 #. Unzip this application to the location you select.
 #. Edit the SampleConfig.xml using the following as a template:
 

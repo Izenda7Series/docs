@@ -621,7 +621,7 @@ Pre-install preparations
 
 #. Download Izenda Font-end and Back-end packages
 
-   * Download the lasted Izenda packages from from the Upgrade tab in the `Customer Portal<https://app.izenda.com/>`_.
+   * Download the latest Izenda packages from from the Upgrade tab in the `Customer Portal<https://app.izenda.com/>`_.
 
       .. code-block:: console
 
