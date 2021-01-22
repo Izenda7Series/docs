@@ -41,18 +41,7 @@ Upgrade Preparations
 Retrieving Database Upgrade Scripts   
 -------------------------------------
 
-Locating Specific Schema Migration Scripts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  For migration scripts for multiple version upload at once (to update from one version to another), use `Schema Migration Assistant<https://tools.izenda.com/>`_ and for specific version (starting a new database from scratch), use the `Customer Portal<https://app.izenda.com/>`_.
-   *  .. _Upgrade_Izenda_App_folder:
-
-      .. figure:: /_static/images/Izenda_App_folder2.png
-
-         Front-end package
-
-      Locating the Schema Migration Scripts.
-      
+     
 
 The Schema Migration Assistant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
