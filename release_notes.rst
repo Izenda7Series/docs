@@ -8,6 +8,8 @@ Release Notes
 	- Core Release - x.1.x - Quarterly stable release with preview releases and hotfixes combined
 	- Major Release - 1.x.x - Larger Features, potential breaking changes
 
+.. warning::
+   - For all upgrades and installatinos, downloads.izenda.com is moved to our customer portal at app.izenda.com
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
