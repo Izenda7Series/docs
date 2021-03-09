@@ -2,7 +2,9 @@ Export Micro Service
 ####################
 
 Deploying Export Micro Service on Linux
-***************************************
+************************************************************************
+
+Export micro service does not required to be installed on same server as Izenda back-end or front-end. It can also run on any separate server. For installation on separate server, follow the steps mentioned here :doc:`.export_micro_service_reverse_proxy` . The only difference is to setup a reverse proxy on web server.
 
 Pre-deployment steps
 ========================================
@@ -47,7 +49,9 @@ Deployment steps
 
 
 Deploying Export Micro Service on Windows
-*****************************************
+***************************************************************************
+
+Export micro service does not required to be installed on same server as Izenda back-end or front-end. It can also run on any separate server. For installation on separate server, follow the steps mentioned here :doc:`.export_micro_service_reverse_proxy` . The only difference is to setup a reverse proxy on web server.
 
 Pre-deployment steps
 ========================================
