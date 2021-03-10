@@ -203,7 +203,7 @@ BI Application changes
 
         .. code-block:: code
 
-         INSERT INTO [IzendaExportService]([Id],[Url],[RequestCount]) VALUES ('9195E7BE-96A3-4529-985A-C4DC88646FFE','http://52.152.230.0:5775',0);
+         INSERT INTO [IzendaExportService]([Id],[Url],[RequestCount]) VALUES ('9195E7BE-96A3-4529-985A-C4DC88646FFE','http://52.152.230.0:9001',0);
  
 Service Scalability
 *******************
@@ -212,10 +212,17 @@ Service Scalability
 #. Deployment Steps
 
 	#. Navigate to the location where service is extracted and simply start the service on a different port.
-	#. Additionally, make an entry into IzendaExportService table specifying URL of Export Service. For example, if new service got started on http://52.152.230.0:5776, make an entry as following.
+	#. Additionally, make an entry into IzendaExportService table specifying URL of Export Service. For example, if new service got started on http://52.152.230.0:9002, make an entry as following.
 
         .. code-block:: code
 
-         INSERT INTO [IzendaExportService]([Id],[Url],[RequestCount]) VALUES ('5A93C3B8-56CF-409E-B45C-2F288732A53F','http://52.152.230.0:5776',0);
+         INSERT INTO [IzendaExportService]([Id],[Url],[RequestCount]) VALUES ('5A93C3B8-56CF-409E-B45C-2F288732A53F','http://52.152.230.0:9002',0);
+ 
+ 
+    .. figure:: /_static/images/export_micro_service/micro-services-export-micro-services.png
+        :width: 1024px
+
+
+**Fig. 1 Scaling export micro services**	
  
  

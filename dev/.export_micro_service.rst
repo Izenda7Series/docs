@@ -97,3 +97,8 @@ Service Scalability
          INSERT INTO [IzendaExportService]([Id],[Url],[RequestCount]) VALUES ('5A93C3B8-56CF-409E-B45C-2F288732A53F','http://localhost:5776',0);
  
  
+    .. figure:: /_static/images/export_micro_service/micro-services-export-micro-services.png
+        :width: 1024px
+
+
+**Fig. 1 Scaling export micro services**	
