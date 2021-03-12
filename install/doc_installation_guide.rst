@@ -60,10 +60,31 @@ The setup of Izenda requires a download of the latest version of the stand-alone
 
    All of the information covered in this document can also be found in video from `here <https://www.izenda.com/7-series-installation-videos/#portal-install>`__
 
+Runtime Installation
+---------------------
+
+Izenda depends on .Net Core 3.1 runtime environment to run application. This step is only required if you are installing **Izenda 4.0.0 and above**.
+
+Install .Net Core 3.1 runtime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Download and install Hosting Bundle from Microsoft's `download page <https://dotnet.microsoft.com/download/dotnet/3.1>`__.
+
+   .. figure:: /_static/images/hosting_bundle.png
+      :align: center
+      :width: 524px
+
+#. Check the version after installtion by running "dotnet --info".
+
+   .. figure:: /_static/images/hosting_bundle_installed.png
+      :align: center
+      :width: 524px
+
+
 Web Server Setup
 ----------------
 
-To ensure that Izenda works properly, your Web Server requires additional components that may not be present on your server by default.
+To ensure that Izenda works properly, your Web Server requires additional components that may not be present on your server by default. If you are installing **Izenda 4.0.0 and above**, this step is not required.
 
 Add Web Server Role and .NET Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,8 +114,10 @@ Add Web Server Role and .NET Framework
 
 .. _Install_ASP.NET_4.5_and_URL_Rewrite_Components:
 
-Install ASP.NET 4.5 and URL Rewrite Components
+Install ASP.NET 4.5 Components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are installing **Izenda 4.0.0 and above**, this step is not required.
 
 #. Open Microsoft Web Platform Installer’s `download page <https://www.microsoft.com/web/downloads/platform.aspx>`__.
 
@@ -104,7 +127,6 @@ Install ASP.NET 4.5 and URL Rewrite Components
 #. Download and run the installer.
 #. Open Microsoft Web Platform Installer.
 #. Search for "ASP.NET", select "IIS:ASP.NET 4.5" and click Add. (Not applicable for Windows Server 2016)
-#. Similarly search for URL Rewrite 2.0 and click Add.
 #. Click Install.
 
 .. _IIS_ASP.NET_install:
@@ -114,6 +136,27 @@ Install ASP.NET 4.5 and URL Rewrite Components
       :align: center
 
       Install IIS ASP.NET 4.5 |br|
+
+Install URL Rewrite Components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Open Microsoft Web Platform Installer’s `download page <https://www.microsoft.com/web/downloads/platform.aspx>`__.
+
+       This can also be opened from IIS Manager Actions panel, "Get New
+       Web Platform Components" link.
+
+#. Download and run the installer.
+#. Open Microsoft Web Platform Installer.
+#. Search for "URL Rewrite", select "URL Rewrite 2.1" and click Add.
+#. Click Install.
+
+.. _IIS_ASP.NET_install:
+
+   .. figure:: /_static/images/IIS_URL_REWRITE_install.png
+      :width: 667px
+      :align: center
+
+      Install URL Rewrite |br|
 
 Application Pool Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -166,8 +209,7 @@ The most common testing scenario places the front-end and the back-end on two se
 
 #. Add new website for Back-end package:
 
-   *  .NET infrastructure: Similarly to Front-end site set-up but with different port
-   *  .NET Core infrastructure: Please prefer to the .NET Core Back-end Standalone set-up guide :ref:`Deploy_NET_Core_BE`
+   *  Follow above steps and add another site for Izenda back-end with different port.
 
 #. .. _IIS_Folder_Permissions:
 
@@ -374,7 +416,7 @@ Common Izenda Standalone Installation Issues
             For .NET web applications to run through IIS you need to install IIS ASP.NET through your server’s Add Roles and Feature Wizard, or through the `IIS Web Platform Installer <https://www.microsoft.com/web/downloads/platform.aspx>`__.
 
             *  `Add Web Server Role and .NET Framework`_
-            *  `Install ASP.NET 4.5 and URL Rewrite Components`_
+            *  `Install ASP.NET 4.5 Components`_
 
             |br|
 
@@ -395,7 +437,7 @@ Common Izenda Standalone Installation Issues
 
             You’ll install this module through the `IIS Web Platform Installer <https://www.microsoft.com/web/downloads/platform.aspx>`__.
 
-            *  `Install ASP.NET 4.5 and URL Rewrite Components`_
+            *  `Install ASP.NET 4.5 Components`_
 
             |br|
 
@@ -560,43 +602,67 @@ Install Izenda Standalone on Ubuntu OS
 Pre-install preparations
 ----------------------------
 
-#. Create instance of Ubuntu 18.04
-#. Login using ``ssh`` as default user
-#. Download ans install .NET core 2.2 sdk and run time env. `Download here <https://dotnet.microsoft.com/download/linux-package-manager/rhel/runtime-2.2.3>`_
+#. Runtime Installation - Izenda 4.0.0 and above
+   
+   Izenda depends on .Net Core 3.1 runtime environment to run application.
 
-   * If you recieve any error, please follow the below steps
+      #. Create instance of Ubuntu 18.04
+      #. Login using ``ssh`` as default user
+      #. Download ans install .NET core 3.1 run time env. `Download here <https://docs.microsoft.com/en-us/dotnet/core/install/linux>`_
 
-      .. code-block:: console
 
-         wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-         sudo dpkg -i packages-microsoft-prod.deb	
-         sudo add-apt-repository universe
-         sudo apt-get install apt-transport-https
-         sudo apt-get update
-         sudo apt-get install aspnetcore-runtime-2.2
-         sudo dpkg --purge packages-microsoft-prod && sudo dpkg -i packages-microsoft-prod.deb
-         sudo apt-get update
-         sudo apt-get install aspnetcore-runtime-2.2
+         .. code-block:: console
 
-   * If the issues were not resolved, please follow the below steps to re-install
+            sudo apt update
+            sudo apt install apt-transport-https -y
+            sudo apt install dotnet-runtime-3.1
+		 
+      #. Use ``dotnet --info`` to check the installation of .NET Core. You suppose to recieve the following result if .NET Core 3.1 was successfully installed.
 
-      .. code-block:: console
+         .. figure:: /_static/images/net_core_3_1.png
+            :width: 550px
 
-         sudo apt-get install -y gpg
-         wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
-         sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
-         wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list
-         sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
-         sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
-         sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
-         sudo apt-get install -y apt-transport-https
-         sudo apt-get update
-         sudo apt-get install aspnetcore-runtime-2.2
+#. Runtime Installation - Prior to Izenda 4.0.0
 
-#. Use ``dotnet --info`` to check the installation of .NET Core. You suppose to recieve the following result if .NET Core 2.2 was successfully installed
+   Prior to Izenda 4.0.0, Izenda uses .Net Core 2.2 runtime.
 
-   .. figure:: /_static/images/install/Ubuntu_Standalone_NET_Core.png
-      :width: 847px
+      #. Create instance of Ubuntu 18.04
+      #. Login using ``ssh`` as default user
+      #. Download ans install .NET core 2.2 sdk and run time env. `Download here <https://dotnet.microsoft.com/download/linux-package-manager/rhel/runtime-2.2.3>`_
+
+         * If you recieve any error, please follow the below steps
+
+            .. code-block:: console
+
+               wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+               sudo dpkg -i packages-microsoft-prod.deb	
+               sudo add-apt-repository universe
+               sudo apt-get install apt-transport-https
+               sudo apt-get update
+               sudo apt-get install aspnetcore-runtime-2.2
+               sudo dpkg --purge packages-microsoft-prod && sudo dpkg -i packages-microsoft-prod.deb
+               sudo apt-get update
+               sudo apt-get install aspnetcore-runtime-2.2
+
+         * If the issues were not resolved, please follow the below steps to re-install
+
+            .. code-block:: console
+
+               sudo apt-get install -y gpg
+               wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+               sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+               wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list
+               sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+               sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+               sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+               sudo apt-get install -y apt-transport-https
+               sudo apt-get update
+               sudo apt-get install aspnetcore-runtime-2.2
+
+      #. Use ``dotnet --info`` to check the installation of .NET Core. You suppose to recieve the following result if .NET Core 2.2 was successfully installed
+
+         .. figure:: /_static/images/install/Ubuntu_Standalone_NET_Core.png
+            :width: 600px
 
 #. Install Appache2 as reverse proxy
 
@@ -737,8 +803,27 @@ Create monitor service
 
 Configuring Exporting
 --------------------------
+#. Configuring Exporting - Izenda 4.0.0 and above
 
-#. Configuring Exporting
+   * To convert HTML to PDF in Linux using the Blink rendering engine, the following packages should be installed in the Linux machine where the conversion takes place:
+
+      .. code-block:: console
+
+         $ sudo apt-get update
+         $ sudo apt-get install xvfb
+         $ sudo apt-get install libssl-dev
+         $ sudo apt-get install libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shm0-dev libxcb-util0-dev libxcb-xfixes0-dev libxcb-xkb-dev libxcb1-dev libxfixes-dev libxrandr-dev libxrender-dev
+   
+   * Give permission to run the Blink rendering engine
+
+      .. code-block:: console  
+
+         sudo chmod 755 /var/www/izenda-api/API_AspNetCore/Export/BlinkBinariesLinux/chrome
+         sudo chmod 755 /var/www/izenda-api/API_AspNetCore/Export/BlinkBinariesLinux/chrome-wrapper
+         sudo chmod 755 /var/www/izenda-api/API_AspNetCore/Export/BlinkBinariesLinux/chrome_sandbox
+
+
+#. Configuring Exporting - Prior to Izenda 4.0.0
 
    * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place:
 
