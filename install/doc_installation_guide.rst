@@ -608,18 +608,19 @@ Pre-install preparations
 
       #. Create instance of Ubuntu 18.04
       #. Login using ``ssh`` as default user
-      #. Download ans install .NET core 3.1 run time env. `Download here <https://docs.microsoft.com/en-us/dotnet/core/install/linux>`_
+      #. Download and install .NET core 3.1 run time env. `Download here <https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu>`_
 
 
          .. code-block:: console
 
-            sudo apt update
-            sudo apt install apt-transport-https -y
-            sudo apt install dotnet-runtime-3.1
+            wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+            sudo dpkg -i packages-microsoft-prod.deb
+            sudo apt-get update;
+            sudo apt-get install -y apt-transport-https && sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-3.1
 		 
       #. Use ``dotnet --info`` to check the installation of .NET Core. You suppose to recieve the following result if .NET Core 3.1 was successfully installed.
 
-         .. figure:: /_static/images/net_core_3_1.png
+         .. figure:: /_static/images/install/Ubuntu_Standalone_NET_Core_3_1.png
             :width: 550px
 
 #. Runtime Installation - Prior to Izenda 4.0.0
@@ -628,7 +629,7 @@ Pre-install preparations
 
       #. Create instance of Ubuntu 18.04
       #. Login using ``ssh`` as default user
-      #. Download ans install .NET core 2.2 sdk and run time env. `Download here <https://dotnet.microsoft.com/download/linux-package-manager/rhel/runtime-2.2.3>`_
+      #. Download and install .NET core 2.2 sdk and run time env. `Download here <https://dotnet.microsoft.com/download/linux-package-manager/rhel/runtime-2.2.3>`_
 
          * If you recieve any error, please follow the below steps
 
