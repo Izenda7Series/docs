@@ -37,13 +37,13 @@ Breaking Changes
    - Exporting Engine 
       - Izenda has updated the exporting process from WebKit to the Blink Engine
          - This could impact customers with Azure App Service deployments as the exporting service will not work directly due to the Blink engine.
-         - Please deploy the izenda docker within a Linux container to resolve this
+         - Please deploy the Izenda docker within a Linux container to resolve this
    - Map Provisioning Changes
       - The Izenda data structure for mapping data points has been updated for better performance, so map data must be re-provisioned within your Izenda instance
    - Encryption Changes
       - Izenda's encryption algorithm has been updated from 128 bit to 256 bit to support FIPS compliance
    - Excel Driver
-      - Izenda has internalized the Excel driver and as a result some pre-existing reports may be impacted by this change
+      - Izenda has internalized the Excel driver and as a result, some pre-existing reports may be impacted by this change
 
 FEATURES
 ^^^^^^^^^
@@ -91,7 +91,7 @@ FIXES
 - Defect 29074  Subreport functionality is not working
 - Defect 29076  Copy Management is not copying settings options
 - Defect 29077  Creating report as tenant causes page to go blank
-- Defect 29082  Not able to appliy online licenses form settings page
+- Defect 29082  Not able to apply online licenses form settings page
 - Defect 29087  Export functionality not working in Full Framework
 - Defect 29088  Not getting save notification on data model page after clicking on Save Button.
 - Defect 29089  Blank page appears after clicking on system variables while adding schedules.
