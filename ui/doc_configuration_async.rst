@@ -67,16 +67,18 @@ Troubleshooting
 
 If you get the following error on Windows environment
 
-.. code-block:: console
-				2021-03-16 13:37:51,939 [30   ][ERROR] [(null)] [(null)] [JobRunShell] Job ExportQueue.ExportQueueJob threw an unhandled Exception:  
-				System.UnauthorizedAccessException: Access to the registry key 'Global' is denied.
-				at Microsoft.Win32.RegistryKey.Win32Error(Int32 errorCode, String str)
-				at Microsoft.Win32.RegistryKey.InternalGetValueCore(String name, Object defaultValue, Boolean doNotExpand)
-				at System.Diagnostics.PerformanceMonitor.GetData(String item)
+   .. code-block:: console
+
+		2021-03-16 13:37:51,939 [30   ][ERROR] [(null)] [(null)] [JobRunShell] Job ExportQueue.ExportQueueJob threw an unhandled Exception:  
+		System.UnauthorizedAccessException: Access to the registry key 'Global' is denied.
+		at Microsoft.Win32.RegistryKey.Win32Error(Int32 errorCode, String str)
+		at Microsoft.Win32.RegistryKey.InternalGetValueCore(String name, Object defaultValue, Boolean doNotExpand)
+		at System.Diagnostics.PerformanceMonitor.GetData(String item)
 
 
  Please update the app pools permission using following the commands
 
-.. code-block:: console
-				net localgroup "Performance Monitor Users" "IIS APPPOOL\<POOL NAME>" /add
-				net localgroup "Performance Log Users" "IIS APPPOOL\<POOL NAME>" /add
+   .. code-block:: console
+   
+		net localgroup "Performance Monitor Users" "IIS APPPOOL\<POOL NAME>" /add
+		net localgroup "Performance Log Users" "IIS APPPOOL\<POOL NAME>" /add

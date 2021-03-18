@@ -1,3 +1,5 @@
+.. _Heavy_Load_Queue_:
+
 =================================================
 Generic Queue mechanism for heavy load operations
 =================================================

@@ -126,7 +126,6 @@ If you are installing **Izenda 4.0.0 and above**, this step is not required.
 
 #. Download and run the installer.
 #. Open Microsoft Web Platform Installer.
-#. Search for "ASP.NET", select "IIS:ASP.NET 4.5" and click Add. (Not applicable for Windows Server 2016)
 #. Click Install.
 
 .. _IIS_ASP.NET_install:
@@ -147,7 +146,6 @@ Install URL Rewrite Components
 
 #. Download and run the installer.
 #. Open Microsoft Web Platform Installer.
-#. Search for "URL Rewrite", select "URL Rewrite 2.1" and click Add.
 #. Click Install.
 
 .. _IIS_ASP.NET_install:
@@ -608,7 +606,7 @@ Pre-install preparations
 
       #. Create instance of Ubuntu 18.04
       #. Login using ``ssh`` as default user
-      #. Download and install .NET core 3.1 run time env. `Download here <https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu>`_
+      #. Download and install .NET core 3.2 sdk run time env. `Download here <https://dotnet.microsoft.com/download/dotnet/3.1`_
 
 
          .. code-block:: console
