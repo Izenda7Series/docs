@@ -8,7 +8,8 @@ v4.0.0 Core Release -- March 23rd, 2021
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Breaking Changes
+.. warning::
+   Breaking Changes
 ^^^^^^^^^
 
    - Front-end Updates
