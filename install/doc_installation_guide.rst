@@ -809,9 +809,12 @@ Configuring Exporting
       .. code-block:: console
 
          $ sudo apt-get update
-         $ sudo apt-get install xvfb
-         $ sudo apt-get install libssl-dev
-         $ sudo apt-get install libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shm0-dev libxcb-util0-dev libxcb-xfixes0-dev libxcb-xkb-dev libxcb1-dev libxfixes-dev libxrandr-dev libxrender-dev
+		 $ sudo apt-get install -yq --no-install-recommends libasound2
+		 $ sudo apt-get install -yq --no-install-recommends libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3
+		 $ sudo apt-get install -yq --no-install-recommends libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4
+		 $ sudo apt-get install -yq --no-install-recommends libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1
+		 $ sudo apt-get install -yq --no-install-recommends libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6
+		 $ sudo apt-get install -yq --no-install-recommends libnss3
    
    * Give permission to run the Blink rendering engine
 
