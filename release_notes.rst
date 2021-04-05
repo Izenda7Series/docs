@@ -28,7 +28,7 @@ FEATURES
 
 FIXES
 ^^^^^
-- Defect 29487  Format funciton dropdown was not appearing for string datatypes 
+- Defect 29487  Format function dropdown was not appearing for string datatypes 
 - Defect 29675  Process fails to gets workers from the worker Polynomial
 - Defect 29695  Failed to configure PGSQL databases
 - Defect 29709  Google Maps were not available for selection
