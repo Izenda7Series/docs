@@ -13,6 +13,27 @@ Release Notes
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
+v4.0.1 Maintenance Release -- April 5th, 2021
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Filter Logic Added to Beta Report Designer 
+   - A new option is added to the filter panel that opens a modal for users to input a string for their filter logic
+   - The expressions for this string of text are the same as the legacy report designer
+- Zero States Added to Beta Report Designer
+   - Placeholder images are added to visualizations when users select them before adding fields to their visualization
+- Warning Messages Added to Beta Report Designer
+   - Warning messages will be shown in the report designer/viewer when a layout for the report is not created
+
+FIXES
+^^^^^
+- Defect 29487  Format funciton dropdown was not appearing for string datatypes 
+- Defect 29675  Process fails to gets workers from the worker Polynomial
+- Defect 29695  Failed to configure PGSQL databases
+- Defect 29709  Google Maps were not available for selection
+
+
 v4.0.0 Core Release -- March 24th, 2021
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
