@@ -13,7 +13,7 @@ Release Notes
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
-v3.13.0 Core Release -- April 13th, 2021
+v3.13.0 Core Release -- April 14th, 2021
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
