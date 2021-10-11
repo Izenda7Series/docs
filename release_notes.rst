@@ -12,6 +12,9 @@ Release Notes
    - For all upgrades and installations, downloads.izenda.com is moved to our customer portal at app.izenda.com
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
+ 
+For the release notes for Izenda vesrion 2.0.0 - 3.0.0, please see :ref:`Release_Notes_v2.0`
+For the release notes for Izenda vesrion 1.0.0 - 2.0.0, please see :ref:`Release_Notes_v1.0`
 
 v3.13.0 Core Release -- April 14th, 2021
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
