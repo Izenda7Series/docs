@@ -13,7 +13,184 @@ Release Notes
 
  For more advanced information and details on our releases where needed, please see our :ref:`Release_Details` and :ref:`Breaking_Changes` .
 
-v3.13.0 Core Release -- April 14th, 2021
+
+v3.13.1 Service Pack Release -- October 12th, 2021
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- When selecting the Adv. Report Creator role type, the KPI report parts permission will be selected by default.
+- When deleting a user via the API, a secondary UserID can be specified to transfer ownership of reports and dashboards to that secondary user
+- Connections to Oracle sources will now leverage connection pooling for improved performance and reliability. 
+
+FIXES
+^^^^^
+- Defect 30217  The CurrentAccessToken value for the UserContext object was not populated within CustomWebUrlResolver extension class.
+- Defect 30191  When the current report version throws an error, the report history popup would fail to load. 
+- Defect 30161  The send to disk scheduler option always creates a PDF regardless of selection.
+- Defect 30075  Actual subscription last run date and time does not match what is shown within the UI.
+- Defect 30070  The Scheduler process would hang indefinitely on any malformed subscriptions.
+- Defect 30050  Send EHLO process throws error when saving SMTP configuration for an Izenda instance.
+- Defect 30045  The 'Day of Week' format would always show the current day of week in exports, schedules, or emails.
+- Defect 30003  The allow nulls checkbox in the report designer doesn't reflect values from the underlying definition.
+- Defect 29960  Switching the preview record to more than 100 throw an error when reporting on PGSQL sources.
+- Defect 29906  The preventReportSharing permission missing from permission builder within the external role APIs.
+- Defect 29748  Filters Aren't Displaying in Exports done through the API when using the UseLegacyMhtExcelExport option.
+- Defect 29743  Schedules configured before Daylight Saving time would fail to send at the adjusted times.
+- Defect 29703  The API crashes when viewing or exporting reports with certain amount of columns as a result of DeepCloner v1.0.3.
+- Defect 29670  Errors would be thrown within the  NlQ Service When Creating Relationships in the Data Model.
+- Defect 29551  Attempting to download an exported report to PDF would throw errors due to the underlying export service failing.
+- Defect 28524  Selecting the 'Clear Filter' option would clear all filters even if they are non-visible and/or hidden
+
+
+v4.1.0 Core Release -- August 17th, 2021
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FEATURES
+^^^^^^^^^
+- Improved Category Management
+  - Categories can be created, deleted, and re-named from the left-hand category list on the report list page
+- New Report Designer Improvements
+  - Visualization Additions
+    - More chart and grid types added to the new design experience
+  - Report Header/Footers
+    - Header and footer settings can now be configured for reports designed with the new experience
+  - New Loading State 
+    - There is a new Izenda aperture loading image that will be displayed when the application is loading
+- Hiding Subreports from Report List
+  - A new permission is added to roles that will hide any report that is leveraged as a subreport from their report list
+- Custom ID field added to RoleDetail object
+  - The RoleDetail object now contains a RoleID field which only exists during code interactions
+
+FIXES
+^^^^^
+- Defect 30154  Schedule is not getting updated for custom recurrence.
+- Defect 30145  On cache page, after enabling /disabling system or data cache, the setting is not retained.
+- Defect 30142  [RD2.0] Blank page after saving report on M1S3
+- Defect 30134  RD2 - Report Part keeps loading infinitely when saved on M1S2 page
+- Defect 30132  [RD2.0] Duplicate relationships after saving reports
+- Defect 30123  [Role Setup] Popup appears to save changes even when changes are saved.
+- Defect 30122  [M2] Report part is empty when switching to Layout Designer
+- Defect 30120  Copy Management : Application feature not working as expected
+- Defect 30119  Getting 'No records found' when we remove a column from report part.
+- Defect 30113  Changing filter values are not acknowledged in email and schedule
+- Defect 30112  Dashboard : Issue with Report loading at first attempt
+- Defect 30089  [RD2] [Report] Save button is not working on Permission Page, If I update the access rights
+- Defect 30084  Adding a report part in M2 and saving the report throws error
+- Defect 30083  Empty Categories gets auto-deleted if we import a report in different Category.
+- Defect 30079  [M3] If edit the sharing of report and use different delivery method then it's showing notification email is required
+- Defect 30078  After refreshing any page of RD2.0, the first step shows for few seconds
+- Defect 30066  JS error when populating filters on M3
+- Defect 30037  [MAP] Map is not working accurately
+- Defect 30024   Legacy and RD2: Conditional Formatting; Value range for digits >=4 gets empty but the value is retained.
+- Defect 30022  Fields are not retained in M1S3 when added from M1S2 step
+- Defect 30008  [RD2]Unwanted pop up is showing when click on edit/close/cancel button of report from report List
+- Defect 30003  Allow nulls checkbox in report designer doesn't reflect value from definition
+- Defect 29976  Improvements to the functionality of starting and configuring workers
+- Defect 29973  [RD2]Global Report is not accessible at tenant users
+- Defect 29969  Reports are not shown in Uncategorized if 'Allow Reports and Dashboards to inherit Category Access Rights' is enabled
+- Defect 29963  Clear filter from report designer also resets filter operator
+- Defect 29961  Self-Join relationship cannot be selected in the classic report designer
+- Defect 29960  Switching to preview record to more than 100 gives 'There is an error when querying data’  error in PGSQL.
+- Defect 29939  [M3] Subscription filters are not populated with correct values after saving
+- Defect 29938  Export with microservice has some cutoff in PDF export
+- Defect 29935  Validation Issue while switching between Tenants & System
+- Defect 29934  [M3] User search freezes the page on lazy loading
+- Defect 29932  Access Rights Permission not working correctly.
+- Defect 29931  [RD-2][All Report-Parts] Blank display in report designer on removing fields from Values container.
+- Defect 29928  [M3] Link is generated without filters when sending report by email for the second time
+- Defect 29927  [RD-2][All Report-Parts][Styling-Tab] UI breaks for report designer when "Item(s) Per Row" is reduced to 1.
+- Defect 29926  Defect List for Category Permission access
+- Defect 29921  [RD2.0 and classic designer] It is not possible to apply 'End by' if 'End after' has been previously selected
+- Defect 29920  [RD2.0] Layouts are not copied when copying reports from Report List
+- Defect 29919  [M1S1] Fields are not marked as checked, although they are added to report parts
+- Defect 29916  [M2]: Issues with Header Properties
+- Defect 29915  [M2] Header and footer Title Issues.
+- Defect 29914  [Report]Not able to save a relationship report
+- Defect 29913  [All Report-Parts][Properties-Tab][RD-2] Extra option(Blank) in Functions drop-down, breaking the rendering of reports
+- Defect 29911  Izenda v4.0.1 - Access Rights saving/updating UI issue
+- Defect 29910  Email subscription input displaying blank values.
+- Defect 29908  [M3] Warning message appears even if there is no any changes when try to email the report
+- Defect 29906  [External Role API] preventReportSharing permission missing from permission builder
+- Defect 29904  [M2][Layout Designer page] Grid Enhancement feature breaks on UI front
+- Defect 29903  When clicked on 'Schedule' button without filling all the mandatory fields; email sent message notification appears.
+- Defect 29899  Pie/Funnel Chart with Separator fails to Export.
+- Defect 29893  Zero State image of all charts not in Centre for middle panel in qasql1 env
+- Defect 29890  [M2] Layout Designer - Re-Adding Removed Visualizations
+- Defect 29888  Relationship between data sources is not getting reset after removing report part
+- Defect 29885  [All Charts]: Issue with chart rendering for following scenarios.
+- Defect 29882  [Pie: Styling] : Bottom x% is missing in ‘Grouping’ section.
+- Defect 29877  [Schedule][Delivery] Not able to click Recipient plus icon
+- Defect 29875  [ReportPart] Not able to save report part name
+- Defect 29872  [Filters] Page showing blank after select Equal(Popup) option from filters
+- Defect 29869  [M3] 'Grant permission' button still clickable even when looks like disabled
+- Defect 29866  [All Charts][RD-2] Modal closes by itself for Static and Dynamic Type Thresholds setting
+- Defect 29864  [M3][Time Format][Schedule] Invalid format takes in time field text box
+- Defect 29862  Recurring Schedule throws error with unsaved filter
+- Defect 29861  Filters are not applied when email delivery type is link
+- Defect 29856  [RD2] Custom Recurrence reports not being received
+- Defect 29853  Incorrect Default zero state image is displayed for Horizontal Grid
+- Defect 29852  No default image is displayed when moving from Drilldown to Vertical grid
+- Defect 29851  [All Charts][RD-2] Some Validations missing for Datatype in Visualizations
+- Defect 29834  M1S3: Image size is not proper for zero state Combination charts in qasql1 env
+- Defect 29821  [RD2.0 and classic designer] Pivot bugs
+- Defect 29819  [M3] Internal server error when sending emails with unsaved filters
+- Defect 29818  [M3] Internal server error when validating schedule item with unsaved filters
+- Defect 29807  [M1S3]: When any report is saved on Zero state, the default image is changed to circle.
+- Defect 29805  M1S3- Adding field property and function to a horizontal grid displays a default blank grid
+- Defect 29804  M1S2 - Adding function to a field is not displaying any records.
+- Defect 29803  RD2- No Records are found when the user clicks on Next button quickly from M1S1
+- Defect 29802  [M3] : When clicked on Schedule multiple times, multiple blank entry for schedule is created in Sharing tab.
+- Defect 29801  [M3] : While Sending email, email body shows HTML content of email.
+- Defect 29780  Triple dot loading indicator showing in report list indefinitely
+- Defect 29778  [M3] Unable to add sharing instance for a saved report
+- Defect 29777  Report Created in RD2 does not redirect to new RD2 UI from the report list (Quick Edit)
+- Defect 29775  [M3] Invalid Date Format appears for sharing instances
+- Defect 29770  [M3] Email Settings validation missing in Share & Schedule
+- Defect 29753  RD2-M1S3 - Applying visualization to the field with functions shows no records found
+- Defect 29748  Show Filters Aren't Displaying in Export through API when using UseLegacyMhtExcelExport
+- Defect 29747  Global reports fail to validate on tenant level with v3.11.4.2
+- Defect 29743  Issue with Schedules set up prior before Daylight Savings
+- Defect 29742  [M3] RD2- Tenant option is not appearing in the dropdown when selecting permissions for Global Report like in Legacy flow.
+- Defect 29735  Facing issue in exporting with Pivot grid report type which causes memory leakage problem.
+- Defect 29733  Setting stored procedure parameter as non-visible in Data Model causes report to be invalid
+- Defect 29703  API crashes when viewing or exporting some reports with certain amount of columns
+- Defect 29670  Getting Error at Nlq Service When Creating Relationships in the Data Model
+- Defect 29635  Error on 4.0 resources with Fresh Oracle DB
+- Defect 29591  Add Loading states in RD 2.0
+- Defect 29590  Some of the Report Part takes very long time to load in Design layout
+- Defect 29589  Categories not carried to new tenant when using data model import/export
+- Defect 29586  Category Permissions - Issue in pre-populating roles
+- Defect 29570  [RD2 M1S2] Two scroll bars on filter panel
+- Defect 29569  [RD2 M1S1] Search icon incorrect positioning - Edge
+- Defect 29553  Caching Issues for Category Permissions Scenarios
+- Defect 29551  Unable to download the particular report in Izenda
+- Defect 29536  Border thickness is not getting updated for KPI reports
+- Defect 29535  [Report] [Dashboard] Category permission default access rights not working accurately
+- Defect 29534  Retaining the setting of M1S2 page movement
+- Defect 29533  Renaming a report part to same name it was before in M1S2 page is successful as per below scenario.
+- Defect 29530  Investigate Permission Error seen in calling the API for categories.
+- Defect 29517  M1S2 and M1S3 navigation link to be green after editing the saved report
+- Defect 29472  Grid/visualiztion is reloading every time you swap your field selection in the Field Properties panel in M1S3
+- Defect 29444  Facing issue with Global categories duplicate categories are created
+- Defect 29322  System/Tenant toggle remains enabled in the report designer process
+- Defect 29321  Autofill in Email/Scheduler is not working
+- Defect 29255  Microsoft Edge - function drop down from grid headers is misaligned
+- Defect 29254  Microsoft Edge - M1S2 There is a space between table header and table body
+- Defect 29176  Improve performance of /user/load endpoint (continuation of ticket ICS-13088)
+- Defect 29128  Adjust the font size on the warning message to match the UI
+- Defect 29101  Responsive issue for lower screen resolution
+- Defect 28949  Subreports are not working
+- Defect 28947  Sub and Grand Total Properties are not working
+- Defect 28575  'Distinct' expression used in subtotal function is throwing incorrect value on exporting
+- Defect 28524  [Report Viewer] Clear Filter clears all filters even if they are non-visible and hidden
+- Defect 28428  Date format on Excel and CSV export does not match with the user profile's date format.
+- Defect 28093  Convert Null to Empty String does not work for Calculated Fields in Fusion Engine
+- Defect 28009  Duplicate Entry of User in same tenant
+- Defect 27895  Font defaults to Times Roman when editing XY Plane for charts
+
+
+v3.13.0 Core Release -- April 13th, 2021
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FIXES
