@@ -96,8 +96,8 @@ information.
       - Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.45.37)(PORT=1521))(CONNECT_DATA=(SID=xe)));User Id=user;Password=password;
    
    - Microsoft SQL Server:
-      - Server=192.168.45.37,1433;Database=izendaconfig;User ID=user;Password=password
-      - Server=HOST-PC;Database=izendaconfig;User ID=user;Password=password
+      - Server=192.168.45.37,1433;Database=izendaconfig;User ID=user;Password=password;
+      - Server=HOST-PC;Database=izendaconfig;User ID=user;Password=password;
 
    - MySQL:
       - Server=MY-PC;Port=3306;Database=izendaconfig;User ID=user;Password=password

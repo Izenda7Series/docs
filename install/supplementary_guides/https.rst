@@ -36,7 +36,7 @@ Steps
    * - AuthValidateAccessTokenUrl
      - https://example.com/api/validateAccessToken
    * - AuthGetAccessTokenUrl
-     - http://example.com/api/getAccessToken
+     - https://example.com/api/getAccessToken
 
 Common Log Errors
 -------------------------
