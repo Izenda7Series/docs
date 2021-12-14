@@ -119,10 +119,10 @@ Summary
    * - `GET dashboard/draft/{dashboard_id}`_
      - Returns a dashboard from draft.
      - To be updated
-   * - `GET dashboard/embeddedReports/{dashboard_part_id}`_
-     - Returns reports and report parts embedded inside the specified dashboard part.
+   * - `POST dashboard/embeddedReports`_
+     - Returns reports and report parts embedded inside the dashboard part.
 
-       .. versionadded:: 2.2.0
+       .. versionchanged:: 4.2.0
 
      - Dashboard Viewer
    * - `GET dashboard/loadRelatedDashboardParts/{dashboard_id}`_
@@ -3339,16 +3339,16 @@ Returns a dashboard from draft.
         "modifiedBy": null
       }
 
-GET dashboard/embeddedReports/{dashboard_part_id}
+POST dashboard/embeddedReports
 --------------------------------------------------------------
 
-Returns reports and report parts embedded inside the specified dashboard part.
+Returns reports and report parts embedded inside the dashboard part.
 
-.. versionadded:: 2.2.0
+.. versionchanged:: 4.2.0
 
 **Request**
 
-    No payload
+   Payload: a :doc:`models/DashboardPart` object
 
 **Response**
 
@@ -3373,7 +3373,14 @@ Returns reports and report parts embedded inside the specified dashboard part.
 
    .. code-block:: http
 
-      GET /api/dashboard/embeddedReports/6b87f048-bffc-4a46-adf4-9a683feb43e2 HTTP/1.1
+      POST /api/dashboard/embeddedReports HTTP/1.1
+
+   Request payload::
+
+      {
+        "reportId": "f8d326ac-8cc8-4bc4-a37c-79a84502a3d0",
+        "reportPartId": "59de84eb-12d5-4af3-9811-6bf40092b38f"
+      }
 
    Sample response::
 
